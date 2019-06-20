@@ -1,5 +1,7 @@
-*, *::before, *::after {
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -9,42 +11,42 @@ body {
   padding: 0;
 }
 
-/* NAV BAR STYLES START */
-nav {
-  width: 100%;
-  padding: 20px 35px;
-  background-color: #39a6b2;
+/* HEADER / NAV BAR STYLES START */
+
+header {
+    width: 100%;
+    padding: 20px 35px;
+    background-color: #39a6b2;
 }
 
-nav h1 {
+header h1 {
   font-weight: 900;
   display: inline-block;
   margin: 0;
   font-size: 36px;
 }
 
-nav a {
+header a {
   text-decoration: none;
-    color: #fce138;
-
+  color: #fce138;
 }
 
-nav ul {
+header nav {
   float: right;
   margin: 10px 0;
 }
 
-nav ul > li {
+header nav ul li {
   display: inline-block;
 }
 
-nav ul li a {
-  /* padding: 7px 15px; */
-  margin: 0 10px;
+header nav ul li a {
+  margin: 0 30px;
   font-weight: 200;
 }
 
-/* NAVBAR STYLES END */
+/* HEADER / NAVBAR STYLES END */
+
 
 
 /* FOOTER STYLES START */
@@ -52,6 +54,7 @@ footer {
   background: #fce138;
   width: 100%;
   padding: 30px 35px;
+  box-sizing: border-box;
 }
 
 footer h2 {
@@ -66,6 +69,60 @@ footer a {
   color: #024e76;
   margin-top: 8px;
 }
+/* END FOOTER STYLES */
 
 
+
+/* HERO STYLES START */
+.hero {
+  width: 100%;
+  padding: 40px;
+  background-image: url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 600px;
+}
+
+.hero-form {
+  border: 3px solid #024e76;
+  background-color: #fce138;
+  padding: 20px;
+  width: 500px;
+  color: #024e76;
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+}
+
+.hero-form h3 {
+  font-size: 24px;
+  margin: 0;
+}
+.hero-form p {
+  margin: 5px 0 15px 0;
+}
+
+.hero-form .form-input {
+  border: 1px solid #024e76;
+  display: block;
+  padding: 7px 15px;
+  font-size: 16px;
+  color: #024e76;
+  width: 100%;
+  margin-bottom: 15px; 
+}
+
+.hero-form label {
+  margin: 0 5px;
+}
+
+.hero-form button {
+  color: #fce138;
+  background-color: #024e76;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+/* HERO STYLES END */
 

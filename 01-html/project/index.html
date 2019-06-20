@@ -9,12 +9,13 @@
   </head>
   <body>
     <!-- navigation tags - block level element -->
-    <nav class="navigation">
-      <h1 class="site-title">
+    <header>
+      <h1>
         <a href="/">RUN BUDDY</a>
       </h1>
-      <ul class="nav-list">
-        <li class="nav">
+    <nav>
+      <ul>
+        <li>
           <a href="#what-we-do">What We Do</a>
         </li>
         <li>
@@ -28,10 +29,39 @@
         </li>
       </ul>
     </nav>
+    </header>
     <!-- end navigation -->
 
-    <!-- header tags - block level element -->
-    <header></header>
+    <!-- hero/jumbotron -->
+    <section class="hero">
+      <div class="hero-form">
+        <h3>Get Started Today!</h3>
+        <p>Fill out this form and one of our trainers will schedule a consult.</p>
+        <form>
+          <input type="text" placeholder="Your Name" name="name" class="form-input"/>
+          <input type="email" placeholder="Email Address" name="email" class="form-input"/>
+          <input type="text" placeholder="Phone Number" name="phone" class="form-input"/>
+          <p>
+            Have you worked out with a trainer before? 
+            <label for="trainer-yes">
+              <input type="radio" name="trainer-confirm" id="trainer-yes" />
+              Yes
+            </label>
+            <label for="trainer-no">
+              <input type="radio" name="trainer-confirm" id="trainer-no"/>
+              No
+            </label>
+          </p>
+          <p>
+            I acknowledge that I am at least 18 years of age.
+            <input type="checkbox" name="age-confirm">
+          </p>
+          <button type="submit" class="form-submit">
+            Get running!
+          </button>
+        </form>
+      </div>
+    </section>
     <!-- end header -->
 
     <!-- "what we do" start - <section> -->
