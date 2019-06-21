@@ -201,29 +201,30 @@ section {
   text-align: center;
 }
 
-.trainers > div {
-  width: 65%;
+.trainers .trainer {
+  width: 800px;
   margin: 0 auto 30px auto;
   background: #024e76;
   color: #fce138;
+  overflow: auto;
 }
 
-.trainers img {
+.trainer img {
   width: 35%;
 }
 
-.trainers .img-left {
+.trainer .img-left {
   float: left;
-  margin-right: 35px;
 }
 
-.trainers .img-right {
+.trainer .img-right {
   float: right;
-  margin-left: 35px;
 }
 
 .trainer-bio {
   padding: 35px;
+  float: left;
+  width: 65%;
 }
 
 .trainer-bio h3 {
