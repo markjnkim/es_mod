@@ -5,10 +5,8 @@
 }
 
 body {
-  background-color: white;
+  color: #39a6b2;
   font-family: Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 
@@ -44,6 +42,7 @@ header nav ul li {
 header nav ul li a {
   margin: 0 30px;
   font-weight: 200;
+  font-size: 22px;
 }
 
 /* HEADER / NAVBAR STYLES END */
@@ -282,58 +281,8 @@ section {
   width: 35%;
   min-height: 400px;
 }
-
 /* REACH OUT STYLES END */
 
-
-/* SECONDARY PAGE STYLES */
-.hero-secondary {
-  background-image: url('../images/hero-bg.jpg');
-  background-size: cover;
-  background-position: bottom;
-  height: auto;
-  text-align: center;
-  padding: 50px;
-  margin-bottom: 40px;
-}
-
-.hero-secondary .page-title {
-  padding: 0 80px 15px 80px;
-  font-size: 42px;
-  font-weight: 400;
-  font-style: italic;
-  color: #fce138;
-  display: inline-block;
-  border-bottom: 4px solid #fce138;
-}
-
-.secondary-content {
-  width: 80%;
-  margin: 0 auto;  
-}
-
-.secondary-content h3 {
-  font-size: 25px;
-  margin: 20px 0;
-  color: #024e76;
-}
-
-.secondary-content p {
-    color: #024e76;
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 20px 0;
-}
-
-.secondary-content ul {
-  color: #39a6b2;
-  list-style-position: outside;
-  margin: 15px 20px;
-}
-
-.secondary-content li {
-  margin: 10px 0;
-}
 
 /* UTILITIES */
 .clearfix::after {
