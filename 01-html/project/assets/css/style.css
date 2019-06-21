@@ -140,11 +140,11 @@ section {
   color: #024e76;
 }
 
-.yellow-border {
+.primary-border {
   border-color: #fce138;
 }
 
-.teal-border {
+.secondary-border {
   border-color: #39a6b2;
 }
 /* SECTION TITLE STYLES END */
@@ -253,13 +253,18 @@ section {
   color: #fce138;
 }
 
+.contact-info iframe {
+  width: 400px;
+  min-height: 400px;
+}
+
 .contact-info div {
-  float: right;
+  width: 410px;
+  display: inline-block;
+  vertical-align: top;
   text-align: left;
-  width: 45%;
+  margin: 30px 0 0 60px;
   color: white;
-  margin-top: 45px;
-  margin-left: 30px
 }
 
 .contact-info h3 {
@@ -277,10 +282,7 @@ section {
   color: #fce138;
 }
 
-.contact-info iframe {
-  width: 35%;
-  min-height: 400px;
-}
+
 /* REACH OUT STYLES END */
 
 
