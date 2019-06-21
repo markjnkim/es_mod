@@ -32,7 +32,7 @@ header a {
 
 header nav {
   float: right;
-  margin: 10px 0;
+  margin: 7px 0;
 }
 
 header nav ul li {
@@ -54,7 +54,6 @@ footer {
   background: #fce138;
   width: 100%;
   padding: 40px 35px;
-  box-sizing: border-box;
 }
 
 footer h2 {
@@ -95,7 +94,7 @@ section {
   width: 500px;
   color: #024e76;
   position: absolute;
-  bottom: 20%;
+  bottom: 120px;
   right: 10%;
 }
 
@@ -201,8 +200,8 @@ section {
   text-align: center;
 }
 
-.trainers .trainer {
-  width: 800px;
+.trainer {
+  width: 900px;
   margin: 0 auto 30px auto;
   background: #024e76;
   color: #fce138;
@@ -286,12 +285,6 @@ section {
 
 
 /* UTILITIES */
-.clearfix::after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
 .text-left {
   text-align: left;
 }
