@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Let us take a moment to start by giving ourselves a pat on the back. The hardest part of building a new HTML document is actually getting started, and we now have more than enough to work with in these upcoming steps even though there is not much visible substance to our page.
+Let us take a moment to start by giving ourselves a pat on the back. The hardest part of building a new HTML document is actually getting started, and we now have more than enough to work with in these upcoming steps even though there is not much visible content on our page.
 
-In the previous step we built a series of "containers" for our web page to hold different types of content. At first glance this may seem like a lot of extra work, but as we continue to add content and apply style to each section one at a time we'll find that this will make our lives easier. We now get to work on each section one at a time without having to worry about affecting the others.
+In the previous step we built a series of "containers" for our web page to hold different types of content. At first glance, this may seem like a lot of extra work, but as we continue to add content and apply style to each section one at a time  without having to worry about affecting the others.
 
-This step will focus on building out the content and applying styles for both the header and footer of our page. We will be introduced to both new HTML elements and Cascading Style Sheets, which will be referred to throughout the rest of this unit (and our careers) as `CSS`. The nice thing about what we will be working on here is that a lot of what we learn here will be repeated in future steps. Be warned, however, CSS can be as frustrating as it is rewarding for both beginner and veteran developers. It is technology that is best learned through doing, so let's get started!
+This step will focus on building out the content and applying styles for both the header and footer of our page. We will be introduced to both new HTML elements and Cascading Style Sheets, which will be referred to throughout the rest of this unit (and our careers) as `CSS`. The nice thing about what we will be working on here is that a lot of what we learn will be repeated in future steps. Be warned, however, CSS can be just as frustrating as it is rewarding, for both beginner and veteran developers alike. It is technology that is best learned through doing, so let's get started!
 
 ## Add content to our `<header>`
 
