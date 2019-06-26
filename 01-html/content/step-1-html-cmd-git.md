@@ -76,7 +76,7 @@ While we could open this single file directly in our code editor (VS Code), we s
 
 > **Important:** Mac users may need to enable the `code` command first by following [these instructions](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line).
 
-> **Pro-Tip:** With VS Code open, right-click anywhere in the Explorer menu on the left and select Open in Terminal to bring up a built-in terminal.
+> **Pro-Tip:** With VS Code open, right-click anywhere in the Explorer menu on the left and select Open in Terminal to bring up a built-in terminal. Windows users: the default VS Code terminal is Powershell, not Git Bash. Fortunately, there are many [helpful articles](https://community.dynamics.com/nav/b/tharangacnavblog/archive/2019/02/18/git-bash-on-visual-studio-code-integrated-terminal) that explain how to change it.
 
 Click on the `index.html` file in the Explorer to load it in the main panel on the right. Now we're ready to code! Type out the following code in your HTML file. We'll go over each part later:
 
@@ -230,5 +230,97 @@ We're using `<div>` tags here, which are like containers to hold relevant inform
 
 > **Pause:** Why was it helpful to indent each nested `<div>`?
 
+Let's take a piece of our mock-up and think about how we could break this down into logical boxes or containers:
+
+![containers](./assets/step1/800-box-layout.png)
+
+Note that some containers aren't immediately apparent, because they do nothing but hold other containers. It's okay if this doesn't feel intuitive yet. The more apps you build, the better you'll get at mapping their layouts. This is as good a time as any to practice, so grab a pen and paper and sketch out the rest of the mock-up on your own. Take this step seriously! Stepping away from the computer screen and applying a physical touch to the development process can really help the creative process.
+
+> **Story Time:** It's not uncommon for teams to spend many days or even weeks planning out a project before a single line of code is written. Drawing on a piece of paper may feel like a waste of time when we want to scratch that coding itch right away, but doing so ends up saving time and preventing potential problems in the long run.
+
+Keep your hand-drawn outline close by as we continue. If your outline doesn't 100% match with the code we end up writing, that's fine. There's always more than one way to build a web page! And for the remainder of this lesson, we won't fill in every container, just the higher-level, structural components. The smaller details will come in future lessons.
+
+We've discussed the `<div>` tag a little bit, so with that in mind, you may be tempted to reorganize your code to look like this:
+
+```html
+<body>
+  <div>
+    <h1>RUN BUDDY</h1>
+  </div>
+</body>
+```
+
+And that's actually a great start. We know the company name and navigation links will sit inside a larger teal box, which can be represented code-wise with a `<div>`. The problem with the `<div>` tag is that it's a little too generic. If we had a complex layout with a lot of `<div>` tags everywhere, it would be hard to know at a glance what the purpose of each one is.
+
+> **Urkel Says:** Some developers call that "div soup."
+
+With the advent of HTML5, however, newer "semantic" tags were introduced to help provide clarity around what would have traditionally just been another `<div>`. Consider this rewritten example:
+
+```html
+<body>
+  <header>
+    <h1>RUN BUDDY</h1>
+  </header>
+</body>
+```
+
+Is there any ambiguity about what this block of code represents? Nope, it's a header, and we defined it as such using the HTML5 `<header>` tag. On a technical level, a `<header>` behaves exactly the same as a `<div>`. Its purpose is simply to convey meaning, not only to developers reading the code but to search engines who like to know which sections of a web page are more important than others.
+
+We have another clearly distinct section in our layout at the very bottom: the footer. No coincidence, there's a semantic tag for that:
+
+```html
+<footer>
+  <h2>❤️ Made with love by Run Buddy.</h2>
+</footer>
+```
+
+The rest of the layout may be harder to find appropriate semantic tags for. The large image at the top is sometimes referred to as a jumbotron or hero, but there's no `<jumbotron>` element in HTML. If none of the existing [semantic tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning) make sense, there's no harm in falling back on a good ol' `<div>`. At the very least, though, we can think of our layout as having several key "sections." Hey, what do you know, there's a `<section>` tag! Let's go ahead and outline all of our sections in the `index.html` file:
+
+```html
+<!-- navigation -->
+<header>
+  <h1>RUN BUDDY</h1>
+</header>
+
+<!-- hero/jumbotron -->
+<section>
+  
+</section>
+
+<!-- "what we do" section -->
+<section>
+  <h2>What We Do</h2>
+</section>
+
+<!-- "what you do" section -->
+<section>
+  <h2>What You Do</h2> 
+</section>
+
+<!-- "meet the trainers" section -->
+<section>
+  <h2>Meet The Trainers</h2>
+</section>
+
+<!-- "reach out" section -->
+<section>
+  <h2>Reach Out</h2>
+</section>
+
+<!-- footer -->
+<footer>
+  <h2>❤️ Made with love by Run Buddy.</h2>
+</footer>
+```
+
+> **Pro-Tip:** To succeed in the boot camp, type out every code snippet yourself instead of copying and pasting. It will help build up that muscle memory you need to become an expert coder faster!
+
+You may have noticed something new here: the `<!-- -->` tag. This is how we can leave notes, or comments, in the code. These do not show up in the browser but are helpful to have to make the code even easier to read. We're also using `<h2>` tags for the other headings, because `<h1>` should be reserved for the single most important text on the page. Refresh the browser and admire your work:
+
+![final screenshot](./assets/step1/800-html-screenshot.png)
+
+Okay, still not very pretty, but we've laid some important groundwork that's going to make the next several steps much easier to complete.
+
+> **Pause:** What's the difference between a `<section>` tag and a `<div>`?
 
 ## Publishing with GitHub
