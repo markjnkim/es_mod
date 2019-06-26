@@ -12,7 +12,7 @@ Mac users, you already have a built-in Terminal app, which you can go ahead and 
 
 ![terminal window](./assets/step1/100-terminal.png)
 
-In this window, type the command `pwd` and press Enter. The terminal will then display something like `/c/Users/Username/Desktop`. The command `pwd` stands for Print Working Directory and lets us know which folder (or directory) the terminal is currently in. For Windows users, that probably seems pretty obvious. We already right-clicked the desktop to "Git Bash Here!" Mac users, on the other hand, usually start in their `user` folder by default and would need to manually move into their `Desktop` folder, if that's where they want to work. We'll talk more about that in a minute.
+In this window, type the command `pwd` and press Enter. The terminal will then display something like `/c/Users/Username/Desktop`. The command `pwd` stands for Print Working Directory and lets us know which folder (or directory) the terminal is currently in. For Windows users, that probably seems pretty obvious. We already right-clicked the desktop to "Git Bash Here!" Mac users, on the other hand: we usually start in the `user` folder by default and would need to manually move into our `Desktop` folder, if that's where we want to work. We'll talk more about that in a minute.
 
 First, let's create a new folder for our Run Buddy project to reside in. Type the following commands in your terminal, pressing Enter after each one:
 
@@ -50,7 +50,16 @@ rm hello.txt
 ls
 ```
 
-Of course, everything we've done up to this point could also be accomplished with mouse clicks and context menus, but you'll find that, once you're used to it, the command line allows you to work faster as a developer. Plus, it makes you feel really cool.
+Of course, everything we've done up to this point could also be accomplished with mouse clicks and context menus, but you'll find that, once you're used to it, the command line allows you to work faster as a developer. Plus, it makes you feel really cool. To recap what we've learned:
+
+|command    |operation              |
+|-----------|-----------------------|
+|pwd        |print working directory|
+|ls         |list files in directory|
+|cd         |change directory       |
+|mkdir      |make a new directory   |
+|touch      |make a new file        |
+|rm         |remove a file          |
 
 > **Deep Dive:** Some other useful commands include:\
 `cd ..`\
@@ -106,11 +115,11 @@ Now that we understand HTML tags, let's look at the others we used. We're writin
 Inside the `<html>` tag, our web page is further broken up into two other tags: the `<head>` and the `<body>`. The `<body>` is where all of the content should go. Basically, anything in our mock-up that takes up physical space will go here. The `<head>`, on the other hand, is where we can specify additional information the browser needs to know about our page. For instance, the browser will take whatever is in the `<title>` tag and make that the name of the tab in the browser. Try changing the title, making sure you see the change reflected in the browser.
 
 > **Check Point:** \
-What is the correct syntax for a closing HTML tag?\
+What is the correct syntax to close the `<title>` tag?\
 What is the difference between `<h1>` and `<h2>`?\
 What is the purpose of the `<body>` tag?
 
-There are two remaining pieces we haven't covered yet. In the opening `<html>` tag, there's an extra "attribute" set to `lang="en"`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's a tag in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character we would want, from foreign language symbols to emojis. Copy this emoji (🏃) and paste it somewhere in your `<body>`. Note that it shows up just fine in the browser, but if you change the charset to `<meta charset="ASCII" />`, it no longer works. Best to stick with UTF-8.
+There are two remaining pieces we haven't covered yet. In the opening `<html>` tag, there's an extra "attribute" set to `lang="en"`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's a tag in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character we would want, from foreign language symbols to emojis. Copy this emoji (🏃) and paste it somewhere in your `<body>`. Note that it shows up just fine in the browser, but if you change the charset to `<meta charset="ASCII" />`, it no longer works, because the browser will limit the available display characters to those of the ASCII character set. Best to stick with UTF-8.
 
 Don't worry too much about these details, though. Much of this is boilerplate, meaning every web page is going to start with the same structure. Every page needs a DOCTYPE, an `<html>` tag, a `<head>` tag, etc. It's worth typing out again and again just to reiterate their importance, but it can also be copy/pasted without harm.
 
@@ -157,7 +166,9 @@ Running `git status` again shows `index.html` under "Changes to be commited." So
 git commit -m "page template"
 ```
 
-> **Important:** On your first commit, Git may ask you to identify yourself. This is normal. Just follow the instructions in the terminal to set a global name and e-mail.
+On your first commit, Git may ask you to identify yourself. This is normal. Just follow the instructions in the terminal to set a global name and e-mail. If you needed to do this step, you'll also need to run the `git commit -m "page template"` command again. You'll know you succeeded if the terminal prints something like this:
+
+![git commit](./assets/step1/500-git-commit.png)
 
 Great! You made your first commit! The second half of that command, `-m "page template"`, is how we can attach a helpful message to our commits. Best practice, every commit should include a message to explain what this particular change to the code is doing. Let's go through this process again. In your HTML file, update the content to look like this:
 
@@ -171,14 +182,22 @@ Great! You made your first commit! The second half of that command, `-m "page te
 </body>
 ```
 
-Now run `git status` again, and Git will recognize that the `index.html` file has been modified but that the "Changes [are] not staged for commit." If we want to save this change to Git, we'll need to `add` it first before the `commit`:
+Now run `git status` again, and Git will recognize that the `index.html` file has been modified but that the "Changes [are] not staged for commit:"
+
+![git status](./assets/step1/600-git-status.png)
+
+ If we want to save this change to Git, we'll need to `add` it first before the `commit`:
 
 ```bash
 git add index.html
 git commit -m "add more links"
 ```
 
-With two commits under our belt, run the command `git log`. This will show a history of all of the commits we've made with the author of the commit and the message that was provided. This could be very useful once we start working on larger apps and/or with multiple developers!
+With two commits under our belt, run the command `git log`. This will show a history of all of the commits made, including the author of the commit and the message that was provided:
+
+![git log](./assets/step1/700-git-log.png)
+
+This could be very useful once we start working on larger apps and/or with multiple developers!
 
 > **Check Point:** \
 What command creates a new Git repository?\
@@ -207,7 +226,7 @@ What's nice about HTML, though, is that it's really just a series of boxes that 
 </div>
 ```
 
-We're using `<div>` tags here, which are like containers to hold relevant information together. Note that Box 1 and 2 don't overlap; they're two separate areas of content. Maybe Box 1 is an annoying ad and Box 2 is a navigation bar. Inside of these boxes, we could have additional boxes, like an overall list (Box 3) that contains the individual links (Boxes 4 and 5). Could we have omitted Box 3 in this example? Probably... but it helps to keep like content grouped together. Thus, Box 3's sole purpose is to better organize smaller information (the links).
+We're using `<div>` tags here, which are like containers to hold relevant information together. Note that Box 1 and 2 don't overlap; they're two separate areas of content. Maybe Box 1 is an annoying ad and Box 2 is a navigation bar. Inside of these boxes, we could have additional boxes, like an overall list (Box 3) that contains individual links (Boxes 4 and 5). Could we have omitted Box 3 in this example? Probably... but it helps to keep like content grouped together. Thus, Box 3's sole purpose is to better organize smaller information (the links).
 
 > **Pause:** Why was it helpful to indent each nested `<div>`?
 
