@@ -2,7 +2,7 @@
 
 ## Introduction
 
-It's time to get our hands dirty with some real coding! We know this is a big undertaking, but thankfully Run Buddy's given us some leeway to learn as we build. In fact, many real-world companies understand that developers won't know everything upfront, and part of the development process is figuring out new technologies. Granted, as of today, we are _brand new_ developers, so we have a much longer road ahead of us. As with any project, though, the key is to start small and spend the necessary time setting up the project correctly. In this first lesson, we'll familiarize ourselves with some important tools and processes on our way to writing that first line of HTML code.
+It's time to get our hands dirty with some real coding! We know this is a big undertaking, but thankfully Run Buddy's given us some leeway to learn as we build. In fact, many real-world companies understand that developers won't know everything upfront, and part of the development process is figuring out new technologies. Granted, as of today, we are brand new developers, so we have a much longer road ahead of us. As with any project, though, the key is to start small and spend the necessary time setting up the project correctly. In this first lesson, we'll familiarize ourselves with some important tools and processes on our way to writing that first line of HTML code.
 
 ## Getting Started with the Command Line
 
@@ -42,6 +42,8 @@ touch hello.txt
 touch index.html
 ls
 ```
+
+> **Important:** We're using lowercase for our filenames. Syntax matters! `index.html` would be an entirely different file than `Index.html`.
 
 Unlike directories, which are made using `mkdir`, we use `touch` for files. Here, we've just made two new files: a text file and an HTML file. Well, you know what... we don't really need that text file, after all, so let's go ahead and delete it:
 
@@ -106,7 +108,7 @@ Next, open this HTML file in the browser (preferably Chrome). If you have the [O
 
 All right, so it's not the most exciting web page yet, but you gotta start somewhere. Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of "elements" with an opening `<tag>` and a closing `</tag>`. Anything in between these tags is affected by what that tag does. The `<h1>` tag, for instance, made the text inside big and bold. This denotes a heading. If we have other, less important headings on our web page, we can use additional tags like `<h2>`, `<h3>`, and so on.
 
-Try changing the code to `<h2>RUN BUDDY</h2>` instead. Save the file and refresh the tab in the browser. Notice how the text shrunk slightly. Also keep in mind that this _only_ affected the RUN BUDDY text, because the tag was closed. If you remove the `</h2>`, the text underneath will become big and bold, too, because the browser doesn't know where the `<h2>` ends.
+Try changing the code to `<h2>RUN BUDDY</h2>` instead. Save the file and refresh the tab in the browser. Notice how the text shrunk slightly. Also keep in mind that this only affected the RUN BUDDY text, because the tag was closed. If you remove the `</h2>`, the text underneath will become big and bold, too, because the browser doesn't know where the `<h2>` ends.
 
 Now that we understand HTML tags, let's look at the others we used. We're writing an HTML page, so it makes sense that everything would need to be wrapped in an `<html>` tag. The only thing that didn't go inside this tag was the `<!DOCTYPE html>`. This is an extra line that tells the browser how to interpret your HTML code. We don't need to worry about supporting very old browsers like Netscape Navigator, so this "DOCTYPE" will always be written as `<!DOCTYPE html>`.
 
@@ -160,7 +162,7 @@ git add index.html
 git status
 ```
 
-Running `git status` again shows `index.html` under "Changes to be commited." So we haven't actually saved/commited anything yet; we've just prepped Git on what _could_ be commited. Let's go ahead and make that commit now:
+Running `git status` again shows `index.html` under "Changes to be commited." So we haven't actually saved/commited anything yet; we've just prepped Git on what could be commited. Let's go ahead and make that commit now:
 
 ```bash
 git commit -m "page template"
@@ -207,7 +209,7 @@ How do you add a message to a `git commit`?
 
 ## Outlining the Page
 
-We'll have a chance to practice Git again before we're done, but let's jump back into building out the HTML. Looking at the mock-up again, it may feel quite daunting to turn all of those colors and perfectly-positioned titles and images into raw HTML. That's why this next step is _hugely important_. As developers, we must resist the urge to start coding without a plan of attack. HTML can easily get out of control if we don't consider how elements fit together.
+We'll have a chance to practice Git again before we're done, but let's jump back into building out the HTML. Looking at the mock-up again, it may feel quite daunting to turn all of those colors and perfectly-positioned titles and images into raw HTML. That's why this next step is hugely important. As developers, we must resist the urge to start coding without a plan of attack. HTML can easily get out of control if we don't consider how elements fit together.
 
 What's nice about HTML, though, is that it's really just a series of boxes that fit inside of (or next to) each other. Consider the following code:
 
@@ -315,7 +317,7 @@ The rest of the layout may be harder to find appropriate semantic tags for. The 
 
 > **Pro-Tip:** To succeed in the boot camp, type out every code snippet yourself instead of copying and pasting. It will help build up that muscle memory you need to become an expert coder faster!
 
-You may have noticed something new here: the `<!-- -->` tag. This is how we can leave notes, or comments, in the code. These do not show up in the browser but are helpful to have to make the code even easier to read. We're also using `<h2>` tags for the other headings, because `<h1>` should be reserved for the single most important text on the page. Refresh the browser and admire your work:
+You may have noticed something new here: the `<!-- -->` tag. This is how we can leave notes, or comments, in the code. These do not show up in the browser but are helpful to have to make the code even easier to read. We're also using `<h2>` tags for the other headings, because `<h1>` should be reserved for the single most important text on the page. Save, refresh the browser, and admire your efforts:
 
 ![final screenshot](./assets/step1/800-html-screenshot.png)
 
@@ -324,3 +326,86 @@ Okay, still not very pretty, but we've laid some important groundwork that's goi
 > **Pause:** What's the difference between a `<section>` tag and a `<div>`?
 
 ## Publishing with GitHub
+
+As you get into a comfortable workflow, you'll want to commit to Git often. We just finished an important milestone: outlining the high-level structure of our web page. This is the perfect time to save our work. Before we commit, though, let's create another file in our project:
+
+```bash
+touch .gitignore
+```
+
+A `.gitignore` file (yes, the dot is part of it) is where we can specify any files we don't want Git to track. Sometimes developers get into the habit of running `git add -A`, which adds all untracked or modified files that Git finds in your project. The problem with this command is that it will pick up hidden files as well. On macOS, every directory has a hidden `.DS_Store` file that can create unnecessary headaches if accidentally added to Git.
+
+Open the `.gitignore` file in VS Code and add the following line: `.DS_Store`. Even if your OS of choice is Windows, add this line, anyway. If a Mac user joins your team, you want to make sure your repository is already set up correctly. Now run `git status`, which should display the following information:
+
+![git status](./assets/step1/900-git-status.png)
+
+Git sees one modified file (`index.html`) and one new, untracked file (`.gitignore`). Let's add and commit these:
+
+```bash
+git add -A
+git commit -m "html outline and gitignore"
+```
+
+Awesome, we've now saved our hard work to Git. The problem, however... these commits only live on our local computer. So if our computer dies, our work is lost. It would be helpful to save this repository in a remote location (i.e. on someone else's computer). That's where GitHub comes in. [GitHub](https://github.com/) is a website that hosts Git repositories. It's free and very popular among developers, so make sure you have an account!
+
+After signing up or logging in to GitHub, find and click the green New button:
+
+![new repo](./assets/step1/1000-github-new.png)
+
+This will take you to a page where you'll be able to create a new repository on GitHub. So what we're going to do is create a repository on GitHub first, then link our local Run Buddy project with this remote repository. On GitHub, give the repository a name but don't check any other options. Then click the Create button.
+
+![new repo](./assets/step1/1100-github-create.png)
+
+The next page will display instructions on how to create a new local repository (which we've already done) or push an existing repository to GitHub. It also displays a link to this repo, which you'll want to copy, making sure HTTPS is selected first:
+
+![copy repo](./assets/step1/1200-github-copy.png)
+
+> **Pro-Tip:** SSH is definitely worth looking into and setting up when you have time. GitHub has a great set of [tutorials](https://help.github.com/en/articles/about-ssh) on using SSH.
+
+Now that we have a remote repository on GitHub, we need to link it with our local project. Open the terminal again in the `run-buddy` directory and run the following commands, replacing the link with the link you got from GitHub:
+
+```bash
+git remote add origin https://github.com/username/run-buddy.git
+git remote -v
+```
+
+The second command, `git remote -v`, shows us which remote links, if any, we've established for our project. We could certainly add others&mdash;and later in the boot camp, we will&mdash;but the link to GitHub is all we need for now. Take note that we also named this remote link "origin." That name is important, because we're going to reference it when running this next command:
+
+```bash
+git push origin master
+```
+
+Git will ask you to enter your GitHub credentials before you're allowed to push. That's understandable, since this is the final step in moving code from your local computer to your remote repository. In this case, GitHub is the origin, and what we're giving it is whatever is on the master branch. Go back to your GitHub repository in the browser and refresh the page. It should look like this:
+
+![code pushed](./assets/step1/1300-github-pushed.png)
+
+GitHub now has our two files and a record of our three previous commits! This means we could download this repository on another computer and continue working without missing a beat, or we could add other developers to the project and let them commit and push to this same location. From now on, `git push` should become part of your normal Git routine to ensure your changes always make it to GitHub. Memorize these three commands:
+
+```bash
+git add -A
+git commit -m "provide a message"
+git push origin master
+```
+
+GitHub comes with a lot of other helpful features like contribution stats, code reviews, and bug tracking. GitHub will also host your HTML projects as live websites, so you don't have to worry about paying for a separate hosting service like GoDaddy. That's pretty nice of them! Let's flip the switch to make our current HTML project "live." On your repository's page, click the Settings tab:
+
+![github settings](./assets/step1/1400-github-settings.png)
+
+Then on the next page, scroll down to the GitHub Pages section. Change the dropdown under Source to say "master branch:"
+
+![github pages](./assets/step1/1500-github-pages.png)
+
+This tells GitHub to use the contents of your master branch for your live website. Once you do this, GitHub will then display the message: Your site is ready to be published at https://username.github.io/run-buddy/. It might take a minute for this to actually kick in, so wait a moment before visiting this link (replacing "username" with your GitHub username, of course). When you do open it, though, you'll see that your Run Buddy web page is now live on the Internet! As we continue to improve this project and push new commits to GitHub, this live link will automatically update. Thanks, GitHub!
+
+Let's back up and look at this link again, though: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that the browser needs to load something when it visits a website, and if a file wasn't specified (e.g. something.com/contact.html), it defaults to index.html. Knowing this, it would be a good idea for every project to have an `index.html` file!
+
+> **Check Point:** \
+What is the purpose of the `.gitignore` file?\
+What is the relationship between Git and GitHub?\
+What is the command to "push" code to GitHub?
+
+## Reflection
+
+This lesson was mostly about setting up the project, so even though the final result may not look like much yet, we've made life easier for future us. The HTML structure is in place and ready to be filled in with more detailed content and styling. We've established a good workflow with Git to continually save our code changes locally and on GitHub. We also have a live website on GitHub Pages that will begin to take shape once we complete the next several lessons.
+
+Was it a lot of information to take in? Absolutely! These first few lessons are always difficult, simply because everything is so new. That's why it's important to keep practicing. Force yourself to use the command line. Type out every HTML tag. The more you do it, the quicker it will become second nature.
