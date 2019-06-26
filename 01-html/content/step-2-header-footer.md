@@ -152,7 +152,7 @@ We'll actually be going with the third one, here's why:
 
 - We can share styles across multiple HTML files since it's in a third-party file as opposed to directly coupled to the single HTML document.
 
-> URKEL SAYS: This reinforces a concept called "Separation of Concerns", meaning that it's better to keep code that serves different purposes away from each other so it's easier to read and write
+> IMPORTANT: This reinforces a concept called "Separation of Concerns", meaning that it's better to keep code that serves different purposes away from each other so it's easier to read and write
 
 ## Setting up our first stylesheet
 
@@ -223,12 +223,15 @@ So typically it is a good habit to start off our CSS writing with a few styles t
 
 ```css
 body {
+  /* more on this crazy value in a minute */
   color: #39a6b2;
   font-family: Helvetica, Arial, sans-serif;
 }
 ```
 
 By adding this, we are setting the color of the font for the entire page to a light blue / teal color with what's known as a `hex code` and setting the font to "Helvetica". The other two values for the `font-family` definition are included just in case the user's computer does not have Helvetica installed, that way they can fall-back to those other font choices. These are both applied to the `body` tag on the page because the `body` is the parent to all of our other HTML content tags, so we can now control all of them by applying a style to the parent.
+
+This is also a good time to look at CSS comments as well. We are using one above the `color` declaration. This syntax is slightly different from HTML's comment syntax, but it behaves the same way. Every programming language has it's own flavor of denoting a comment. Some are similar, some can be very different, but they all behave the same way.
 
 > DEEP DIVE: We'll be diving more heavily into web fonts and typography over the upcoming weeks, so don't worry about that _too_ much currently. But it may be a worthwhile look to learn how [CSS color values](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) work, as we'll be diving deeper into some other values next week. For now we'll be sticking to using hex values and maybe a directly named one (i.e. white, black, aquamarine, etc)
 
@@ -278,8 +281,118 @@ So now we've created our base `header` styles, let's target some of the tags nes
 
 ```css
 header h1 {
-  font-weight: 600;
-  margin: 0;
+  font-weight: bold;
   font-size: 36px;
+  color: #fce138;
+  margin: 0;
 }
 ```
+
+Here, we are implementing a more specific selector pattern. This one ensures we are only applying styles specific to a particular `h1` tag, the one that lives *inside* a `header` tag. This is a great method for adding specificity to our styles, so we can keep them scoped to particular section and context. We'll do more of this next with some different combinations of specificity.
+
+Now turning our attention to the actual property declarations happening here:
+
+- **font-size**: We can assume that `font-size` means quite literally the size of the font in the `h1` tag. 
+
+- **font-weight**: The `font-weight` property is looking to set the font to `lighter`, `normal`, or `bold` font display. There are other values associated with this property, but for now there's no need to dive into them as we won't really see a difference in the outcome. 
+
+- **color**: The `color` is simply setting the color for this particular `h1` tag (notice how it's overriding the `color` we set for the `body`, this is because the style is declared directly to the element). 
+
+- **margin**: Lastly, `margin` behaves a lot like `padding` does, whereas `padding` creates space *inside* the box, `margin` creates space *outside* the box and pushes any other HTML tags before and after it away. It, too, behaves like `padding` in the sense of how it's values are provided (top, right, bottom, left).
+
+It should now look like this:
+
+![Header Styles - 1](assets/step-2/400-header-style-1.png)
+
+If it does, great! Let's start moving that navigation bar over to the right. These next steps are going to introduce some more specific selectors, so keep in mind that this is just one of many ways to properly select and apply styles, and is intended to get us acclimated to some of those many flavors. Over time, we'll hone our skills and become more efficient with applying styles, but for now we'll stick with the more easy to understand selectors.
+
+We'll explain these new properties when we're all done here, so don't worry if it's confusing in the moment. In between applying these following styles, make sure to save and refresh the page in the browser to see the changes happening!
+
+> LINEAR STEPS
+>
+> 1. Apply styles to every `a` tag in the header.
+>
+> ```css
+> header a {
+>  text-decoration: none;
+>  color: #fce138;
+> }
+>```
+>
+> 2. Apply styles to the `nav` tag.
+>
+> ```css
+> header nav {
+>  float: right;
+>  margin: 7px 0;
+> }
+> ```
+>
+> 3. Apply styles to the `nav` tag's `li` tags.
+>
+> ```css
+> header nav ul li {
+>  display: inline-block;
+> }
+> ```
+>
+> 4. Apply styles to the `a` tags inside of the `li` tags
+>
+> ```css
+> header nav ul li a {
+>  margin: 0 30px;
+>  font-weight: lighter;
+>  font-size: 22px;
+> }
+> ```
+>
+> 5. Marvel at the progress we've made.
+>
+
+Congratulations! We've just finished our first layout-specific style change. We moved the navbar from the left to the right and we also overrode a few styles that the browser assumes for us by removing the underline from the `a` tags and changing the color from it's default blue to yellow.
+
+Now we aren't quite there yet, there are still a few tweaks we need to add to our CSS to get it aligned with perfectly. This is going to involve overriding a couple of browser _quirks_, so we'll get a little more detailed with that. But for now, our `header` should look something like this:
+
+![Header styles - 2](assets/step-2/500-header-style-2.png)
+
+Let's start by explaining the longest selector in the code, `header nav ul li a`. What this tells the browser to do is "find all `a` tags inside an `li` tag, which are inside of a `ul` tag, which are inside of a `nav` tag, which are inside of a `header` tag. It's a lot to think about, but it also makes our selection very specific, meaning any other `a` tag we need to add style to won't automatically have these styles and we can style them separately.
+
+> PAUSE\
+> Considering the above, what do these other selectors say?
+> 
+> ANSWERS\
+> `header nav ul li`: Select all `li` tags inside of a `ul` tag inside of a `nav` tag inside of a `header` tag
+>
+> `header nav`: Select all `nav` tags inside of a `header` tag
+
+Now, getting into the new properties:
+
+- **text-decoration**: This is a style to apply `underline`, `strikethrough`, or `overline` styles to the text. By default, the value is `none`, so it's usually not something we have to explicitely tell it NOT to do. With `a` tags, however, the browser applies both a blue color and an underline, so we need to go and override those styles and make them our own.
+
+- **float**: Think of this as the "text-wrap" property from Microsoft Word, which allows content to flow around something that has been yanked to the left or right rather than make it break onto it's own new horizontal line. We'll get way more into this property later on, so let's not spend _too_ much time worrying about how this works just yet.
+
+- **margin**: We've discussed `margin` before, but just to reiterate, this one has a value of `7px 0`, which means it has `7px` of space added to the top AND bottom but `0px` to the left AND right.
+
+- **display**: Notice how before we added `display: inline-block`, the list looked like, well, a list? Each `li` had it's own horizontal line to take up and the next one would come below it rather than next to it. This is another case of us overriding a default style that the browser provides `li` tags. More on this below in "BLOCK vs INLINE".
+
+> IMPORTANT: BLOCK vs INLINE HTML
+>
+> The browser has a specific way it wants to interpret and position certain HTML tags. This concept is called "flow". Normal flow in HTML is what a page is with no CSS overriding default layout styles. This flow follows two directions: BLOCK (top to bottom) and INLINE (left to right)
+>
+> In HTML, there are certain tags that are designed by default to take up 100% of the width of whatever it's parent element is. If the parent element is 800px wide, then the child is 800px wide and won't allow anything to the left or right of it. This is what's known as a `BLOCK` level element. Popular tags that have a default block styling are all `h1` - `h6` tags, `div`, `section`, `nav`, `header`, `footer`, and `li`. 
+>
+> The other type of element default is an `INLINE` element. This means that the element will only take up the space it needs to take up and not demand 100% width. These are used  to allow elements to the left or right of them. The most popular tag that is an inline element is the `a` tag, but there will be more that we get into later.
+>
+> CSS allows us to override these elements default layout definitions through a few different ways, but the most on-the-nose on is to apply a `display` property to that element. Here are some of the more popular values we can provide:
+>
+> - **display: block**: this is used to take an element and force it to take up 100% of the width its parent is by default, which will put it on its own horizontal line.
+>
+> - **display: inline**: make an element only take up the space it needs and allow other elements to flow "in-line" with it horizontally. Any width or height properties associated with an inline element is ignored.
+>
+> - **display: inline-block**: the same as `inline`, but this allows width and height property definitions to be heard and applied.
+>
+> - **display: none**: simply remove the element from the view of the browser and let the next elements come up and take it's space. This won't delete the HTML associated with it, but will hide it completely.
+>
+> In the next Unit, we'll get into some new, more advanced display values that are going to really step up our layout game.
+
+
