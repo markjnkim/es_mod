@@ -99,6 +99,20 @@ If your code now looks something like the following, then we are ready to move o
 > [List Item `<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
 
 > PAUSE: We just did a fairly decent amount of work, we should save our work and make sure it's backed up to Github. Using the commands from the last step, make sure the work is saved when a good amount is complete. We don't need to save after EVERY line of code written, but if a big section is completed, save it.
+>
+> Git Commands:
+>
+> * **git add -A**: use this to tell Git to pick up (also known as "track") any new, edited, or removed files in your project
+>
+> * **git commit -m "commit message"**: now that the files are being tracked by Git (by using `git add -A`), tell git _what_ we've added or changed. That goes into the `commit message` portion in the command.
+>
+> **NOTE**: These two commands are responsible for telling Git what we're saving and why we're saving it. Think of it as a local save point for our project. What hasn't happened yet is getting GitHub to see these new changes, but these two have to be done first (in this order) before we can get this code to GitHub.
+>
+> * **git push origin master**: use this command to take all of the code and file edits from our recent `commit` and get it all up to GitHub. So now our code is saved both locally on our machines and there's a direct copy of it on our GitHub profiles. 
+>
+> If we visit our [GitHub pages link](https://username.github.io/run-buddy), we'll be able to see the new HTML!
+
+> URKEL SAYS: We've seen the `#` syntax in action with `href` values, but it will be used in many more places throughout our career as programmers. It is what's known as an "octothrope", [learn more](https://en.wikipedia.org/wiki/Number_sign?oldformat=true#In_computing)!
 
 ## Enter CSS
 
