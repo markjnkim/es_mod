@@ -57,7 +57,7 @@ Let's go ahead and fill in the missing HTML content. Ignore the images for now b
 </section>
 ```
 
-> **Pro-Tip:** If you ever need to quickly fill an HTML tag with dummy text, type the word "lorem" and press Tab.
+> **Pro-Tip:** If you ever need to quickly fill an HTML tag with dummy text in VS Code, type the word "lorem" and press Tab.
 
 Note how every step is wrapped in its own `<div>` to help keep the step title and description coupled together. This will make it easier to style them later with CSS, too. We also used `<h3>` for each step title since these headings are less important than the higher `<h2>What You Do</h2>` title.
 
@@ -79,7 +79,7 @@ Save, refresh, then click on the links in the header. You'll see that the browse
 
 # Adding Images
 
-The designer has given us some new images to work with. Download these [SVG files](./link-needed) and add them to your `assets/images` folder. You may be wondering why these are SVGs and not JPGs or PNGs. In fact, what the heck is an SVG? Just for fun, open one of these new files in VS Code. It'll look something like this:
+So the company's design team has given us some new images to work with. Download these [SVG files](./link-needed) and add them to your `assets/images` folder. You may be wondering why these are SVGs and not JPGs or PNGs. In fact, what the heck is an SVG? Just for fun, open one of these new files in VS Code. It'll look something like this:
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164.73 130.92"><defs><style>.cls-1{fill:#39a6b2;}</style></defs><title>Asset 2</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M163.69,109.93H99.88a.75.75,0,0,0-.69.69v2.6a2.92,2.92,0,0,1-3,3H68.67a3,3,0,0,1-3-3v-2.42a.73.73,0,0,0-.69-.69H1a1.12,1.12,0,0,0-1,1v10.58a9.25,9.25,0,0,0,9.19,9.19H155.54a9.26,9.26,0,0,0,9.19-9.19V111.15a1.16,1.16,0,0,0-1-1.22Z"/>
@@ -91,7 +91,7 @@ In the Step 1 `<div>`, add the following `<img>` tag:
 
 ```html
 <div>
-  <img src="./assets/images/step-1.svg" alt="Computer" />
+  <img src="./assets/images/step-1.svg" alt="" />
   <h3>Step 1: Fill Out The Form Above.</h3>
   <p>You're already here, so why not?</p>
 </div>
@@ -99,12 +99,14 @@ In the Step 1 `<div>`, add the following `<img>` tag:
 
 The `<img>` tag is very useful, because it can display any image type: SVGs, PNGs, JPGs, GIFs, etc. We just need to make sure the `src` attribute points to a file that can be found. Much like how the `<link>` tag had to reference the stylesheet as `./assets/css/style.css`, we do the same for images: `./assets/images/step-1.svg`.
 
-There's an extra attribute we should make sure every image has, though: the `alt` attribute. This is how we can explain what the image is to search engines and screen readers. Imagine a visually impaired vistor who relies on a screen reader and what their experience might be if every image was skimmed over with zero context. It would be very confusing. Watch this [short video](https://www.youtube.com/watch?v=NvqasTVoW98) to see just how screen readers handle alt text.
+There's an extra attribute we should make sure every image has, though: the `alt` attribute. This is how we can explain what the image is to search engines and screen readers. Imagine a visually impaired vistor who relies on a screen reader and what their experience might be if the reader got hung up on the context of every image it came across. Watch this [short video](https://www.youtube.com/watch?v=NvqasTVoW98) to see just how screen readers handle alt text.
 
-> **Legacy Lem:** In the past, many developers would simply write `alt=""` so their HTML code would pass basic validation tests. Obviously this is a huge no-no.
+In our case, the `step-1.svg` image is purely "decorative," meaning the only information the user needs from this section is already provided by the surrounding text (the `<h3>` tag). It might seem like the `alt` attribute isn't necessary, then, but a screen reader wouldn't know that a missing `alt` tag means "unimportant icon." Hence, we set `alt` to empty text so the screen reader knows to ignore it.
+
+> **Deep Dive:** Read more about `alt` attribute guidelines from the [W3C](https://www.w3.org/WAI/tutorials/images/) web standard gurus.
 
 If you haven't already, save your HTML file and reload it in the browser. Things probably aren't looking so good anymore:
 
 ![image screenshot](./assets/step-4/100-big-screenshot.png)
 
-Our image is enormous! Remember, SVGs are scalable. There's no built-in, hard-set pixel count, so it's going to fill up any available space. But that's okay. We'll use CSS to size it down later. For now, add the other three images to Steps 2-4, keeping in mind that each should have an appropriate `alt` attribute.
+Our image is enormous! Remember, SVGs are scalable. There's no built-in, hard-set pixel count, so it's going to fill up any available space. But that's okay. We'll use CSS to size it down later. For now, add the other three images to Steps 2-4.
