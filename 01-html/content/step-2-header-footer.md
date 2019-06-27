@@ -130,7 +130,7 @@ CSS (the real name is Cascading Style Sheets) has a definition of being a langua
 
 Setting up a project with CSS can be done in a few different ways:
 
-- Use a `style` attribute with the styles you want to apply directly to the image (i.e. `<h1 style="color: blue">This is a blue header</h1>`)
+- Use a `style` attribute with the styles you want to apply directly to the HTML tag (i.e. `<h1 style="color: blue">This is a blue header</h1>`)
 
 - Apply all styles in between the HTML document's `head` tags using `<style>` HTML tags to surround all style definitions like this:
 
