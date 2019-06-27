@@ -2,8 +2,7 @@
 
 ## Our Hero's Purpose
 
-Now that we have the header and footer for our page, let's get started with the body or content of our website.  
-If we take a good look at our mockup, we can see that each part of our landing page seems to be separated by a different color block. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. Let's continue by building each block piece by piece until we have completed our first website.
+Now that we have the header and footer for our page, let's get started with the body or content of our website.  HTML elements in large part can be considered as a series of rectangular boxes as was described in step 1.  These boxes can be stacked on top of each other like blocks, similar to our `section` elements in our mockup and also can be nested within each other like russian nesting dolls.  If we take a good look at our mockup, we can see that each part of our landing page seems to be separated by a different color block. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. Let's continue by building each block piece by piece until we have completed our first website.
 
 The first block is considered the most important section because this will be seen by every visitor to our landing page. This is the hero section and is considered as "above the fold", hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
 
@@ -28,7 +27,7 @@ A `class` is a special attribute that can be used on any HTML element and is use
 Let's add the `class="hero"` to our section element.
 `<section class="hero">`
 
-> **Deeper Dive**: HTML5 Semantic Elements help distinguish each part of the document and it's function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp)
+> **Deep Dive**: HTML5 Semantic Elements help distinguish each part of the document and it's function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp)
 
 At this point we are not going to worry about our background images, colors, borders, or placement yet since these will all be addressed in the second half in the styling section, but will focus on content and structure in our HTML.
 
@@ -83,7 +82,7 @@ Your code should now look something like this.
 
 Let's take a look now at our browser by selecting the `Open in Default Browser` option when right clicking the mouse on the `index.html` page.(alteratively <Alt>B[Windows] or <Option>B[Mac])
 
-> **Pro Tip**: It is strongly recommended to try and learn the keyboard shortcuts since they improve speed and efficiency.
+> **Pro Tip**: It is strongly recommended to try and learn the keyboard shortcuts since they improve speed and efficiency.  It is also a great idea to select the `Auto Save` option in the `File` menu due to all the time saved from forgetting to do that.
 
 Your page should now look something like this:
 ![hero-heading](./assets/step-3/100-heading-html.png)
@@ -100,7 +99,7 @@ We have been filling out forms our entire lives, even for this class a few forms
 
 In total we will need five input elements. Three text fields, a radio button, and a checkbox. We will also need a button that will act as our data submission trigger or event.
 
-> **Deeper Dive**: There are many more `input` element types intended for a variety of uses to receive user information, for example a drop down or a file upload. Dig deeper and learn more about [input element types here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+> **Deep Dive**: There are many more `input` element types intended for a variety of uses to receive user information, for example a drop down or a file upload. Dig deeper and learn more about [input element types here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 
 We will place these inputs and the submit button within a `form` element.
 The `form` element represents a document section that contains interactive components or controls for submitting user information.
@@ -208,12 +207,15 @@ Now let's catch a glimpse of what our website looks like now and think about wha
 ![hero](./assets/step-3/300-hero-html.png)
 Congrats, I know it's not pretty yet, but the grunt work is now complete so we can decorate or style our hero.
 
+> **Activity**:
+
 ## Hero Style
 
 So our hero section doesn't quite look like it has anything super about it quite yet, but fear not, we will learn how to style it up and make it super!  Let's dive into CSS and open our `style.css` in VS Code.
 
-### Section Styles
-For the sake of consistency, there should be a few styles that will keep our all our sections looking similar.  By using the selector for the `section` element, we can delegate a global style property for every `section` in our website such as `padding` and `width`.
+### Universal Styles
+In similar fashion to our HTML build process, we will start our CSS styling from a top down approach and drill down into our nested elements until we are satisfied with a finished product.  
+For the sake of consistency, there should be a few styles that will keep our all our `section` elements looking similar.  By using the selector for the `section` element, we can delegate a global style property for every `section` in our website such as `padding` and `width`.  Let's type the following into your `style.css` file.
 
 ```css
 section {
@@ -221,22 +223,97 @@ section {
   width: 100%;
 }
 ```
+> **Rewind**: Similarly to the `header` styles we created previously, the `width` property will make our `section` elements stretch across the page by taking up 100% of the parent element, which happens to be the `body` element that is the entire page.  How to assign `padding` values was explained in the previous step, but let's dive into exactly what `padding` is.
 
+## Box Model
+An HTML element is represented by a rectangular box we will call the CSS box, with the content, padding, border, and margin built around each other like layers in an onion.  The thickness, style, and color of each layer can be manipulated using CSS properties for a desired effect.
 
-### Background Image
-In a similar fashion to our HTML build process, we will start our CSS styling from a top down approach and drill down into our nested elements until we are satisfied with a finished product.  To start, let's add some pizzazz by adding a background image into our hero section.  Remember our hero section needs to capture our users' imagination so images are a great way to convey a strong message.  
-In order to add an image to the background of our hero section we need a way to target this section.
-We could go about targeting the `section` element, but this would place the same styling and background image to all our subsequent sections which is not something we need.  We need a way to target the hero section specifically and not create a global style.  Thankfully we can use the `class` attribute we have included in our `section` element.  In this case we have given this attribute the string value "hero".  In CSS, classes are designated with dot notation immediately followed by the value of the `class` attribute.  Within the curly brace syntax, will be the CSS property for `background-image` which we will find in the `images` directory
+![CSS box model](./assets/step-3/400-box-model.png)
+
+1. **Content** is the innermost box inside our CSS box that will contain text as well as any nested elements.  The `content` box size is determined by the *height* and *width*. 
+2. **Padding** refers to the inside margin within the CSS box.  Each of the four sides of the `padding` size can be specified as detailed in the previous step.
+3. **Border** sits on the outside edge of the `padding` and the inside edge of the `margin`.  This layer's sides, size, and styles can be specified, similarly to the `padding` and `margin`.  Such as `border-bottom` or `border-style` or even `border-top-color`.
+4. **Margin** surrounds the CSS box and touches the surrounding elements.  This property acts like the padding and can be specified by side and size.
+
+> **Deep Dive**: There are many different ways to specify styles, sides, and sizes using a multitude of properties that CSS offers.  Click [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model) to find out more.
+
+> **Activity** Play around with the box model and experiment with the syntax and the many combinations that can be manipulated by choosing any HTML element and adding some of these properties to see what happens.  
+
+### Using Class for Styling
+Now let's add some pizzazz by adding a background image into our hero section.  
+First we need to create an `images` directory in the `assets` directory.  We can either use the `mkdir` command from the command line while in the `assets` folder,or we can simply go to the `Explorer` in VS Code(located on the left side panel) and click the `assets` folder.  The green plus sign will appear upon hovering over the root or parent directory.  The tool tip or hover message will indicate if you would like to add a new folder or file.  In this case let's add a new folder called `images`.  Let's download our all the images and place them inside the  `images` directory from our image link *(AWS S3 Bucket URL TBA)*.
+
+If we simply used the `section` element as our CSS selector, we would be applying the same background image to all our subsequent sections which is not something we need.  We need a way to target the hero section specifically and not create a global style.  Thankfully we can use the `class` attribute we have included in our `section` element as our CSS selector.  The neat trick about a `class` CSS selector is that this attribute can be added to any HTML element that would need that same styling.  
+
+Let's type the following into your CSS file and unpack it further.
 
 ```css
 /* Hero Style Start */
 .hero {
-  background-image: url("../images/hero-bg.jpg");
+  background-image: url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 600px;
 }
 /* Hero Style End */
 ```
-> **Rewind**: Just like the syntax we used to style the `header` and `footer` in the previous section, we will use the curly braces using our dot notation to target the class CSS selector in the hero section.
+* **Dot Notation**: Notice the "." proceeding the `class` `hero` to indicate to CSS we are using a class as our CSS selector.
+* **background-image** uses the CSS function `url()` to link a resource such as an image, web font, or gif.  Here was are using a relative URL path to select our background image from our images folder. Absolute paths can also be used for instance to grab and image from the web for example url("https://www.example.com/images/image.png").
+* **background-size** property sets the size of the background image so it can be left to its original size, stretched, or constrained to fit the available space.  The `cover` value enlarges the image to ensure complete coverage of the element by a single image.  Other selections allowed repeated images similar to a tiled look, similar to how background image displays are configured for your computer's background desktop image.
+* **background-position** allows different positioning of the background image.
+* **position** specifies the type of positioning method used for an element.  We will discuss this important property in further detail below.
+* **height** fixed at 600px gives an exact size of the section, important in this context so that the `section` doesn't grow to fit the size of the background image.
 
+> **Heads Up**: Please pause to note that the relative path our `background-image` was different from the relative path used in the `footer` of our last step.  In this case since we are starting in the `style.css` file located in the `css` directory, we needed to transverse up to the parent directory by using the "../" notation (in this case, to the `assets` directory), to access the `images` directory.  The `images` directory wouldn't have been accessible directly from inside the `css` directory since only items within this directory are accessible.
+In the `footer`, the path to `privacy-policy.html` started from the `index.html` therefore only need the "./" since both files were in the same directory.  Note that for relative paths, the *origin* of the relative path is as important as the *destination*!
 
+## Positioning is not all relative
+The position CSS property sets how an element is positioned on the web page.
+Here are a few of the position values and how they change their relationship to the surrounding elements.
 
+* **Static**is the default position value and maintains the order of the flow of the elements on the page as in the order created in HTML.  `Static` positioning is not affected by `top`, `bottom`, `left`, and `right` properties.
 
+* **Relative** positioning compares the natural or static position and is able to adjust from this position by using the `top` and `bottom` properties to vertically offset the element as well as the `left` and `right` properties for horizontal offsetting.
+
+* **Absolute** positioning removes the element from the natural flow of the page elements and uses the `top`, `bottom`, `left` and `right` properties to offset relative to the element's parent or containing element or block.  
+
+* **Fixed** positioning removes the element from the natural flow of the page elements and is positioned relative to the viewport or browser window, therefore is not affected by scrolling.  The`fixed` position value uses the `top`, `bottom`, `left` and `right` properties to offset from the viewport or the .  
+
+> **Pause**: Let's take a look at our current creation in the browser.  You should see something like this.
+
+![hero-background](./assets/step-3/500-bg-image-css.png)
+
+Congrats! Give yourself a nice pat on the back.  Way to hang in there!  We will now style our form box and finish up with our hero section.
+
+### Form Styles
+
+According to the mockup the box or `div` containing our `form` should have a yellow background.  Let's target this `div` by using the `class` attribute for this `div` as the CSS selector which we have named `hero-form`.  Let's type out the syntax for this in your CSS file and give it some of the properties we will need including the border as well as background color, size, font color, and positioning.
+
+> **Pause**: Try out some code and see if you can do some styling on your own.
+
+> **Hint**: Don't forget to add the semicolon or red syntax errors will prevent your CSS from formatting.
+
+The code you added to your `style.css` should look similar to this:
+```css
+.hero-form {
+  border: 3px solid #024e76;
+  background-color: #fce138;
+  padding: 20px;
+  width: 500px;
+  color: #024e76;
+  position: absolute;
+  bottom: 120px;
+  right: 10%;
+}
+```
+Let's take a look at your page on the browser and see how your new code has changed the page.  Don't forget to set the `Auto Save` option in the `File` menu since all change must be saved in order to render.
+
+Your page should look something like this:
+![form-box](./assets/step-3/600-form-css.png)
+
+Success.  Now let's go to the browser window with your webpage and open `Developer Tools`.
+
+### Dev Tools
+
+Ever think its kind of a pain hopping back and forth between coding the CSS file back to the browser to see how the changes look, then 
