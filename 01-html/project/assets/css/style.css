@@ -65,9 +65,10 @@ footer h2 {
   margin: 0;
 }
 
-footer span {
+footer div {
   float: right;
   line-height: 1.5;
+  text-align: right;
 }
 
 footer a {

@@ -169,17 +169,17 @@ So now we know which route we're taking to include CSS into our web page, let's 
 > 4. Lastly, we need to tell our HTML document to read any applicable styles that `style.css` may have for it. We can achieve this by placing `<link rel="stylesheet" href="./assets/css/style.css" />` in between the `head` tags in our HTML document. This is an example of relative pathing. For more information, read the block marked "IMPORTANT" below.
 >
 > 5. Let's test this and make sure it worked by adding the following to `style.css`:
-
-```css
-body {
-  font-family: Helvetica, Arial, sans-serif;
-  background-color: tomato;
-}
-```
-
+>
+>```css
+> body {
+>  font-family: Helvetica, Arial, sans-serif;
+>  background-color: tomato;
+> }
+> ```
+>
 > 6. If that turned the whole background of your page to red, then it works! Please remove the `background-color` style from the page as we won't need it anymore.
 
-======================================
+
 
 > IMPORTANT: A note about `relative file pathing`
 >
@@ -496,7 +496,7 @@ If it does, great! It's time to move onto styling the `footer` next. But rest as
 >
 > ANSWER: `b. header`
 >
-> ==================
+> ------------
 >
 > **What is the preferred way to include/link another file in programming?**
 >
@@ -505,7 +505,7 @@ If it does, great! It's time to move onto styling the `footer` next. But rest as
 >
 > ANSWER: `a. relative pathing`
 >
-> ==================
+> ------------
 >
 > **The `*` selector in CSS selects all HTML elements and applies a style to them.**
 >
@@ -514,6 +514,43 @@ If it does, great! It's time to move onto styling the `footer` next. But rest as
 >
 > ANSWER: `a. True`
 >
+> ------------
+>
 
+------------
 
+> PRO-TIP: Don't forget to save your work and push to GitHub!
+
+------------
+
+## Setting up our `footer` HTML
+
+By the end of this section, our `footer` will look like this:
+
+![Footer HTML](assets/step-2/700-footer-html.png)
+
+So this first part is easy, we don't even have to concern ourselves with the fancy `Made with love` section on the left hand side since it's already done. So let's worry about making the other part of our `footer`.
+
+It's a common practice / typically required by law to include some type of Privacy Policy with every product on the web. This is to let users know what their rights are on the site as far as content/data usage. This doesn't usually need to be highlighted and made a big deal of, so it really does not ever need to go into the main navigation. In this case it gets relegated to the `footer`. We also need to protect our own product and tell users that we own our content, so we'll also be adding a copyright notice right below it.
+
+We'll go ahead and add this in our `footer` right after the `h2`:
+
+```html
+<div>
+  <a href="./privacy-policy.html">Read Our Privacy Policy</a><br/>
+  &copy; 2019 Run Buddy, Inc.
+</div>
+```
+
+When we apply styles to the `footer`, we're going to want both of those new items to be on the right hand side of the page. So we could try and position them individually to the right, or we could wrap both of them in a container (in this case, a `div`) and then move the whole container over when we're ready. The latter sounds easier, because it is.
+
+Let's review the two new pieces of HTML we used here:
+
+- **Break Tags**: `<br/>` is an HTML tag that creates a line break, this way whatever comes after is going to be on the next line. Since `a` tags are inline elements, we need to create that space manually. These are great for situations like this, ones that don't require a ton of CSS tweaking, but just a simple line break.
+
+- **HTML Entities (`&copy;`)**: If we haven't noticed yet, every HTML tag includes with a greater than `>` and less than `<` symbol, so what happens if we need to actually use one of those symbols in our content and not as HTML syntax? How does the browser tell the difference? The short answer is it can't, so HTML's solution is to have special character codes known as `HTML Entities`. These are special codes that start with an ampersand `&` and can be used to create symbols (i.e. `&gt;` creates a `>`). For more information and a more extensive list, [go here](https://developer.mozilla.org/en-US/docs/Glossary/Entity)
+
+So now our `footer` has all the right bones to start designing! 
+
+## Designing our footer
 
