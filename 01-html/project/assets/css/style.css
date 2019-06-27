@@ -19,8 +19,8 @@ header {
 }
 
 header h1 {
-  font-weight: 600;
-  display: inline-block;
+  font-weight: bold;
+  display: inline;
   margin: 0;
   font-size: 36px;
   color: #fce138;
@@ -237,7 +237,7 @@ section {
 }
 
 .trainer-bio h4 {
-  font-weight: 200;
+  font-weight: lighter;
   font-size: 26px;
   margin-bottom: 25px;
 }

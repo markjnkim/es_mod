@@ -393,6 +393,127 @@ Now, getting into the new properties:
 >
 > - **display: none**: simply remove the element from the view of the browser and let the next elements come up and take it's space. This won't delete the HTML associated with it, but will hide it completely.
 >
-> In the next Unit, we'll get into some new, more advanced display values that are going to really step up our layout game.
+> In next week's unit, we'll get into some new, more advanced display values that are going to really step up our layout game.
+
+Okay, that's a lot to take in, but hopefully it's has given us enough basic understanding of how things _want_ to behave and how we can undo it. With that said, let's head back and take a look at fixing our little issue in the `header`.
+
+Think about that list of block level elements that are listed above and see if there's any element in the `header` currently that is taking up more width than it needs to be.
+
+> HINT: It's on the left-hand side and it's NOT the `nav` tag!
+
+Now that we've figured out that our `h1` tag is the wrench in the works, let's add another style property to our already existing style. Particularly, let's set that element's `display` property to `inline`.
+
+```css
+header h1 {
+  font-weight: bold;
+  font-size: 36px;
+  color: #fce138;
+  margin: 0;
+  display: inline;
+}
+```
+
+So just by adding that one property declaration and setting the `h1` to `inline` instead of `block`, we allowed the `nav` on the right hand side move up, but not as far as we thought it would. So what gives? If we took the `h1` tag out of `block` styling, shouldn't that allow whatever is coming to the right of it be on the same line? 
+
+This is happening for the same reason the teal background of our `header` doesn't come flush up against the top left of our page, which is what we want. So let's fix both of these problems at once, which will also prevent many future problems as well.
+
+It has been mentioned a few times now that the browser has some thoughts of its own about certain styles for elements. Without any CSS present, `h1` - `h6` tags get special styles from the browser like making it bold and giving it more space than regular text. As a matter of fact, the browser provides built in margin and padding on a lot of different elements by default. This is a remnant of a previous world, one where CSS wasn't so prevalent, meaning the browser used to have to do a lot of the heavy lifting as far as styles go.
+
+These styles remain in the browser, but now that CSS is so ubiquitous it is something we actually have to go out of our way to remove before we can successfully design a page. Now we can't necessarily go into the browser and tell them to cut it out, but we CAN apply some default values for EVERY tag in our page and level the playing field for us. That way we don't have to spend so much time undoing browser styles one by one and rather select ALL tags at once. So let's go head and do that by adding this to the very top of our style sheet:
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+}
+```
+
+We just told every tag on the page to not have any margin or border UNLESS we explicitly tell them to. Now way we don't have to concern ourselves with hacking our way through undoing built-in browser styles one by one.
+
+The asterisk `*` we used here is a symbol used quite often in programming. It is typically called a "wildcard", but in CSS it is what's known as a "universal selector". This is essentially a catch-all selector, saying "I won't match one thing, I'll match everything".
+
+> DEEP DIVE: To learn more about this selector, [read it's documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors). It's a powerful selector and doesn't need to be used for much more than this. We'll be adding one more thing for this project, but that's about it.
+
+Okay so now we're looking good, right? The header is flush up against the top left corner of the page so there's no weird white gap. The navigation is nice and directly to the right of the `h1`. But there may be one more thing we're noticing, the page is kind of overflowing to the right and it's causing a sideways scrollbar. There's a reason for this, but before we get into that, let's just fix the thing and get it right. In the `*` selector we just applied to our style sheet, add one more property delcaration:
+
+```css
+box-sizing: border-box;
+```
+
+What the what? Everything just adjusted itself to fit the page! Why did this happen?
+
+> IMPORTANT: The CSS Box Model Explained
+>
+> At this point, it is understood that the browser takes some liberties with how it applies style to certain elements that don't have a style explicitly applied to them via CSS. Probably most important thing the browser does is calculate how much space an HTML element _should_ take up. So what factors into this calculation?
+>
+> **Calculating Width**: Base element width + margin left + margin right + padding left + padding right + border left + border right
+>
+> **Calculating Height**: Base element height + margin top + margin bottom + padding top + padding bottom + border top + border bottom
+>
+> Seems like a lot of values to take into consideration, no? Look at these style declarations for a simple box on a page:
+>
+> ```css
+> .box {
+>   width: 200px;
+>   height: 200px;
+>   margin: 40px 20px;
+>   /* more on borders later, just know that this is 4px on every side */
+>   border: 4px solid black;
+>   padding: 10px;
+> }
+>```
+>
+> This means that our box will start with a base width of 200px, then add 20px for left margin, 20px for right margin, 4px for left border, 4px for right border, then 10px for left padding, and 10px right padding.
+>
+> Suddenly, our seemingly 200px wide box is now 268px wide! This means that if we truly need a 200px wide box, we need to subtract 68px the base width to account for the added space. This is somewhat not maintainable and fairly unacceptable for writing clean CSS and keeping our sanity. So yet again, we need to tell the browser to do its calculations a little differently. Lucky for us, there's a specific CSS property that allows us to do just that: `box sizing`. This has two possible values:
+>
+> **content-box**: this is the default one the browser uses. It calculates sizing the way we just went through, starting with the width of the element's content (not the overall element), it adds size for padding, margin, and border.
+>
+> **border-box**: this one makes things more predictable and manageable. It calculates the sizing by including content, padding, and border in the base height/width and only adding to it when a margin is applied. This makes predicting size a lot more manageable.
+>
+> As we can see, the second one seems to be the better option as we are taking a lot of variable sizes off the table and the less math we have to do, the better. This is why when most developers start writing their style sheet they use the `*` selector to tell every single element on the page to be calculated with `box-sizing: border-box`.
+
+Well all right, we can safely say at this point that we have finished our `header`! Let's double check and make sure that the page currently looks like this:
+
+![completed header](assets/step-2/600-header-complete.png)
+
+If it does, great! It's time to move onto styling the `footer` next. But rest assured, we went through so much in this one section that a lot of the work we do next won't be as long or difficult. We covered a lot, so let's do a pulse check:
+
+> Check Point:
+>
+> **Given the following CSS selector, which HTML element would be the outermost/parent element?**
+> 
+> ```css
+> header nav ul li {
+>  color: white
+> }
+> ```
+>
+> a. `li`\
+> b. `header`\
+> c. `nav`\
+> d. `ul`
+>
+> ANSWER: `b. header`
+>
+> ==================
+>
+> **What is the preferred way to include/link another file in programming?**
+>
+> a. `relative pathing` (`href="./assets/css/style.css"`)\
+> b. `absolute pathing` (`href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css"`)
+>
+> ANSWER: `a. relative pathing`
+>
+> ==================
+>
+> **The `*` selector in CSS selects all HTML elements and applies a style to them.**
+>
+> a. `True`\
+> b. `False`
+>
+> ANSWER: `a. True`
+>
+
 
 
