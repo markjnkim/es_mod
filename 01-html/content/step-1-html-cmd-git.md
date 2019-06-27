@@ -162,11 +162,7 @@ git add index.html
 git status
 ```
 
-Running `git status` again shows `index.html` under "Changes to be commited." So we haven't actually saved/commited anything yet; we've just prepped Git on what could be commited. Let's go ahead and make that commit now:
-
-```bash
-git commit -m "page template"
-```
+Running `git status` again shows `index.html` under "Changes to be commited." So we haven't actually saved/commited anything yet; we've just prepped Git on what could be commited. Let's go ahead and make that commit now by typing the following: `git commit -m "page template"`
 
 On your first commit, Git may ask you to identify yourself. This is normal. Just follow the instructions in the terminal to set a global name and e-mail. If you needed to do this step, you'll also need to run the `git commit -m "page template"` command again. You'll know you succeeded if the terminal prints something like this:
 
