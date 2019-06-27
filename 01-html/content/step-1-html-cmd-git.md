@@ -10,7 +10,7 @@ In the old days of MS-DOS, giving text-based commands to the computer was the on
 
 Mac users, you already have a built-in Terminal app, which you can go ahead and launch now by searching for "terminal" in the Spotlight Search. Windows users, hopefully you installed [Git Bash](https://git-scm.com/downloads) ahead of time, which you can open by right-clicking anywhere on your desktop and selecting "Git Bash Here." Regardless of your operating system, you should see a window that looks like this:
 
-![terminal window](./assets/step1/100-terminal.png)
+![terminal window](./assets/step-1/100-terminal.png)
 
 In this window, type the command `pwd` and press Enter. The terminal will then display something like `/c/Users/Username/Desktop`. The command `pwd` stands for Print Working Directory and lets us know which folder (or directory) the terminal is currently in. For Windows users, that probably seems pretty obvious. We already right-clicked the desktop to "Git Bash Here!" Mac users, on the other hand: we usually start in the `user` folder by default and would need to manually move into our `Desktop` folder, if that's where we want to work. We'll talk more about that in a minute.
 
@@ -98,13 +98,13 @@ Click on the `index.html` file in the Explorer to load it in the main panel on t
 
 Awesome! You just wrote your first web page! Make sure you save the file before testing it out. You'll know the file hasn't been saved if a white dot appears next to the filename:
 
-![unsaved](./assets/step1/200-unsaved.png)
+![unsaved](./assets/step-1/200-unsaved.png)
 
 > **Pro-Tip:** Press CTRL+S on Windows or CMD+S on Mac to save via the keyboard.
 
 Next, open this HTML file in the browser (preferably Chrome). If you have the [Open in Browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) extension installed for VS Code, you can simply right-click anywhere in the HTML file and select Open in Default Browser. The web page should look like this:
 
-![first screenshot](./assets/step1/300-html-screenshot.png)
+![first screenshot](./assets/step-1/300-html-screenshot.png)
 
 All right, so it's not the most exciting web page yet, but you gotta start somewhere. Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of "elements" with an opening `<tag>` and a closing `</tag>`. Anything in between these tags is affected by what that tag does. The `<h1>` tag, for instance, made the text inside big and bold. This denotes a heading. If we have other, less important headings on our web page, we can use additional tags like `<h2>`, `<h3>`, and so on.
 
@@ -151,7 +151,7 @@ It may not seem like much happened, but this created a hidden `.git` folder in t
 
 First, try running the command `git status`, which should display the following information:
 
-![git status](./assets/step1/400-git-status.png)
+![git status](./assets/step-1/400-git-status.png)
 
 `git status` is a great way to quickly check what files have changed since your last commit (or saved snapshot). Granted, we haven't commited anything yet, so this information may be a little confusing. And why is it saying we're on branch master? Did we make a branch called master? By default, every repository comes with a master branch. We won't worry about creating additional branches just yet, so it's fine to leave it as is. But this information also lists `index.html` under "Untracked files."
 
@@ -170,7 +170,7 @@ git commit -m "page template"
 
 On your first commit, Git may ask you to identify yourself. This is normal. Just follow the instructions in the terminal to set a global name and e-mail. If you needed to do this step, you'll also need to run the `git commit -m "page template"` command again. You'll know you succeeded if the terminal prints something like this:
 
-![git commit](./assets/step1/500-git-commit.png)
+![git commit](./assets/step-1/500-git-commit.png)
 
 Great! You made your first commit! The second half of that command, `-m "page template"`, is how we can attach a helpful message to our commits. Best practice, every commit should include a message to explain what this particular change to the code is doing. Let's go through this process again. In your HTML file, update the content to look like this:
 
@@ -186,7 +186,7 @@ Great! You made your first commit! The second half of that command, `-m "page te
 
 Now run `git status` again, and Git will recognize that the `index.html` file has been modified but that the "Changes [are] not staged for commit:"
 
-![git status](./assets/step1/600-git-status.png)
+![git status](./assets/step-1/600-git-status.png)
 
  If we want to save this change to Git, we'll need to `add` it first before the `commit`:
 
@@ -197,7 +197,7 @@ git commit -m "add more links"
 
 With two commits under our belt, run the command `git log`. This will show a history of all of the commits made, including the author of the commit and the message that was provided:
 
-![git log](./assets/step1/700-git-log.png)
+![git log](./assets/step-1/700-git-log.png)
 
 This could be very useful once we start working on larger apps and/or with multiple developers!
 
@@ -234,7 +234,7 @@ We're using `<div>` tags here, which are like containers to hold relevant inform
 
 Let's take a piece of our mock-up and think about how we could break this down into logical boxes or containers:
 
-![containers](./assets/step1/750-box-layout.png)
+![containers](./assets/step-1/750-box-layout.png)
 
 Note that some containers aren't immediately apparent, because they do nothing but hold other containers. It's okay if this doesn't feel intuitive yet. The more apps you build, the better you'll get at mapping their layouts. This is as good a time as any to practice, so grab a pen and paper and sketch out the rest of the mock-up on your own. Take this step seriously! Stepping away from the computer screen and applying a physical touch to the development process can help shed new light on a problem.
 
@@ -319,7 +319,7 @@ The rest of the layout may be harder to find appropriate semantic tags for. The 
 
 You may have noticed something new here: the `<!-- -->` tag. This is how we can leave notes, or comments, in the code. These do not show up in the browser but are helpful to have to make the code even easier to read. We're also using `<h2>` tags for the other headings, because `<h1>` should be reserved for the single most important text on the page. Save, refresh the browser, and admire your efforts:
 
-![final screenshot](./assets/step1/800-html-screenshot.png)
+![final screenshot](./assets/step-1/800-html-screenshot.png)
 
 Okay, still not very pretty, but we've laid some important groundwork that's going to make the next several steps much easier to complete.
 
@@ -337,7 +337,7 @@ A `.gitignore` file (yes, the dot is part of it) is where we can specify any fil
 
 Open the `.gitignore` file in VS Code and add the following line: `.DS_Store`. Even if your OS of choice is Windows, add this line, anyway. If a Mac user joins your team, you want to make sure your repository is already set up correctly. Now run `git status`, which should display the following information:
 
-![git status](./assets/step1/900-git-status.png)
+![git status](./assets/step-1/900-git-status.png)
 
 Git sees one modified file (`index.html`) and one new, untracked file (`.gitignore`). Let's add and commit these:
 
@@ -350,15 +350,15 @@ Awesome, we've now saved our hard work to Git. The problem, however... these com
 
 After signing up or logging in to GitHub, find and click the green New button:
 
-![new repo](./assets/step1/1000-github-new.png)
+![new repo](./assets/step-1/1000-github-new.png)
 
 This will take you to a page where you'll be able to create a new repository on GitHub. So what we're going to do is create a repository on GitHub first, then link our local Run Buddy project with this remote repository. On GitHub, give the repository a name but don't check any other options. Then click the Create button.
 
-![new repo](./assets/step1/1100-github-create.png)
+![new repo](./assets/step-1/1100-github-create.png)
 
 The next page will display instructions on how to create a new local repository (which we've already done) or push an existing repository to GitHub. It also displays a link to this repo, which you'll want to copy, making sure HTTPS is selected first:
 
-![copy repo](./assets/step1/1200-github-copy.png)
+![copy repo](./assets/step-1/1200-github-copy.png)
 
 > **Pro-Tip:** SSH is definitely worth looking into and setting up when you have time. GitHub has a great set of [tutorials](https://help.github.com/en/articles/about-ssh) on using SSH.
 
@@ -377,7 +377,7 @@ git push origin master
 
 Git will ask you to enter your GitHub credentials before you're allowed to push. That's understandable, since this is the final step in moving code from your local computer to your remote repository. In this case, GitHub is the origin, and what we're giving it is whatever is on the master branch. Go back to your GitHub repository in the browser and refresh the page. It should look like this:
 
-![code pushed](./assets/step1/1300-github-pushed.png)
+![code pushed](./assets/step-1/1300-github-pushed.png)
 
 GitHub now has our two files and a record of our three previous commits! This means we could download this repository on another computer and continue working without missing a beat, or we could add other developers to the project and let them commit and push to this same location. From now on, `git push` should become part of your normal Git routine to ensure your changes always make it to GitHub. Memorize these three commands:
 
@@ -389,11 +389,11 @@ git push origin master
 
 GitHub comes with a lot of other helpful features like contribution stats, code reviews, and bug tracking. GitHub will also host your HTML projects as live websites, so you don't have to worry about paying for a separate hosting service like GoDaddy. That's pretty nice of them! Let's flip the switch to make our current HTML project "live." On your repository's page, click the Settings tab:
 
-![github settings](./assets/step1/1400-github-settings.png)
+![github settings](./assets/step-1/1400-github-settings.png)
 
 Then on the next page, scroll down to the GitHub Pages section. Change the dropdown under Source to say "master branch:"
 
-![github pages](./assets/step1/1500-github-pages.png)
+![github pages](./assets/step-1/1500-github-pages.png)
 
 This tells GitHub to use the contents of your master branch for your live website. Once you do this, GitHub will then display the message: Your site is ready to be published at https://username.github.io/run-buddy/. It might take a minute for this to actually kick in, so wait a moment before visiting this link (replacing "username" with your GitHub username, of course). When you do open it, though, you'll see that your Run Buddy web page is now live on the Internet! As we continue to improve this project and push new commits to GitHub, this live link will automatically update. Thanks, GitHub!
 
