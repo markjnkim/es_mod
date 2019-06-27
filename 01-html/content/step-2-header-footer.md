@@ -465,7 +465,21 @@ What the what? Everything just adjusted itself to fit the page! Why did this hap
 >
 > This means that our box will start with a base width of 200px, then add 20px for left margin, 20px for right margin, 4px for left border, 4px for right border, then 10px for left padding, and 10px right padding.
 >
-> Suddenly, our seemingly 200px wide box is now 268px wide! This means that if we truly need a 200px wide box, we need to subtract 68px the base width to account for the added space. This is somewhat not maintainable and fairly unacceptable for writing clean CSS and keeping our sanity. So yet again, we need to tell the browser to do its calculations a little differently. Lucky for us, there's a specific CSS property that allows us to do just that: `box sizing`. This has two possible values:
+> Suddenly, our seemingly 200px wide box is now 268px wide! This means that if we truly need a 200px wide box, we need to subtract 68px the base width to account for the added space. 
+>
+> Now let's think about our own `header` styles: 
+>
+> ```css
+> header {
+>   width: 100%;
+>   padding: 20px 35px;
+>   background-color: #39a6b2;
+> }
+> ```
+>
+> Using the logic explained above, our `header` has a base width of 100% of the page, but then add 20px to the left and 20 px to the right for padding, meaning our `header` is now a very weird "100% + 40px" wide. Hence the left to right scrollbar to handle the overflow.
+>
+> This is somewhat not maintainable and fairly unacceptable for writing clean CSS and keeping our sanity. So yet again, we need to tell the browser to do its calculations a little differently. Lucky for us, there's a specific CSS property that allows us to do just that: `box sizing`. This has two possible values:
 >
 > **content-box**: this is the default one the browser uses. It calculates sizing the way we just went through, starting with the width of the element's content (not the overall element), it adds size for padding, margin, and border.
 >
@@ -537,7 +551,7 @@ We'll go ahead and add this in our `footer` right after the `h2`:
 
 ```html
 <div>
-  <a href="./privacy-policy.html">Read Our Privacy Policy</a><br/>
+  <a href="#">Read Our Privacy Policy</a><br/>
   &copy; 2019 Run Buddy, Inc.
 </div>
 ```
@@ -548,9 +562,92 @@ Let's review the two new pieces of HTML we used here:
 
 - **Break Tags**: `<br/>` is an HTML tag that creates a line break, this way whatever comes after is going to be on the next line. Since `a` tags are inline elements, we need to create that space manually. These are great for situations like this, ones that don't require a ton of CSS tweaking, but just a simple line break.
 
-- **HTML Entities (`&copy;`)**: If we haven't noticed yet, every HTML tag includes with a greater than `>` and less than `<` symbol, so what happens if we need to actually use one of those symbols in our content and not as HTML syntax? How does the browser tell the difference? The short answer is it can't, so HTML's solution is to have special character codes known as `HTML Entities`. These are special codes that start with an ampersand `&` and can be used to create symbols (i.e. `&gt;` creates a `>`). For more information and a more extensive list, [go here](https://developer.mozilla.org/en-US/docs/Glossary/Entity)
+- **HTML Entities (`&copy;`)**: If we haven't noticed yet, every HTML tag includes with a greater than `>` and less than `<` symbol, so what happens if we need to actually use one of those symbols in our content and not as HTML syntax? How does the browser tell the difference? The short answer is it can't, so HTML's solution is to have special character codes known as `HTML Entities`. These are special codes that start with an ampersand `&` and can be used to create symbols (i.e. `&gt;` creates a `>`). For more information and a more extensive list, [go here](https://developer.mozilla.org/en-US/docs/Glossary/Entity).
+
+One more thing to mention is the use of a `#` as the value of the `href`. Considering what we saw earlier with the `href="#what-we-do` syntax, and how it is used to navigate towards another section of the same page with an `id` attribute looking like `id="what-we-do"`, what happens when there is no name after the `#`? This is used when we don't exactly know where we want our link to go yet. Yes, the text says `Privacy Policy` but we currently don't have that page. So for now we'll use the `#` as a placeholder and we'll circle back to it later when we create that second page.
 
 So now our `footer` has all the right bones to start designing! 
 
 ## Designing our footer
 
+Now let's make our `footer` look like this:
+
+![Footer with CSS](assets/step-2/800-footer-css.png)
+
+As we kick off this section by applying styles to just the `footer` itself, we should keep in mind the styles we applied to the `header` elements earlier and see how many of these concepts are repeated.
+
+We'll start by adding this to the `footer`:
+
+```css
+footer {
+  background: #fce138;
+  width: 100%;
+  padding: 40px 35px;
+}
+```
+
+So it's effectively the same exact property declarations for the `footer` as we used in the `header`, with just a few value tweaks to give it a different background color and padding values.
+
+Now let's go ahead and tackle the rest of the content in the `footer` step-by-step:
+
+> LINEAR STEPS
+>
+> 1. Apply style to the left `h2`
+>
+> ```css
+> footer h2 {
+>   display: inline;
+>   color: #024e76;
+>   font-size: 30px;
+>   margin: 0;
+> }
+>```
+>
+> 2. Apply style to the right `div` container holding the rest of the content.
+>
+> ```css
+> footer div {
+>   float: right;
+>   line-height: 1.5;
+>   text-align: right;
+> }
+>```
+>
+> 3. Apply style to the `a`.
+>
+> ```css
+> footer a {
+>   color: #024e76;
+> }
+> ```
+>
+
+Well that wasn't so bad, was it? Notice how we've repeated the same layout as the header by making the `h2` an inline element and the `div` float to the right? And only two new properties have been introduced:
+
+- **line-height**: Line height is the CSS property associated with telling text content how much vertical space there should be between lines. The value associated with it (1.5) means we want the spacing to be 1.5 times the size of the font itself. This value will vary depending on what font we're using, but 1.5 is a good baseline. The idea behind this is we don't want our lines of text too close to one another, but we don't want them floating apart from one another either, so this lets us finesse the spacing and make it more readable.
+
+- **text-align**: Just like any word processor we've used in the past, we get the ability in CSS to align our text to the left, right, center, or justified. By default it is left-aligned but can be changed with this property declaration.
+
+Okay so now we've officially completed all of our styles for the header and footer, leaving us with something like this:
+
+![Step 2 Complete](assets/step-2/900-finished-step-2.png)
+
+## Reflection
+
+So we covered A LOT in this section. There's no "soft" way to be introduced to some of these concepts, CSS in particular, so it required us to get our hands dirty. To recap what we did:
+
+- We built two major components that typically go on every web page. By doing them one-by-one, we were able to learn about new HTML tags and structure without getting overwhelmed. This is a good workflow to practice, especially as beginners.
+
+- We introduced quite a few new HTML tags that we will be using not only a lot throughout the rest of this project, but throughout the rest of our careers.
+
+- We learned about HTML attributes, which provide more context, meaning, and even functionality to our HTML tags. The next section will introduce more attributes, but this was a nice introduction to them.
+
+- We introduced ourselves to CSS, what it does, what it looks like, and how to implement it using the `link` tag in our HTML using relative paths.
+
+- CSS element selectors and properties were used to style elements (and nested elements)
+
+- Lastly, we learned that the browser conducts its styling of HTML elements a certain way (inline vs block, the box model, margins/padding, etc.), and that way may not always work for us. So we can use CSS to override these default settings and make our lives easier.
+
+The best part about hitting all of these new topics at once is that the upcoming steps won't be as much introduction, and much more doing! These concepts picked up here will carry with us through our entire careers as developers. Now it's just a matter of knowing when to apply the right styles, and that just comes with practice and repetition.
+
+> PRO-TIP: Don't forget to save and push your work up to GitHub!
