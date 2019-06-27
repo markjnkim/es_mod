@@ -102,13 +102,13 @@ If your code now looks something like the following, then we are ready to move o
 >
 > Git Commands:
 >
-> * **git add -A**: use this to tell Git to pick up (also known as "track") any new, edited, or removed files in your project
+> - **git add -A**: use this to tell Git to pick up (also known as "track") any new, edited, or removed files in your project
 >
-> * **git commit -m "commit message"**: now that the files are being tracked by Git (by using `git add -A`), tell git _what_ we've added or changed. That goes into the `commit message` portion in the command.
+> - **git commit -m "commit message"**: now that the files are being tracked by Git (by using `git add -A`), tell git _what_ we've added or changed. That goes into the `commit message` portion in the command.
 >
 > **NOTE**: These two commands are responsible for telling Git what we're saving and why we're saving it. Think of it as a local save point for our project. What hasn't happened yet is getting GitHub to see these new changes, but these two have to be done first (in this order) before we can get this code to GitHub.
 >
-> * **git push origin master**: use this command to take all of the code and file edits from our recent `commit` and get it all up to GitHub. So now our code is saved both locally on our machines and there's a direct copy of it on our GitHub profiles. 
+> - **git push origin master**: use this command to take all of the code and file edits from our recent `commit` and get it all up to GitHub. So now our code is saved both locally on our machines and there's a direct copy of it on our GitHub profiles.
 >
 > If we visit our [GitHub pages link](https://username.github.io/run-buddy), we'll be able to see the new HTML!
 
@@ -138,9 +138,8 @@ Setting up a project with CSS can be done in a few different ways:
 <head>
   <meta charset="UTF-8" />
   <title>RUN BUDDY</title>
-  
-  <style>
 
+  <style>
     body {
       background-color: tomato;
     }
@@ -148,9 +147,7 @@ Setting up a project with CSS can be done in a few different ways:
     h1 {
       font-size: 100px;
     }
-
   </style>
-
 </head>
 ```
 
@@ -184,16 +181,14 @@ So now we know which route we're taking to include CSS into our web page, let's 
 >
 > 5. Let's test this and make sure it worked by adding the following to `style.css`:
 >
->```css
+> ```css
 > body {
->  font-family: Helvetica, Arial, sans-serif;
->  background-color: tomato;
+>   font-family: Helvetica, Arial, sans-serif;
+>   background-color: tomato;
 > }
 > ```
 >
 > 6. If that turned the whole background of your page to red, then it works! Please remove the `background-color` style from the page as we won't need it anymore.
-
-
 
 > IMPORTANT: A note about `relative file pathing`
 >
@@ -203,9 +198,9 @@ So now we know which route we're taking to include CSS into our web page, let's 
 >
 > This works well for us because the other option is to put a hard set path from the host computer's directory structure, meaning it'd look something like this:
 >
->```html
-><link rel="stylesheet" href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css" />
->```
+> ```html
+> <link rel="stylesheet" href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css" />
+> ```
 >
 > See a potential problem here? If we were to put this code into production or share with a teammate, the project's code would live on a different computer entirely. That path in the example most likely does not exist on that computer, meaning any reference to it would break and the page will not load correctly.
 >
@@ -254,9 +249,8 @@ Okay, so now let's start to pretty-up our `header` with the following style:
 ```css
 /* apply styles to <header> */
 header {
-    width: 100%;
-    padding: 20px 35px;
-    background-color: #39a6b2;
+  padding: 20px 35px;
+  background-color: #39a6b2;
 }
 ```
 
@@ -267,25 +261,25 @@ We just told the `header` tag to be 100% of the `width` of it's parent, in this 
 > ```css
 > /* applies 20px to every side (top, right, bottom, left) */
 > header {
->  padding: 20px;
+>   padding: 20px;
 > }
 >
 > /* applies 20px to the top AND bottom, then 35px to the left AND right */
 > header {
->  padding: 20px 35px;
+>   padding: 20px 35px;
 > }
 >
 > /* applies 10px to the top, 15px to the right, 20px to the bottom, 25px to the left (in that specific clockwise order) */
 > header {
->  padding: 10px 15px 20px 25px;
+>   padding: 10px 15px 20px 25px;
 > }
 >
 > /* explicitly list the side it should be applied to*/
 > header {
->  padding-top: 10px;
->  padding-right: 15px;
->  padding-bottom: 20px;
->  padding-left: 25px
+>   padding-top: 10px;
+>   padding-right: 15px;
+>   padding-bottom: 20px;
+>   padding-left: 25px;
 > }
 > ```
 >
@@ -302,17 +296,17 @@ header h1 {
 }
 ```
 
-Here, we are implementing a more specific selector pattern. This one ensures we are only applying styles specific to a particular `h1` tag, the one that lives *inside* a `header` tag. This is a great method for adding specificity to our styles, so we can keep them scoped to particular section and context. We'll do more of this next with some different combinations of specificity.
+Here, we are implementing a more specific selector pattern. This one ensures we are only applying styles specific to a particular `h1` tag, the one that lives _inside_ a `header` tag. This is a great method for adding specificity to our styles, so we can keep them scoped to particular section and context. We'll do more of this next with some different combinations of specificity.
 
 Now turning our attention to the actual property declarations happening here:
 
-- **font-size**: We can assume that `font-size` means quite literally the size of the font in the `h1` tag. 
+- **font-size**: We can assume that `font-size` means quite literally the size of the font in the `h1` tag.
 
-- **font-weight**: The `font-weight` property is looking to set the font to `lighter`, `normal`, or `bold` font display. There are other values associated with this property, but for now there's no need to dive into them as we won't really see a difference in the outcome. 
+- **font-weight**: The `font-weight` property is looking to set the font to `lighter`, `normal`, or `bold` font display. There are other values associated with this property, but for now there's no need to dive into them as we won't really see a difference in the outcome.
 
-- **color**: The `color` is simply setting the color for this particular `h1` tag (notice how it's overriding the `color` we set for the `body`, this is because the style is declared directly to the element). 
+- **color**: The `color` is simply setting the color for this particular `h1` tag (notice how it's overriding the `color` we set for the `body`, this is because the style is declared directly to the element).
 
-- **margin**: Lastly, `margin` behaves a lot like `padding` does, whereas `padding` creates space *inside* the box, `margin` creates space *outside* the box and pushes any other HTML tags before and after it away. It, too, behaves like `padding` in the sense of how it's values are provided (top, right, bottom, left).
+- **margin**: Lastly, `margin` behaves a lot like `padding` does, whereas `padding` creates space _inside_ the box, `margin` creates space _outside_ the box and pushes any other HTML tags before and after it away. It, too, behaves like `padding` in the sense of how it's values are provided (top, right, bottom, left).
 
 It should now look like this:
 
@@ -328,17 +322,17 @@ We'll explain these new properties when we're all done here, so don't worry if i
 >
 > ```css
 > header a {
->  text-decoration: none;
->  color: #fce138;
+>   text-decoration: none;
+>   color: #fce138;
 > }
->```
+> ```
 >
 > 2. Apply styles to the `nav` tag.
 >
 > ```css
 > header nav {
->  float: right;
->  margin: 7px 0;
+>   float: right;
+>   margin: 7px 0;
 > }
 > ```
 >
@@ -346,7 +340,7 @@ We'll explain these new properties when we're all done here, so don't worry if i
 >
 > ```css
 > header nav ul li {
->  display: inline-block;
+>   display: inline-block;
 > }
 > ```
 >
@@ -354,14 +348,13 @@ We'll explain these new properties when we're all done here, so don't worry if i
 >
 > ```css
 > header nav ul li a {
->  margin: 0 30px;
->  font-weight: lighter;
->  font-size: 22px;
+>   margin: 0 30px;
+>   font-weight: lighter;
+>   font-size: 22px;
 > }
 > ```
 >
 > 5. Marvel at the progress we've made.
->
 
 Congratulations! We've just finished our first layout-specific style change. We moved the navbar from the left to the right and we also overrode a few styles that the browser assumes for us by removing the underline from the `a` tags and changing the color from it's default blue to yellow.
 
@@ -373,7 +366,7 @@ Let's start by explaining the longest selector in the code, `header nav ul li a`
 
 > PAUSE\
 > Considering the above, what do these other selectors say?
-> 
+>
 > ANSWERS\
 > `header nav ul li`: Select all `li` tags inside of a `ul` tag inside of a `nav` tag inside of a `header` tag
 >
@@ -393,9 +386,9 @@ Now, getting into the new properties:
 >
 > The browser has a specific way it wants to interpret and position certain HTML tags. This concept is called "flow". Normal flow in HTML is what a page is with no CSS overriding default layout styles. This flow follows two directions: BLOCK (top to bottom) and INLINE (left to right)
 >
-> In HTML, there are certain tags that are designed by default to take up 100% of the width of whatever it's parent element is. If the parent element is 800px wide, then the child is 800px wide and won't allow anything to the left or right of it. This is what's known as a `BLOCK` level element. Popular tags that have a default block styling are all `h1` - `h6` tags, `div`, `section`, `nav`, `header`, `footer`, and `li`. 
+> In HTML, there are certain tags that are designed by default to take up 100% of the width of whatever it's parent element is. If the parent element is 800px wide, then the child is 800px wide and won't allow anything to the left or right of it. This is what's known as a `BLOCK` level element. Popular tags that have a default block styling are all `h1` - `h6` tags, `div`, `section`, `nav`, `header`, `footer`, and `li`.
 >
-> The other type of element default is an `INLINE` element. This means that the element will only take up the space it needs to take up and not demand 100% width. These are used  to allow elements to the left or right of them. The most popular tag that is an inline element is the `a` tag, but there will be more that we get into later.
+> The other type of element default is an `INLINE` element. This means that the element will only take up the space it needs to take up and not demand 100% width. These are used to allow elements to the left or right of them. The most popular tag that is an inline element is the `a` tag, but there will be more that we get into later.
 >
 > CSS allows us to override these elements default layout definitions through a few different ways, but the most on-the-nose on is to apply a `display` property to that element. Here are some of the more popular values we can provide:
 >
@@ -427,7 +420,7 @@ header h1 {
 }
 ```
 
-So just by adding that one property declaration and setting the `h1` to `inline` instead of `block`, we allowed the `nav` on the right hand side move up, but not as far as we thought it would. So what gives? If we took the `h1` tag out of `block` styling, shouldn't that allow whatever is coming to the right of it be on the same line? 
+So just by adding that one property declaration and setting the `h1` to `inline` instead of `block`, we allowed the `nav` on the right hand side move up, but not as far as we thought it would. So what gives? If we took the `h1` tag out of `block` styling, shouldn't that allow whatever is coming to the right of it be on the same line?
 
 This is happening for the same reason the teal background of our `header` doesn't come flush up against the top left of our page, which is what we want. So let's fix both of these problems at once, which will also prevent many future problems as well.
 
@@ -448,60 +441,7 @@ The asterisk `*` we used here is a symbol used quite often in programming. It is
 
 > DEEP DIVE: To learn more about this selector, [read it's documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors). It's a powerful selector and doesn't need to be used for much more than this. We'll be adding one more thing for this project, but that's about it.
 
-Okay so now we're looking good, right? The header is flush up against the top left corner of the page so there's no weird white gap. The navigation is nice and directly to the right of the `h1`. But there may be one more thing we're noticing, the page is kind of overflowing to the right and it's causing a sideways scrollbar. There's a reason for this, but before we get into that, let's just fix the thing and get it right. In the `*` selector we just applied to our style sheet, add one more property delcaration:
-
-```css
-box-sizing: border-box;
-```
-
-What the what? Everything just adjusted itself to fit the page! Why did this happen?
-
-> IMPORTANT: The CSS Box Model Explained
->
-> At this point, it is understood that the browser takes some liberties with how it applies style to certain elements that don't have a style explicitly applied to them via CSS. Probably most important thing the browser does is calculate how much space an HTML element _should_ take up. So what factors into this calculation?
->
-> **Calculating Width**: Base element width + margin left + margin right + padding left + padding right + border left + border right
->
-> **Calculating Height**: Base element height + margin top + margin bottom + padding top + padding bottom + border top + border bottom
->
-> Seems like a lot of values to take into consideration, no? Look at these style declarations for a simple box on a page:
->
-> ```css
-> .box {
->   width: 200px;
->   height: 200px;
->   margin: 40px 20px;
->   /* more on borders later, just know that this is 4px on every side */
->   border: 4px solid black;
->   padding: 10px;
-> }
->```
->
-> This means that our box will start with a base width of 200px, then add 20px for left margin, 20px for right margin, 4px for left border, 4px for right border, then 10px for left padding, and 10px right padding.
->
-> Suddenly, our seemingly 200px wide box is now 268px wide! This means that if we truly need a 200px wide box, we need to subtract 68px the base width to account for the added space. 
->
-> Now let's think about our own `header` styles: 
->
-> ```css
-> header {
->   width: 100%;
->   padding: 20px 35px;
->   background-color: #39a6b2;
-> }
-> ```
->
-> Using the logic explained above, our `header` has a base width of 100% of the page, but then add 20px to the left and 20 px to the right for padding, meaning our `header` is now a very weird "100% + 40px" wide. Hence the left to right scrollbar to handle the overflow.
->
-> This is somewhat not maintainable and fairly unacceptable for writing clean CSS and keeping our sanity. So yet again, we need to tell the browser to do its calculations a little differently. Lucky for us, there's a specific CSS property that allows us to do just that: `box sizing`. This has two possible values:
->
-> **content-box**: this is the default one the browser uses. It calculates sizing the way we just went through, starting with the width of the element's content (not the overall element), it adds size for padding, margin, and border.
->
-> **border-box**: this one makes things more predictable and manageable. It calculates the sizing by including content, padding, and border in the base height/width and only adding to it when a margin is applied. This makes predicting size a lot more manageable.
->
-> As we can see, the second one seems to be the better option as we are taking a lot of variable sizes off the table and the less math we have to do, the better. This is why when most developers start writing their style sheet they use the `*` selector to tell every single element on the page to be calculated with `box-sizing: border-box`.
-
-Well all right, we can safely say at this point that we have finished our `header`! Let's double check and make sure that the page currently looks like this:
+Okay so now we're looking good, right? The header is flush up against the top left corner of the page so there's no weird white gap. The navigation is nice and directly to the right of the `h1`. We can safely say at this point that we have finished our `header`! Let's double check and make sure that the page currently looks like this:
 
 ![completed header](assets/step-2/600-header-complete.png)
 
@@ -510,10 +450,10 @@ If it does, great! It's time to move onto styling the `footer` next. But rest as
 > Check Point:
 >
 > **Given the following CSS selector, which HTML element would be the outermost/parent element?**
-> 
+>
 > ```css
 > header nav ul li {
->  color: white
+>   color: white;
 > }
 > ```
 >
@@ -524,7 +464,7 @@ If it does, great! It's time to move onto styling the `footer` next. But rest as
 >
 > ANSWER: `b. header`
 >
-> ------------
+> ---
 >
 > **What is the preferred way to include/link another file in programming?**
 >
@@ -533,7 +473,7 @@ If it does, great! It's time to move onto styling the `footer` next. But rest as
 >
 > ANSWER: `a. relative pathing`
 >
-> ------------
+> ---
 >
 > **The `*` selector in CSS selects all HTML elements and applies a style to them.**
 >
@@ -542,14 +482,12 @@ If it does, great! It's time to move onto styling the `footer` next. But rest as
 >
 > ANSWER: `a. True`
 >
-> ------------
->
+> ---
 
-------------
 
 > PRO-TIP: Don't forget to save your work and push to GitHub!
 
-------------
+
 
 ## Setting up our `footer` HTML
 
@@ -565,7 +503,7 @@ We'll go ahead and add this in our `footer` right after the `h2`:
 
 ```html
 <div>
-  <a href="#">Read Our Privacy Policy</a><br/>
+  <a href="#">Read Our Privacy Policy</a><br />
   &copy; 2019 Run Buddy, Inc.
 </div>
 ```
@@ -580,7 +518,7 @@ Let's review the two new pieces of HTML we used here:
 
 One more thing to mention is the use of a `#` as the value of the `href`. Considering what we saw earlier with the `href="#what-we-do` syntax, and how it is used to navigate towards another section of the same page with an `id` attribute looking like `id="what-we-do"`, what happens when there is no name after the `#`? This is used when we don't exactly know where we want our link to go yet. Yes, the text says `Privacy Policy` but we currently don't have that page. So for now we'll use the `#` as a placeholder and we'll circle back to it later when we create that second page.
 
-So now our `footer` has all the right bones to start designing! 
+So now our `footer` has all the right bones to start designing!
 
 ## Designing our footer
 
@@ -615,7 +553,7 @@ Now let's go ahead and tackle the rest of the content in the `footer` step-by-st
 >   font-size: 30px;
 >   margin: 0;
 > }
->```
+> ```
 >
 > 2. Apply style to the right `div` container holding the rest of the content.
 >
@@ -625,7 +563,7 @@ Now let's go ahead and tackle the rest of the content in the `footer` step-by-st
 >   line-height: 1.5;
 >   text-align: right;
 > }
->```
+> ```
 >
 > 3. Apply style to the `a`.
 >
@@ -634,7 +572,6 @@ Now let's go ahead and tackle the rest of the content in the `footer` step-by-st
 >   color: #024e76;
 > }
 > ```
->
 
 Well that wasn't so bad, was it? Notice how we've repeated the same layout as the header by making the `h2` an inline element and the `div` float to the right? And only two new properties have been introduced:
 
