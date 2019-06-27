@@ -110,3 +110,44 @@ If you haven't already, save your HTML file and reload it in the browser. Things
 ![image screenshot](./assets/step-4/100-big-screenshot.png)
 
 Our image is enormous! Remember, SVGs are scalable. There's no built-in, hard-set pixel count, so it's going to fill up any available space. But that's okay. We'll use CSS to size it down later. For now, add the other three images to Steps 2-4.
+
+> **Rewind:** This seems like a good stopping point, which means... time to `add`, `commit`, and `push`!
+
+# Styling What We Do
+
+With the HTML in place, we're ready to start prettying up the "What We Do" content. Add a class to the `<section>` tag so we can uniquely identify it in our stylesheet:
+
+```html
+<section id="what-we-do" class="intro">
+```
+
+Looking at the mock-up again, it would seem that everything in this section is centered, which we can accomplish with a familiar CSS property:
+
+```css
+.intro {
+  text-align: center;
+}
+```
+
+Now add some CSS properties that apply to the `<h2>` tag inside this section:
+
+```css
+.intro h2 {
+  font-size: 55px;
+  color: #024e76;
+  margin-bottom: 35px;
+  padding: 0 100px 20px 100px;
+  border-bottom: 3px solid;
+  border-color: #fce138;
+}
+```
+
+The majority of this is stuff we've used before, but one thing worth highlighting is that we've specified a border on one side of the element only. We also split the border into two separate rules, but you could have written it as one: `border: 3px solid #fce138;`. It's up to you.
+
+> **Pause:** If you were to write `padding: 0 100px 20px 100px;` as four separate properties, which value would go with which property?
+
+The heading for this section should now look like this:
+
+![wide heading](./assets/step-4/200-wide-heading.png)
+
+And that's definitely an improvement, but if we left it like that, the design team would not be happy. The yellow border isn't supposed to extend to the edges of the screen!
