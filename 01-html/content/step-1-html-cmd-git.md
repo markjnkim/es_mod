@@ -211,7 +211,11 @@ How do you add a message to a `git commit`?
 
 We'll have a chance to practice Git again before we're done, but let's jump back into building out the HTML. Looking at the mock-up again, it may feel quite daunting to turn all of those colors and perfectly-positioned titles and images into raw HTML. That's why this next step is hugely important. As developers, we must resist the urge to start coding without a plan of attack. HTML can easily get out of control if we don't consider how elements fit together.
 
-What's nice about HTML, though, is that it's really just a series of boxes that fit inside of (or next to) each other. Consider the following code:
+What's nice about HTML, though, is that it's really just a series of boxes that fit inside of (or next to) each other. Consider this layout:
+
+![box diagram](./assets/step-1/725-box-diagram.png)
+
+Represented by the following code:
 
 ```html
 <div>Box 1</div>
