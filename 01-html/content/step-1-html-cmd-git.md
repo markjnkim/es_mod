@@ -108,7 +108,7 @@ Next, open this HTML file in the browser (preferably Chrome). If you have the [O
 
 All right, so it's not the most exciting web page yet, but you gotta start somewhere. Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of "elements" with an opening `<tag>` and a closing `</tag>`. Anything in between these tags is affected by what that tag does. The `<h1>` tag, for instance, made the text inside big and bold. This denotes a heading. If we have other, less important headings on our web page, we can use additional tags like `<h2>`, `<h3>`, and so on.
 
-Try changing the code to `<h2>RUN BUDDY</h2>` instead. Save the file and refresh the tab in the browser. Notice how the text shrunk slightly. Also keep in mind that this only affected the RUN BUDDY text, because the tag was closed. If you remove the `</h2>`, the text underneath will become big and bold, too, because the browser doesn't know where the `<h2>` ends.
+Try changing the code to `<h2>RUN BUDDY</h2>`. Save the file and refresh the tab in the browser. Notice how the text shrunk slightly. Also keep in mind that this only affected the RUN BUDDY text, because the tag was closed. If you remove the `</h2>`, the text underneath will become big and bold, too, because the browser doesn't know where the `<h2>` ends.
 
 Now that we understand HTML tags, let's look at the others we used. We're writing an HTML page, so it makes sense that everything would need to be wrapped in an `<html>` tag. The only thing that didn't go inside this tag was the `<!DOCTYPE html>`. This is an extra line that tells the browser how to interpret your HTML code. We don't need to worry about supporting very old browsers like Netscape Navigator, so this "DOCTYPE" will always be written as `<!DOCTYPE html>`.
 
@@ -123,7 +123,7 @@ What is the purpose of the `<body>` tag?
 
 There are two remaining pieces we haven't covered yet. In the opening `<html>` tag, there's an extra "attribute" set to `lang="en"`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's a tag in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character we would want, from foreign language symbols to emojis. Copy this emoji (🏃) and paste it somewhere in your `<body>`. Note that it shows up just fine in the browser, but if you change the charset to `<meta charset="ASCII" />`, it no longer works, because the browser will limit the available display characters to those of the ASCII character set. Best to stick with UTF-8.
 
-Don't worry too much about these details, though. Much of this is boilerplate, meaning every web page is going to start with the same structure. Every page needs a DOCTYPE, an `<html>` tag, a `<head>` tag, etc. It's worth typing out again and again just to reiterate their importance, but it can also be copy/pasted without harm.
+Don't worry too much about these details, though. Much of this is boilerplate, meaning every web page is going to start with the same structure. Every page needs a DOCTYPE, an `<html>` tag, a `<head>` tag, etc. It's worth typing out again and again just to reiterate their importance, but it can also be copy/pasted into future projects without harm.
 
 One last thing to keep in mind is how we've been organizing the code in our HTML file. New tags were put on a new line, and whenever a tag was inside of another, we indented the code. You could choose to write your HTML like this:
 
@@ -153,7 +153,7 @@ First, try running the command `git status`, which should display the following 
 
 ![git status](./assets/step1/400-git-status.png)
 
-`git status` is a great way to quickly check what files have changed since the last time you "saved." Granted, we haven't saved, or commited, anything yet, so this information may be a little confusing. On branch master? Did we make a branch called master? By default, every repository comes with a master branch. We won't worry about creating additional branches just yet, so it's fine to leave it as is. But this information also lists `index.html` under "Untracked files."
+`git status` is a great way to quickly check what files have changed since your last commit (or saved snapshot). Granted, we haven't commited anything yet, so this information may be a little confusing. And why is it saying we're on branch master? Did we make a branch called master? By default, every repository comes with a master branch. We won't worry about creating additional branches just yet, so it's fine to leave it as is. But this information also lists `index.html` under "Untracked files."
 
 The thing about Git is that it only cares about files you tell it to care about. In other words, files you tell it to track. Well, we definitely care about `index.html`, so let's add it to Git's tracking:
 
@@ -234,9 +234,9 @@ We're using `<div>` tags here, which are like containers to hold relevant inform
 
 Let's take a piece of our mock-up and think about how we could break this down into logical boxes or containers:
 
-![containers](./assets/step1/800-box-layout.png)
+![containers](./assets/step1/750-box-layout.png)
 
-Note that some containers aren't immediately apparent, because they do nothing but hold other containers. It's okay if this doesn't feel intuitive yet. The more apps you build, the better you'll get at mapping their layouts. This is as good a time as any to practice, so grab a pen and paper and sketch out the rest of the mock-up on your own. Take this step seriously! Stepping away from the computer screen and applying a physical touch to the development process can really help the creative process.
+Note that some containers aren't immediately apparent, because they do nothing but hold other containers. It's okay if this doesn't feel intuitive yet. The more apps you build, the better you'll get at mapping their layouts. This is as good a time as any to practice, so grab a pen and paper and sketch out the rest of the mock-up on your own. Take this step seriously! Stepping away from the computer screen and applying a physical touch to the development process can help shed new light on a problem.
 
 > **Story Time:** It's not uncommon for teams to spend many days or even weeks planning out a project before a single line of code is written. Drawing on a piece of paper may feel like a waste of time when we want to scratch that coding itch right away, but doing so ends up saving time and preventing potential problems in the long run.
 
