@@ -6,7 +6,9 @@ Let us take a moment to start by giving ourselves a pat on the back. The hardest
 
 In the previous step we built a series of "containers" for our web page to hold different types of content. At first glance, this may seem like a lot of extra work, but as we continue to add content and apply style to each section one at a time we won't have to worry about our work affecting the other sections.
 
-This step will focus on building out the content and applying styles for both the header and footer of our page. We will be introduced to both new HTML elements and Cascading Style Sheets, which will be referred to throughout the rest of this unit (and our careers) as `CSS`. The nice thing about what we will be working on here is that a lot of what we learn will be repeated in future steps. Be warned, however, CSS can be just as frustrating as it is rewarding, for both beginner and veteran developers alike. It is technology that is best learned through doing, so let's get started!
+This step will focus on building out the content and applying styles for both the header and footer of our page. Why the header and footer? Why do the top and bottom and leave everything in the middle untouched? This is because the header and footer typically follow similar patterns when adding both inner HTML content and applying styles. Since this is our introduction to a lot of these concepts, we'll keep it a little bit on the plain side so we can focus on learning.
+  
+We will be introduced to both new HTML elements and Cascading Style Sheets, which will be referred to throughout the rest of this unit (and our careers) as `CSS`. The nice thing about what we will be working on here is that a lot of what we learn will be repeated in future steps. Be warned, however, CSS can be just as frustrating as it is rewarding, for both beginner and veteran developers alike. It is technology that is best learned through doing, so let's get started!
 
 ## Add content to our `<header>`
 
@@ -319,68 +321,50 @@ We'll explain these new properties when we're all done here, so don't worry if i
 > LINEAR STEPS
 >
 > 1. Apply styles to every `a` tag in the header.
->
-> ```css
-> header a {
->   text-decoration: none;
->   color: #fce138;
-> }
-> ```
->
 > 2. Apply styles to the `nav` tag.
->
-> ```css
-> header nav {
->   float: right;
->   margin: 7px 0;
-> }
-> ```
->
 > 3. Apply styles to the `nav` tag's `li` tags.
->
-> ```css
-> header nav ul li {
->   display: inline-block;
-> }
-> ```
->
 > 4. Apply styles to the `a` tags inside of the `li` tags
->
-> ```css
-> header nav ul li a {
->   margin: 0 30px;
->   font-weight: lighter;
->   font-size: 22px;
-> }
-> ```
->
 > 5. Marvel at the progress we've made.
 
-Congratulations! We've just finished our first layout-specific style change. We moved the navbar from the left to the right and we also overrode a few styles that the browser assumes for us by removing the underline from the `a` tags and changing the color from it's default blue to yellow.
+Let's start with applying styles to every `a` tag in the header.
 
-Now we aren't quite there yet, there are still a few tweaks we need to add to our CSS to get it aligned with perfectly. This is going to involve overriding a couple of browser _quirks_, so we'll get a little more detailed with that. But for now, our `header` should look something like this:
+```css
+header a {
+  text-decoration: none;
+  color: #fce138;
+}
+```
 
-![Header styles - 2](assets/step-2/500-header-style-2.png)
-
-Let's start by explaining the longest selector in the code, `header nav ul li a`. What this tells the browser to do is "find all `a` tags inside an `li` tag, which are inside of a `ul` tag, which are inside of a `nav` tag, which are inside of a `header` tag. It's a lot to think about, but it also makes our selection very specific, meaning any other `a` tag we need to add style to won't automatically have these styles and we can style them separately.
-
-> PAUSE\
-> Considering the above, what do these other selectors say?
->
-> ANSWERS\
-> `header nav ul li`: Select all `li` tags inside of a `ul` tag inside of a `nav` tag inside of a `header` tag
->
-> `header nav`: Select all `nav` tags inside of a `header` tag
-
-Now, getting into the new properties:
+What we've done here is select all `a` tags inside of `header`, so both the one in the `h1` and the ones in the `nav`. We used a new property here as well:
 
 - **text-decoration**: This is a style to apply `underline`, `strikethrough`, or `overline` styles to the text. By default, the value is `none`, so it's usually not something we have to explicitely tell it NOT to do. With `a` tags, however, the browser applies both a blue color and an underline, so we need to go and override those styles and make them our own.
 
+Now we'll move onto styling the `nav` tag.
+
+```css
+header nav {
+  float: right;
+  margin: 7px 0;
+}
+```
+
+So we've done something fairly drastic. We've taken the `nav` tag and moved it to the right side. As we've seen so far, most, HTML tags position themselves along the left side of the page with one coming below the other. Now we've taken one totally out of the normal "flow" of the page. The property used here is called `float`:
+
 - **float**: Think of this as the "text-wrap" property from Microsoft Word, which allows content to flow around something that has been yanked to the left or right rather than make it break onto it's own new horizontal line. We'll get way more into this property later on, so let's not spend _too_ much time worrying about how this works just yet.
+
+We've also added in a little bit of a top and bottom `margin` here too:
 
 - **margin**: We've discussed `margin` before, but just to reiterate, this one has a value of `7px 0`, which means it has `7px` of space added to the top AND bottom but `0px` to the left AND right.
 
-- **display**: Notice how before we added `display: inline-block`, the list looked like, well, a list? Each `li` had it's own horizontal line to take up and the next one would come below it rather than next to it. This is another case of us overriding a default style that the browser provides `li` tags. More on this below in "BLOCK vs INLINE".
+Now that we have our two main pieces (`h1` and `nav`) in position, let's move into the `nav` tags.
+
+```css
+header nav ul li {
+  display: inline;
+}
+```
+
+Notice how before we added `display: inline`, the list looked like, well, a list? This is because each `li` is what's known as a "block element", meaning the browser lets it take up 100% of the width of whatever container it's in. Block elements will always force the next element to be on the next line, so we had to make it a different type of element known as "inline". This is another case of us overriding a default style that the browser provides `li` tags. More on this below in "BLOCK vs INLINE".
 
 > IMPORTANT: BLOCK vs INLINE HTML
 >
@@ -402,7 +386,29 @@ Now, getting into the new properties:
 >
 > In next week's unit, we'll get into some new, more advanced display values that are going to really step up our layout game.
 
-Okay, that's a lot to take in, but hopefully it's has given us enough basic understanding of how things _want_ to behave and how we can undo it. With that said, let's head back and take a look at fixing our little issue in the `header`.
+Last one we need to hit is the `nav`'s `a` tags. Notice how we've already applied styles to the `a` tags in the `header`, but now we need to be more specific and give only these particular `a` tags styles that the other `a` tag doesn't need. So now these `a` tags will receive not only the styles we added earlier, but these styles as well.
+
+```css
+header nav ul li a {
+  margin: 0 30px;
+  font-weight: lighter;
+  font-size: 22px;
+}
+```
+
+Now we aren't quite there yet, there are still a few tweaks we need to add to our CSS to get it aligned with perfectly. This is going to involve overriding a couple of browser _quirks_, so we'll get a little more detailed with that. But for now, our `header` should look something like this:
+
+![Header styles - 2](assets/step-2/500-header-style-2.png)
+
+> PAUSE\
+> Considering the above, what do these other selectors say?
+>
+> ANSWERS\
+> `header nav ul li`: Select all `li` tags inside of a `ul` tag inside of a `nav` tag inside of a `header` tag
+>
+> `header nav`: Select all `nav` tags inside of a `header` tag
+
+Okay, this has been a lot to take in, but hopefully it has given us enough basic understanding of how things _want_ to behave and how we can undo it. With that said, let's head back and take a look at fixing our little issue in the `header`.
 
 Think about that list of block level elements that are listed above and see if there's any element in the `header` currently that is taking up more width than it needs to be.
 
@@ -513,6 +519,8 @@ When we apply styles to the `footer`, we're going to want both of those new item
 Let's review the two new pieces of HTML we used here:
 
 - **Break Tags**: `<br/>` is an HTML tag that creates a line break, this way whatever comes after is going to be on the next line. Since `a` tags are inline elements, we need to create that space manually. These are great for situations like this, ones that don't require a ton of CSS tweaking, but just a simple line break.
+
+> LEGACY LEM: Before CSS became popular, developers would create top and bottom margins and spacing by adding `br` tags until the desired space was met. This is not a good practice anymore, as `margin` and `padding` have made controlling space a much easier process.
 
 - **HTML Entities (`&copy;`)**: If we haven't noticed yet, every HTML tag includes with a greater than `>` and less than `<` symbol, so what happens if we need to actually use one of those symbols in our content and not as HTML syntax? How does the browser tell the difference? The short answer is it can't, so HTML's solution is to have special character codes known as `HTML Entities`. These are special codes that start with an ampersand `&` and can be used to create symbols (i.e. `&gt;` creates a `>`). For more information and a more extensive list, [go here](https://developer.mozilla.org/en-US/docs/Glossary/Entity).
 
