@@ -198,3 +198,146 @@ This is shorthand for setting a top and bottom margin of zero and a left and rig
 Pretty cool! Yet another CSS trick to put in your toolbelt. And that wraps up "What We Do."
 
 # Styling What You Do
+
+The setup for this next section is going to be similar to the last one we tackled. First, add a class to the `<section>` tag:
+
+```html
+<section id="what-you-do" class="steps">
+```
+
+In your stylesheet, let's knock out some of the higher-level styling for the overall section:
+
+```css
+.steps { 
+  text-align: center;
+  background: #fce138;
+}
+```
+
+Then we can clean up the heading:
+
+```css
+.steps h2 {
+  font-size: 55px;
+  color: #024e76;
+  margin-bottom: 35px;
+  padding: 0 100px 20px 100px;
+  border-bottom: 3px solid;
+  border-color: #39a6b2;
+}
+```
+
+Huh. You know what? Those CSS properties look almost identical to the ones we wrote for `.intro h2`. The only thing that's different is the `border-color`. In programming, we want to cut down on duplicate code as much as possible, and this is a great example of unnecessary duplication. We could consolidate these rules into more generic classes that all of our headings (including "Meet the Trainers" in the next lesson) could pull from.
+
+Let's reorganize our CSS with a few new classes:
+
+```css
+.section-title {
+  font-size: 55px;
+  color: #024e76;
+  display: inline-block;
+  margin-bottom: 35px;
+  padding: 0 100px 20px 100px;
+  display: inline-block;
+  border-bottom: 3px solid;
+}
+
+.primary-border {
+  border-color: #fce138;
+}
+
+.secondary-border {
+  border-color: #39a6b2;
+}
+```
+
+Now we can delete the previous CSS rules for `.intro h2` and `.steps h2` (sorry!). We'll also need to update the HTML code to use these new classes:
+
+```html
+<section id="what-we-do" class="intro">
+  <h2 class="section-title primary-border">What We Do</h2>
+  ...
+</section>
+
+<section id="what-you-do" class="steps">
+  <h2 class="section-title secondary-border">What You Do</h2>
+  ...
+</section>
+```
+
+Note that these `<h2>` tags in different sections are able to use the same `section-title` class, giving them all the same baseline in terms of size, spacing, etc. We can then add additional classes by separating the class names with a space. So the attribute `class="section-title primary-border"` is actually pulling in CSS properties from two different classes.
+
+> **Skill Drill:** This is such an important concept with CSS that it's worth practicing a little more outside of this module. When you have a moment, try writing two classes (and only two classes, no other selectors) that could make the following possible:
+>
+> ```html
+> <div>bold, green text</div>
+> <div>bold, italic, underlined, green text</div>
+> <div>italic, underlined text</div>
+> ```
+
+What's left is some general clean-up to size and color elements correctly. Even though this may feel like repeat work, still type out each one instead of copy/pasting. It'll help you memorize the syntax faster!
+
+```css
+.steps div {
+  margin-bottom: 80px;
+}
+
+.steps img {
+  width: 15%;
+  margin: 10px 0;
+} 
+
+.steps h3 {
+  color: #024e76;
+  font-size: 46px;
+  margin-top: 10px;
+}
+
+.steps p {
+  color: #39a6b2;
+  font-size: 23px;
+}
+```
+
+> **Deep Dive:** Something you may have noticed is that our parent `text-align: center;` property also centered the SVG icons. This can be a bit confusing at first, since images definitely are not text, but `text-align` essentially centers everything inside of an element, text or otherwise. Note that if you want to use `text-align` to center an image, though, you must apply it to the parent element, not the image itself.
+
+So it may seem like we're done now, but anytime we're given a design mock-up to follow, we need to be absolutely sure we covered everything. Designers don't appreciate when developers say, "Eh, it's good enough." One thing that would be easy to overlook is the font size differences in the step titles:
+
+![step title](./assets/step-4/600-step-span.png)
+
+Note that "Step 1:" is a bigger font than "Fill Out The Form Above." Ugh, does that mean we have to create two separate elements and meticulously position them side-by-side? Thankfully, no. We can more easily solve this problem using another HTML tag: the `<span>`. Rewrite your `<h3>` to look like this:
+
+```html
+<h3>Step 1: <span>Fill Out The Form Above.</span></h3>
+```
+
+Refresh the browser. Nothing's changed! That's because the `<span>` tag doesn't affect anything visually. It's an inline element meant for highlighting sections of larger text blocks, where the highlighting is something we define ourselves with CSS. Let's do that now:
+
+```css
+.steps span {
+  font-size: 38px;
+}
+```
+
+This will shrink the font size of the `<span>` while the adjacent text in the `<h3>` keeps its `46px` font size. Update Steps 2-4 to follow suit. By the end, we should see some nice results:
+
+![see results](./assets/step-4/700-see-results.png)
+
+> **Check Point:**\
+What is the purpose of the `alt` attribute for images?\
+How can you add more than one class to an HTML element?\
+What are two ways you could center a 50%-width `<div>` with CSS?
+
+# Reflection
+
+This lesson gave us a chance to practice many of the CSS properties we learned previously to finish a pretty large chunk of the layout&mdash;the "What We Do" and "What You Do" sections. Along the way, we better organized our stylesheet with reusable class names and learned a few new bits of HTML and CSS:
+
+* `<img>` tags for displaying images
+
+* `<span>` tags for highlighting inline content
+
+* `auto` as a valid value for CSS margins
+
+* `text-align` to center non-text content
+
+Keep these ideas in your back pocket, because they will surely come up again, not only in these last few lessons but in future web-related projects!
