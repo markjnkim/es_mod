@@ -150,4 +150,51 @@ The heading for this section should now look like this:
 
 ![wide heading](./assets/step-4/200-wide-heading.png)
 
-And that's definitely an improvement, but if we left it like that, the design team would not be happy. The yellow border isn't supposed to extend to the edges of the screen!
+And that's definitely an improvement, but if we left it like that, the design team would not be happy. The yellow border isn't supposed to extend to the edges of the screen! You may wonder why that's even happening, since the text "What We Do" doesn't take up that much space, but think back to previous lessons where we talked about inline elements and block elements.
+
+> **Rewind:** Block elements take up 100% of the width of their parent, regardless of content size. Inline elements only take up as much space as their content needs, allowing multiple inline elements to sit next to each other.
+
+The `<h2>` element, by default, is a block element, but with CSS, we can change that default behavior:
+
+```css
+.intro h2 {
+  /* add this alongside your other properties */
+  display: inline-block;
+}
+```
+
+Coupled with our `text-align` property from before, we now have a nice, centered heading with an appropriately-sized border:
+
+![inline heading](./assets/step-4/300-inline-heading.png)
+
+Now let's clean up that paragraph of text a little bit:
+
+```css
+.intro p {
+  line-height: 1.7;
+  color: #39a6b2;
+  width: 80%;
+  font-size: 20px;
+}
+```
+
+Again, nothing new here, but the end result presents another problem:
+
+![misaligned paragraph](./assets/step-4/400-misaligned-paragraph.png)
+
+Because we shrunk the width of the paragraph down to 80%, it no longer looks centered. Only the text inside is centered. We could use our handy `display: inline-block;` trick to fix it, but there's another common tactic used when needing to center block elements that have a width less than 100%:
+
+```css
+.intro p {
+  /* add this alongside your other properties */
+  margin: 0 auto;
+}
+```
+
+This is shorthand for setting a top and bottom margin of zero and a left and right margin of auto. But what does "auto" mean? This essentially tells the browser to calculate the margins for us. When the browser is asked to do this on both sides of an element, it will do its best to make them even, thus pushing the element into the center. With the Developer Tools, we can inspect the element's margins (the orange boxes) before auto is applied and after:
+
+![margin comparison](./assets/step-4/500-margin-comparison.png)
+
+Pretty cool! Yet another CSS trick to put in your toolbelt. And that wraps up "What We Do."
+
+# Styling What You Do
