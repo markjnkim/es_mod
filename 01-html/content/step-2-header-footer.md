@@ -178,27 +178,20 @@ So now we know which route we're taking to include CSS into our web page, let's 
 > 2. Move into the newly created `assets` folder using `cd` and then create another folder inside of `assets` called `css`
 >
 > 3. Move into the newly created `css` folder and now let's create a file called `style.css`. Don't worry about putting anything inside of it just yet.
->
-> 4. Lastly, we need to tell our HTML document to read any applicable styles that `style.css` may have for it. We can achieve this by placing `<link rel="stylesheet" href="./assets/css/style.css" />` in between the `head` tags in our HTML document. This is an example of relative pathing. For more information, read the block marked "IMPORTANT" below.
->
-> 5. Let's test this and make sure it worked by adding the following to `style.css`:
->
-> ```css
-> body {
->   font-family: Helvetica, Arial, sans-serif;
->   background-color: tomato;
-> }
-> ```
->
-> 6. If that turned the whole background of your page to red, then it works! Please remove the `background-color` style from the page as we won't need it anymore.
 
-> IMPORTANT: A note about `relative file pathing`
+Now that our file is created, we need to tell our HTML document to read any applicable styles that `style.css` may have for it. We can achieve this by placing `<link rel="stylesheet" href="./assets/css/style.css" />` in between the `head` tags in our HTML document.
+
+What we just did was use the HTML tag `link` to tell our HTML document to go find a specific resource (file) and incorporate it into the document. It needs at least one attribute, `href`, which behaves similarly to how it works in `a` tags, but this one is serving a different purpose. This one is saying "find this file called `style.css` located in the `css` folder inside of the `assets` folder, read it, and incorporate any of its information into this HTML document". This is the first real instance we've provided a value to an `href` that points to another file in our directory, this is what's known as `relative pathing`, and it is a very important concept so make sure to read the block below.
+
+The other attribute, `rel`, is providing a little more context as to what the HTML's relationship to the file being included through the `href` is supposed to be. In this case and most of the time, we'll be using `rel="stylesheet"`, but as time goes on there may be situations where that may change.
+
+> IMPORTANT: Relative file paths
 >
-> Throughout our careers, there will be almost daily instances where we will have to make one file look for and read another. We used this above in Step 4 with the `link` tag's `href` value "./assets/css/style.css".
+> Throughout our careers, there will be almost daily instances where we will have to make one file look for and read another. We used this above with the `link` tag's `href` value "./assets/css/style.css".
 >
 > When we breakdown this value, it is essentially saying "starting where this current file is (`.` denotes the current directory), let's look in a subdirectory called "assets", then from "assets", look in a subdirectory called "css", and lastly, select a file called "style.css".
 >
-> This works well for us because the other option is to put a hard set path from the host computer's directory structure, meaning it'd look something like this:
+> This works well for us because the other option is to put a hard set path (also known as `absolute path`) from the host computer's directory structure, meaning it'd look something like this:
 >
 > ```html
 > <link rel="stylesheet" href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css" />
@@ -209,6 +202,17 @@ So now we know which route we're taking to include CSS into our web page, let's 
 > The best solution for this is to work with relative pathing, as we typically push the entire folder structure for the project up together and the paths don't lose context as to where they are.
 >
 > The idea of pathing is just like the command line commands we learned in the last lesson, where we move relative to where we are currently in the folder structure and can move into subdirectories with `./subdirectory-name` and move out of a folder with `../`, which will step us up a level into the parent directory.
+
+Let's test this and make sure it worked by adding the following to `style.css`:
+
+```css
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: tomato;
+}
+```
+
+If that turned the whole background of your page to red, then it works! Please remove the `background-color` style from the page as we won't need it anymore.
 
 > PAUSE: We'll get into explaining the above CSS syntax in the next step, but take a moment and think about what's happening here. In CSS, we used the word `body`, where have we seen `body` before? Maybe in the HTML document?
 
