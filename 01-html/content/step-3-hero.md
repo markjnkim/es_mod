@@ -336,11 +336,19 @@ These changes are not permanent and do not change the actual code, but merely of
 
 > **Pro Tip**: To further develop skills with these types of tools, it is important to use them as much as possible. Try to use new tools as much as possible in the beginning since it easy to forget they are there.  It is a good habit keeping this window open so it stays top of mind.  Remember it can be shrunk, stretched or docked on any side by selecting the hamburger button in the top-right corner.
 
+The CSS style sheet appears to be the same one we have been working on, however there are actually
+
 > **Pause**: Do you notice how some of the style properties in the `Styles` window have a line through them?  What do you think this means and why?
 > **Answer**: These styles have been overridden by another property due to the cascading hierarchy of CSS style sheets. Notice how the checkbox can toggle the style property.
 
 
+
+Scrolling down to the bottom of the `Styles` window offers an interactive CSS box model that allows the different layers of the CSS box to be manipulated.  A very useful tool that can safe a lot of time and energy when doing page layout design.
 <!-- <a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
 " target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a> -->
 
+## Styling Form
+We have reached that last portion of this module so let's dive right in and finish up the call to action part of our hero section.
+
+To start let's snazz up our heading with bold intent!  We need to bring some excitement and enthusiasm so   
