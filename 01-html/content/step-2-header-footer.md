@@ -14,13 +14,13 @@ We will be introduced to both new HTML elements and Cascading Style Sheets, whic
 
 ![header html](assets/step-2/100-header-html.png)
 
-We'll begin by adding some information that most modern web pages have: branding and navigation. These two pieces of a UI usually find their way into the `header` of an HTML document.
+We'll begin by adding some information that most modern web pages have: branding and navigation. These two pieces of a user interface (also known as "UI" for the hip) usually find their way into the `header` of an HTML document.
 
 Branding usually comes in the form of a logo or icon image but with the advent of custom web font options, a lot of developers haved started gravitating towards native HTML text instead. This makes the page's identity easier for Google to understand as it is just text as opposed to an image (which Google cannot interpret, yet). At this point, we've already gone this route when we added the `<h1>RUN BUDDY</h1>` to the `<header>`.
 
-Now we have our page's identity in place, so let's turn our attention to the navigation portion of our `header`. To begin, let's start by adding `<nav>` and `</nav>` immediately below our `h1` (but keep it still before the closing `header` tag). The `nav` HTML tag is a newer "semantic" tag designed to help with accessibility and SEO. The browser can now read these tags and get an idea of what information is inside.
+Now we have our page's identity in place, let's turn our attention to the navigation portion of our `header`. To begin, let's start by adding `<nav>` and `</nav>` immediately below our `h1`, but above the closing `</header>` tag . The `nav` HTML tag is a newer "semantic" tag designed to help with accessibility and SEO. The browser can now read these tags and get an idea of what information is inside.
 
-There are a number of ways to organize a page's navigation links, some make more sense than others in certain situations. We will utilize a more popular method of organizing them by creating a list and giving each navigation link its own spot on that list. Right after the opening `nav` we just created, place the following:
+There are a number of ways to organize navigation links. We will use a popular method by creating a list and giving each navigation link its own spot on that list. Right after the opening `nav` we just created, place the following:
 
 ```html
 <!-- Unordered list tag -->
@@ -42,9 +42,9 @@ There are a number of ways to organize a page's navigation links, some make more
 </ul>
 ```
 
-So let's unpack what we just created, starting with lists. In HTML there are two types of lists: "ordered" and "unordered". Ordered lists `<ol>` tell the browser to interpret any nested "list item" `<li>` in numeric order (1, 2, 3, etc). Unordered lists `<ul>` allow for a more loosely formatted list by marking each nested list item with a symbol (such as a bullet point or dash). The relationship between `ul` and `ol` with `li` is a direct parent/child relationship, meaning that `li` should typically live directly inside of `ul` or `ol` for the browser to understand the relationship between list items.
+So let's unpack what we just created, starting with lists. In HTML there are two types of lists: "ordered" and "unordered". Ordered lists or `<ol>` tell the browser to interpret any nested "list item" `<li>` in numeric order (1, 2, 3, etc). Unordered lists `<ul>` allow for a more loosely formatted list by marking each nested list item with a symbol (such as a bullet point or dash). The relationship between `ul` and `ol` with an `li` is a direct parent/child relationship, meaning that `li` or child should be nested or contained within the parent element's opening and closing tags, in this case the `ol` or `ul` tags.
 
-Within reason, anything can be nested inside of an `li` tag. In our case for creating a navigation, we used an "anchor" `<a>` tag. Anchor elements are a crucial tool for us as they give us the ability to create links in our HTML that take us to other destinations when clicked. These destinations can be within the same page, another page within our site, or another web site entirely. Take a look below to see a few examples:
+Within reason, anything can be nested inside of an `<li>` tag. In our case for creating a navigation, we used an "anchor" `<a>` tag. Anchor elements are crucial tools for us as they give us the ability to create links in our HTML that take us to other destinations when clicked. These destinations can be within the same page, another page within our site, or another web site entirely. Take a look below to see a few examples:
 
 ```html
 <!-- When we click "Go To Google" it will take you to Google -->
@@ -159,9 +159,9 @@ The first two may sound enticing to us. Why _wouldn't_ we want to keep our style
 
 We'll actually be going with the third one, here's why:
 
-- Currently our HTML file is small, but what does it look like when it gets larger and there's also style definitions? The file will be impossible to read and get very messy looking.
+- Currently our HTML file is small, but what will it look like when it gets larger and there's also style definitions? The file will become impossible to read and get very messy looking.
 
-- It gives us the ability to select multiple HTML elements at once and apply the same styles, allowing us to effectively write less code. Less code to write = less code to maintain. (This is a very important concept in all programming)
+- Having an external CSS file gives us the flexibility to select multiple HTML elements at once and apply the same styles, allowing us to effectively write less code. Less code to write = less code to maintain. (This is a very important concept in all programming)
 
 - We can share styles across multiple HTML files since it's in a third-party file as opposed to directly coupled to the single HTML document.
 
@@ -218,7 +218,7 @@ If that turned the whole background of your page to red, then it works! Please r
 
 ## Our first styles
 
-Okay, so let's being taking that wonderfully underdesigned `header` we've been working on and actually make it look like a true navigation bar. We'll start by exploring exactly _how_ we can tell CSS to attach styles to specific HTML elements using `selectors`.
+Okay, so let's take that wonderfully plain `header` we've been working on and actually make it look like a professional navigation bar. We'll start by exploring exactly _how_ we can tell CSS to attach styles to specific HTML elements using `selectors`.
 
 CSS style definitions follow the following syntax:
 
@@ -339,7 +339,7 @@ header a {
 }
 ```
 
-What we've done here is select all `a` tags inside of `header`, so both the one in the `h1` and the ones in the `nav`. We used a new property here as well:
+What we've done here is select all `a` tags inside of `header`, including the one in the `h1` and the ones in the `nav`. We used a new property here as well:
 
 - **text-decoration**: This is a style to apply `underline`, `strikethrough`, or `overline` styles to the text. By default, the value is `none`, so it's usually not something we have to explicitely tell it NOT to do. With `a` tags, however, the browser applies both a blue color and an underline, so we need to go and override those styles and make them our own.
 
@@ -352,7 +352,7 @@ header nav {
 }
 ```
 
-So we've done something fairly drastic. We've taken the `nav` tag and moved it to the right side. As we've seen so far, most, HTML tags position themselves along the left side of the page with one coming below the other. Now we've taken one totally out of the normal "flow" of the page. The property used here is called `float`:
+So we've done something fairly drastic. We've taken the `nav` tag and moved it to the right side. As we've seen so far, most HTML tags position themselves along the left side of the page with one coming below the other. Now we've taken one totally out of the normal "flow" of the page. The property used here is called `float`:
 
 - **float**: Think of this as the "text-wrap" property from Microsoft Word, which allows content to flow around something that has been yanked to the left or right rather than make it break onto it's own new horizontal line. We'll get way more into this property later on, so let's not spend _too_ much time worrying about how this works just yet.
 
@@ -386,7 +386,7 @@ Notice how before we added `display: inline`, the list looked like, well, a list
 >
 > - **display: inline-block**: the same as `inline`, but this allows width and height property definitions to be heard and applied.
 >
-> - **display: none**: simply remove the element from the view of the browser and let the next elements come up and take it's space. This won't delete the HTML associated with it, but will hide it completely.
+> - **display: none**: simply remove the element from the view of the browser and let the next elements come up and take it's space. This won't delete the HTML associated with it, but will hide it completely and removes the element from the "flow" of the HTML document.
 >
 > In next week's unit, we'll get into some new, more advanced display values that are going to really step up our layout game.
 
