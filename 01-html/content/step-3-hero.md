@@ -337,7 +337,7 @@ This tool is a tremendous asset to front-end developers with the ability to:
 * And much much more which we will continuously learn throughout this class
 > **Deep Dive**: Discover more about Chrome's [DevTools here.](https://developers.google.com/web/tools/chrome-devtools/) If it is seems a little much for now, it's because this tool has a vast array of uses that is beyond our current concept scope.  Don't worry, we will divulge more of these tools as they become more relevant and useful for us.
 
-> **Pause**: Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`.  Try out the `element inspector`, the arrow icon in the top-left corner of the DevTool window, to target a specific element.  Notice the changes in the `Element` and `Style` windows.  Feel free to play around at will.  Are these changes permanent?How can we tell?
+> **Activity/Pause**: Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`.  Try out the `element inspector`, the arrow icon in the top-left corner of the DevTool window, to target a specific element.  Notice the changes in the `Element` and `Style` windows.  Feel free to play around at will.  Are these changes permanent?How can we tell?
 >**Answer**: Page refresh can determine persistence or permanence of a change.
 
 These changes are not permanent and do not change the actual code, but merely offers a sandbox to try out different styles and sizes with the ability to see their affect on the element and the document itself.  Once satisfied with the desired styling affect, these changes must be made to the style sheet itself in order to make the style change permanent.
@@ -367,8 +367,42 @@ We will chose the second option because there is only a single `h3` inside the f
 > **Pause**: Let's go to your `style.css` file to address the `h3` to make it a bit larger as well as reduce the `margin` to zero to reduce any possible word wrapping.
 
 2) Text Spacing: Next will be adding some space to the `p` for legibility and spacing, specifically to the top and bottom margins.
-3) Input Fields: It's time to give our input fields some style and panache.  First let's get each one to exist on its own line while making it bigger and more noticeable.  Part of having a good website is giving the visitor an easy time navigating and using our page. Especially when it comes to user interaction, it's really important to make it as simple and straighforward as humanly possible.  This means having clear demarcations on each line as to address what each input is for.
+3) Input Fields Boxes: It's time to give our input fields some style and panache.  First let's get each one to exist on its own line while making it bigger and more noticeable.  Part of having a good website is giving the visitor an easy time navigating and using our page. Especially when it comes to user interaction, it's really important to make it as simple and straighforward as humanly possible.  This means having clear demarcations on each line as to address what each input is for.  We will use the CSS selector for the `form-input` class since we wish to only target the input field text boxes and not the checkbox or radio buttons.  Let's add some border, display each line separately, make the font larger, extend each input field box the length of the form container, and use the navy font colorwe used for the `footer`.
 
-We will use the CSS selector for the `form-input` class since we wish to only target the input field text boxes and not the checkbox or radion buttons.
+> **Try It Yourself**: Let's type in some code and use the Chrome DevTools to manipulate some sizes for our `padding`, `margin`, and sizing.
 
+Our code should now look like this:
+```html
+.hero-form h3 {
+  font-size: 24px;
+  margin: 0;
+}
+.hero-form p {
+  margin: 5px 0 15px 0;
+}
 
+.form-input {
+  border: 1px solid #024e76;
+  display: block;
+  padding: 7px 15px;
+  font-size: 16px;
+  color: #024e76;
+  width: 100%;
+  margin-bottom: 15px; 
+}
+
+.hero-form label {
+  margin: 0 5px;
+}
+```
+Remember to save these changes and take a look at the new page's styles in the browser.
+You can see that the input field just aren't looking like our mock-up due to some over running input fields.  We can add a basic CSS property here called `box-sizing`.
+### Box-sizing
+In simple terms, `box-sizing` is to determine how to calculate the `width` and `height` of each element.  The `content-size` value is the default and will only count the `content` inside the `padding` as part of the element's size.  `Border-box` however includes the `border` as well as the `padding` and therefore is an easier choice due to the lack of additional calulations needed.
+We can add this to the *{} to the top of the CSS file, which will then target every element on the page.
+
+```html
+* {
+  box-sizing: border-box;
+}
+```
