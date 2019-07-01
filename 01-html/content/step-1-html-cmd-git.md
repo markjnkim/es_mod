@@ -6,34 +6,57 @@ It's time to get our hands dirty with some real coding! We know this is a big un
 
 ## Getting Started with the Command Line
 
-In the old days of MS-DOS, giving text-based commands to the computer was the only way to get anything done. Now that we have more powerful operating systems like Windows and macOS, most users never have to look at the command line. For developers, though, the command line is still a common tool for performing certain tasks. Later in the course, it will become integral to building full-stack applications. For now, we'll be using it to set up our project.
+In the old days of computer usage, entering text-based commands on a black screen was the only way to interact with the system. There was no graphical user interface (also known as a GUI) with icons that could be clicked. Now that we have more powerful operating systems like Windows and macOS, most users never have to look at a command line interface (CLI). For developers, though, the command line is still a common tool for performing certain tasks. Later in the course, it will become integral to building full-stack applications. For now, we'll be using it to set up our project.
 
-Mac users, you already have a built-in Terminal app, which you can go ahead and launch now by searching for "terminal" in the Spotlight Search. Windows users, hopefully you installed [Git Bash](https://git-scm.com/downloads) ahead of time, which you can open by right-clicking anywhere on your desktop and selecting "Git Bash Here." Regardless of your operating system, you should see a window that looks like this:
+Mac users, you already have a built-in Terminal app, which you can go ahead and launch now by searching for "terminal" in the Spotlight Search (the 🔍 icon in the top-right corner, or keyboard shortcut Command+Spacebar).
+
+Windows users, you installed [Git Bash](https://git-scm.com/downloads) as part of the prework, which you can open by using the search box in the bottom-left corner (keyboard shortcut: Windows key + S) to search for "git bash."
+
+Regardless of your operating system, you should see a window that looks like this:
 
 ![terminal window](./assets/step-1/100-terminal.png)
 
-In this window, type the command `pwd` and press Enter. The terminal will then display something like `/c/Users/Username/Desktop`. The command `pwd` stands for Print Working Directory and lets us know which folder (or directory) the terminal is currently in. For Windows users, that probably seems pretty obvious. We already right-clicked the desktop to "Git Bash Here!" Mac users, on the other hand: we usually start in the `user` folder by default and would need to manually move into our `Desktop` folder, if that's where we want to work. We'll talk more about that in a minute.
+In this window, type the command `pwd` and press Enter. The terminal will then display something like `/c/Users/YourName` on Windows or `/Users/YourName` on Mac. The command `pwd` stands for Print Working Directory and lets us know which folder (a.k.a. directory) the terminal is currently in. When you first open Terminal or Git Bash, you start in your user folder/directory. If you want to see what's in this directory, you could navigate to it through your operating system's GUI (by clicking on folder icons, etc.), but since we're already in the command line, let's try another command: `ls`.
 
-First, let's create a new folder for our Run Buddy project to reside in. Type the following commands in your terminal, pressing Enter after each one:
+The `ls` command lists any files and folders within the current directory. Some common folders you might see in here are `Documents`, `Pictures`, `Music`, and `Desktop`. Fun fact: the desktop you see when your computer first starts is this folder in your user directory! Let's "go" there now from the command line by typing the following commands, pressing Enter after each one:
 
 ```bash
-mkdir run-buddy
-ls
+cd Desktop
+pwd
 ```
+> **Pause:** What do you suppose `cd` stands for?\
+Answer: Change Directory.
 
-The `mkdir` command allows us to create new folders (make directories). In this case, we created a folder called `run-buddy`. The second command, `ls`, simply lists all of the files and folders in our current terminal location. Alongside any other files/folders that were already there, you should now see a `run-buddy` folder. If you navigate to this same location through your operating system (i.e. your Windows desktop or macOS Finder), you'll see the same folder. What we do on the command line has real consequences with our computer!
-
-> **Urkel Says:** With great power comes great responsibility. 
-
-If you run `pwd` again, however, you'll see that we haven't changed locations yet. If we want to step into our new folder, we'll need to use the `cd` command. Try these out:
+We can use the `cd` command to move into directories and to back out of directories. Try the following commands, noting what `pwd` prints each time:
 
 ```bash
-cd run-buddy
+cd ..
+pwd
+cd Desktop
 pwd
 ```
 
-> **Pause:** What do you suppose `cd` stands for?\
-Answer: Change Directory.
+So `cd ..` took us back a level (or "up" a directory). Good to know! Now that we're in the `Desktop` directory again, run the command `ls`. Do you recognize every listed file/folder as something that was already on your desktop? Let's add to the clutter:
+
+```bash
+mkdir projects
+ls
+```
+
+The `mkdir` command allows us to create new folders (or rather, make directories). In this case, we created a folder called `projects`. The second command, `ls`, should let us verify if the folder was created. However, minimize the command line for a second and look at your normal desktop again. Do you see the folder we just made? What we do on the command line has real consequences with our computer!
+
+![desktop folder](./assets/step-1/150-desktop-folder.png)
+
+> **Urkel Says:** With great power comes great responsibility. 
+
+This `projects` folder is where we'll keep all of our work throughout the boot camp. From the command line, let's step inside and create another folder for our Run Buddy project:
+
+```bash
+cd projects
+mkdir run-buddy
+cd run-buddy
+pwd
+```
 
 Just for fun, you can run the `ls` command again while in the `run-buddy` directory, but nothing will happen, because we don't yet have any files in here to list out. Let's go ahead and make a few files with the `touch` command:
 
@@ -45,7 +68,7 @@ ls
 
 > **Important:** We're using lowercase for our filenames. Syntax matters! `index.html` would be an entirely different file than `Index.html`.
 
-Unlike directories, which are made using `mkdir`, we use `touch` for files. Here, we've just made two new files: a text file and an HTML file. Well, you know what... we don't really need that text file, after all, so let's go ahead and delete it:
+Unlike directories, which are made using `mkdir`, we use `touch` for files. Here, we've just made two new files: a text file and an HTML file. Well, you know what... we don't really need that text file, after all, so let's go ahead and (permanently) remove it:
 
 ```bash
 rm hello.txt
@@ -58,13 +81,13 @@ Of course, everything we've done up to this point could also be accomplished wit
 |-----------|-----------------------|
 |pwd        |print working directory|
 |ls         |list files in directory|
-|cd         |change directory       |
+|cd [name]  |change to directory    |
+|cd ..      |go up/back a directory |
 |mkdir      |make a new directory   |
 |touch      |make a new file        |
 |rm         |remove a file          |
 
 > **Deep Dive:** Some other useful commands include:\
-`cd ..`\
 `cp`\
 `mv`\
 `rm -R`\
@@ -72,7 +95,7 @@ Google each of these to read up on what they do.
 
 ## Adding a Little HTML
 
-HTML (or Hyper Text Markup Language, in case anyone asks) is the underlying structure of any web page. Looking at our Run Buddy mock-up, every piece&mdash;the header, the sign-up form, the trainer images&mdash;is an HTML "element" under the hood. This is why we created an `index.html` file in the previous step. All of our HTML code and content will go inside this HTML file.
+HTML (or Hyper Text Markup Language, in case anyone asks) is the underlying structure of any web page. Looking at our Run Buddy mock-up, every piece&mdash;the header, the sign-up form, the trainer images&mdash;is an HTML element under the hood. This is why we created an `index.html` file in the previous step. All of our HTML code and content will go inside this HTML file.
 
 While we could open this single file directly in our code editor (VS Code), we should start thinking about Run Buddy as a "project" that will eventually have multiple files and folders. So let's open the entire `run-buddy` folder with VS Code. You can do this a number of ways, by either dragging the folder into VS Code, using VS Code's File > Open Folder menu option, or opening it from the command line! If you're still in the terminal in the `run-buddy` directory, run the command `code .` where the `.` means "this directory." 
 
@@ -80,7 +103,11 @@ While we could open this single file directly in our code editor (VS Code), we s
 
 > **Pro-Tip:** With VS Code open, right-click anywhere in the Explorer menu on the left and select Open in Terminal to bring up a built-in terminal. Windows users: the default VS Code terminal is Powershell, not Git Bash. Fortunately, there are many [helpful articles](https://community.dynamics.com/nav/b/tharangacnavblog/archive/2019/02/18/git-bash-on-visual-studio-code-integrated-terminal) that explain how to change it.
 
-Click on the `index.html` file in the Explorer to load it in the main panel on the right. Now we're ready to code! Type out the following code in your HTML file. We'll go over each part later:
+Click on the `index.html` file in the Explorer on the left to load it in the main panel on the right.
+
+![vs explorer](./assets/step-1/175-vs-explorer.png)
+
+Now we're ready to code! Type out the following code in your HTML file. We'll go over each part later:
 
 ```html
 <!DOCTYPE html>
@@ -96,34 +123,42 @@ Click on the `index.html` file in the Explorer to load it in the main panel on t
 </html>
 ```
 
-Awesome! You just wrote your first web page! Make sure you save the file before testing it out. You'll know the file hasn't been saved if a white dot appears next to the filename:
+Awesome! You just wrote your first web page! Make sure you save the file before testing it out. You'll know the file hasn't been saved if a white dot appears in the tab next to the filename:
 
 ![unsaved](./assets/step-1/200-unsaved.png)
 
-> **Pro-Tip:** Press CTRL+S on Windows or CMD+S on Mac to save via the keyboard.
+> **Pro-Tip:** Press CTRL+S on Windows or Command+S on Mac to save via the keyboard.
 
 Next, open this HTML file in the browser (preferably Chrome). If you have the [Open in Browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) extension installed for VS Code, you can simply right-click anywhere in the HTML file and select Open in Default Browser. The web page should look like this:
 
 ![first screenshot](./assets/step-1/300-html-screenshot.png)
 
-All right, so it's not the most exciting web page yet, but you gotta start somewhere. Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of "elements" with an opening `<tag>` and a closing `</tag>`. Anything in between these tags is affected by what that tag does. The `<h1>` tag, for instance, made the text inside big and bold. This denotes a heading. If we have other, less important headings on our web page, we can use additional tags like `<h2>`, `<h3>`, and so on.
+All right, so it's not the most exciting web page yet, but you gotta start somewhere. Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** with an opening `<tag>` and a closing `</tag>`. Anything in between these tags is affected by what that tag does. The `<h1>` tag, for instance, made the text inside big and bold. This denotes a heading. If we have other, less important headings on our web page, we can use additional tags like `<h2>`, `<h3>`, and so on.
 
 Try changing the code to `<h2>RUN BUDDY</h2>`. Save the file and refresh the tab in the browser. Notice how the text shrunk slightly. Also keep in mind that this only affected the RUN BUDDY text, because the tag was closed. If you remove the `</h2>`, the text underneath will become big and bold, too, because the browser doesn't know where the `<h2>` ends.
 
-Now that we understand HTML tags, let's look at the others we used. We're writing an HTML page, so it makes sense that everything would need to be wrapped in an `<html>` tag. The only thing that didn't go inside this tag was the `<!DOCTYPE html>`. This is an extra line that tells the browser how to interpret your HTML code. We don't need to worry about supporting very old browsers like Netscape Navigator, so this "DOCTYPE" will always be written as `<!DOCTYPE html>`.
+Now that we understand HTML tags, let's look at the others we used. We're writing an HTML page, so it makes sense that everything would need to be wrapped in an `<html>` tag. The only thing that didn't go inside this tag was the `<!DOCTYPE html>`. This is an extra line that tells the browser how to interpret your HTML code. We don't need to worry about supporting very old browsers like Netscape Navigator, so this **DOCTYPE** will always be written as `<!DOCTYPE html>`.
 
 > **Deep Dive:** Read more about the [DOCTYPE](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode).
 
-Inside the `<html>` tag, our web page is further broken up into two other tags: the `<head>` and the `<body>`. The `<body>` is where all of the content should go. Basically, anything in our mock-up that takes up physical space will go here. The `<head>`, on the other hand, is where we can specify additional information the browser needs to know about our page. For instance, the browser will take whatever is in the `<title>` tag and make that the name of the tab in the browser. Try changing the title, making sure you see the change reflected in the browser.
+Inside the `<html>` tag, our web page is further broken up into two other tags: the `<head>` and the `<body>`. The `<body>` is where all of the content should go. Basically, everything in our mock-up will go here. The `<head>`, on the other hand, is where we can provide any additional information the browser needs to know about our page. For instance, the browser would like to know what to call this web page. Hence, the `<title>` tag. Whatever is in the `<title>` tag will become the name of the browser tab or window:
+
+![browser title](./assets/step-1/350-browser-title.png)
+
+Try changing the title in the HTML file, making sure you see the change reflected in the browser.
 
 > **Check Point:** \
 What is the correct syntax to close the `<title>` tag?\
 What is the difference between `<h1>` and `<h2>`?\
 What is the purpose of the `<body>` tag?
 
-There are two remaining pieces we haven't covered yet. In the opening `<html>` tag, there's an extra "attribute" set to `lang="en"`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's a tag in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character we would want, from foreign language symbols to emojis. Copy this emoji (🏃) and paste it somewhere in your `<body>`. Note that it shows up just fine in the browser, but if you change the charset to `<meta charset="ASCII" />`, it no longer works, because the browser will limit the available display characters to those of the ASCII character set. Best to stick with UTF-8.
+There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's a tag in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This is an example of a meta tag, [of which there are many](https://devhints.io/html-meta). Like the `<title>` tag, they give the browser extra information about the page, sometimes for display purposes and sometimes for search engine optimization.
 
-Don't worry too much about these details, though. Much of this is boilerplate, meaning every web page is going to start with the same structure. Every page needs a DOCTYPE, an `<html>` tag, a `<head>` tag, etc. It's worth typing out again and again just to reiterate their importance, but it can also be copy/pasted into future projects without harm.
+The `charset` meta tag is important to include now, because it specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character we would want, from foreign language symbols to emojis. Copy this emoji (🏃) and paste it somewhere in your `<body>`. Note that it shows up just fine in the browser, but if you change the meta tag to `<meta charset="ASCII" />`, it no longer works, because the browser will limit the available characters to those of the ASCII character set. Best to stick with UTF-8.
+
+> **Deep Dive:** Read more about [UTF-8 encoding](https://en.wikipedia.org/wiki/UTF-8).
+
+The good news is, much of this is boilerplate, meaning every web page is going to start with the same structure. Every page needs a DOCTYPE, an `<html>` tag, a `<head>` tag, etc. It's worth typing out again and again just to reiterate their importance, but it can also be copy/pasted into future projects without harm.
 
 One last thing to keep in mind is how we've been organizing the code in our HTML file. New tags were put on a new line, and whenever a tag was inside of another, we indented the code. You could choose to write your HTML like this:
 
@@ -135,7 +170,7 @@ One last thing to keep in mind is how we've been organizing the code in our HTML
 
 ## Getting Git
 
-Our web page doesn't look like much yet, but this is still a good place to stop and take care of another important aspect when it comes to managing a project: Git. Git is a "version control" system that allows you to save snapshots, or commits, of your work. Whenever you reach a good stopping point, you can save, or commit, the current state of your codebase. This creates a nice history of changes that you can look back on and allows you to easily revert to an earlier version if your codebase suddenly breaks beyond repair. Git also lets you push your commits to a remote location, meaning you won't lose any work if your computer crashes, or you can switch between your home computer and office computer and continue where you left off.
+Our web page doesn't look like much yet, but this is still a good place to stop and take care of another important aspect when it comes to managing a project: Git. Git is a **version control** system that allows you to save snapshots, or commits, of your work. Whenever you reach a good stopping point, you can save, or commit, the current state of your codebase. This creates a nice history of changes that you can look back on and allows you to easily revert to an earlier version if your codebase suddenly breaks beyond repair. Git also lets you push your commits to a remote location, meaning you won't lose any work if your computer crashes, or you can switch between your home computer and office computer and continue where you left off.
 
 The biggest benefits of Git come from working on a team, which is very likely to happen once you step out into the development workforce. Without Git, it would be extremely tedious for developers to share code and work on the same app without accidentally losing or overwriting each other's code. Using Git, developers can create alternate versions of the same codebase (called branches) and work in isolation. When developers are ready to merge these branches together, Git will point out if any lines of code conflict and give developers a chance to fix the overlap. Pretty nifty stuff.
 
@@ -143,7 +178,7 @@ The biggest benefits of Git come from working on a team, which is very likely to
 
 We'll be honest, though... learning Git is tough. It's okay if things don't click right away, or if commits get messed up. The good news is, there will be plenty of opportunities to practice Git in the coming weeks. By the time you complete the boot camp, you'll be a Git master!
 
-Let's turn our Run Buddy project into a Git "repository." Open the terminal in the `run-buddy` directory and run the following command: `git init`. The terminal should print something like, "Initialized empty Git repository."
+Let's turn our Run Buddy project into a Git **repository.** Open the terminal in the `run-buddy` directory and run the following command: `git init`. The terminal should print something like `Initialized empty Git repository.`
 
 > **Important:** If your computer doesn't recognize the `git` command, make sure you've installed it from the [Git website](https://git-scm.com/downloads).
 
@@ -256,7 +291,7 @@ And that's actually a great start. We know the company name and navigation links
 
 > **Urkel Says:** Some developers call that "div soup."
 
-With the advent of HTML5, however, newer "semantic" tags were introduced to help provide clarity around what would have traditionally just been another `<div>`. Consider this rewritten example:
+With the advent of HTML5, however, newer **semantic** tags were introduced to help provide clarity around what would have traditionally just been another `<div>`. Consider this rewritten example:
 
 ```html
 <body>
@@ -276,7 +311,7 @@ We have another clearly distinct section in our layout at the very bottom: the f
 </footer>
 ```
 
-The rest of the layout may be harder to find appropriate semantic tags for. The large image at the top is sometimes referred to as a jumbotron or hero, but there's no `<jumbotron>` element in HTML. If none of the existing [semantic tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning) make sense, there's no harm in falling back on a good ol' `<div>`. At the very least, though, we can think of our layout as having several key "sections." Hey, what do you know, there's a `<section>` tag! Let's go ahead and outline all of our sections in the `index.html` file:
+The rest of the layout may be harder to find appropriate semantic tags for. The large image at the top is sometimes referred to as a jumbotron or hero, but there's no `<jumbotron>` element in HTML. If none of the existing [semantic tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning) make sense, there's no harm in falling back on a good ol' `<div>`. At the very least, though, we can think of our layout as having several key sections. Hey, what do you know, there's a `<section>` tag! Let's go ahead and outline all of our sections in the `index.html` file:
 
 ```html
 <!-- navigation -->
@@ -387,7 +422,7 @@ git commit -m "provide a message"
 git push origin master
 ```
 
-GitHub comes with a lot of other helpful features like contribution stats, code reviews, and bug tracking. GitHub will also host your HTML projects as live websites, so you don't have to worry about paying for a separate hosting service like GoDaddy. That's pretty nice of them! Let's flip the switch to make our current HTML project "live." On your repository's page, click the Settings tab:
+GitHub comes with a lot of other helpful features like contribution stats, code reviews, and bug tracking. GitHub will also host your HTML projects as live websites, so you don't have to worry about paying for a separate hosting service like GoDaddy. That's pretty nice of them! Let's flip the switch to make our current HTML project live. On your repository's page, click the Settings tab:
 
 ![github settings](./assets/step-1/1400-github-settings.png)
 
