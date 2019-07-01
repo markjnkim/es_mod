@@ -8,7 +8,8 @@ The first block is considered the most important section because this will be se
 
 > **The More You Know**: Due to their large paper format, newspapers termed the phrase "above the fold" for the upper half of the front page that often contained the most important news story, headline, and picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article.
 
-Think of the hero section as the banner, headline, or billboard of our site. But before we can add our pizzazz, let's first write some HTML code that will provide the structure and content. As can be seen from our mock-up, we have input fields contained inside a box within this block. This is considered a "call to action" which means we are making a request to the reader, in our case, to give their contact information so we can maintain engagement. Placing the information request in the hero section reveals the strategic importance of retaining user info.
+Think of the hero section as the banner, headline, or billboard of our site. But before we can add our pizzazz, let's first write some HTML code that will provide the structure and content. As can be seen from our mock-up, we have input fields contained inside a box within this block. This is considered a sign-up call-to-action (or CTA).
+> **Urkel Says**: A CTA encourages the audience or web site visitors through a story, advertisement, or piece of content to do something.  In our case we would like our visitor to share their contact info for a possible future engagement.  CTAs can play a vital role in coverting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
 
 ## Hero Construction
 Let's build upon our `section` we created in Module 1. This `section` element will encompass the entire hero section and will be the parent element that contains the children elements needed for this part of the document including the heading and form. As you can now foresee by viewing the mock-up, each color block will designate a unique `section`. To target our hero section and make it look unique from the other sections, we will include the `class` attribute in our `section` element known as a CSS selector.  A `class` is a special attribute that can be used on any HTML element and is used by CSS and JavaScript(to be mentioned more later) to perform certain tasks or target certain styling characteristics.
@@ -281,7 +282,7 @@ Congrats! Give yourself a nice pat on the back.  Way to hang in there!  We will 
 
 ### Form Styles
 
-According to the mock-up the box or `div` containing our `form` should have a yellow background.  Let's target this `div` by using the `class` attribute for this `div` as the CSS selector which we have named `hero-form`.  Let's type out the syntax for this in your CSS file and give it some of the properties we will need including the border as well as background color, size, font color, and positioning.
+According to the mock-up the box or `div` containing our `form` should have a yellow background matching the yellow in our `header` and `footer`.  Let's select or target this `div` by using the `class` attribute for this `div` as the CSS selector which we have named `hero-form`.  Let's use this CSS selector to declare some properties and style the box containing our forms.  The border and font color in this `div` will match the navy font color in the `footer`.  Let's experiment with the height and width properties as well as the positioning property to match our mock-up.
 
 > **Pause**: Try out some code and see if you can do some styling on your own.
 
@@ -296,11 +297,18 @@ The code you added to your `style.css` should look similar to this:
   width: 500px;
   color: #024e76;
   position: absolute;
-  bottom: 120px;
+  bottom: 10px;
   right: 10%;
 }
 ```
-Let's take a look at your page on the browser and see how your new code has changed the page.  Don't forget to set the `Auto Save` option in the `File` menu since all change must be saved in order to render.
+Let's unpack any new CSS properties and their related values.
+* **Border**: As was explained in the previous module regarding how to assign `padding` values, the`border` property can also be declared by each side(`border-top, border-left`, etc), by two values representing the top/bottom and left/right pairs respectively, or a single value, as we have declared here, assigned to all four sides.  Unlike `padding`, `border` **must** also have  style and color values declared to render.
+* **Background-color**: Sets the background color to the element selected.
+* **Position**: We set this value to be **absolute** since we need the location of our form box to always be posiitoned in respect to the parent element, in this case the form container, our `section`.
+* **Bottom** and **Right**: Set the values **from** these respective sides of our `section` to position our form container.  The `right` property was given a percentage this time and not a fixed pixel.  Try shrinking the screen horizontally by the right or left sides and notice the relative gap lessens by a ratio dependent on the size of the window.  We will be using percentages much more in the next module so we can dive deeper about how to relatively size certain properties.
+
+Let's take a look at your page on the browser and see how your new code has changed the page.  Don't forget to set the save your changes or your styles will not render.
+> **Pro-Tip**: You can save yourself a bit of heart ache or frustration by simply clicking on the Auto Save option in the `File` menu so saving is made automatic on changes.
 
 Your page should look something like this:
 ![form-box](./assets/step-3/600-form-css.png)
@@ -320,14 +328,14 @@ This will open a browser menu.  Open the `More Tools` option which will open a s
 Depending on your version of Chrome, your screen should look something like this:
 ![Developer Tools](./assets/step-3/800-dev-tools.png)
 
-Click on the `Elements` tab to reveal the HTML code.  On a full screen you will see the `Styles` section as well, displaying your CSS code.  By clicking on the various fields, we can enter or delete the properties, attributes, and values.  
+Click on the `Elements` tab to reveal the HTML code.  On a full screen you will see the `Styles` section as well, displaying your CSS code.  By clicking on the various fields, we can change or delete the properties, attributes, content, and values.  
 
 This tool is a tremendous asset to front-end developers with the ability to:
-* Change HTML attributes
+* Change HTML elements and attributes
 * Manipulate CSS style properties
-* View communication transmission calls in the `Network` tab
+* Change the text content
 * And much much more which we will continuously learn throughout this class
-> **Deep Dive**: Discover more about [DevTools](https://developers.google.com/web/tools/chrome-devtools/) and familiarize yourself with Chrome.
+> **Deep Dive**: Discover more about Chrome's [DevTools here.](https://developers.google.com/web/tools/chrome-devtools/) If it is seems a little much for now, it's because this tool has a vast array of uses that is beyond our current concept scope.  Don't worry, we will divulge more of these tools as they become more relevant and useful for us.
 
 > **Pause**: Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`.  Try out the `element inspector`, the arrow icon in the top-left corner of the DevTool window, to target a specific element.  Notice the changes in the `Element` and `Style` windows.  Feel free to play around at will.  Are these changes permanent?How can we tell?
 >**Answer**: Page refresh can determine persistence or permanence of a change.
@@ -336,18 +344,31 @@ These changes are not permanent and do not change the actual code, but merely of
 
 > **Pro Tip**: To further develop skills with these types of tools, it is important to use them as much as possible. Try to use new tools as much as possible in the beginning since it easy to forget they are there.  It is a good habit keeping this window open so it stays top of mind.  Remember it can be shrunk, stretched or docked on any side by selecting the hamburger button in the top-right corner.
 
-The CSS style sheet appears to be the same one we have been working on, however there are actually
+Let's head back to the browser tab with our landing page and examine our code in the Dev Tool Window.  The CSS style sheet appears to be the same one we have been working on, however there are actually quite a lot more properties for each selector than we have written.  These are the default CSS property settings that are 
 
 > **Pause**: Do you notice how some of the style properties in the `Styles` window have a line through them?  What do you think this means and why?
 > **Answer**: These styles have been overridden by another property due to the cascading hierarchy of CSS style sheets. Notice how the checkbox can toggle the style property.
 
-Scrolling down to the bottom of the `Styles` window offers an interactive CSS box model that allows the different layers of the CSS box to be manipulated.  A very useful tool that can safe a lot of time and energy when doing page layout design.
+Scrolling down to the bottom of the `Styles` window offers an interactive CSS box model that allows the different layers of the CSS box to be manipulated by value.  A very useful tool that can save a lot of time and energy when designing a page layout.
 <!-- <a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
 " target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a> -->
 
 ## Styling Form
-We have reached that last portion of this module so let's dive right in and finish up the call to action part of our hero section.
+We have reached that last portion of this module so let's dive right in and finish up our sign-up form.
 
-To start let's snazz up our heading with bold intent!  We need to bring some excitement and enthusiasm so   
-1 
+> **Linear Steps**: 
+1) Heading: let's snazz up our heading with bold intent!  We need to bring some excitement and enthusiasm and the current `h3` element leaves a bit to be desired.  There are several ways that we can select this element by CSS.
+* Give this `h3` element a class and select it as we did for the form container and the `section`.
+* Select the parent element, then the child element that is contained within the parent, as we did in the previous module in the `header` and `footer`.
+
+We will chose the second option because there is only a single `h3` inside the form container and so wouldn't be able to accidently duplicate a class name that someone else also decided to use elsewhere in the code.  The direct child selector also helps developers pinpoint which element will be styled.
+
+> **Pause**: Let's go to your `style.css` file to address the `h3` to make it a bit larger as well as reduce the `margin` to zero to reduce any possible word wrapping.
+
+2) Text Spacing: Next will be adding some space to the `p` for legibility and spacing, specifically to the top and bottom margins.
+3) Input Fields: It's time to give our input fields some style and panache.  First let's get each one to exist on its own line while making it bigger and more noticeable.  Part of having a good website is giving the visitor an easy time navigating and using our page. Especially when it comes to user interaction, it's really important to make it as simple and straighforward as humanly possible.  This means having clear demarcations on each line as to address what each input is for.
+
+We will use the CSS selector for the `form-input` class since we wish to only target the input field text boxes and not the checkbox or radion buttons.
+
+

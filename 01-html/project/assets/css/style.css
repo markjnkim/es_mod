@@ -109,7 +109,7 @@ section {
   margin: 5px 0 15px 0;
 }
 
-.form-input {
+/* .form-input {
   border: 1px solid #024e76;
   display: block;
   padding: 7px 15px;
@@ -129,7 +129,7 @@ section {
   border: none;
   padding: 10px 20px;
   font-size: 16px;
-}
+} */
 /* HERO STYLES END */
 
 
@@ -298,3 +298,9 @@ section {
 .text-right {
   text-align: right;
 }
+
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */ 
