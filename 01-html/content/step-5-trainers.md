@@ -4,7 +4,7 @@ At this point, we're over 50% complete with our Run Buddy product page! We've gi
 
 This next section is going to involve building out another `<section>` of our page with three similar pieces of content, so expect a fair amount of repetition. This is a good chance for us to continue practicing what we've learned so far while also picking up a few new tricks along the way.
 
-## Setting up the content
+## Setting up the HTML
 
 Just like the previous steps in this project, we'll start on the outermost tag and work our way in. We already have a `<section>` tag in place to hold all of our content for our trainers' information, but we want to be able to quickly navigate to it if we were to click on it's respective link in the navigation bar.
 
@@ -28,7 +28,9 @@ In the previous lesson, a few classes were created to provide different style op
 </h1>
 ```
 
-Great! Now we can move onto the content for each of our trainers. Like the previous lesson, we're going to encapsulate our related content in containers to make it easier to position each trainer's information block. Go ahead and add this after the `<h2>` tag:
+Great! Now we can move onto the content for each of our trainers. We'll start by getting the images for our trainers included into our project (no one like to see a broken picture tag!). Go ahead and [download these images](https://github.com/coding-boot-camp/FullStack-Online/blob/FSFO-27-step-4/01-html/content/link-needed "we need a link"), then add the three images to the `images` folder inside of `assets` that was created a couple of lessons ago.
+
+Like the previous lesson, we're going to encapsulate our related content in containers to make it easier to position each trainer's information block. Go ahead and add this after the `<h2>` tag:
 
 ```html
 <article class="trainer">
@@ -39,4 +41,10 @@ Great! Now we can move onto the content for each of our trainers. Like the previ
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi neque animi quo cupiditate commodi saepe culpa sed itaque velit maiores optio dolorem excepturi aperiam dolores, voluptatibus suscipit amet quis repellat!</p>
   </div>
 </article>
-``
+```
+
+So here we've set up all of the content needed to display our first trainer on the page, resulting in the following:
+
+![trainer 1 image](assets/step-5/100-trainer-1.png)
+
+It doesn't look like much _yet_, but it's more than enough to work with. We'll move onto the other two trainers shortly, but first let's go through the HTML
