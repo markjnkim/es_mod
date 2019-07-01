@@ -2,33 +2,32 @@
 
 ## Our Hero's Purpose
 
-Now that we have the header and footer for our page, let's get started with the body or content of our website.  HTML elements in large part can be considered as a series of rectangular boxes as was described in step 1.  These boxes can be stacked on top of each other like blocks, similar to our `section` elements in our mock-up and also can be nested within each other like russian nesting dolls.  If we take a good look at our mock-up, we can see that each part of our landing page seems to be separated by a different color block. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. Let's continue by building each block piece by piece until we have completed our first website.
+Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website.  HTML elements in large part, can be considered as a series of rectangular boxes as was described in module 1.  These boxes can be stacked on top of each other like blocks and also can be nested within each other similar to Russian nesting dolls.  If we take a good look at our mock-up, we can see that each part of our landing page seems to be separated by different colored blocks. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. In the first module we created  the basic layout of each `section` element.  We will be building upon this skeleton frame `section` by `section` until our mock-up is complete. 
 
 The first block is considered the most important section because this will be seen by every visitor to our landing page. This is the hero section and is considered as "above the fold", hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
 
-> **The More You Know**: Due to their large paper format, newspapers termed the phrase "above the fold" for the upper half of the front page that often contained the most important news story, headline, and picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article.
+> **The More You Know**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article.
 
-Think of the hero section as the banner, headline, or billboard of our site. But before we can add our pizzazz, let's first write some HTML code that will provide the structure and content. As can be seen from our mock-up, we have input fields contained inside a box within this block. This is considered a sign-up call-to-action (or CTA).
-> **Urkel Says**: A CTA encourages the audience or web site visitors through a story, advertisement, or piece of content to do something.  In our case we would like our visitor to share their contact info for a possible future engagement.  CTAs can play a vital role in coverting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
+Think of the hero section as the banner, headline, or billboard of our site. But before we can add our pizzazz, let's first write some HTML code that will provide the structure and content. 
 
 ## Hero Construction
-Let's build upon our `section` we created in Module 1. This `section` element will encompass the entire hero section and will be the parent element that contains the children elements needed for this part of the document including the heading and form. As you can now foresee by viewing the mock-up, each color block will designate a unique `section`. To target our hero section and make it look unique from the other sections, we will include the `class` attribute in our `section` element known as a CSS selector.  A `class` is a special attribute that can be used on any HTML element and is used by CSS and JavaScript(to be mentioned more later) to perform certain tasks or target certain styling characteristics.
-Let's give our `class` attribute the value "hero"` to our `section` element.  Please note the name of this class is up to us, but it is customary to name it in relation to the element's function or use so it can be easily be recognized in the CSS style sheet to which part of the HTML document, this CSS selector is styling.
-
-`<section class="hero">`
+Let's build upon our `section` we created in Module 1. This `section` element will be the parent element that contains the children elements like the heading and form or input fields. 
 
 > **Deep Dive**: HTML5 Semantic Elements help distinguish each part of the document and it's function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp)
 
 At this point we are not going to worry about our background images, colors, borders, or placement since these will all be addressed in the second half in the styling section. We must first focus on content and structure in our HTML.  Can't paint the house until the walls are up!
 
-As seen in the mock-up, our hero section will contain a large background picture with input fields. But before we can place our inputs, can you see any content or HTML elements that will be needed?
+> **Pause**: As seen in the mock-up, our hero section will contain a large background picture with input fields. But before we can place our inputs, can you see any content or HTML elements that will be needed?
 
-> **Hint**: Look for any content like text, heading, and especially distinct elements like boxes?
+> **Hint**: Look for any content like text, heading, and especially distinct elements like boxes.
 
-We will need to create a `div` to create the structure of our yellow box. In order to ensure that our `div` is nested or contained within the `section`, placement of our `div` tags are critical. Go ahead and place a `div` element where you think it should go. Let's also add the class attribute, `hero-form` since we will need to target this `div` later to add custom styling.
+> **Answer**: We will need a box that will contain a heading, text, input fields and a button.
 
-> **Heads Up**: HTML works on a relatively simple set of rules. What is critical to understand is the use of opening and closing tags. An HTML element can be nested within another element, but must be completely contained, meaning the opening and closing tags must both be inside the parent element.
+Let's create a `div` and build the structure of our yellow box that will contain our web form. In order to ensure that our `div` is nested or contained within the `section`, placement of our `<div>` tags are critical. Go ahead and place a `div` element where you think it should go.
 
+> **Heads Up**: HTML works on a relatively simple set of rules like the use of opening and closing tags. An HTML element can be nested within another element, but must be completely contained, meaning the opening and closing tags must both be inside the parent element.
+
+**INCORRECT**
 ```html
 <section>
     <div>
@@ -41,93 +40,97 @@ This is uninterpretable by the browser and will not render as you would like. HT
 Great! Your `index.html` file should now look something like this.
 
 ```html
-<section class="hero">
-  <div class="hero-form"></div>
+<section>
+  <div></div>
 </section>
 ```
 
 > **Heads up**: Notice how the indentation helps communicate which elements are nested.
 
-Now that we have our `div` element that will give us the structure of the yellow box in our mock-up, let's create the remaining elements within this box that will give us our heading, text, content, input fields, and button.
+Now that we have our `div` element that will give us the structure of the yellow box or our form container in our mock-up, let's create the remaining elements within this box that will give us our heading, text, content, input fields, and button.
 
-Given some of the elements we have learned to this point, which element would go next?
+> **Pause**: Given some of the HTML elements we have learned up to this point, which element should go next?  Let's give it a go and write some code.
 
 > **Hint**: Remember all the elements within the yellow box must be contained within the `div`, since they are all nested within this box.
 
-For our heading, let's include the `h3` element. This was chosen because we are able to use some of the browser's styling defaults to size our heading. Get a feeling of the other possible `h` tags to get a feeling of the relative differences in size. There are 6 in total.
+> **Answer**: For our heading, let's use the `h3` element. This was chosen because we are able to use some of the browser's styling defaults to size our heading including a bold `font-weight` and a larger `font-size`. Get a feeling of the other possible `h` tags to get a feeling of the relative differences in size. Remember there are 6 in total.
 
 Now let's put our content within the `h3` tags from our mock-up.
-The following text is actually just basic text so let's wrap that in a `p` tag.
+After that is some basic text, so let's wrap that in a `p` tag.
 
-Your code should now look something like this.
+>**Rewind**: Remember `<h1>` to `<h6>` and `<p>` tags are block-level elements so take up the width of the current line regardless of the actual size of the element meaning other elements are wrapped to the next line.
+
+> **Deep Dive**: For a nice visual explainer for the display property look [here.](https://codeburst.io/block-level-and-inline-elements-the-difference-between-div-and-span-2f8502c1f95b)
+
+Your code for the hero section should now look something like this.
 
 ```html
-<section class="hero">
-  <div class="hero-form">
+<section>
+  <div>
     <h3>Get Started Today</h3>
     <p>Fill out this form and one of our trainers will schedule a consult</p>
   </div>
 </section>
 ```
 
-Let's take a look now at our browser by selecting the `Open in Default Browser` option when right clicking the mouse on the `index.html` page.(alteratively <Alt>B[Windows] or <Option>B[Mac])
-
-> **Pro Tip**: It is strongly recommended to try and learn the keyboard shortcuts since they improve speed and efficiency.  It is also a great idea to select the `Auto Save` option in the `File` menu due to all the time saved from forgetting to do that.
+> **Pro Tip**: *Key Board Short Cuts* : It is strongly recommended to try and learn the keyboard shortcuts for commands used most frequently since they improve a developer's speed and efficiency.  Look into the VS Code shortcuts as well as for Chrome for your operating system for Save, Format, Open in Default Browser, and DevTools for [Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) and [Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf).  They are also labeled in your menu options.  It is also a great idea to select the `Auto Save` option in the `File` menu due to all the time saved from forgetting to do that.
 
 Your page should now look something like this:
 ![hero-heading](./assets/step-3/100-heading-html.png)
 
 So not yet exactly what we are looking for stylistically speaking, but this is a proper workflow and we are laying the groundwork first.  Just like building a house, the foundation and frame must go up first, only then can the rest be built.  The decorating or styling always comes last.
 
-> **Pro Tip**: It is good practice to check on your work in the browser after each step to ensure you are going in the right direction and fix any issues before writing more code and adding any additional errors.
+> **Pro Tip**: It is good practice to save your work then check the browser after each step to ensure the page is progressing in the right direction.  This offers the chance to fix any issues before writing more code and adding any additional errors.
 
 ## Web Forms
+
+The sign-up for in our hero section has a special name called a call-to-action (or CTA).
+
+> **Urkel Says**: A CTA encourages the audience or web site visitors through a story, advertisement, or piece of content to do something.  In our case we would like our visitor to share their contact info for a possible future engagement.  CTAs can play a vital role in coverting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
  
 ### Text Fields
 
-We have been filling out forms our entire lives, even for this class a few forms needed to be completed.  Now we will be learning how to build our own forms and the multitude of input types our forms can contain.  Our next bit of code deals with the input fields and receiving the user's information. Can you count how many input elements will be needed here?
+We have been filling out forms our entire lives, even for this class a few forms needed to be completed.  Now we will learn how to build our own forms and the different input types that are possible.  Our next step deals with the input fields. 
+> **Pause**: Can you count how many input elements will be needed here?
 
-In total we will need five input elements. Three text fields, a radio button, and a checkbox. We will also need a button that will act as our data submission trigger or event.
+> **Answer**: We will need five input elements. Three text fields, a radio button, and a checkbox. We will also need a button that will act as our data submission trigger or event.
 
-> **Deep Dive**: There are many more `input` element types intended for a variety of uses to receive user information, for example a drop down or a file upload. Dig deeper and learn more about [input element types here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+> **Deep Dive**: There are many more `input` element types intended for a variety of uses to receive user information, for example a drop down or a file upload. Dig deeper and learn more about input element types [here].(https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 
-We will place these inputs and the submit button within a `form` element.
+We will place these `input` elements and the submit `button` within a `form` element.
 The `form` element represents a document section that contains interactive components or controls for submitting user information.
 
 Let's take a good look at an `input` element and its various attributes.
 
 ```html
-<input type="text" placeholder="Your Name" name="name" class="form-input" />
+<input type="text" placeholder="Your Name" name="name" />
 ```
 
-The `type` attribute relates to what kind of input element we are using. Here we want a text field, which is also the default value. A `placeholder` offers a hint or label within the text field itself, but will not be submitted if this field is left blank. The `name` attribute names this element so it can be later referenced when the data is submitted. The `class` attribute allows our CSS styling to target any one or group of elements that need the same style. In our example we will need three text inputs with the same exact look. Therefore, all three `input` elements will have the same class attribute value `form-input` which allows for less typing and more efficient coding. Notice at the end of this tag is a forward slash. Can you think about what this slash does?
+The `type` attribute relates to what kind of input element we are using. Here we want a text field, which is also the default value. A `placeholder` offers a hint or label within the text field itself, but will not be submitted if this field is left blank. The `name` attribute will declare this element so it can be referenced later when the data is submitted.  Notice at the end of this tag is a forward slash. Can you think about what this slash does?
 
-> **The More You Know**: Confusing which is forward slash vs backward slash? [This](https://sites.cs.ucsb.edu/~pconrad/topics/BackslashVsForwardSlash/) might clear things up.
+> **Urkel Says**: Confusing which is forward slash vs backward slash? [This](https://sites.cs.ucsb.edu/~pconrad/topics/BackslashVsForwardSlash/) might clear things up.
 
-This is known as a self closing tag.  Certain elements like an `input` element do not contain any content, so an opening tag would immediately follow a closing tag.  As is a common custom for developers, a shortcut was created to avoid clutter in favor of conciseness by using this clean and quick short cut.
+This is known as a self closing tag.  Certain elements like an `input` element do not contain any content, but is a prompt for user interactivity, so the opening tag immediately follows a closing tag.  As is a common custom for developers, a shortcut was created to avoid clutter in favor of conciseness by using this clean and quick short cut.
 
 Let's type the three `input` elements we will need for name, email, and phone number.  Please note each one of these have a specific `type` attribute that is used to ensure valid information is being gathered from the user.  
 
 ### Radio Button
-Next we will create the inputs for our `radio` button, `checkbox`, and submit button, but first, what the heck is a `radio` button? This is something you probably have come across a hundred times and now you know the name of it. A `radio` button allows a single selection to be made from a list of choices and is normally a small circle that gets filled upon selection. Let's use our powers of Google and see if we can find some information about the function and syntax of a `radio` button.
+Next we will create the inputs for our `radio` button, `checkbox`, and submit `button`, but first, what the heck is a `radio` button? This is something you probably have come across a hundred times and now you will know the name of it. A `radio` button allows a single selection to be made from a list of choices and is normally a small circle that gets filled upon selection. 
+> **Google Foo**: Let's use our powers of Google and see if we can find some information about the function and syntax of a `radio` button.
 
 So a radio type input element, commonly referred to as a radio button, are generally used in groups using the `name` attribute as the group reference, each radio button must have the same `name` value to be considered in the same group. Let's type some code and then explain the attributes.  Your `index.html` file should look like this. (Remember to place this `form` inside the `div`.)
 
 ```html
 <form>
-  <input type="text" placeholder="Your Name" name="name" class="form-input" />
+  <input type="text" placeholder="Your Name" name="name" />
   <input
     type="email"
     placeholder="Email Address"
-    name="email"
-    class="form-input"
-  />
+    name="email" />
   <input
     type="tel"
     placeholder="Phone Number"
-    name="phone"
-    class="form-input"
-  />
+    name="phone" />
   <p>
     Have you worked out with a trainer before?
     <label for="trainer-yes">
@@ -141,9 +144,10 @@ So a radio type input element, commonly referred to as a radio button, are gener
   </p>
 </form>
 ```
+> **Side Note**: Notice how the attributes in the first input element are in-line vs the attributes in the second input are on new lines.  They are both valid since HTML is white space and line break insensitive.  This is a useful rule to use whenever there is a case when the number of attributes is high and tends to run off the screen.  This is a way to wrap the attributes in a single column to make it easier to read.
 
-Let's take another look at page by opening our html file in the browser using the "Open in Default Browser" command.
-The view should look like this:
+Let's take another look at page by doing a quick `Save`, then opening our html file in the browser using the "Open in Default Browser" command.
+The view should look like this now:
 ![radio-html](./assets/step-3/200-radio-html.png)
 
 Notice that our radio button has been placed inside a `p` element.  This is to ensure that the radio group stays on the same line as the question when rendered to the browser.
@@ -159,14 +163,14 @@ Let's take a look at our hero section's completed html code.
 ```html
 
     <!-- hero section -->
-    <section class="hero">
-      <div class="hero-form">
+    <section>
+      <div >
         <h3>Get Started Today!</h3>
         <p>Fill out this form and one of our trainers will schedule a consult.</p>
         <form>
-          <input type="text" placeholder="Your Name" name="name" class="form-input"/>
-          <input type="email" placeholder="Email Address" name="email" class="form-input"/>
-          <input type="tel" placeholder="Phone Number" name="phone" class="form-input"/>
+          <input type="text" placeholder="Your Name" name="name" />
+          <input type="email" placeholder="Email Address" name="email" />
+          <input type="tel" placeholder="Phone Number" name="phone" />
           <p>
             Have you worked out with a trainer before? 
             <label for="trainer-yes">
@@ -182,7 +186,7 @@ Let's take a look at our hero section's completed html code.
             I acknowledge that I am at least 18 years of age.
             <input type="checkbox" name="age-confirm" />
           </p>
-          <button type="submit" class="form-submit">
+          <button type="submit"">
             Get running!
           </button>
         </form>
@@ -195,19 +199,20 @@ Let's take a look at our hero section's completed html code.
 Now let's catch a glimpse of what our website looks like now and think about what we need to fix inorder to match our mock-up.
 
 ![hero](./assets/step-3/300-hero-html.png)
-Congrats, I know it's not pretty yet, but the grunt work is now complete so we can decorate or style our hero.
 
-> **Activity**:
+Congrats, I know it's not pretty yet, but our foundation work is now complete so we can decorate or style our hero.
+
+> **Activity**: HTML nesting game.  Place our boiler plate HTML code with finished CSS in parallel.  Ask the student to place certain items here or there by nesting them properly.  
 
 ## Hero Style
 
-So our hero section doesn't quite look like it has anything super about it yet, but fear not, we will learn how to style it up and make it super!  Let's take a look at the mock-up and examine the styling we will need to deliver our finished product.  Then we'll dive into CSS and open our `style.css` in VS Code.
+So our hero section doesn't look very super yet, but fear not, we will learn how to style it up and make it super!  Let's take a look at the mock-up and examine the styling we will need to deliver our finished product.  Then we'll dive into CSS and open our `style.css` in VS Code.
 ![hero-mock-up](./assets/step-3/900-hero-mock-up.png)
 
 ### Universal Styles
 In similar fashion to our HTML build process, we will start our CSS styling from a top down approach and drill down into our nested elements until we are satisfied with the finished product.  
 For the sake of consistency, there should be a few styles that will keep our all our `section` elements looking similar.  
-> **Rewind**: As we did in the previous module to offer a default font color or font to every HTML element or override browser styling by setting the margin to zero, we will give our `section` elements a consistent look with `width` and `padding`.
+> **Rewind**: As we did in the previous module, when we assigned a default font color or font to every HTML element or over wrote the browser styling by setting the margin to zero, we will give our `section` elements a consistent look using the `width` and `padding` properties.
 
 Let's type the following into your `style.css` file.
 
@@ -217,27 +222,30 @@ section {
   width: 100%;
 }
 ```
-> **Rewind**: Similarly to the `header` styles we created previously, the `width` property will make our `section` elements stretch across the page by taking up 100% of the parent element, which happens to be the `body` element that is the entire page.  How to assign `padding` values was explained in the previous step, but now let's dive into exactly what `padding` is.
+> **Rewind**: Similarly to the `header` styles we created previously, the `width` property will make our `section` elements stretch across the page by taking up 100% of the parent element, which happens to be the `body` element that fills the browser window or viewport.  How to assign `padding` values was explained in the previous module, but now let's dive into exactly what the `padding` property is.
 
-## Box Model
-An HTML element is represented by a rectangular box we will call the CSS box, with the content, padding, border, and margin built around each other like layers in an onion.  Some of the styles for each layer like the thickness, style, and color can be manipulated using CSS properties.
+## CSS Box Model
+All HTML elements can be represented by a rectangular box which we will call the CSS box.  The CSS box model is a visual display of the properties in the CSS box that includes the `content`, `padding`, `border`, and `margin` that are all built around each other like layers in an onion.  Some of the styles of each layer like the thickness, style, and/or color can be manipulated using CSS.   
 
 ![CSS box model](./assets/step-3/400-box-model.png)
 
 1. **Content** is the innermost box inside our CSS box that will contain text as well as any nested elements.  The `content` box size is determined by the *height* and *width*. 
 2. **Padding** refers to the inside margin within the CSS box.  Each of the four sides of the `padding` size can be specified as detailed in the previous module.
-3. **Border** sits on the outside edge of the `padding` and the inside edge of the `margin`.  This layer's sides, size, and styles can be specified, similarly to the `padding` and `margin`.  Such as `border-bottom` or `border-style` or even `border-top-color`.
-4. **Margin** surrounds the CSS box and touches the surrounding elements.  This property acts like the padding and can be specified by side and size.
+3. **Border** sits on the outside edge of the `padding` and the inside edge of the `margin`.  This layer's sides, size, and styles can be specified, similarly to the `padding` and `margin`.  Such as `border-bottom` or `border-style` or even `border-top-color`.  This property also needs a weight of the line, style, and color in order to render.
+4. **Margin** surrounds the CSS box and touches the adjacent elements.  This property's values are designated like the `padding` and can be specified by side and size.
 
-> **Deep Dive**: There are many different ways to specify styles, sides, and sizes using a multitude of properties that CSS offers.  Click [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model) to find out more.
+> **Deep Dive**: To learn and discover more about this fundamental web layout, click [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model).
 
-> **Activity** Play around with the box model and experiment with the syntax and the many combinations that can be manipulated by choosing any HTML element and adding some of these properties to see what happens.  
-
-### Using Class for Styling
+## Using Class for Styling
 Now let's add some pizzazz by adding a background image into our hero section.  
-First we need to create an `images` directory in the `assets` directory.  We can either use the `mkdir` command from the command line while in the `assets` folder,or we can simply go to the `Explorer` in VS Code(located on the left side panel) and click the `assets` folder.  The green plus sign will appear upon hovering over the root or parent directory.  The tool tip or hover message will indicate if you would like to add a new folder or file.  In this case let's add a new folder called `images`.  Let's download our all the images and place them inside the  `images` directory from our image link *(AWS S3 Bucket URL TBA)*.
+First we need to create an `images` directory inside the `assets` directory.  We can either use the `mkdir` command from the command line while in the `assets` folder,or we can simply go to the `Explorer` in VS Code(located on the left side panel) and click the `assets` folder.  The green plus sign will appear upon hovering over the root or parent directory.  The tool tip or hover message will indicate if you would like to add a new folder or file.  In this case let's add a new folder called `images`.  Let's download all our images and place them inside the  `images` directory from our image link <b>*(AWS S3 Bucket URL TBA)*</b>.
 
-If we simply used the `section` element as our CSS selector, we would be applying the same background image to all our subsequent sections which is not something we need.  We need a way to target the hero section specifically and not create a global style.  Thankfully we can use the `class` attribute we have included in our `section` element as our CSS selector.  The neat trick about a `class` CSS selector is that this attribute can be added to any HTML element that would need that same styling.  
+Now that we have our images, our first step is to target our hero section in CSS with a CSS selector.  If we simply used the `section` element as our CSS selector, we would be applying the same background image to all our subsequent `section` elements which is not something we want.  We need a way to target the hero section specifically and not create a global `section` style.  Thankfully we can use the `class` attribute. The neat trick about a `class` is that this attribute can be added to any one HTML element or many elements that will need the same styling, hence saving some time and lines of code so we can prevent some duplication.  
+Let's give our `class` attribute the value "hero" in our hero `section` element.  Please note the name of this class is up to us, but it is customary to name it to correspond to the element's function or use so it can be easily be recognized in the CSS style sheet to help identify which element is being styled.
+
+Your code should look like this.  Notice class is an attribute therefore is placed inside the opening tag.  We should've only added this attribute where we want the background image, in our hero section.
+
+`<section class="hero">`
 
 Let's type the following into your CSS file and unpack it further.
 
@@ -252,12 +260,12 @@ Let's type the following into your CSS file and unpack it further.
 }
 /* Hero Style End */
 ```
-* **Dot Notation**: Notice the "." proceeding the `class` `hero` to indicate to CSS we are using a class as our CSS selector.
-* **background-image** uses the CSS function `url()` to link a resource such as an image, web font, or gif.  Here was are using a relative URL path to select our background image from our images folder. Absolute paths can also be used for instance to grab and image from the web for example url("https://www.example.com/images/image.png").
-* **background-size** property sets the size of the background image so it can be left to its original size, stretched, or constrained to fit the available space.  The `cover` value enlarges the image to ensure complete coverage of the element by a single image.  Other selections allowed repeated images similar to a tiled look, similar to how background image displays are configured for your computer's background desktop image.
-* **background-position** allows different positioning of the background image.
-* **position** specifies the type of positioning method used for an element.  We will discuss this important property in further detail below.
-* **height** fixed at 600px gives an exact size of the section, important in this context so that the `section` doesn't grow to fit the size of the background image.
+* **Dot Notation** is the "." proceeding the class `hero` to indicate to CSS we are using a class as our CSS selector.
+* **Background-image** uses the CSS function `url()` to link a resource such as an image, web font, or gif.  Here was are using a relative URL path to select our background image from our images folder as we will explain in more detail below. Absolute paths can also be used for instance to grab and image from the web for example url("https://www.example.com/images/image.png").
+* **Background-size** property sets the size of the background image so it can be left to its original size, stretched, or constrained to fit the available space.  The `cover` value enlarges the image to ensure complete coverage of the element by a single image.  Other selections allow repeated images for a tiled look, similar to how background image displays are configured for your computer's background desktop image.
+* **Background-position** allows different positioning of the background image discussed in more detail below..
+* **Position** specifies the type of positioning method used for an element.  We will discuss this important property in further detail below.
+* **Height** fixed at 600px gives an exact size of the section, important in this context so that the `section` doesn't grow to fit the size of the background image.
 
 > **Heads Up**: Please pause to note that the relative path our `background-image` was different from the relative path used in the `footer` of our last step.  In this case since we are starting in the `style.css` file located in the `css` directory, we needed to transverse up to the parent directory by using the "../" notation (in this case, to the `assets` directory), to access the `images` directory.  The `images` directory wouldn't have been accessible directly from inside the `css` directory since only items within this directory are accessible.
 In the `footer`, the path to `privacy-policy.html` started from the `index.html` therefore only need the "./" since both files were in the same directory.  Note that for relative paths, the *origin* of the relative path is as important as the *destination*!
@@ -274,7 +282,7 @@ Here are a few of the position values and how they change their relationship to 
 
 * **Fixed** positioning removes the element from the natural flow of the page elements and is positioned relative to the viewport or browser window, therefore is not affected by scrolling.  The`fixed` position value uses the `top`, `bottom`, `left` and `right` properties to offset from the viewport or the .  
 
-> **Pause**: Let's take a look at our current creation in the browser.  You should see something like this.
+> **Pause**: Let's take a look at our current creation in the browser after a quick `Save`.  You should see something like this.
 
 ![hero-background](./assets/step-3/500-bg-image-css.png)
 
@@ -282,7 +290,7 @@ Congrats! Give yourself a nice pat on the back.  Way to hang in there!  We will 
 
 ### Form Styles
 
-According to the mock-up the box or `div` containing our `form` should have a yellow background matching the yellow in our `header` and `footer`.  Let's select or target this `div` by using the `class` attribute for this `div` as the CSS selector which we have named `hero-form`.  Let's use this CSS selector to declare some properties and style the box containing our forms.  The border and font color in this `div` will match the navy font color in the `footer`.  Let's experiment with the height and width properties as well as the positioning property to match our mock-up.
+According to the mock-up the box or `div` containing our `form` should have a yellow background matching the yellow in our `header` and `footer`.  Let's select or target this `div` by using the `class` attribute for this `div` as the CSS selector which we have named `hero-form`.  Let's add this attribute to the `<div>` opening tag and use it as a CSS selector to declare some properties and style the box containing our forms.  The border and font color in this `div` will match the navy font color in the `footer`.  Let's experiment with the height and width properties as well as the positioning property to match our mock-up.
 
 > **Pause**: Try out some code and see if you can do some styling on your own.
 
@@ -315,7 +323,7 @@ Your page should look something like this:
 
 Success.  Nice job!  Now let's preview a new way to make changes to your styling.
 
-### Dev Tools
+### Chrome's Dev Tools
 
 Ever think it's kind of a pain hopping back and forth between changing the CSS file, then going back and forth from the browser to see how the changes look and see what else needs a tweak.  Let's use a tool in the browser called Developer Tools.
 This tool can be found by clicking on the hamburger button located on the top-right portion of your browser that looks like three dots vertically aligned.
@@ -328,7 +336,7 @@ This will open a browser menu.  Open the `More Tools` option which will open a s
 Depending on your version of Chrome, your screen should look something like this:
 ![Developer Tools](./assets/step-3/800-dev-tools.png)
 
-Click on the `Elements` tab to reveal the HTML code.  On a full screen you will see the `Styles` section as well, displaying your CSS code.  By clicking on the various fields, we can change or delete the properties, attributes, content, and values.  
+Click on the `Elements` tab to reveal your HTML code.  On a full screen you will see the `Styles` panel as well, displaying your CSS code.  By clicking on the various fields, we can change or delete the properties, attributes, content, and values.  
 
 This tool is a tremendous asset to front-end developers with the ability to:
 * Change HTML elements and attributes
@@ -337,19 +345,19 @@ This tool is a tremendous asset to front-end developers with the ability to:
 * And much much more which we will continuously learn throughout this class
 > **Deep Dive**: Discover more about Chrome's [DevTools here.](https://developers.google.com/web/tools/chrome-devtools/) If it is seems a little much for now, it's because this tool has a vast array of uses that is beyond our current concept scope.  Don't worry, we will divulge more of these tools as they become more relevant and useful for us.
 
-> **Activity/Pause**: Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`.  Try out the `element inspector`, the arrow icon in the top-left corner of the DevTool window, to target a specific element.  Notice the changes in the `Element` and `Style` windows.  Feel free to play around at will.  Are these changes permanent?How can we tell?
+> **Activity/Pause**: Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`.  Try out the `element inspector`, the arrow icon in the top-left corner of the DevTool window, to target a specific element.  Notice the changes in the `Element` and `Style` panels.  Feel free to play around at will.  Are these changes permanent?How can we tell?
 >**Answer**: Page refresh can determine persistence or permanence of a change.
 
 These changes are not permanent and do not change the actual code, but merely offers a sandbox to try out different styles and sizes with the ability to see their affect on the element and the document itself.  Once satisfied with the desired styling affect, these changes must be made to the style sheet itself in order to make the style change permanent.
 
 > **Pro Tip**: To further develop skills with these types of tools, it is important to use them as much as possible. Try to use new tools as much as possible in the beginning since it easy to forget they are there.  It is a good habit keeping this window open so it stays top of mind.  Remember it can be shrunk, stretched or docked on any side by selecting the hamburger button in the top-right corner.
 
-Let's head back to the browser tab with our landing page and examine our code in the Dev Tool Window.  The CSS style sheet appears to be the same one we have been working on, however there are actually quite a lot more properties for each selector than we have written.  These are the default CSS property settings that are 
+Let's head back to the browser tab with our landing page and examine our code in the DevTools window.  The CSS style sheet appears to be the same one we have been working on, however there are actually quite a lot more properties for each selector than we have written.  These are the default CSS property settings that are 
 
-> **Pause**: Do you notice how some of the style properties in the `Styles` window have a line through them?  What do you think this means and why?
+> **Pause**: Do you notice how some of the style properties in the `Styles` panel have a line through them?  What do you think this means and why?
 > **Answer**: These styles have been overridden by another property due to the cascading hierarchy of CSS style sheets. Notice how the checkbox can toggle the style property.
 
-Scrolling down to the bottom of the `Styles` window offers an interactive CSS box model that allows the different layers of the CSS box to be manipulated by value.  A very useful tool that can save a lot of time and energy when designing a page layout.
+Scrolling down to the bottom of the `Styles` panel offers an interactive CSS box model that allows the different layers of the CSS box to be manipulated by value.  A very useful tool that can save a lot of time and energy when designing a page layout.
 <!-- <a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
 " target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a> -->
@@ -367,12 +375,18 @@ We will chose the second option because there is only a single `h3` inside the f
 > **Pause**: Let's go to your `style.css` file to address the `h3` to make it a bit larger as well as reduce the `margin` to zero to reduce any possible word wrapping.
 
 2) Text Spacing: Next will be adding some space to the `p` for legibility and spacing, specifically to the top and bottom margins.
-3) Input Fields Boxes: It's time to give our input fields some style and panache.  First let's get each one to exist on its own line while making it bigger and more noticeable.  Part of having a good website is giving the visitor an easy time navigating and using our page. Especially when it comes to user interaction, it's really important to make it as simple and straighforward as humanly possible.  This means having clear demarcations on each line as to address what each input is for.  We will use the CSS selector for the `form-input` class since we wish to only target the input field text boxes and not the checkbox or radio buttons.  Let's add some border, display each line separately, make the font larger, extend each input field box the length of the form container, and use the navy font colorwe used for the `footer`.
+
+The `class` attribute allows our CSS styling to target any one or group of elements that need the same style. In our example we will need three text inputs with the same exact look. Therefore, all three `input` elements will have the same class attribute value `form-input` which allows for less typing and more efficient coding.  Add the class attribute to the first three `input` elements.
+```html
+<input type="text" placeholder="Your Name" name="name" class="form-input"/>
+```
+
+3) Input Fields Boxes: It's time to give our input fields some style and panache.  First let's get each one to exist on its own line while making it bigger and more noticeable.  Part of having a good website is giving the visitor an easy time navigating and using our page. Especially when it comes to user interaction, it's really important to make it as simple and as straighforward as possible.  This means having clear demarcations on each line and to address what each input is for.  We will use the CSS selector for the `form-input` class since we wish to only target the input field text boxes, but not the other `input` elements for the `checkbox` or `radio` buttons. Let's add a border, display each line separately, make the font larger, extend each input field box the length of the form container, and use the navy font color we used for the `footer` font color.
 
 > **Try It Yourself**: Let's type in some code and use the Chrome DevTools to manipulate some sizes for our `padding`, `margin`, and sizing.
 
 Our code should now look like this:
-```html
+```css
 .hero-form h3 {
   font-size: 24px;
   margin: 0;
@@ -391,18 +405,67 @@ Our code should now look like this:
   margin-bottom: 15px; 
 }
 
-.hero-form label {
-  margin: 0 5px;
-}
 ```
-Remember to save these changes and take a look at the new page's styles in the browser.
-You can see that the input field just aren't looking like our mock-up due to some over running input fields.  We can add a basic CSS property here called `box-sizing`.
-### Box-sizing
-In simple terms, `box-sizing` is to determine how to calculate the `width` and `height` of each element.  The `content-size` value is the default and will only count the `content` inside the `padding` as part of the element's size.  `Border-box` however includes the `border` as well as the `padding` and therefore is an easier choice due to the lack of additional calulations needed.
-We can add this to the *{} to the top of the CSS file, which will then target every element on the page.
+Let's unpack some of our properties in our `.form-input` selector and see how they affected our form input elements.  
+* **Border**: A skinny 1px border helped emphasize our sign-up requests.
+* **Display**: This is the property that determines if the element sit in it's own line by declaring the `block` value, thereby forcing other elements into the next line, , or sit in the flow of the HTML document, letting the browser determine or calculate if other elements can fit on the same line and sit next to other elements by using the `in-line` property.
+The other properties helped us achieve some spacing and font size to improve the legibiility.
 
-```html
+Remember to save these changes and take a look at the new page's styles in the browser.
+You can see that the input field just aren't looking like our mock-up due to some overrunning input fields.  We can add a basic CSS property here called `box-sizing`.
+### Box-sizing
+The `box-sizing` property determines how to calculate the `width` and `height` of each element.  There are two different possible values for this property: `content-size` and `border-box`.
+* **Content-size**: is the default value and calculates the height and width of the element by 
+only counting the `content` box of our CSS box model.  This means that the `border` and `padding` must be calculated separately and added to our width and height to determine the true size of our element.
+* **Border-box**: calculates the height and width of the element by including the `border` and `padding` additions to our `content` box.
+
+In our case, when we declare the width of our input fields to be 100%, we would like these elements to span the total distance of the parent element or in our case the form container, but we would also like to include the spacing provided by our `border` and `padding` into this calculation otherwise the input fields would overrun our form container since the sum of the layers of our CSS box would be over 100% including the `border` and `padding` property values.  
+
+>**Pause**: Let's add this important property to every element on our page.  How would be go about this without needing to add this property everywhere?
+>>**Answer**: We can add this to the `*{ }` to the top of the CSS file, which will then target every element on the page.  This is a great idea to add for every CSS stylesheet.
+
+```css
 * {
   box-sizing: border-box;
 }
 ```
+
+Now let's add just a bit of spacing for our label element in our radio buttons to ensure the user doens't misinterpret which selection is for which answer by adding a bit of horizontal margin.  Let's go ahead and add that in now.
+
+> **Try it Yourself**: It is important to try and implement these styles yourself and give it a chance.  Getting syntax errors or the red squiggly lines are helpful reminders that you may be missing or misplacing a syntax character.  In time, the syntax will become second nature to you and your speed to develop time will increase with practice!
+
+```css
+.hero-form label {
+  margin: 0 5px;
+}
+```
+
+Let's save our work and take a look at the browser for what we have completed so far.  
+Congrats, the work looks almost complete except for our button.  Let's get to work on it now.
+According to the mock-up the button should be the navy and the font color should be yellow.  Can you style our button adding some size to our font and some padding?
+> **Try it Yourself**: let's flex our new CSS skills and style this button to match our mock-up.  Let's open up the DevTools, select the button using the element selector or arrow icon to select our button, then go to the Styles window to 
+
+```css
+.hero-form button {
+  color: #fce138;
+  background-color: #024e76;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+} 
+/* HERO STYLES END */
+```
+
+It's time for our moment of truth.  Let's save the file or just auto save it like a pro, and refresh our browser to look at our finished hero!
+Excellent work, our section is now done and looking just like our mock-up.  Now let's take a moment to review some of the major concepts learned in this module.
+
+## Reflection
+
+This was another dense module of concepts and syntax.  Don't worry that you haven't nailed everything down yet, this will happen in time with practice.  In programming, practice doesn't make perfect, it makes developers.  Programming isn't something you can watch in a youtube video or read in a book to make yourself proficient.  The one and only way to become a developer is to practice practice practice, which means a lot of playing around in sand boxes and DevTools to see what does what.  If you get stuck, become a Google foo master since this is a vital developer skill that can get you unstuck. Your answer is out there, now you just have to go find it.
+
+* **HTML5 Semantic Elements** are an important part of the modern web that can help organize a web page as well as help with accessiblity helping some readers interpret the page with screen readers.  
+* **Class Attributes as CSS Selectors** help target specific elements on our document for custom styling.
+* **CSS box model** is the defacto layout design model of the Web, based on labeling each layer of our box diagrams to improve spacing, styling, and legibility of our HTML elements.
+* **DevTools** are a front-end developer's best friend.  We will get well acquainted with its various tools as the course progresses.
+
+Now let's continue onto our next module and complete the "What We Do" section.
