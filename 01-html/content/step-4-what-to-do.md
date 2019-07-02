@@ -57,7 +57,7 @@ Let's go ahead and fill in the missing HTML content. Ignore the images for now b
 </section>
 ```
 
-> **Pro-Tip:** If you ever need to quickly fill an HTML tag with dummy text in VS Code, type the word "lorem" and press Tab.
+> **Pro-Tip:** If you ever need to quickly fill an HTML tag with dummy text in VS Code, type the word "lorem" and press Tab. There are also many [dummy text generators](https://www.lipsum.com/) available online.
 
 Note how every step is wrapped in its own `<div>` to help keep the step title and description coupled together. This will make it easier to style them later with CSS, too. We also used `<h3>` for each step title since these headings are less important than the higher `<h2>What You Do</h2>` title.
 
@@ -75,7 +75,7 @@ This would be a good time to start adding the IDs that we talked about back in L
 </section>
 ```
 
-Save, refresh, then click on the links in the header. You'll see that the browser jumps down to these sections, and the URL in the address bar changes to `/run-buddy/index.html#what-you-do`. Very cool! We'll fill in the remaining IDs in upcoming lessons.
+Save, refresh, then click on the links in the header. You'll see that the browser jumps down to these sections, and the URL in the address bar changes to `/run-buddy/index.html#what-you-do`. Very cool! We'll fill in the remaining `id` attributes in upcoming lessons.
 
 # Adding Images
 
@@ -85,7 +85,7 @@ So the company's design team has given us some new images to work with. Download
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164.73 130.92"><defs><style>.cls-1{fill:#39a6b2;}</style></defs><title>Asset 2</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M163.69,109.93H99.88a.75.75,0,0,0-.69.69v2.6a2.92,2.92,0,0,1-3,3H68.67a3,3,0,0,1-3-3v-2.42a.73.73,0,0,0-.69-.69H1a1.12,1.12,0,0,0-1,1v10.58a9.25,9.25,0,0,0,9.19,9.19H155.54a9.26,9.26,0,0,0,9.19-9.19V111.15a1.16,1.16,0,0,0-1-1.22Z"/>
 ```
 
-How is it possible for something to look so familiar yet so confusing?! This looks kind of like HTML, doesn't it? But it's actually called [XML](https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction), which is like a cousin to HTML. Unlike PNGs or JPGs, which are made up of pixels, SVGs are defined as scalable shapes under the hood (the `<path>` tags you see in the XML). This means the SVG image could accommodate basically any screen size and not lose quality. So SVGs are perfect for things like icons and logos.
+How is it possible for something to look so familiar yet so confusing?! This looks kind of like HTML, doesn't it? But it's actually called [XML](https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction), which is like a cousin to HTML. Unlike PNGs or JPGs, which are made up of pixels, SVGs (or Scalable Vector Graphics) are defined as a series of points and lines (the `<path>` tags you see in the XML) that are filled in with color. This means the SVG image could accommodate basically any screen size and not lose quality. So SVGs are perfect for things like icons and logos.
 
 In the Step 1 `<div>`, add the following `<img>` tag:
 
@@ -142,7 +142,7 @@ Now add some CSS properties that apply to the `<h2>` tag inside this section:
 }
 ```
 
-The majority of this is stuff we've used before, but one thing worth highlighting is that we've specified a border on one side of the element only. We also split the border into two separate rules, but you could have written it as one: `border: 3px solid #fce138;`. It's up to you.
+The majority of this is stuff we've used before, but one thing worth highlighting is that we've specified a border on one side of the element only. We also split the border into two separate rules, but you could have written it as one, using a shorthand property: `border: 3px solid #fce138;`. It's up to you.
 
 > **Pause:** If you were to write `padding: 0 100px 20px 100px;` as four separate properties, which value would go with which property?
 
@@ -154,7 +154,7 @@ And that's definitely an improvement, but if we left it like that, the design te
 
 > **Rewind:** Block elements take up 100% of the width of their parent, regardless of content size. Inline elements only take up as much space as their content needs, allowing multiple inline elements to sit next to each other.
 
-The `<h2>` element, by default, is a block element, but with CSS, we can change that default behavior:
+The `<h2>` element, by default, is a block element, but with CSS, we can change that default behavior: 
 
 ```css
 .intro h2 {
@@ -163,7 +163,7 @@ The `<h2>` element, by default, is a block element, but with CSS, we can change 
 }
 ```
 
-Coupled with our `text-align` property from before, we now have a nice, centered heading with an appropriately-sized border:
+We chose to use `inline-block` over just `inline` so it can have the best of both worlds. It's now an inline element, but things like padding still behave like they would on block elements. Coupled with our `text-align` property from before, we now have a nice, centered heading with an appropriately-sized border:
 
 ![inline heading](./assets/step-4/300-inline-heading.png)
 
@@ -191,11 +191,13 @@ Because we shrunk the width of the paragraph down to 80%, it no longer looks cen
 }
 ```
 
-This is shorthand for setting a top and bottom margin of zero and a left and right margin of auto. But what does "auto" mean? This essentially tells the browser to calculate the margins for us. When the browser is asked to do this on both sides of an element, it will do its best to make them even, thus pushing the element into the center. With the Developer Tools, we can inspect the element's margins (the orange boxes) before auto is applied and after:
+This is shorthand for setting a top and bottom margin of zero and a left and right margin of auto. But what does "auto" mean? This essentially tells the browser to calculate the margins for us. When the browser is asked to do this on both sides of an element, it will do its best to make them even, thus pushing the element into the center. With the Chrome DevTools, we can inspect the element's margins (the orange boxes) before auto is applied and after:
 
 ![margin comparison](./assets/step-4/500-margin-comparison.png)
 
 Pretty cool! Yet another CSS trick to put in your toolbelt. And that wraps up "What We Do."
+
+> **Deep Dive:** Check out some of the [other ways](https://css-tricks.com/centering-css-complete-guide/) content can be centered with CSS.
 
 # Styling What You Do
 
@@ -227,9 +229,11 @@ Then we can clean up the heading:
 }
 ```
 
-Huh. You know what? Those CSS properties look almost identical to the ones we wrote for `.intro h2`. The only thing that's different is the `border-color`. In programming, we want to cut down on duplicate code as much as possible, and this is a great example of unnecessary duplication. We could consolidate these rules into more generic classes that all of our headings (including "Meet the Trainers" in the next lesson) could pull from.
+Huh. You know what? Those CSS properties look almost identical to the ones we wrote for `.intro h2`. The only thing that's different is the `border-color`. In programming, we want to cut down on duplicate code as much as possible, and this is a great example of unnecessary duplication.
 
-Let's reorganize our CSS with a few new classes:
+> **Important:** An important principle in software development that you might hear is the term [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), or Don't Repeat Yourself.
+
+We could consolidate these CSS rules into more generic classes that all of our headings (including "Meet the Trainers" in the next lesson) could pull from. Let's reorganize our CSS with a few new classes:
 
 ```css
 .section-title {
@@ -299,9 +303,9 @@ What's left is some general clean-up to size and color elements correctly. Even 
 }
 ```
 
-> **Deep Dive:** Something you may have noticed is that our parent `text-align: center;` property also centered the SVG icons. This can be a bit confusing at first, since images definitely are not text, but `text-align` essentially centers everything inside of an element, text or otherwise. Note that if you want to use `text-align` to center an image, though, you must apply it to the parent element, not the image itself.
+> **Deep Dive:** Something you may have noticed is that our parent `text-align: center;` property also centered the SVG icons. This can be a bit confusing at first, since images definitely are not text, but `text-align` essentially centers everything inside of an element, text or otherwise. If you want to use `text-align` to center an image, though, you must apply it to the parent element, not the image itself.
 
-So it may seem like we're done now, but anytime we're given a design mock-up to follow, we need to be absolutely sure we covered everything. Designers don't appreciate when developers say, "Eh, it's good enough." One thing that would be easy to overlook is the font size differences in the step titles:
+So it may seem like we're done now, but anytime we're given a design mock-up to follow, we need to be absolutely sure we covered everything. Designers don't appreciate when developers say, "Eh, it's close enough." One thing that would be easy to overlook is the font size differences in the step titles:
 
 ![step title](./assets/step-4/600-step-span.png)
 
