@@ -49,13 +49,15 @@ Great! Your `index.html` file should now look something like this.
 
 > **Heads up**: Notice how the indentation helps communicate which elements are nested.
 
-Now that we have our `div` element that will give us the structure of the yellow box or our form container in our mock-up, let's create the remaining elements within this box that will give us our heading, text, content, input fields, and button.
+Now that we have our `div` element, let's create the remaining child elements inside this form container.
 
 > **Pause**: Given some of the HTML elements we have learned up to this point, which element should go next? Let's give it a go and write some code.
 
 > **Hint**: Remember all the elements within the yellow box must be contained within the `div`, since they are all nested within this box.
 
-> **Answer**: For our heading, let's use the `h3` element. This was chosen because we are able to use some of the browser's styling defaults to size our heading including a bold `font-weight` and a larger `font-size`. Get a feeling of the other possible `h` tags to get a feeling of the relative differences in size. Remember there are 6 in total.
+> **Answer**: For our heading, we have chosen the `h3` element. But why not the `h1` or `h4` for that matter?  It's a bit like the Goldilocks principle, but in this case size designates importance as well as the size of the content for the heading.  We don't want this heading to compete with the main header or the section header that use `h1` and `h2` respectively. `h3` seems to fit just right, exuding confidence, yet not overstepping its significance!
+
+This was chosen because we are able to use some of the browser's styling defaults to size our heading including a bold `font-weight` and a larger `font-size`. Get a feeling of the other possible `h` tags to get a feeling of the relative differences in size. Remember there are 6 in total.
 
 Now let's put our content within the `h3` tags from our mock-up.
 After that is some basic text, so let's wrap that in a `<p>` tag.  
@@ -88,22 +90,19 @@ So not yet exactly what we are looking for stylistically speaking, but this is a
 
 ### Step 2: Web Forms
 
-The sign-up for in our hero section has a special name called a call-to-action (or CTA).
+We have been filling out forms our entire lives, even for this class a few forms needed to be completed. Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form markup by using the `<form>` tag to wrap our sign-up form.  HTML Forms are a major point of interaction between the user and a website or application.  They allow users to send data to the website, normally to the server.  Within this `form` will be the `form` elements such as `input` elements.  `Input` elements come in many different types and flavors depending on the type of information that is desired such as a text input fields, radio buttons, or checkboxes.
 
-> **Urkel Says**: A CTA encourages the audience or web site visitors through a story, advertisement, or piece of content to do something. In our case we would like our visitor to share their contact info for a possible future engagement. CTAs can play a vital role in coverting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
+> **On The Job**: The sign-up form is a "call to action" or CTA.  The main purpose is to encourage the users through a story, advertisement, or piece of content to do something. In our case we would like our visitor to share their contact info for a possible future engagement. CTAs can play a vital role in coverting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
 
 #### Text Fields
 
-We have been filling out forms our entire lives, even for this class a few forms needed to be completed. Now we will learn how to build our own forms and the different input types that are possible. Our next step deals with the input fields.
+> **Pause**: Can you count how many `input` elements will be needed here?  What type of `input` elements will be necessary?
 
-> **Pause**: Can you count how many input elements will be needed here?
+> **Answer**: We will need five input elements. Three text fields, a `radio button`, and a `checkbox`. We will also need a `button` that will act as our data submission trigger or event.
 
-> **Answer**: We will need five input elements. Three text fields, a `radio button`, and a checkbox. We will also need a button that will act as our data submission trigger or event.
+We will now create markup within the `form` to include the `form` elements such as the `input` elements and the submit `button`.
 
-We will place these `input` elements and the submit `button` within a `form` element.
-The `form` element represents a document section that contains interactive components or controls for submitting user information.
-
-Let's take a good look at an `input` element and its various attributes.
+Now let's take a good look at the following `input` element and its different attributes.
 
 ```html
 <form>
@@ -216,7 +215,7 @@ Let's take a look at our hero section's completed html code.
 
 > **Pro-tip**: Notice how there are no extra empty lines within the confines of the `section`. Being concise with language and syntax also pertains to extraneous lines or white space. Although empty lines or indentation will not affect what is rendered in the browser, it will pertain more to a best practice style guide that eases readabliity and communicates parent/child relationships.
 
-Now let's catch a glimpse of what our website looks like now and think about what we need to fix inorder to match our mock-up.
+Now let's catch a glimpse of what our website looks like now and think about what we need to fix in order to match our mock-up.
 
 ![hero](./assets/step-3/300-hero-html.png)
 
@@ -320,7 +319,7 @@ According to the mock-up the box or `div` containing our `form` should have a ye
 
 > **Try It Yourself**: Try out some code and see if you can do some styling on your own.
 
-> **Hint**: Don't forget to add the semicolon or red syntax errors will prevent your CSS from formatting.
+> **Hint**: Don't forget to add semicolons at the end of your rule-set declarations or the browser won't understand them.
 
 > **Pause**: Can you forsee any issues with having our form container keeping a relative position in relation to our hero section? What are the viable options and why?
 > **Answer**: We would use absolute or relative positioning since static is simply the position of the element in the natural flow of the document and cannot be repositioned and fixed position relates to a position relative to the viewport or browser window. It is possible to use relative positioning to get the initial layout according the the mock-up. However absolute position is the correct answer since this value allows us to position the element offset from a side of the parent element, in our case the hero section. We can then simply declare our form container must be offset from the bottom and right side of the hero section by either a specific amount.
@@ -402,6 +401,8 @@ This tool is a tremendous asset to front-end developers with the ability to:
 
 > **Deep Dive**: Discover more about Chrome's [DevTools here.](https://developers.google.com/web/tools/chrome-devtools/) If it is seems a little much for now, it's because this tool has a vast array of uses that is beyond our current concept scope. Don't worry, we will divulge more of these tools as they become more relevant and useful for us.
 
+> **Preservable Walk Through**:  Quick gif demonstration showing how to use Chrome DevTools to quickly change the background-color of google.com
+
 > **Activity/Pause**: Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`. Try out the `element inspector`, the arrow icon in the top-left corner of the DevTool window, to target a specific element. Notice the changes in the `Element` and `Style` panels. Feel free to play around at will. Are these changes permanent?How can we tell?
 > **Answer**: Page refresh can determine persistence or permanence of a change.
 
@@ -416,10 +417,6 @@ One nice trick is to toggle properties on and off to see their cummulative affec
 Scrolling down to the bottom of the Styles panel offers an interactive CSS box model that allows the different layers of the CSS box to be manipulated by value. A very useful tool that can save a lot of time and energy when designing a page layout.
 
 ![box-model](./assets/step-3/1100-box-model-dt.png)
-
-<!-- <a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
-" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg"
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a> -->
 
 ### Step 6: Styling Form
 
