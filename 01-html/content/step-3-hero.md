@@ -90,19 +90,19 @@ So not yet exactly what we are looking for stylistically speaking, but this is a
 
 ### Step 2: Web Forms
 
-We have been filling out forms our entire lives, even for this class a few forms needed to be completed. Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form markup by using the `<form>` tag to wrap our sign-up form.  HTML Forms are a major point of interaction between the user and a website or application.  They allow users to send data to the website, normally to the server.  Within this `form` will be the `form` elements such as `input` elements.  `Input` elements come in many different types and flavors depending on the type of information that is desired such as a text input fields, radio buttons, or checkboxes.
+Forms are an important mechanism used by the web to receive user input.  Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form markup by using the `<form>` tag to wrap our sign-up form.  HTML Forms are a major point of interaction between the user and a website or application.  They allow users to send data to the website, normally to the server.  Within this `form` will be the `form` elements such as `input` elements.  `Input` elements come in many different types and flavors depending on the type of information that is desired such as a text input fields, radio buttons, or checkboxes.
 
 > **On The Job**: The sign-up form is a "call to action" or CTA.  The main purpose is to encourage the users through a story, advertisement, or piece of content to do something. In our case we would like our visitor to share their contact info for a possible future engagement. CTAs can play a vital role in coverting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
 
 #### Text Fields
 
-> **Pause**: Can you count how many `input` elements will be needed here?  What type of `input` elements will be necessary?
+> **Pause**: How many text fields will be needed in the sign-up form?  
 
-> **Answer**: We will need five input elements. Three text fields, a `radio button`, and a `checkbox`. We will also need a `button` that will act as our data submission trigger or event.
+> **Answer**: We will need three text fields. 
 
-We will now create markup within the `form` to include the `form` elements such as the `input` elements and the submit `button`.
+Let's create the markup now, within the `form` to create our text fields.
 
-Now let's take a good look at the following `input` element and its different attributes.
+Look closely at the following `input` element and its different attributes.
 
 ```html
 <form>
@@ -116,7 +116,7 @@ Now let's take a good look at the following `input` element and its different at
 
 > **Do if Yourself**: Having given the first text input field, can you do the next two for email and phone number.
 
-> **Hint**: Each has a specific attribute for `name`, `type`, and `placeholder`. A list of `type` attributes can be found [here].(https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
+> **Hint**: Each has a specific attribute for `name`, `type`, and `placeholder`. A list of `type` attributes can be found [here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
 
 > **Pause**: Notice at the end of this tag is a forward slash. Can you think about what this slash does?
 
