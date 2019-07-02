@@ -288,7 +288,6 @@ section {
 
 /* REACH OUT STYLES END */
 
-
 /* UTILITIES */
 .text-left {
   text-align: left;
@@ -297,9 +296,3 @@ section {
 .text-right {
   text-align: right;
 }
-
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-} */ 
