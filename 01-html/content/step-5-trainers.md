@@ -40,8 +40,8 @@ Like the previous lesson, we're going to encapsulate our related content in cont
 
 ```html
 <article class="trainer">
-  <img src="./assets/images/trainer-1.jpg" alt="trainer Tony Horton" />
-  <div class="trainer-bio text-left">
+  <img src="./assets/images/trainer-1.jpg" alt="Run Buddy trainer" />
+  <div class="trainer-bio">
     <h3>Tony Horton</h3>
     <h4>Speed / Strength</h4>
     <p>
@@ -132,11 +132,17 @@ So we've worked with floats and manipulating a page's default "flow" earlier in 
 
 This a common issue for float-based layouts. It involves not only moving the elements we want to move, but also tweaking elements around it to tell it to understand that there may be some floated elements it needs to account for. There are a few ways to conduct these tweaks in order to fix the problem we just had, we chose to use the `overflow` property.
 
+> DEEP DIVE: This is just one use of the `overflow` property and it will come up again in different use cases. For more information on this property, [read this.](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)
+
 The fix we applied told the `<article>` that it does in-fact have content inside of it and it needs to look for it and account for those elements' sizes. This is what's known as providing `block formatting context` to the element.
 
-> DEEP DIVE: To learn more about block formatting context, [read this](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context#Examples).
+> DEEP DIVE: To learn more about block formatting context, [read this.](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context#Examples)
 
-Well we've fixed our trainer to have a nicer layout, let's get to applying the text content. We'll start by making two class style definitions that aren't unique to our trainers, but more of a utility class (think about how we created `primary-border` and `secondary-border`) that can be applied anywhere in our page to fix a style. Add the following two classes to the CSS document:
+Well we've fixed our trainer's `<article>` to have a nicer layout, let's get to applying the text content. As we can see, all of the text is currently center-aligned. This is because we set the `trainers` class in the parent `<section>` to be center-aligned, and the style is being applied to the child elements.
+
+So we will fix this by setting the first and (eventual) third trainers to have left-aligned text and the (eventual) second to have right-aligned text. Rather than style each one separately we'll take a different approach that makes our code less repetive.
+
+We'll start by making two class style definitions that aren't unique to our trainers, but more of a utility class (think about how we created `primary-border` and `secondary-border`) that can be applied anywhere in our page to fix a style. Add the following two classes to the CSS document:
 
 ```css
 .text-left {
@@ -148,9 +154,23 @@ Well we've fixed our trainer to have a nicer layout, let's get to applying the t
 }
 ```
 
-Notice how these classes have very ambiguous names that do not indicate where exactly they belong on the page. This is done on purpose so now they can be used by any HTML tag that needs a quick fix to their text-align properties, rather than having to create more style rules for each one individually.
+Notice how these classes have ambiguous names that do not indicate where exactly they belong on the page. This is done on purpose so now they can be used by any HTML tag that needs a quick fix to their text-align properties, rather than having to create more style rules for each one individually.
 
-Now let's add some styles more specific to our trainers:
+Let's revisit our HTML and the class `text-left` to the `<div class="trainer-bio">` tag. It should look like this when it's done:
+
+```HTML
+<div class="trainer-bio text-left">
+  <h3>Tony Horton</h3>
+  <h4>Speed / Strength</h4>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi neque animi quo cupiditate commodi saepe culpa sed itaque velit maiores optio dolorem excepturi aperiam dolores, voluptatibus suscipit amet quis repellat!</p>
+</div>
+```
+
+Now the trainer's text is left-aligned because we added another class `text-left` to it. This class was created for the sole purpose of left-aligning text when needed.
+
+When we add the next two trainers, we will also be applying `text-left` and `text-right` to them just as we did with this first one.
+
+Let's add some styles more specific to our trainers:
 
 ```css
 .trainer-bio h3 {
@@ -174,6 +194,12 @@ And there we go! Our trainer's styles are now set up and everything should be lo
 
 ![finished trainer](assets/step-5/500-finished-trainer.png)
 
+> HEADS UP: For some users&mdash;especially Windows&mdash;the font we are using here, Helvetica, may not be loaded on the computer and this page will use the fall-back font, Arial. There are differences between the two, namely the variations of the `font-weight` property. It does not have a weight for the value `lighter`, so it ends up using the closest weight. In this case, it is `normal`.
+>
+> This is something we as developers may deal with a regular basis, but the nice thing is that the fall-back weight that is provided doesn't break the page. It just may look a little different than Mac users.
+>
+> [More on `font-weight` here.](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)
+
 At this point all of the style properties used in the last bit of CSS have already been used, so there's no real need to rehash it. If further review is desired, remember to keep [this reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index) handy.
 
 Let's go ahead and get our other two trainers added to the page, then we'll be done with this section!
@@ -193,12 +219,12 @@ Now that we have our first trainer already laid out and styled, we have somethin
       itaque velit maiores optio dolorem excepturi aperiam dolores, voluptatibus suscipit amet quis repellat!
     </p>
   </div>
-  <img src="./assets/images/trainer-2.jpg" alt="trainer Kelly Kapowski" />
+  <img src="./assets/images/trainer-2.jpg" alt="Run Buddy trainer" />
 </article>
 
 <!-- third trainer bio -->
 <article class="trainer">
-  <img src="./assets/images/trainer-3.jpg" alt="trainer Harry 'The Headband' Smith" />
+  <img src="./assets/images/trainer-3.jpg" alt="Run Buddy trainer" />
   <div class="trainer-bio text-left">
     <h3>Harry "The Headband" Smith</h3>
     <h4>Strength</h4>
@@ -231,3 +257,5 @@ We're almost there! There are two more important pieces left to build, but at th
 - We implemented the `<article>` tag to help encapsulate related content on the page, allowing the browser and screenreaders to have an easier time reading our content.
 
 - Lastly, we got to utilize a lot of what we've learned previously in this project and reinforce our knowledge in both HTML and CSS.
+
+The next lesson will introduce us to a new couple of new HTML tags, as we will be building the "Reach Out" section of our page.
