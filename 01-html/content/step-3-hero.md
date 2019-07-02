@@ -2,16 +2,16 @@
 
 ## Our Hero's Purpose
 
-Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website.  HTML elements in large part, can be considered as a series of rectangular boxes as was described in Lesson 1.  These boxes can be stacked on top of each other like blocks and also can be nested within each other similar to Russian nesting dolls.  If we take a good look at our mock-up, we can see that each part of our landing page seems to be separated by different colored blocks. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. In the first lesson we created  the basic layout of each `section` element.  We will be building upon this framework, `section` by `section` until our mock-up is complete. 
+Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website.  HTML elements in large part, can be considered as a series of rectangular boxes as was described in Lesson 1.  These boxes can be stacked on top of each other like blocks and also can be nested within each other similar to Russian nesting dolls.  If we take a good look at our mock-up, we can see that each part of our landing page seems to be separated by different colored blocks. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. In the first lesson, we created  the basic layout of each `section` element.  We will be building upon this framework, `section` by `section` until our mock-up is complete. 
 
-The first block is considered the most important section because this will be seen by every visitor to our landing page. This is the hero section and is considered as "above the fold", hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
+The first block is considered the most important `section` because this will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image.  This is in web terms a large web banner image placed prominently on the page.  The placement is considered "above the fold", hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
 
-> **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article.
+> **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header,footer, and article.
 
 Think of the hero section as the banner, headline, or billboard of our site. But before we can add our pizzazz, let's first write some HTML code that will provide the structure and content. 
 
 ## Hero Construction
-Let's build upon our `section` we created in Lesson 1. This `section` element will be the parent element that contains the children elements like the heading and sign-up form. 
+Let's build upon the `section` we created in Lesson 1. This `section` element will be the parent element that contains the children elements like the heading and sign-up form. 
 
 > **Deep Dive**: HTML5 Semantic Elements help distinguish each part of the document and it's function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp)
 
@@ -278,7 +278,7 @@ Let's type the following into your CSS file so we can unpack it further.
 /* Hero Style End */
 ```
 * **Dot Notation** is the "." proceeding the class `hero` to indicate to CSS we are using a class as our CSS selector.
-* **Background-image** uses the CSS function `url()` to link a resource such as an image, web font, or gif.  Here was are using a relative URL path to select our background image from our images folder as we will explain in more detail below. Absolute paths can also be used for instance to grab and image from the web for example url("https://www.example.com/images/image.png").
+* **Background-image** uses the CSS function `url()` to link a resource such as an image, web font, or gif.  Here was are using a relative URL path to select our background image from our images folder as we will explain in more detail below. Absolute paths can also be used for instance to grab an image from the web for example url("https://www.example.com/images/image.png").
 * **Background-size** property sets the size of the background image so it can be left to its original size, stretched, or constrained to fit the available space.  The `cover` value enlarges the image to ensure complete coverage of the element by a single image.  Other selections allow repeated images for a tiled look, similar to how background image displays are configured for your computer's background desktop image.
 * **Background-position** allows different positioning of the background image discussed in more detail below..
 * **Position** specifies the type of positioning method used for an element.  We will discuss this important property in further detail below.
@@ -397,6 +397,8 @@ Let's head back to the browser tab with our landing page and examine our code in
 One nice trick is to toggle properties on and off to see their cummulative affects on the page.  Let's toggle the `box-sixing` property and manipulate the widths of our elements.  You can see having a set width property can save some headache and need for extra calculations.  It is suggested to set this property to `border-box` whenever possible.
 
 Scrolling down to the bottom of the Styles panel offers an interactive CSS box model that allows the different layers of the CSS box to be manipulated by value.  A very useful tool that can save a lot of time and energy when designing a page layout.
+
+![box-model](./assets/step-3/1100-box-model-dt.png)
 <!-- <a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
 " target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a> -->
@@ -406,7 +408,7 @@ We have reached that last portion of this lesson so let's dive right in and fini
 
 > **Linear Steps**: 
 1) Heading: let's snazz up our heading with bold intent!  We need to bring some excitement and enthusiasm and the current `h3` element leaves a bit to be desired.  There are several ways that we can select this element by CSS.
-* Give this `h3` element a class and select it as we did for the form container and the `section`.
+* We could give this `h3` element a class and select it as we did for the form container and the `section`.
 * Select the parent element, then the child element that is contained within the parent, as we did in the previous lesson in the `header` and `footer`.
 
 We will chose the second option because there is only a single `h3` inside the form container and so wouldn't be able to accidently duplicate a class name that someone else also decided to use elsewhere in the code.  The direct child selector also helps developers pinpoint which element will be styled.
@@ -420,7 +422,7 @@ The `class` attribute allows our CSS styling to target any one or group of eleme
 <input type="text" placeholder="Your Name" name="name" class="form-input"/>
 ```
 
-3) Input Fields Boxes: It's time to give our input fields some style and panache.  First let's get each one to exist on its own line while making it bigger and more noticeable.  Part of having a good website is giving the visitor an easy time navigating and using our page. Especially when it comes to user interaction, it's really important to make it as simple and as straighforward as possible.  This means having clear demarcations on each line and to address what each input is for.  We will use the CSS selector for the `form-input` class since we wish to only target the input field text boxes, but not the other `input` elements for the `checkbox` or `radio button`s. Let's add a border, display each line separately, make the font larger, extend each input field box the length of the form container, and use the navy font color we used for the `footer` font color.
+3) Input Fields Boxes: It's time to give our input fields some style and panache.  First let's get each one to exist on its own line while making it bigger and more noticeable.  Part of having a good website is giving the visitor an easy time navigating and using our page. Especially when it comes to user interaction, it's really important to make it as simple and as straighforward as possible.  This means having clear demarcations on each line and to address what each input is for.  We will use the CSS selector for the `form-input` class since we wish to only target the input field text boxes, but not the other `input` elements for the `checkbox` or `radio button` elements. Let's add a border, display each line separately, make the font larger, extend each input field box the length of the form container, and use the navy font color we used for the `footer` font color.
 
 > **Try It Yourself**: Let's type in some code and use the Chrome DevTools to manipulate some sizes for our `padding`, `margin`, and sizing.
 
