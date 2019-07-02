@@ -76,7 +76,6 @@ footer a {
 /* STYLE ALL SECTION TAGS */
 section {
   padding: 60px;
-  width: 100%;
 }
 
 
@@ -97,7 +96,7 @@ section {
   width: 500px;
   color: #024e76;
   position: absolute;
-  bottom: 120px;
+  top: 120px;
   right: 10%;
 }
 
