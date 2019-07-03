@@ -1,8 +1,6 @@
 # Second Page and Wrap-up
 
-We've made it! At this point, we've learned enough about HTML and CSS that we can actually hold our own a bit and create simple pages for the web. There's still some more advanced techniques to learn when it comes to these two languages&mdash;which will be covered next week&mdash;but in the early days of web development this is about 75% of what a lot of developers used on a regular basis.
-
-Throughout this project we have learned how to create and organize content for a web page, create custom styles and layouts for that content, and utilized the proper tools to protect, backup, and publish our work. This is a lot to take in, so we're going to use this last lesson to reinforce these concepts and "take the training wheels off" by building a second (simpler) page for our Run Buddy product site.
+Throughout this project we have learned how to create and organize content for a web page, create custom styles and layouts for that content, and utilize the proper tools to protect, backup, and publish our work. This is a lot to take in, so we're going to use this last lesson to reinforce these concepts and "take the training wheels off" by building a second (simpler) page for our Run Buddy product site.
 
 The page we're going to be building is for the site's "Privacy Policy", which has become a must-have as the web has become increasingly interactive with the user and data-centric. This is a great page to build because there isn't too much to it when we compare it to the page we just completed. As a matter of fact, it's kind of boring, but that's not a bad thing for us to practice with.
 
@@ -10,7 +8,7 @@ The main three points that will be introduced in this lesson are:
 
 1. Adding a second HTML document to our web site and how they can be connected through `<a>` tags.
 
-2. How to reuse HTML content through select copy and pasting.
+2. How to reuse HTML content through selective copy and pasting.
 
 3. How two HTML pages can share CSS styles, but also implement a second style sheet for styles more specific to the second page. This will entail us overriding some previously defined styles.
 
@@ -49,7 +47,7 @@ Before we add the actual content, we need to create the skeleton of our HTML doc
 > PAUSE
 >
 > What is the main purpose of the `<head>` tag?\
-> A: The `<header>` holds other specific HTML tags that provide information that isn't necessary for the page's visitor to see, but to help the browser understand what the page is about, what it should look like, and any other behind-the-scenes data. None of this content is displayed physically on the page.
+> A: The `<head>` holds specific HTML tags that provide information that isn't necessary for the page's visitor to see, but to help the browser understand what the page is about, what it should look like, and any other behind-the-scenes data. None of this content is displayed physically on the page.
 >
 > What is the main purpose of the `<body>` tag?\
 > A: The `<body>` holds all of the document's actual content that is meant to be seen or interacted with by the page's visitor. Anything that is between the opening and closing `<body>` tags is visible to the user by default.
@@ -104,7 +102,7 @@ Before we add our style sheet's `<link>` tag in, we'll go ahead and fill out the
 </section>
 ```
 
-Even though we aren't building more HTML pages than this, this section has now been repurposed to be used on any new page that you may need to be created in the future.
+Even though we aren't building more HTML pages than this, this section has now been repurposed to be used on any new page that may need to be created in the future.
 
 > STORY TIME: It is not uncommon for a web-based project to be considered "complete", only for a boss or client to come back and add more. These additions could come in the form of simple edits/additions to the existing project files&mdash;which is typically an easy change&mdash;or it can involve creating more pages, features, or even functionality. 
 >
@@ -544,7 +542,7 @@ THIS SHOULD BE DOWNLOADABLE
 
 This is a lot of content, but that is why copy and paste exists!
 
-Now that we are done adding content it is a good time for us to start including the styles for the page, but first let's take one more look at how the browser displays all of this HTML without any CSS included:
+Now that we are done adding content it is a good time for us to start including the styles for the page, but first let's take one more look at how the browser displays all of this HTML without any custom CSS included:
 
 ![privacy policy html](assets/step-7/300-html-complete.png)
 
@@ -572,7 +570,7 @@ Remember what HTML tag we used in `index.html` to bring in our style sheet? Go a
 >
 > ANSWER: The first is "relative pathing" and the second is "absolute pathing". Relative is preferred because no matter where the project folder ends up the files will stay related to one another. Absolute pathing means it only works at that exact path and if the project folder is relocated, the path will have to change.
 
-So now the `<head>` tag of our HTML document should have the exact same `<link>` tag as `index.html`, and as we can see, the styles from one CSS file are now being applied to multiple pages! 
+So now the `<head>` tag of our HTML document should have the exact same `<link>` tag as `index.html`, and as we can see, the styles from one CSS file are now being applied to multiple pages!
 
 This is great news, as we now don't have to repeat our style definitions and can reuse them wherever we need to. This is also one of the main reasons why in Lesson 2 we created the CSS file to add our style definitions as opposed to writing them in `index.html` itself.
 
@@ -580,15 +578,15 @@ There are some styles that are a little out of sorts, however. The `<header>` an
 
 ![Privacy Policy CSS start](assets/step-7/400-css-start.jpg)
 
-Both of these issues are fine because all we need to do now is add just a _little_ bit more to get it how we want it. Referring to the finished screenshot above, we can see there's only a few additions and changes we need to make when it comes to styling what a non-Homepage should look like.
+Both of these issues are fine because all we need to do now is add just a _little_ bit more to get it how we want it. Referring to the finished screenshot at the top of this lesson, we can see there's only a few additions and changes we need to make when it comes to styling what a non-Homepage should look like.
 
 This is going to entail two things:
 
-1. We'll keep most of the styles already set up for our hero section and make a couple of edits to accomodate a different style of page.
+1. We'll keep most of the styles already set up for our hero section and make a couple of edits to accommodate a different style of page.
 
 2. Then we'll add some new style definitions for our page's `<article>` tag by targeting it's `secondary-content` class.
 
-Let's discuss the first point. If you compare the finished product of `index.html` with the screenshot of the finished product we're working towards for `privacy-policy.html`, the hero sections have the same background but the privacy policy page has one that has centered title and it's much shorter in length. What we'll do is edit some styles to have it _only_ apply to our privacy policy's hero. There are a couple of ways we can do this:
+Let's discuss the first point. If you compare the finished product of `index.html` with the screenshot of the finished product we're working towards for `privacy-policy.html`, the hero sections have the same background but the privacy policy page has a centered title and it's much shorter in length. What we'll do is edit some styles and have them _only_ apply to our privacy policy's hero. There are a couple of ways we can do this:
 
 - For `privacy-policy.html`, we could provide the hero section with a different class name and simply copy and edit the styles from the `index.html`'s hero section. This way they have totally different names but still look similar.
 
@@ -596,7 +594,7 @@ Let's discuss the first point. If you compare the finished product of `index.htm
 
 As with most problems we'll face in programming, there will usually be a number of possible solutions. So between the two options above, we may not always lean towards one over the other, it will always depend on the problem trying to be solved. The key is to not let ourselves get overwhelmed by these decisions since we can always go back and change it if we end up not liking how it turns out (one of the many reasons we use Git), and we'll never know what solutions we like until we try them.
 
-For the sake of seeing how it works we'll go with the second option. The first one is a more than acceptable solution, but the second is going to let us see two style sheets in action. So let's get to it.
+For the sake of seeing how it works we'll go with the second option. The first one is a more than acceptable solution, but the second is going to let us see two style sheets in action, so let's get to it.
 
 ## Adding the second style sheet and overriding styles
 
@@ -635,15 +633,17 @@ That should've fixed our spacing issues in that section. We overrode the `backgr
 
 ![Chrome Dev Tools Override](assets/step-7/500-devtools.jpeg)
 
-As we can see, there are two sets of styles being applied to our class of `hero`. One is in `secondary-styles.css` at line 2, and the other is in `style.css` at line 75. To explain how it's picking which styles to apply and which ones to discard, just look at how the `secondary-styles` one is listed on top of the other one, as if it's taking precedence. That's because it is.
+As we can see, there are two sets of styles being applied to our class of `hero`. One is in `secondary-styles.css` at line 2 (in this screenshot), and the other is in `style.css` at line 75. To explain how it's picking which styles to apply and which ones to discard, just look at how the `secondary-styles` one is listed on top of the other one, as if it's taking precedence. That's because it is.
 
 > REWIND: This is an example of the CSS "cascade" in effect. Think back to Lesson 2 when CSS was introduced. There are the three factors in CSS determining what styles get applied&mdash;Importance, Specificity, and Source order&mdash;this is an example of "source order" affecting what style definitions win.
 >
 > [More information on this here.](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance)
 
-One thing that is nice about CSS is that when an overriding style definition takes precedence, if a property isn't explictly mentioned, the other style will still remain. In our case, we didn't define new values for `background-image`, `background-size`, or `position` because we want to use the same styles, so they get to carry over from the other style definition.
+In `privacy-policy.html`, we have the `<link>` tag for `secondary-styles.css` coming after `style.css`. The browser reads these tags in order of appearance, so everything from `style.css` is being read and put to use and then it sees `secondary-styles.css` and conflicting property definitions are overridden by the latter. This is what "source order" means, whichever one comes later wins.
 
-In the case of `background-position` and `height`, we needed to change those values for this page's hero section to look correct. By explicitly redeclaring those styles in `secondary-styles.css`, they will now be the ones that are applied. And since `text-align` and `margin-bottom` are not even part of the original `.hero` definition in `style.css`, they are simply added on when we define it in `secondary-styles.css`.
+One thing that is nice about CSS is that when an overriding style definition takes precedence, if a property isn't explicitly mentioned to be overridden the other style will still remain. In our case, we didn't define new values for `background-image`, `background-size`, or `position` because we want to use the same styles, so they get to carry over from the other style definition.
+
+In the case of `background-position` and `height`, we needed to change those values for this page's hero section to look correct. By explicitly re-declaring those styles in `secondary-styles.css`, they will now be the ones that are applied. And since `text-align` and `margin-bottom` are not even part of the original `.hero` definition in `style.css`, they are simply added on when we define it in `secondary-styles.css`.
 
 Now all of the style overriding is done, so we can turn our attention to creating the new style definitions for this page.
 
@@ -657,7 +657,7 @@ Here are some specifications for how we want it to look:
 
 - Its font `color` should be #fce138
 
-- We need to tell the `<h2>` tag to not go full-width, so change its `display` property to make it an `inline` element.
+- We need to tell the `<h2>` tag to not go full-width, so change its `display` property to make it an `inline-block` element.
   
 - Give its `border-bottom` a value with a `4px` width, a `solid` style, and the same color as the `color` property above.
 
@@ -721,6 +721,32 @@ Now let's do the same thing and add styles to our `secondary-content` class and 
 
 > HINT: Make sure you save and refresh the page often to see progress! If any styles being applied here accidentally break styles used elsewhere in the site, adjust how specific the selector needs to be to target only the HTML in question.
 >
-> Also don't forget to keep Chrome DevTools open during this to help determine if any style overriding is occuring.
+> Also don't forget to keep Chrome DevTools open during this to help determine if any style overriding is occurring.
 
-And there we have it. We just used HTML and CSS to create our first project! Our friends at Run Buddy are going to be thrilled to see what we've put together for them. 
+And there we have it. We just used HTML and CSS to create our first project! Our friends at Run Buddy are going to be thrilled to see what we've put together for them.
+
+Last thing we need to do is get this finished product onto the Internet for the world to see our work. So let's do another `git add`, `git commit`, and `git push` in the command line and see our work get published to our GitHub project page!
+
+## Reflection
+
+We made it! At this point, we've learned enough about HTML and CSS that we can actually hold our own a bit and create simple pages for the web. There's still some more advanced techniques to learn when it comes to these two languages&mdash;which will be covered next week&mdash;but up until about 3 or 4 years ago, this is about 75% of what a lot of developers used on a regular basis.
+
+In the next Module, we'll be taking the skills we learned throughout this project and expand upon it greatly with advanced CSS techniques such as responsive design layouts, animation, and adding a little interactivity. These concepts are going to be taking our capabilities to the next level, but first let's look back and consider how much we've learned so far in terms of both hard skills and soft skills:
+
+- We learned about the command line and how to use it to navigate and perform certain actions on our computer without having to even use a mouse or track pad. This is skill that developers put to use almost daily.
+
+- We learned how what HTML is, what it is used for, and how to set up a document. This also got us to experience some of the ins and outs of Visual Studio Code.
+
+- HTML syntax was introduced along with knowing when to use a certain tag and how to utilize HTML attributes to provide more meaning, context, or functionality to specific tags.
+
+- We learned how to take a design and break it into different sections or containers so we can create well thought-out and organized HTML content using.
+
+- Git was used to create a repository for the project, allowing us to create save points throughout our build process and giving us peace of mind.
+
+- GitHub was used create a remote (cloud) location for our repository to live and then used to publish our project to the Internet for others to see.
+
+- We introduced ourselves to CSS and how it is used to provide style and layout design changes to our HTML content, along with its syntax, quirks, and rules.
+
+- Finally, we took all of what we learned in the previous steps and applied it to another smaller HTML page.
+
+This may seem like a lot, that's because it is a lot. We covered a lot of ground in this project, but the good thing is that we aren't leaving this behind. The concepts and tools we picked up here are going to be applied and reinforced throughout everything else we do as developers, so there will be plenty of time to practice and hone our skills!
