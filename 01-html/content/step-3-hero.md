@@ -14,7 +14,7 @@ Think of the hero section as the banner, headline, or billboard of our site. But
 
 Let's build upon the `section` we created in Lesson 1. This `section` element will be the parent element that contains the children elements like the heading and sign-up form.
 
-> **Deep Dive**: HTML5 Semantic Elements help distinguish each part of the document and it's function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp)
+> **Rewind**: HTML5 Semantic Elements help distinguish each part of the document and it's function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp)
 
 ### Step: 1 - Sign-up Form Container
 
@@ -64,7 +64,7 @@ After that is some basic text, so let's wrap that in a `<p>` tag.
 Wait a sec, what's a `<p>` tag?
 The `p` element is used to render normally styled text to a page similar to the body text of a page. Hence the browser will not add font-size or font-weight to the content of this element, but will make the display property, mentioned in the last lesson, a block-level element meaning other elements will be wrapped to the next line.
 
-> **Rewind**: Remember `<h1>` to `<h6>` and `<p>` tags are block-level elements so take up the width of the current line regardless of the actual size of the element meaning other elements are wrapped to the next line.
+> **Rewind**: Remember `<h1>` to `<h6>` and `<p>` tags are block-level elements meaning they start on their own new line and any following elements appear on its own new line.
 
 > **Deep Dive**: For a nice visual explainer for the display property look [here.](https://codeburst.io/block-level-and-inline-elements-the-difference-between-div-and-span-2f8502c1f95b)
 
@@ -79,7 +79,7 @@ Your code for the hero section should now look something like this.
 </section>
 ```
 
-> **Pro Tip**: _Key Board Short Cuts_ : It is strongly recommended to try and learn the keyboard shortcuts for commands used most frequently since they improve a developer's speed and efficiency. Look into the VS Code shortcuts as well as for Chrome for your operating system for Save, Format, Open in Default Browser, and DevTools for [Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) and [Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf). They are also labeled in your menu options. It is also a great idea to select the `Auto Save` option in the `File` menu due to all the time saved from forgetting to do that.
+> **Pro Tip**: Learn keyboard shortcuts to greatly increase your speed and efficiency. Look into the VS Code shortcuts as well as for Chrome for your operating system for Save, Format, Open in Default Browser, and DevTools for [Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) and [Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf). They are also labeled in your menu options. It is also a great idea to select the `Auto Save` option in the `File` menu due to all the time saved from forgetting to do that.
 
 Your page should now look something like this:
 ![hero-heading](./assets/step-3/100-heading-html.png)
@@ -114,7 +114,7 @@ Look closely at the following `input` element and its different attributes.
 - **Placeholder** offers a hint or label within the text field itself, but will not be submitted if this field is left blank.
 - **Name** attribute will declare this element so it can be referenced later when the data is submitted.
 
-> **Do if Yourself**: Having given the first text input field, can you do the next two for email and phone number.
+> **Do if Yourself**: Having given the first text input field, can write out the next two for email and phone number.
 
 > **Hint**: Each has a specific attribute for `name`, `type`, and `placeholder`. A list of `type` attributes can be found [here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
 
@@ -126,13 +126,13 @@ Look closely at the following `input` element and its different attributes.
 
 ### Radio Button
 
-Next we will create the inputs for our `radio button`, `checkbox`, and submit `button`, but first,what the heck is a `radio button`? This is something you probably have come across a hundred times and now you will know the name of it. A `radio button` allows a single selection to be made from a list of choices and is normally a small circle that gets filled upon selection.
+Next we will create the inputs for our `radio button` and `checkbox`, but first, what the heck is a `radio button`? This is something you probably have come across a hundred times and now you will know the name of it. A `radio button` allows a single selection to be made from a list of choices and is normally a small circle that gets filled when clicked.
 
 ![radio-button](./assets/step-3/1000-radio-button.png)
 
 > **Google Foo**: Let's use our powers of Google and see if we can find some information about the function and syntax of a `radio button`.
 
-So a `radio` type input element, commonly referred to as a `radio button`, are generally used in groups using the `name` attribute as the group reference, each `radio button` must have the same `name` value to be considered in the same group. Let's type some code and then explain the attributes. Your `index.html` file should look like this. (Remember to place this `form` inside the `div`.)
+So a `radio` type input element, commonly referred to as a `radio button`, is generally used in groups using the `name` attribute as the group reference, each `radio button` must have the same `name` value to be considered in the same group. Let's type some code and then explain the attributes. Your `index.html` file should look like this. (Remember to place this `form` inside the `div`.)
 
 ```html
 <form>
@@ -153,17 +153,17 @@ So a `radio` type input element, commonly referred to as a `radio button`, are g
 </form>
 ```
 
-> **Side Note**: Notice how the attributes in the first input element are in-line vs the attributes in the second input are on new lines. They are both valid since HTML is white space and line break insensitive. This is a useful rule to use whenever there is a case when the number of attributes is high and tends to run off the screen. This is a way to wrap the attributes in a single column to make it easier to read.
+> **Side Note**: Notice that the attributes of the first input element are on the same line, whereas the attributes of the second input are on new lines. They are both valid since HTML is white space and line break insensitive. This is a useful rule to use whenever there is a case when the number of attributes is high and tends to run off the screen. This is a way to wrap the attributes in a single column to make it easier to read.
 
-Let's take another look at page, then open our html file in the browser using the Open in Default Browser command.
+Let's take another look at page, then open our html file in the browser using the Open in Default Browser command.  In VS Code, this command is found by right clicking the mouse on the `index.html` page.
 The view should look like this now:
 
 ![radio-html](./assets/step-3/200-radio-html.png)
 
-Notice that our `radio button` has been placed inside a `p` element. This is to ensure that the radio group stays on the same line as the question when rendered to the browser.
+Notice that our `radio button` has been placed inside a `p` element. This is to ensure that the radio group stays on the same line as the question when rendered to the browser. Unlike `p` elements, which are block elements that the browser renders from top to bottom, radio buttons are inline elements that the browser renders from left to right.
 After the question or content of the `p` element, the `label` element is used to display each answer option. It is possible to simply place the name of each `radio button` answer option within the opening and closing tags of the `input` element, however nesting the `radio button` will allow the selection of the answer upon clicking the text as well as the circle, thus increasing our user friendliness, a good measure of a website.
 
-> **Pause**: There is an attribute on the `label` element called `for`. Can you figure out what this attribute is for?
+> **Pause**: There is an attribute on the `label` element called `for`. Explain the purpose of this attribute.
 
 > **Answer**: This is used to reference to which `radio button` this label belongs. The value for the `for` attribute must match the value of the `id` attribute of the `input` element.
 
@@ -358,8 +358,8 @@ The `box-sizing` property determines _how_ to calculate the `width` and `height`
 In our case, when we declare the width of the `div` to be 500px and keep the the default value for the `box-sizing` property at `content-size`, we would need to add the `border` and `padding` into this calculation that would actually come out to 546px and not 500px as the `width` property declared. However if we changed the `box-sizing` property to `border-box`, the width would take into account the `padding` and `border` and would yield an actual width of 500px.
 
 > **Pause**: Let's add this property to every element on our page and override the browser's default property assignment. How would we go about this without needing to add this property to every element selector?
->
-> > **Answer**: We can use the wildcard selector, `*`, to match every element on the page.  This will target every element on the page. This is a great idea to add for every CSS stylesheet.
+
+> **Answer**: We can use the wildcard selector, `*`, to match every element on the page.  This will target every element on the page. This is a great idea to add for every CSS stylesheet.
 
 ```css
 * {
