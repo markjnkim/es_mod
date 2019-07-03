@@ -71,26 +71,64 @@ Let's nest the `iframe` into our contact container so your markup should look li
   ></iframe>
 </div>
 ```
-Let's unpack the configuration attributes for the iframe as well as talk about some of the other options available. 
-* **src**:  The most important attribute is the `src` since without this, nothing will render.  The `src` value is a URL path linking to the external website content that will be embedded.  Looking at how to retrieve this long URL for the location desired let's go through the four steps.
-> **Linear Steps**: How to embed a Google Map
-1) Enter your address in the search box at [Google Maps.](https://www.google.com/maps)
-2) Click on the Share icon.
-3) Choose the Embed a map tab
-4) Click on the COPY HTML link to copy the `iframe` element.
+
+Let's unpack the configuration attributes for the iframe as well as talk about some of the other options available.
+
+- **src**: The most important attribute is the `src` since without this, nothing will render. The `src` value is a URL path linking to the external website content that will be embedded. Looking at how to retrieve this long URL for the location desired let's go through the four steps.
+  > **Linear Steps**: How to embed a Google Map
+
+1. Enter your address in the search box at [Google Maps.](https://www.google.com/maps)
+2. Click on the Share icon.
+3. Choose the Embed a map tab
+4. Click on the COPY HTML link to copy the `iframe` element.
 
 > **Heads up**: Please note there are several other map `iframe` options besides Google like OpenStreetMap.org.
-Another popular use for `iframe` elements are embedding videos.  YouTube for instance allows videos to be embedded as does your favorite gif website.  But please remember great power comes with great responsibility and yes, the number of cat gifs on a website does have a hard ceiling.
+> Another popular use for `iframe` elements are embedding videos. YouTube for instance allows videos to be embedded as does your favorite gif website. But please remember great power comes with great responsibility and yes, the number of cat gifs on a website does have a hard ceiling.
 
-> **Activity**: Try replacing the iframe with a YouTube video and also try replacing the src value with https://www.w3schoools.com.  The interactivity features are available because you have embedded a tiny website within your website.
+> **Activity**: Try replacing the iframe with a YouTube video and also try replacing the src value with https://www.w3schoools.com. The interactivity features are available because you have embedded a tiny website within your website.
+
 <!-- <iframe src="https://giphy.com/embed/xT0xeJpnrWC4XWblEk" width="280" height="120" frameBorder="0" class="giphy-embed"></iframe> -->
 
-* **frameborder**: iframe elements have styling built into the attributes.  This one allows a border by designating "1" and "0" for none.  Other style attributes include specifying `height` and `width`.  
-> **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers so we will use the `border` property from CSS for this style property.  This will offer legacy support however for older browsers.
+- **frameborder**: iframe elements have styling built into the attributes. This one allows a border by designating "1" and "0" for none. Other style attributes include specifying `height` and `width`.
 
-* **allowfullscreen**: Some attributes are properties that can be turned on by simply adding the attribute.  `allowfullscreen` will offer a link to view the map on a new page in full screen mode. Notice how `allowfullscreen` doesn't have any value assignment.  Another popular attribute that doesn't have a value assignment for example is `checked` for a `checkbox` input element.
-* **style**: This is an inline style for a zero border and how borders for new browsers are styled for the `iframe`.
+  > **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers so we will use the `border` property from CSS for this style property. This will offer legacy support however for older browsers.
+
+- **style**: This is an inline style for a zero border and how borders for new browsers are styled for the `iframe`.
+- **allowfullscreen**: Some attributes are properties that can be turned on by simply adding the attribute. `allowfullscreen` will offer a link to view the map on a new page in full screen mode. Notice how `allowfullscreen` doesn't have any value assignment. Another popular attribute that doesn't have a value assignment for example is `checked` for a `checkbox` input element.
+
+Let's take a look at our page now and see what this iframe looks like. Save to retain any changes.
+![iframe-map](./assets/step-6/200-iframe-html.png)
 
 ## Step 3: Contacts are us
 
+In this step we will be adding the company's contact information. According the the mock-up we will need a heading, some text, an address, a phone number, and email address.
+
+> **Do It Yourself**: Create a container `div` that will hold this content then nest the child elements with the contact info.
+> Your markup should look like the following:
+
+````html
+<div>
+  <h3>Run Buddy</h3>
+  <p>just
+    Any questions or concerns before signing up?
+    <br/>
+    Let us know and we'll be happy to talk to you!
+  </p>
+
+  <address>
+    55 Main Street <br/>
+    Some Town, Ca <br/>
+    12345
+  </address>
+
+  <p>
+    P: 555.RUN.BUDZ (555.786.2839)<br/>
+    E: <a href=mailto://info@runbuddy.io>info@runbuddy.io</a>
+  </p>
+</div>
+```
+> **Heads up**: The div with the contact info is a sibling to the iframe and will sit next to this element in accordance to the natural document flow.  This will give us the column or vertically placed layout so these elements can sit side by side inside our contact container.
+
+
 ## Step 4: Styles in Charge
+````
