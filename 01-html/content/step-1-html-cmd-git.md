@@ -6,7 +6,7 @@ It's time to get our hands dirty with some real coding! We know this is a big un
 
 ## Getting Started with the Command Line
 
-In the old days of computer usage, entering text-based commands on a black screen was the only way to interact with the system. There was no graphical user interface (also known as a GUI) with icons that could be clicked. Now that we have more powerful operating systems like Windows and macOS, most users never have to look at a command line interface (CLI). For developers, though, the command line is still a common tool for performing certain tasks. Later in the course, it will become integral to building full-stack applications. For now, we'll be using it to set up our project.
+In the old days of computer usage, entering text-based commands on a black screen was the only way to interact with the system. There was no graphical user interface (also known as a GUI) with icons that could be clicked. Now that we have more powerful operating systems like Windows and macOS, most users never have to look at a command line interface (CLI). For developers, though, the command line (often called the terminal) is still a common tool for performing certain tasks. Later in the course, it will become integral to building full-stack applications. For now, we'll be using it to set up our project.
 
 Mac users, you already have a built-in Terminal app, which you can go ahead and launch now by searching for "terminal" in the Spotlight Search (the 🔍 icon in the top-right corner, or keyboard shortcut Command+Spacebar).
 
@@ -18,7 +18,7 @@ Regardless of your operating system, you should see a window that looks like thi
 
 In this window, type the command `pwd` and press Enter. The terminal will then display something like `/c/Users/YourName` on Windows or `/Users/YourName` on Mac. The command `pwd` stands for Print Working Directory and lets us know which folder (a.k.a. directory) the terminal is currently in. When you first open Terminal or Git Bash, you start in your user folder/directory. If you want to see what's in this directory, you could navigate to it through your operating system's GUI (by clicking on folder icons, etc.), but since we're already in the command line, let's try another command: `ls`.
 
-The `ls` command lists any files and folders within the current directory. Some common folders you might see in here are `Documents`, `Pictures`, `Music`, and `Desktop`. Fun fact: the desktop you see when your computer first starts is this folder in your user directory! Let's "go" there now from the command line by typing the following commands, pressing Enter after each one:
+The `ls` command lists any files and folders within the current directory. Some common folders you might see in here are `Documents`, `Pictures`, `Music`, and `Desktop`. Fun fact: the desktop you see when your computer first starts is this folder in your user directory! Let's "go" there now from the command line by typing the following commands, pressing Enter after each line:
 
 ```bash
 cd Desktop
@@ -137,9 +137,9 @@ All right, so it's not the most exciting web page yet, but you gotta start somew
 
 > **Deep Dive:** Read more about the different [heading tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
 
-Try changing the code to `<h2>RUN BUDDY</h2>`. Save the file and refresh the tab in the browser. Notice how the text shrunk slightly. Also keep in mind that this only affected the RUN BUDDY text, because the tag was closed. If you remove the `</h2>`, the text underneath will become big and bold, too, because the browser doesn't know where the `<h2>` ends.
+Try changing the code to `<h2>RUN BUDDY</h2>`. Save the file and refresh the tab in the browser. Notice how the text shrunk slightly. Also keep in mind that this only affected the RUN BUDDY text, because the tag was closed. If you remove the `</h2>`, the text underneath will become big and bold, too, because the browser doesn't know where the `<h2>` ends. Now change it to an `<h3>` and observe again how the text continues to shrink.
 
-Now that we understand HTML tags, let's look at the others we used. We're writing an HTML page, so it makes sense that everything would need to be wrapped in an `<html>` tag. The only thing that didn't go inside this tag was the `<!DOCTYPE html>`. This is an extra line that tells the browser how to interpret your HTML code. We don't need to worry about supporting very old browsers like Netscape Navigator, so this **DOCTYPE** will always be written as `<!DOCTYPE html>`.
+With this new understanding of HTML tags, let's look at the others we used. We're writing an HTML page, so it makes sense that everything would need to be wrapped in an `<html>` tag. The only thing that didn't go inside this tag was the `<!DOCTYPE html>`. This is an extra line that tells the browser how to interpret your HTML code. We don't need to worry about supporting very old browsers like Netscape Navigator, so this **DOCTYPE** will always be written as `<!DOCTYPE html>`.
 
 > **Deep Dive:** Read more about the [DOCTYPE](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode).
 
@@ -162,27 +162,31 @@ The `charset` meta tag is important to include now, though, because it specifies
 
 The good news is, much of this is boilerplate, meaning every web page is going to start with the same structure. Every page needs a DOCTYPE, an `<html>` tag, a `<head>` tag, etc. It's worth typing out again and again just to reiterate their importance, but it can also be copy/pasted into future projects without harm.
 
-One last thing to keep in mind is how we've been organizing the code in our HTML file. New tags were put on a new line, and whenever a tag was inside of another, we indented the code. You could choose to write your HTML like this:
+> **Best Practice:** Keep in mind how we've been organizing the code in our HTML file. New tags were put on a new line, and whenever a tag was inside of another, we indented the code. You could choose to write your HTML like this:
+>
+>```html
+><!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <title>Run Buddy</title> </head> <body> <h1>RUN BUDDY</h1> What We Do </body> </html>
+>```
+>
+>...and the browser would still render it correctly, but this is difficult to make sense of! As we write code, we want it to be as legible as possible. This is not only for the benefit of other developers who may work on this project but for ourselves when we come back the next day, having totally forgotten what we were doing.
 
-```html
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <title>Run Buddy</title> </head> <body> <h1>RUN BUDDY</h1> What We Do </body> </html>
-```
-
-...and the browser would still render it correctly, but this is difficult to make sense of! As we write code, we want it to be as legible as possible. This is not only for the benefit of other developers who may work on this project but for ourselves when we come back the next day, having totally forgotten what we were doing.
+> **Coding Challenge:** Create a brand new HTML file that lists your six favorite foods, using the different HTML headings to denote their importance to you.
 
 ## Getting Git
 
-Our web page doesn't look like much yet, but this is still a good place to stop and take care of another important aspect when it comes to managing a project: **version control**. Git is one option to accomplish this. It's a system that allows you to save snapshots (or in Git terms, **commits**) of your work. Whenever you reach a good stopping point, you can save, or commit, the current state of your codebase. This creates a nice history of changes that you can look back on and allows you to easily revert to an earlier version if your codebase suddenly breaks beyond repair. Git also lets you push your commits to a remote location, meaning you won't lose any work if your computer crashes, or you can switch between your home computer and office computer and continue where you left off.
+Our web page doesn't look like much yet, but this is still a good place to stop and take care of another important aspect when it comes to managing a project: **version control**. Git is one option to accomplish this. It's a system that allows you to create save points (or in Git terms, **commits**) of your work. Whenever you reach a good stopping point, you can save/commit the current state of your codebase. This creates a nice history of changes that you can look back on and allows you to easily revert to an earlier version.
 
-The biggest benefits of Git come from working on a team, which is very likely to happen once you step out into the development workforce. Without Git, it would be extremely tedious for developers to share code and work on the same app without accidentally losing or overwriting each other's code. Using Git, developers can create alternate versions of the same codebase (called **branches**) and work in isolation. When developers are ready to merge these branches together, Git will point out if any lines of code conflict and give developers a chance to fix the overlap. Pretty nifty stuff.
+> **On the Job:** In development, you'll hear the term **production** a lot, which refers to the live version of your app or website that users are currently using. Sometimes bad code makes it to production, maybe causing the entire app to freeze, and the best course of action is to immediately undo! With Git, an older (working) version of the codebase can be pushed to production while developers investigate what went wrong with the new version.
+
+Other benefits of Git include being able to push commits to a remote location, meaning you won't lose any work if your computer crashes, or you can switch between your home computer and office computer and continue where you left off. Git also facilitates working on a team, which is very likely to happen once you step out into the development workforce. Without Git, it would be extremely tedious for developers to share code and work on the same app without accidentally losing or overwriting each other's code. Using Git, developers can create alternate versions of the same codebase (called **branches**) and work in isolation. When developers are ready to merge these branches together, Git will point out if any lines of code conflict and give developers a chance to fix the overlap. Pretty nifty stuff.
 
 > **Deep Dive:** Learn more about [Git](https://git-scm.com/video/what-is-git) from the Git team!
 
 We'll be honest, though... learning Git is tough. It's okay if things don't click right away, or if commits get messed up. Fortunately, there will be plenty of opportunities to practice Git in the coming weeks. By the time you complete the boot camp, you'll be a Git master!
 
-Let's turn our Run Buddy project into a Git **repository.** Open the terminal in the `run-buddy` directory and run the following command: `git init`. The terminal should print something like `Initialized empty Git repository.`
+Let's turn Run Buddy into a Git **repository** (basically a project folder with version control capabilities). Open the terminal in the `run-buddy` directory and run the following command: `git init`. The terminal should print something like `Initialized empty Git repository.`
 
-> **Important:** If your computer doesn't recognize the `git` command, make sure you've installed it from the [Git website](https://git-scm.com/downloads).
+> **Important:** If your computer doesn't recognize the `git` command, make sure you've installed Git from the [Git website](https://git-scm.com/downloads).
 
 It may not seem like much happened, but this created a hidden `.git` folder in the `run-buddy` directory that designates it as a Git repository. If you want to verify for yourself, run the command `ls -a`, which will list any hidden files and folders as well as normal files. A file or folder starting with `.` is hidden, and the `.git` folder is marked as hidden, because it's probably not something we should be messing with.
 
@@ -205,7 +209,9 @@ git status
 git commit -m "page template"
 ```
 
-`git commit` is the command that will take everything in staging and commit it, but there's an extra piece we should make sure we have: `-m "message"`. This is how we can attach a helpful message to our commits. Best practice, every commit should include a message to explain what this particular change to the code is doing. In our case, we were working on the "page template."
+`git commit` is the command that will take everything in staging and commit it, but there's an extra piece we should make sure we have: `-m "message"`. This is how we can attach a helpful message to our commits.
+
+> **Best Practice:** Every commit should include a message to explain what this particular change to the code is doing.
 
 On your first commit, however, Git may ask you to identify yourself:
 
@@ -231,7 +237,7 @@ Now run `git status`, and Git will recognize that the `index.html` file has been
 
 ![git status](./assets/step-1/600-git-status.png)
 
- If we want to save this change to Git, we'll need to `add` it to staging first before the `commit`:
+ If we want to commit this change to Git, we'll need to `add` it to staging first before the `commit`:
 
 ```bash
 git add index.html
@@ -254,26 +260,9 @@ How do you add a message to a `git commit`?
 
 We'll have a chance to practice Git again before we're done, but let's jump back into building out the HTML. Looking at the design mock-up again, it may feel quite daunting to turn all of those colors and perfectly-positioned titles and images into raw HTML. That's why this next step is hugely important. As developers, we must resist the urge to start coding without a plan of attack. HTML can easily get out of control if we don't consider how elements fit together.
 
-What's nice about HTML, though, is that it's really just a series of boxes that fit inside of (or next to) each other. Consider this layout:
+What's nice about HTML, though, is that it's really just a series of boxes that fit inside of (or next to) each other. Consider the following code and its visual representation on the right:
 
 ![box diagram](./assets/step-1/725-box-diagram.png)
-
-Represented by the following code:
-
-```html
-<div>Box 1</div>
-
-<div>
-  Box 2
-
-  <div>
-    Box 3
-
-    <div>Box 4</div>
-    <div>Box 5</div>
-  </div>
-</div>
-```
 
 We're using [**div tags**](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div) here, which are like containers to hold relevant information together. Note that Box 1 and 2 don't overlap; they're two separate areas of content. Maybe Box 1 is an annoying ad and Box 2 is a navigation bar. Inside of these boxes, we could have additional boxes, like an overall list (Box 3) that contains individual links (Boxes 4 and 5). Could we have omitted Box 3 in this example? Probably... but it helps to keep like content grouped together. Thus, Box 3's sole purpose is to better organize smaller information (the links).
 
@@ -287,7 +276,7 @@ Note that some containers aren't immediately apparent, because they do nothing b
 
 ![hand-drawn](./assets/step-1/775-drawn-outline.png)
 
-> **Story Time:** It's not uncommon for teams to spend many days or even weeks planning out a project before a single line of code is written. Drawing on a piece of paper may feel like a waste of time when we want to scratch that coding itch right away, but doing so ends up saving time and preventing potential problems in the long run.
+> **On the Job:** It's not uncommon for teams to spend many days or even weeks planning out a project before a single line of code is written. Drawing on a piece of paper may feel like a waste of time when we want to scratch that coding itch right away, but doing so ends up saving time and preventing potential problems in the long run.
 
 Keep your hand-drawn outline close by as we continue. If your outline doesn't 100% match with the code we end up writing, that's fine. There's always more than one way to build a web page! And for the remainder of this lesson, we won't fill in every container, just the higher-level, structural components. The smaller details will come in future lessons.
 
@@ -391,17 +380,22 @@ While there are dozens of [semantic tags](https://developer.mozilla.org/en-US/do
 
 > **Pro-Tip:** To succeed in the boot camp, type out every code snippet yourself instead of copying and pasting. It will help build up that muscle memory you need to become an expert coder faster!
 
-You may have noticed something new here: the `<!-- -->` tag. This is how we can leave notes, or comments, in the code. These do not show up in the browser but are helpful to have to make the code even easier to read. We're also using `<h2>` tags for the other headings, because `<h1>` should be reserved for the single most important text on the page. Save, refresh the browser, and admire your efforts:
+> **Best Practice:** You may have noticed something new here: the `<!-- -->` tag. This is how we can leave notes, or comments, in the code. These do not show up in the browser but are helpful to have to make the code even easier to read.
+
+Save, refresh the browser, and admire your efforts:
 
 ![final screenshot](./assets/step-1/800-html-screenshot.png)
 
 Okay, still not very pretty, but we've laid some important groundwork that's going to make the next several steps much easier to complete.
 
-> **Pause:** What's the difference between a `<section>` tag and a `<div>`?
+> **Check Point:** \
+What's the first thing you should do before writing a single line of HTML code?\
+What's the difference between a `<section>` tag and a `<div>`?\
+How do you leave comments in HTML code?
 
 ## Publishing with GitHub
 
-As you get into a comfortable workflow, you'll want to commit to Git often. We just finished an important milestone: outlining the high-level structure of our web page. This is the perfect time to save our work. Before we commit, though, let's create another file in our project:
+As you get into a comfortable workflow, you'll want to commit to Git often. This ensures you don't accidentally lose any work and gives you a "save point" that you can potentially revert back to. We just finished an important milestone: outlining the high-level structure of our web page. This is the perfect time to commit. Before we commit, though, let's create another file in our project:
 
 ```bash
 touch .gitignore
@@ -426,7 +420,9 @@ git add -A
 git commit -m "html outline and gitignore"
 ```
 
-Awesome, we've now saved our hard work to Git. The problem, however... these commits only live on our local computer. So if our computer dies, our work is lost. It would be helpful to save this repository in a remote location (i.e. on someone else's computer). That's where GitHub comes in. [GitHub](https://github.com/) is a website that hosts Git repositories. It's free and very popular among developers, so make sure you have an account!
+Awesome, we've now saved our hard work to Git. The problem, however... these commits only live on our local computer. So if our computer dies, our work is lost. The Run Buddy company would be pretty upset if that happened. It would be helpful if we could save this repository in a remote location (i.e. on someone else's computer). That's where GitHub comes in. [GitHub](https://github.com/) is a website that hosts Git repositories. It's free and very popular among developers, so make sure you have an account!
+
+> **Important:** A common misconception is that Git and GitHub are the same thing. Git is the version control software that we've installed on our computer. GitHub is a service that lets us create Git repositories on the Internet. There are [other websites](https://opensource.com/article/18/8/github-alternatives) besides GitHub that perform the same service, but the software on your computer (Git) wouldn't change.
 
 What we'll do is create a new repository on GitHub, then link our local Run Buddy project with this remote repository. After logging in to GitHub, find and click the green New button:
 
@@ -475,7 +471,7 @@ git commit -m "provide a message"
 git push origin master
 ```
 
-GitHub comes with a lot of other helpful features like contribution stats, code reviews, and bug tracking. GitHub will also host your HTML projects as live websites, so you don't have to worry about paying for a separate hosting service like GoDaddy. That's pretty nice of them! Let's flip the switch to make our current HTML project live. On your repository's page, click the Settings tab:
+GitHub comes with a lot of other helpful features like contribution stats, code reviews, and bug tracking. GitHub will also host your HTML projects as live websites, so you don't have to worry about paying for a separate hosting service like GoDaddy. That's pretty nice of them! Let's flip the switch to make our current HTML project live. That way, we can show the project manager of Run Buddy our progress. On your repository's page, click the Settings tab:
 
 ![github settings](./assets/step-1/1400-github-settings.png)
 
