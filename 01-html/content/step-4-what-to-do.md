@@ -42,7 +42,7 @@ Let's go ahead and fill in the missing HTML content. Ignore the images for now b
 
   <div>
     <h3>Step 2: Consult With One Of Our Trainers.</h3>
-    <p>Are you hear to build muscle, lose weight, or just feel good?</p>
+    <p>Are you here to build muscle, lose weight, or just feel good?</p>
   </div>
 
   <div>
