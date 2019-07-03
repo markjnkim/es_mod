@@ -12,7 +12,7 @@ The main three points that will be introduced in this lesson are:
 
 2. How to reuse HTML content through select copy and pasting.
 
-3. How two HTML pages can share CSS styles, but also implement a second stylesheet for styles more specific to the second page. This will entail us overriding some previously defined styles.
+3. How two HTML pages can share CSS styles, but also implement a second style sheet for styles more specific to the second page. This will entail us overriding some previously defined styles.
 
 For reference, this is the page we will be building:
 
@@ -56,7 +56,11 @@ Before we add the actual content, we need to create the skeleton of our HTML doc
 
 > URKEL SAYS: Creating the skeleton of an HTML document is also known as "scaffolding".
 
-Now that we have our document scaffolded, let's make a couple of edits. Since we're creating a new page, we should update the `<title>` to reflect that. While the information between the `<title>` tags isn't necessarily incorrect, it simply isn't as descriptive as it could be. Not only does having a descriptive title help inform the user where they are on the site, it is also useful for accessibility and search engine optimization.
+Now that we have our document scaffolded, let's make a couple of edits. Since we're creating a new page, we should update the `<title>` to reflect that. While the information between the `<title>` tags isn't necessarily incorrect, it simply isn't as descriptive as it could be. Not only does having a descriptive title help inform the user where they are on the site, it is also useful for accessibility and search engine optimization. Let's edit the `<title>` to say this:
+
+```html
+<title>Run Buddy - Privacy Policy</title>
+```
 
 > PRO-TIP: While a descriptive page title is important, it should also be concise and to the point. Google cuts off search result titles at around 60 characters, so anything under that is optimal.
 
@@ -85,6 +89,10 @@ We'll get to adding content to this section next, but first let's save our work 
 The page should look something like this:
 
 ![Privacy Policy - html started](assets/step-7/200-html-starter.png)
+
+One thing we want to do though is make sure a user can get to this new page from `index.html`. So in both `index.html` and `privacy-policy.html`, change the `<a>` tag's `href` value in the `<footer>` tag to have a value of `./privacy-policy.html`.
+
+We've used relative pathing in our `<img>` and `<link>` tags to target other files in our project's folder structure, and now we're doing the same thing here to target our `privacy-policy.html` file that lives in the same directory as `index.html`.
 
 Before we add our style sheet's `<link>` tag in, we'll go ahead and fill out the rest of our content. First we'll go and take care of the content that goes inside of our `<section class="hero">`. As you can see, we've removed the sign up form from that we used in `index.html`. We are going to repurpose this area to hold the title of the page by editing the `<section>` to look like this:
 
@@ -359,7 +367,7 @@ THIS SHOULD BE DOWNLOADABLE
         Notice Requirement and Informal Dispute Resolution. Before either party may seek arbitration, the party must
         first send to the other party a written Notice of Dispute describing the nature and basis of the claim or
         dispute, and the requested relief. A Notice to the Company should be sent to: 55 Main Street, Some Town, CA,
-        12345. After the Notice is received, you and the Company may attempt to resolve the claim or dispute informally.
+        1.     After the Notice is received, you and the Company may attempt to resolve the claim or dispute informally.
         If you and the Company do not resolve the claim or dispute within thirty (30) days after the Notice is received,
         either party may begin an arbitration proceeding. The amount of any settlement offer made by any party may not
         be disclosed to the arbitrator until after the arbitrator has determined the amount of the award to which either
@@ -546,4 +554,173 @@ Well that's enough praise for the browser and its default styling, let's add our
 
 > PRO-TIP: Don't forget to save and publish your work!
 
-## 
+## Adding our styles
+
+Let's jump right out the gate and add our `style.css` file to this HTML document. 
+
+Remember what HTML tag we used in `index.html` to bring in our style sheet? Go ahead and add that to our document's `<head>`.
+
+> PAUSE: Which one of these uses "relative pathing" and which one uses "absolute pathing"? Which one preferred? Why?
+>
+> ```html
+> <link rel="stylesheet" href="./assets/css/style.css" />
+>
+> <link rel="stylesheet" href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css" />
+> ```
+> 
+> HINT: Don't be afraid to use Google! Just type in "css pathing" and you'll get your answer with examples!
+>
+> ANSWER: The first is "relative pathing" and the second is "absolute pathing". Relative is preferred because no matter where the project folder ends up the files will stay related to one another. Absolute pathing means it only works at that exact path and if the project folder is relocated, the path will have to change.
+
+So now the `<head>` tag of our HTML document should have the exact same `<link>` tag as `index.html`, and as we can see, the styles from one CSS file are now being applied to multiple pages! 
+
+This is great news, as we now don't have to repeat our style definitions and can reuse them wherever we need to. This is also one of the main reasons why in Lesson 2 we created the CSS file to add our style definitions as opposed to writing them in `index.html` itself.
+
+There are some styles that are a little out of sorts, however. The `<header>` and `<footer>` styles look great, but the hero section needs to be fixed and the actual page's content in the `<article>` tag doesn't have any styling at all:
+
+![Privacy Policy CSS start](assets/step-7/400-css-start.jpg)
+
+Both of these issues are fine because all we need to do now is add just a _little_ bit more to get it how we want it. Referring to the finished screenshot above, we can see there's only a few additions and changes we need to make when it comes to styling what a non-Homepage should look like.
+
+This is going to entail two things:
+
+1. We'll keep most of the styles already set up for our hero section and make a couple of edits to accomodate a different style of page.
+
+2. Then we'll add some new style definitions for our page's `<article>` tag by targeting it's `secondary-content` class.
+
+Let's discuss the first point. If you compare the finished product of `index.html` with the screenshot of the finished product we're working towards for `privacy-policy.html`, the hero sections have the same background but the privacy policy page has one that has centered title and it's much shorter in length. What we'll do is edit some styles to have it _only_ apply to our privacy policy's hero. There are a couple of ways we can do this:
+
+- For `privacy-policy.html`, we could provide the hero section with a different class name and simply copy and edit the styles from the `index.html`'s hero section. This way they have totally different names but still look similar.
+
+- We can keep all of the HTML class names the same between the two pages and override the styles set up in `style.css`. The key to this one is that we don't want to accidentally break the styles we set up for `index.html`, so what we can do is create a second CSS file. This way we can create the styles specific to `privacy-policy.html` in the second file and use the `<link>` tag again in just that file to import those styles.
+
+As with most problems we'll face in programming, there will usually be a number of possible solutions. So between the two options above, we may not always lean towards one over the other, it will always depend on the problem trying to be solved. The key is to not let ourselves get overwhelmed by these decisions since we can always go back and change it if we end up not liking how it turns out (one of the many reasons we use Git), and we'll never know what solutions we like until we try them.
+
+For the sake of seeing how it works we'll go with the second option. The first one is a more than acceptable solution, but the second is going to let us see two style sheets in action. So let's get to it.
+
+## Adding the second style sheet and overriding styles
+
+We'll start by using the command line to create another CSS file:
+
+> LINEAR STEPS
+>
+> 1. We want to add this file to our `styles` directory, which is inside of `assets`, so we need to get to that location. Use the `cd` command to move into that directory.
+>
+> 2. Once inside the `styles` directory, use the `touch` command to create a file named `secondary-styles.css`
+>
+> 3. Add that style sheet to `privacy-policy.html` by adding a second `<link>` tag below the current one and set the `href` value to be the `./assets/css/secondary-styles.css`
+>
+> HINT: use `pwd` and `ls` to help you determine where you are in your computer
+
+The result should be our privacy policy page's `<head>` tag having the following inside (in this order):
+
+```html
+<link rel="stylesheet" href="./assets/css/style.css" />
+
+<link rel="stylesheet" href="./assets/css/secondary-styles.css" />
+```
+
+Now that we have our files in place, let's add some style definitions to `secondary-styles.css` to take care of the hero section:
+
+```css
+.hero {
+  background-position: bottom;
+  height: auto;
+  text-align: center;
+  margin-bottom: 40px;
+}
+```
+
+That should've fixed our spacing issues in that section. We overrode the `background-position` and `height` properties and we added `text-align` and `margin-bottom`. Notice how we didn't even list the `background-image` and `background-size` properties? We can get a better idea of what's happening right now in Chrome DevTools:
+
+![Chrome Dev Tools Override](assets/step-7/500-devtools.jpeg)
+
+As we can see, there are two sets of styles being applied to our class of `hero`. One is in `secondary-styles.css` at line 2, and the other is in `style.css` at line 75. To explain how it's picking which styles to apply and which ones to discard, just look at how the `secondary-styles` one is listed on top of the other one, as if it's taking precedence. That's because it is.
+
+> REWIND: This is an example of the CSS "cascade" in effect. Think back to Lesson 2 when CSS was introduced. There are the three factors in CSS determining what styles get applied&mdash;Importance, Specificity, and Source order&mdash;this is an example of "source order" affecting what style definitions win.
+>
+> [More information on this here.](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance)
+
+One thing that is nice about CSS is that when an overriding style definition takes precedence, if a property isn't explictly mentioned, the other style will still remain. In our case, we didn't define new values for `background-image`, `background-size`, or `position` because we want to use the same styles, so they get to carry over from the other style definition.
+
+In the case of `background-position` and `height`, we needed to change those values for this page's hero section to look correct. By explicitly redeclaring those styles in `secondary-styles.css`, they will now be the ones that are applied. And since `text-align` and `margin-bottom` are not even part of the original `.hero` definition in `style.css`, they are simply added on when we define it in `secondary-styles.css`.
+
+Now all of the style overriding is done, so we can turn our attention to creating the new style definitions for this page.
+
+## Creating new styles
+
+We're now nearing the finish line! Last thing we really need to do is add a few more new styles to our privacy policy page to get it looking like the screenshot at the top this Lesson.
+
+Using everything we've learned about CSS, let's tackle the page's title styling first. Start by defining what selector will be used. The quickest way to do that would be to select the element by its class, `page-title`.
+
+Here are some specifications for how we want it to look:
+
+- Its font `color` should be #fce138
+
+- We need to tell the `<h2>` tag to not go full-width, so change its `display` property to make it an `inline` element.
+  
+- Give its `border-bottom` a value with a `4px` width, a `solid` style, and the same color as the `color` property above.
+
+- Now let's make the border run wider than the text and give it some space by applying some `padding` to each of its sides:
+  
+  - top: 0
+
+  - right: 80px
+
+  - bottom: 15px
+
+  - left: 80px
+
+- Lastly, let's adjust the font styles:
+
+  - Set the `font-weight` to `normal`, this will make the default bold `<h2>` not bold anymore
+
+  - Change the `font-size` to be 42px
+
+  - Here's a new one, set it's `font-style` property value to `italic`. As we can assume, `font-style` is another CSS property that can add a slant (italicize) text.
+
+If any of the spacing seems off, remember you can always use Chrome DevTools to adjust and see how certain styles will look before actually applying them. This saves a lot of trial and error time.
+
+The result should look like this:
+
+![Privacy Policy Hero](assets/step-7/600-page-title-css.png)
+
+Now let's do the same thing and add styles to our `secondary-content` class and it's child elements using class selectors and nested selectors using these specifications:
+
+- Styles for `secondary-content`:
+
+  - Set its `width` to 80%
+
+  - Center it on the page by using `margin`. Think back to how we've centered elements using this property, the values we used there will be incredibly close, if not the same.
+
+  - Set the default font `color` for all text in this `<article>` to have a value of #024e76
+
+- Style the `<h3>` tags in `secondary-content` (use nested selectors to make sure it only applies to these tags and no other `<h3>` tags):
+
+  - Give it a `font-size` of 25px
+
+  - Set its `margin` to have 20px on the top and bottom and 0 on the left and right
+
+- Style the `<p>` tags in `secondary-content` (use nested selectors to target only these `<p>` tags):
+
+  - Give it a `font-size` of 16px
+
+  - Make its `line-height` a little bit bigger by giving it a value of 1.5
+
+  - Give it the same `margin` values we provided the `<h3>` tag above
+
+- Style the `<ul>` tags in `secondary-content`:
+
+  - Set its `margin` to have 15px on the top and bottom and 20px on the left and right
+
+- Finally, style the `<li>` tags in `<secondary-content>`:
+
+  - Make them stand out from the rest of the text by giving it a `color` value of #39a6b2
+
+  - Give them some space by adding a `margin` of 10px to the top and bottom and 0 for left and right
+
+> HINT: Make sure you save and refresh the page often to see progress! If any styles being applied here accidentally break styles used elsewhere in the site, adjust how specific the selector needs to be to target only the HTML in question.
+>
+> Also don't forget to keep Chrome DevTools open during this to help determine if any style overriding is occuring.
+
+And there we have it. We just used HTML and CSS to create our first project! Our friends at Run Buddy are going to be thrilled to see what we've put together for them. 
