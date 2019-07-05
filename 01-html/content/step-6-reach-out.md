@@ -66,6 +66,8 @@ Let's nest the `iframe` into our contact container so your markup should look li
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12182.30520634488!2d-74.0652613!3d40.2407219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1561060983193!5m2!1sen!2sus"
     frameborder="0"
+    height="400"
+    width="400"
     style="border:0"
     allowfullscreen
   ></iframe>
@@ -89,14 +91,15 @@ Let's unpack the configuration attributes for the iframe as well as talk about s
 
 <!-- <iframe src="https://giphy.com/embed/xT0xeJpnrWC4XWblEk" width="280" height="120" frameBorder="0" class="giphy-embed"></iframe> -->
 
-- **frameborder**: iframe elements have styling built into the attributes. This one allows a border by designating "1" and "0" for none. Other style attributes include specifying `height` and `width`.
+- **frameborder**: `iframe` elements have some styling properties built into the attributes such as height and width. This one allows a border by designating "1" and "0" for none. 
+> **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers so we will use the `border` property from CSS for this style property. This will offer legacy support however for older browsers.
+Styling inline is a practice that is discouraged since if styling changes are needed this code must be found and manipulated since the cascading overwrite ability of stylesheets is overwritten by an inline style designations.
 
-  > **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers so we will use the `border` property from CSS for this style property. This will offer legacy support however for older browsers.
-
-- **style**: This is an inline style for a zero border and how borders for new browsers are styled for the `iframe`.
+- **style**: This is an inline style for a zero border for browsers using HTML5.
 - **allowfullscreen**: Some attributes are properties that can be turned on by simply adding the attribute. `allowfullscreen` will offer a link to view the map on a new page in full screen mode. Notice how `allowfullscreen` doesn't have any value assignment. Another popular attribute that doesn't have a value assignment for example is `checked` for a `checkbox` input element.
 
-Let's take a look at our page now and see what this iframe looks like. Save to retain any changes.
+Let's take a look at our page now and see what this iframe looks like. Save to retain any changes.  Take a moment to play with the map using the zoom and scrolling functionality.
+
 ![iframe-map](./assets/step-6/200-iframe-html.png)
 
 ## Step 3: Contacts are us
@@ -106,7 +109,7 @@ In this step we will be adding the company's contact information. According the 
 > **Do It Yourself**: Create a container `div` that will hold this content then nest the child elements with the contact info.
 > Your markup should look like the following:
 
-````html
+```html
 <div>
   <h3>Run Buddy</h3>
   <p>just
@@ -123,12 +126,53 @@ In this step we will be adding the company's contact information. According the 
 
   <p>
     P: 555.RUN.BUDZ (555.786.2839)<br/>
-    E: <a href=mailto://info@runbuddy.io>info@runbuddy.io</a>
+    E: <a href="mailto:info@runbuddy.io">info@runbuddy.io</a>
   </p>
 </div>
 ```
-> **Heads up**: The div with the contact info is a sibling to the iframe and will sit next to this element in accordance to the natural document flow.  This will give us the column or vertically placed layout so these elements can sit side by side inside our contact container.
+Let's breakdown this markup and introduce some new tags including some semantic HTML5 tags.
+* **`<br/>`**: This tag represents a line break is a self closing due to the front-slash.
+* **`<address>`**: Defines the contact information for the author or owner of the document or article of the parent element.
+* **`<a href="mailto:info@runbuddy.io">`**: Using the `mailto:` prefix in the anchor tag's `href` attribute opens the default mail client application and populates the address field with the email address listed in the `href` value.
 
+> **Heads up**: The `div` with the contact info is a sibling to the iframe and will sit next to this element in accordance to the natural document flow.  This will give us the column or vertically placed layout so these elements can sit side by side inside our contact container. We will want these child elements of this `div` to be `block-level` elements to ensure each bit of info stacks on top of the next like a tower of blocks.
+
+Now that we have our markup in place, let's add some style.
 
 ## Step 4: Styles in Charge
-````
+> **Bundle of Tricks**: Styling CSS
+In this step, you will be using some of the basic skills you have learned to style the heading and section.  The goal is to style the heading and the background and fonts with the correct colors.  Let's take another look at the mock-up and see if we can target these two elements and style them as close to the mock-up as possible.  Using same colors in our previous sections, try to do it yourself.
+
+> **Hint**: Working code is a great source of information.  Use the code you have already created and try to reverse engineer the solution if you get stuck.
+
+Trying and failing is often the case when learning new things.  The struggle and frustration are often the key inflection points that lead to breakthroughs in understanding.  
+
+The new code should look like this:
+```css
+/* REACH OUT STYLES START */
+.contact {
+  text-align: center;
+  background: #024e76;
+}
+
+.contact h2 {
+  color: #fce138;
+}
+
+```
+Note that the `h2` element specified here had no mention of the font size, border, or other display property, only the color.  We are able to use the same design pattern used in the `section-title` class and reapply it to our `h2` element to gain design consistency and relay the importance of our section.  We only needed to reassign the new font color to yellow, but used all the other properties for the layout.  The font color reassignment used the cascading properties of CSS, giving the highest priority to the subsequent or following declarations.  Because recognizing pattern is not easy at first, but can be learning with practice.  One step that should also be reviewed at the end of the first draft of coding should always be a refactor.  This refactor step helps make the code easier to read and 
+
+
+Please save and view in the browser to see style changes.
+
+
+
+
+## Reflection
+Let's recap some of the basic fundamentals we have learned in this module.
+
+* **CSS selectors**: Learning how to select and target the specific element or group of elements is a critial first step since its not just the style, but *what* needs to be styled that is important.  Just imagine the color by numbers concept in coloring books.  Certain colors and styles should only go where needed which is why CSS selectors like classes are such great helpers.  These CSS selectors not only specify the target elements, but can be redeclared on other elements if a style design pattern is a duplicate.  Changes to a style pattern such as color or sizing is simple due to the cascading nature of style sheets that allow reassignment of properities if occurring below the original assignment. 
+* **CSS properties**: Understanding the layout of an element using the CSS box model is essential to website design.  This box representation is the layout of each HTML element that CSS can position, color, and style.  
+
+
+
