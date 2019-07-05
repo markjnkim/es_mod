@@ -167,6 +167,8 @@ We chose to use `inline-block` over just `inline` so it can have the best of bot
 
 ![inline heading](./assets/step-4/300-inline-heading.png)
 
+> **Legacy Lem:** In the early days of HTML, developers would center content with the `<center>` tag. While this tag still works in modern browsers, it is being officially phased out and shouldn't be used anymore.
+
 Now let's clean up that paragraph of text a little bit:
 
 ```css
