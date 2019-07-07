@@ -214,7 +214,11 @@ Your code should look something like this:
 
 It is important to note that the display property overwrote the default `display` property for a `div` to allow the `div.contact-info` to sit on the same row as the `iframe` by assigning the `display` to `inline-block`.  The `text-align` property is much like the alignment property in a word processing application, allowing the text to align on a particular side or justify the spacing to create a block of text.
 
-In the following CSS rules, we will be applying some font color and spacing to the contact info as well as changing the link color to increase the readability.
+In the following CSS rules, we will be applying some font color and spacing to the contact info as well as changing the link color to yellow.  Try out the spacing and coloring in Chrome's DevTools as a great way to try out different combinations.  Use the CSS box model to add some pixels to the different layers for each element.  
+
+> **Hint**: Use the property for `line-height` to adjust how to stretch out or shrink the text to find the best matching measurement that aligns with our mock-up. 
+
+Your completed CSS rules for the Reach Out section should look like this:
 
 ```css
 .contact-info h3 {
@@ -237,9 +241,7 @@ In the following CSS rules, we will be applying some font color and spacing to t
 /* REACH OUT STYLES END */
 
 ```
-Let's breakdown some of these CSS declaration.
-* **line-height**: This property is able to shrink or stretch each line of text for spacing and legibility purposes.
-* **
+Note that the second CSS rule targets two different elements.  The comma separates the two selectors and identifies the following declaration block will apply to both CSS selectors.
 
 Let's save, commit, and render the HTML page and review the work.
 Congrats, you have completed the landing page and created a professional layout.  Now let's create our `policy.html` page next, to complete our mock-up requirements.
@@ -247,8 +249,10 @@ Congrats, you have completed the landing page and created a professional layout.
 ## Reflection
 Let's recap some of the basic fundamentals we have learned in this lesson.
 
-* **CSS selectors**: Learning how to select and target the specific element or group of elements is a critial first step since its not just the style, but *what* needs to be styled that is important.  Just imagine the color by numbers concept in coloring books.  Certain colors and styles should only go where needed which is why CSS selectors like classes are such great helpers.  These CSS selectors not only specify the target elements, but can be redeclared on other elements if a style design pattern is a duplicate.  Changes to a style pattern such as color or sizing is simple due to the cascading nature of style sheets that allow reassignment of properities if occurring below the original assignment. 
-* **CSS properties**: Understanding the layout of an element using the CSS box model is essential to website design.  This box representation is the layout of each HTML element that CSS can position, color, and style.  
+* **CSS selectors**: Learning how to select and target the specific element or group of elements is a critial first step since its not just the style, but *what* needs to be styled that is important.  Just imagine the color by numbers concept in coloring books.  Certain colors and styles should only go where needed which is why CSS selectors like classes are such great helpers.  These CSS selectors not only specify the target elements, but can be redeclared on other elements if a style design pattern needs duplication.  Changes to a style pattern such as color or sizing is simple due to the cascading nature of style sheets that allow reassignment of properities if occurring below the original assignment. 
+* **CSS layout properties**: Understanding the layout of an element using the CSS box model is essential to website design.  This box representation is the layout of each HTML element that CSS can position, color, and style.
+* **CSS display property**: The layout on the page for the elements can be manipulated by changing some of the default display properties to either align items on the same row and make items wrap to the next row.
 
+Let's proceed to the last requirement for our mock-up to be complete by finishing this policy html page and finish our module project.
 
 
