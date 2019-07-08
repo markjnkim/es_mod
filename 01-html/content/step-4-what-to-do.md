@@ -97,11 +97,13 @@ In the Step 1 `<div>`, add the following `<img>` tag:
 </div>
 ```
 
-The `<img>` tag is very useful, because it can display any [image type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Supported_image_formats). We just need to make sure the `src` attribute points to a file that can be found. Much like how the `<link>` tag had to reference the stylesheet as `./assets/css/style.css`, we do the same for images: `./assets/images/step-1.svg`.
+The `<img>` tag is very useful, because it can display any [image type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Supported_image_formats). We just need to make sure the `src` attribute points to a file that can be found. Much like how the `<link>` tag had to relatively reference the style sheet as `./assets/css/style.css`, we do the same for images: `./assets/images/step-1.svg`.
+
+> **Rewind:** Relative paths start from the current directory (e.g. `../images/hero-bg.jpg`). Absolute paths are more hard set (e.g. `/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css`) and should be avoided.
 
 There's an extra attribute we should make sure every image has, though: the `alt` attribute. This is how we can explain what the image is to search engines and screen readers. Imagine a visually impaired vistor who relies on a screen reader and what their experience might be if the reader got hung up on the context of every image it came across. Watch this [short video](https://www.youtube.com/watch?v=NvqasTVoW98) to see just how screen readers handle alt text.
 
-In our case, the `step-1.svg` image is purely "decorative," meaning the only information the user needs from this section is already provided by the surrounding text (the `<h3>` tag). It might seem like the `alt` attribute isn't necessary, then, but a screen reader wouldn't know that a missing `alt` tag means "unimportant icon." Hence, we set `alt` to empty text so the screen reader knows to ignore it.
+In our case, the `step-1.svg` image is purely "decorative," meaning the only information the user needs from this section is already provided by the surrounding text (the `<h3>` tag). It might seem like the `alt` attribute isn't necessary, then, but a screen reader wouldn't know that a missing `alt` tag means "unimportant icon." Hence, we set `alt` to empty text (`alt=""`) so the screen reader knows to ignore it.
 
 > **Deep Dive:** Read more about `alt` attribute guidelines from the [W3C](https://www.w3.org/WAI/tutorials/images/) web standard gurus.
 
@@ -115,13 +117,13 @@ Our image is enormous! Remember, SVGs are scalable. There's no built-in, hard-se
 
 # Styling What We Do
 
-With the HTML in place, we're ready to start prettying up the "What We Do" content. Add a class to the `<section>` tag so we can uniquely identify it in our stylesheet:
+With the HTML in place, we're ready to start prettying up the "What We Do" content. Add a class to the `<section>` tag so we can uniquely identify it in our style sheet:
 
 ```html
 <section id="what-we-do" class="intro">
 ```
 
-Looking at the mock-up again, it would seem that everything in this section is centered, which we can accomplish with a familiar CSS property:
+Looking at the mock-up again, it would seem that everything in this section is centered, which we can accomplish with a familiar CSS property, `text-align`:
 
 ```css
 .intro {
@@ -129,7 +131,7 @@ Looking at the mock-up again, it would seem that everything in this section is c
 }
 ```
 
-Now add some CSS properties that apply to the `<h2>` tag inside this section:
+Now add some CSS declarations that apply to the `<h2>` tag inside this section:
 
 ```css
 .intro h2 {
@@ -142,9 +144,9 @@ Now add some CSS properties that apply to the `<h2>` tag inside this section:
 }
 ```
 
-The majority of this is stuff we've used before, but one thing worth highlighting is that we've specified a border on one side of the element only. We also split the border into two separate rules, but you could have written it as one, using a shorthand property: `border: 3px solid #fce138;`. It's up to you.
+The majority of this is stuff we've used before, but one thing worth highlighting is that we've specified a border on one side of the element only. We also gave the border two separate declarations, but you could have written it as one, using a shorthand property: `border: 3px solid #fce138;`. It's up to you.
 
-> **Pause:** If you were to write `padding: 0 100px 20px 100px;` as four separate properties, which value would go with which property?
+> **Pause:** If you were to write `padding: 0 100px 20px 100px;` as four separate declarations, which value would go with which property?
 
 The heading for this section should now look like this:
 
@@ -158,7 +160,7 @@ The `<h2>` element, by default, is a block element, but with CSS, we can change 
 
 ```css
 .intro h2 {
-  /* add this alongside your other properties */
+  /* add this alongside your other declarations */
   display: inline-block;
 }
 ```
@@ -186,7 +188,7 @@ Because we shrunk the width of the paragraph down to 80%, it no longer looks cen
 
 ```css
 .intro p {
-  /* add this alongside your other properties */
+  /* add this alongside your other declarations */
   margin: 0 auto;
 }
 ```
@@ -207,7 +209,7 @@ The setup for this next section is going to be similar to the last one we tackle
 <section id="what-you-do" class="steps">
 ```
 
-In your stylesheet, let's knock out some of the higher-level styling for the overall section:
+In your style sheet, let's knock out some of the higher-level styling for the overall section:
 
 ```css
 .steps { 
@@ -229,7 +231,7 @@ Then we can clean up the heading:
 }
 ```
 
-Huh. You know what? Those CSS properties look almost identical to the ones we wrote for `.intro h2`. The only thing that's different is the `border-color`. In programming, we want to cut down on duplicate code as much as possible, and this is a great example of unnecessary duplication.
+Huh. You know what? Those CSS declarations look almost identical to the ones we wrote for `.intro h2`. The only thing that's different is the `border-color`. In programming, we want to cut down on duplicate code as much as possible, and this is a great example of unnecessary duplication.
 
 > **Important:** An important principle in software development that you might hear is the term [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), or Don't Repeat Yourself.
 
@@ -269,7 +271,7 @@ Now we can delete the previous CSS rules for `.intro h2` and `.steps h2` (sorry!
 </section>
 ```
 
-Note that these `<h2>` tags in different sections are able to use the same `section-title` class, giving them all the same baseline in terms of size, spacing, etc. We can then add additional classes by separating the class names with a space. So the attribute `class="section-title primary-border"` is actually pulling in CSS properties from two different classes.
+Note that these `<h2>` tags in different sections are able to use the same `section-title` class, giving them all the same baseline in terms of size, spacing, etc. We can then add additional classes by separating the class names with a space. So the attribute `class="section-title primary-border"` is actually pulling in CSS declarations from two different classes.
 
 > **Skill Drill:** This is such an important concept with CSS that it's worth practicing a little more outside of this module. When you have a moment, try writing two classes (and only two classes, no other selectors) that could make the following possible:
 >
@@ -334,7 +336,7 @@ What are two ways you could center a 50%-width `<div>` with CSS?
 
 # Reflection
 
-This lesson gave us a chance to practice many of the CSS properties we learned previously to finish a pretty large chunk of the layout&mdash;the "What We Do" and "What You Do" sections. Along the way, we better organized our stylesheet with reusable class names and learned a few new bits of HTML and CSS:
+This lesson gave us a chance to practice many of the CSS properties we learned previously to finish a pretty large chunk of the layout&mdash;the "What We Do" and "What You Do" sections. Along the way, we better organized our style sheet with reusable class names and learned a few new bits of HTML and CSS:
 
 * `<img>` tags for displaying images
 
