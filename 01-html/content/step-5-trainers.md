@@ -40,7 +40,7 @@ Like the previous lesson, we're going to encapsulate our related content in cont
 
 ```html
 <article class="trainer">
-  <img src="./assets/images/trainer-1.jpg" alt="Run Buddy trainer" />
+  <img src="./assets/images/trainer-1.jpg" alt="Tony Horton in his workout clothes, ready to pump iron" />
   <div class="trainer-bio">
     <h3>Tony Horton</h3>
     <h4>Speed / Strength</h4>
@@ -62,7 +62,15 @@ We've introduced another new HTML element here called `<article>`. Just like `<s
 
 > DEEP DIVE: More info on the `<article>` tag [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article)
 
-Another note about this trainer's content is that besides the name, role, and image/alt values, there is nothing really unique to this trainer as far as class naming goes. As we'll see as we build out the other two trainers, we'll be able to reuse those classes, so we can actually concern ourselves with making sure this one `<article>` looks good first before we move onto the other two. With that said, let's tackle the styling and CSS!
+Before we move on, let's touch upon this image's `alt` attribute value. In Lesson 4, we discussed one way of using `alt` by leaving its value empty. This is because the image it was associated with was not important for the overall user experience, known as a "decorative" image. In this case the image does serve as content to the page, known as a "simple" image, so we need to give it a more meaningful `alt` value. Some rules about `alt` values:
+
+- Describe the image in under 140 characters
+
+- It should convey the content and purpose of the image
+
+- It should not begin with "image of..." or "graph of...", as screen readers already provide that context
+
+As we'll see when we build out the other two trainers, we'll be able to reuse the classes we included here, so we can actually concern ourselves with making sure this one `<article>` looks good first before we move onto the other two. With that said, let's tackle the styling and CSS!
 
 ## Styling the trainer
 
@@ -219,12 +227,12 @@ Now that we have our first trainer already laid out and styled, we have somethin
       itaque velit maiores optio dolorem excepturi aperiam dolores, voluptatibus suscipit amet quis repellat!
     </p>
   </div>
-  <img src="./assets/images/trainer-2.jpg" alt="Run Buddy trainer" />
+  <img src="./assets/images/trainer-2.jpg" alt="Kelly Kapowski cooling off after a work out" />
 </article>
 
 <!-- third trainer bio -->
 <article class="trainer">
-  <img src="./assets/images/trainer-3.jpg" alt="Run Buddy trainer" />
+  <img src="./assets/images/trainer-3.jpg" alt="Harry Smith wearing a headband and lifting comically small pink weights" />
   <div class="trainer-bio text-left">
     <h3>Harry "The Headband" Smith</h3>
     <h4>Strength</h4>
