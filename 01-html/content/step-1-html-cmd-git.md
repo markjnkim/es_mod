@@ -162,7 +162,7 @@ The `charset` meta tag is important to include now, though, because it specifies
 
 The good news is, much of this is boilerplate, meaning every web page is going to start with the same structure. Every page needs a DOCTYPE, an `<html>` tag, a `<head>` tag, etc. It's worth typing out again and again just to reiterate their importance, but it can also be copy/pasted into future projects without harm.
 
-> **Best Practice:** Keep in mind how we've been organizing the code in our HTML file. New tags were put on a new line, and whenever a tag was inside of another, we indented the code. You could choose to write your HTML like this:
+> **Pro-Tip:** Keep in mind how we've been organizing the code in our HTML file. New tags were put on a new line, and whenever a tag was inside of another, we indented the code. You could choose to write your HTML like this:
 >
 >```html
 ><!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <title>Run Buddy</title> </head> <body> <h1>RUN BUDDY</h1> What We Do </body> </html>
@@ -211,7 +211,7 @@ git commit -m "page template"
 
 `git commit` is the command that will take everything in staging and commit it, but there's an extra piece we should make sure we have: `-m "message"`. This is how we can attach a helpful message to our commits.
 
-> **Best Practice:** Every commit should include a message to explain what this particular change to the code is doing.
+> **Pro-Tip:** Every commit should include a message to explain what this particular change to the code is doing.
 
 On your first commit, however, Git may ask you to identify yourself:
 
@@ -264,7 +264,7 @@ What's nice about HTML, though, is that it's really just a series of boxes that 
 
 ![box diagram](./assets/step-1/725-box-diagram.png)
 
-We're using [**div tags**](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div) here, which are like containers to hold relevant information together. Note that Box 1 and 2 don't overlap; they're two separate areas of content. Maybe Box 1 is an annoying ad and Box 2 is a navigation bar. Inside of these boxes, we could have additional boxes, like an overall list (Box 3) that contains individual links (Boxes 4 and 5). Could we have omitted Box 3 in this example? Probably... but it helps to keep like content grouped together. Thus, Box 3's sole purpose is to better organize smaller information (the links).
+We're using `<div>` tags here, which are like containers to hold relevant information together. Note that Box 1 and 2 don't overlap; they're two separate areas of content. That's why `<div>` stands for "content division!" Maybe Box 1 is an annoying ad and Box 2 is a navigation bar. Inside of these boxes, we could have additional boxes, like an overall list (Box 3) that contains individual links (Boxes 4 and 5). Could we have omitted Box 3 in this example? Probably... but it helps to keep like content grouped together. Thus, Box 3's sole purpose is to better organize smaller information (the links).
 
 > **Pause:** Why was it helpful to indent each nested `<div>`?
 
@@ -378,9 +378,9 @@ While there are dozens of [semantic tags](https://developer.mozilla.org/en-US/do
 </footer>
 ```
 
-> **Pro-Tip:** To succeed in the boot camp, type out every code snippet yourself instead of copying and pasting. It will help build up that muscle memory you need to become an expert coder faster!
+> **Important:** To succeed in the boot camp, type out every code snippet yourself instead of copying and pasting. It will help build up that muscle memory you need to become an expert coder faster!
 
-> **Best Practice:** You may have noticed something new here: the `<!-- -->` tag. This is how we can leave notes, or comments, in the code. These do not show up in the browser but are helpful to have to make the code even easier to read.
+> **Pro-Tip:** You may have noticed something new here: the `<!-- -->` tag. This is how we can leave notes, or comments, in the code. These do not show up in the browser but are helpful to have to make the code even easier to read.
 
 Save, refresh the browser, and admire your efforts:
 
@@ -421,6 +421,8 @@ git commit -m "html outline and gitignore"
 ```
 
 Awesome, we've now saved our hard work to Git. The problem, however... these commits only live on our local computer. So if our computer dies, our work is lost. The Run Buddy company would be pretty upset if that happened. It would be helpful if we could save this repository in a remote location (i.e. on someone else's computer). That's where GitHub comes in. [GitHub](https://github.com/) is a website that hosts Git repositories. It's free and very popular among developers, so make sure you have an account!
+
+> **Career Prep:** GitHub has become a vital resource to recruiters and hiring managers as it helps them see a candidate's recent activity, samples of their code, and their thought process via READMEs.
 
 > **Important:** A common misconception is that Git and GitHub are the same thing. Git is the version control software that we've installed on our computer. GitHub is a service that lets us create Git repositories on the Internet. There are [other websites](https://opensource.com/article/18/8/github-alternatives) besides GitHub that perform the same service, but the software on your computer (Git) wouldn't change.
 
