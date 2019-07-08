@@ -2,21 +2,21 @@
 
 Throughout this project we have learned how to create and organize content for a web page, create custom styles and layouts for that content, and utilize the proper tools to protect, backup, and publish our work. This is a lot to take in, so we're going to use this last lesson to reinforce these concepts and "take the training wheels off" by building a second (simpler) page for our Run Buddy product site.
 
-The page we're going to be building is for the site's "Privacy Policy", which has become a must-have as the web has become increasingly interactive with the user and data-centric. This is a great page to build because there isn't too much to it when we compare it to the page we just completed. As a matter of fact, it's kind of boring, but that's not a bad thing for us to practice with.
+The Run Buddy legal department finalized the privacy policy and it's ready to code, so that's what we'll be taking on next.
 
 The main three points that will be introduced in this lesson are:
 
-1. Adding a second HTML document to our web site and how they can be connected through `<a>` tags.
+1. Adding a second HTML document to our web site and how the site's pages can link to each other using `<a>` elements.
 
 2. How to reuse HTML content through selective copy and pasting.
 
-3. How two HTML pages can share CSS styles, but also implement a second style sheet for styles more specific to the second page. This will entail us overriding some previously defined styles.
+3. How two HTML pages can share CSS styles, but also implement a second style sheet for styles more specific to the second page. The second style sheet will override some styles we defined in the first one.
 
-For reference, this is the page we will be building:
+For reference, this is a mock-up of the page we will be building:
 
 ![Privacy Policy completed](assets/step-7/100-privacy-complete.png)
 
-As we can see, this is a very text-heavy page with some similar components and styles, so we'll get to recycle a good amount of code we wrote earlier. Let's get started!
+As we can see, this is a very text-heavy page with some similar components and styles, so we'll get to recycle a good amount of code we wrote earlier. Don't worry, you won't need to type out all the content; we'll provide that for you. Let's get started!
 
 ## Creating our next HTML file
 
@@ -60,7 +60,9 @@ Now that we have our document scaffolded, let's make a couple of edits. Since we
 <title>Run Buddy - Privacy Policy</title>
 ```
 
-> PRO-TIP: While a descriptive page title is important, it should also be concise and to the point. Google cuts off search result titles at around 60 characters, so anything under that is optimal.
+> PRO-TIP: The `<title>` element's content is what appears in the browser's tab, so it is a good practice to structure the content as `[site name] - [page title name]`. 
+>
+> While a descriptive page title is important, it should also be concise and to the point. Google cuts off search result titles at around 60 characters, so anything under that is optimal.
 
 Take another look at the screenshot of the finished product we're working towards and compare it to `index.html`. Notice any similar pieces that we can reuse here? It would be confusing for visitors to experience different styles throughout a single web site, so most sites have similar&mdash;if not identical&mdash;components to them.
 
@@ -88,7 +90,7 @@ The page should look something like this:
 
 ![Privacy Policy - html started](assets/step-7/200-html-starter.png)
 
-One thing we want to do though is make sure a user can get to this new page from `index.html`. So in both `index.html` and `privacy-policy.html`, change the `<a>` tag's `href` value in the `<footer>` tag to have a value of `./privacy-policy.html`.
+One thing we want to do though is make sure a user can get to this new page from `index.html`. In `index.html`, change the `<a>` tag's `href` value in the `<footer>` tag to have a value of `./privacy-policy.html`. We can remove the `href` attribute from this element in `privacy-policy.html` altogether.
 
 We've used relative pathing in our `<img>` and `<link>` tags to target other files in our project's folder structure, and now we're doing the same thing here to target our `privacy-policy.html` file that lives in the same directory as `index.html`.
 
