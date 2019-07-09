@@ -52,7 +52,7 @@ Before we add the actual content, we need to create the skeleton of our HTML doc
 > What is the main purpose of the `<body>` tag?\
 > A: The `<body>` holds all of the document's actual content that is meant to be seen or interacted with by the page's visitor. Anything that is between the opening and closing `<body>` tags is visible to the user by default.
 
-> URKEL SAYS: Creating the skeleton of an HTML document is also known as "scaffolding".
+> URKEL SAYS: Creating the skeleton of an HTML document is also known as "scaffolding."
 
 Now that we have our document scaffolded, let's make a couple of edits. Since we're creating a new page, we should update the `<title>` to reflect that. While the information between the `<title>` tags isn't necessarily incorrect, it simply isn't as descriptive as it could be. Not only does having a descriptive title help inform the user where they are on the site, it is also useful for accessibility and search engine optimization. Let's edit the `<title>` to say this:
 
@@ -85,7 +85,7 @@ Now that we know how to make it work, go ahead and make sure the other three nav
 
 Moving onto the other two sections from our home page that can be copied over to our privacy policy:
 
-- **`<footer>`** - This can be copied directly over into our new document. Nothing needs to be edited here.
+- **`<footer>`** - This can be copied directly into our new document. Nothing needs to be edited here.
 
 - **`<section class="hero">`** - We're also going to reuse this, but then edit the inner content of it, so for now it is easier (and better practice) to go into `privacy-policy.html` and add right after the closing `</header>` tag:
 
@@ -97,7 +97,7 @@ Moving onto the other two sections from our home page that can be copied over to
 
 We'll get to adding content to this section next, but first let's save our work and open up this file in the browser.
 
-> HINT: Using the "Open in Browser" extension, right-click anywhere in the HTML document and select the option that says "Open In Default Browser". This is the quickest way to open up an HTML document direct from Visual Studio Code. 
+> HINT: Using the "Open in Browser" extension, right-click anywhere in the HTML document and select the option that says "Open In Default Browser". This is the quickest way to open up an HTML document direct from Visual Studio Code.
 >
 > Keep in mind, this will only work for HTML files.
 
@@ -107,7 +107,7 @@ The page should look something like this:
 
 One thing we want to do though is make sure a user can get to this new page from `index.html`. In `index.html`, change the `<a>` tag's `href` value in the `<footer>` tag to have a value of `./privacy-policy.html`. We can remove the `href` attribute from this element in `privacy-policy.html` entirely since we are already on this page.
 
-> **PRO-TIP**: It is a good practice when possible to disable `<a>` elements that bring you to the page you are currently on when clicked. This is to avoid unnecessary requests being made from the 
+> **PRO-TIP**: It is a good practice when possible to disable `<a>` elements that bring you to the page you are currently on when clicked. This is to avoid unnecessary page reloads if someone were to click on the link. It won't always be a possibility depending on the project, but it is something to keep an eye out for when it comes to optimizing a web page's performance.
 
 We've used relative pathing in our `<img>` and `<link>` tags to target other files in our project's folder structure, and now we're doing the same thing here to target our `privacy-policy.html` file that lives in the same directory as `index.html`. The biggest difference is how these HTML elements interact with the other file. When we use `<img>` and `<link>` elements, we are telling another file to join this HTML file in some fashion. Those elements don't bring us anywhere, but they bring resources to us. When we use `<a>` elements, however we are doing the opposite by saying "when I'm clicked, I'll bring you somewhere else in your browser and leave this location".
 
@@ -115,7 +115,7 @@ We've used relative pathing in our `<img>` and `<link>` tags to target other fil
 >
 > Test it for yourself sometime and set up an `<a>` that takes you to the path of a style sheet, when you click on it, you'll just be given the contents of the CSS file you pointed it to.
 
-Before we add our style sheet's `<link>` tag in, we'll go ahead and fill out the rest of our content. First we'll go and take care of the content that goes inside of our `<section class="hero">`. As you can see, we've removed the sign up form from that we used in `index.html`. We are going to repurpose this area to hold the title of the page by editing the `<section>` to look like this:
+Before we add our style sheet's `<link>` tag, we'll go ahead and fill out the rest of our content. First let's take care of the content inside our `<section class="hero">`. As you can see, we've removed the sign up form. We are going to repurpose this area to hold the title of the page by editing the `<section>` to look like this:
 
 ```html
 <section class="hero">
@@ -125,9 +125,9 @@ Before we add our style sheet's `<link>` tag in, we'll go ahead and fill out the
 </section>
 ```
 
-Even though we aren't building more HTML pages than this, this section has now been repurposed to be used on any new page that may need to be created in the future.
+Even though we aren't building more HTML pages, this section has now been repurposed for any new pages that may need to be created in the future.
 
-> STORY TIME: It is not uncommon for a web-based project to be considered "complete", only for a boss or client to come back and add more. These additions could come in the form of simple edits/additions to the existing project files&mdash;which is typically an easy change&mdash;or it can involve creating more pages, features, or even functionality.
+> ON THE JOB: It is not uncommon for a web-based project to be considered "complete", only for a boss or client to come back and add more. These additions could come in the form of simple edits/additions to the existing project files&mdash;which is typically an easy change&mdash;or it can involve creating more pages, features, or even functionality.
 >
 > That is why when building new projects, it is a good practice to set up more general styles and HTML content layouts that can easily be reused across new sections rather than having to start each new piece from scratch.
 
@@ -138,6 +138,7 @@ Before we add this content, let's create the container that will hold it. Add an
 Now let's go ahead and add this content inside the `<article>` tag that was just created (be warned, this is long):
 
 THIS SHOULD BE DOWNLOADABLE
+
 ```html
 <p>
   Website Terms of Use
@@ -565,7 +566,7 @@ Now that we are done adding content it is a good time for us to start including 
 
 ![privacy policy html](assets/step-7/300-html-complete.png)
 
-It's not as pretty as it will be when we add in our CSS, but the browser still prints everything out to the page in a very organized and readable fashion. To reiterate concepts we've discussed earlier in this project, this is what's known as the "normal flow" of a web page. Everything comes onto the page in the order it was placed in the HTML document and all content gets its own space based on what HTML tag wraps it. While the result isn't the most visually appealing, it serves its core purpose very well, which is to get HTML content to the visitor.
+It's not as pretty as it will be once we've added in our CSS, but the browser still prints everything to the page in a very organized and readable fashion. To reiterate concepts we've discussed earlier in this project, this is what's known as the "normal flow" of a web page. Everything comes onto the page in the order it was placed in the HTML document and all content gets its own space based on what HTML tag wraps it. While the result isn't the most visually appealing, it serves its core purpose very well, which is to get HTML content to the visitor.
 
 Well that's enough praise for the browser and its default styling, let's add our own!
 
@@ -584,7 +585,7 @@ Remember what HTML tag we used in `index.html` to bring in our style sheet? Go a
 >
 > <link rel="stylesheet" href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css" />
 > ```
-> 
+>
 > HINT: Don't be afraid to use Google! Just type in "css pathing" and you'll get your answer with examples!
 >
 > ANSWER: The first is "relative pathing" and the second is "absolute pathing". Relative is preferred because no matter where the project folder ends up the files will stay related to one another. Absolute pathing means it only works at that exact path and if the project folder is relocated, the path will have to change.
@@ -611,7 +612,7 @@ This is going to entail two things:
 
 Let's discuss the first point. If you compare the finished product of `index.html` with the screenshot of the finished product we're working towards for `privacy-policy.html`, the hero sections have the same background but the privacy policy page has a centered title and it's much shorter in length. What we'll do is edit some styles and have them _only_ apply to our privacy policy's hero. There are a couple of ways we can do this:
 
-1. **Change the class names and create new style rules**: For `privacy-policy.html`, we could provide the hero section with a different class name and simply copy and edit the styles from the `index.html`'s hero section. This way they have totally different names but still look similar.
+1. **Change the class names**: Use most of the CSS declaration blocks with a few edits including the CSS selector with a new class name. This way we can target different sections, but still have a similar look.
 
 2. **Keep the class names, but override some of the declarations**: This choice seems the most efficient with less duplicate code being rewritten since most of the declarations will be the same except for a few changes.
 
@@ -667,6 +668,8 @@ That should've fixed our spacing issues in that section. We overrode the `backgr
 As we can see, there are two sets of styles being applied to our class of `hero`. One is in `secondary-styles.css` at line 2 (in this screenshot), and the other is in `style.css` at line 75. To explain how the browser chose which styles to apply and which ones to discard, just look at how the `secondary-styles` one is listed on top of the other one, as if it's taking precedence. That's because it is.
 
 > REWIND: This is an example of the CSS "cascade" in effect. Think back to Lesson 2 when CSS was introduced. There are the three factors in CSS determining what styles get applied&mdash;Importance, Specificity, and Source order&mdash;this is an example of "source order" affecting what style definitions win.
+>
+> Switch the order of the `<link>` elements in the `<head>` element to see how the applied styles will be different due to our source order change.
 >
 > [More information on this here.](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance)
 
