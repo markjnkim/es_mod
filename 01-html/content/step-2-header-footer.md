@@ -54,7 +54,7 @@ There are a number of ways to organize navigation links. We will use a popular m
 
 So let's unpack what we just created, starting with lists. In HTML there are two types of lists: "ordered" and "unordered". Ordered lists or **`<ol>`** tell the browser to interpret any nested "list item" **`<li>`** in numeric order (1, 2, 3, etc). Unordered lists **`<ul>`** allow for a more loosely formatted list by marking each nested list item with a symbol (such as a bullet point or dash). The relationship between `ul` and `ol` with an `li` is a direct parent/child relationship, meaning that `li` or child should be nested or contained within the parent element's opening and closing tags, in this case the `ol` or `ul` tags.
 
-Within reason, anything can be nested inside of an `<li>` tag. In our case for creating a navigation, we used an "anchor" `<a>` element. Anchor elements are crucial tools for us as they give us the ability to create links in our HTML that take us to other destinations when clicked. These destinations can be within the same page, another page within our site, or another web site entirely.
+Within reason, anything can be nested inside of an `<li>` tag. In our case for creating a navigation, we used an "anchor" **`<a>`** element. Anchor elements are crucial tools for us as they give us the ability to create links in our HTML that take us to other destinations when clicked. These destinations can be within the same page, another page within our site, or another web site entirely.
 
 The `<a>` element is a prime of example of the "hypertext" in HTML, as hypertext is defined as text that links to other texts. Since this term was coined in the early 1960s, it's definition has grown beyond just text and also includes other types of media.
 
