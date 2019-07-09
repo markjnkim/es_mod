@@ -220,6 +220,8 @@ We'll actually be going with the third one, here's why:
 
 - We can share styles across multiple HTML files since it's in a third-party file as opposed to directly coupled to the single HTML document.
 
+Before we move on, let's go ahead and remove the `<style>` element and all of its content from the HTML document. We'll be adding different styles in their own file so we don't want to have these in place when we do.
+
 > IMPORTANT: This reinforces a concept called "Separation of Concerns", meaning that it's better to keep code that serves different purposes away from each other so it's easier to read and write
 
 ## Setting up our first stylesheet
