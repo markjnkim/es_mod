@@ -56,7 +56,7 @@ So let's unpack what we just created, starting with lists. In HTML there are two
 
 Within reason, anything can be nested inside of an `<li>` tag. In our case for creating a navigation, we used an "anchor" **`<a>`** element. Anchor elements are crucial tools for us as they give us the ability to create links in our HTML that take us to other destinations when clicked. These destinations can be within the same page, another page within our site, or another web site entirely.
 
-The `<a>` element is a prime of example of the "hypertext" in HTML, as hypertext is defined as text that links to other texts. Since this term was coined in the early 1960s, it's definition has grown beyond just text and also includes other types of media.
+The `<a>` element is a prime of example of the "hypertext" in HTML, as hypertext is defined as text that links to other texts. Since this term was coined in the early 1960s, its definition has grown beyond just text and also includes other types of media.
 
 Take a look below to see a few examples:
 
