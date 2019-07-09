@@ -87,9 +87,9 @@ Here are some popular attributes:
 
 > DEEP DIVE: Having a reference to [all attributes and their uses/limitations](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes) will be handy.
 
-The values associated with our `href` attributes in this navigation are giving us the ability to jump right to a certain spot on our current page. The syntax `href="#what-we-do` is actually telling the browser that when that `a` tag is clicked, go find another HTML element on that page with the attribute `id="what-we-do"`. We don't have that attribute added just yet, but we will soon.
+The values associated with our `href` attributes in this navigation are giving us the ability to jump right to a certain spot on our current page. The syntax `href="#what-we-do` is actually telling the browser that when that `<a>` element is clicked, go find another HTML element on that page with the attribute `id="what-we-do"`. We don't have that attribute added just yet, but we will soon.
 
-So now that we know what `a` tags are and how they are implemented, let's implement a best practice and make the branding in the `header` of our page clickable to take the user back to the home page, so let's go ahead and add that capability. We can do so by wrapping the content between the `h1` tags with its own `a` having an `href` value of "/".
+So now that we know what `<a>` elements are and how they are implemented, let's implement a best practice and make the branding in the `header` of our page clickable to take the user back to the home page, so let's go ahead and add that capability. We can do so by wrapping the content between the `<h1>` tags with its own `<a>` having an `href` value of "/".
 
 The value of the `href` used here, a forward slash ("/"), will always represent the path to the topmost directory of an application or project. So in this case when a user clicks on the `<a>` element they will be taken to the topmost directory, but since there is no file specified the "index.html" file will be loaded.
 
