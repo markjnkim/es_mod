@@ -142,33 +142,62 @@ If your code now looks something like the following, then we are ready to move o
 >
 > If we visit our [GitHub pages link](https://username.github.io/run-buddy), we'll be able to see the new HTML!
 
-> URKEL SAYS: We've seen the `#` syntax in action with `href` values, but it will be used in many more places throughout our career as programmers. It is what's known as an "octothrope", [learn more](https://en.wikipedia.org/wiki/Number_sign?oldformat=true#In_computing)!
-
-## Enter CSS
+> URKEL SAYS: We've seen the `#` syntax in action with `href` values, but it will be used in many more places throughout our career as programmers. It is what's known as an "octothorpe", [learn more](https://en.wikipedia.org/wiki/Number_sign#In_computing)!
 
 As we've seen, the HTML tags we have implemented so far do a great job of answering their own questions:
 
 - What do I say? (i.e. the content between `<h1>RUN BUDDY</h1>`)
 
-- What can I do? (i.e. the href attribute providing a destination upon click)
+- What can I do? (i.e. the `href` attribute providing a destination upon click)
 
-One thing that HTML _kinda_ knows how to but does a poor job answering is **What do I look like?** This is where CSS steps in to take what we currently have and turn it into this:
+One question that HTML _used_ to know how to answer for itself was **"How do I look?"**. Early HTML developers were provided a very limited set of options for changing how a web page was designed such as changing the color of text, adding a background color, or giving an image height and width dimensions. Most advanced (for the time) designs were achieved by taking a mock-up of the design and slicing it into a bunch of small images, then laying them all into an HTML table element to get them just how they want. Think about how difficult it would be to create a nice design using Microsoft Excel, it is probably very frustrating.
 
-![Header with CSS](assets/step-2/200-header-css.png)
+As developers wanted more control over their web page designs, it was realized that HTML may not be capable of supporting so many more options on its own since it is already in charge of handling a page's content. At this time, a new language was created and released to take some responsibility off of HTML when it came to the actual presentation of its content.
 
-CSS (the real name is Cascading Style Sheets) has a definition of being a language used to describe the presentation of an HTML document. It helps the developer describe how elements should be rendered in different media formats such as screen (what we'll be focusing on), paper (printing an article), and speech (accessibility and screen reader dictation).
+## Enter CSS
+
+**Cascading Style Sheets** (aka **CSS**) was first released to the public in 1996 as a new style sheet language to handle describing the presentation of an HTML document. It is one of the top three web technologies, alongside HTML and JavaScript. CSS allows the developer describe how elements should be rendered in different media formats such as screen (web browser, mobile phone, even smart watches), paper (printing an article), and speech (accessibility and screen reader dictation).
+
+Using CSS we can control and HTML element's typography (font family, size, color, weight, etc), how much space it should take up on the page, where it should be on the page in relation to other HTML elements, what type of background it should have, and so much more. This is an exciting time for CSS developers as well, a lot of new tools are being added to the language that allow us to really push the boundaries of web design and blur the lines between web and print layouts.
+
+This is a mock-up of the page we are currently building without any user-defined styles (the browser includes some by default, more on that later):
+
+![Page - no css](assets/step-2/101-page-nocss.png)
+
+As we can see, it's a very long page that reads well enough in order, but there's a lot of unused space and some of the images are simply way too large. Now let's look at how this same exact page will look after our styling is complete:
+
+![Page - with CSS](assets/step-2/102-page-css.jpg)
+
+This looks much better with CSS, as we get to change how our content looks and is laid out along the page. It takes very plain content and presents it in a meaningful way so a user can understand the product this page is trying to sell.
+
+CSS's syntax is fairly simple looking, but can be used in many different ways to achieve an intended presentation or design for a page. Developers use it by listing an HTML element they want to style, then listing a predefined style characteristic (known as a "property") and providing them a value. Let's take a look and study the following syntax:
+
+![CSS Syntax](assets/step-2/300-css-syntax.png)
+
+- **SELECTOR**: This is the part that actually says "let's find this matching HTML element (in this case it's the `body` tag) so we can tell it what it should look like". This is the most basic of selectors, where we select by HTML element name. We can use a CSS selector to be very vague (apply styles to all `<a>` elements) or very specific (apply styles to any `<a>` element that is inside of a `<header>` element and ignore any of the others that are not). We'll get into more specific selectors as we proceed.
+
+- **PROPERTY**: CSS has an extensive list of possible style properties that it recognizes. All we need to do is list one in between the selector's `{}` brackets and we can now change how that element looks. Examples of popular CSS properties are "color" (to control the text color), "background-image" (to apply a background image to that section), and "font-family" (to change the default font). If we use one that isn't predefined, then the browser will ignore the style. [Here's a great list of all possible CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index)
+
+- **PROPERTY VALUE**: This is where we get to provide the desired look to the element. Like properties, CSS has a specific set of possible variations for values that it will understand. For example, if we were to say `font-size: 3meters` it wouldn't be understood and not apply. But if we were to say `font-size: 24px`, the font's size will be set to 24 pixels because that is a value CSS can understand. [Here is a full list of CSS values and units of measurement](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units)
+
+- **DECLARATION TERMINATOR**: A `property: property-value` pairing is what's known as a "declaration". In order for us to apply multiple styles to an element, we need some way to tell the language "this declaration is finished, make a new one". The way that CSS determines that a declaration is complete is when it sees a semi-colon `;` at the end. Accidental omission of the terminator will result in CSS thinking everything after is still part of that first declaration, so it is very important to terminate our declarations.
+
+While these four pieces of the syntax may not seem like a lot to work with in CSS, it allows for a lot of variation and control of our HTML element styling.
 
 Setting up a project with CSS can be done in a few different ways:
 
-- Use a `style` attribute with the styles you want to apply directly to the HTML tag (i.e. `<h1 style="color: blue">This is a blue header</h1>`)
+- Create a file specific to writing CSS with the file extension `.css` and write all style definitions there, then connect it to the HTML file using `<link rel="stylesheet" href="./path-to-styles.css" />`
 
-- Apply all styles in between the HTML document's `head` tags using `<style>` HTML tags to surround all style definitions like this:
+- Use a `style` attribute with the styles you want to apply directly to the HTML tag (i.e. `<h1 style="color: blue">This is a blue header</h1>`). This is known as "inline styling", as it is directly next to the element it's providing style to.
+
+- Apply all styles in between the HTML document's `head` tags using `<style>` HTML tags to surround all style definitions. Take a look at the below code snippet, then copy and paste the `<style>` element into your page. After refreshing the page, you'll see the page's background turn a tomato-red color and the `<h1>RUN BUDDY</h1>` will become much bigger.
 
 ```html
 <head>
   <meta charset="UTF-8" />
   <title>RUN BUDDY</title>
-
+  
+  <!-- Add this to the page and see what happens! -->
   <style>
     body {
       background-color: tomato;
@@ -181,9 +210,7 @@ Setting up a project with CSS can be done in a few different ways:
 </head>
 ```
 
-- Create a file specific to writing CSS with the file extension `.css` and write all style definitions there, then connect it to the HTML file using `<link rel="stylesheet" href="./path-to-styles.css" />`
-
-The first two may sound enticing to us. Why _wouldn't_ we want to keep our styles tightly coupled with our HTML elements? Why _wouldn't_ we want to at the very least keep all of our style definitions in the same HTML document that we're styling? Seems like a no-brainer.
+The last two may options sound enticing to us. Why _wouldn't_ we want to keep our styles tightly coupled with our HTML elements? Why _wouldn't_ we want to at the very least keep all of our style definitions in the same HTML document that we're styling? Seems like a no-brainer.
 
 We'll actually be going with the third one, here's why:
 
@@ -247,18 +274,6 @@ If that turned the whole background of your page to red, then it works! Please r
 ## Our first styles
 
 Okay, so let's take that wonderfully plain `header` we've been working on and actually make it look like a professional navigation bar. We'll start by exploring exactly _how_ we can tell CSS to attach styles to specific HTML elements using `selectors`.
-
-CSS style definitions follow the following syntax:
-
-![CSS Syntax](assets/step-2/300-css-syntax.png)
-
-- **SELECTOR**: This is the part that actually says "let's find this matching HTML element (in this case it's the `body` tag) so we can tell it what it should look like". This is the most basic of selectors, where we select by HTML element name. We'll get into more specific selectors as time goes on, but let's keep it simple for now.
-
-- **PROPERTY**: CSS has an extensive list of possible style properties that it recognizes. All we need to do is list one in between the selector's `{}` brackets and we can now change how that element looks. Examples of popular CSS properties are "color" (to control the text color), "background-image" (to apply a background image to that section), and "font-family" (to change the default font). If we use one that isn't predefined, then the browser will ignore the style. [Here's a great list of all possible CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index)
-
-- **PROPERTY VALUE**: This is where we get to provide the desired look to the element. Like properties, CSS has a specific set of possible variations for values that it will understand. For example, if we were to say `font-size: 3meters` it wouldn't be understood and not apply. But if we were to say `font-size: 24px`, the font's size will be set to 24 pixels because that is a value CSS can understand. [Here is a full list of CSS values and units of measurement](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units)
-
-- **DECLARATION TERMINATOR**: A `property: property-value` pairing is what's known as a "declaration". In order for us to apply multiple styles to an element, we need some way to tell the language "this declaration is finished, make a new one". The way that CSS determines that a declaration is complete is when it sees a semi-colon `;` at the end. Accidental omission of the terminator will result in CSS thinking everything after is still part of that first declaration, so it is very important to terminate our declarations.
 
 Now that we know the basic "ins and outs" of how we can write CSS, let's actually do it to our page!
 
