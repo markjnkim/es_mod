@@ -397,9 +397,9 @@ Here, we are implementing a more specific selector pattern. This one ensures we 
 >
 > 3. **Source Order**: There is nothing that will stop us from accidentally selecting and defining styles to the same element more than once, but CSS is read top-down. This means that if we select `h1` and give it a color of red on line 1, then select it again and give it a color of blue on line 4, our `h1` is going to be blue because it was defined later.
 >
-> CSS styles are also applied through something known as "Inheritence", meaning if a style isn't explicity defined for a child element, it will try and use the style being applied to the parent element.
+> CSS styles are also applied through something known as "Inheritance", meaning if a style isn't explicity defined for a child element, it will try and use the style being applied to the parent element.
 >
-> ### [Read more about Cascade and Inheritence here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance)
+> ### [Read more about Cascade and Inheritance here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance)
 
 Now turning our attention to the actual property declarations happening here:
 
