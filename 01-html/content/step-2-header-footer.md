@@ -362,7 +362,7 @@ All HTML elements can be represented by a rectangular box which we will call the
 
 3. **Border** sits on the outside edge of the padding and the inside edge of the margin. This layer's sides, size, and styles can be specified, similarly to the padding and margin. Such as border-bottom or border-style or even border-top-color. This property also needs a weight of the line, style, and color in order to render.
 
-4. **Margin** surrounds the CSS box and touches the adjacent elements. This property's values are designated like the padding and can be specified by side and size.
+4. **Margin** behaves a lot like `padding` does, whereas `padding` creates space _inside_ the box, `margin` creates space _outside_ the box and pushes any other HTML tags before and after it away. It also behaves like `padding` in the sense of how it's values are provided (top, right, bottom, left).
 
 All four of these pieces are included in a browser's calculation of an HTML element's dimensions. This is something that even veteran developers can get tripped up with, as it may be easy to assume that the HTML's height or width should only be accounting for the physical/visible content inside of it. But in reality, the content is only a piece of the puzzle. 
 
@@ -408,8 +408,6 @@ Now turning our attention to the actual property declarations happening here:
 - **font-weight**: The `font-weight` property is looking to set the font to `lighter`, `normal`, or `bold` font display. There are other values associated with this property, but for now there's no need to dive into them as we won't really see a difference in the outcome.
 
 - **color**: The `color` is simply setting the color for this particular `h1` tag (notice how it's overriding the `color` we set for the `body`, this is because the style is declared directly to the element).
-
-- **margin**: Lastly, `margin` behaves a lot like `padding` does, whereas `padding` creates space _inside_ the box, `margin` creates space _outside_ the box and pushes any other HTML tags before and after it away. It, too, behaves like `padding` in the sense of how it's values are provided (top, right, bottom, left).
 
 It should now look like this:
 
