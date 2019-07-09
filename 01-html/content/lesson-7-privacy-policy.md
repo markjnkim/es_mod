@@ -679,7 +679,7 @@ A useful feature of CSS is that it overrides at the declaration level, not the r
 
 > REWIND: Remember the difference between "declaration level" and "rule level"
 >
-> **Delcaration Level**
+> **Declaration Level**
 > 
 > ```css
 > /* only the property name and value is a declaration */
