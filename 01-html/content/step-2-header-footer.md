@@ -238,7 +238,7 @@ Now that our file is created, we need to tell our HTML document to read any appl
 
 What we just did was use the HTML tag `link` to tell our HTML document to go find a specific resource (file) and incorporate it into the document. It needs at least one attribute, `href`, which behaves similarly to how it works in `a` tags, but this one is serving a different purpose. This one is saying "find this file called `style.css` located in the `css` folder inside of the `assets` folder, read it, and incorporate any of its information into this HTML document". This is the first real instance we've provided a value to an `href` that points to another file in our directory, this is what's known as `relative pathing`, and it is a very important concept so make sure to read the block below.
 
-The other attribute, `rel`, is providing a little more context as to what the HTML's relationship to the file being included through the `href` is supposed to be. In this case and most of the time, we'll be using `rel="stylesheet"`, but as time goes on there may be situations where that may change.
+The other attribute, `rel`, is providing a little more context as to what the HTML's **relationship** to the file being included through the `href` is supposed to be. In this case and most of the time, we'll be using `rel="stylesheet"`, but as time goes on there may be situations where that may change.
 
 > IMPORTANT: Relative file paths
 >
@@ -344,7 +344,31 @@ We just told the `header` tag to be 100% of the `width` of it's parent, in this 
 >
 > How we do it is up to us and there is no "wrong" way. This methodology will also to apply to some other style properties such as `margin` and `border`
 
-> DEEP DIVE: CSS properties that allow listing multiple values at once are what's known as [shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties), and can save a ton of time and cut out a lot of repetitve code.
+> DEEP DIVE: CSS properties that allow listing multiple values at once are what's known as [shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties), and can save a ton of time and cut out a lot of repetitive code.
+
+Before we move on to the rest of these styles, let's take a moment to learn and understand how an HTML element's height and width dimensions are calculated for placement on a page. This called the **Box Model** and can be a little tricky at first, since we are dealing with some things that aren't visible, but it is an important concept for any web developer to know.
+
+## CSS Box Model
+
+All HTML elements can be represented by a rectangular box which we will call the CSS box. The CSS box model is a visual display of the properties in the CSS box that includes the content, padding, border, and margin that are all built around each other like layers in an onion. Some of the styles of each layer like the thickness, style, and/or color can be manipulated using CSS.
+
+![Box Model](assets/step-2/103-box-model.png)
+
+1. **Content** is the innermost box inside our CSS box that will contain text as well as any nested elements. The content box size is determined by the height and width.
+
+2. **Padding** refers to the inside margin within the CSS box. Each of the four sides of the padding size can be specified as detailed in the previous lesson.
+
+3. **Border** sits on the outside edge of the padding and the inside edge of the margin. This layer's sides, size, and styles can be specified, similarly to the padding and margin. Such as border-bottom or border-style or even border-top-color. This property also needs a weight of the line, style, and color in order to render.
+
+4. **Margin** surrounds the CSS box and touches the adjacent elements. This property's values are designated like the padding and can be specified by side and size.
+
+All four of these pieces are included in a browser's calculation of an HTML element's dimensions. This is something that even veteran developers can get tripped up with, as it may be easy to assume that the HTML's height or width should only be accounting for the physical/visible content inside of it. But in reality, the content is only a piece of the puzzle. 
+
+If an HTML element needed space between itself and the next HTML element, this would involve adding a margin to it and would actually increase the overall real estate that element took up. A real world example of this would be the size of a home's property versus the size of the home itself.
+
+While this may seem like a tricky thing to nail down, we'll be introduced to some tactics that will make our lives a lot easier. Before that, let's finish styling our header.
+
+## Back to styling
 
 So now we've created our base `header` styles, let's target some of the tags nested inside of it, starting with the `h1`:
 
@@ -358,6 +382,22 @@ header h1 {
 ```
 
 Here, we are implementing a more specific selector pattern. This one ensures we are only applying styles specific to a particular `h1` tag, the one that lives _inside_ a `header` tag. This is a great method for adding specificity to our styles, so we can keep them scoped to particular section and context. We'll do more of this next with some different combinations of specificity.
+
+> IMPORTANT: In HTML, there will be many cases where the same elements are used for very different reasons in a document. This will typically mean that the CSS applied to them needs to be different as well. How CSS determines what styles are applied to specific elements when there are multiple instances of them on a page can be described by using a term in its own name, "Cascade".
+>
+> The cascade is a set of rules CSS follows when determining order of importance when it comes to applying styles. Say, for instance, we have multiple `<a>` elements in the `<header>` that we want to make yellow, but we want to make the `<a>` element in the `<footer>` blue. This can be achieved by being more specific in our selection of elements and saying "let's select all `<a>` that are in `<header>` and do this with them", meaning we can only focus on elements inside another element.
+>
+> The cascade follows three factors:
+>
+> 1. **Importance**: by adding `!important` to the end of a property declaration, it will override any conflicting style declarations for that element. This is not recommended for use, as using this means we should simply be smarter about how we select elements rather than brute forcing styles onto them.
+>
+> 2. **Specificity**: CSS actually weighs the importance of different types of selectors used by how specific they are. If we were to apply a style by selecting `h1`, it will apply to all `<h1>` elements. But if we were to then apply a style by selecting `header h1`, it will ignore conflicting property declarations in the `h1` definition and apply `header h1` instead since it is a more specific selection.
+>
+> 3. **Source Order**: There is nothing that will stop us from accidentally selecting and defining styles to the same element more than once, but CSS is read top-down. This means that if we select `h1` and give it a color of red on line 1, then select it again and give it a color of blue on line 4, our `h1` is going to be blue because it was defined later.
+>
+> CSS styles are also applied through something known as "Inheritence", meaning if a style isn't explicity defined for a child element, it will try and use the style being applied to the parent element.
+>
+> ### [Read more about Cascade and Inheritence here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance)
 
 Now turning our attention to the actual property declarations happening here:
 
@@ -409,21 +449,7 @@ header nav {
 
 So we've done something fairly drastic. We've taken the `nav` tag and moved it to the right side. As we've seen so far, most HTML tags position themselves along the left side of the page with one coming below the other. Now we've taken one totally out of the normal "flow" of the page. The property used here is called `float`:
 
-- **float**: Think of this as the "text-wrap" property from Microsoft Word, which allows content to flow around something that has been yanked to the left or right rather than make it break onto it's own new horizontal line. We'll get way more into this property later on, so let's not spend _too_ much time worrying about how this works just yet.
-
-We've also added in a little bit of a top and bottom `margin` here too:
-
-- **margin**: We've discussed `margin` before, but just to reiterate, this one has a value of `7px 0`, which means it has `7px` of space added to the top AND bottom but `0px` to the left AND right.
-
-Now that we have our two main pieces (`h1` and `nav`) in position, let's move into the `nav` tags.
-
-```css
-header nav ul li {
-  display: inline;
-}
-```
-
-Notice how before we added `display: inline`, the list looked like, well, a list? This is because each `li` is what's known as a "block element", meaning the browser lets it take up 100% of the width of whatever container it's in. Block elements will always force the next element to be on the next line, so we had to make it a different type of element known as "inline". This is another case of us overriding a default style that the browser provides `li` tags. More on this below in "BLOCK vs INLINE".
+- **float**: Think of this as the "text-wrap" property from Microsoft Word, which takes elements that want to take up 100% of its parent's width by default (known as **block elements**) and push everything after it below it&mdash;even if it physically isn't 100% of its parents width&mdash;and allows other elements to come along side of it or wrap around it (known as **inline elements**). This property is used when we have HTML elements that would look better side-by-side and use our horizontal space in a more meaningful way. There are other CSS properties that allow us to turn block elements into inline elements, but using `float` in this case made more sense because we needed to turn this element into an `inline` element and also move it to the right. `Float` let's us do both at once.
 
 > IMPORTANT: BLOCK vs INLINE HTML
 >
@@ -444,6 +470,20 @@ Notice how before we added `display: inline`, the list looked like, well, a list
 > - **display: none**: simply remove the element from the view of the browser and let the next elements come up and take it's space. This won't delete the HTML associated with it, but will hide it completely and removes the element from the "flow" of the HTML document.
 >
 > In next week's unit, we'll get into some new, more advanced display values that are going to really step up our layout game.
+
+We've also added in a little bit of a top and bottom `margin` here too:
+
+- **margin**: We've discussed `margin` before, but just to reiterate, this one has a value of `7px 0`, which means it has `7px` of space added to the top AND bottom but `0px` to the left AND right.
+
+Now that we have our two main pieces (`h1` and `nav`) in position, let's move into the `nav` tags.
+
+```css
+header nav ul li {
+  display: inline;
+}
+```
+
+Notice how before we added `display: inline`, the list looked like, well, a list? This is because each `li` is a block element, meaning the browser lets it take up 100% of the width of whatever parent element it's in. As mentioned above, block elements will always force the next element to be on the next line, so we had to make it a different type of element known as "inline". This is another case of us overriding a default style that the browser provides `li` tags.
 
 Last one we need to hit is the `nav`'s `a` tags. Notice how we've already applied styles to the `a` tags in the `header`, but now we need to be more specific and give only these particular `a` tags styles that the other `a` tag doesn't need. So now these `a` tags will receive not only the styles we added earlier, but these styles as well.
 
@@ -562,7 +602,7 @@ By the end of this section, our `footer` will look like this:
 
 So this first part is easy, we don't even have to concern ourselves with the fancy `Made with love` section on the left hand side since it's already done. So let's worry about making the other part of our `footer`.
 
-It's a common practice / typically required by law to include some type of Privacy Policy with every product on the web. This is to let users know what their rights are on the site as far as content/data usage. This doesn't usually need to be highlighted and made a big deal of, so it really does not ever need to go into the main navigation. In this case it gets relegated to the `footer`. We also need to protect our own product and tell users that we own our content, so we'll also be adding a copyright notice right below it.
+The Run Buddy legal department is also drafting a privacy policy for the site, but it won't be ready until later in the project. For now, we'll add a placeholder link to it in the footer, and update the link with the actual URL later, when the page is ready.
 
 We'll go ahead and add this in our `footer` right after the `h2`:
 
@@ -583,7 +623,7 @@ Let's review the two new pieces of HTML we used here:
 
 - **HTML Entities (`&copy;`)**: If we haven't noticed yet, every HTML tag includes with a greater than `>` and less than `<` symbol, so what happens if we need to actually use one of those symbols in our content and not as HTML syntax? How does the browser tell the difference? The short answer is it can't, so HTML's solution is to have special character codes known as `HTML Entities`. These are special codes that start with an ampersand `&` and can be used to create symbols (i.e. `&gt;` creates a `>`). For more information and a more extensive list, [go here](https://developer.mozilla.org/en-US/docs/Glossary/Entity).
 
-One more thing to mention is the use of a `#` as the value of the `href`. Considering what we saw earlier with the `href="#what-we-do` syntax, and how it is used to navigate towards another section of the same page with an `id` attribute looking like `id="what-we-do"`, what happens when there is no name after the `#`? This is used when we don't exactly know where we want our link to go yet. Yes, the text says `Privacy Policy` but we currently don't have that page. So for now we'll use the `#` as a placeholder and we'll circle back to it later when we create that second page.
+One more thing to mention is the use of a `#` as the value of the `href`. Considering what we saw earlier with the `href="#what-we-do` syntax, and how it is used to navigate towards another section of the same page with an `id` attribute looking like `id="what-we-do"`, what happens when there is no name after the `#`? This is used when we don't exactly know where we want our link to go yet. Yes, the text says `Privacy Policy` but we currently don't have that page created. So for now we'll use the `#` as a placeholder and we'll circle back to it later when we create that second page.
 
 So now our `footer` has all the right bones to start designing!
 
