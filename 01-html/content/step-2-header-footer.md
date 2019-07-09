@@ -8,17 +8,27 @@ In the previous step we built a series of "containers" for our web page to hold 
 
 This step will focus on building out the content and applying styles for both the header and footer of our page. Why the header and footer? Why do the top and bottom and leave everything in the middle untouched? This is because the header and footer typically follow similar patterns when adding both inner HTML content and applying styles. Since this is our introduction to a lot of these concepts, we'll keep it a little bit on the plain side so we can focus on learning.
   
-We will be introduced to both new HTML elements and Cascading Style Sheets, which will be referred to throughout the rest of this unit (and our careers) as `CSS`. The nice thing about what we will be working on here is that a lot of what we learn will be repeated in future steps. Be warned, however, CSS can be just as frustrating as it is rewarding, for both beginner and veteran developers alike. It is technology that is best learned through doing, so let's get started!
+We will be introduced to both new HTML elements and **Cascading Style Sheets**, which will be referred to throughout the rest of this unit (and our careers) as **CSS**. The nice thing about what we will be working on here is that a lot of what we learn will be repeated in future steps. It is technology that is best learned through doing, so let's get started!
 
 ## Add content to our `<header>`
 
 ![header html](assets/step-2/100-header-html.png)
 
-We'll begin by adding some information that most modern web pages have: branding and navigation. These two pieces of a user interface (also known as "UI" for the hip) usually find their way into the `header` of an HTML document.
+We'll begin by adding some information that most modern web pages have: branding and navigation. These two pieces of a **user interface** (also known as "UI" for the hip) usually find their way into the `header` of an HTML document.
 
-Branding usually comes in the form of a logo or icon image but with the advent of custom web font options, a lot of developers haved started gravitating towards native HTML text instead. This makes the page's identity easier for Google to understand as it is just text as opposed to an image (which Google cannot interpret, yet). At this point, we've already gone this route when we added the `<h1>RUN BUDDY</h1>` to the `<header>`.
+Branding is something most web pages have on them in a prominent position so users know where they are. We have already provided this type of content since we added the `<h1>RUN BUDDY</h1>` to the `<header>` in Lesson 1.
 
 Now we have our page's identity in place, let's turn our attention to the navigation portion of our `header`. To begin, let's start by adding `<nav>` and `</nav>` immediately below our `h1`, but above the closing `</header>` tag . The `nav` HTML tag is a newer "semantic" tag designed to help with accessibility and SEO. The browser can now read these tags and get an idea of what information is inside.
+
+> IMPORTANT: Web Accessibility
+>
+> As the web has grown and become so ubiquitous over the years, so has the need to make it available to as many people as possible. As a developer, our main role is to create products that can provide a similar&mdash;if not identical&mdash;experience to every single user, even those with limited abilities. Special applications and even browsers now provide support to those with special needs on the Internet.
+>
+> The best example of this is a screen reader, where the browser will interpret an HTML tag and its content, then read it to the user as they move along the site and select/hover over elements with their mouse or by using the `tab` key on a keyboard. However, the browser can only infer so much on its own, so it's up to us to use the proper tools and methods to provide important information in a way the browser can interpret.
+>
+> There are a number of tools we can use to add accessibility to our pages, the most prominent and easy to implement being HTML5 semantic tags. Up until the late 2000s the `<div>` element was used everywhere a block of content was needed. This led to developers having to work extra hard to properly identify sections of content so screen readers could interpret the page better. Now we have tags that structurally work like a `<div>` element but have more meaningful names like `<header>`, `<footer>`, and `<nav>`. This means the browser can start by reading the HTML tag itself and inferring what content is inside of it and how important it must be on the page.
+>
+> We will be exploring more of these tools in this project and in upcoming projects, but [here is more information about the topic](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
 
 There are a number of ways to organize navigation links. We will use a popular method by creating a list and giving each navigation link its own spot on that list. Right after the opening `nav` we just created, place the following:
 
@@ -42,9 +52,13 @@ There are a number of ways to organize navigation links. We will use a popular m
 </ul>
 ```
 
-So let's unpack what we just created, starting with lists. In HTML there are two types of lists: "ordered" and "unordered". Ordered lists or `<ol>` tell the browser to interpret any nested "list item" `<li>` in numeric order (1, 2, 3, etc). Unordered lists `<ul>` allow for a more loosely formatted list by marking each nested list item with a symbol (such as a bullet point or dash). The relationship between `ul` and `ol` with an `li` is a direct parent/child relationship, meaning that `li` or child should be nested or contained within the parent element's opening and closing tags, in this case the `ol` or `ul` tags.
+So let's unpack what we just created, starting with lists. In HTML there are two types of lists: "ordered" and "unordered". Ordered lists or **`<ol>`** tell the browser to interpret any nested "list item" **`<li>`** in numeric order (1, 2, 3, etc). Unordered lists **`<ul>`** allow for a more loosely formatted list by marking each nested list item with a symbol (such as a bullet point or dash). The relationship between `ul` and `ol` with an `li` is a direct parent/child relationship, meaning that `li` or child should be nested or contained within the parent element's opening and closing tags, in this case the `ol` or `ul` tags.
 
-Within reason, anything can be nested inside of an `<li>` tag. In our case for creating a navigation, we used an "anchor" `<a>` tag. Anchor elements are crucial tools for us as they give us the ability to create links in our HTML that take us to other destinations when clicked. These destinations can be within the same page, another page within our site, or another web site entirely. Take a look below to see a few examples:
+Within reason, anything can be nested inside of an `<li>` tag. In our case for creating a navigation, we used an "anchor" `<a>` element. Anchor elements are crucial tools for us as they give us the ability to create links in our HTML that take us to other destinations when clicked. These destinations can be within the same page, another page within our site, or another web site entirely.
+
+The `<a>` element is a prime of example of the "hypertext" in HTML, as hypertext is defined as text that links to other texts. Since this term was coined in the early 1960s, it's definition has grown beyond just text and also includes other types of media.
+
+Take a look below to see a few examples:
 
 ```html
 <!-- When we click "Go To Google" it will take you to Google -->
@@ -59,20 +73,34 @@ Within reason, anything can be nested inside of an `<li>` tag. In our case for c
 
 Notice the first two have an `href=` inside of their opening tags? This is what is known as an HTML "attribute", and in this case it is critical for it to be included with a value associated in order for the `a` tag to work as intended.
 
-> **IMPORTANT**: _Attributes_ help us provide different functionality, meaning, and context for our HTML elements. They are not necessary for every element (as we can see, we've written a lot of HTML so far without them) but there are some elements that do in fact require them to work as intended, such as `<a>`.\
-> \
-> Throughout this lesson and in future units we will be introduced to some other very important attributes, so having a reference to [all attributes and their uses/limitations](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes) can be handy.
+**Attributes** help us provide different functionality, meaning, and context for our HTML elements. They are not necessary for every element (as we can see, we've written a lot of HTML so far without them) but can be added to any element. There are some elements that do in fact require them to work as intended, such as `<a>`. If we were to omit the `href` attribute, then the `<a>` element would not be clickable.
+
+Throughout this lesson and in the future we will be introduced to some other very important attributes. These attributes will help us provide an HTML element a unique identity, create relationships with other elements, and provide design changes using CSS.
+
+Here are some popular attributes:
+
+- **`id`**: A unique identifier for an HTML element, the value of this can only be used once per HTML document
+
+- **`class`**: Another way of identifying an HTML element, but its value is expected to be more general and can be reused across multiple HTML elements on a page
+
+- **`title`**: Not to be mistaken for the `<title>` element, the `title` HTML attribute holds a value that appears as a small pop-up (known as a "tool-tip") when the mouse is hovered over an element for a period of time.
+
+> DEEP DIVE: Having a reference to [all attributes and their uses/limitations](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes) will be handy.
 
 The values associated with our `href` attributes in this navigation are giving us the ability to jump right to a certain spot on our current page. The syntax `href="#what-we-do` is actually telling the browser that when that `a` tag is clicked, go find another HTML element on that page with the attribute `id="what-we-do"`. We don't have that attribute added just yet, but we will soon.
 
-So now that we know what `a` tags are and how they are implemented, there's something we forgot to do earlier. It is a good usability standard to make whatever the branding is in the top `header` of a page or site be clickable to take the user back to the main page, so let's go ahead and add that capability. We can do so by wrapping the content between the `h1` tags with its own `a` having an `href` value of "./index.html".
+So now that we know what `a` tags are and how they are implemented, let's implement a best practice and make the branding in the `header` of our page clickable to take the user back to the home page, so let's go ahead and add that capability. We can do so by wrapping the content between the `h1` tags with its own `a` having an `href` value of "/".
+
+The value of the `href` used here, a forward slash ("/"), will always represent the path to the topmost directory of an application or project. So in this case when a user clicks on the `<a>` element they will be taken to the topmost directory, but since there is no file specified the "index.html" file will be loaded.
+
+> REWIND: Think back to Lesson 1 when we learned that if no file is being specifically looked for, a computer will try and provide an "index" page. In web development, this is why the home page has a filename of "index.html"
 
 If your code now looks something like the following, then we are ready to move on and make this start looking good!
 
 ```html
 <header>
   <h1>
-    <a href="./index.html">RUN BUDDY</a>
+    <a href="/">RUN BUDDY</a>
   </h1>
   <nav>
     <ul>
@@ -197,7 +225,7 @@ The other attribute, `rel`, is providing a little more context as to what the HT
 > <link rel="stylesheet" href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css" />
 > ```
 >
-> See a potential problem here? If we were to put this code into production or share with a teammate, the project's code would live on a different computer entirely. That path in the example most likely does not exist on that computer, meaning any reference to it would break and the page will not load correctly.
+> See a potential problem here? This path is very specific to someone's personal computer, it even has a username in it. If we were to put this code into production or share with a teammate, the project's code would live on a different computer entirely. That path in the example most likely does not exist on that computer, meaning any reference to it would break and the page will not load correctly.
 >
 > The best solution for this is to work with relative pathing, as we typically push the entire folder structure for the project up together and the paths don't lose context as to where they are.
 >
@@ -228,9 +256,9 @@ CSS style definitions follow the following syntax:
 
 - **PROPERTY**: CSS has an extensive list of possible style properties that it recognizes. All we need to do is list one in between the selector's `{}` brackets and we can now change how that element looks. Examples of popular CSS properties are "color" (to control the text color), "background-image" (to apply a background image to that section), and "font-family" (to change the default font). If we use one that isn't predefined, then the browser will ignore the style. [Here's a great list of all possible CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index)
 
-- **PROPERTY VALUE**: This is where we get to provide the desired look to the element. Like properties, CSS has a specific set of possible variations for values that it will understand. For example, if we were to say `font-size: 3meters` it wouldn't be understood and not apply. But if we were to say `font-size: 24px`, the font's size will be set to 24 pixels because that is a value CSS can understand.
+- **PROPERTY VALUE**: This is where we get to provide the desired look to the element. Like properties, CSS has a specific set of possible variations for values that it will understand. For example, if we were to say `font-size: 3meters` it wouldn't be understood and not apply. But if we were to say `font-size: 24px`, the font's size will be set to 24 pixels because that is a value CSS can understand. [Here is a full list of CSS values and units of measurement](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units)
 
-- **DECLARATION TERMINATOR**: A `property: property-value` pairing is what's known as a "declaration". In order for us to apply multiple styles to an element, we need some way to tell the language "this declaration is finished, make a new one". The way that CSS determines that a declaration is complete is when it sees a semi-colon `;` at the end. Accidental omission of the terminator will result in CSS thinking everything after is still part of that first declaration, so it is very important to terminate our delcarations.
+- **DECLARATION TERMINATOR**: A `property: property-value` pairing is what's known as a "declaration". In order for us to apply multiple styles to an element, we need some way to tell the language "this declaration is finished, make a new one". The way that CSS determines that a declaration is complete is when it sees a semi-colon `;` at the end. Accidental omission of the terminator will result in CSS thinking everything after is still part of that first declaration, so it is very important to terminate our declarations.
 
 Now that we know the basic "ins and outs" of how we can write CSS, let's actually do it to our page!
 
@@ -244,13 +272,23 @@ body {
 }
 ```
 
-By adding this, we are setting the color of the font for the entire page to a light blue / teal color with what's known as a `hex code` and setting the font to "Helvetica". The other two values for the `font-family` definition are included just in case the user's computer does not have Helvetica installed, that way they can fall-back to those other font choices. These are both applied to the `body` tag on the page because the `body` is the parent to all of our other HTML content tags, so we can now control all of them by applying a style to the parent.
+By adding this, we are setting the color of the font for the entire page to a light blue / teal color with what's known as a [hexadecimal number](https://en.wikipedia.org/wiki/Web_colors#Hex_triplet) and setting the font to "Helvetica". The other two values for the `font-family` definition are included just in case the user's computer does not have Helvetica installed, that way they can fall-back to those other font choices. These are both applied to the `body` tag on the page because the `body` is the parent to all of our other HTML content tags, so we can now control all of them by applying a style to the parent.
 
-This is also a good time to look at CSS comments as well. We are using one above the `color` declaration. This syntax is slightly different from HTML's comment syntax, but it behaves the same way. Every programming language has it's own flavor of denoting a comment. Some are similar, some can be very different, but they all behave the same way.
+> DEEP DIVE: Helvetica is not a font that typically comes installed on computers running any Windows operating system. The reason for this is that most fonts, including Helvetica, belong to companies that own and license out the fonts for a great deal of money. Think of it like a designer's version of Coke vs. Pepsi, where it's rare to see both companies' products offered at the same place.
+>
+> Microsoft made a deal with Monotype in the early 1990s to license their fonts and include them in Microsoft's software, but Linotype was the owner of Helvetica. Microsoft had Monotype create their own versions of Linotype's fonts (i.e. Arial), but they are all slightly different.
 
-> DEEP DIVE: We'll be diving more heavily into web fonts and typography over the upcoming weeks, so don't worry about that _too_ much currently. But it may be a worthwhile look to learn how [CSS color values](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) work, as we'll be diving deeper into some other values next week. For now we'll be sticking to using hex values and maybe a directly named one (i.e. white, black, aquamarine, etc)
+This is also a good time to look at CSS comments as well. We are using one above the `color` declaration, it looks like this:  
 
-Okay, so now let's start to pretty-up our `header` with the following style:
+```css
+/* I'm a CSS comment! */
+```
+
+This syntax is slightly different from HTML's comment syntax, but it behaves the same way. Every programming language has it's own flavor of denoting a comment. Some are similar, some can be very different, but they all behave the same way.
+
+> DEEP DIVE: We'll be diving more heavily into web fonts and typography over the upcoming weeks, but in the meantime it may be a worthwhile look to learn how [CSS color values](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) work, as we'll be diving deeper into some other values next week. For now we'll be sticking to using hexadecimal values and maybe a directly named one (i.e. white, black, aquamarine, etc)
+
+Now let's start to pretty-up our `header` with the following style:
 
 ```css
 /* apply styles to <header> */
@@ -290,6 +328,8 @@ We just told the `header` tag to be 100% of the `width` of it's parent, in this 
 > ```
 >
 > How we do it is up to us and there is no "wrong" way. This methodology will also to apply to some other style properties such as `margin` and `border`
+
+> DEEP DIVE: CSS properties that allow listing multiple values at once are what's known as [shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties), and can save a ton of time and cut out a lot of repetitve code.
 
 So now we've created our base `header` styles, let's target some of the tags nested inside of it, starting with the `h1`:
 
