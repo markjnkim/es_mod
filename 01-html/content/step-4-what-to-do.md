@@ -243,7 +243,6 @@ We could consolidate these CSS rules into more generic classes that all of our h
 .section-title {
   font-size: 55px;
   color: #024e76;
-  display: inline-block;
   margin-bottom: 35px;
   padding: 0 100px 20px 100px;
   display: inline-block;
