@@ -4,9 +4,9 @@
 
 Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website. HTML elements in large part, can be considered as a series of rectangular boxes as was described in Lesson 1. These boxes can be stacked on top of each other like blocks and also can be nested within each other similar to Russian nesting dolls. If we take a good look at our mock-up, we can see that each part of our landing page seems to be separated by different colored blocks. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. In the first lesson, we created the basic layout of each `section` element. We will be building upon this framework, `section` by `section` until our mock-up is complete.
 
-The first block is considered the most important `section` because this will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms a large web banner image placed prominently on the page. The placement is considered "above the fold", hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
+The first block is considered the most important `section` because this will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms a large banner image placed prominently on the page. The placement is considered "above the fold", hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
 
-> **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header,footer, and article.
+> **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article.
 
 Think of the hero section as the banner, headline, or billboard of our site. But before we can add our pizzazz, let's first add some HTML markup that will provide our structure and content.
 
@@ -14,7 +14,7 @@ Think of the hero section as the banner, headline, or billboard of our site. But
 
 Let's build upon the `section` we created in Lesson 1. This `section` element will be the parent element that contains the children elements like the heading and sign-up form.
 
-> **Rewind**: HTML5 Semantic Elements help distinguish each part of the document and it's function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp)
+> **Rewind**: HTML5 Semantic Elements help distinguish each part of the document and it's function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp).
 
 ### Step: 1 - Sign-up Form Container
 
@@ -22,11 +22,11 @@ Let's build upon the `section` we created in Lesson 1. This `section` element wi
 
 > **Hint**: Look for any content like text, heading, and especially distinct elements like boxes.
 
-> **Answer**: We will need a box that will contain a heading, text, input fields and a button.
+> **Answer**: We will need a box that contains a heading, text, input fields and a button.
 
 We must place our `<div>` tags carefully to ensure that they are nested within the section element.
 
-> **Heads Up**: HTML works on a relatively simple set of rules like the use of opening and closing tags. An HTML element can be nested within another element, but must be completely contained, meaning the opening and closing tags must both be inside the parent element.
+> **Heads Up**: HTML works on a relatively simple set of rules.  One important rule is that both the opening and closing tags of an element must be completely contained inside the parent element.  Meaning if an opening tag is contained within an element, the closing tag must be as well.  
 
 **INCORRECT**
 
@@ -47,7 +47,7 @@ Great! Your `index.html` file should now look something like this.
 </section>
 ```
 
-> **Heads up**: The browser doesn't care if lines are indented or if every element is on the same line. Indentation is an organizational tool for yourself and other developers to help read and understand the code. 
+> **Heads up**: The browser doesn't care if lines are indented or if every element is on the same line. But indentation is an organizational tool for yourself and other developers to help read and understand the code and a great habit to start. 
 
 Now that we have our `div` element, let's create the remaining child elements inside this form container.
 
@@ -59,7 +59,7 @@ Now that we have our `div` element, let's create the remaining child elements in
 
 Now let's put our content within the `h3` tags from our mock-up. After that is some basic text, so let's wrap that in a `<p>` tag.  
 Wait a sec, what's a `<p>` tag?
-The `p` element is used to render normal styled text to a page similar to the body text of a page. Hence the browser will not add font-size or font-weight to the content of this element, but will make the display property, mentioned in the last lesson, a block-level element meaning other elements will be wrapped to the next line.
+The `p` element is used to render normal styled text to a page similar to the body text of a page. Hence the browser will not add font-size or font-weight to the content of this element, but will make the `display` property, mentioned in the last lesson, a block-level element.
 
 > **Rewind**: Remember `<h1>` to `<h6>` and `<p>` tags are block-level elements meaning they start on their own new line and any following elements appear on its own new line.
 
@@ -76,7 +76,7 @@ Your code for the hero section should now look something like this.
 </section>
 ```
 
-> **Pro Tip**: Learn keyboard shortcuts to greatly increase your speed and efficiency. Look into the VS Code shortcuts as well as for Chrome for your operating system for Save, Format, Open in Default Browser, and DevTools for [Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) and [Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf). They are also labeled in your menu options. It is also a great idea to select the `Auto Save` option in the `File` menu due to all the time saved from forgetting to do that.
+> **Pro Tip**: Learn keyboard shortcuts to greatly increase your speed and efficiency. Look into the VS Code shortcuts as well as for Chrome for your operating system for Save, Format, Open in Default Browser, and much more for [Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) and [Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf). They are also labeled in your menu options. It is also a great idea to select the `Auto Save` option in the `File` menu due to all the time saved from forgetting to do that.
 
 Your page should now look something like this:
 ![hero-heading](./assets/step-3/100-heading-html.png)
@@ -87,7 +87,7 @@ So not yet exactly what we are looking for stylistically speaking, but this is a
 
 ### Step 2: Web Forms
 
-Forms are an important mechanism used by the web to receive user input.  Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form markup by using the `<form>` tag to wrap our sign-up form.  HTML Forms are a major point of interaction between the user and a website or application.  They allow users to send data to the website, normally to the server.  Within this `form` will be the `form` elements such as `input` elements.  `Input` elements come in many different types and flavors depending on the type of information that is desired such as a text input fields, radio buttons, or checkboxes.
+Forms are an important mechanism used by the web to receive user input.  Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form.  HTML Forms are a major point of interaction between the user and a website or application.  They allow users to send data to the website, normally to the server.  Within this `form` will be the `form` elements such as `input` elements.  `Input` elements come in many different types and flavors depending on the type of information needed such as a text input fields, radio buttons, or checkboxes.
 
 > **On The Job**: The sign-up form is a "call to action" or CTA.  The main purpose is to encourage the users through a story, advertisement, or piece of content to do something. In our case we would like our visitor to share their contact info for a possible future engagement. CTAs can play a vital role in coverting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
 
@@ -114,10 +114,6 @@ Look closely at the following `input` element and its different attributes.
 > **Do if Yourself**: Having given the first text input field, can you write out the next two for email and phone number.
 
 > **Hint**: Each has a specific attribute for `name`, `type`, and `placeholder`. A list of `type` attributes can be found [here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
-
-In HTML5 there are a few more options to specify the type of input element such as:
-* **email**: A field for editing an e-mail address
-* **tel**: A field for entering a telephone number
 
 > **Pause**: Notice at the end of this tag is a forward slash. What is this slash for?
 
@@ -217,19 +213,23 @@ Let's take a look at our hero section's completed html code.
 <!-- end hero -->
 ```
 
-> **Pro-tip**: Notice how there are no extra empty lines within the confines of the `section`. Being concise with language and syntax also pertains to extraneous lines or white space. Although empty lines or indentation will not affect what is rendered in the browser, it will pertain more to a best practice style guide that eases readabliity and communicates parent/child relationships.
+> **Pro-tip**: Notice how there are no empty lines within `section`, meaning each line has a tag either opening or closing. Being concise with language and syntax also pertains to extraneous lines or white space. Although empty lines or indentation will not affect what is rendered in the browser, it will pertain more to a best practice style guide that eases readabliity and communicates parent/child relationships to other developers or even a future you that can greatly improve development speed.
 
-Now let's catch a glimpse of what our website looks like now and think about what we need to fix in order to match our mock-up.
+That was a lot of code we just entered.  It's time to save and render to see the current progress of our landing page.  It's time to test our input elements to make sure they are functioning correctly.
+
+You should see this in your browser:
 
 ![hero](./assets/step-3/300-hero-html.png)
 
-Congrats, I know it's not pretty yet, but our foundation work is now complete so we can decorate or style our hero.
+Notice if you type in random letters into the email input field after pressing the submit button, we get an error that asks us to put in a valid email address with the "@" symbol.  This is HTML5 working with the browser helping validate the data being entered.  This is accomplished through the input type we set as `email`.  This communicates to the browser about the type of data that will be accepted in this input field.  Also notice that the same validation check is not being used for the phonenumber input field.  Anything can be typed into here without any error messages.  This is because the input type `tel` is actually not supported by Chrome therefore simply falls back to a text input field without the validation check.  A good reminder to do a quick Google [search](https://www.w3schools.com/tags/att_input_type_tel.asp) if something isn't working as you think it should, always consider browser support as a possible suspect.  
 
 > **Activity**: HTML nesting game. Place our boiler plate HTML code with finished CSS in parallel. Ask the student to place certain items here or there by nesting them properly.
 
-## Hero Style
+Congrats, I know it's not pretty yet, but our foundation work is now complete so we can proceed to the design phase of this lesson.
 
-So our hero section doesn't look very super yet, but fear not, we will learn how to style it up and make it super! Let's take a look at the mock-up and examine the styling we will need to deliver our finished product. Then we'll dive into CSS and open our `style.css` in VS Code.
+## Making our Hero Super
+
+So our hero section doesn't look very super yet, but fear not, we will learn how to design it to make it super! Let's take a look at the mock-up and examine the styling we will need to deliver our finished product. Then we'll dive into CSS and open our `style.css` in VS Code.
 ![hero-mock-up](./assets/step-3/900-hero-mock-up.png)
 
 ### Step 3: Universal Styles
@@ -237,7 +237,7 @@ So our hero section doesn't look very super yet, but fear not, we will learn how
 In similar fashion to our HTML build process, we will start our CSS styling from a top down approach and drill down into our nested elements until we are satisfied with the finished product.  
 For the sake of consistency, there should be a few styles that will keep our all our `section` elements looking similar.
 
-> **Rewind**: As we did in the previous lesson, when we assigned a default font color or font to every HTML element or over wrote the browser styling by setting the margin to zero, we will give our `section` elements a consistent look using the `width` and `padding` properties.
+> **Rewind**: As we did in the previous lesson, when we assigned a default font color or font type to every HTML element or set the margin to zero, we will give all our `section` elements a consistent look using the `padding` property.
 
 Let's type the following into your `style.css` file.
 
@@ -272,20 +272,21 @@ Let's use the `section` as our CSS selector and see what happens to our page.
 
 ```css
 section {
+  padding: 60px;
   background-image: url("../images/hero-bg.jpg");
 }
 ```
 Now let's save and refresh the page to see our changes.
 ![repeated-images](./assets/step-3/502-bg-img-css.png)
 
-As we see, if we simply use the `section` element as our CSS selector, we would apply the same background image to all our subsequent `section` elements which is not something we want. We need a way to target the hero section specifically and not create a global `section` rule. Thankfully we can use the `class` attribute to target one or many HTML elements. The neat trick about a `class` is that this attribute can be added to any one HTML element or many elements that will need the same styling or CSS declarations, therefore saving some time by writing less duplicate code.  
-Let's create our special CSS rule for our `hero` class that will only target our hero section. Please note the name of this `class` is up to us, but it is customary to name it to correspond to the element's function or use so it can be easily be recognized in the CSS style sheet to help identify which element is being styled.
+As we see, if we use the `section` element as our CSS selector, we would apply the same background image to all our subsequent `section` elements which is not something we want. Let's remove our `background-image` declaration from our `section` CSS rule. We need a way to target the hero section specifically and not create a global `section` rule. Thankfully we can use the `class` attribute to target one or many HTML elements. The neat trick about a `class` is that this attribute can be added to any one HTML element or many elements that will need the same styling or CSS declarations, therefore saving some time by writing less duplicate code.  
+Let's create our CSS rule for our `hero` class that will only target our hero section. Please note the name of this `class` is up to us, but it is customary to name it to correspond to the element's function or use so it can be easily be recognized in the CSS style sheet to help identify which element is being styled.
 
 Your markup should look like this. Notice `class` is an attribute, therefore placed inside the opening tag.
 
 `<section class="hero">`
 
-Let's change the CSS selector in our `style.css` file and make the height an appropriate size to match the mock-up knowing we will need some space for our sign-up form.  Let's give our height 600px.
+Let's add the following CSS rule in our `style.css` file and make the height an appropriate size to match the mock-up knowing we will need some space for our sign-up form.  Let's give our height 600px.
 
 ```css
 /* Hero Style Start */
@@ -349,7 +350,7 @@ Save and render to view this:
 
 Let's review some of these CSS declarations.
 
-- **Border**: As was explained in the previous lesson regarding how to assign `padding` values, the `border` property can also be declared by each side(`border-top, border-left`, etc), by two values representing the top/bottom and left/right pairs respectively, or a single value, which represent one value for all four sides, as we have declared here. Unlike `padding`, `border` **must** also have the line weight, style, and color values declared in order to render.  Above is shown the short hand version declaring the width, style and color on the same line.  The long hand version declares each property on separate lines like this:
+- **Border**: As was explained in the previous lesson regarding how to assign `padding` values, the `border` property can also be declared by each side(`border-top`, `border-bottom`,`border-left`,  `border-right`), by two values representing the top/bottom and left/right pairs respectively, or a single value, which represent one value for all four sides, as we have declared here. Unlike `padding`, `border` **must** also have the line weight, style, and color values declared in order to render.  Above is shown the short hand version declaring the width, style and color on the same line.  The long hand version declares each property on separate lines like this:
 ```css
 {
   border-style: solid;
@@ -384,7 +385,7 @@ Let's play around with the position property and use this [resource](https://dev
 
 Of our two remaining options, let's break down the differences in these choices.
 If we choose _relative positioning_, we would need to move the form container from its current position and offset it from the left and top positions until we found the correct spot according to the mock-up.
-We also have the option to use _absolute positioning_ which uses the parent container's border to offset horizontally or vertically.  We will choose this option because the position of the form container is in relation to the hero container.  Absolute positioning may be the easiest to understand because it is simply offsetting from the margin of the parent element.  
+We also have the option to use _absolute positioning_ which uses the parent container's margins to offset horizontally or vertically.  We will choose this option because the position of the form container is in relation to the hero container.  Absolute positioning may be the easiest to understand because it is simply offsetting from the margin of the parent element.  
 Let's start by assuming we would like to offset the form container from the bottom and right margins of the hero section since the form container will reside in the bottom right quadrent of the hero section.
 ```css
 .hero-form {
@@ -580,9 +581,9 @@ Let's save our work and take a look at the browser for what we have completed so
 
 Awesome, our `section` looks almost finished. Time to nip this `section` in the `button`.
 
-5. **Button**: According to the mock-up, the `button` should be navy and the font color should be yellow. Can you style our `button` adding some size to our font and some `padding`?
+5. **Button**: According to the mock-up, the `button` should be navy(#024e76) and the font color should be yellow(#fce138). Style the `button` adding some size to our font and `padding`.
 
-> **Do it Yourself**: Let's flex our new CSS skills and style this `button` to match our mock-up. Open up the DevTools, select the `button` using the element selector or arrow icon to select our `button`, then go to the Styles panel to experiment with some of our `button` element's properties.  Once you have the look that matches our mock-up, your final style declaration for this section should look something like this.
+> **Do it Yourself**: Let's flex our new CSS skills and style this `button` to match our mock-up. Open up DevTools in the browser and select the `button` using the element selector or arrow icon to select our `button`, then go to the Styles panel to experiment with some of our `button` element's properties.  Once you have the look that matches our mock-up, the CSS rule for the button should look something like this.
 
 ```css
 .hero-form button {
@@ -600,7 +601,7 @@ Excellent work, our section is now done and looking just like our mock-up. Now l
 
 ## Reflection
 
-This was another dense lesson of concepts and syntax. Don't worry that you haven't nailed everything down yet, this will happen in time with practice. In programming, practice doesn't make perfect, it makes developers. Programming isn't something you can watch in a youtube video or read in a book to make yourself proficient. The one and only way to become a developer is to practice practice practice, which means a lot of playing around in sand boxes and DevTools to see what does what. If you get stuck, become a Google foo master since this is a vital developer skill that can get you unstuck. Your answer is out there, now you just have to go find it.
+This was another dense lesson of concepts and syntax. Don't worry that you haven't nailed everything down yet, this will happen in time with practice. In programming, practice doesn't make perfect, it makes developers. Programming isn't something you can watch in a youtube video or read in a book to make yourself proficient. The one and only way to become a developer is to practice practice practice, which means a lot of playing around in sand boxes and DevTools to see what does what. If you get stuck, become a Google-fu master since this is a vital developer skill that can get you unstuck. Your answer is out there, now you just have to go find it.
 
 - **HTML5 Semantic Elements** are an important part of the modern web that can help organize a web page by using meaningful tag names as well as accessiblity-wise assisting screen readers interpret the page.
 - **Class Attributes as CSS Selectors** help target specific elements on our document for custom styling.
