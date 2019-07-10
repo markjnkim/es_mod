@@ -115,6 +115,10 @@ Look closely at the following `input` element and its different attributes.
 
 > **Hint**: Each has a specific attribute for `name`, `type`, and `placeholder`. A list of `type` attributes can be found [here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
 
+In HTML5 there are a few more options to specify the type of input element such as:
+* **email**: A field for editing an e-mail address
+* **tel**: A field for entering a telephone number
+
 > **Pause**: Notice at the end of this tag is a forward slash. What is this slash for?
 
 > **Urkel Says**: Confusing which is forward vs backward slash? [This](https://sites.cs.ucsb.edu/~pconrad/topics/BackslashVsForwardSlash/) might clear things up.
@@ -169,7 +173,7 @@ Next, notice how the `<label>` not only wraps one of our radio button answers, b
 
 ### Checkbox
 
-> **Try It Yourself**: Understanding what we know as far as `input` element syntax and google searches, try the following checkbox on your own.
+> **Try It Yourself**: Understanding what we know as far as `input` element syntax and google searches, try the following checkbox on your own.  For accessibility purposes, we should wrap the content of the `p` in our checkbox in a  `label` thereby enabling the checkbox to toggle when anywhere in the content is clicked.  This simple fix can greatly assist anyone with a motor skills deficiency trying to check a very small box.
 
 ### Button
 
@@ -199,8 +203,10 @@ Let's take a look at our hero section's completed html code.
         </label>
       </p>
       <p>
-        I acknowledge that I am at least 18 years of age.
-        <input type="checkbox" name="age-confirm" />
+        <label for="checkbox" >
+          I acknowledge that I am at least 18 years of age.
+          <input type="checkbox" name="age-confirm" id="checkbox" />
+        </label>
       </p>
       <button type="submit">
         Get running!
@@ -241,26 +247,15 @@ section {
 }
 ```
 
-> **Rewind**: We explained how to assign `padding` values was explained in the previous lesson, but now let's dive into exactly what `padding` is.
+> **Rewind**: All HTML elements can be represented by a rectangular box which we will call the CSS box. The CSS box model is a visual display of the properties in the CSS box that includes the `content`, `padding`, `border`, and `margin` that are all built around each other like layers in an onion. Some of the styles of each layer like the thickness, style, and/or color can be manipulated using CSS.
 
-### CSS Box Model
-
-All HTML elements can be represented by a rectangular box which we will call the CSS box. The CSS box model is a visual display of the properties in the CSS box that includes the `content`, `padding`, `border`, and `margin` that are all built around each other like layers in an onion. Some of the styles of each layer like the thickness, style, and/or color can be manipulated using CSS.
-
-![CSS box model](./assets/step-3/400-box-model.png)
-
-1. **Content** is the innermost box inside our CSS box that will contain text as well as any nested elements. The `content` box size is determined by the _height_ and _width_.
-2. **Padding** refers to the inside margin within the CSS box. Each of the four sides of the `padding` size can be specified as detailed in the previous lesson.
-3. **Border** sits on the outside edge of the `padding` and the inside edge of the `margin`. This layer's sides, size, and styles can be specified, similarly to the `padding` and `margin`. Such as `border-bottom` or `border-style` or even `border-top-color`. This property also needs a weight of the line, style, and color in order to render.
-4. **Margin** surrounds the CSS box and touches the adjacent elements. This property's values are designated like the `padding` and can be specified by side and size.
-
-> **Deep Dive**: To learn and discover more about this fundamental web layout, click [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model).
+> **Deep Dive**: To learn and discover more about CSS box model, click [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model).
 
 ### Step 4: Using Class for Styling
 
 Now let's add some pizzazz by adding a background image into our hero section.  
 First we need to create an `images` directory inside the `assets` directory. Now let's download all our images and place them inside the `images` directory from our image link <b>_(AWS S3 Bucket URL TBA)_</b>.
-> **Pause**: What are the following CLI commands.
+> **Rewind**: What are the following CLI commands.
 * **Create a new directory**
 * **Change directory**
 * **Create a new file**
@@ -486,7 +481,12 @@ This tool is a tremendous asset to front-end developers with the ability to:
 
 > **Preservable Walk Through**:  Quick gif demonstration showing how to use Chrome DevTools to quickly change the background-color of google.com
 
-> **Activity/Pause**: Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`. Try out the `element inspector`, the arrow icon in the top-left corner of the DevTool window, to target a specific element. Notice the changes in the `Element` and `Style` panels. Feel free to play around at will. Are these changes permanent?How can we tell?
+> **Activity/Pause**: Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`. Try out the `element inspector`, the arrow icon in the top-left corner of the DevTool window. 
+
+![arrow-inspector](./assets/step-3/701-arrow-devtools.png) 
+
+This is useful when targetting a specific element. 
+Notice the changes in the `Element` and `Style` panels. Feel free to play around at will. Are these changes permanent?How can we tell?
 > **Answer**: Page refresh can determine persistence or permanence of a change.
 
 These changes are not permanent and do not change the actual code, but merely offers a sandbox to try out different styles and sizes with the ability to see their affect on the element and the document itself. Once satisfied with the desired styling affect, these changes must be made to the style sheet itself in order to make the style change permanent.
