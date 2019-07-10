@@ -48,7 +48,7 @@ Let's unpack this code and see if our choices made sense.
 
 We created a new class called `contact` for the styling needed for this section. The section headings need consistency so using the same class for the `h2` makes a lot of sense as well. Having used a similar bottom border for our trainer section, we can reuse this class and thus save us a bit of writing and repeating by using the classes for `section-title` and `secondary-border`.
 
-> **Heads up**: Important to notice how a second class was declared for the `h2` elements by simply adding another class name within the quotation marks. Whitespace is the delineation syntax for separate classes, id's, and almost all the attributes except for the `style` attribute since this is using CSS syntax.
+> **Heads up**: Important to notice how a second class was declared for the `h2` elements by simply adding another class name within the quotation marks. Whitespace is the delimiter syntax for separate classes, id's, and almost all the attributes except for the `style` attribute since this is using CSS syntax.
 
 ## Step 2. Iframe, Uframe, we all frame for icecream.
 
@@ -66,6 +66,8 @@ Let's nest the `iframe` into our contact container.  So in our case, we need a g
 3. Choose the Embed tab
 4. Click on the COPY HTML link to copy the `iframe` element.
 5. Paste the `iframe` element into our `contact-info` container.
+
+![google-map](./assets/step-6/500-google-map-html.png)
 
 The markup should look like this:
 ```html
@@ -95,61 +97,98 @@ Let's unpack the configuration attributes for the `iframe` as well as talk about
 Let's take a look at our page now and see what this iframe looks like. Save to retain any changes.  Take a moment to play with the map using the zoom and scrolling functionality.
 
 ![iframe-map](./assets/step-6/200-iframe-html.png)
-> **Activity**: Try replacing the iframe with a YouTube video or a gif at https://giphy.com/. The interactivity features are available because we have embedded a tiny website within your website.
+> **Activity**: Try replacing the iframe with a [YouTube](https://www.youtube.com/) video or a [gif](https://giphy.com/). The interactivity features are available because we have embedded a tiny website within your website.  
+> **Deep Dive**: It is important to note and the use of an `iframe` element does have a good and bad practice associated with it.  Please look [here](https://www.lifewire.com/when-to-use-iframes-3468667) and [here](https://stackoverflow.com/questions/362730/are-iframes-considered-bad-practice) for a closer look.
+Please note that not all websites allow for use in `iframe`.
 
-## Step 3: Contacts are us
+## Step 3: Creating our Contact Info
 
-In this step we will be adding the company's contact information. According to the mock-up we will need a heading,some text, an address, a phone number, and email address.
+In this step we will be adding the company's contact information. According to the mock-up we will need a heading and some text so let's do this step first.
 
-> **Do It Yourself**: Create a container `div` that will hold this content then nest the child elements within the contact info container.
+> **Do It Yourself**: Create a container `div` that will hold this content then nest some of the child elements within the contact info container.  Then, let's add the markup for the heading and text.   
 
-Take the necessary time to figure out this code yourself because this is not a race to finish but an exercise in learning.
+Take the necessary time to figure out this code yourself. Remember, this is not a race to finish but an exercise in learning.  Use some of the code we have already written including headings and text tags to help guide your syntax.  Don't be afraid to try new things.
+
+The first part of the html code should look similar to this:
 ```html
 <div>
   <h3>Run Buddy</h3>
   <p>
     Any questions or concerns before signing up?
-    <br/>
+    <br />
     Let us know and we'll be happy to talk to you!
   </p>
+</div>
+```
+This part should've be more or less straight forward.  We chose an `h3` element since it is not as important as a main title or section title.  The `p` elements provide a block for text. But what is this `<br />`.  We are introducing another HTML element.  This one is to create a line break.  We are using a self closing tag since this element has no content or child elements.  We could've just added another `p` element for the second line of text, but as in programming, sometimes there are multiple "correct" solutions.
 
+Now let's save and render this view in the browser.
+
+![contact-heading](./assets/step-6/600-contact-heading-html.png)
+
+Our next step will be adding the address to our markup.  Can you guess what the name of the element is that will contain our address information?
+
+If you guess `address` you are correct.
+This element is special since not any address information, but specifically the author or owner of the article, containing element, or document.  Think of the byline of an article.
+Add this markup to the `index.html`.  It should look something like this:
+
+```html
+<div>
+  <h3>Run Buddy</h3>
+  <p>
+    Any questions or concerns before signing up?
+    <br />
+    Let us know and we'll be happy to talk to you!
+  </p>
   <address>
     55 Main Street <br/>
     Some Town, Ca <br/>
     12345
   </address>
+</div>
+```
+Now let's move onto the next part in the contact container which is the email and phone number info.  Overall it appears to be relatively the same, but according to our mock-up requirements, the email content should be a link that opens an email application and begins the composition of a new email by populating the address text input field for "To:" with the email address "info@runbuddy.io".  I know, that's seems a bit daunting, but thankfully processes like this one is a common task and therefore has a simple implementation.
+First we will wrap this block of code in a `<p>`, then we will split the lines using a line break tag.  After adding the phone number we will need to wrap the email address in an anchor tag similar to how this was done in the `header` back in Lesson 2.  Let's write out this code now and review the attributes.
 
+```html
+<div>
+  <h3>Run Buddy</h3>
+  <p>
+    Any questions or concerns before signing up?
+    <br />
+    Let us know and we'll be happy to talk to you!
+  </p>
+  <address>
+    55 Main Street <br/>
+    Some Town, Ca <br/>
+    12345
+  </address>
   <p>
     P: 555.RUN.BUDZ (555.786.2839)<br/>
     E: <a href="mailto:info@runbuddy.io">info@runbuddy.io</a>
   </p>
 </div>
 ```
-First, let's save and render this view in the browser.
+As you can see, an anchor tag wraps the content "info@runbuddy.io" creating a link. Notice how the value for the `href` has a prefix "mailto:".  Previously in the `header` back in Lesson 2, we used the `href` in the anchor tag to navigate to different elements using the "#" prefix to locate the`id` attribute.  Now we will use the "mailto:" prefix to open the default email application on your computer and populate the "To:" email input field with the text following the prefix, which will be the email address.  
+
+Let's save and render this view in the browser.
+
 ![contact-info](./assets/step-6/400-contact-info-html.png)
-Now let's breakdown this markup and introduce some new tags including some semantic HTML5 tags.
-* **`<br/>`**: This tag represents a line break which do not have content or child elements, hence a great candidate to amke it a self-closing tag.
-* **`<address>`**: Defines the contact information for the author or owner of the document or parent element.
-* **`<a href="mailto:info@runbuddy.io">`**: Using the `mailto:` prefix in the anchor tag's `href` attribute opens the default mail client application upon clicking the link and then populates the address field with the email address listed in the `href` value.
 
-> **Heads up**: The `div` with the `contact-info` class is a parent element to the `iframe` and contains the body or content of the Reach Out section.  Another `div` that is a child to this container will hold the actual text for the contact info.
-> **Pause**: Think about how we can overwrite this property so the contact info container will sit next to our `iframe` as in our mock-up.
-> **Answer**: Adjusting the `position` property to `inline` will allow this container to sit in the same row as the  `iframe`.
+Sure, the current section doesn't look quite right yet, but now that the HTML is finished, let's apply some CSS styling to fix the layout and colors.
 
-Keeping the contact info in the `contact-info` container will give us the columnar or vertical layout as noted in the mock-up. Think about how we will need to change these child elements in the `contact-info` container to be `block-level` so each element can stack on top of the next like a tower of blocks as in our mock-up.
+## Step 4: Styles upon styles
+Let's take a quick look at the mock-up and see where our styling process should begin, but first let's do a rewind.
 
-Sure, the current section doesn't look quite right yet, but let's apply some CSS styling to fix the layout and colors.
-
-## Step 4: Styles in Charge
 > **Rewind**: CSS syntax
 * **Declaration**: A CSS property and related value form a CSS declaration.
 * **Declaration Block**: When multiple CSS declarations in a group are listed on a specific selector, this is called declaration block.
 * **Rule**: A CSS selector with the declaration/s form a CSS rule.
 
-> **Bundle of Tricks**: In this step, you will style the heading and section.  The goal is to style the heading, background color,and font color with the correct values to match our mock-up.  
+> **Bundle of Tricks**: In this step, you will style the heading and section.  The goal is to style the heading, background color, and font color with the correct values to match our mock-up.  
 
-> **Hint**: Working code is a great source of information.  Use the code you have already created in a previous section to help guide the rules for CSS syntax and try to reverse engineer the solution if you get stuck.
-
+> **Hint**: Working code is a great source of information.  Use the code you have already created in the previous sections to help guide the rules for CSS syntax and try to reverse engineer the solution if you get stuck.
+A couple of items we should think about now is some basic layout properties needed in our section we labeled with the class `contact`.  What coloring and 
 The new code should look like this:
 ```css
 /* REACH OUT STYLES START */
