@@ -109,7 +109,7 @@ One thing we want to do though is make sure a user can get to this new page from
 
 > **PRO-TIP**: It is a good practice when possible to disable `<a>` elements that bring you to the page you are currently on when clicked. This is to avoid unnecessary page reloads if someone were to click on the link. It won't always be a possibility depending on the project, but it is something to keep an eye out for when it comes to optimizing a web page's performance.
 
-We've used relative pathing in our `<img>` and `<link>` tags to target other files in our project's folder structure, and now we're doing the same thing here to target our `privacy-policy.html` file that lives in the same directory as `index.html`. The biggest difference is how these HTML elements interact with the other file. When we use `<img>` and `<link>` elements, we are telling another file to join this HTML file in some fashion. Those elements don't bring us anywhere, but they bring resources to us. When we use `<a>` elements, however we are doing the opposite by saying "when I'm clicked, I'll bring you somewhere else in your browser and leave this location".
+We've used relative pathing in our `<img>` and `<link>` tags to target other files in our project's folder structure, and now we're doing the same thing here to target our `privacy-policy.html` file that lives in the same directory as `index.html`. The biggest difference is how these HTML elements interact with the other file. When we use `<img>` and `<link>` elements, we are telling another file to join this HTML file in some fashion. Those elements don't bring us anywhere, but they bring resources to us. When we use `<a>` elements, however we are doing the opposite by saying "when I'm clicked, I'll bring you somewhere else in your browser and leave this location."
 
 > DEEP DIVE: We can use `<a>` elements to bring a user to a variety of resources and locations. They could bring us to a page in our site or another web site entirely, which is the most popular use case, but they can also be used to open photos, PDFs, audio files, pretty much anything that can be opened in a browser can be used as an `href` value.
 >
@@ -602,7 +602,7 @@ There are some styles that are a little out of sorts, however. The `<header>` an
 
 ![Privacy Policy CSS start](assets/step-7/400-css-start.jpg)
 
-Both of these issues are fine because all we need to do now is add just a _little_ bit more to get it how we want it. Referring to the finished mock-up at the top of this lesson, we can see there's only a few additions and changes we need to make when it comes to styling what a non-Homepage should look like.
+Both of these issues are fine because all we need to do now is add just a _little_ bit more to get it how we want it. Referring to the finished mock-up at the top of this lesson, we can see there are only a few additions and changes we need to make when it comes to styling what a non-Homepage should look like.
 
 This is going to entail two things:
 
