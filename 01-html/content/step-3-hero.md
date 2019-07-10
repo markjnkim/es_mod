@@ -47,22 +47,19 @@ Great! Your `index.html` file should now look something like this.
 </section>
 ```
 
-> **Heads up**: Notice how the indentation helps communicate which elements are nested.
+> **Heads up**: The browser doesn't care if lines are indented or if every element is on the same line. Indentation is an organizational tool for yourself and other developers to help read and understand the code. 
 
 Now that we have our `div` element, let's create the remaining child elements inside this form container.
 
 > **Pause**: Given some of the HTML elements we have learned up to this point, which element should go next? Let's give it a go and write some code.
 
-> **Hint**: Remember all the elements within the yellow box must be contained within the `div`, since they are all nested within this box.
+> **Hint**: Remember all the elements within the yellow box must be contained within the `div`, since they are all within this box.
 
-> **Answer**: For our heading, we have chosen the `h3` element. But why not the `h1` or `h4` for that matter?  It's a bit like the Goldilocks principle, but in this case size designates importance as well as the size of the content for the heading.  We don't want this heading to compete with the main header or the section header that use `h1` and `h2` respectively. `h3` seems to fit just right, exuding confidence, yet not overstepping its significance!
+> **Answer**: For our heading, we have chosen the `h3` element. But why not the `h1` or `h4` for that matter?  The smaller the number like an `h1` represents the scope and significance of this heading.  The main header would receive the `h1` while the section header is designated as the `h2`.  So since this heading is less significant, the `h3` is the right choice.  Designating the significance of the heading is very important to screen readers to assist accessibility.
 
-This was chosen because we are able to use some of the browser's styling defaults to size our heading including a bold `font-weight` and a larger `font-size`. Get a feeling of the other possible `h` tags to get a feeling of the relative differences in size. Remember there are 6 in total.
-
-Now let's put our content within the `h3` tags from our mock-up.
-After that is some basic text, so let's wrap that in a `<p>` tag.  
+Now let's put our content within the `h3` tags from our mock-up. After that is some basic text, so let's wrap that in a `<p>` tag.  
 Wait a sec, what's a `<p>` tag?
-The `p` element is used to render normally styled text to a page similar to the body text of a page. Hence the browser will not add font-size or font-weight to the content of this element, but will make the display property, mentioned in the last lesson, a block-level element meaning other elements will be wrapped to the next line.
+The `p` element is used to render normal styled text to a page similar to the body text of a page. Hence the browser will not add font-size or font-weight to the content of this element, but will make the display property, mentioned in the last lesson, a block-level element meaning other elements will be wrapped to the next line.
 
 > **Rewind**: Remember `<h1>` to `<h6>` and `<p>` tags are block-level elements meaning they start on their own new line and any following elements appear on its own new line.
 
@@ -114,13 +111,13 @@ Look closely at the following `input` element and its different attributes.
 - **Placeholder** offers a hint or label within the text field itself, but will not be submitted if this field is left blank.
 - **Name** attribute will declare this element so it can be referenced later when the data is submitted.
 
-> **Do if Yourself**: Having given the first text input field, can write out the next two for email and phone number.
+> **Do if Yourself**: Having given the first text input field, can you write out the next two for email and phone number.
 
 > **Hint**: Each has a specific attribute for `name`, `type`, and `placeholder`. A list of `type` attributes can be found [here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
 
-> **Pause**: Notice at the end of this tag is a forward slash. Can you think about what this slash does?
+> **Pause**: Notice at the end of this tag is a forward slash. What is this slash for?
 
-> **Urkel Says**: Confusing which is forward slash vs backward slash? [This](https://sites.cs.ucsb.edu/~pconrad/topics/BackslashVsForwardSlash/) might clear things up.
+> **Urkel Says**: Confusing which is forward vs backward slash? [This](https://sites.cs.ucsb.edu/~pconrad/topics/BackslashVsForwardSlash/) might clear things up.
 
 > **Answer**: This is known as a self closing tag. Certain elements like an `input` element do not contain any content, but is a prompt for user interactivity, so the opening tag immediately follows a closing tag. As is a common custom for developers, a shortcut was created to avoid clutter in favor of conciseness by using this clean and quick short cut.
 
@@ -130,7 +127,8 @@ Next we will create the inputs for our `radio button` and `checkbox`, but first,
 
 ![radio-button](./assets/step-3/1000-radio-button.png)
 
-> **Google Foo**: Let's use our powers of Google and see if we can find some information about the function and syntax of a `radio button`.
+> **Google Fu**: Let's use our powers of Google and see if we can find some information about the function and syntax of a `radio button`.
+> **Hint**: [Here](https://www.google.com/search?q=html+radio+button) are some of the google searches found for the keywords radio button and HTML.
 
 So a `radio` type input element, commonly referred to as a `radio button`, is generally used in groups using the `name` attribute as the group reference, each `radio button` must have the same `name` value to be considered in the same group. Let's type some code and then explain the attributes. Your `index.html` file should look like this. (Remember to place this `form` inside the `div`.)
 
@@ -152,16 +150,16 @@ So a `radio` type input element, commonly referred to as a `radio button`, is ge
   </p>
 </form>
 ```
-
-> **Side Note**: Notice that the attributes of the first input element are on the same line, whereas the attributes of the second input are on new lines. They are both valid since HTML is white space and line break insensitive. This is a useful rule to use whenever there is a case when the number of attributes is high and tends to run off the screen. This is a way to wrap the attributes in a single column to make it easier to read.
-
-Let's take another look at page, then open our html file in the browser using the Open in Default Browser command.  In VS Code, this command is found by right clicking the mouse on the `index.html` page.
+Let's take another look at page, then open our HTML file in the browser using the Open in Default Browser command.  In VS Code, this command is found by right clicking the mouse on the `index.html` page.
 The view should look like this now:
 
 ![radio-html](./assets/step-3/200-radio-html.png)
+#### Radio Button Layout
 
-Notice that our `radio button` has been placed inside a `p` element. This is to ensure that the radio group stays on the same line as the question when rendered to the browser. Unlike `p` elements, which are block elements that the browser renders from top to bottom, radio buttons are inline elements that the browser renders from left to right.
-After the question or content of the `p` element, the `label` element is used to display each answer option. It is possible to simply place the name of each `radio button` answer option within the opening and closing tags of the `input` element, however nesting the `radio button` will allow the selection of the answer upon clicking the text as well as the circle, thus increasing our user friendliness, a good measure of a website.
+We have wrapped both of our answers including both radio buttons within a `<p>` which also includes the question.  Since the radio buttons are inline elements, the answer selections will render from left to right on the same line as our question, just as in the mock-up.
+
+Next, notice how the `<label>` not only wraps one of our radio button answers, but also the answer text as well.  This offers enhanced accessibility by executing a selection by clicking on the label or answer text as well as the circle to determine the selection.
+
 
 > **Pause**: There is an attribute on the `label` element called `for`. Explain the purpose of this attribute.
 
@@ -175,7 +173,7 @@ After the question or content of the `p` element, the `label` element is used to
 
 ### Button
 
-A button in an essential piece of user interaction and can have a variety of different functions and uses. A button can link to another area on a web page, link to an external site, submit data to a server, or can be programmed for any activity. Our button has a special function to submit the user data gathered inside the `form`. Once again we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element,"Get running", will be written within the `button` tags to render a label onto the `button` itself.
+A button in an essential piece of user interaction and can have a variety of different functions and uses. A button can link to another area on a web page, link to an external site, submit data to a server, or can be programmed for any activity. Our button has a special function to submit the user data gathered inside the `form`. Once again we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element,"Get running", will be written within the `button` tags to render a label onto the `button` itself.  Currently in terms of meeting the requirements for this mock-up, we haven't been an action to assign to this button, but normally we would assign a url path in the `<form>` tag in the action attribute.  For more on `form` and `action` look [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form).
 
 Let's take a look at our hero section's completed html code.
 
@@ -262,68 +260,85 @@ All HTML elements can be represented by a rectangular box which we will call the
 
 Now let's add some pizzazz by adding a background image into our hero section.  
 First we need to create an `images` directory inside the `assets` directory. Now let's download all our images and place them inside the `images` directory from our image link <b>_(AWS S3 Bucket URL TBA)_</b>.
+> **Pause**: What are the following CLI commands.
+* **Create a new directory**
+* **Change directory**
+* **Create a new file**
+* **Remove file**
 
-Now that we have our images, our first step is to target our hero section in CSS with a CSS selector. If we simply used the `section` element as our CSS selector, we would be applying the same background image to all our subsequent `section` elements which is not something we want. We need a way to target the hero section specifically and not create a global `section` style. Thankfully we can use the `class` attribute to target one or many HTML elements. The neat trick about a `class` is that this attribute can be added to any one HTML element or many elements that will need the same styling, hence saving some time and lines of code so we can prevent some duplicate lines of stylig.  
-Let's give our `class` attribute the value "hero" in our hero section element. Please note the name of this `class` is up to us, but it is customary to name it to correspond to the element's function or use so it can be easily be recognized in the CSS style sheet to help identify which element is being styled.
+> **Answer**: 
+* **mkdir**
+* **cd**
+* **touch**
+* **rm**
 
-Your code should look like this. Notice `class` is an attribute therefore is placed inside the opening tag. We should've only added this attribute where we want the background image, in our hero section, but if we changed our mind and wished to have the background image in a different element, we would merely have to add this `class` attribute for hero to the element.
+Now that we have our images, our first step is to target our hero section in CSS with a CSS selector. 
+Let's use the `section` as our CSS selector and see what happens to our page.
+
+```css
+section {
+  background-image: url("../images/hero-bg.jpg");
+}
+```
+Now let's save and refresh the page to see our changes.
+![repeated-images](./assets/step-3/502-bg-img-css.png)
+
+As we see, if we simply use the `section` element as our CSS selector, we would apply the same background image to all our subsequent `section` elements which is not something we want. We need a way to target the hero section specifically and not create a global `section` rule. Thankfully we can use the `class` attribute to target one or many HTML elements. The neat trick about a `class` is that this attribute can be added to any one HTML element or many elements that will need the same styling or CSS declarations, therefore saving some time by writing less duplicate code.  
+Let's create our special CSS rule for our `hero` class that will only target our hero section. Please note the name of this `class` is up to us, but it is customary to name it to correspond to the element's function or use so it can be easily be recognized in the CSS style sheet to help identify which element is being styled.
+
+Your markup should look like this. Notice `class` is an attribute, therefore placed inside the opening tag.
 
 `<section class="hero">`
 
-Let's type the following into your CSS file so we can unpack it further.
+Let's change the CSS selector in our `style.css` file and make the height an appropriate size to match the mock-up knowing we will need some space for our sign-up form.  Let's give our height 600px.
 
 ```css
 /* Hero Style Start */
 .hero {
   background-image: url("../images/hero-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
   height: 600px;
 }
 /* Hero Style End */
 ```
-
+Now let's unpack this CSS declaration block. . .
 - **Dot Notation** is the "." proceeding the class `hero` to indicate to CSS we are using a class as our CSS selector.
-- **Background-image** uses the CSS function `url()` to link a resource such as an image, web font, or gif. Here was are using a relative URL path to select our background image from our images folder as we will explain in more detail below. Absolute paths can also be used for instance to grab an image from the web for example url("https://www.example.com/images/image.png").
-- **Background-size** property sets the size of the background image so it can be left to its original size, stretched, or constrained to fit the available space. The `cover` value enlarges the image to ensure complete coverage of the element by a single image. Other selections allow repeated images for a tiled look, similar to how background image displays are configured for your computer's background desktop image.
-- **Background-position** allows different positioning of the background image discussed in more detail below..
-- **Position** specifies the type of positioning method used for an element. We will discuss this important property in further detail below.
-- **Height** fixed at 600px gives an exact size of the section, important in this context so that the `section` doesn't grow to fit the size of the background image.
+- **Background-image** uses the CSS function `url()` to link a resource such as an image, web font, or gif. Here we are using a relative URL path to select a background image.  To learn more about how to use a web resource, add a color gradient, and more go [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image). 
+- **Height** fixed at 600px gives an exact size of the section, important in this context to allow room for our sign-up form.
 
-> **Heads Up**: Please pause to note that the relative path our `background-image` was different from the relative path used in the `footer` of our last step. In this case since we are starting in the `style.css` file located in the `css` directory, we needed to transverse up to the parent directory by using the "../" notation (in this case, to the `assets` directory), to access the `images` directory. The `images` directory wouldn't have been accessible directly from inside the `css` directory since only items within this directory are accessible.
-> In the `footer`, the path to `privacy-policy.html` started from the `index.html` therefore only need the "./" since both files were in the same directory. Note that for relative paths, the _origin_ of the relative path is as important as the _destination_!
+Let's save and render our changes.  It should look something like this:
+![clipped-image](./assets/step-3/503-clipped-bg-css.png)
 
-### Positioning is a theory of relativity
+Great job!  Now our background image is only being assigned to the section we want.  Only problem is that image looks clipped.  How can we move or size the image a bit so it is highlighting the shoe-lacing, work-out prepping action.
 
-The position CSS property sets how an element is positioned on the web page.
-Here are a few of the position values and how they change their relationship to the surrounding elements.
+Let's look at the `background-size` property and see if we can fix this issue by changing the size of the background image.  
 
-- **Static**is the default position value and maintains the order of the flow of the elements on the page as in the order created in HTML. `Static` positioning is not affected by `top`, `bottom`, `left`, and `right` properties.
+- **Background-size** property can set the size of the background image to its original size, stretched, repeated, or constrained to fit the available space. In our case, the `cover` assignment will shrink the image so parts of it won't get clipped. Other selections allow repeated images for a tiled look, similar to how background image displays are configured for your computer's background desktop image.  Click [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size) for more details.
 
-- **Relative** positioning compares the natural or static position and is able to adjust from this position by using the `top` and `bottom` properties to vertically offset the element as well as the `left` and `right` properties for horizontal offsetting.
-
-- **Absolute** positioning removes the element from the natural flow of the page elements and uses the `top`, `bottom`, `left` and `right` properties to offset relative to the element's parent or containing element or block.
-
-- **Fixed** positioning removes the element from the natural flow of the page elements and is positioned relative to the viewport or browser window, therefore is not affected by scrolling. The`fixed` position value uses the `top`, `bottom`, `left` and `right` properties to offset from the viewport or the .
-
-Let's take a look at our current creation in the browser after a quick Save. You should see something like this.
-
+Our CSS rule for the `hero` class should now look something like this.
+```css
+/* Hero Style Start */
+.hero {
+  background-image: url("../images/hero-bg.jpg");
+  height: 600px;
+  background-size: cover;
+}
+/* Hero Style End */
+```
+Save and render our new changes.
+Our website should look like this:
 ![hero-background](./assets/step-3/500-bg-image-css.png)
 
 Congrats! Give yourself a nice pat on the back. Way to hang in there! We will now style our form box and finish up with our hero section.
 
-### Step 5: Form Styles
+### Step 5: Styling Forms and Input Fields
 
-According to the mock-up the box or `div` containing our `form` should have a yellow background matching the yellow in our `header` and `footer`. Let's add this attribute to the `<div>` opening tag and use it as a CSS selector to declare some properties and style the box containing our forms. The border and font color in this `div` will match the navy font color in the `footer`. Let's experiment with the height and width properties as well as the positioning property to match our mock-up.
+According to the mock-up, the box or `div` containing our `form` will have some styling requirements including the background color, border, font color, and a specific width.  Due to the specific styling requirements needed for our form container, we should be thinking about how we will need to select this `div` to create a CSS rule.  One way would be to create a new class called `hero-form` and add this to the opening `<div>`.  The border and font color in this `div` will be `#024e76` and the background color is `#fce138`. Let's try to finish the styling ourselves and include the following declarations in your CSS rule for padding, width, border, and background color to match the mock-up.
 
-> **Try It Yourself**: Try out some code and see if you can do some styling on your own.
+> **Try It Yourself**: Create the CSS rule for the class `hero-form`.
 
-> **Hint**: Don't forget to add semicolons at the end of your rule-set declarations or the browser won't understand them.
+> **Hint**: Don't forget to add the `hero-form` class to our sign-up form container `div`.
 
-> **Pause**: Can you forsee any issues with having our form container keeping a relative position in relation to our hero section? What are the viable options and why?
-> **Answer**: We would use absolute or relative positioning since static is simply the position of the element in the natural flow of the document and cannot be repositioned and fixed position relates to a position relative to the viewport or browser window. It is possible to use relative positioning to get the initial layout according the the mock-up. However absolute position is the correct answer since this value allows us to position the element offset from a side of the parent element, in our case the hero section. We can then simply declare our form container must be offset from the bottom and right side of the hero section by either a specific amount.
-> The code you added to your `style.css` should look similar to this:
+> **Answer**: The CSS rule should look like this:
 
 ```css
 .hero-form {
@@ -332,22 +347,90 @@ According to the mock-up the box or `div` containing our `form` should have a ye
   padding: 20px;
   width: 500px;
   color: #024e76;
-  position: absolute;
-  bottom: 10px;
-  right: 10%;
+}
+```
+Save and render to view this:
+![form-position](./assets/step-3/601-form-position-css.png)
+
+Let's review some of these CSS declarations.
+
+- **Border**: As was explained in the previous lesson regarding how to assign `padding` values, the `border` property can also be declared by each side(`border-top, border-left`, etc), by two values representing the top/bottom and left/right pairs respectively, or a single value, which represent one value for all four sides, as we have declared here. Unlike `padding`, `border` **must** also have the line weight, style, and color values declared in order to render.  Above is shown the short hand version declaring the width, style and color on the same line.  The long hand version declares each property on separate lines like this:
+```css
+{
+  border-style: solid;
+  border-width: 3px;
+  border-color: #024e76;
 }
 ```
 
-Let's unpack any new CSS properties and their related values.
+- **Background-color**: Sets the background color to the element selected.  VS Code allows typing in the names of colors as well.
+* **Padding**: Creates an inner margin within the border.
 
-- **Border**: As was explained in the previous lesson regarding how to assign `padding` values, the`border` property can also be declared by each side(`border-top, border-left`, etc), by two values representing the top/bottom and left/right pairs respectively, or a single value, as we have declared here, assigned to all four sides. Unlike `padding`, `border` **must** also have the line weight, style, and color values declared in order to render.
-- **Background-color**: Sets the background color to the element selected.
-- **Position**: We set this value to be **absolute** since we need the location of our form container to always be posiitoned in respect to the parent element, in this case the hero `section` element.
-  > **Deep Dive**: Check [here](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute) for more insight on absolute vs relative positioning.
-- **Bottom** and **Right**: Set the values **from** these respective sides of our `section` to position our form container. The `right` property was given a percentage this time and not a fixed pixel. Try shrinking the screen horizontally by the right or left sides and notice the relative gap lessens by a ratio dependent on the size of the window. We will be using percentages much more in the next lesson so we can dive deeper about how to relatively size certain properties.
-- **Width**: Calculating the specific width of the form container actually begins a discussion on another property called `box-sizing`.
+Next step once the styling of our sign-up container is done, is to position our sign-up container to the right side of our hero section as shown in the mock-up.  First, we will need to dive a bit deeper into the `position` property.
 
-### Box-sizing
+### Position is a theory of relativity
+
+Position is an important CSS property that defines how an element is positioned on the web page.
+Here are a few of the position property's values and how they change the relationship of the element to the surrounding elements by changing the source of relative positioning, meaning what the element's position is in reference to.
+
+- **Static** is the default position value and maintains the order of the natural flow of the elements on the page as in the order created in HTML. `Static` positioning is not affected by `top`, `bottom`, `left`, and `right` properties.  Currently the sign-up container is in the natural flow of the document in the default position so it is currently `static`.
+
+- **Relative** positioning compares the natural or static position and is able to adjust from this position by using the `top` and `bottom` properties to vertically offset the element as well as the `left` and `right` properties for horizontal offsetting. 
+
+- **Absolute** positioning removes the element from the natural flow of the page elements and uses the `top`, `bottom`, `left` and `right` properties to offset relative to the element's parent or containing element's margins.
+
+- **Fixed** positioning removes the element from the natural flow of the page elements and is positioned relative to the viewport or browser window, therefore is not affected by scrolling. The`fixed` position value uses the `top`, `bottom`, `left` and `right` properties to offset from the viewport's margins.
+
+> **Pause**: Can you figure out which of these possibilities would serve our cause?   
+ 
+> **Hint**: Use the process of elimination.  `Static` and `fixed` are eliminated since `static` is where the form container currently sits which is incorrect.  `Fixed` would mean that the form container would stay in the same part of the viewport, even after scrolling down.  This is not within the scope of our requirements and therefore not in our interest.
+
+Let's play around with the position property and use this [resource](https://developer.mozilla.org/en-US/docs/Web/CSS/position) to find a visual representation of the position property's options.
+
+Of our two remaining options, let's break down the differences in these choices.
+If we choose _relative positioning_, we would need to move the form container from its current position and offset it from the left and top positions until we found the correct spot according to the mock-up.
+We also have the option to use _absolute positioning_ which uses the parent container's border to offset horizontally or vertically.  We will choose this option because the position of the form container is in relation to the hero container.  Absolute positioning may be the easiest to understand because it is simply offsetting from the margin of the parent element.  
+Let's start by assuming we would like to offset the form container from the bottom and right margins of the hero section since the form container will reside in the bottom right quadrent of the hero section.
+```css
+.hero-form {
+  border: 3px solid #024e76;
+  background-color: #fce138;
+  padding: 20px;
+  width: 500px;
+  color: #024e76;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+```
+Now save and render to view the following:
+
+![absolute-position](./assets/step-3/602-form-absolute-css.png)
+
+As you can see, the absolute position property with zero offset from the bottom and right places this element in the bottom right corner.  
+> **Pause**: Let's add pixels to offset the form container until it has reached the correct position according to the mock-up requirements. 
+
+> **Answer**: The final position should look like this:
+```css
+.hero-form {
+  border: 3px solid #024e76;
+  background-color: #fce138;
+  padding: 20px;
+  width: 500px;
+  color: #024e76;
+  position: absolute;
+  bottom: 120px;
+  right: 140px;
+}
+```
+
+> **Deep Dive**: Check [here](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute) for more insight on absolute vs relative positioning.
+
+> **Heads up**: Another possible value to use instead of pixels are percentages.  For the declaration assigning the `right` position property, let's use a percentage and see what the difference is.  About 10% covered about 140px.  Mathematically speaking this means that the full screen value of 1400px at 10% will be 140px.  This is why the form position remains the same.  The true value of having a relative size instead of a static size, is that on different screen sizes, the position will remain relative to the element's size, and not fixed regardless of the screen size.  We will go into further depth on relative sizes and screen responsiveness in the next module so we will save some of our discusssion until then.
+
+The `width` property has been saved for last because calculating the width of the form container actually begins a discussion on another property called `box-sizing`.
+
+### Box-sizing: Calculating the width and height of elements
 
 The `box-sizing` property determines _how_ to calculate the `width` and `height` of each element. So the discussion here is actually about what should be included in this property. There are actually two different possible values for the `box-sizing` property: `content-size` and `border-box`.
 
@@ -355,11 +438,11 @@ The `box-sizing` property determines _how_ to calculate the `width` and `height`
   only counting the `content` box of our CSS box model. This means that the `border` and `padding` must be calculated separately and added to our width and height to determine the size of our element.
 - **Border-box** calculates the height and width of the element by including the `border` and `padding` additions to our `content` box.
 
-In our case, when we declare the width of the `div` to be 500px and keep the the default value for the `box-sizing` property at `content-size`, we would need to add the `border` and `padding` into this calculation that would actually come out to 546px and not 500px as the `width` property declared. However if we changed the `box-sizing` property to `border-box`, the width would take into account the `padding` and `border` and would yield an actual width of 500px.
+In our case, when we declare the width of the `div` to be 500px and keep the the default value for the `box-sizing` property at `content-size`, we would need to add the `border` and `padding` into this calculation to get the true width of 546px. However if we changed the `box-sizing` property to `border-box`, the width would take into account the `padding` and `border` and would yield an actual width of 500px.
 
-> **Pause**: Let's add this property to every element on our page and override the browser's default property assignment. How would we go about this without needing to add this property to every element selector?
+> **Pause**: Let's add this property to every element on our page and override the browser's default assignment. How would we go about this without needing to add this declaration to every CSS rule?
 
-> **Answer**: We can use the wildcard selector, `*`, to match every element on the page.  This will target every element on the page. This is a great idea to add for every CSS stylesheet.
+> **Answer**: We can use the wildcard selector, `*`, to match every element on the page. This is a great idea to add for every CSS style sheet since calculating width is made much easier.
 
 ```css
 * {
@@ -367,7 +450,7 @@ In our case, when we declare the width of the `div` to be 500px and keep the the
 }
 ```
 
-Let's take a look at your page on the browser and see how your new code has changed the page. Don't forget to save your changes.
+Let's add this code into our CSS style sheet and take a look at the new changes on your page in the browser. Don't forget to save your changes.
 
 > **Pro-Tip**: You can save yourself a bit of heart ache or frustration by simply clicking on the Auto Save option in the `File` menu, making saving automatic.
 
@@ -378,14 +461,14 @@ Success. Nice job! Now let's preview a new way to make changes to your styling.
 
 ### Chrome's Dev Tools
 
-Ever think it's kind of a pain hopping back and forth between changing the CSS file, then going back and forth from the browser to see how the changes look and see what else needs a tweak. Let's use a tool in the browser called Developer Tools.
+Ever think it's kind of a pain hopping back and forth between changing the CSS file, then going back and forth from the browser to see how the changes look and see what else needs a tweak. Let's use a tool in our Chrome browser called Developer Tools.
 This tool can be found by clicking on the hamburger button located on the top-right portion of your browser that looks like three dots vertically aligned.
 
 ![hamburger button](./assets/step-3/700-hamburger-btn.png)
 
-This will open a browser menu. Open the `More Tools` option which will open a sub-menu containing the `Developer Tools` option.
+This will open a browser menu. Open the `More Tools` option to open a sub-menu containing the `Developer Tools` option.
 
-> **Keyboard Shortcut**: Developer Tools : (Mac: OPTION+CMD+i) (Windows: CONTROL+SHIFT i )
+> **Keyboard Shortcut**: Developer Tools = (Mac: OPTION+CMD+I) (Windows: CONTROL+SHIFT+I )
 
 Depending on your version of Chrome, your screen should look something like this:
 ![Developer Tools](./assets/step-3/800-dev-tools.png)
@@ -399,7 +482,7 @@ This tool is a tremendous asset to front-end developers with the ability to:
 - Change the text content
 - And much much more which we will continuously learn throughout this class
 
-> **Deep Dive**: Discover more about Chrome's [DevTools here.](https://developers.google.com/web/tools/chrome-devtools/) If it is seems a little much for now, it's because this tool has a vast array of uses that is beyond our current concept scope. Don't worry, we will divulge more of these tools as they become more relevant and useful for us.
+> **Deep Dive**: Discover more about Chrome's [DevTools here.](https://developers.google.com/web/tools/chrome-devtools/) If it is seems a little much for now, it's because this tool has a large array of uses, many of which are currently our current concept scope. Don't worry, we will keep learning more about these tools as they become more relevant and useful for us.
 
 > **Preservable Walk Through**:  Quick gif demonstration showing how to use Chrome DevTools to quickly change the background-color of google.com
 
@@ -410,7 +493,7 @@ These changes are not permanent and do not change the actual code, but merely of
 
 > **Pro Tip**: To further develop skills with these types of tools, it is important to use them as much as possible. Try to use new tools as much as possible in the beginning since it easy to forget they are there. It is a good habit keeping this window open so it stays top of mind. Remember it can be shrunk, stretched or docked on any side by selecting the hamburger button in the top-right corner.
 
-Let's head back to the browser tab with our landing page and examine our code in the DevTools window. The CSS style sheet appears to be the same one we have been working on, however there are actually quite a lot more properties for each selector than we have written. These are the default CSS property settings that are assigned by the browser. In a few places we have over written these defaults since you will see are crossed out.
+Let's head back to the browser tab with our landing page and examine our code in the DevTools window. The CSS style sheet appears to be the same one we have been working on, however there are actually quite a lot more properties for each selector than we have written. These are the default CSS property settings that are assigned by the browser. In a few places we have over written these defaults which is why they are crossed out.
 
 One nice trick is to toggle properties on and off to see their cummulative affects on the page. Let's toggle the `box-sixing` property we just created to manipulate the widths of our elements. You can see having a set width property can save some headache and need for extra calculations. It is suggested to set this property to `border-box` whenever possible.
 
