@@ -211,7 +211,10 @@ You should see this in your browser:
 
 ![hero](./assets/step-3/300-hero-html.png)
 
-Notice if you type in random letters into the email input field after pressing the submit button, we get an error that asks us to put in a valid email address with the "@" symbol.  This is HTML5 working with the browser helping validate the data being entered.  This is accomplished through the input type we set as `email`.  This communicates to the browser about the type of data that will be accepted in this input field.  Also notice that the same validation check is not being used for the phonenumber input field.  Anything can be typed into here without any error messages.  This is because the input type `tel` is actually not supported by Chrome therefore simply falls back to a text input field without the validation check.  A good reminder to do a quick Google [search](https://www.w3schools.com/tags/att_input_type_tel.asp) if something isn't working as you think it should, always consider browser support as a possible suspect.  
+Notice if you type in random letters into the email input field after pressing the submit button, we get an error that asks us to put in a valid email address with the "@" symbol.  This is HTML5 working with the browser helping validate the data being entered.  This is accomplished through the input type we set as `email`.  This communicates to the browser about the type of data that will be accepted in this input field.  Also notice that the same validation check is not being used for the phone number input field.  Anything can be typed into here without any error messages.  This is because the input type `tel` is missing a key piece that explains to the browser the format required.  This is the `pattern` attribute.  More on validation and the regular expression used to create the pattern will be explained in greater detail in a later module.  For now let's add this to our markup and 
+
+
+A good reminder to do a quick Google [search](https://www.w3schools.com/tags/att_input_type_tel.asp) if something isn't working as you think it should, always consider browser support as a possible suspect.  
 
 > **Activity**: HTML nesting game. Place our boiler plate HTML code with finished CSS in parallel. Ask the student to place certain items here or there by nesting them properly.
 
@@ -357,7 +360,7 @@ Here is an example of our border declaration block.
   border-color: #024e76;
 }
 ```
-Alternatively there is a short hand abbreviated version as well that includes all three values on one line.
+Alternatively there is a shorthand property that includes all three values on one line.
 
 ```css
 .hero-form {
@@ -478,18 +481,18 @@ Let's add this code into our CSS style sheet and take a look at the new changes 
 > **Pro-Tip**: You can save yourself a bit of heart ache or frustration by simply clicking on the Auto Save option in the `File` menu, making saving automatic.
 
 Now let's compare the `box-sizing` propery with `content-size` assignment
-![content-size](./assets/step-3/590-form-border-box-css.png)
+![content-size](./assets/step-3/590-form-content-size-css.png)
 
 And now with the `box-sizing` property with `border-box` assignment.
 ![form-box](./assets/step-3/600-form-css.png)
 
-As you can see, the `border-box` constrains the elements by calculating the padding and border with the width making centering and formatting easier.
+As you can see, the `border-box` constrains the elements by includes the padding and border with the width making calculating and formatting easier.
 
 Success. Nice job! Now let's preview a new way to make changes to your styling.
 
 ### Chrome's Dev Tools
 
-Ever think it's kind of a pain hopping back and forth between changing the CSS file, then going back and forth from the browser to see how the changes look and see what else needs a tweak. Let's use a tool in our Chrome browser called Developer Tools.
+Ever think it's kind of a pain hopping back and forth between the CSS file and the browser to see how the changes look  even for little tweaks. Let's use a tool in our Chrome browser called Developer Tools.
 This tool can be found by clicking on the hamburger button located on the top-right portion of your browser that looks like three dots vertically aligned.
 
 ![hamburger button](./assets/step-3/700-hamburger-btn.png)
@@ -519,7 +522,7 @@ This tool is a tremendous asset to front-end developers with the ability to:
 ![arrow-inspector](./assets/step-3/701-arrow-devtools.png) 
 
 This is useful when targetting a specific element. 
-Notice the changes in the `Element` and `Style` panels. Feel free to play around at will. Are these changes permanent?How can we tell?
+Notice the changes in the `Element` and `Style` panels. Feel free to play around at will. Are these changes permanent? How can we tell?
 > **Answer**: Page refresh can determine persistence or permanence of a change.
 
 These changes are not permanent and do not change the actual code, but merely offers a sandbox to try out different styles and sizes with the ability to see their affect on the element and the document itself. Once satisfied with the desired styling affect, these changes must be made to the style sheet itself in order to make the style change permanent.
