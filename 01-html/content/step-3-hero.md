@@ -4,7 +4,7 @@
 
 Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website. HTML elements in large part, can be considered as a series of rectangular boxes as was described in Lesson 1. These boxes can be stacked on top of each other like blocks and also can be nested within each other similar to Russian nesting dolls. If we take a good look at our mock-up, we can see that each part of our landing page seems to be separated by different colored blocks. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. In the first lesson, we created the basic layout of each `section` element. We will be building upon this framework, `section` by `section` until our mock-up is complete.
 
-The first block is considered the most important `section` because this will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms a large banner image placed prominently on the page. The placement is considered "above the fold", hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
+The first block is considered the most important `section` because this will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
 
 > **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article.
 
@@ -14,7 +14,7 @@ Think of the hero section as the banner, headline, or billboard of our site. But
 
 Let's build upon the `section` we created in Lesson 1. This `section` element will be the parent element that contains the children elements like the heading and sign-up form.
 
-> **Rewind**: HTML5 Semantic Elements help distinguish each part of the document and it's function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp).
+> **Rewind**: HTML5 Semantic Elements help distinguish each part of the document and its function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp).
 
 ### Step: 1 - Sign-up Form Container
 
@@ -49,24 +49,7 @@ Great! Your `index.html` file should now look something like this.
 
 > **Heads up**: The browser doesn't care if lines are indented or if every element is on the same line. But indentation is an organizational tool for yourself and other developers to help read and understand the code and a great habit to start. 
 
-Now that we have our `div` element, let's create the remaining child elements inside this form container.
-
-> **Pause**: Given some of the HTML elements we have learned up to this point, which element should go next? Let's give it a go and write some code.
-
-> **Hint**: Remember all the elements within the yellow box must be contained within the `div`, since they are all within this box.
-
-> **Answer**: For our heading, we have chosen the `h3` element. But why not the `h1` or `h4` for that matter?  The smaller the number like an `h1` represents the scope and significance of this heading.  The main header would receive the `h1` while the section header is designated as the `h2`.  So since this heading is less significant, the `h3` is the right choice.  Designating the significance of the heading is very important to screen readers to assist accessibility.
-
-Now let's put our content within the `h3` tags from our mock-up. After that is some basic text, so let's wrap that in a `<p>` tag.  
-Wait a sec, what's a `<p>` tag?
-The `p` element is used to render normal styled text to a page similar to the body text of a page. Hence the browser will not add font-size or font-weight to the content of this element, but will make the `display` property, mentioned in the last lesson, a block-level element.
-
-> **Rewind**: Remember `<h1>` to `<h6>` and `<p>` tags are block-level elements meaning they start on their own new line and any following elements appear on its own new line.
-
-> **Deep Dive**: For a nice visual explainer for the display property look [here.](https://codeburst.io/block-level-and-inline-elements-the-difference-between-div-and-span-2f8502c1f95b)
-
-Your code for the hero section should now look something like this.
-
+Now that we have our `div` element, let's insert the child elements within this `div` including the heading and text.
 ```html
 <section>
   <div>
@@ -75,6 +58,13 @@ Your code for the hero section should now look something like this.
   </div>
 </section>
 ```
+For our heading, we have chosen the `h3` element. But why not the `h1` or `h4` for that matter?  The smaller the number like an `h1` represents the scope and significance of this heading.  The main header would receive the `h1` while the section header is designated as the `h2`.  So since this heading is less significant, the `h3` is the right choice.  Designating the significance of the heading is very important to screen readers to assist accessibility.
+
+After adding the text content from the mock-up, we find a `<p>` tag.  The `p` stands for paragraph and is an element used to render normal styled text like text in the body of a page. The browser will not add font-size or font-weight to the content of this element, but will make the `display` property, mentioned in the last lesson, a `block` element.
+
+> **Rewind**: Remember `<h1>` to `<h6>` and `<p>` tags are `block` elements meaning they start on their own new line and any following elements appear on its own new line.
+
+> **Deep Dive**: For a nice visual explainer for the display property look [here.](https://codeburst.io/block-level-and-inline-elements-the-difference-between-div-and-span-2f8502c1f95b)
 
 > **Pro Tip**: Learn keyboard shortcuts to greatly increase your speed and efficiency. Look into the VS Code shortcuts as well as for Chrome for your operating system for Save, Format, Open in Default Browser, and much more for [Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) and [Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf). They are also labeled in your menu options. It is also a great idea to select the `Auto Save` option in the `File` menu due to all the time saved from forgetting to do that.
 
@@ -150,7 +140,7 @@ So a `radio` type input element, commonly referred to as a `radio button`, is ge
   </p>
 </form>
 ```
-Let's take another look at page, then open our HTML file in the browser using the Open in Default Browser command.  In VS Code, this command is found by right clicking the mouse on the `index.html` page.
+Let's take another look at the page, then open our HTML file in the browser using the Open in Default Browser command.  In VS Code, this command is found by right clicking the mouse on the `index.html` page.
 The view should look like this now:
 
 ![radio-html](./assets/step-3/200-radio-html.png)
@@ -173,7 +163,7 @@ Next, notice how the `<label>` not only wraps one of our radio button answers, b
 
 ### Button
 
-A button in an essential piece of user interaction and can have a variety of different functions and uses. A button can link to another area on a web page, link to an external site, submit data to a server, or can be programmed for any activity. Our button has a special function to submit the user data gathered inside the `form`. Once again we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element,"Get running", will be written within the `button` tags to render a label onto the `button` itself.  Currently in terms of meeting the requirements for this mock-up, we haven't been an action to assign to this button, but normally we would assign a url path in the `<form>` tag in the action attribute.  For more on `form` and `action` look [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form).
+A button is an essential piece of user interaction and can have a variety of different functions and uses. A button can link to another area on a web page, link to an external site, submit data to a server, or can be programmed for any activity. Our button has a special function to submit the user data gathered inside the `form`. Once again we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element,"Get running", will be written within the `button` tags to render a label onto the `button` itself.  Currently our requirements in the mock-up don't have an action to assign to the button, but normally we would assign a url path in the `<form>` tag in the action attribute.  For more on `form` and `action` look [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form).
 
 Let's take a look at our hero section's completed html code.
 
@@ -235,7 +225,7 @@ So our hero section doesn't look very super yet, but fear not, we will learn how
 ### Step 3: Universal Styles
 
 In similar fashion to our HTML build process, we will start our CSS styling from a top down approach and drill down into our nested elements until we are satisfied with the finished product.  
-For the sake of consistency, there should be a few styles that will keep our all our `section` elements looking similar.
+For the sake of consistency, there should be a few styles that will keep all our `section` elements looking similar.
 
 > **Rewind**: As we did in the previous lesson, when we assigned a default font color or font type to every HTML element or set the margin to zero, we will give all our `section` elements a consistent look using the `padding` property.
 
@@ -297,7 +287,7 @@ Let's add the following CSS rule in our `style.css` file and make the height an 
 /* Hero Style End */
 ```
 Now let's unpack this CSS declaration block. . .
-- **Dot Notation** is the "." proceeding the class `hero` to indicate to CSS we are using a class as our CSS selector.
+- **Dot Notation** is the "." proceeding the class `hero` to indicate to the browser that we are using a class as our CSS selector.
 - **Background-image** uses the CSS function `url()` to link a resource such as an image, web font, or gif. Here we are using a relative URL path to select a background image.  To learn more about how to use a web resource, add a color gradient, and more go [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image). 
 - **Height** fixed at 600px gives an exact size of the section, important in this context to allow room for our sign-up form.
 
@@ -309,6 +299,7 @@ Great job!  Now our background image is only being assigned to the section we wa
 Let's look at the `background-size` property and see if we can fix this issue by changing the size of the background image.  
 
 - **Background-size** property can set the size of the background image to its original size, stretched, repeated, or constrained to fit the available space. In our case, the `cover` assignment will shrink the image so parts of it won't get clipped. Other selections allow repeated images for a tiled look, similar to how background image displays are configured for your computer's background desktop image.  Click [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size) for more details.
+- **Background-position** property can move the initial position of the background image.  We will set this position to center.
 
 Our CSS rule for the `hero` class should now look something like this.
 ```css
@@ -317,6 +308,7 @@ Our CSS rule for the `hero` class should now look something like this.
   background-image: url("../images/hero-bg.jpg");
   height: 600px;
   background-size: cover;
+  background-position: center;
 }
 /* Hero Style End */
 ```
@@ -328,7 +320,7 @@ Congrats! Give yourself a nice pat on the back. Way to hang in there! We will no
 
 ### Step 5: Styling Forms and Input Fields
 
-According to the mock-up, the box or `div` containing our `form` will have some styling requirements including the background color, border, font color, and a specific width.  Due to the specific styling requirements needed for our form container, we should be thinking about how we will need to select this `div` to create a CSS rule.  One way would be to create a new class called `hero-form` and add this to the opening `<div>`.  The border and font color in this `div` will be `#024e76` and the background color is `#fce138`. Let's try to finish the styling ourselves and include the following declarations in your CSS rule for padding, width, border, and background color to match the mock-up.
+According to the mock-up, the box or `div` containing our `form` will have some styling requirements including the background color, border, font color, and a specific width.  Due to the specific styling requirements needed for our form container, we should be thinking about how we will need to select this `div` to create a CSS rule.  One way would be to create a new class called `hero-form` and add this to the opening `<div>`.  The font color in this `div` will be `#024e76` and the background color is `#fce138`. Let's try to finish the styling ourselves and include the following declarations in your CSS rule for the `hero-form` class for the font color, padding, width, and background color to match the mock-up.  We will handle the `border` together due to the many variations and configuration possibilities.
 
 > **Try It Yourself**: Create the CSS rule for the class `hero-form`.
 
@@ -338,29 +330,42 @@ According to the mock-up, the box or `div` containing our `form` will have some 
 
 ```css
 .hero-form {
-  border: 3px solid #024e76;
   background-color: #fce138;
   padding: 20px;
   width: 500px;
   color: #024e76;
 }
 ```
+Let's breakdown these CSS declarations a little further:
+
+- **Background-color**: Sets the background color to the element selected.  VS Code also allows typing in the names of colors as well as the hex code.
+* **Padding**: Creates an inner margin within the border.
+
 Save and render to view this:
-![form-position](./assets/step-3/601-form-position-css.png)
+![form-position](./assets/step-3/595-form-no-border-css.png)
 
-Let's review some of these CSS declarations.
+Now just need to add the border so let's dive in a little deeper into the `border` property.
 
-- **Border**: As was explained in the previous lesson regarding how to assign `padding` values, the `border` property can also be declared by each side(`border-top`, `border-bottom`,`border-left`,  `border-right`), by two values representing the top/bottom and left/right pairs respectively, or a single value, which represent one value for all four sides, as we have declared here. Unlike `padding`, `border` **must** also have the line weight, style, and color values declared in order to render.  Above is shown the short hand version declaring the width, style and color on the same line.  The long hand version declares each property on separate lines like this:
+- **Border**: Similarly to how`padding` values are assigned in the last lesson, the `border` property can be declared with a single value, which represents one value for all four sides.  The border property can also be designated for each side as in `border-top`, `border-bottom`,`border-left`,  `border-right`.
+Unlike `padding` however, besides width, `border` can also have style and color values declared. 
+Here is an example of our border declaration block.
 ```css
-{
+.hero-form {
+  ...
   border-style: solid;
   border-width: 3px;
   border-color: #024e76;
 }
 ```
+Alternatively there is a short hand abbreviated version as well that includes all three values on one line.
 
-- **Background-color**: Sets the background color to the element selected.  VS Code allows typing in the names of colors as well.
-* **Padding**: Creates an inner margin within the border.
+```css
+.hero-form {
+  ...
+  border: solid 3px #024e76;
+}
+```
+For more info on the different variations please look [here](https://developer.mozilla.org/en-US/docs/Web/CSS/border).
 
 Next step once the styling of our sign-up container is done, is to position our sign-up container to the right side of our hero section as shown in the mock-up.  First, we will need to dive a bit deeper into the `position` property.
 
@@ -403,7 +408,29 @@ Now save and render to view the following:
 
 ![absolute-position](./assets/step-3/602-form-absolute-css.png)
 
-As you can see, the absolute position property with zero offset from the bottom and right places this element in the bottom right corner.  
+As you can see, the absolute position property with zero offset from the bottom and right places this element in the bottom right corner.  Do you notice how it overflows out of our section?
+This is because currently the child element, our form container is setting its position relative to the `body` element and not our hero section.  In order to enable the absolute positioning of the form container to be taken relative to the hero section, we need to make the hero section's position relative.  Let's go to the CSS rule for the hero and add a declaration setting the position to relative so it should now look like this:
+
+```css
+/* Hero Style Start */
+.hero {
+  background-image: url("../images/hero-bg.jpg");
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+/* Hero Style End */
+```
+
+A great explainer on this can be found [here](https://css-tricks.com/absolute-positioning-inside-relative-positioning/).
+
+Now let's save and render again to see the affect of changing the parent element's position property to relative.
+
+![absolute-relative-form](./assets/step-3/603-relative-absolute-form-css.png)
+
+As you can see, the form is now nestled in the corner, just as we positioned it.
+
 > **Pause**: Let's add pixels to offset the form container until it has reached the correct position according to the mock-up requirements. 
 
 > **Answer**: The final position should look like this:
@@ -450,8 +477,13 @@ Let's add this code into our CSS style sheet and take a look at the new changes 
 
 > **Pro-Tip**: You can save yourself a bit of heart ache or frustration by simply clicking on the Auto Save option in the `File` menu, making saving automatic.
 
-Your page should look something like this:
+Now let's compare the `box-sizing` propery with `content-size` assignment
+![content-size](./assets/step-3/590-form-border-box-css.png)
+
+And now with the `box-sizing` property with `border-box` assignment.
 ![form-box](./assets/step-3/600-form-css.png)
+
+As you can see, the `border-box` constrains the elements by calculating the padding and border with the width making centering and formatting easier.
 
 Success. Nice job! Now let's preview a new way to make changes to your styling.
 
@@ -504,7 +536,7 @@ Scrolling down to the bottom of the Styles panel offers an interactive CSS box m
 
 ### Step 6: Styling Form
 
-We have reached that last portion of this lesson so let's dive right in and finish up our sign-up form.
+We have reached the last portion of this lesson so let's dive right in and finish up our sign-up form.
 
 > **Linear Steps**:
 
@@ -530,7 +562,7 @@ Your `input` elements in your HTML code should now look like this:
 ```html
 <input type="text" placeholder="Your Name" name="name" class="form-input"/>
 <input type="email" placeholder="Email Address" name="email" class="form-input"/>
-<input type="tel" placeholder="Phone Number" name="phone" class="form-input"/>
+<input type="text" placeholder="Phone Number" name="phone" class="form-input"/>
 ```
 
 Now let's add a border, display each line separately, make the font larger, extend each input field box the length of the form container, and use the navy font color we used for the `footer` font color.
@@ -562,9 +594,18 @@ Our CSS code should now look like this:
 Let's unpack some of the properties in our `.form-input` selector and see how they affected our form input elements.
 
 - **Border**: A skinny 1px border helped emphasize our sign-up requests.
-- **Display**: This is the property that determines if the element sit in it's own line by declaring the `block` value, thereby forcing other elements into the next line, , or sit in the flow of the HTML document, letting the browser determine or calculate if other elements can fit on the same line and sit next to other elements by using the `in-line` property.  The other properties helped us achieve some spacing and font size to improve the legibiility.
+- **Display**: This property instructs the browser to render the element either as a `block` or `inline`.  `Block` prevents other elements from sitting on the same row.  Image a line break preceding and following this element.  `Inline` conversely allows other elements to sit alongside the same row just like words in a sentence.
+
+> **Pause**: Can you name a few HTML elements we have used that are `block` elements?
+
+> **Answer**: `p`, `div`, and all the `h1` to `h6` to name a few.
+
+> **Pause**: Can you name a few HTML elements we have used that are `inline` elements?
+
+> **Answer**: `span`, `a`, and `label` to name a few.
 
 Remember to save these changes and take a look at the new page's styles in the browser as we add styles on every step.
+
 4: **Radio Buttons**: Adding some spacing for our `label` element in our `radio button` elements helps the user doesn't misinterpret which selection is for which answer by adding a bit of horizontal margin. Let's go ahead and add that in now.
 
 > **Do It Yourself**: It is important to try and implement these styles yourself and give it a try. Getting syntax errors or red squiggly lines are helpful reminders that you may be missing or misplacing a syntax character. In time, the syntax will become second nature to you and your speed to develop time will increase with practice!  Remember, you can always experiment in the Chrome DevTools until you get it just right.
@@ -583,7 +624,7 @@ Awesome, our `section` looks almost finished. Time to nip this `section` in the 
 
 5. **Button**: According to the mock-up, the `button` should be navy(#024e76) and the font color should be yellow(#fce138). Style the `button` adding some size to our font and `padding`.
 
-> **Do it Yourself**: Let's flex our new CSS skills and style this `button` to match our mock-up. Open up DevTools in the browser and select the `button` using the element selector or arrow icon to select our `button`, then go to the Styles panel to experiment with some of our `button` element's properties.  Once you have the look that matches our mock-up, the CSS rule for the button should look something like this.
+> **Do it Yourself**: Let's flex our new CSS skills and style this `button` to match our mock-up. Open up DevTools in the browser and select the `button` using the element selector or arrow icon to select our `button`, then go to the Styles panel to experiment with some of our `button` element's properties.  By clicking on the declaration, the propery or value can be changed.  By clicking to the right of the declaration, a new line is added for a new declaration.  Once you have the look that matches our mock-up, the CSS rule for the button should look something like this.
 
 ```css
 .hero-form button {
