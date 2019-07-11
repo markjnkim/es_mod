@@ -504,7 +504,7 @@ Scrolling down to the bottom of the Styles panel offers an interactive CSS box m
 
 ### Step 6: Styling Form
 
-We have reached that last portion of this lesson so let's dive right in and finish up our sign-up form.
+Now that we have reached that last step, let's dive right in and finish our sign-up form.
 
 > **Linear Steps**:
 
