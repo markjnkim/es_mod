@@ -536,7 +536,7 @@ Scrolling down to the bottom of the Styles panel offers an interactive CSS box m
 
 ### Step 6: Styling Form
 
-We have reached the last portion of this lesson so let's dive right in and finish up our sign-up form.
+It's time to give our `form` some needed layout and styling to match our mock-up.
 
 > **Linear Steps**:
 
