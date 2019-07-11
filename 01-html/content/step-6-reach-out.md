@@ -128,7 +128,7 @@ Take the necessary time to figure out this code yourself because this is not a r
 First, let's save and render this view in the browser.
 ![contact-info](./assets/step-6/400-contact-info-html.png)
 Now let's breakdown this markup and introduce some new tags including some semantic HTML5 tags.
-* **`<br/>`**: This tag represents a line break which do not have content or child elements, hence a great candidate to amke it a self-closing tag.
+* **`<br/>`**: This tag represents a line break which doesn't have content or child elements so we use a self-closing tag.
 * **`<address>`**: Defines the contact information for the author or owner of the document or parent element.
 * **`<a href="mailto:info@runbuddy.io">`**: Using the `mailto:` prefix in the anchor tag's `href` attribute opens the default mail client application upon clicking the link and then populates the address field with the email address listed in the `href` value.
 
