@@ -1,20 +1,20 @@
-# Part 3 - Building a Hero
+# Part 3 - I need a Hero
 
 ## Our Hero's Purpose
 
 Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website. HTML elements in large part, can be considered as a series of rectangular boxes as was described in Lesson 1. These boxes can be stacked on top of each other like blocks and also can be nested within each other similar to Russian nesting dolls. If we take a good look at our mock-up, we can see that each part of our landing page seems to be separated by different colored blocks. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. In the first lesson, we created the basic layout of each `section` element. We will be building upon this framework, `section` by `section` until our mock-up is complete.
 
-The first block is considered the most important `section` because this will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
+The first block is considered the most important `section` because this will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms, a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
 
 > **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article.
 
 Think of the hero section as the banner, headline, or billboard of our site. But before we can add our pizzazz, let's first add some HTML markup that will provide our structure and content.
 
-## Hero Construction
+## Build a Hero
 
 Let's build upon the `section` we created in Lesson 1. This `section` element will be the parent element that contains the children elements like the heading and sign-up form.
 
-> **Rewind**: HTML5 Semantic Elements help distinguish each part of the document and its function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp).
+> **Rewind**: HTML5 semantic elements help distinguish each part of the document and its function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp).
 
 ### Step: 1 - Sign-up Form Container
 
@@ -77,7 +77,7 @@ So not yet exactly what we are looking for stylistically speaking, but this is a
 
 ### Step 2: Web Forms
 
-Forms are an important mechanism used by the web to receive user input.  Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form.  HTML Forms are a major point of interaction between the user and a website or application.  They allow users to send data to the website, normally to the server.  Within this `form` will be the `form` elements such as `input` elements.  `Input` elements come in many different types and flavors depending on the type of information needed such as a text input fields, radio buttons, or checkboxes.
+Forms are an important mechanism used by the web to receive user input.  Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form.  HTML Forms are a major point of interaction between the user and a website or application.  They allow users to send data to the website, normally to the server.  Within this `form` will be the `form` elements such as `input` elements and their associated `label` elements.  `Input` elements come in many different types and flavors depending on the type of information needed such as a text input fields, radio buttons, or checkboxes.
 
 > **On The Job**: The sign-up form is a "call to action" or CTA.  The main purpose is to encourage the users through a story, advertisement, or piece of content to do something. In our case we would like our visitor to share their contact info for a possible future engagement. CTAs can play a vital role in coverting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
 
@@ -97,7 +97,7 @@ Look closely at how we pair the `input` and corresponding `label` elements and t
   <input type="text" placeholder="Your Name" name="name" id="name" />
 </form>
 ```
-The `label` text not only offers a visual directive of what data to enter, but also programmatically links to the associated `input`.  This means that with a screen reader, when the visitor focuses on the input field, the label will be read out, making it easier for an assistive technology user to understand what data should be entered.  Labels enhance the user experience on a mobile device for instance because clicking on the label will target the focus in the associated input field.  Especially helpful when using a touch screen.
+The `label` text not only offers a visual directive of what data to enter, but also programmatically links to the associated `input`.  This means that with a screen reader, when a visitor focuses on the input field, the label will be read out, making it easier for an assistive technology user to understand what data should be entered.  Labels also enhance the user experience on a mobile device for instance because clicking on the label will target the focus in the associated input field.  Especially helpful when using a touch screen.
 
 - **for** is an attribute in the `label` that programmatically links to the `id` attribute in the `input`. 
 - **type** attribute relates to what kind of input element we are using. Here we want a text field, which is also the default value.
@@ -105,7 +105,7 @@ The `label` text not only offers a visual directive of what data to enter, but a
 - **name** attribute identifies the element so the response can later be referenced after the form is submitted.
 
 
-> **Do if Yourself**: Having given the first text input field and label, can you write out the next two for email and phone number.
+> **Do if Yourself**: Having given the first text input field and label, can you write out the next two for email and phone number?
 
 > **Hint**: The label and inputs will need the attributes for `name`, `for`, `type`, `id`, and `placeholder`. A list of `type` attributes can be found [here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
 
@@ -149,13 +149,6 @@ The view should look like this now:
 
 We have wrapped both of our answers including both radio buttons within a `<p>` which also includes the question.  Since the radio buttons are inline elements, the answer selections will render from left to right on the same line as our question, just as in the mock-up.
 
-Next, notice how the `<label>` not only wraps one of our radio button answers, but also the answer text as well.  This offers enhanced accessibility by executing a selection by clicking on the label or answer text as well as the circle to determine the selection.
-
-
-> **Pause**: There is an attribute on the `label` element called `for`. Explain the purpose of this attribute.
-
-> **Answer**: This is used to reference to which `radio button` this label belongs. The value for the `for` attribute must match the value of the `id` attribute of the `input` element.
-
 > **Heads Up**: The `radio button` elements must have the same `name` attribute in order to be associated with the same radio group. This is how the browser identifies a group of choices can have an exclusive singular answer. In this case the value of our radio group in `name` is `trainer-confirm`.
 
 ### Checkbox
@@ -179,24 +172,20 @@ Let's take a look at our hero section's HTML code.
       <input type="text" placeholder="Your Name" id="name" name="name" />
       <label for="email">Enter email address:</label>
       <input type="email" placeholder="Email Address" id="email" name="email" />
-      <label for="name">Enter a telephone number:</label>
+      <label for="phone">Enter a telephone number:</label>
       <input type="tel" placeholder="Phone Number" name="phone" />
       <p>
         Have you worked out with a trainer before?
-        <label for="trainer-yes">
-          <input type="radio" name="trainer-confirm" id="trainer-yes" />
-          Yes
-        </label>
-        <label for="trainer-no">
-          <input type="radio" name="trainer-confirm" id="trainer-no" />
-          No
-        </label>
+        <input type="radio" name="trainer-confirm" id="trainer-yes" />
+        <label for="trainer-yes">Yes</label>
+        <input type="radio" name="trainer-confirm" id="trainer-no" />
+        <label for="trainer-no">No</label>
       </p>
       <p>
         <label for="checkbox" >
           I acknowledge that I am at least 18 years of age.
-          <input type="checkbox" name="age-confirm" id="checkbox" />
         </label>
+        <input type="checkbox" name="age-confirm" id="checkbox" />
       </p>
       <button type="submit">
         Get running!
