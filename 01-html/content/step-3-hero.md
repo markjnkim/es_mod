@@ -204,35 +204,20 @@ You should see this in your browser:
 
 ![hero](./assets/step-3/300-hero-html.png)
 
-Notice if you type in random letters into the email input field after pressing the submit button, we get an error that asks us to put in a valid email address with the "@" symbol.  This is HTML5 working with the browser helping validate the data being entered.  This is accomplished through the input type we set as `email`.  This communicates to the browser about the type of data that will be accepted in this input field.  Also notice that the same validation check is not being used for the phone number input field.  Anything can be typed into here without any error messages.  This is because the input type `tel` is missing a key piece that explains to the browser the format required.  This is the `pattern` attribute which identifies what sequence of characters and syntax will be accepted by the browser.  Let's add this attribute to our phone number `<input>` and then take a closer look.
+Notice if you type in random letters into the email input field after pressing the submit button, we get an error that asks us to put in a valid email address with the "@" symbol.  This is accomplished through the input type we set as `email`.  This communicates to the browser about the type of data that will be accepted in this input field.  Also notice that the same validation check is not being used for the phone number input field.  Anything can be typed into here without any error messages.  This is because the input type `tel` is missing a key piece that explains to the browser the format required.  This is the `pattern` attribute which identifies what sequence of characters and syntax will be accepted by the browser.  Let's add this attribute to our phone number `<input>` and then take a closer look.
 ```html
-<form>
-  <label for="name">Enter full name:</label>
-  <input type="text" placeholder="Your Name" id="name" name="name" />
-  <label for="email">Enter email address:</label>
-  <input type="email" placeholder="Email Address" id="email" name="email" />
-  <label for="name">Enter a telephone number:</label>
-  <input type="tel" placeholder="Phone Number" name="phone" id="phonenumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
-  ...
-</form>
+  <label for="phone">Enter a telephone number:</label>
+  <input type="tel" placeholder="Phone Number" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
 ```
-The pattern here identifies what characters are accepted and how many places.  According to the pattern an acceptable input would be "123-456-7890".  This is regex or regular expression.  We will explain much more on regex and validation as the course progresses but for now let's fix our label to inform our visitors the format needed to enter a phone number.
+Yes, that is indeed a crazy looking sequence of numbers and syntax.  This is called a regular expression or regex pattern which we will not go into depth now, but suffice to say, this requires the data to be in a format of three groups of numbers, each separated by a "-". According to the regex pattern an acceptable input would be "123-456-7890". 
+Since we are changing our requirement for this input field, let's convey that to the users by fixing the label.
 
 ```html
-<form>
-  <label for="name">Enter full name</label>
-  <input type="text" placeholder="Your Name" id="name" name="name" />
-  <label for="email">Enter email address</label>
-  <input type="email" placeholder="Email Address" id="email" name="email" />
-  <label for="name">Enter a telephone number (in the form xxx-xxx-xxxx):</label>
-  <input type="tel" placeholder="Phone Number" name="phone" id="phonenumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
-  ...
-</form>
+  <label for="phone">Enter a telephone number (in the form xxx-xxx-xxxx):</label>
+  <input type="tel" placeholder="Phone Number" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
 ```
 
-.  More on validation and the regular expression used to create the pattern will be explained in greater detail in a later module.  For now let's add this to our markup and progress to the next step.
-
-A good reminder to do a quick Google [search](https://www.w3schools.com/tags/att_input_type_tel.asp) if something isn't working as you think it should, always consider browser support as a possible suspect.  
+More on validation and the regular expression used to create the pattern will be explained in greater detail in a later module.  For now let's add this to our markup and progress to the next step. 
 
 > **Activity**: HTML nesting game. Place our boiler plate HTML code with finished CSS in parallel. Ask the student to place certain items here or there by nesting them properly.
 
@@ -240,7 +225,7 @@ Congrats, I know it's not pretty yet, but our foundation work is now complete so
 
 ## Making our Hero Super
 
-So our hero section doesn't look very super yet, but fear not, we will learn how to design it to make it super! Let's take a look at the mock-up and examine the styling we will need to deliver our finished product. Then we'll dive into CSS and open our `style.css` in VS Code.
+So our hero section doesn't look all that great, but fear not, we will learn how to design it to make it super! Let's take a look at the mock-up and examine the styling we will need to deliver our finished product. Then we'll dive into CSS and open our `style.css` in VS Code.
 ![hero-mock-up](./assets/step-3/900-hero-mock-up.png)
 
 ### Step 3: Universal Styles
