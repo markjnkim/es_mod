@@ -169,9 +169,18 @@ First we will wrap this block of code in a `<p>`, then we will split the lines u
   </p>
 </div>
 ```
+<<<<<<< HEAD
 As you can see, an anchor tag wraps the content "info@runbuddy.io" creating a link. Notice how the value for the `href` has a prefix "mailto:".  Previously in the `header` back in Lesson 2, we used the `href` in the anchor tag to navigate to different elements using the "#" prefix to locate the`id` attribute.  Now we will use the "mailto:" prefix to open the default email application on your computer and populate the "To:" email input field with the text following the prefix, which will be the email address.  
 
 Let's save and render this view in the browser.
+=======
+First, let's save and render this view in the browser.
+![contact-info](./assets/step-6/400-contact-info-html.png)
+Now let's breakdown this markup and introduce some new tags including some semantic HTML5 tags.
+* **`<br/>`**: This tag represents a line break which doesn't have content or child elements so we use a self-closing tag.
+* **`<address>`**: Defines the contact information for the author or owner of the document or parent element.
+* **`<a href="mailto:info@runbuddy.io">`**: Using the `mailto:` prefix in the anchor tag's `href` attribute opens the default mail client application upon clicking the link and then populates the address field with the email address listed in the `href` value.
+>>>>>>> d08007a4ef07a9bf24d0d4dd00de65df7ef9d5a1
 
 ![contact-info](./assets/step-6/400-contact-info-html.png)
 
