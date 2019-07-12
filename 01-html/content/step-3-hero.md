@@ -22,7 +22,7 @@ Let's build upon the `section` we created in Lesson 1. This `section` element wi
 
 > **Hint**: Look for any content like text, heading, and especially distinct elements like boxes.
 
-> **Answer**: We will need a box that contains a heading, text, input fields and a button.
+> **Answer**: We will need a box that contains a heading, text, input fields, and a button.
 
 We must place our `<div>` tags carefully to ensure that they are nested within the section element.
 
@@ -101,9 +101,8 @@ Look closely at the following `input` element and its different attributes.
 - **Placeholder** offers a hint or label within the text field itself, but will not be submitted if this field is left blank.
 - **Name** attribute will declare this element so it can be referenced later when the data is submitted.
 
-> **Do if Yourself**: Having given the first text input field, can you write out the next two for email and phone number.
-
-> **Hint**: Each has a specific attribute for `name`, `type`, and `placeholder`. A list of `type` attributes can be found [here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
+> **Do if Yourself**: Given the first text input field for "name," can you code
+> the the fields for "email" and "phone number?"
 
 > **Pause**: Notice at the end of this tag is a forward slash. What is this slash for?
 
@@ -125,31 +124,32 @@ So a `radio` type input element, commonly referred to as a `radio button`, is ge
 ```html
 <form>
   <input type="text" placeholder="Your Name" name="name" />
-  <input type="email" placeholder="Email Address" name="email" />
-  <input type="tel" placeholder="Phone Number" name="phone" />
+  <input type="text" placeholder="Email Address" name="email" />
+  <input type="text" placeholder="Phone Number" name="phone" />
   <p>
     Have you worked out with a trainer before?
-    <label for="trainer-yes">
-      <input type="radio" name="trainer-confirm" id="trainer-yes" />
-      Yes
-    </label>
-    <label for="trainer-no">
-      <input type="radio" name="trainer-confirm" id="trainer-no" />
-      No
-    </label>
+    <input type="radio" name="trainer-confirm" id="trainer-yes" />
+    <label for="trainer-yes">Yes</label>
+    <input type="radio" name="trainer-confirm" id="trainer-no" />
+    <label for="trainer-no">No</label>
   </p>
 </form>
 ```
-Let's take another look at the page, then open our HTML file in the browser using the Open in Default Browser command.  In VS Code, this command is found by right clicking the mouse on the `index.html` page.
+
+Let's take another look at the page by opening the HTML file in the browser using the Open in Default Browser command.  In VS Code, this command is found by right-clicking on the `index.html` page.
+
 The view should look like this now:
 
 ![radio-html](./assets/step-3/200-radio-html.png)
+
 #### Radio Button Layout
 
 We have wrapped both of our answers including both radio buttons within a `<p>` which also includes the question.  Since the radio buttons are inline elements, the answer selections will render from left to right on the same line as our question, just as in the mock-up.
 
-Next, notice how the `<label>` not only wraps one of our radio button answers, but also the answer text as well.  This offers enhanced accessibility by executing a selection by clicking on the label or answer text as well as the circle to determine the selection.
-
+Next, the `<label>` links the displayed values, "Yes," and "No," to their
+respective radio inputs. This link enhances accessibility by allowing users to
+click on the label's text as well as the radio buttons. They provide more
+clickable surface area. Try it out!
 
 > **Pause**: There is an attribute on the `label` element called `for`. Explain the purpose of this attribute.
 
@@ -165,7 +165,7 @@ Next, notice how the `<label>` not only wraps one of our radio button answers, b
 
 A button is an essential piece of user interaction and can have a variety of different functions and uses. A button can link to another area on a web page, link to an external site, submit data to a server, or can be programmed for any activity. Our button has a special function to submit the user data gathered inside the `form`. Once again we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element,"Get running", will be written within the `button` tags to render a label onto the `button` itself.  Currently our requirements in the mock-up don't have an action to assign to the button, but normally we would assign a url path in the `<form>` tag in the action attribute.  For more on `form` and `action` look [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form).
 
-Let's take a look at our hero section's completed html code.
+Let's take a look at our hero section's completed HTML code.
 
 ```html
 <!-- hero section -->
@@ -175,18 +175,14 @@ Let's take a look at our hero section's completed html code.
     <p>Fill out this form and one of our trainers will schedule a consult.</p>
     <form>
       <input type="text" placeholder="Your Name" name="name" />
-      <input type="email" placeholder="Email Address" name="email" />
-      <input type="tel" placeholder="Phone Number" name="phone" />
+      <input type="text" placeholder="Email Address" name="email" />
+      <input type="text" placeholder="Phone Number" name="phone" />
       <p>
         Have you worked out with a trainer before?
-        <label for="trainer-yes">
-          <input type="radio" name="trainer-confirm" id="trainer-yes" />
-          Yes
-        </label>
-        <label for="trainer-no">
-          <input type="radio" name="trainer-confirm" id="trainer-no" />
-          No
-        </label>
+        <input type="radio" name="trainer-confirm" id="trainer-yes" />
+        <label for="trainer-yes">Yes</label>
+        <input type="radio" name="trainer-confirm" id="trainer-no" />
+        <label for="trainer-no">No</label>
       </p>
       <p>
         <label for="checkbox" >
@@ -205,13 +201,63 @@ Let's take a look at our hero section's completed html code.
 
 > **Pro-tip**: Notice how there are no empty lines within `section`, meaning each line has a tag either opening or closing. Being concise with language and syntax also pertains to extraneous lines or white space. Although empty lines or indentation will not affect what is rendered in the browser, it will pertain more to a best practice style guide that eases readabliity and communicates parent/child relationships to other developers or even a future you that can greatly improve development speed.
 
-That was a lot of code we just entered.  It's time to save and render to see the current progress of our landing page.  It's time to test our input elements to make sure they are functioning correctly.
+That was a lot of code we just entered.  It's time to save and render to see the
+current progress of our landing page.
 
 You should see this in your browser:
 
 ![hero](./assets/step-3/300-hero-html.png)
 
-Notice if you type in random letters into the email input field after pressing the submit button, we get an error that asks us to put in a valid email address with the "@" symbol.  This is HTML5 working with the browser helping validate the data being entered.  This is accomplished through the input type we set as `email`.  This communicates to the browser about the type of data that will be accepted in this input field.  Also notice that the same validation check is not being used for the phonenumber input field.  Anything can be typed into here without any error messages.  This is because the input type `tel` is actually not supported by Chrome therefore simply falls back to a text input field without the validation check.  A good reminder to do a quick Google [search](https://www.w3schools.com/tags/att_input_type_tel.asp) if something isn't working as you think it should, always consider browser support as a possible suspect.  
+### Special Input Types
+
+Our form is perfectly OK the way it is. But we can improve it by employing a
+couple of input types introduced in HTML5: `email` and `tel`. Browsers treat
+these input types differently than classic `text` input types. 
+
+When a user inputs a value into an `email` input type and clicks the submit
+button, the browser will automatically validate that value. If the value doesn't
+look like an email address, the browser will not submit the form. Instead, the
+browser will display a helpful validation warning next to the `email` input
+field.
+
+Desktop browsers treat the `tel` input type the same as the default `text` type.
+They don't automatically validate the user's inputted value. However, browsers 
+on mobile devices will display a numeric keypad for the user to input a
+value, rather than a standard keyboard. This is a lovely experience for mobile
+users. Considering that the majority of web site visits come from browsers
+on mobile devices, we should provide this experience.
+
+It's easy to convert our email and phone inputs to these special types. Just
+change the `type` attribute of the email input to `email`, and the `type`
+attribute of the phone input to `tel`.
+
+The HTML for these two inputs should now look like this:
+
+```html
+<input type="email" placeholder="Email Address" name="email" />
+<input type="tel" placeholder="Phone Number" name="phone" />
+```
+
+Save your work and refresh the page in your browser. Try typing some wacky
+stuff into the email field and click the submit button. Can you get the
+validation warning to appear?
+
+Testing the phone field is a little more complicated. First, you need to add,
+commit, and push your work to GitHub. Then you can grab a mobile device and load
+the project's GitHub Page in its browser. You should see a numeric keypad appear
+when you tap on the phone number field.
+
+> **Deep Dive**: Browsers support a *lot* of input types. You can see a
+> comprehensive list at [Mozilla Developer
+> Network](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
+> Feel free to experiment with them, but keep in mind that many of them are not
+> fully implemented in all browsers yet. If you click on a type in the MDN
+> list and scroll to the very bottom of its page, you'll find a Browser
+> Compatibility chart. This chart visually displays which browsers support the
+> input type, as well as which features of the type they support.
+>
+> Get into the habit of researching how well browsers support new HTML and CSS
+> before you use them.
 
 > **Activity**: HTML nesting game. Place our boiler plate HTML code with finished CSS in parallel. Ask the student to place certain items here or there by nesting them properly.
 
