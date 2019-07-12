@@ -89,27 +89,29 @@ Forms are an important mechanism used by the web to receive user input.  Now we 
 
 Let's create the markup now, within the `form` to create our text fields.
 
-Look closely at the following `input` element and its different attributes.
+Look closely at how we pair the `input` and corresponding `label` elements and their different attributes.
 
 ```html
 <form>
-  <input type="text" placeholder="Your Name" name="name" />
+  <label for="name">Enter full name:</label>
+  <input type="text" placeholder="Your Name" name="name" id="name" />
 </form>
 ```
+The `label` text not only offers a visual directive of what data to enter, but also programmatically links to the associated `input`.  This means that with a screen reader, when the visitor focuses on the input field, the label will be read out, making it easier for an assistive technology user to understand what data should be entered.  Labels enhance the user experience on a mobile device for instance because clicking on the label will target the focus in the associated input field.  Especially helpful when using a touch screen.
 
-- **Type** attribute relates to what kind of input element we are using. Here we want a text field, which is also the default value.
-- **Placeholder** offers a hint or label within the text field itself, but will not be submitted if this field is left blank.
-- **Name** attribute will declare this element so it can be referenced later when the data is submitted.
+- **for** is an attribute in the `label` that programmatically links to the `id` attribute in the `input`. 
+- **type** attribute relates to what kind of input element we are using. Here we want a text field, which is also the default value.
+- **placeholder** offers a hint or label within the text field itself, but will not be submitted if this field if left blank.
+- **name** attribute identifies the element so the response can later be referenced after the form is submitted.
 
-> **Do if Yourself**: Having given the first text input field, can you write out the next two for email and phone number.
 
-> **Hint**: Each has a specific attribute for `name`, `type`, and `placeholder`. A list of `type` attributes can be found [here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
+> **Do if Yourself**: Having given the first text input field and label, can you write out the next two for email and phone number.
 
-> **Pause**: Notice at the end of this tag is a forward slash. What is this slash for?
+> **Hint**: The label and inputs will need the attributes for `name`, `for`, `type`, `id`, and `placeholder`. A list of `type` attributes can be found [here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
 
-> **Urkel Says**: Confusing which is forward vs backward slash? [This](https://sites.cs.ucsb.edu/~pconrad/topics/BackslashVsForwardSlash/) might clear things up.
+> **Pause**: Notice at the end of the input tag is a forward slash. What is this slash for?
 
-> **Answer**: This is known as a self closing tag. Certain elements like an `input` element do not contain any content, but is a prompt for user interactivity, so the opening tag immediately follows a closing tag. As is a common custom for developers, a shortcut was created to avoid clutter in favor of conciseness by using this clean and quick short cut.
+> **Answer**: This is known as a self closing tag and is a common sight in HTML. Certain elements like `input` do not contain any content or child elements, so the closing tag immediately follows the opening tag. A shortcut or abbreviation was created to self close an opening tag therefore not needing to type the closing tag.  Of course HTML elements with content or child elements need to be wrapped by an opening and closing tag so cannot use this self closing tag.
 
 ### Radio Button
 
@@ -124,19 +126,18 @@ So a `radio` type input element, commonly referred to as a `radio button`, is ge
 
 ```html
 <form>
-  <input type="text" placeholder="Your Name" name="name" />
-  <input type="email" placeholder="Email Address" name="email" />
-  <input type="tel" placeholder="Phone Number" name="phone" />
+  <label for="name">Enter full name:</label>
+  <input type="text" placeholder="Your Name" name="name" id="name" />
+  <label for="email">Enter email address:</label>
+  <input type="email" placeholder="Email Address" name="email" id="email" />
+  <label for="phone">Enter a telephone number:</label>
+  <input type="tel" placeholder="Phone Number" name="phone" id="phone"/>
   <p>
     Have you worked out with a trainer before?
-    <label for="trainer-yes">
-      <input type="radio" name="trainer-confirm" id="trainer-yes" />
-      Yes
-    </label>
-    <label for="trainer-no">
-      <input type="radio" name="trainer-confirm" id="trainer-no" />
-      No
-    </label>
+    <input type="radio" name="trainer-confirm" id="trainer-yes" />
+    <label for="trainer-yes">Yes</label>
+    <input type="radio" name="trainer-confirm" id="trainer-no" />
+    <label for="trainer-no">No</label>
   </p>
 </form>
 ```
@@ -165,7 +166,7 @@ Next, notice how the `<label>` not only wraps one of our radio button answers, b
 
 A button is an essential piece of user interaction and can have a variety of different functions and uses. A button can link to another area on a web page, link to an external site, submit data to a server, or can be programmed for any activity. Our button has a special function to submit the user data gathered inside the `form`. Once again we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element,"Get running", will be written within the `button` tags to render a label onto the `button` itself.  Currently our requirements in the mock-up don't have an action to assign to the button, but normally we would assign a url path in the `<form>` tag in the action attribute.  For more on `form` and `action` look [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form).
 
-Let's take a look at our hero section's completed html code.
+Let's take a look at our hero section's HTML code.
 
 ```html
 <!-- hero section -->
@@ -174,8 +175,11 @@ Let's take a look at our hero section's completed html code.
     <h3>Get Started Today!</h3>
     <p>Fill out this form and one of our trainers will schedule a consult.</p>
     <form>
-      <input type="text" placeholder="Your Name" name="name" />
-      <input type="email" placeholder="Email Address" name="email" />
+      <label for="name">Enter full name:</label>
+      <input type="text" placeholder="Your Name" id="name" name="name" />
+      <label for="email">Enter email address:</label>
+      <input type="email" placeholder="Email Address" id="email" name="email" />
+      <label for="name">Enter a telephone number:</label>
       <input type="tel" placeholder="Phone Number" name="phone" />
       <p>
         Have you worked out with a trainer before?
@@ -211,8 +215,33 @@ You should see this in your browser:
 
 ![hero](./assets/step-3/300-hero-html.png)
 
-Notice if you type in random letters into the email input field after pressing the submit button, we get an error that asks us to put in a valid email address with the "@" symbol.  This is HTML5 working with the browser helping validate the data being entered.  This is accomplished through the input type we set as `email`.  This communicates to the browser about the type of data that will be accepted in this input field.  Also notice that the same validation check is not being used for the phone number input field.  Anything can be typed into here without any error messages.  This is because the input type `tel` is missing a key piece that explains to the browser the format required.  This is the `pattern` attribute.  More on validation and the regular expression used to create the pattern will be explained in greater detail in a later module.  For now let's add this to our markup and 
+Notice if you type in random letters into the email input field after pressing the submit button, we get an error that asks us to put in a valid email address with the "@" symbol.  This is HTML5 working with the browser helping validate the data being entered.  This is accomplished through the input type we set as `email`.  This communicates to the browser about the type of data that will be accepted in this input field.  Also notice that the same validation check is not being used for the phone number input field.  Anything can be typed into here without any error messages.  This is because the input type `tel` is missing a key piece that explains to the browser the format required.  This is the `pattern` attribute which identifies what sequence of characters and syntax will be accepted by the browser.  Let's add this attribute to our phone number `<input>` and then take a closer look.
+```html
+<form>
+  <label for="name">Enter full name:</label>
+  <input type="text" placeholder="Your Name" id="name" name="name" />
+  <label for="email">Enter email address:</label>
+  <input type="email" placeholder="Email Address" id="email" name="email" />
+  <label for="name">Enter a telephone number:</label>
+  <input type="tel" placeholder="Phone Number" name="phone" id="phonenumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+  ...
+</form>
+```
+The pattern here identifies what characters are accepted and how many places.  According to the pattern an acceptable input would be "123-456-7890".  This is regex or regular expression.  We will explain much more on regex and validation as the course progresses but for now let's fix our label to inform our visitors the format needed to enter a phone number.
 
+```html
+<form>
+  <label for="name">Enter full name</label>
+  <input type="text" placeholder="Your Name" id="name" name="name" />
+  <label for="email">Enter email address</label>
+  <input type="email" placeholder="Email Address" id="email" name="email" />
+  <label for="name">Enter a telephone number (in the form xxx-xxx-xxxx):</label>
+  <input type="tel" placeholder="Phone Number" name="phone" id="phonenumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+  ...
+</form>
+```
+
+.  More on validation and the regular expression used to create the pattern will be explained in greater detail in a later module.  For now let's add this to our markup and progress to the next step.
 
 A good reminder to do a quick Google [search](https://www.w3schools.com/tags/att_input_type_tel.asp) if something isn't working as you think it should, always consider browser support as a possible suspect.  
 
