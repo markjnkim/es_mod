@@ -1,20 +1,20 @@
-# Part 3 - Building a Hero
+# Part 3 - I need a Hero
 
 ## Our Hero's Purpose
 
 Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website. HTML elements in large part, can be considered as a series of rectangular boxes as was described in Lesson 1. These boxes can be stacked on top of each other like blocks and also can be nested within each other similar to Russian nesting dolls. If we take a good look at our mock-up, we can see that each part of our landing page seems to be separated by different colored blocks. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. In the first lesson, we created the basic layout of each `section` element. We will be building upon this framework, `section` by `section` until our mock-up is complete.
 
-The first block is considered the most important `section` because this will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
+The first block is considered the most important `section` because this will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms, a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
 
 > **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article.
 
 Think of the hero section as the banner, headline, or billboard of our site. But before we can add our pizzazz, let's first add some HTML markup that will provide our structure and content.
 
-## Hero Construction
+## Build a Hero
 
 Let's build upon the `section` we created in Lesson 1. This `section` element will be the parent element that contains the children elements like the heading and sign-up form.
 
-> **Rewind**: HTML5 Semantic Elements help distinguish each part of the document and its function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp).
+> **Rewind**: HTML5 semantic elements help distinguish each part of the document and its function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp).
 
 ### Step: 1 - Sign-up Form Container
 
@@ -77,7 +77,7 @@ So not yet exactly what we are looking for stylistically speaking, but this is a
 
 ### Step 2: Web Forms
 
-Forms are an important mechanism used by the web to receive user input.  Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form.  HTML Forms are a major point of interaction between the user and a website or application.  They allow users to send data to the website, normally to the server.  Within this `form` will be the `form` elements such as `input` elements.  `Input` elements come in many different types and flavors depending on the type of information needed such as a text input fields, radio buttons, or checkboxes.
+Forms are an important mechanism used by the web to receive user input.  Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form.  HTML Forms are a major point of interaction between the user and a website or application.  They allow users to send data to the website, normally to the server.  Within this `form` will be the `form` elements such as `input` elements and their associated `label` elements.  `Input` elements come in many different types and flavors depending on the type of information needed such as a text input fields, radio buttons, or checkboxes.
 
 > **On The Job**: The sign-up form is a "call to action" or CTA.  The main purpose is to encourage the users through a story, advertisement, or piece of content to do something. In our case we would like our visitor to share their contact info for a possible future engagement. CTAs can play a vital role in coverting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
 
@@ -89,26 +89,29 @@ Forms are an important mechanism used by the web to receive user input.  Now we 
 
 Let's create the markup now, within the `form` to create our text fields.
 
-Look closely at the following `input` element and its different attributes.
+Look closely at how we pair the `input` and corresponding `label` elements and their different attributes.
 
 ```html
 <form>
-  <input type="text" placeholder="Your Name" name="name" />
+  <label for="name">Enter full name:</label>
+  <input type="text" placeholder="Your Name" name="name" id="name" />
 </form>
 ```
+The `label` text not only offers a visual directive of what data to enter, but also programmatically links to the associated `input`.  This means that with a screen reader, when a visitor focuses on the input field, the label will be read out, making it easier for an assistive technology user to understand what data should be entered.  Labels also enhance the user experience on a mobile device for instance because clicking on the label will target the focus in the associated input field.  Especially helpful when using a touch screen.
 
-- **Type** attribute relates to what kind of input element we are using. Here we want a text field, which is also the default value.
-- **Placeholder** offers a hint or label within the text field itself, but will not be submitted if this field is left blank.
-- **Name** attribute will declare this element so it can be referenced later when the data is submitted.
+- **for** is an attribute in the `label` that programmatically links to the `id` attribute in the `input`. 
+- **type** attribute relates to what kind of input element we are using. Here we want a text field, which is also the default value.
+- **placeholder** offers a hint or label within the text field itself, but will not be submitted if this field if left blank.
+- **name** attribute identifies the element so the response can later be referenced after the form is submitted.
 
 > **Do if Yourself**: Given the first text input field for "name," can you code
-> the the fields for "email" and "phone number?"
+> the fields for "email" and "phone number?"
 
-> **Pause**: Notice at the end of this tag is a forward slash. What is this slash for?
+> **Hint**: The label and inputs will need the attributes for `name`, `for`, `type`, `id`, and `placeholder`. 
 
-> **Urkel Says**: Confusing which is forward vs backward slash? [This](https://sites.cs.ucsb.edu/~pconrad/topics/BackslashVsForwardSlash/) might clear things up.
+> **Pause**: Notice at the end of the input tag is a forward slash. What is this slash for?
 
-> **Answer**: This is known as a self closing tag. Certain elements like an `input` element do not contain any content, but is a prompt for user interactivity, so the opening tag immediately follows a closing tag. As is a common custom for developers, a shortcut was created to avoid clutter in favor of conciseness by using this clean and quick short cut.
+> **Answer**: This is known as a self closing tag and is a common sight in HTML. Certain elements like `input` do not contain any content or child elements, so the closing tag immediately follows the opening tag. A shortcut or abbreviation was created to self close an opening tag therefore not needing to type the closing tag.  Of course HTML elements with content or child elements need to be wrapped by an opening and closing tag so cannot use this self closing tag.
 
 ### Radio Button
 
@@ -123,9 +126,12 @@ So a `radio` type input element, commonly referred to as a `radio button`, is ge
 
 ```html
 <form>
-  <input type="text" placeholder="Your Name" name="name" />
-  <input type="text" placeholder="Email Address" name="email" />
-  <input type="text" placeholder="Phone Number" name="phone" />
+  <label for="name">Enter full name:</label>
+  <input type="text" placeholder="Your Name" name="name" id="name" />
+  <label for="email">Enter email address:</label>
+  <input type="text" placeholder="Email Address" name="email" id="email" />
+  <label for="phone">Enter a telephone number:</label>
+  <input type="text" placeholder="Phone Number" name="phone" id="phone"/>
   <p>
     Have you worked out with a trainer before?
     <input type="radio" name="trainer-confirm" id="trainer-yes" />
@@ -149,7 +155,7 @@ We have wrapped both of our answers including both radio buttons within a `<p>` 
 Next, the `<label>` links the displayed values, "Yes," and "No," to their
 respective radio inputs. This link enhances accessibility by allowing users to
 click on the label's text as well as the radio buttons. They provide more
-clickable surface area. Try it out!
+clickable surface area. 
 
 > **Pause**: There is an attribute on the `label` element called `for`. Explain the purpose of this attribute.
 
@@ -165,7 +171,7 @@ clickable surface area. Try it out!
 
 A button is an essential piece of user interaction and can have a variety of different functions and uses. A button can link to another area on a web page, link to an external site, submit data to a server, or can be programmed for any activity. Our button has a special function to submit the user data gathered inside the `form`. Once again we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element,"Get running", will be written within the `button` tags to render a label onto the `button` itself.  Currently our requirements in the mock-up don't have an action to assign to the button, but normally we would assign a url path in the `<form>` tag in the action attribute.  For more on `form` and `action` look [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form).
 
-Let's take a look at our hero section's completed HTML code.
+Let's take a look at our hero section's HTML code.
 
 ```html
 <!-- hero section -->
@@ -174,9 +180,12 @@ Let's take a look at our hero section's completed HTML code.
     <h3>Get Started Today!</h3>
     <p>Fill out this form and one of our trainers will schedule a consult.</p>
     <form>
-      <input type="text" placeholder="Your Name" name="name" />
-      <input type="text" placeholder="Email Address" name="email" />
-      <input type="text" placeholder="Phone Number" name="phone" />
+      <label for="name">Enter full name:</label>
+      <input type="text" placeholder="Your Name" name="name" id="name" />
+      <label for="email">Enter email address:</label>
+      <input type="text" placeholder="Email Address" name="email" id="email" />
+      <label for="phone">Enter a telephone number:</label>
+      <input type="text" placeholder="Phone Number" name="phone" id="phone" />
       <p>
         Have you worked out with a trainer before?
         <input type="radio" name="trainer-confirm" id="trainer-yes" />
@@ -187,8 +196,8 @@ Let's take a look at our hero section's completed HTML code.
       <p>
         <label for="checkbox" >
           I acknowledge that I am at least 18 years of age.
-          <input type="checkbox" name="age-confirm" id="checkbox" />
         </label>
+        <input type="checkbox" name="age-confirm" id="checkbox" />
       </p>
       <button type="submit">
         Get running!
@@ -199,10 +208,13 @@ Let's take a look at our hero section's completed HTML code.
 <!-- end hero -->
 ```
 
-> **Pro-tip**: Notice how there are no empty lines within `section`, meaning each line has a tag either opening or closing. Being concise with language and syntax also pertains to extraneous lines or white space. Although empty lines or indentation will not affect what is rendered in the browser, it will pertain more to a best practice style guide that eases readabliity and communicates parent/child relationships to other developers or even a future you that can greatly improve development speed.
+> **Pro-tip**: Notice how there are no empty lines within `section`, meaning
+> each line has a tag either opening or closing. Being concise with language and
+> syntax also pertains to extraneous lines or white space. Although empty lines
+> or indentation will not affect what is rendered in the browser, it will
+> pertain more to a best practice style guide that eases legibility and communicates parent/child relationships to other developers or even a future you that can greatly improve development speed.
 
-That was a lot of code we just entered.  It's time to save and render to see the
-current progress of our landing page.
+That was a lot of code we just entered.  It's time to save and render to see the current progress of our landing page.
 
 You should see this in your browser:
 
@@ -234,7 +246,9 @@ attribute of the phone input to `tel`.
 The HTML for these two inputs should now look like this:
 
 ```html
+<label for="email">Enter email address:</label>
 <input type="email" placeholder="Email Address" name="email" />
+<label for="phone">Enter a telephone number:</label>
 <input type="tel" placeholder="Phone Number" name="phone" />
 ```
 
@@ -261,11 +275,11 @@ when you tap on the phone number field.
 
 > **Activity**: HTML nesting game. Place our boiler plate HTML code with finished CSS in parallel. Ask the student to place certain items here or there by nesting them properly.
 
-Congrats, I know it's not pretty yet, but our foundation work is now complete so we can proceed to the design phase of this lesson.
+Our foundation work is now complete, so we can proceed to the design phase of this lesson.
 
 ## Making our Hero Super
 
-So our hero section doesn't look very super yet, but fear not, we will learn how to design it to make it super! Let's take a look at the mock-up and examine the styling we will need to deliver our finished product. Then we'll dive into CSS and open our `style.css` in VS Code.
+So our hero section doesn't look all that great, but fear not, we will learn how to design it to make it super! Let's take a look at the mock-up and examine the styling we will need to deliver our finished product. Then we'll dive into CSS and open our `style.css` in VS Code.
 ![hero-mock-up](./assets/step-3/900-hero-mock-up.png)
 
 ### Step 3: Universal Styles
@@ -403,7 +417,7 @@ Here is an example of our border declaration block.
   border-color: #024e76;
 }
 ```
-Alternatively there is a short hand abbreviated version as well that includes all three values on one line.
+Alternatively there is a shorthand property that includes all three values on one line.
 
 ```css
 .hero-form {
@@ -524,18 +538,18 @@ Let's add this code into our CSS style sheet and take a look at the new changes 
 > **Pro-Tip**: You can save yourself a bit of heart ache or frustration by simply clicking on the Auto Save option in the `File` menu, making saving automatic.
 
 Now let's compare the `box-sizing` propery with `content-size` assignment
-![content-size](./assets/step-3/590-form-border-box-css.png)
+![content-size](./assets/step-3/590-form-content-size-css.png)
 
 And now with the `box-sizing` property with `border-box` assignment.
 ![form-box](./assets/step-3/600-form-css.png)
 
-As you can see, the `border-box` constrains the elements by calculating the padding and border with the width making centering and formatting easier.
+As you can see, the `border-box` constrains the elements by includes the padding and border with the width making calculating and formatting easier.
 
 Success. Nice job! Now let's preview a new way to make changes to your styling.
 
 ### Chrome's Dev Tools
 
-Ever think it's kind of a pain hopping back and forth between changing the CSS file, then going back and forth from the browser to see how the changes look and see what else needs a tweak. Let's use a tool in our Chrome browser called Developer Tools.
+Ever think it's kind of a pain hopping back and forth between the CSS file and the browser to see how the changes look  even for little tweaks. Let's use a tool in our Chrome browser called Developer Tools.
 This tool can be found by clicking on the hamburger button located on the top-right portion of your browser that looks like three dots vertically aligned.
 
 ![hamburger button](./assets/step-3/700-hamburger-btn.png)
@@ -565,7 +579,7 @@ This tool is a tremendous asset to front-end developers with the ability to:
 ![arrow-inspector](./assets/step-3/701-arrow-devtools.png) 
 
 This is useful when targetting a specific element. 
-Notice the changes in the `Element` and `Style` panels. Feel free to play around at will. Are these changes permanent?How can we tell?
+Notice the changes in the `Element` and `Style` panels. Feel free to play around at will. Are these changes permanent? How can we tell?
 > **Answer**: Page refresh can determine persistence or permanence of a change.
 
 These changes are not permanent and do not change the actual code, but merely offers a sandbox to try out different styles and sizes with the ability to see their affect on the element and the document itself. Once satisfied with the desired styling affect, these changes must be made to the style sheet itself in order to make the style change permanent.
