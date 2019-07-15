@@ -33,7 +33,7 @@ After having spent some thinking and typing your markup, it should now look like
 
 Let's unpack this code and see if our choices made sense.
 
-> **Rewind**: The `id` attribute's value must _exactly_ match the value of the `href` attribute in the anchor tag in the `nav` element for the in-page navigation to work. Notice the `#` identifies the attribute as an `id`.
+It's time for the final styling steps.  We can use CSS to declare the height and width of the `iframe`.  We can now remove the inline styling that we added in the `<iframe>` for the width and height since it is not best practice to have inline styling.
 
 ```html
 <nav>
