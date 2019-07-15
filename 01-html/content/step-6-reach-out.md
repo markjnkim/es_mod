@@ -130,7 +130,7 @@ Now let's save and render this view in the browser.
 
 Our next step will be adding the address to our markup.  Can you guess what the name of the element is that will contain our address information?
 
-If you guess `address` you are correct.
+If you guessed `address` you are correct.
 This element is special since not any address information, but specifically the author or owner of the article, containing element, or document.  Think of the byline of an article.
 Add this markup to the `index.html`.  It should look something like this:
 
