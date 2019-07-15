@@ -89,7 +89,7 @@ Let's unpack the configuration attributes for the `iframe` as well as talk about
 
 - **frameborder**: By default, the browser will render an `iframe` element with a thin border. This attribute allows us to override that default, effectively removing the border.
 
-> **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers so we will use the `border` property from CSS for this style property. `frameborder` will offer legacy support however for older browsers.
+> **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers so we will use the `border` property from CSS to declare this property. We wouldn't typically worry about old browser support however Google likes to cover all their bases.
 - **height** and **width**: We are able to do some inline CSS styling by declaring the `width`, `height` and `border` attributes.  The `height`, `width`, and `border` of the `iframe` can also be controlled by CSS rules in the style sheet.
 - **style**: This is an inline style to set no border for newer browsers.
 - **allowfullscreen**: Some attributes are properties that can be turned on by simply adding the attribute. `allowfullscreen` will offer a link to view the map on a new page in full screen mode. Notice how `allowfullscreen` doesn't have any value assignment. Another popular attribute that doesn't have a value assignment for example is `checked` for a `checkbox` input element.
