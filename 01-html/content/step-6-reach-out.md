@@ -209,7 +209,7 @@ Trying and failing is often the case when learning new things.  The struggle and
 
 Just as we did in previous sections, we added CSS declarations to our CSS rule that targets our `contact` class to add some distinct style to our Reach Out section.  For this rule, we updated the background color and center aligned the `div` container which includes our map and contact info. 
 
-In the second CSS rule above, that selects the `h2` element, there is no mention of the font size, border, or other display property, only the color.  
+In the second CSS rule above, .contact h2, we only declare a value for the color property. We don't declare values for the font size, border, or any other properties.
 > **Pause**: Are the other style properties being declared and if so how?
 
 > **Answer**: The other layout styles are from the CSS rule for the `section` element as well as the CSS rule for the `section-title` class declared in the `<h2>` tag.  The border color is declared by adding the `secondary-border` to the `<h2>` tag for the blue color.   
