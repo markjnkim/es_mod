@@ -278,7 +278,7 @@ Your code should look something like this:
 It is important to note that the display property overwrote the default `display` property for a `div` to allow the `div.contact-info` to sit on the same row as the `iframe` by assigning the `display` to `inline-block`.  The `text-align` property is much like the alignment property in a word processing application, allowing the text to align on a particular side or justify the spacing to create a block of text. Another important property used here is the `vertical-align` property.
 > **Pause**: Please take a moment think about what the purpose of the `vertical-align` property and what problem it solves here.
 
-> **Answer**: Because the content of this `div` naturally rests at the bottom of the container, we need the `vertical-align` property to float this content to the top.  In conjunction with the `text-align` property, this allows the contact information a begin at the top of the `div` and start aligned from the left for an easy-to-ready layout.
+> **Answer**: Because the content of this `div` naturally rests at the bottom of the container, we need the `vertical-align` property to lift this content up to the top.  In conjunction with the `text-align` property, this allows the contact information to begin at the top of the `div` and start aligned from the left for an easy-to-read layout.
 
 Let's take a break to see how our code is rendering in the browser.  It is good practice to add and commit when you make a great step in progress.
 
