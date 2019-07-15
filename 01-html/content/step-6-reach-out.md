@@ -322,7 +322,7 @@ Let's recap some of the basic fundamentals we have learned in this lesson.
 * **CSS selectors**: Learning how to select and target the specific element or group of elements is a critial first step since its not just about the style, but also *what* needs to be styled that is also important.  Just imagine the color by numbers concept in a coloring book.  Certain colors and styles should only go where needed which is why CSS selectors like classes are such great helpers.  These CSS selectors not only specify the target elements, but can be redeclared on other elements if a style design pattern needs duplication.  Changes to a style pattern such as color or sizing is simple due to the cascading nature of style sheets that allow reassignment of properities if occurring below the original assignment. 
 * **CSS layout properties**: Understanding the layout of an element using the CSS box model is essential to website design.  This box representation is the layout of each HTML element that CSS can position, color, and style.
 * **CSS display property**: The layout on the page for the elements can be manipulated by changing some of the default display properties to either align items on the same row and make items wrap to the next row.
-
+* **iframe**: Also known as an inline frame, an `iframe` is a unique HTML element that allows nested browser content from another HTML page to be embedded into the current one.  Depending on the `iframe`,  this grants the user the ability to interact with a map or play a video.
 Let's proceed to the last requirement for our mock-up to be complete by finishing this policy html page and finish our module project.
 
 
