@@ -149,7 +149,7 @@ Add this markup to the `index.html`.  It should look something like this:
   </address>
 </div>
 ```
-Now let's move onto the next part in the contact container which is the email and phone number info.  Overall it appears to be relatively the same, but according to our mock-up requirements, the email content should be a link that opens an email application and begins the composition of a new email by populating the address text input field for "To:" with the email address "info@runbuddy.io".  I know, that's seems a bit daunting, but thankfully processes like this one is a common task and therefore has a simple implementation.
+Now let's move onto the next part in the contact container which is the email and phone number info.  Overall it appears to be relatively the same, but according to our landing page requirements, the email content should be a link that opens an email application and begins the composition of a new email by populating the address text input field for "To:" with the email address "info@runbuddy.io".  I know, that's seems a bit daunting, but thankfully processes like this one is a common task and therefore has a simple implementation.
 First we will wrap this block of code in a `<p>`, then we will split the lines using a line break tag.  After adding the phone number we will need to wrap the email address in an anchor tag similar to how this was done in the `header` back in Lesson 2.  Let's write out this code now and review the attributes.
 
 ```html
