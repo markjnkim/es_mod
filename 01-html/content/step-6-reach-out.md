@@ -237,7 +237,7 @@ It's time for the final styling steps to complete not only our Reach Out section
 
 >**Answer**: Principle of single responsibility is a doctrine in computer science for best practice design patterns that in this case would suggest that styling should be in the style sheet and HTML should be left for purely HTML markup purposes. This way if a style needs to be changed, we would go to the style sheets and not in the markup.  Also note that reassignment of a CSS property isn't possible for inline styling since external style sheet references are over written by embedded and then inline styles respectively.
 
-> **Do it Yourself**: In this next styling step we will give the `iframe` a height and width.  Please add this rule to the our style sheet.  
+> **Do it Yourself**: In this next styling step we will give the `iframe` a height and width.  Please add this rule to the style sheet.  
 > **Hint**: When creating a new rule, we always start with the selector.  Think about the element we wish to target.  
 
 Your code should now look something like this:
