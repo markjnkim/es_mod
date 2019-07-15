@@ -176,7 +176,9 @@ First, let's save and render this view in the browser.
 Now let's breakdown this markup and introduce some new tags including some semantic HTML5 tags.
 * **`<br/>`**: This tag represents a line break which doesn't have content or child elements so we use a self-closing tag.
 * **`<address>`**: Defines the contact information for the author or owner of the document or parent element.
-* **`<a href="mailto:info@runbuddy.io">`**: Using the `mailto:` prefix in the anchor tag's `href` attribute opens the default mail client application upon clicking the link and then populates the address field with the email address listed in the `href` value.
+* **`<a href="mailto:info@runbuddy.io">`**: Using the `mailto:` prefix in the anchor tag's `href` attribute instructs the browser to open the default mail client application upon clicking the link and then populates the address field with the email address listed in the `href` value.
+
+> **Deep Dive**: There are a number of other attributes that can also be added besides just the address to, but also the subject, body, and even CC recipients.  See [here](https://developer.yoast.com/guide-mailto-links/) for more.  Also note due to the large amount of web traffic on smart phones, it might be good to recognize the `tel:` prefix as well [here](https://css-tricks.com/the-current-state-of-telephone-links/)
 
 ![contact-info](./assets/step-6/400-contact-info-html.png)
 
