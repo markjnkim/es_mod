@@ -48,7 +48,7 @@ Let's unpack this code and see if our choices made sense.
 
 We created a new class called `contact` for the styling needed for this section. As for the section headings, we used the class `section-title` because most of the styling needed has been done for us here except the font color will need to be reassigned to yellow.  Also having used a similar bottom border for our trainer section, we can reuse this class and thus save us a bit of writing and repeating by assigning the classes for `section-title` and `secondary-border` to the `h2` element.
 
-> **Heads up**: Important to notice how a second class was declared for the `h2` elements by simply adding another class name within the quotation marks. Whitespace is the delimiter syntax for separate classes, id's, and almost all the attributes except for the `style` attribute since this is using CSS syntax.
+> **Heads up**: Notice how a second class was declared for the `h2` elements by simply adding another class name within the quotation marks. Whitespace is the delimiter syntax for separate classes, id's, and almost all the attributes except for the `style` attribute since this is using CSS syntax.
 
 ## Step 2. Iframe, Uframe, we all frame for icecream.
 
