@@ -56,7 +56,7 @@ First off, before we can start on the map, we need to wrap the body of this sect
 
 Now let's take a closer look at this map and we will find that the requirements for the landing page specifies that this map needs to be interactive, meaning the visitors will be able to scroll and zoom the image.  But how the heck are we going to do that?
 Since we have just started to learn web development, we don't yet have the skills to accomplish this type of task or do we?
-We can use a nice trick with some of Google Maps code to embed a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embedd an HTML page into the current page.
+We can use a nice trick with some of Google Maps code to embed a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embed an HTML page into the current page.
 Let's nest the `iframe` into our contact container.  So in our case, we need a google map for a specific location so let's follow the following instructions to retrieve an `iframe` for our map address.
 
 > **Linear Steps**: How to embed a Google Map
