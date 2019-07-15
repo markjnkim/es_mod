@@ -52,11 +52,11 @@ We created a new class called `contact` for the styling needed for this section.
 
 ## Step 2. Iframe, Uframe, we all frame for icecream.
 
-First off, before we can start on the map, we need to wrap the body of this section into a `div` which we will call our contact container. We will do this because having a container enables us to restrain the child elements from floating arbitrary according to the document's flow and keep them in a constrained space. All the contact info will be related due to information type so keeping them together makes a lot of sense. Let's add a `class` called `contact-info` to this `div`.
+First off, before we can start on the map, we need to wrap the body of this section into a `div` which we will call our contact container. We'll do this because all of the contact information is semantically related, and wrapping them in a parent element enables us to constrain their flow to the bounds of that parent. Let's add a `class` called `contact-info` to this `div`.
 
-Now let's take a closer look at this map and we will find that the requirements for the landing page specifies that this map needs to be interactive, meaning the visitors will be able to scroll and zoom the image.
-
-We will need a special HTML element called an `iframe` which stands for inline frame. An `iframe` is able to nest browsing content, embedding an HTML page into the current page.
+Now let's take a closer look at this map and we will find that the requirements for the landing page specifies that this map needs to be interactive, meaning the visitors will be able to scroll and zoom the image.  But how the heck are we going to do that?
+Since we have just started to learn web development, we don't yet have the skills to accomplish this type of task or do we?
+We can use a nice trick with some of Google Maps code to embed a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embedd an HTML page into the current page.
 Let's nest the `iframe` into our contact container.  So in our case, we need a google map for a specific location so let's follow the following instructions to retrieve an `iframe` for our map address.
 
 > **Linear Steps**: How to embed a Google Map
@@ -87,14 +87,16 @@ Let's unpack the configuration attributes for the `iframe` as well as talk about
 
 - **src**: The most important attribute is the `src` since without this, nothing will render. The `src` value is a URL path linking to the external website content that will be embedded. 
 
-- **frameborder**: `iframe` elements have some styling properties built into the attributes such as height and width. This one allows a border by designating "1" and "0" for none. 
+- **frameborder**: By default, the browser will render an `iframe` element with a thin border. This attribute allows us to override that default, effectively removing the border.
+
 > **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers so we will use the `border` property from CSS for this style property. `frameborder` will offer legacy support however for older browsers.
+- **height** and **width**: We are able to do some inline CSS styling by declaring the `width`, `height` and `border` attributes.  The `height`, `width`, and `border` of the `iframe` can also be controlled by CSS rules in the style sheet.
 - **style**: This is an inline style to set no border for newer browsers.
 - **allowfullscreen**: Some attributes are properties that can be turned on by simply adding the attribute. `allowfullscreen` will offer a link to view the map on a new page in full screen mode. Notice how `allowfullscreen` doesn't have any value assignment. Another popular attribute that doesn't have a value assignment for example is `checked` for a `checkbox` input element.
 
-> **Heads up**: Please note there are several other map `iframe` options besides Google like OpenStreetMap.org.  We also added the height and width declarations to render a larger image capable of interaction.
+> **Heads up**: Please note there are several other map `iframe` options besides Google like OpenStreetMap.org. Also, we added the height and width attributes in the `iframe` to render a larger image capable of testing interactivity.
 
-Let's take a look at our page now and see what this iframe looks like. Save to retain any changes.  Take a moment to play with the map using the zoom and scrolling functionality.
+Let's take a look at our page now and see what this `iframe` looks like. Save to retain any changes.  Take a moment to play with the map using the zoom and scrolling functionality.
 
 ![iframe-map](./assets/step-6/200-iframe-html.png)
 > **Activity**: Try replacing the iframe with a [YouTube](https://www.youtube.com/) video or a [gif](https://giphy.com/). The interactivity features are available because we have embedded a tiny website within your website.  
@@ -169,35 +171,23 @@ First we will wrap this block of code in a `<p>`, then we will split the lines u
   </p>
 </div>
 ```
-<<<<<<< HEAD
-As you can see, an anchor tag wraps the content "info@runbuddy.io" creating a link. Notice how the value for the `href` has a prefix "mailto:".  Previously in the `header` back in Lesson 2, we used the `href` in the anchor tag to navigate to different elements using the "#" prefix to locate the`id` attribute.  Now we will use the "mailto:" prefix to open the default email application on your computer and populate the "To:" email input field with the text following the prefix, which will be the email address.  
-
-Let's save and render this view in the browser.
-=======
 First, let's save and render this view in the browser.
 ![contact-info](./assets/step-6/400-contact-info-html.png)
 Now let's breakdown this markup and introduce some new tags including some semantic HTML5 tags.
 * **`<br/>`**: This tag represents a line break which doesn't have content or child elements so we use a self-closing tag.
 * **`<address>`**: Defines the contact information for the author or owner of the document or parent element.
 * **`<a href="mailto:info@runbuddy.io">`**: Using the `mailto:` prefix in the anchor tag's `href` attribute opens the default mail client application upon clicking the link and then populates the address field with the email address listed in the `href` value.
->>>>>>> d08007a4ef07a9bf24d0d4dd00de65df7ef9d5a1
 
 ![contact-info](./assets/step-6/400-contact-info-html.png)
 
 Sure, the current section doesn't look quite right yet, but now that the HTML is finished, let's apply some CSS styling to fix the layout and colors.
 
-## Step 4: Styles upon styles
-Let's take a quick look at the mock-up and see where our styling process should begin, but first let's do a rewind.
+## Step 4: Our Reach Out section needs some style
+In this step, we will style the Reach Out container and the child elements.  Let's take a quick look at the mock-up to see what properties we need to change or add.
+> **Pause**: Add some CSS rules in your style sheet to center our elments, add a background color of #024e76, and change the heading font color to #fce138.
 
-> **Rewind**: CSS syntax
-* **Declaration**: A CSS property and related value form a CSS declaration.
-* **Declaration Block**: When multiple CSS declarations in a group are listed on a specific selector, this is called declaration block.
-* **Rule**: A CSS selector with the declaration/s form a CSS rule.
+> **Hint**:   We will need two CSS rules to accomplishg this task.  Can you think how we can target this section and heading for our CSS selectors?  Working code is a great source of information and now we have quite a bit we can use as a resource.  Use the code we have already created in the previous sections to help guide you.
 
-> **Bundle of Tricks**: In this step, you will style the heading and section.  The goal is to style the heading, background color, and font color with the correct values to match our mock-up.  
-
-> **Hint**: Working code is a great source of information.  Use the code you have already created in the previous sections to help guide the rules for CSS syntax and try to reverse engineer the solution if you get stuck.
-A couple of items we should think about now is some basic layout properties needed in our section we labeled with the class `contact`.  What coloring and 
 The new code should look like this:
 ```css
 /* REACH OUT STYLES START */
@@ -209,36 +199,59 @@ The new code should look like this:
 .contact h2 {
   color: #fce138;
 }
-
 ```
-> **Dev Guru**: Trying and failing is often the case when learning new things.  The struggle and frustration are often the key inflection points that lead to breakthroughs in understanding.  
+> **Dev Guru**: Although it may appear that learning programming seems hard due to strange error messages and unexplained browser behavior, understand that web development is a very challenging endeavour and even seasoned developers can become frustrated at times.  It is through enduring the struggles and overcoming the beginning growing pains that eventually programming does become less mysterious and much more manageable.  These struggles can only be overcome by trying out the new tools on your own and building up your confidence.
 
-Just as we did in previous sections, we added CSS declarations to our CSS rule that targets our `contact` class to add some distinct style to our Reach Out section.  In this case we had to update the background color and center align our container which includes our map and contact info. 
+
+Trying and failing is often the case when learning new things.  The struggle and frustration are often the key inflection points that lead to breakthroughs in understanding.  
+
+Just as we did in previous sections, we added CSS declarations to our CSS rule that targets our `contact` class to add some distinct style to our Reach Out section.  For this rule, we updated the background color and center aligned the `div` container which includes our map and contact info. 
 
 In the second CSS rule above, that selects the `h2` element, there is no mention of the font size, border, or other display property, only the color.  
 > **Pause**: Are the other style properties being declared and if so how?
+
 > **Answer**: The other layout styles are from the CSS rule for the `section` element as well as the CSS rule for the `section-title` class declared in the `<h2>` tag.  The border color is declared by adding the `secondary-border` to the `<h2>` tag for the blue color.   
 
 > **Pause**: If the font color for the `h2` was reassigned to red on the following line, which color would potentially render?
 
 > **Answer**: If a CSS declaration for the same CSS selector is defined in a rule, the declaration positioned lowest in the cascading style sheet hierarchy will have precedent.  In this case the font color will be red since the last reassignment of the font color was red.
 
+> **Rewind**: If the theory of cascading still seems a bit hazy, it might be a good idea to take a look back on Lesson 2, where this subject was explained in richer detail.
+
 Please save and view in the browser to see style changes.
 
 ![contact-info](./assets/step-6/300-contact-css.png)
 
-Looks like we are now ready to apply some style to the `iframe` and contact info container.
+Very nicely centered.  Now it looks like we are ready to apply some style to the `iframe` and contact info container.
 
-## Step 5: Contact Styles
-It's time for the final styling steps.  We can use CSS to declare the height and width of the `iframe`.  We can now remove the inline styling that was declared in the `<iframe>` for the width and height since it is not best practice to have inline styling.
+## Step 5: Styling our iframe and contact info
+It's time for the final styling steps to complete not only our Reach Out section, but also the landing page as well. 
+
+ Let's start with the `iframe` and create the CSS rule that will give us some of the size dimensions.  But wait, didn't we do that already in the markup with the attributes?  
+ 
+ We can use CSS to declare the height and width of the `iframe`.  Please remove the inline styling that was declared in the `<iframe>` for the width and height since it is not best practice to have inline styling.
 
 >**Pause**: What are a few reasons why inline styling is considered a bad practice?
 
->**Answer**: Principle of single responsibility is a doctrine in computer science for best practice design patterns that in this case would opine that styling should be in the style sheet and HTML should be left for purely HTML markup purposes.  This way if a style needs to be changed, this is acheived by looking in the style sheets and not in the markup.  Also note that reassignment of a CSS property isn't possible for inline styling since external style sheet references are over written by embedded and then inline styles respectively.
+>**Answer**: Principle of single responsibility is a doctrine in computer science for best practice design patterns that in this case would suggest that styling should be in the style sheet and HTML should be left for purely HTML markup purposes. This way if a style needs to be changed, we would go to the style sheets and not in the markup.  Also note that reassignment of a CSS property isn't possible for inline styling since external style sheet references are over written by embedded and then inline styles respectively.
+
+> **Do it Yourself**: In this next styling step we will give the `iframe` a height and width.  Please add this rule to the our style sheet.  
+> **Hint**: When creating a new rule, we always start with the selector.  Think about the element we wish to target.  
+
+Your code should now look something like this:
+```css
+.contact-info iframe {
+  width: 400px;
+  height: 400px;
+}
+```
+So this may be a little different than your implementation so let's break this rule down a little further to see the "why" of our choices.
+* **CSS Selector**: `.contact-info iframe` was chosen, but  `iframe` would've worked just as well since there is only one `iframe` currently in this project. But what happens if another `iframe` is added, either in this HTML file or in any HTML file linking to this style sheet?  This rule would style every `iframe` element which could add styling where it wasn't wanted leading to surprising results.  A type selector is a CSS selector, like in this example with `iframe`, that select every HTML element of that type.  A potentially dangerous choice due to possible side effects unless a global rule is wanted.  By using the class as the CSS selector, also alled a class selector, we can safely target the `iframe` that is a descendent or child of the element with this class.  
+> **Deep Dive**: CSS selectors are the targeting mechanisms and come in a large number of possibilities. For a detailed look click [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 
 > **Do it Yourself**: In the next styling step we will need to find a way for the `iframe` and `div` containing the contact-info to sit in the same row, side by side, rather than on top of each other.  
 
-> **Hint**: It will be important to select the `div` within the `div.contact-info` to update the  `display` property.
+> **Hint**: It is important to create a rule selecting the child `div` nested in the parent `div` with the class `.contact-info` to create a declaration with the `display` property.
 
 > **Hint**: To give the `div` a column or vertical layout, it will be important to declare width, text alignment, and the display property.
 
@@ -247,7 +260,7 @@ Your code should look something like this:
 ```css
 .contact-info iframe {
   width: 400px;
-  min-height: 400px;
+  height: 400px;
 }
 
 .contact-info div {
@@ -260,9 +273,16 @@ Your code should look something like this:
 }
 ```
 
-It is important to note that the display property overwrote the default `display` property for a `div` to allow the `div.contact-info` to sit on the same row as the `iframe` by assigning the `display` to `inline-block`.  The `text-align` property is much like the alignment property in a word processing application, allowing the text to align on a particular side or justify the spacing to create a block of text.
+It is important to note that the display property overwrote the default `display` property for a `div` to allow the `div.contact-info` to sit on the same row as the `iframe` by assigning the `display` to `inline-block`.  The `text-align` property is much like the alignment property in a word processing application, allowing the text to align on a particular side or justify the spacing to create a block of text. Another important property used here is the `vertical-align` property.
+> **Pause**: Please take a moment think about what the purpose of the `vertical-align` property and what problem it solves here.
 
-In the following CSS rules, we will be applying some font color and spacing to the contact info as well as changing the link color to yellow.  Try out the spacing and coloring in Chrome's DevTools as a great way to try out different combinations.  Use the CSS box model to add some pixels to the different layers for each element.  
+> **Answer**: Because the content of this `div` naturally rests at the bottom of the container, we need the `vertical-align` property to float this content to the top.  In conjunction with the `text-align` property, this allows the contact information a begin at the top of the `div` and start aligned from the left for an easy-to-ready layout.
+
+Let's take a break to see what how our code is rendering in the browser.  It is good practice to add and commit when you make a great step in progress.
+
+In the following CSS rules, let's refer to the mock-up and see what our following steps must be.  Looks like we will be applying some font color(#fce138) and size to the `h3`, adding spacing, line height, and font size to our contact info content, and changing the link color to yellow(#fce138).  Try out the spacing and coloring in Chrome's DevTools as a great way to try out different combinations.  Use the CSS box model to add some pixels to the different layers for each element to see what looks best.  
+Remember the CSS box model is in the Styles panel in DevTools.
+![DevTools-CSS-box-model](./assets/step-6/700-DevTools-css.png)
 
 > **Hint**: Use the property for `line-height` to adjust how to stretch out or shrink the text to find the best matching measurement that aligns with our mock-up. 
 
@@ -291,13 +311,15 @@ Your completed CSS rules for the Reach Out section should look like this:
 ```
 Note that the second CSS rule targets two different elements.  The comma separates the two selectors and identifies the following declaration block will apply to both CSS selectors.
 
-Let's save, commit, and render the HTML page and review the work.
-Congrats, you have completed the landing page and created a professional layout.  Now let's create our `policy.html` page next, to complete our mock-up requirements.
+Let's save the file and reload `index.html` in the browser.  
+Congrats, you have completed the landing page and created a professional layout.  Now is a great time to add, commit, and push your work to your repo. 
+
+Next we will create our `policy.html` page, to complete our mock-up requirements.
 
 ## Reflection
 Let's recap some of the basic fundamentals we have learned in this lesson.
 
-* **CSS selectors**: Learning how to select and target the specific element or group of elements is a critial first step since its not just the style, but *what* needs to be styled that is important.  Just imagine the color by numbers concept in coloring books.  Certain colors and styles should only go where needed which is why CSS selectors like classes are such great helpers.  These CSS selectors not only specify the target elements, but can be redeclared on other elements if a style design pattern needs duplication.  Changes to a style pattern such as color or sizing is simple due to the cascading nature of style sheets that allow reassignment of properities if occurring below the original assignment. 
+* **CSS selectors**: Learning how to select and target the specific element or group of elements is a critial first step since its not just about the style, but also *what* needs to be styled that is also important.  Just imagine the color by numbers concept in a coloring book.  Certain colors and styles should only go where needed which is why CSS selectors like classes are such great helpers.  These CSS selectors not only specify the target elements, but can be redeclared on other elements if a style design pattern needs duplication.  Changes to a style pattern such as color or sizing is simple due to the cascading nature of style sheets that allow reassignment of properities if occurring below the original assignment. 
 * **CSS layout properties**: Understanding the layout of an element using the CSS box model is essential to website design.  This box representation is the layout of each HTML element that CSS can position, color, and style.
 * **CSS display property**: The layout on the page for the elements can be manipulated by changing some of the default display properties to either align items on the same row and make items wrap to the next row.
 
