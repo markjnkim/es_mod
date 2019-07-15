@@ -100,7 +100,7 @@ Let's take a look at our page now and see what this `iframe` looks like. Save to
 
 ![iframe-map](./assets/step-6/200-iframe-html.png)
 > **Activity**: Try replacing the iframe with a [YouTube](https://www.youtube.com/) video or a [gif](https://giphy.com/). The interactivity features are available because we have embedded a tiny website within your website.  
-> **Deep Dive**: It is important to note and the use of an `iframe` element does have a good and bad practice associated with it.  Please look [here](https://www.lifewire.com/when-to-use-iframes-3468667) and [here](https://stackoverflow.com/questions/362730/are-iframes-considered-bad-practice) for a closer look.
+> **Deep Dive**: It is important to note that the use of an `iframe` element does have a good and bad practice associated with it.  Please look [here](https://www.lifewire.com/when-to-use-iframes-3468667) and [here](https://stackoverflow.com/questions/362730/are-iframes-considered-bad-practice) for a closer look.
 Please note that not all websites allow for use in `iframe`.
 
 ## Step 3: Creating our Contact Info
