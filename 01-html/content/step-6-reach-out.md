@@ -191,9 +191,9 @@ Sure, the current section doesn't look quite right yet, but now that the HTML is
 
 ## Step 4: Our Reach Out section needs some style
 In this step, we will style the Reach Out container and the child elements.  Let's take a quick look at the mock-up to see what properties we need to change or add.
-> **Pause**: Add some CSS rules in your style sheet to center our elments, add a background color of #024e76, and change the heading font color to #fce138.
+> **Pause**: Add some CSS rules in your style sheet to center our elements, add a background color of #024e76, and change the heading font color to #fce138.
 
-> **Hint**:   We will need two CSS rules to accomplishg this task.  Can you think how we can target this section and heading for our CSS selectors?  Working code is a great source of information and now we have quite a bit we can use as a resource.  Use the code we have already created in the previous sections to help guide you.
+> **Hint**:   We will need two CSS rules to accomplish this task.  Can you think how we can target this section and heading for our CSS selectors?  Working code is a great source of information and now we have quite a bit we can use as a resource.  Use the code we have already created in the previous sections to help guide you.
 
 The new code should look like this:
 ```css
@@ -329,7 +329,7 @@ Next we will create our `policy.html` page, to complete our mock-up requirements
 ## Reflection
 Let's recap some of the basic fundamentals we have learned in this lesson.
 
-* **CSS selectors**: Learning how to select and target the specific element or group of elements is a critial first step since its not just about the style, but also *what* needs to be styled that is also important.  Just imagine the color by numbers concept in a coloring book.  Certain colors and styles should only go where needed which is why CSS selectors like classes are such great helpers.  These CSS selectors not only specify the target elements, but can be redeclared on other elements if a style design pattern needs duplication.  Changes to a style pattern such as color or sizing is simple due to the cascading nature of style sheets that allow reassignment of properities if occurring below the original assignment. 
+* **CSS selectors**: Learning how to select and target the specific element or group of elements is a critical first step since its not just about the style, but also *what* needs to be styled that is also important.  Just imagine the color by numbers concept in a coloring book.  Certain colors and styles should only go where needed which is why CSS selectors like classes are such great helpers.  These CSS selectors not only specify the target elements, but can be redeclared on other elements if a style design pattern needs duplication.  Changes to a style pattern such as color or sizing is simple due to the cascading nature of style sheets that allow reassignment of properties if occurring below the original assignment. 
 * **CSS layout properties**: Understanding the layout of an element using the CSS box model is essential to website design.  This box representation is the layout of each HTML element that CSS can position, color, and style.
 * **CSS display property**: The layout on the page for the elements can be manipulated by changing some of the default display properties to either align items on the same row and make items wrap to the next row.
 * **iframe**: Also known as an inline frame, an `iframe` is a unique HTML element that allows nested browser content from another HTML page to be embedded into the current one.  Depending on the `iframe`,  this grants the user the ability to interact with a map or play a video.
