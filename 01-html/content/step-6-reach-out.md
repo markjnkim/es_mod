@@ -309,7 +309,7 @@ Your completed CSS rules for the Reach Out section should look like this:
 /* REACH OUT STYLES END */
 
 ```
-Note that the second CSS rule targets two different elements.  The comma separates the two selectors and identifies the following declaration block will apply to both CSS selectors.
+Note that the second CSS rule targets two different elements.  The comma separates the two selectors, indicating that the following declaration block will apply to both CSS selectors.
 
 Let's save the file and reload `index.html` in the browser.  
 Congrats, you have completed the landing page and created a professional layout.  Now is a great time to add, commit, and push your work to your repo. 
