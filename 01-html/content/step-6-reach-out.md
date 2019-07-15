@@ -280,7 +280,7 @@ It is important to note that the display property overwrote the default `display
 
 > **Answer**: Because the content of this `div` naturally rests at the bottom of the container, we need the `vertical-align` property to float this content to the top.  In conjunction with the `text-align` property, this allows the contact information a begin at the top of the `div` and start aligned from the left for an easy-to-ready layout.
 
-Let's take a break to see what how our code is rendering in the browser.  It is good practice to add and commit when you make a great step in progress.
+Let's take a break to see how our code is rendering in the browser.  It is good practice to add and commit when you make a great step in progress.
 
 In the following CSS rules, let's refer to the mock-up and see what our following steps must be.  Looks like we will be applying some font color(#fce138) and size to the `h3`, adding spacing, line height, and font size to our contact info content, and changing the link color to yellow(#fce138).  Try out the spacing and coloring in Chrome's DevTools as a great way to try out different combinations.  Use the CSS box model to add some pixels to the different layers for each element to see what looks best.  
 Remember the CSS box model is in the Styles panel in DevTools.
