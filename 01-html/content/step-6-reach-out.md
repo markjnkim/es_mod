@@ -33,7 +33,7 @@ After having spent some thinking and typing your markup, it should now look like
 
 Let's unpack this code and see if our choices made sense.
 
-> **Rewind**: The `id` attribute's value must _exactly_ match the value of the `href` attribute in the anchor tag in the `nav` element for the in-page navigation to work. Notice the `#` identifies the attribute as an `id`.
+It's time for the final styling steps.  We can use CSS to declare the height and width of the `iframe`.  We can now remove the inline styling that we added in the `<iframe>` for the width and height since it is not best practice to have inline styling.
 
 ```html
 <nav>
@@ -48,7 +48,7 @@ Let's unpack this code and see if our choices made sense.
 
 We created a new class called `contact` for the styling needed for this section. As for the section headings, we used the class `section-title` because most of the styling needed has been done for us here except the font color will need to be reassigned to yellow.  Also having used a similar bottom border for our trainer section, we can reuse this class and thus save us a bit of writing and repeating by assigning the classes for `section-title` and `secondary-border` to the `h2` element.
 
-> **Heads up**: Important to notice how a second class was declared for the `h2` elements by simply adding another class name within the quotation marks. Whitespace is the delimiter syntax for separate classes, id's, and almost all the attributes except for the `style` attribute since this is using CSS syntax.
+> **Heads up**: Notice how a second class was declared for the `h2` elements by simply adding another class name within the quotation marks. Whitespace is the delimiter syntax for separate classes, id's, and almost all the attributes except for the `style` attribute since this is using CSS syntax.
 
 ## Step 2. Iframe, Uframe, we all frame for ice cream.
 
@@ -61,7 +61,7 @@ Since we have just started to learn web development, we don't yet have the skill
 We can use a nice trick with some of Google Maps code to embed a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embed an HTML page into the current page.  But how the heck are we going to do that?
 Since we have just started to learn web development, we don't yet have the skills to accomplish this type of task or do we?
 We can use a nice trick with some of Google Maps code to embed a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embed an HTML page into the current page.
-Let's nest the `iframe` into our contact container.  So in our case, we need a google map for a specific location so let's follow the following instructions to retrieve an `iframe` for our map address.
+Let's nest the `iframe` into our contact container. In our case, we will need a google map for a specific location so let's follow the instructions to retrieve an `iframe` for our map address.
 
 > **Linear Steps**: How to embed a Google Map
 
@@ -94,7 +94,7 @@ Let's unpack the configuration attributes for the `iframe` as well as talk about
 - **frameborder**: By default, the browser will render an `iframe` element with a thin border. This attribute allows us to override that default, effectively removing the border.
 
 > **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers so we will use the `border` property from CSS to declare this property. We wouldn't typically worry about old browser support however Google likes to cover all their bases.
-- **height** and **width**: We are able to do some inline CSS styling by declaring the `width`, `height` and `border` attributes.  The `height`, `width`, and `border` of the `iframe` can also be controlled by CSS rules in the style sheet.
+- **height** and **width**: We are able to do some CSS styling by declaring the `width`, `height` and `border` attributes.  The `height`, `width`, and `border` of the `iframe` can also be controlled by CSS rules in the style sheet.
 - **style**: This is an inline style to set no border for newer browsers.
 - **allowfullscreen**: Some attributes are properties that can be turned on by simply adding the attribute. `allowfullscreen` will offer a link to view the map on a new page in full screen mode. Notice how `allowfullscreen` doesn't have any value assignment. Another popular attribute that doesn't have a value assignment for example is `checked` for a `checkbox` input element.
 
@@ -107,7 +107,7 @@ These interactive controls aren't actually a part of the `iframe`, but rather he
 
 ![iframe-map](./assets/step-6/200-iframe-html.png)
 > **Activity**: Try replacing the iframe with a [YouTube](https://www.youtube.com/) video or a [gif](https://giphy.com/). The interactivity features are available because we have embedded a tiny website within your website.  
-> **Deep Dive**: It is important to note and the use of an `iframe` element does have a good and bad practice associated with it.  Please look [here](https://www.lifewire.com/when-to-use-iframes-3468667) and [here](https://stackoverflow.com/questions/362730/are-iframes-considered-bad-practice) for a closer look.
+> **Deep Dive**: It is important to note that the use of an `iframe` element does have a good and bad practice associated with it.  Please look [here](https://www.lifewire.com/when-to-use-iframes-3468667) and [here](https://stackoverflow.com/questions/362730/are-iframes-considered-bad-practice) for a closer look.
 Please note that not all websites allow for use in `iframe`.
 
 ## Step 3: Creating our Contact Info
@@ -137,8 +137,8 @@ Now let's save and render this view in the browser.
 
 Our next step will be adding the address to our markup.  Can you guess what the name of the element is that will contain our address information?
 
-If you guess `address` you are correct.
-This element is special since not any address information, but specifically the author or owner of the article, containing element, or document.  Think of the byline of an article.
+If you guessed `address` you are correct.
+The <address> tag defines the contact information for the author/owner of a document or an article. If the `address` element is inside the `body` element, it represents contact information for the document.
 Add this markup to the `index.html`.  It should look something like this:
 
 ```html
@@ -156,7 +156,7 @@ Add this markup to the `index.html`.  It should look something like this:
   </address>
 </div>
 ```
-Now let's move onto the next part in the contact container which is the email and phone number info.  Overall it appears to be relatively the same, but according to our mock-up requirements, the email content should be a link that opens an email application and begins the composition of a new email by populating the address text input field for "To:" with the email address "info@runbuddy.io".  I know, that's seems a bit daunting, but thankfully processes like this one is a common task and therefore has a simple implementation.
+Now let's move onto the next part in the contact container which is the email and phone number info.  Overall it appears to be relatively the same, but according to our landing page requirements, the email content should be a link that opens an email application and begins the composition of a new email by populating the address text input field for "To:" with the email address "info@runbuddy.io".  I know, that's seems a bit daunting, but thankfully processes like this one is a common task and therefore has a simple implementation.
 First we will wrap this block of code in a `<p>`, then we will split the lines using a line break tag.  After adding the phone number we will need to wrap the email address in an anchor tag similar to how this was done in the `header` back in Lesson 2.  Let's write out this code now and review the attributes.
 
 ```html
@@ -181,9 +181,10 @@ First we will wrap this block of code in a `<p>`, then we will split the lines u
 First, let's save and render this view in the browser.
 ![contact-info](./assets/step-6/400-contact-info-html.png)
 Now let's breakdown this markup and introduce some new tags including some semantic HTML5 tags.
-* **`<br/>`**: This tag represents a line break which doesn't have content or child elements so we use a self-closing tag.
 * **`<address>`**: Defines the contact information for the author or owner of the document or parent element.
-* **`<a href="mailto:info@runbuddy.io">`**: Using the `mailto:` prefix in the anchor tag's `href` attribute opens the default mail client application upon clicking the link and then populates the address field with the email address listed in the `href` value.
+* **`<a href="mailto:info@runbuddy.io">`**: Using the `mailto:` prefix in the anchor tag's `href` attribute instructs the browser to open the default mail client application upon clicking the link and then populates the address field with the email address listed in the `href` value.
+
+> **Deep Dive**: There are a number of other attributes that can also be added besides just the address to, but also the subject, body, and even CC recipients.  See [here](https://developer.yoast.com/guide-mailto-links/) for more.  Also note due to the large amount of web traffic on smart phones, it might be good to recognize the `tel:` prefix as well [here](https://css-tricks.com/the-current-state-of-telephone-links/)
 
 ![contact-info](./assets/step-6/400-contact-info-html.png)
 
@@ -214,7 +215,7 @@ Trying and failing is often the case when learning new things.  The struggle and
 
 Just as we did in previous sections, we added CSS declarations to our CSS rule that targets our `contact` class to add some distinct style to our Reach Out section.  For this rule, we updated the background color and center aligned the `div` container which includes our map and contact info. 
 
-In the second CSS rule above, that selects the `h2` element, there is no mention of the font size, border, or other display property, only the color.  
+In the second CSS rule above, .contact h2, we only declare a value for the color property. We don't declare values for the font size, border, or any other properties.
 > **Pause**: Are the other style properties being declared and if so how?
 
 > **Answer**: The other layout styles are from the CSS rule for the `section` element as well as the CSS rule for the `section-title` class declared in the `<h2>` tag.  The border color is declared by adding the `secondary-border` to the `<h2>` tag for the blue color.   
@@ -242,7 +243,7 @@ It's time for the final styling steps to complete not only our Reach Out section
 
 >**Answer**: Principle of single responsibility is a doctrine in computer science for best practice design patterns that in this case would suggest that styling should be in the style sheet and HTML should be left for purely HTML markup purposes. This way if a style needs to be changed, we would go to the style sheets and not in the markup.  Also note that reassignment of a CSS property isn't possible for inline styling since external style sheet references are over written by embedded and then inline styles respectively.
 
-> **Do it Yourself**: In this next styling step we will give the `iframe` a height and width.  Please add this rule to the our style sheet.  
+> **Do it Yourself**: In this next styling step we will give the `iframe` a height and width.  Please add this rule to the style sheet.  
 > **Hint**: When creating a new rule, we always start with the selector.  Think about the element we wish to target.  
 
 Your code should now look something like this:
@@ -253,7 +254,7 @@ Your code should now look something like this:
 }
 ```
 So this may be a little different than your implementation so let's break this rule down a little further to see the "why" of our choices.
-* **CSS Selector**: `.contact-info iframe` was chosen, but  `iframe` would've worked just as well since there is only one `iframe` currently in this project. But what happens if another `iframe` is added, either in this HTML file or in any HTML file linking to this style sheet?  This rule would style every `iframe` element which could add styling where it wasn't wanted leading to surprising results.  A type selector is a CSS selector, like in this example with `iframe`, that select every HTML element of that type.  A potentially dangerous choice due to possible side effects unless a global rule is wanted.  By using the class as the CSS selector, also called a class selector, we can safely target the `iframe` that is a descendent or child of the element with this class.  
+* **CSS Selector**: `.contact-info iframe` was chosen, but  `iframe` would've worked just as well since there is only one `iframe` currently in this project. But what happens if another `iframe` is added, either in this HTML file or in any HTML file linking to this style sheet?  This rule would style every `iframe` element which could add styling where it wasn't wanted leading to surprising results.  A type selector is a CSS selector, like in this example with `iframe`, that selects every HTML element of that type.  A potentially dangerous choice due to possible side effects unless a global rule is wanted.  By using the class as the CSS selector, also called a class selector, we can safely target the `iframe` that is a descendent or child of the element with this class.  
 > **Deep Dive**: CSS selectors are the targeting mechanisms and come in a large number of possibilities. For a detailed look click [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 
 > **Do it Yourself**: In the next styling step we will need to find a way for the `iframe` and `div` containing the contact-info to sit in the same row, side by side, rather than on top of each other.  
@@ -286,9 +287,9 @@ The difference between `inline` and `inline-block` is that `inline-block` has th
 Another important property used here is the `vertical-align` property.
 > **Pause**: Please take a moment think about what the purpose of the `vertical-align` property and what problem it solves here.
 
-> **Answer**: Because the content of this `div` naturally rests at the bottom of the container, we need the `vertical-align` property to float this content to the top.  In conjunction with the `text-align` property, this allows the contact information a begin at the top of the `div` and start aligned from the left for an easy-to-ready layout.
+> **Answer**: Because the content of this `div` naturally rests at the bottom of the container, we need the `vertical-align` property to lift this content up to the top.  In conjunction with the `text-align` property, this allows the contact information to begin at the top of the `div` and start aligned from the left for an easy-to-read layout.
 
-Let's take a break to see what how our code is rendering in the browser.  It is good practice to add and commit when you make a great step in progress.
+Let's take a break to see how our code is rendering in the browser.  It is good practice to add and commit when you make a great step in progress.
 
 In the following CSS rules, let's refer to the mock-up and see what our following steps must be.  Looks like we will be applying some font color(#fce138) and size to the `h3`, adding spacing, line height, and font size to our contact info content, and changing the link color to yellow(#fce138).  Try out the spacing and coloring in Chrome's DevTools as a great way to try out different combinations.  Use the CSS box model to add some pixels to the different layers for each element to see what looks best.  
 Remember the CSS box model is in the Styles panel in DevTools.
@@ -319,7 +320,7 @@ Your completed CSS rules for the Reach Out section should look like this:
 /* REACH OUT STYLES END */
 
 ```
-Note that the second CSS rule targets two different elements.  The comma separates the two selectors and identifies the following declaration block will apply to both CSS selectors.
+Note that the second CSS rule targets two different elements.  The comma separates the two selectors, indicating that the following declaration block will apply to both CSS selectors.
 
 Let's save the file and reload `index.html` in the browser.  
 Congrats, you have completed the landing page and created a professional layout.  Now is a great time to add, commit, and push your work to your repo. 
