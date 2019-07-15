@@ -8,7 +8,7 @@ Way to go! Our landing page is nearly finished. Let's get to work on our last se
 
 Having met our trainers, our visitors are now motivated and pumped to get started on their fitness journey. In order to hit their goals, it's important to get started right away. So how do our visitors get in touch, to get in shape? This is where the Reach Out section will come into play. This section is where our visitors can reach out directly to our sales staff to get their questions answered and hopefully convert into customers.
 
-Take stock of some of the markup we will need to complete the last section on the landing page in the mock-up pictured above. Similarly to the previous sections, we have a heading, but in this case we also have a map and some contact info. Let's get started with the Reach Out section by starting with the markup provided to us and build our section piece by piece.
+We can visualize some of the markup we will need to match the mock-up pictured above. Similarly to the previous sections, we have a heading, but in this case we also have a map and some contact info. Let's get started with the Reach Out section by starting with the markup provided to us and build our section piece by piece.
 
 ## Step 1: Building a Contact
 
@@ -50,13 +50,17 @@ We created a new class called `contact` for the styling needed for this section.
 
 > **Heads up**: Important to notice how a second class was declared for the `h2` elements by simply adding another class name within the quotation marks. Whitespace is the delimiter syntax for separate classes, id's, and almost all the attributes except for the `style` attribute since this is using CSS syntax.
 
-## Step 2. Iframe, Uframe, we all frame for icecream.
+## Step 2. Iframe, Uframe, we all frame for ice cream.
 
-First off, before we can start on the map, we need to wrap the body of this section into a `div` which we will call our contact container. We'll do this because all of the contact information is semantically related, and wrapping them in a parent element enables us to constrain their flow to the bounds of that parent. Let's add a `class` called `contact-info` to this `div`.
+First off, before we can start on the map, we need to wrap the following content of this section into a `div` which we will call our contact container.  We'll do this because all of the contact information is semantically related, and wrapping them in a parent element enables us to constrain their flow to the bounds of that parent. Let's add a `class` called `contact-info` to this `div`.
 
-Now let's take a closer look at this map and we will find that the requirements for the landing page specifies that this map needs to be interactive, meaning the visitors will be able to scroll and zoom the image.  But how the heck are we going to do that?
+> **Rewind**: Remember how we wrapped the content for our trainers' info inside an `<article>`.  What we are doing here with the contact info is the same concept.
+
+Now let's take a closer look at this map and we will find that the requirements for the landing page specifies that this map needs to be interactive, meaning the visitors will be able to scroll, move, and zoom the image.  But how the heck are we going to do that?
 Since we have just started to learn web development, we don't yet have the skills to accomplish this type of task or do we?
-We can use a nice trick with some of Google Maps code to embed a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embedd an HTML page into the current page.
+We can use a nice trick with some of Google Maps code to embed a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embed an HTML page into the current page.  But how the heck are we going to do that?
+Since we have just started to learn web development, we don't yet have the skills to accomplish this type of task or do we?
+We can use a nice trick with some of Google Maps code to embed a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embed an HTML page into the current page.
 Let's nest the `iframe` into our contact container.  So in our case, we need a google map for a specific location so let's follow the following instructions to retrieve an `iframe` for our map address.
 
 > **Linear Steps**: How to embed a Google Map
@@ -96,7 +100,10 @@ Let's unpack the configuration attributes for the `iframe` as well as talk about
 
 > **Heads up**: Please note there are several other map `iframe` options besides Google like OpenStreetMap.org. Also, we added the height and width attributes in the `iframe` to render a larger image capable of testing interactivity.
 
-Let's take a look at our page now and see what this `iframe` looks like. Save to retain any changes.  Take a moment to play with the map using the zoom and scrolling functionality.
+Let's take a look at our page now and see what this iframe looks like. Save to retain any changes.  Take a moment to play with the map using the zoom and scrolling functionality.
+
+These interactive controls aren't actually a part of the `iframe`, but rather helpful controls that Google adds to the page when it detects the map is being rendered inside an `iframe`.
+
 
 ![iframe-map](./assets/step-6/200-iframe-html.png)
 > **Activity**: Try replacing the iframe with a [YouTube](https://www.youtube.com/) video or a [gif](https://giphy.com/). The interactivity features are available because we have embedded a tiny website within your website.  
@@ -200,7 +207,7 @@ The new code should look like this:
   color: #fce138;
 }
 ```
-> **Dev Guru**: Although it may appear that learning programming seems hard due to strange error messages and unexplained browser behavior, understand that web development is a very challenging endeavour and even seasoned developers can become frustrated at times.  It is through enduring the struggles and overcoming the beginning growing pains that eventually programming does become less mysterious and much more manageable.  These struggles can only be overcome by trying out the new tools on your own and building up your confidence.
+> **Dev Guru**: Even seasoned programmers can struggle and become frustrated when learning new tools.  The difference is that knowledgeable programmers have a much higher familiarity with not only the syntax, but also experience with past tools that allows  for some intuitive problem solving.  That's why it is important in programming to have lots of hands on experience struggling through problems to find a solution.
 
 
 Trying and failing is often the case when learning new things.  The struggle and frustration are often the key inflection points that lead to breakthroughs in understanding.  
@@ -246,7 +253,7 @@ Your code should now look something like this:
 }
 ```
 So this may be a little different than your implementation so let's break this rule down a little further to see the "why" of our choices.
-* **CSS Selector**: `.contact-info iframe` was chosen, but  `iframe` would've worked just as well since there is only one `iframe` currently in this project. But what happens if another `iframe` is added, either in this HTML file or in any HTML file linking to this style sheet?  This rule would style every `iframe` element which could add styling where it wasn't wanted leading to surprising results.  A type selector is a CSS selector, like in this example with `iframe`, that select every HTML element of that type.  A potentially dangerous choice due to possible side effects unless a global rule is wanted.  By using the class as the CSS selector, also alled a class selector, we can safely target the `iframe` that is a descendent or child of the element with this class.  
+* **CSS Selector**: `.contact-info iframe` was chosen, but  `iframe` would've worked just as well since there is only one `iframe` currently in this project. But what happens if another `iframe` is added, either in this HTML file or in any HTML file linking to this style sheet?  This rule would style every `iframe` element which could add styling where it wasn't wanted leading to surprising results.  A type selector is a CSS selector, like in this example with `iframe`, that select every HTML element of that type.  A potentially dangerous choice due to possible side effects unless a global rule is wanted.  By using the class as the CSS selector, also called a class selector, we can safely target the `iframe` that is a descendent or child of the element with this class.  
 > **Deep Dive**: CSS selectors are the targeting mechanisms and come in a large number of possibilities. For a detailed look click [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 
 > **Do it Yourself**: In the next styling step we will need to find a way for the `iframe` and `div` containing the contact-info to sit in the same row, side by side, rather than on top of each other.  
@@ -272,8 +279,11 @@ Your code should look something like this:
   color: white;
 }
 ```
+It is important to note that in the CSS rule above for the `div`, we overwrote the default `display` property for a `div` and changed it from `block` to `inline-block`.  This allows the `.contact-info` container to sit on the same row as the `iframe` element.
 
-It is important to note that the display property overwrote the default `display` property for a `div` to allow the `div.contact-info` to sit on the same row as the `iframe` by assigning the `display` to `inline-block`.  The `text-align` property is much like the alignment property in a word processing application, allowing the text to align on a particular side or justify the spacing to create a block of text. Another important property used here is the `vertical-align` property.
+The difference between `inline` and `inline-block` is that `inline-block` has the ability to assign width and height, therefore treating it like a block while still being able to sit within the normal flow of the document.
+
+Another important property used here is the `vertical-align` property.
 > **Pause**: Please take a moment think about what the purpose of the `vertical-align` property and what problem it solves here.
 
 > **Answer**: Because the content of this `div` naturally rests at the bottom of the container, we need the `vertical-align` property to float this content to the top.  In conjunction with the `text-align` property, this allows the contact information a begin at the top of the `div` and start aligned from the left for an easy-to-ready layout.
