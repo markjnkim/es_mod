@@ -6,7 +6,7 @@ Way to go! Our landing page is nearly finished. Let's get to work on our last se
 
 ![Reach-Out Mock-up](./assets/step-6/100-RO-mock-up.png)
 
-Having met our trainers, our visitors are now motivated and pumped to get started on their fitness journey. In order to hit their goals, it's important to get started right away. So how do our visitors get in touch, to get in shape? This is where the our Reach Out section will come into play. This section is where our visitors can reach out directly to our sales staff to get their questions answered and hopefully convert into customers.
+Having met our trainers, our visitors are now motivated and pumped to get started on their fitness journey. In order to hit their goals, it's important to get started right away. So how do our visitors get in touch, to get in shape? This is where the Reach Out section will come into play. This section is where our visitors can reach out directly to our sales staff to get their questions answered and hopefully convert into customers.
 
 Take stock of some of the markup we will need to complete the last section on the landing page in the mock-up pictured above. Similarly to the previous sections, we have a heading, but in this case we also have a map and some contact info. Let's get started with the Reach Out section by starting with the markup provided to us and build our section piece by piece.
 
