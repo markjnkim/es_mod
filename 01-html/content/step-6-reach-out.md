@@ -237,7 +237,7 @@ It's time for the final styling steps to complete not only our Reach Out section
 
  Let's start with the `iframe` and create the CSS rule that will give us some of the size dimensions.  But wait, didn't we do that already in the markup with the attributes?  
  
- We can use CSS to declare the height and width of the `iframe`.  Please remove the inline styling that was declared in the `<iframe>` for the width and height since it is not best practice to have inline styling.
+ We can use CSS to declare the height and width of the `iframe`.  Please remove the attributes that were declared in the `<iframe>` for the width and height. 
 
 >**Pause**: What are a few reasons why inline styling is considered a bad practice?
 
