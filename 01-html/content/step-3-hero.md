@@ -1,4 +1,4 @@
-# Part 3 - I need a Hero
+# Part 3 - I Need a Hero
 
 ## Our Hero's Purpose
 
