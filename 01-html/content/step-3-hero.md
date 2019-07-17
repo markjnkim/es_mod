@@ -14,7 +14,7 @@ Think of the hero section as the banner, headline, or billboard of our site. But
 
 Let's build upon the `section` we created in Lesson 1. This `section` element will be the parent element that contains the children elements like the heading and sign-up form.
 
-> **Rewind**: HTML5 semantic elements help distinguish each part of the document and its function in relation to the document overall. For a closer look check out [this link](https://www.w3schools.com/html/html5_semantic_elements.asp).
+> **Rewind**: HTML5 semantic elements help distinguish each part of the document and its function in relation to the document overall. For a closer look check out [this link](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML).
 
 ### Step: 1 - Sign-up Form Container
 
