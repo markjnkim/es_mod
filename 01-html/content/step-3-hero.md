@@ -62,7 +62,6 @@ For our heading, we have chosen the `h3` element. But why not the `h1` or `h4` f
 
 After adding the text content from the mock-up, we find a `<p>` tag. The `p` stands for paragraph and is an element used to render normal styled text like text in the body of a page. The browser will not add font-size or font-weight to the content of this element, but will make the `display` property, mentioned in the last lesson, a `block` element.
 
-> **Rewind**: Remember `<h1>` to `<h6>` and `<p>` tags are `block` elements meaning they start on their own new line and any following elements appear on its own new line.
 
 > **Deep Dive**: For a nice visual explainer for the display property look [here](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197?selectedIssue=FSFO-46).
 
