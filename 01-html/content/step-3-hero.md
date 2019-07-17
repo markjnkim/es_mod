@@ -478,7 +478,7 @@ This is because currently the child element, our form container is setting its p
 /* Hero Style End */
 ```
 
-A great explainer on this can be found [here](https://css-tricks.com/absolute-positioning-inside-relative-positioning/).
+A great explainer on this can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning).
 
 Now let's save and render again to see the effect of changing the parent element's position property to relative.
 
