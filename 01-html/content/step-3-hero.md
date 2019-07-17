@@ -39,7 +39,7 @@ HTML works on a relatively simple set of rules. One important rule is that both 
 
 The browser will attempt to fix invalid markup before it renders it, but the results will be unpredictable.
 
-Great! Your `index.html` file should now look something like this.
+So your `index.html` file should now look something like this.
 
 ```html
 <section>
