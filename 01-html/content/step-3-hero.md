@@ -343,7 +343,7 @@ Let's add the following CSS rule in our `style.css` file and make the height an 
 ```
 Now let's unpack this CSS declaration block. . .
 - **Dot Notation** is the "." proceeding the class `hero` to indicate to the browser that we are using a class as our CSS selector.
-- **Background-image** uses the CSS function `url()` to link a resource such as an image, web font, or gif. Here we are using a relative URL path to select a background image. To learn more about how to use a web resource, add a color gradient, and more go [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image). 
+- **Background-image** uses the CSS function `url()` to link a resource such as an image, web font, or gif. Here we are using a relative URL path to select a background image. To learn more about how to use a web resource, add a color gradient, and more go to [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image). 
 - **Height** fixed at 600px gives an exact size of the section, important in this context to allow room for our sign-up form.
 
 Let's save and render our changes. It should look something like this:
@@ -353,7 +353,7 @@ Great job! Now our background image is only being assigned to the section we wan
 
 Let's look at the `background-size` property and see if we can fix this issue by changing the size of the background image. 
 
-- **Background-size** property can set the size of the background image to its original size, stretched, repeated, or constrained to fit the available space. In our case, the `cover` assignment will shrink the image so parts of it won't get clipped. Other selections allow repeated images for a tiled look, similar to how background image displays are configured for your computer's background desktop image. Click [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size) for more details.
+- **Background-size** property can set the size of the background image to its original size, stretched, repeated, or constrained to fit the available space. In our case, the `cover` assignment will shrink the image so parts of it won't get clipped. Other selections allow repeated images for a tiled look, similar to how background image displays are configured for your computer's background desktop image. Take a look at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size) for a more detailed explanation.
 - **Background-position** property can move the initial position of the background image. We will set this position to center.
 
 Our CSS rule for the `hero` class should now look something like this.
@@ -503,7 +503,7 @@ As you can see, the form is now nestled in the corner, just as we positioned it.
 }
 ```
 
-> **Deep Dive**: Check [here](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute) for more insight on absolute vs relative positioning.
+> **Deep Dive**: Check [stackoverflow](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute) for more insight on absolute vs relative positioning.
 
 The `width` property has been saved for last because calculating the width of the form container actually begins a discussion on another property called `box-sizing`.
 
