@@ -485,7 +485,7 @@ This is because currently the child element, our form container is setting its p
 
 A great explainer on this can be found [here](https://css-tricks.com/absolute-positioning-inside-relative-positioning/).
 
-Now let's save and render again to see the affect of changing the parent element's position property to relative.
+Now let's save and render again to see the effect of changing the parent element's position property to relative.
 
 ![absolute-relative-form](./assets/step-3/603-relative-absolute-form-css.png)
 
