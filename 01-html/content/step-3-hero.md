@@ -92,7 +92,7 @@ Look closely at how we pair the `input` and corresponding `label` elements and t
  <input type="text" placeholder="Your Name" name="name" id="name" />
 </form>
 ```
-The `label` text not only offers a visual directive of what data to enter, but also programmatically links to the associated `input`. This means that with a screen reader, when a visitor focuses on the input field, the label will be read out, making it easier for an assistive technology user to understand what data should be entered. Labels also enhance the user experience on a mobile device for instance because clicking on the label will target the focus in the associated input field. Especially helpful when using a touch screen.
+The `label` text not only offers a visual directive of what data to enter, but also programmatically links to the associated `input`.  This means that with a screen reader, when a visitor focuses on the input field, the label will be read out, making it easier for an assistive technology user to understand what data should be entered.  Labels also enhance the user experience on a mobile device for instance because clicking on the label will target the focus in the associated input field, which is especially helpful when using a touch screen.
 
 - **for** is an attribute in the `label` that programmatically links to the `id` attribute in the `input`. 
 - **type** attribute relates to what kind of input element we are using. Here we want a text field, which is also the default value.
@@ -164,7 +164,7 @@ clickable surface area.
 
 ### Button
 
-A button is an essential piece of user interaction and can have a variety of different functions and uses. A button can link to another area on a web page, link to an external site, submit data to a server, or can be programmed for any activity. Our button has a special function to submit the user data gathered inside the `form`. Once again we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element,"Get running", will be written within the `button` tags to render a label onto the `button` itself. Currently our requirements in the mock-up don't have an action to assign to the button, but normally we would assign a url path in the `<form>` tag in the action attribute. For more on `form` and `action` look [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form).
+A button is an essential component of user interface and can have a variety of different functions and uses. A button can link to another area on a web page, link to an external site, submit data to a server, or can be programmed for any activity. Our button has a special function to submit the user data gathered inside the `form`. Once again we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element, "Get running", will be written within the `button` tags to render a label onto the `button` itself.  Currently our requirements in the mock-up don't have an action to assign to the button, but normally we would assign a url path in the `<form>` tag in the `action` attribute.  Let's take a look at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) for a closer at the `form` element and its attributes.  
 
 Let's take a look at our hero section's HTML code.
 
@@ -377,7 +377,7 @@ Congrats! Give yourself a nice pat on the back. Way to hang in there! We will no
 
 According to the mock-up, the box or `div` containing our `form` will have some styling requirements including the background color, border, font color, and a specific width. Due to the specific styling requirements needed for our form container, we should be thinking about how we will need to select this `div` to create a CSS rule. One way would be to create a new class called `hero-form` and add this to the opening `<div>`. The font color in this `div` will be `#024e76` and the background color is `#fce138`. Let's try to finish the styling ourselves and include the following declarations in your CSS rule for the `hero-form` class for the font color, padding, width, and background color to match the mock-up. We will handle the `border` together due to the many variations and configuration possibilities.
 
-> **Try It Yourself**: Create the CSS rule for the class `hero-form`.
+> **Do It Yourself**: Create the CSS rule for the class `hero-form`.
 
 > **Hint**: Don't forget to add the `hero-form` class to our sign-up form container `div`.
 
@@ -422,7 +422,8 @@ Alternatively there is a shorthand property that includes all three values on on
 ```
 For more info on the different variations for the `border` property please look at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border).
 
-Next step once the styling of our sign-up container is done, is to position our sign-up container to the right side of our hero section as shown in the mock-up. First, we will need to dive a bit deeper into the `position` property.
+Once the styling of our sign-up container is done, the next step is to position our sign-up container to the right side of our hero section as shown in the mock-up. First, we will need to dive a bit deeper into the `position` property.
+
 
 ### Position is a theory of relativity
 
@@ -478,7 +479,7 @@ This is because currently the child element, our form container is setting its p
 /* Hero Style End */
 ```
 
-A great explainer on this can be found [here](https://css-tricks.com/absolute-positioning-inside-relative-positioning/).
+A great diagram showing the difference of having a parent element with relative positioning [Jira issue FSFO-50](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197?selectedIssue=FSFO-50).
 
 Now let's save and render again to see the effect of changing the parent element's position property to relative.
 
@@ -504,8 +505,6 @@ As you can see, the form is now nestled in the corner, just as we positioned it.
 
 > **Deep Dive**: Check [here](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute) for more insight on absolute vs relative positioning.
 
-> **Heads up**: Another possible value to use instead of pixels are percentages. For the declaration assigning the `right` position property, let's use a percentage and see what the difference is. About 10% covered about 140px. Mathematically speaking this means that the full screen value of 1400px at 10% will be 140px. This is why the form position remains the same. The true value of having a relative size instead of a static size, is that on different screen sizes, the position will remain relative to the element's size, and not fixed regardless of the screen size. We will go into further depth on relative sizes and screen responsiveness in the next module so we will save some of our discussion until then.
-
 The `width` property has been saved for last because calculating the width of the form container actually begins a discussion on another property called `box-sizing`.
 
 ### Box-sizing: Calculating the width and height of elements
@@ -529,7 +528,11 @@ In our case, when we declare the width of the `div` to be 500px and keep the the
 
 Let's add this code into our CSS style sheet and take a look at the new changes on your page in the browser. Don't forget to save your changes.
 
-> **Pro-Tip**: You can save yourself a bit of heart ache or frustration in VS Code by simply clicking on the Auto Save option in the `File` menu, making saving automatic.
+> **Pro Tips**: 
+>* Learn keyboard shortcuts to greatly increase your speed and efficiency. Look into the VS Code shortcuts as well as for Chrome for your operating system for Save, Format, Open in Default Browser, and much more for [Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) and [Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf). They are also labeled in your menu options. 
+> * Use an iterative process, meaning save your work then check the browser after each step to ensure the page is progressing in the right direction. This offers the chance to fix any issues before writing more code and adding any additional errors.  
+>* Select the `Auto Save` option in the `File` menu due to all the time saved from forgetting to do that.
+
 
 Now let's compare the `box-sizing` property with `content-size` assignment
 ![content-size](./assets/step-3/590-form-content-size-css.png)
@@ -582,7 +585,8 @@ These changes are not permanent and do not change the actual code, but merely of
 
 Let's head back to the browser tab with our landing page and examine our code in the DevTools window. The CSS style sheet appears to be the same one we have been working on, however there are actually quite a lot more properties for each selector than we have written. These are the default CSS property settings that are assigned by the browser. In a few places we have over written these defaults which is why they are crossed out.
 
-One nice trick is to toggle properties on and off to see their cumulative affects on the page. Let's toggle the `box-sixing` property we just created to manipulate the widths of our elements. You can see having a set width property can save some headache and need for extra calculations. It is suggested to set this property to `border-box` whenever possible.
+The fact of the matter is finding a solution to a layout problem in CSS may not be very straightforward or simple.  At times it will be useful to tinker and try out different properties to see their affects(or lack thereof) on the document.  Chrome's DevTools offers the ability to toggle properties on and off to see their cumulative affects on the page. Let's toggle the `box-sixing` property we just created to manipulate the widths of our elements. You can see having a set width property can save some headache and need for extra calculations. It is suggested to set this property to `border-box` whenever possible.
+
 
 Scrolling down to the bottom of the Styles panel offers an interactive CSS box model that allows the different layers of the CSS box to be manipulated by value. A very useful tool that can save a lot of time and energy when designing a page layout.
 
@@ -648,7 +652,7 @@ Our CSS code should now look like this:
 Let's unpack some of the properties in our `.form-input` selector and see how they affected our form input elements.
 
 - **Border**: A skinny 1px border helped emphasize our sign-up requests.
-- **Display**: This property instructs the browser to render the element either as a `block` or `inline`. `Block` prevents other elements from sitting on the same row. Image a line break preceding and following this element. `Inline` conversely allows other elements to sit alongside the same row just like words in a sentence.
+- **Display**: This property instructs the browser to render the element either as a `block` or `inline`.
 
 > **Pause**: Can you name a few HTML elements we have used that are `block` elements?
 
@@ -698,10 +702,10 @@ Excellent work, our section is now done and looking just like our mock-up. Now l
 
 This was another dense lesson of concepts and syntax. Don't worry that you haven't nailed everything down yet, this will happen in time with practice. In programming, practice doesn't make perfect, it makes developers. Programming isn't something you can watch in a youtube video or read in a book to make yourself proficient. The one and only way to become a developer is to practice practice practice, which means a lot of playing around in sand boxes and DevTools to see what does what. If you get stuck, become a Google-fu master since this is a vital developer skill that can get you unstuck. Your answer is out there, now you just have to go find it.
 
-- **HTML5 Semantic Elements** are an important part of the modern web that can help organize a web page by using meaningful tag names as well as accessibility-wise assisting screen readers interpret the page.
-- **Class Attributes as CSS Selectors** help target specific elements on our document for custom styling.
-- **Position Property** helps us with the layout of our page by allowing positioning of elements relative to each other or the browser window or viewport.
-- **CSS box model** is the layout design model of the Web, based on labeling each layer of our box diagrams to improve spacing, styling, and legibility of our HTML elements.
-- **DevTools** are a front-end developer's best friend. We will get well acquainted with its various tools as the course progresses.
+- **HTML5 Semantic Elements** are an important part of the modern web that can help with organization by using meaningful tag names that relate function and purpose as well as with accessibility by assisting screen readers interpret the page and communicate the relevancy of each element relative to the document.
+- **Class Attributes as CSS Selectors** help target specific elements on our document for custom styling.  Once we have our selector we can create our CSS rule and declare the properties to change.
+- **Position Property** helps us with the layout of our page by allowing positioning of elements relative to each other or the browser window or viewport.  Important to understand the differences especially between a relative and absolute position.
+- **CSS box model** is the layout design model of the Web, based on labeling each layer of our box diagrams to improve spacing, styling, and legibility of our HTML elements.  It is key to understand the position of each layer of the element starting from the content, padding, border, and margin.
+- **DevTools** are a front-end developer's best friend. We can make temporary changes to our view in the browser by selecting an element of interest and then changing our CSS and/or HTML in the DevTools window by changing the CSS rules or markup. We will get well acquainted with its various tools as the course progresses.
 
 Now let's continue onto our next lesson and complete the "What We Do" section.
