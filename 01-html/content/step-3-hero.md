@@ -62,7 +62,6 @@ For our heading, we have chosen the `h3` element. But why not the `h1` or `h4` f
 
 After adding the text content from the mock-up, we find a `<p>` tag. The `p` stands for paragraph and is an element used to render normal styled text like text in the body of a page. The browser will not add font-size or font-weight to the content of this element, but will make the `display` property, mentioned in the last lesson, a `block` element.
 
-> **Rewind**: Remember `<h1>` to `<h6>` and `<p>` tags are `block` elements meaning they start on their own new line and any following elements appear on its own new line.
 
 > **Deep Dive**: For a nice visual explainer for the display property look [here](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197?selectedIssue=FSFO-46).
 
@@ -99,7 +98,7 @@ The `label` text not only offers a visual directive of what data to enter, but a
 - **placeholder** offers a hint or label within the text field itself, but will not be submitted if this field if left blank.
 - **name** attribute identifies the element so the response can later be referenced after the form is submitted.
 
-> **Do if Yourself**: Given the first text input field for "name," can you code
+> **Do It Yourself**: Given the first text input field for "name," can you code
 > the fields for "email" and "phone number?"
 
 > **Hint**: The label and inputs will need the attributes for `name`, `for`, `type`, `id`, and `placeholder`. 
@@ -115,7 +114,7 @@ Next we will create the inputs for our `radio button` and `checkbox`, but first,
 ![radio-button](./assets/step-3/1000-radio-button.png)
 
 > **Google Fu**: Let's use our powers of Google and see if we can find some information about the function and syntax of a `radio button`.
-> **Hint**: [Here](https://www.google.com/search?q=html+radio+button) are some of the google searches found for the keywords radio button and HTML.
+> **Hint**: Although Google may offer many search results, [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) web docs should be a favorite because MDN is more likely to update when technologies change.  
 
 So a `radio` type input element, commonly referred to as a `radio button`, is generally used in groups using the `name` attribute as the group reference, each `radio button` must have the same `name` value to be considered in the same group. Let's type some code and then explain the attributes. Your `index.html` file should look like this. (Remember to place this `form` inside the `div`.)
 
@@ -503,7 +502,9 @@ As you can see, the form is now nestled in the corner, just as we positioned it.
 }
 ```
 
-> **Deep Dive**: Check [stackoverflow](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute) for more insight on absolute vs relative positioning.
+> **Deep Dive**: Another great resource is [stackoverflow](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute) for more insight on absolute vs relative positioning.
+
+> **Heads up**: Another possible value to use instead of pixels are percentages. For the declaration assigning the `right` position property, let's use a percentage and see what the difference is. About 10% covered about 140px. Mathematically speaking this means that the full screen value of 1400px at 10% will be 140px. This is why the form position remains the same. The true value of having a relative size instead of a static size, is that on different screen sizes, the position will remain relative to the element's size, and not fixed regardless of the screen size. We will go into further depth on relative sizes and screen responsiveness in the next module so we will save some of our discussion until then.
 
 The `width` property has been saved for last because calculating the width of the form container actually begins a discussion on another property called `box-sizing`.
 
@@ -513,6 +514,8 @@ The `box-sizing` property determines _how_ to calculate the `width` and `height`
 
 - **Content-size** is the default value and calculates the height and width of the element by only counting the `content` box of our CSS box model. This means that the `border` and `padding` must be calculated separately and added to our width and height to determine the size of our element.
 - **Border-box** calculates the height and width of the element by including the `border` and `padding` additions to our `content` box.
+
+To illustrate how the border-sizing property affects an element's dimensions check out this demo from [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)
 
 In our case, when we declare the width of the `div` to be 500px and keep the the default value for the `box-sizing` property at `content-size`, we would need to add the `border` and `padding` into this calculation to get the true width of 546px. However if we changed the `box-sizing` property to `border-box`, the width would take into account the `padding` and `border` and would yield an actual width of 500px.
 
