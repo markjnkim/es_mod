@@ -529,7 +529,7 @@ In our case, when we declare the width of the `div` to be 500px and keep the the
 
 Let's add this code into our CSS style sheet and take a look at the new changes on your page in the browser. Don't forget to save your changes.
 
-> **Pro-Tip**: You can save yourself a bit of heart ache or frustration by simply clicking on the Auto Save option in the `File` menu, making saving automatic.
+> **Pro-Tip**: You can save yourself a bit of heart ache or frustration in VS Code by simply clicking on the Auto Save option in the `File` menu, making saving automatic.
 
 Now let's compare the `box-sizing` property with `content-size` assignment
 ![content-size](./assets/step-3/590-form-content-size-css.png)
