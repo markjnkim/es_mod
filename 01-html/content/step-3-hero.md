@@ -1,4 +1,4 @@
-# Part 3 - I need a Hero
+# Part 3 - I Need a Hero
 
 ## Our Hero's Purpose
 
@@ -13,6 +13,8 @@ Think of the hero section as the banner, headline, or billboard of our site. But
 ## Build a Hero
 
 Let's build upon the `section` we created in Lesson 1. This `section` element will be the parent element that contains the children elements like the heading and sign-up form.
+
+> **Rewind**: HTML5 semantic elements help distinguish each part of the document and its function in relation to the document overall. For a closer look check out [this link](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML).
 
 ### Step: 1 - Sign-up Form Container
 
@@ -98,9 +100,9 @@ The `label` text not only offers a visual directive of what data to enter, but a
 - **name** attribute identifies the element so the response can later be referenced after the form is submitted.
 
 > **Do if Yourself**: Given the first text input field for "name," can you code
-> the the fields for "email" and "phone number?"
+> the fields for "email" and "phone number?"
 
-> **Hint**: The label and inputs will need the attributes for `name`, `for`, `type`, `id`, and `placeholder`. A list of `type` attributes can be found [here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
+> **Hint**: The label and inputs will need the attributes for `name`, `for`, `type`, `id`, and `placeholder`. 
 
 > **Pause**: Notice at the end of the input tag is a forward slash. What is this slash for?
 
@@ -119,12 +121,12 @@ So a `radio` type input element, commonly referred to as a `radio button`, is ge
 
 ```html
 <form>
- <label for="name">Enter full name:</label>
- <input type="text" placeholder="Your Name" name="name" id="name" />
- <label for="email">Enter email address:</label>
- <input type="email" placeholder="Email Address" name="email" id="email" />
+  <label for="name">Enter full name:</label>
+  <input type="text" placeholder="Your Name" name="name" id="name" />
+  <label for="email">Enter email address:</label>
+  <input type="text" placeholder="Email Address" name="email" id="email" />
   <label for="phone">Enter a telephone number:</label>
-  <input type="tel" placeholder="Phone Number" name="phone" id="phone"/>
+  <input type="text" placeholder="Phone Number" name="phone" id="phone"/>
   <p>
     Have you worked out with a trainer before?
     <input type="radio" name="trainer-confirm" id="trainer-yes" />
@@ -176,9 +178,9 @@ Let's take a look at our hero section's HTML code.
       <label for="name">Enter full name:</label>
       <input type="text" placeholder="Your Name" name="name" id="name" />
       <label for="email">Enter email address:</label>
-      <input type="email" placeholder="Email Address" name="email" id="email" />
+      <input type="text" placeholder="Email Address" name="email" id="email" />
       <label for="phone">Enter a telephone number:</label>
-      <input type="tel" placeholder="Phone Number" name="phone" id="phone" />
+      <input type="text" placeholder="Phone Number" name="phone" id="phone" />
       <p>
         Have you worked out with a trainer before?
         <input type="radio" name="trainer-confirm" id="trainer-yes" />
@@ -201,7 +203,11 @@ Let's take a look at our hero section's HTML code.
 <!-- end hero -->
 ```
 
-> **Pro-tip**: Notice how there are no empty lines within `section`, meaning each line has a tag either opening or closing. Being concise with language and syntax also pertains to extraneous lines or white space. Although empty lines or indentation will not affect what is rendered in the browser, it will pertain more to a best practice style guide that eases readabliity and communicates parent/child relationships to other developers or even a future you that can greatly improve development speed.
+> **Pro-tip**: Notice how there are no empty lines within `section`, meaning
+> each line has a tag either opening or closing. Being concise with language and
+> syntax also pertains to extraneous lines or white space. Although empty lines
+> or indentation will not affect what is rendered in the browser, it will
+> pertain more to a best practice style guide that eases legibility and communicates parent/child relationships to other developers or even a future you that can greatly improve development speed.
 
 That was a lot of code we just entered. It's time to save and render to see the current progress of our landing page.
 
@@ -264,7 +270,7 @@ when you tap on the phone number field.
 
 > **Activity**: HTML nesting game. Place our boiler plate HTML code with finished CSS in parallel. Ask the student to place certain items here or there by nesting them properly.
 
-Congrats, I know it's not pretty yet, but our foundation work is now complete so we can proceed to the design phase of this lesson.
+Our foundation work is now complete, so we can proceed to the design phase of this lesson.
 
 ## Making our Hero Super
 
@@ -474,7 +480,7 @@ This is because currently the child element, our form container is setting its p
 
 A great explainer on this can be found [here](https://css-tricks.com/absolute-positioning-inside-relative-positioning/).
 
-Now let's save and render again to see the affect of changing the parent element's position property to relative.
+Now let's save and render again to see the effect of changing the parent element's position property to relative.
 
 ![absolute-relative-form](./assets/step-3/603-relative-absolute-form-css.png)
 
@@ -566,7 +572,7 @@ This tool is a tremendous asset to front-end developers with the ability to:
 
 ![arrow-inspector](./assets/step-3/701-arrow-devtools.png) 
 
-This is useful when targetting a specific element. 
+This is useful when targeting a specific element. 
 Notice the changes in the `Element` and `Style` panels. Feel free to play around at will. Are these changes permanent? How can we tell?
 > **Answer**: Page refresh can determine persistence or permanence of a change.
 
@@ -576,7 +582,7 @@ These changes are not permanent and do not change the actual code, but merely of
 
 Let's head back to the browser tab with our landing page and examine our code in the DevTools window. The CSS style sheet appears to be the same one we have been working on, however there are actually quite a lot more properties for each selector than we have written. These are the default CSS property settings that are assigned by the browser. In a few places we have over written these defaults which is why they are crossed out.
 
-One nice trick is to toggle properties on and off to see their cummulative affects on the page. Let's toggle the `box-sixing` property we just created to manipulate the widths of our elements. You can see having a set width property can save some headache and need for extra calculations. It is suggested to set this property to `border-box` whenever possible.
+One nice trick is to toggle properties on and off to see their cumulative affects on the page. Let's toggle the `box-sixing` property we just created to manipulate the widths of our elements. You can see having a set width property can save some headache and need for extra calculations. It is suggested to set this property to `border-box` whenever possible.
 
 Scrolling down to the bottom of the Styles panel offers an interactive CSS box model that allows the different layers of the CSS box to be manipulated by value. A very useful tool that can save a lot of time and energy when designing a page layout.
 
@@ -588,7 +594,7 @@ It's time to give our `form` some needed layout and styling to match our mock-up
 
 > **Linear Steps**:
 
-1. **Heading**: let's snazz up our heading with boldness! We need to bring some excitement and enthusiasm and the current `h3` element leaves a bit to be desired. There are several ways that we can select this element by CSS.
+1. **Heading**: let's jazz up our heading! We need to bring some excitement and enthusiasm and the current `h3` element leaves a bit to be desired. There are several ways that we can select this element by CSS.
 
 - We could give this `h3` element a class and select it as we did for the form container and the `section`.
 - We could select the parent element and then the child element that is contained within the parent, as we did in the previous lesson in the `header` and `footer`.
@@ -599,7 +605,7 @@ We have chosen the second option for one reason, class attributes are used to di
 
 2. **Text Spacing**: Next will be adding some space to the `p` for legibility and spacing, specifically to the top and bottom margins.
 
-3. **Input Fields**: It's time to give our input fields some style and panache. First let's get each one to exist on its own line while making the `font-size` bigger with a nice `border`. Part of having a good website is giving the visitor an easy time navigating and using our page. Especially when it comes to user interaction, it's really important to make it as simple and as straighforward as possible. This means having clear demarcations on each line and to address what each input field is for.
+3. **Input Fields**: It's time to give our input fields some style and panache. First let's get each one to exist on its own line while making the `font-size` bigger with a nice `border`. Part of having a good website is giving the visitor an easy time navigating and using our page. Especially when it comes to user interaction, it's really important to make it as simple and as straightforward as possible. This means having clear demarcations on each line and to address what each input field is for.
 
 > **Pause**: If we selected `input` as our CSS selector, we would style the radio button and checkbox as well as the input fields which isn't our goal. So how would we select just the input fields for this styling?
 
@@ -672,7 +678,7 @@ Awesome, our `section` looks almost finished. Time to nip this `section` in the 
 
 5. **Button**: According to the mock-up, the `button` should be navy(#024e76) and the font color should be yellow(#fce138). Style the `button` adding some size to our font and `padding`.
 
-> **Do it Yourself**: Let's flex our new CSS skills and style this `button` to match our mock-up. Open up DevTools in the browser and select the `button` using the element selector or arrow icon to select our `button`, then go to the Styles panel to experiment with some of our `button` element's properties. By clicking on the declaration, the propery or value can be changed. By clicking to the right of the declaration, a new line is added for a new declaration. Once you have the look that matches our mock-up, the CSS rule for the button should look something like this.
+> **Do it Yourself**: Let's flex our new CSS skills and style this `button` to match our mock-up. Open up DevTools in the browser and select the `button` using the element selector or arrow icon to select our `button`, then go to the Styles panel to experiment with some of our `button` element's properties. By clicking on the declaration, the property or value can be changed. By clicking to the right of the declaration, a new line is added for a new declaration. Once you have the look that matches our mock-up, the CSS rule for the button should look something like this.
 
 ```css
 .hero-form button {
@@ -692,10 +698,10 @@ Excellent work, our section is now done and looking just like our mock-up. Now l
 
 This was another dense lesson of concepts and syntax. Don't worry that you haven't nailed everything down yet, this will happen in time with practice. In programming, practice doesn't make perfect, it makes developers. Programming isn't something you can watch in a youtube video or read in a book to make yourself proficient. The one and only way to become a developer is to practice practice practice, which means a lot of playing around in sand boxes and DevTools to see what does what. If you get stuck, become a Google-fu master since this is a vital developer skill that can get you unstuck. Your answer is out there, now you just have to go find it.
 
-- **HTML5 Semantic Elements** are an important part of the modern web that can help organize a web page by using meaningful tag names as well as accessiblity-wise assisting screen readers interpret the page.
+- **HTML5 Semantic Elements** are an important part of the modern web that can help organize a web page by using meaningful tag names as well as accessibility-wise assisting screen readers interpret the page.
 - **Class Attributes as CSS Selectors** help target specific elements on our document for custom styling.
 - **Position Property** helps us with the layout of our page by allowing positioning of elements relative to each other or the browser window or viewport.
-- **CSS box model** is the defacto layout design model of the Web, based on labeling each layer of our box diagrams to improve spacing, styling, and legibility of our HTML elements.
+- **CSS box model** is the layout design model of the Web, based on labeling each layer of our box diagrams to improve spacing, styling, and legibility of our HTML elements.
 - **DevTools** are a front-end developer's best friend. We will get well acquainted with its various tools as the course progresses.
 
 Now let's continue onto our next lesson and complete the "What We Do" section.
