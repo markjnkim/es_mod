@@ -114,6 +114,7 @@ Next we will create the inputs for our `radio button` and `checkbox`, but first,
 ![radio-button](./assets/step-3/1000-radio-button.png)
 
 > **Google Fu**: Let's use our powers of Google and see if we can find some information about the function and syntax of a `radio button`.
+
 > **Hint**: Although Google may offer many search results, [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) web docs should be a favorite because MDN is more likely to update when technologies change.  
 
 So a `radio` type input element, commonly referred to as a `radio button`, is generally used in groups using the `name` attribute as the group reference, each `radio button` must have the same `name` value to be considered in the same group. Let's type some code and then explain the attributes. Your `index.html` file should look like this. (Remember to place this `form` inside the `div`.)
