@@ -98,7 +98,7 @@ The `label` text not only offers a visual directive of what data to enter, but a
 - **placeholder** offers a hint or label within the text field itself, but will not be submitted if this field if left blank.
 - **name** attribute identifies the element so the response can later be referenced after the form is submitted.
 
-> **Do if Yourself**: Given the first text input field for "name," can you code
+> **Do It Yourself**: Given the first text input field for "name," can you code
 > the fields for "email" and "phone number?"
 
 > **Hint**: The label and inputs will need the attributes for `name`, `for`, `type`, `id`, and `placeholder`. 
