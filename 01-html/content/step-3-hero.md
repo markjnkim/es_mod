@@ -514,6 +514,8 @@ The `box-sizing` property determines _how_ to calculate the `width` and `height`
 - **Content-size** is the default value and calculates the height and width of the element by only counting the `content` box of our CSS box model. This means that the `border` and `padding` must be calculated separately and added to our width and height to determine the size of our element.
 - **Border-box** calculates the height and width of the element by including the `border` and `padding` additions to our `content` box.
 
+To illustrate how the border-sizing property affects an element's dimensions check out this demo from [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)
+
 In our case, when we declare the width of the `div` to be 500px and keep the the default value for the `box-sizing` property at `content-size`, we would need to add the `border` and `padding` into this calculation to get the true width of 546px. However if we changed the `box-sizing` property to `border-box`, the width would take into account the `padding` and `border` and would yield an actual width of 500px.
 
 > **Pause**: Let's add this property to every element on our page and override the browser's default assignment. How would we go about this without needing to add this declaration to every CSS rule?
