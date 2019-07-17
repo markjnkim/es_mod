@@ -501,7 +501,7 @@ As you can see, the form is now nestled in the corner, just as we positioned it.
 }
 ```
 
-> **Deep Dive**: Check [here](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute) for more insight on absolute vs relative positioning.
+> **Deep Dive**: Another great resource is [stackoverflow](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute) for more insight on absolute vs relative positioning.
 
 > **Heads up**: Another possible value to use instead of pixels are percentages. For the declaration assigning the `right` position property, let's use a percentage and see what the difference is. About 10% covered about 140px. Mathematically speaking this means that the full screen value of 1400px at 10% will be 140px. This is why the form position remains the same. The true value of having a relative size instead of a static size, is that on different screen sizes, the position will remain relative to the element's size, and not fixed regardless of the screen size. We will go into further depth on relative sizes and screen responsiveness in the next module so we will save some of our discussion until then.
 
