@@ -420,7 +420,7 @@ Alternatively there is a shorthand property that includes all three values on on
   border: solid 3px #024e76;
 }
 ```
-For more info on the different variations please look [here](https://developer.mozilla.org/en-US/docs/Web/CSS/border).
+For more info on the different variations for the `border` property please look at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border).
 
 Next step once the styling of our sign-up container is done, is to position our sign-up container to the right side of our hero section as shown in the mock-up. First, we will need to dive a bit deeper into the `position` property.
 
