@@ -63,7 +63,11 @@ There are a number of ways to organize navigation links. We will use a popular m
 </ul>
 ```
 
-So let's unpack what we just created, starting with lists. In HTML there are two types of lists: "ordered" and "unordered". Ordered lists or **`<ol>`** tell the browser to interpret any nested "list item" **`<li>`** in numeric order (1, 2, 3, etc). Unordered lists **`<ul>`** allow for a more loosely formatted list by marking each nested list item with a symbol (such as a bullet point or dash).
+So let's unpack what we just created, starting with lists. In HTML there are two
+types of lists: "ordered" and "unordered". Ordered lists or **`<ol>`** tell the
+browser to interpret any nested "list item" **`<li>`** in numeric order (1, 2,
+3, etc). Unordered lists **`<ul>`** allow for a more loosely formatted list by
+marking each nested list item with a symbol (such as a bullet point or square).
 
 ![Ordered lists with numbers vs. unordered list with
 bullets](assets/step-2/100.5-ordered-unordered.png)
