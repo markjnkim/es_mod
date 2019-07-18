@@ -659,6 +659,10 @@ section {
 /* 2.4 - MEDIA QUERIES FOR TABLETS DOWN TO PHONES */
 @media screen and (max-width: 768px) {
 
+  section {
+    padding: 15px;
+  }
+
   .checkbox label, .radio label {
     margin: 24px;
   }
