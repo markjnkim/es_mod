@@ -23,6 +23,7 @@ header h1 {
   margin: 0;
   font-size: 36px;
   color: #fce138;
+  width: 30%;
 }
 
 header a {
@@ -39,9 +40,9 @@ header nav {
 }
 
 header nav a {
-  padding: 15px 20px;
+  padding: 10px 15px;
   font-weight: 200;
-  font-size: 18px;
+  font-size: 1.55vw;
 }
 
 /* FOOTER STYLES START */
@@ -85,7 +86,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start
 }
 
 .hero-cta {
@@ -101,6 +102,7 @@ section {
   font-style: italic;
   font-size: 55px;
   color: #fce138;
+  line-height: 1.2;
 }
 
 .hero-form {
@@ -146,7 +148,7 @@ section {
 
 /* SECTION TITLE STYLES START */
 .section-title {
-  font-size: 55px;
+  font-size: 48px;
   padding-bottom: 20px;
   width: 50%;
   border-bottom: 3px solid;
@@ -290,7 +292,7 @@ section {
   grid-template-rows: repeat(5, 1fr) 2fr;
   border: 2px solid #024e76;
   color: #024e76;
-  font-size: 1.7vw;
+  font-size: 1.2rem;
 }
 
 .service-grid-item {
@@ -316,12 +318,10 @@ section {
   transform: rotate(180deg);
   grid-column: 1;
   grid-row: 1 / -1;
-  font-weight: bold;
-  font-size: 2.6vw;
 }
 
-.grid-head, .grid-price {
-  font-size: 2.5vw;
+.grid-head, .grid-price, .service-grid-item.cancel {
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -419,4 +419,129 @@ section {
 
 .text-right {
   text-align: right;
+}
+
+/* 2.4 - MEDIA QUERIES FOR SMALL SCREENS TO TABLETS */
+@media screen and (max-width: 980px) {
+  header {
+    padding-bottom: 0;
+  }
+  header h1 {
+    width: 100%;
+    text-align: center;
+  }
+
+  header nav {
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  header nav a {
+    font-size: 20px;
+  }
+
+  .hero-cta, .hero-form {
+    width: 100%;
+  }
+
+  .hero-cta {
+    text-align: center;
+  }
+
+  .trainer {
+    flex: 0 70%;
+  }
+
+  .service-grid {
+    width: 100%;
+  }
+
+  .contact-info iframe{
+    flex: 1 100%;
+  }
+
+  footer h2, footer div {
+    text-align: center;
+    width: 100%;
+  }
+
+}
+
+/* 2.4 - MEDIA QUERIES FOR TABLETS DOWN TO PHONES */
+@media screen and (max-width: 768px) {
+  
+  .section-title {
+    width: 100%;
+  }
+
+  .step h3 {
+    flex: 1 100%;
+    text-align: center
+  }
+
+  .step-info {
+    flex: 2 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .step-info img {
+    flex: 0 32%;
+    margin-right: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .step-text {
+    flex: 100%;  
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .service-grid-item.basic {
+    grid-column: 1;
+  }
+
+  .service-grid-item.both {
+    grid-column: 1 / -1;
+  }
+
+  .service-grid-item.cancel {
+    transform: none;
+    writing-mode: unset;
+    grid-column: 1 / -1;
+    grid-row: -1;
+  }
+
+}
+
+/* 2.4 - MEDIA QUERIES FOR PHONE */
+@media screen and (max-width: 575px) {
+  
+  .hero-form button {
+    width: 100%;
+  }
+
+  .section-title {
+    width: 95%;
+  }
+
+  .intro p {
+    width: 100%;
+  }
+
+  .trainer {
+    flex: 0 100%;
+  }
+
+  .contact-info > * {
+    flex: 0 100%;
+  }
+
+  .contact-form {
+    order: 3;
+  }
 }
