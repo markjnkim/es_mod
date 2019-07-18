@@ -10,15 +10,15 @@
   font-size: 42px;
   font-weight: normal;
   font-style: italic;
-  color: #fce138;
+  color: var(--primary-color);
   display: inline-block;
-  border-bottom: 4px solid #fce138;
+  border-bottom: 4px solid var(--primary-color);
 }
 
 .secondary-content {
   width: 80%;
   margin: 0 auto;
-  color: #024e76;
+  color: var(--secondary-color);
 }
 
 .secondary-content h3 {
@@ -33,7 +33,7 @@
 }
 
 .secondary-content ul {
-  color: #39a6b2;
+  color: var(--tertiary-color);
   margin: 15px 20px;
 }
 
