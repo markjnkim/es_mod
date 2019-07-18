@@ -4,31 +4,46 @@
   padding: 0;
 }
 
+:root {
+  --primary-color: #fce138;
+  --secondary-color: #024e76;
+  --tertiary-color: #39a6b2;
+  --primary-color-transparent: rgba(252,225,56, 0.8);
+  --secondary-color-transparent: rgba(2, 78, 118, 0.8);
+}
+
 body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
 header {
   padding: 20px 35px;
-  background-color: #39a6b2;
+  background-image: url('../images/hero-bg.jpg');
+  background-position: 80%;
+  background-attachment:fixed;
+  background-size: cover;
   /* 2.2 - added flex and removed inline / float properties from h1 and nav */
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  position:sticky;
+  top: 0;
+  z-index: 9999;
 }
 
 header h1 {
   font-weight: bold;
   margin: 0;
   font-size: 36px;
-  color: #fce138;
+  color: var(--primary-color);
   width: 30%;
+  text-shadow: 0px 0 15px rgba(0, 0, 0, 0.5);
 }
 
 header a {
   text-decoration: none;
-  color: #fce138;
+  color: var(--primary-color);
 }
 
 header nav {
@@ -40,22 +55,30 @@ header nav {
 }
 
 header nav a {
-  padding: 10px 15px;
+  padding: 15px 20px;
   font-weight: 200;
   font-size: 1.55vw;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+header nav a:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 15px;
+  text-shadow:none;
 }
 
 /* FOOTER STYLES START */
 footer {
-  background: #fce138;
+  background: var(--secondary-color);
   padding: 40px 35px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  color: var(--primary-color);
 }
 
 footer h2 {
-  color: #024e76;
   font-size: 30px;
   margin: 0;
 }
@@ -66,7 +89,7 @@ footer div {
 }
 
 footer a {
-  color: #024e76;
+  color: var(--primary-color);
 }
 /* END FOOTER STYLES */
 
@@ -81,8 +104,9 @@ section {
 /* 2.2 - REMOVED POSITIONING AND ADDED FLEX, MARGINS, AND FONT STYLING FOR CTA */
 .hero {
   background-image: url('../images/hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
+  background-position: 80%;
+  background-attachment: fixed;
+  background-size:cover;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -101,17 +125,20 @@ section {
 .hero-cta h2 {
   font-style: italic;
   font-size: 55px;
-  color: #fce138;
+  color: var(--primary-color);
   line-height: 1.2;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .hero-form {
-  border: 3px solid #024e76;
-  background-color: #fce138;
+  border: 3px solid var(--secondary-color);
+  background-color: var(--primary-color-transparent);
   padding: 20px;
   width: 40%;
   margin: 3.5%;
-  color: #024e76;
+  color: var(--secondary-color);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .hero-form h3 {
@@ -124,13 +151,22 @@ section {
 }
 
 .form-input {
-  border: 1px solid #024e76;
+  border: 1px solid var(--secondary-color);
   display: block;
   padding: 7px 15px;
   font-size: 16px;
-  color: #024e76;
+  color: var(--secondary-color);
   width: 100%;
   margin-bottom: 15px; 
+  border-radius: 10px;
+}
+
+.form-input {
+  background-color: rgba(255,255,255, 0.75);
+}
+
+.form-input:focus {
+  background-color: rgba(255,255,255, 1);
 }
 
 .hero-form label {
@@ -138,12 +174,84 @@ section {
 }
 
 .hero-form button {
-  color: #fce138;
-  background-color: #024e76;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
   border: none;
   padding: 10px 20px;
   font-size: 16px;
+  border-radius: 10px;
 }
+
+.hero-form button:hover {
+  background-color: var(--tertiary-color);  
+}
+
+.checkbox input[type="checkbox"], 
+.radio input[type="radio"] {
+  opacity: 0;
+}
+
+.checkbox label::before,
+.radio label::before {
+    content: "";
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border: 1px solid var(--secondary-color);  
+    position: absolute;
+    top: -4px;
+    left: -30px;
+    background: rgba(255,255,255,0.75);  
+}
+
+.checkbox label::after {
+    content: "";
+    display: inline-block;    
+    height: 6px;
+    width: 14px;
+    border-left: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    transform: rotate(-58deg);
+    position:absolute;
+    left: -26px;
+    top: 1px;
+}
+
+.checkbox label, .radio label  {
+    position: relative;
+    left: 10px;
+    margin: 10px;
+    line-height: 1.6;
+}
+
+.radio label::before {
+  border-radius: 15px;
+}
+
+.radio label::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position:absolute;
+  left: -29px;
+  top: -3px;
+  border-radius: 15px;
+  background-image: radial-gradient(circle, var(--tertiary-color), var(--secondary-color));
+}
+
+/*Hide checked state */
+.checkbox input[type="checkbox"] + label::after, 
+.radio input[type="radio"] + label::after {
+    content: none;
+}
+
+/* show the checked state*/
+.checkbox input[type="checkbox"]:checked + label::after, 
+.radio input[type="radio"]:checked + label::after {
+    content: "";
+}
+
+
 /* HERO STYLES END */
 
 /* SECTION TITLE STYLES START */
@@ -153,16 +261,16 @@ section {
   width: 50%;
   border-bottom: 3px solid;
   margin: 0 auto 35px auto;
-  color: #024e76;
+  color: var(--secondary-color);
   text-align: center;
 }
 
 .primary-border {
-  border-color: #fce138;
+  border-color: var(--primary-color);
 }
 
 .secondary-border {
-  border-color: #39a6b2;
+  border-color: var(--tertiary-color);
 }
 /* SECTION TITLE STYLES END */
 
@@ -170,7 +278,7 @@ section {
 
 .intro p {
   line-height: 1.7;
-  color: #39a6b2;
+  color: var(--tertiary-color);
   width: 80%;
   margin: 0 auto;
   font-size: 20px;
@@ -180,7 +288,7 @@ section {
 
 /* WHAT YOU DO STYLES START */
 .steps { 
-  background: #fce138;
+  background: var(--primary-color);
 }
 
 /* 2.2 - added specific child selector */
@@ -188,15 +296,19 @@ section {
   margin: 50px auto;
   padding-bottom: 50px;
   width: 80%;
-  border-bottom: 1px solid #39a6b2;
+  border-bottom: 1px solid var(--tertiary-color);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
 
+.step:last-of-type {
+  border-bottom: none;
+}
+
 .step h3 {
-  color: #024e76;
+  color: var(--secondary-color);
   font-size: 46px;
   flex: 1 30%;
 }
@@ -220,11 +332,11 @@ section {
 .step-text h4 {
   font-size: 26px;
   line-height: 1.5;
-  color: #024e76;
+  color: var(--secondary-color);
 }
 
 .step-text p {
-  color: #39a6b2;
+  color: var(--tertiary-color);
   font-size: 18px;
 }
 /* WHAT YOU DO STYLES END */
@@ -242,8 +354,8 @@ section {
 .trainer {
   flex: 1;
   margin: 20px;
-  background: #024e76;
-  color: #fce138;
+  background: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 /* 2.2 - removed float and set width */
@@ -274,7 +386,7 @@ section {
 
 /* SERVICE STYLES END */
 .services {
-  background: #fce138;
+  background: var(--primary-color);
 }
 
 .service-grid-container {
@@ -284,20 +396,20 @@ section {
 }
 
 .service-grid {
-  background: rgba(255,255,255, 0.7);
+  background: rgba(255,255,255, 0.75);
   width: 80%;
   display: grid;
   /* repeat(iterator, size) */
   grid-template-columns: 1fr 4fr 4fr;
   grid-template-rows: repeat(5, 1fr) 2fr;
-  border: 2px solid #024e76;
-  color: #024e76;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
   font-size: 1.2rem;
 }
 
 .service-grid-item {
   padding: 15px 0;
-  border: 2px solid #024e76;
+  border: 2px solid var(--secondary-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -331,11 +443,11 @@ section {
 /* REACH OUT STYLES START */
 .contact {
   text-align: center;
-  background: #024e76;
+  background: var(--secondary-color);
 }
 
 .contact h2 {
-  color: #fce138;
+  color: var(--primary-color);
 }
 
 .contact-info {
@@ -359,7 +471,7 @@ section {
 }
 
 .contact-info h3 {
-  color: #fce138;
+  color: var(--primary-color);
   font-size: 32px;
 }
 
@@ -371,7 +483,7 @@ section {
 }
 
 .contact-info a {
-  color: #fce138;
+  color: var(--primary-color);
 }
 
 .contact-form label, .contact-form input, .contact-form textarea {
@@ -384,24 +496,36 @@ section {
 }
 
 .contact-form input, .contact-form textarea {
-  border: 1px solid #024e76;
+  border: 1px solid var(--secondary-color);
   display: block;
   padding: 7px 15px;
   font-size: 16px;
-  color: #024e76;
+  color: var(--secondary-color);
   width: 100%;
   margin-bottom: 15px;
   margin-top: 5px; 
+  border-radius: 10px;
+  background-color: rgba(255,255,255, 0.75);
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  background-color: rgba(255,255,255, 1);
 }
 
 .contact-form button {
   width: 100%;
   border: none;
-  background: #fce138;
-  color: #024e76;
+  background: var(--primary-color);
+  color: var(--secondary-color);
   text-align: center;
   padding: 15px 0;
   font-size: 16px;
+  border-radius: 10px
+}
+
+.contact-form button:hover {
+  color: var(--primary-color);
+  background: var(--tertiary-color);
 }
 
 /* REACH OUT STYLES END */
@@ -470,6 +594,10 @@ section {
 
 /* 2.4 - MEDIA QUERIES FOR TABLETS DOWN TO PHONES */
 @media screen and (max-width: 768px) {
+
+  .checkbox label, .radio label {
+    margin: 24px;
+  }
   
   .section-title {
     width: 100%;
@@ -520,6 +648,11 @@ section {
 
 /* 2.4 - MEDIA QUERIES FOR PHONE */
 @media screen and (max-width: 575px) {
+
+  header {
+    background-color: var(--tertiary-color);
+    background-blend-mode: overlay;
+  }
   
   .hero-form button {
     width: 100%;
