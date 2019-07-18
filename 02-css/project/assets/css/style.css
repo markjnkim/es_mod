@@ -38,10 +38,6 @@ header nav {
   justify-content: space-between;
 }
 
-header nav ul li {
-  display: inline;
-}
-
 header nav a {
   padding: 15px 20px;
   font-weight: 200;
@@ -273,6 +269,64 @@ section {
   font-size: 17px;
 }
 /* TRAINER STYLES END */
+
+/* SERVICE STYLES END */
+.services {
+  background: #fce138;
+}
+
+.service-grid-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.service-grid {
+  background: rgba(255,255,255, 0.7);
+  width: 80%;
+  display: grid;
+  /* repeat(iterator, size) */
+  grid-template-columns: 1fr 4fr 4fr;
+  grid-template-rows: repeat(5, 1fr) 2fr;
+  border: 2px solid #024e76;
+  color: #024e76;
+  font-size: 1.7vw;
+}
+
+.service-grid-item {
+  padding: 15px 0;
+  border: 2px solid #024e76;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center
+}
+
+/* specific match */
+.service-grid-item.basic {
+  grid-column: 2 / span 1;
+}
+
+.service-grid-item.both {
+  grid-column: 2 / span 2;
+}
+
+.service-grid-item.cancel {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  grid-column: 1;
+  grid-row: 1 / -1;
+  font-weight: bold;
+  font-size: 2.6vw;
+}
+
+.grid-head, .grid-price {
+  font-size: 2.5vw;
+  font-weight: bold;
+}
+
+
+/* SERVICE STYLES END */
 
 /* REACH OUT STYLES START */
 .contact {
