@@ -186,13 +186,13 @@ section {
   background-color: var(--tertiary-color);  
 }
 
-.checkbox input[type="checkbox"], 
-.radio input[type="radio"] {
+.checkbox-wrapper input[type="checkbox"], 
+.radio-wrapper input[type="radio"] {
   opacity: 0;
 }
 
-.checkbox label::before,
-.radio label::before {
+.checkbox-wrapper label::before,
+.radio-wrapper label::before {
     content: "";
     display: inline-block;
     height: 20px;
@@ -204,7 +204,7 @@ section {
     background: rgba(255,255,255,0.75);  
 }
 
-.checkbox label::after {
+.checkbox-wrapper label::after {
     content: "";
     display: inline-block;    
     height: 6px;
@@ -217,18 +217,18 @@ section {
     top: 1px;
 }
 
-.checkbox label, .radio label  {
+.checkbox-wrapper label, .radio-wrapper label  {
     position: relative;
     left: 10px;
     margin: 10px;
     line-height: 1.6;
 }
 
-.radio label::before {
+.radio-wrapper label::before {
   border-radius: 15px;
 }
 
-.radio label::after {
+.radio-wrapper label::after {
   content: "";
   width: 20px;
   height: 20px;
@@ -240,14 +240,14 @@ section {
 }
 
 /*Hide checked state */
-.checkbox input[type="checkbox"] + label::after, 
-.radio input[type="radio"] + label::after {
+.checkbox-wrapper input[type="checkbox"] + label::after, 
+.radio-wrapper input[type="radio"] + label::after {
     content: none;
 }
 
 /* show the checked state*/
-.checkbox input[type="checkbox"]:checked + label::after, 
-.radio input[type="radio"]:checked + label::after {
+.checkbox-wrapper input[type="checkbox"]:checked + label::after, 
+.radio-wrapper input[type="radio"]:checked + label::after {
     content: "";
 }
 
@@ -578,6 +578,7 @@ section {
 
 .contact-form input:focus, .contact-form textarea:focus {
   background-color: rgba(255,255,255, 1);
+  outline: none;
 }
 
 .contact-form button {
@@ -588,7 +589,7 @@ section {
   text-align: center;
   padding: 15px 0;
   font-size: 16px;
-  border-radius: 10px
+  border-radius: 10px;
 }
 
 .contact-form button:hover {
