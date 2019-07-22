@@ -1,12 +1,16 @@
-# Lesson 1: Setting Up the Project
+# Lesson 1: Set Up the Project
 
 ## Introduction
 
-It's time to get our hands dirty with some real coding! We know this is a big undertaking, but thankfully Run Buddy's given us some leeway to learn as we build. In fact, many real-world companies understand that developers won't know everything upfront, and part of the development process is figuring out new technologies. Granted, as of today, we are brand new developers, so we have a much longer road ahead of us. As with any project, though, the key is to start small and spend the necessary time setting up the project correctly. In this first lesson, we'll familiarize ourselves with some important tools and processes on our way to writing that first line of HTML code.
+Let's jump right in and get our hands dirty with some actual coding! We know this is a big undertaking for a newbie developer, but thankfully the app we're building—Run Buddy—gives us some leeway to learn as we build. 
 
-## Getting Started with the Command Line
+In fact, many real-world companies don't expect developers to know everything up front. Part of the development process is figuring out new technologies. Granted, we are brand new developers, so we have a longer road ahead of us than a seasoned programmer learning a new tool. The key is to take it one step at a time and set up the project correctly. 
 
-In the old days of computer usage, entering text-based commands on a black screen was the only way to interact with the system. There was no graphical user interface (also known as a GUI) with icons that could be clicked. Now that we have more powerful operating systems like Windows and macOS, most users never have to look at a command line interface (CLI). For developers, though, the command line (often called the terminal) is still a common tool for performing certain tasks. Later in the course, it will become integral to building full-stack applications. For now, we'll be using it to set up our project.
+In this first lesson, we'll familiarize ourselves with some important tools and processes on our way to writing that first line of HTML code.
+
+## Get Started with the Command Line
+
+In the old days, entering text-based commands on a black screen was the only way to interact with a computer. There was no graphical user interface (aka the GUI) with icons and buttons to click. Now that we have more powerful operating systems like Windows and macOS, most users never have to look at a command line interface (CLI). For developers, though, the command line (often called the terminal) is still a common tool for performing certain tasks. Later in the course, it will become integral to building full-stack applications. For now, we'll be using it to set up our project.
 
 Mac users, you already have a built-in Terminal app, which you can go ahead and launch now by searching for "terminal" in the Spotlight Search (the 🔍 icon in the top-right corner, or keyboard shortcut Command+Spacebar).
 
@@ -93,7 +97,7 @@ Of course, everything we've done up to this point could also be accomplished wit
 `rm -R`\
 Google each of these to read up on what they do.
 
-## Adding a Little HTML
+## Add a Little HTML
 
 HTML (or Hyper Text Markup Language, in case anyone asks) is the underlying structure of any web page. Looking at our Run Buddy mock-up, every piece&mdash;the header, the sign-up form, the trainer images&mdash;is an HTML element under the hood. This is why we created an `index.html` file in the previous step. All of our HTML code and content will go inside this HTML file.
 
@@ -172,7 +176,7 @@ The good news is, much of this is boilerplate, meaning every web page is going t
 
 > **Coding Challenge:** Create a brand new HTML file that lists your six favorite foods, using the different HTML headings to denote their importance to you.
 
-## Getting Git
+## Get Git
 
 Our web page doesn't look like much yet, but this is still a good place to stop and take care of another important aspect when it comes to managing a project: **version control**. Git is one option to accomplish this. It's a system that allows you to create save points (or in Git terms, **commits**) of your work. Whenever you reach a good stopping point, you can save/commit the current state of your codebase. This creates a nice history of changes that you can look back on and allows you to easily revert to an earlier version.
 
@@ -211,7 +215,7 @@ git commit -m "page template"
 
 `git commit` is the command that will take everything in staging and commit it, but there's an extra piece we should make sure we have: `-m "message"`. This is how we can attach a helpful message to our commits.
 
-> **Pro-Tip:** Every commit should include a message to explain what this particular change to the code is doing.
+> **Pro Tip:** Every commit should include a message to explain what this particular change to the code is doing.
 
 On your first commit, however, Git may ask you to identify yourself:
 
