@@ -217,4 +217,13 @@ Notice the large text input field for Message.  This is a new HTML element that 
           </form>
         </div>
 ```
-Now that we have created our development environment and added some HTML content, we can start by 
+Now that we have created our development environment and added some HTML content, we can start adding our features to make our landing page mobile responsive.
+
+## Git Issues Create Feature Branches
+
+Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called git issues. Git issue is a workflow process development tool that is often used with teams that will help organize and communicate the state of each task and who is responsible for its completion. This tool can prevent team members from forgetting to do important tasks, identify bottle necks, and prevent anyone from duplicating work. Now how it works is very simple.  Let's go to our GitHub repo and select on the Issues tab.
+> **Need to Recreate Student Repo for screen shots**
+![git-issues](./assets/lesson-1/700-git-issue-sdlc.png)
+> **Possible Video Walkthrough** gif git
+
+From there we can create a new issue by clicking on the green New Issue button.
