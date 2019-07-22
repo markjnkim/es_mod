@@ -323,6 +323,7 @@ section {
 .step-info img {
   flex: 1 12%;
   margin-right: 20px;
+  max-width: 100%;
 }
 
 .step-text {
