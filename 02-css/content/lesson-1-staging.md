@@ -72,7 +72,7 @@ Excellent. Your terminal should now look like this.
 ![git-branch](./assets/lesson-1/100-git-branch-cli.png)<br />
 > ## Will fix terminal prompt to be anonymous
 The green font color and asterisk indicate the current active branch.
-> **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we checkout a different branch, the Explorer side panel will update with the new branch's folder hierarchy.
+> **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` a different branch, the Explorer side panel will update with the new branch's folder hierarchy. Also note that on the bottom left on the status bar in VS Code under the Explorer side panel, the current active branch will be displayed to help keep track of the version being edited.  Be sure you are not working on the `master` since management will not be very happy if the production environment gets corrupted.
 
 Now that we have learned an important use of Git's branches to create an isolated development environment for working and editing without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. 
 
