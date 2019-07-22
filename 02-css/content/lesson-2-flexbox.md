@@ -2,13 +2,13 @@
 
 As evidenced by the issues we created in our GitHub repository, there's a fair amount to be done to get this site to a point that matches Run Buddy's specifications. What they are asking us to do for them is fairly common in the world of web development and it can be very overwhelming at times, but luckily we already have our work sectioned off into these different GitHub issues so we can worry about tackling one at a time.
 
-The first issue we are going to tackle is converting the site's overall flow and layout to enhance its design and make it more flexible. To do that we're going to use a new layout feature in CSS called "flexbox" (clever name, right?), which allows us to create layouts that used to only be achieved with heavy usage of floats and positioning. Flexbox is going to allow us to make these layout changes without having to _too_ much manipulation to what we currently have in our code. We'll be updating every section of our page in some way, take a look at some of these changes:
+The first issue we are going to tackle is converting the site's overall flow and layout to enhance its design and make it more flexible. To do that we're going to use a new layout feature in CSS called **flexbox** (clever name, right?), which allows us to create layouts that used to only be achieved with heavy usage of floats and positioning. Flexbox is going to allow us to make these layout changes without having to _too_ much manipulation to what we currently have in our code. We'll be updating every section of our page in some way, take a look at some of these changes:
 
 ![Hero banner mockup](assets/lesson-2/100-hero.jpg)
 
 ![Trainers mockup](assets/lesson-2/200-trainers.jpg)
 
-Comparing these to what we currently have, you can see that we'll be working to make better use of the horizontal space on the page to provide a cleaner layout. 
+Comparing these to what we currently have, you can see that we'll be working to make better use of the horizontal space on the page to provide a cleaner layout.
 
 We're ready to get started, but as we know, our current `staging` branch is probably not the best place to mess around. So let's get started by creating our first git feature branch.
 
@@ -70,11 +70,118 @@ If the result does not say something along the lines of the above "Switched to a
 
 If you are now in your `flexbox` branch, great! Let's start actually coding!
 
-## Flexing the Header and Navigation
+## Flexing the Header
+
+Based on the title of this section, we're going to begin updating our page's layout with the `header`. You may be comparing the current page to the mock-up in the previous lesson and thinking "why would this need to be updated? It looks exactly the same!", and while they may look the same, the one we're working towards is going to use new CSS properties that make the HTML more responsive and flexible for different screen sizes. This core layout concept is called **Flexbox**.
+
+Flexbox is the name given to an HTML element with a CSS property declaration of `display: flex`. We've seen `inline` and `block` before, but this one has a whole different meaning. It literally means a "flexible box" and it is a newcomer to our set of CSS tools, as it was finally adopted by all browsers in late 2017.
+
+Think about what we have previously to create different types of layouts. They usually involved using floats, absolute positioning, and a lot of tweaking to other CSS properties. The main issue with the tools we've used so far is that they involve us explicitly telling HTML elements how they should be positioned and placed around one another, otherwise they wouldn't be aware of each other and the page would end up having a broken design. It works, but it requires a lot of rules, especially when mobile devices and tablets are introduced into the picture, and can become very frustrating to work with.
+
+Currently our `header` cannot resize well:
+
+![Resize with floats](assets/lesson-2/600-bad-resize.gif)
+
+But with flexbox (and some other cool tricks we'll add later), our header will grow and shrink very well:
+
+![Resize with flex](assets/lesson-2/700-good-resize.gif)
+
+Flexbox eases these pains by creating HTML parent/child (or container/container-item) relationships where the parent keeps track of how much space each child is taking up and repositions the other children accordingly. This way, the child elements don't have to worry about each other, as the HTML parent/container they live in is doing all of the hard work for them. They just need to worry about their own content and can grow or shrink depending on the size of the screen.
+
+> IMPORTANT: The Magic of Flexbox
+>
+> When a container is given a `display` value of `flex`, that element is now able to create what's known as a one-dimensional layout. This means that it can now control its content along either the horizontal X-Axis (known as a "row") or the vertical Y-Axis (known as a "column"). By default, a flexbox is set to be a row, meaning that it will try and fit all of it's child elements on one horizontal line until it hits the right edge of the parent. At that point it has to decide whether to:
+>
+> - Make all of the child elements more narrow to accommodate a new sibling on that horizontal line. This usually results in child elements having a "squished" look.
+>
+> - Tell the flexbox parent that it's okay to overflow its content onto the next line. This is what's known as "wrapping" and is commonly used in conjunction with flexbox containers to handle the screen growing and shrinking.
+>
+> Another thing that Flexbox provides that used to be incredibly difficult is horizontal/vertical alignment of child elements, meaning we can use flexbox to vertically center HTML elements in a container (which used to be near impossible without JavaScript) and we can evenly space elements without having to set a lot of CSS rules to them.
+>
+> All of these ideas are easily carried into making a flexbox column as well, just apply those rules to height instead of width and it's the same idea. Typically flexbox is used more for rows than columns, but there are some really cool use cases for both and flexbox is quickly becoming an industry standard.
+>
+> [Learn more about flexbox and how it can be used.](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
+
+In our case we can tell not only our entire `header` element but also our `nav` element to keep track of what's inside of it and how much space can get taken up before overflowing onto the next line. So enough talking about flexbox, let's learn by doing!
+
+We'll start by making the `header` element a flexbox, but first let's remove a few pieces from our CSS file (a lot of this lesson will involve removing CSS properties and adding flexbox properties in their place):
+
+- Remove the `display: inline-block` declaration from `header h1`
+
+![Remove h1 property](assets/lesson-2/800-rm-inline.jpeg)
+
+- Then remove the `float:right` declaration from `header nav`
+
+![Remove float from nav](assets/lesson-2/900-rm-header-float.jpeg)
+
+Now you can go save and refresh the page if you want to see it broken, or you can go ahead and apply the fix immediately by adding the following CSS property declaration to the `header` rule in `style.css`:
+
+```css
+display: flex;
+```
+
+That's all that needs to be added to get our elements back on the same horizontal line! It should now look like this:
+
+![Header with flex](assets/lesson-2/1000-flex-header.png)
+
+By just adding `display: flex` to our `header`, we are telling the header to keep tabs on how much space its direct children (`h1` and `nav`) need and places them on the same line. What makes this more interesting is that both of those children by default are block-level elements and adding the context of flexbox overrides that default behavior. The simple `display: flex` declaration also automatically makes that `header` a "row" by default, so there's no need to explicitly tell it so.
+
+> URKEL SAYS: To change a flexbox from a row layout to a column layout, you can use the property called `flex-direction` and give it a value of `column` and the box will lay out all of it's children vertically rather than horizontally.
+
+There are just a few more things we want to do at this point. Notice how the navigation items seem to be up against the left-hand side, closer to the `h1`? Well we can adjust that easily using a property that works in flexbox containers called `justify-content`.
+
+> DEEP DIVE: The `justify-content` property is one that only applies to elements with a `display` property value of `flex` or `grid`. It allows you to control spacing between child elements with different values:
+>
+> - **`flex-start`**: This is the default value if nothing is provided and is the most "normal" value. It has all elements come up against one another and try to be as far left as possible in the container
+>
+> - **`flex-end`**: Opposite of `flex-start`, placing all elements at the end (or right hand side) of the container.
+>
+> - **`center`**: Keep all elements as close to the center of the container as possible.
+>
+> - **`space-between`**: Take all of the unused space in the container and put it between every child element evenly so they are spaced apart.
+>
+> - **`space-around`**: Like `space-between` but it also includes adding space between the elements and the edges of the container, so the left-most and right-most elements are not flush against those edges.
+>
+> These are the most used values, but there are a few more. [Learn more about `justify-content` and demo some of its values.](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
+
+What we currently have are two child elements and we want them to be spaced apart from one another as much as possible with the `h1` being up against the left and the `nav` being up against the right, so let's add the following declaration to the `header` CSS rule:
+
+```css
+justify-content: space-between;
+```
+
+What this property declaration just did for us is it took all of unused space in the `header` and put it between the two elements. It determines the unused space by looking at each child element and seeing how much the border-width, margin, padding, and content itself add up to. If it doesn't add up to 100% of the parent, then whatever is left over is what's considered the unused space.
+
+> REWIND: What is it called when we calculate an element's dimensions by adding the content, padding, border-width, and margin values?
+>
+> ANSWER: The "box-model"
+
+The next thing we need to do is tell the `header` how to handle content that's too wide for the container when the screen is smaller. We can leave it be&mdash;which will either let the content just try and become as small and tight as possible or burst out the right side of the container&mdash;but that would not be the best choice in most use cases. Instead, we are going to tell the container that when its child elements can't fit on one line, let them break onto the next line so they can take up as much width as they need.
+
+This is achieved by adding a property called `flex-wrap`, and it allows the flexbox container to let its children wrap onto the next line. By default the value of `flex-wrap` for a flexbox is set to `none`, so we need to explicitly tell it to be `wrap` instead by adding the following to our `header` like this:
+
+```css
+flex-wrap: wrap;
+```
+
+Now when we resize our window, the `header` will collapse onto a second line when it runs out of room to fit both the `h1` and `nav` elements on the same line.
+
+The properties we used here (`display: flex`, `justify-content`, and `flex-wrap`) are usually the three most used flexbox properties, and as we can see&mdash;all three of them are added to `header`. This is the crux of using flexbox for web layouts, let the parent elements tell the child elements how to look instead of having to worry about each child's needs one at a time.
+
+With these minor edits to the `header` we were able to achieve the same layout with easier to understand concepts, which will allow us to make more complex layouts as time goes on. There are still a few changes we want to make to the `nav` element, though, to make it more responsive to screen size changes.
+
+If you are guessing that those changes will involve converting the `nav` element to a flexbox as well, then you'd be correct, so let's keep moving!
+
+> IMPORTANT: Don't forget to use your git commands to `add` and `commit` your work to this `flexbox` feature branch!
+
+## Flexing the Navigation
 
 ## Flexing the Footer
 
+- footer -> flex container & justify/align
+
 ## Flexing the Hero
+
 
 ## One column layouts for Section Titles and "What We Do"
 
