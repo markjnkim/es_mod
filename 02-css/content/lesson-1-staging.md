@@ -12,8 +12,8 @@ After receiving the mandate from management for the next update for Run Buddy 2.
 
 ![version_2.0-mock-up](./assets/lesson-1/001-version2-mock-up-main.jpg)
 
-Since the website is currently deployed or live on the `master` branch, what will happen if we try to make these changes on the `master` like we did in Module 1?
-It will cause the website to look broken or may even crash on our visitors which isn't just annoying or frustrating, but may relate to some visitors that this is a fake or scamming internet site. 
+Since the website is currently deployed or live on the `master` branch, what will happen if we try to make these changes on the `master` like we did back in Module 1?
+It will cause the website to look broken or may even crash on our visitors which isn't just annoying or frustrating, but may even relate to some visitors on a first impression that this is a fake internet site. 
 
 This is where our friend Git comes into play.  
 > **Career Path**: Git is the industry standard for developers.
@@ -22,8 +22,8 @@ Employers will want employees with experience with Git.  Employer-ready students
 > **Rewind**: Git is a version control system that allows your project not only to be saved with access to the full history of commits, but also allows versions of the code to be created by branching.
 
 ## Branching for version control
-Branches in Git allow developers to copy versions of the repo.  In our case we would like to have one version that is deployed which will continue to serve our customers and another version of the same exact code so we can work in isolation that will allow us to edit and create without worrying about blocking visitors who wish to use our website.  We will call this branch `staging`.  This will become our development environment.  We will work on the code in our staging branch while our deployed site will remain in the production environment.  Development environments are not exposed to the public whereas production is.
-> **Deep Dive**: Development vs Production Quiz
+Branches in Git allow developers to copy versions of the repo.  In our case we would like to have one version that is deployed which will continue to serve our customers and another version of the same exact code so we can work in isolation that will allow us to edit and create without worrying about blocking visitors who wish to use our website.  We will call this branch `staging`.  This will become our development environment.  We will work on the code in our `staging` branch while our deployed site will remain in the production environment.  Development environments are not exposed to the public whereas production is.
+> **Deep Dive**: Development vs Production Recap
 
 > |                  | Production | Development |
 > |------------------|------------| ----------- |
@@ -35,7 +35,7 @@ Branches in Git allow developers to copy versions of the repo.  In our case we w
 > |contains test data| false      | true        |
 Please note the branch names are just labels that can be changed.  The `master` branch does not always have to be the production environment, however in our situation this will be the case. 
 
-In our project, the `staging` branch will be where we collect the new features or enhancements and test them. Once we are satisfied with the final result and we have a stable working version, we can then "merge" our new work into the `master` branch and then ship or deploy our update to the users. 
+The `staging` branch will be where we collect the new features or enhancements and test them. Once we are satisfied with the final result and we have a stable working version, we can then "merge" our new work into the `master` branch and then ship or deploy our update to the users. 
 
 Before we create our `staging` branch, let's first learn some new Git commands for the terminal. 
 ```
@@ -54,9 +54,9 @@ The `checkout` command enables a user to move into a different branch or version
 ```
 $ git checkout -b "<branch-name>"
 ```
-Creates a new branch AND moves into the new branch making it the active branch.
+Creates a new branch **AND** moves into the new branch making it the active branch.
 
-> **Do It Yourself**: Now let's practice using some of these commands to create our `staging` branch and verify our work.  Remember we must go to the terminal and `cd` to our working directory.  Let's go to the root directory of our project so we can make a new version or branch.  
+> **Do It Yourself**: Now let's practice using some of these commands to create our `staging` branch and verify our work.  Remember we must go to the terminal and `cd` into our working directory.  Let's go to the root directory of our project so we can make a new version or branch.  
 
 ```
 $ git branch "staging"
@@ -70,14 +70,15 @@ $ git branch
 ```
 Excellent. Your terminal should now look like this.
 ![git-branch](./assets/lesson-1/100-git-branch-cli.png)<br />
+> ## Will fix terminal prompt to be anonymous
 The green font color and asterisk indicate the current active branch.
 > **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we checkout a different branch, the Explorer side panel will update with the new branch's folder hierarchy.
 
-Now that we have found a great use of Git's branches to discover how to create a development environment for working and editing without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. 
+Now that we have learned an important use of Git's branches to create an isolated development environment for working and editing without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. 
 
 ## Now Featuring. . .  Branches
 
-Rather than a different type of branch, a feature branch is actually just a different use of the same idea. Previously we used a staging branch to create a development environment to leave our production environment undisturbed. In this case, we will be creating a feature branch that is an exact duplicate of the `master` branch to create our new feature.  This will allow work to be done on the same repo or project independently and in isolation to eliminate accidentally overwriting or losing team member's work. 
+Rather than a different type of branch, a feature branch is actually just a different use of the same idea. Previously we used a staging branch to create a development environment to leave our production environment undisturbed. In this case, we will be creating a feature branch that is an exact duplicate of the `staging` branch to create our new feature.  This will allow work to be done on the same repo or project independently and in isolation to eliminate accidentally overwriting or losing team member's work. 
 This is also modular approach which allows each feature to be added or merged when finished rather than needing every feature finished before merging. Think about the benefits of this approach:
 * Increase productivity and accountability of each team member, with individual feature assignments.
 * Able to ship features independently, meaning a finished feature can be added right away without needing to wait for other features to finish. This is done by merging the feature branch into the development environment branch, in this case, the staging branch.
@@ -138,7 +139,11 @@ The `pull` command directs the download process to occur. The `origin` and `mast
 any thoughts? answers? guesses?<br />
 > **Answer**: `git pull` will download to the current active branch or whatever branch you are currently checked out on.
 
-So a little more on the `pull` process. We will only receive not only one version of the project designated by the branch name, but also all the commit histories associated with that branch. 
+> **Potential Video Walkthrough** difference b/n fetch and pull, See [Youtube video](https://www.youtube.com/watch?v=q6rYglziOjM) or diagram showing 
+
+So a little more on the `pull` process. The `pull` command is actually a combination of two different commands, `git fetch` and `git merge`.
+`git fetch` is a command that fetches or gets branches from the remote repo and allows local access to them. This operation will not overwrite any files but will only add any branches in the remote repo that is not present in your local computer.  However `git merge` will combine or merge the branch into your current active branch, which means some code management may need to occur due to the potential addition of new code into your current branch which may lead to merge conflicts. We will address more on conflicts at a later time. After the merge, we will receive not only one version of the project designated by the branch name, but also all the commit histories associated with that branch. 
+For more details, let's look at the official [Git docs](https://git-scm.com/docs/git-fetch).
 
 > **Graphics Team Request** _Possible Jira Issue_
 ![git work flow](https://res.cloudinary.com/practicaldev/image/fetch/s--M_fHUEqA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/128hsgntnsu9bww0y8sz.png)
@@ -222,8 +227,34 @@ Now that we have created our development environment and added some HTML content
 ## Git Issues Create Feature Branches
 
 Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called git issues. Git issue is a workflow process development tool that is often used with teams that will help organize and communicate the state of each task and who is responsible for its completion. This tool can prevent team members from forgetting to do important tasks, identify bottle necks, and prevent anyone from duplicating work. Now how it works is very simple.  Let's go to our GitHub repo and select on the Issues tab.
-> **Need to Recreate Student Repo for screen shots**
-![git-issues](./assets/lesson-1/700-git-issue-sdlc.png)
-> **Possible Video Walkthrough** gif git
+> ### Need to Recreate Student Repo for screen shot
 
+> **Possible Video Walkthrough** gif git
+> Create issue, compose content/labels, submit issue, verify issue, edit
+issue, comment on issue, close issue
 From there we can create a new issue by clicking on the green New Issue button.
+
+![new-git-issue](./assets/lesson-1/800-new-git-issue.png)
+
+As the text input field suggests, we will be creating a new git issue named after the new CSS tool we will be using to implement a mobile responsive website called Flexbox. We will cover much more on this in the next lesson.
+Git issues are useful because they create a project to-do list that can be labelled or categorized under issue type, assigned to a person, and much more. Take a look at [GitHub Help](![git-issues](./assets/lesson-1/700-git-issue-sdlc.png)) for a detailed explanation regarding how git issues can improve your project's workflow.
+Let's leave a quick comment "Use flexbox to create a more mobile responsive website" and click on the "Submit new issue" button.
+
+To verify our issue was completed correctly, let's click on the Issues tab.  Here we will see our list of issues that need resolution.  Let's click on our Flexbox issue. From here we can add comments, reassign the issue to someone else, add more descriptions including project requirements, and add a label.  Let's add a label to our Flexbox issue now.
+> **Pause**: Which label should we choose?
+> **Answer**: enhancement because this will be a new feature.
+
+In the next lesson we will learn how our issue will turn into a feature branch.
+> **Checkpoint**: Possible stopping place
+
+## Reflection
+Let's take a moment to review some of the big takeaways from this lesson.
+* **Development vs Production**: Creating a development environment to allow users to browse the website in the production environment is an important use of Git's version control tool.
+* **Branches**: Allow versions of the codebase to coexist, letting people to work in isolation and ship features more quickly.
+* **README.md**: A high level introduction to your project repo.
+* **Git Pull**: Is the process of merging the remote repo into the local repo by branch.
+* **Git Issues**: A tool that facilitates project management, promotes communication, and facilitates productivity.
+
+  
+
+
