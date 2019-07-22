@@ -255,6 +255,4 @@ Let's take a moment to review some of the big takeaways from this lesson.
 * **Git Pull**: Is the process of merging the remote repo into the local repo by branch.
 * **Git Issues**: A tool that facilitates project management, promotes communication, and facilitates productivity.
 
-  
-
-
+Now let's use our Git issue to create our first feature branch and continue onto Lesson 2: Flexbox.
