@@ -176,6 +176,31 @@ If you are guessing that those changes will involve converting the `nav` element
 
 ## Flexing the Navigation
 
+As we learned with the `header`, setting up elements as a flexbox solves a lot of the headaches we come across in common CSS layouts. It also reinforces the concept of having a parent/child relationship, which is a common theme across the entire programming landscape. The idea behind that is to provide the parent with all of the rules so the children can simply inherit them rather than tell each child specifically what they need to be doing, making the code more understandable and flexible.
+
+If you look at the current `nav` and resize the browser window, you can see that the `nav` element itself breaks onto the next line just fine, but all of the actual links in the `nav` break in weird place and start stacking. What we'll be doing next is reworking our `nav` to make it more responsive by converting it from an inline list to flexbox. So our finished `header` will be a flexbox with two elements, one of them being a `nav` element that is also going to be a flexbox. So the `nav` element will be simultaneously a "flex child" (to the `header`) and a "flex parent" (to the actual links).
+
+> IMPORTANT: You can create as many flexbox elements as you need on a page, just remember what type of layout you're trying to achieve before applying it everywhere as it is a not "cure all" for layouts.
+
+Let's start by removing some pieces from our current HTML and CSS, starting with the HTML. Go ahead and remove the `<ul>` element and the `<li>` elements BUT keep the `<a>` elements. The resulting `nav` should look like this:
+
+```html
+<nav>
+  <a href="#what-we-do">What We Do</a>
+
+  <a href="#what-you-do">What You Do</a>
+
+  <a href="#your-trainers">Your Trainers</a>
+
+  <a href="#reach-out">Reach Out</a>
+</nav>
+```
+
+The funny thing is removing that list may not cause _too_ much of a difference in the current design, but having the HTML set up like it is now will make the CSS much simpler.
+
+Let's now turn our attention to removing some CSS before applying more
+
+
 ## Flexing the Footer
 
 - footer -> flex container & justify/align
