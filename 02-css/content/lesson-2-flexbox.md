@@ -350,8 +350,46 @@ Notice how `justify-content` is set to `center` now? It's because we want these 
 
 We aren't quite there yet, however, as we now have to deal with the "call to action" we added in Lesson 1 being the full width of the hero flexbox. There are a few ways we can go about fixing this issue, one is a more basic application of the `width` property and the other is new flexbox specific property. The flexbox specific property provides a lot more control than we actually need in this situation, so we'll go with `width` for now and get into that property later.
 
-Let's add the following
+Let's start by adding some styles to the call-to-action (CTA) we created earlier.
 
+- Create a CSS rule for the element with a class of `hero-cta` and make it look like this:
+
+```css
+.hero-cta {
+  width: 35%;
+  text-align: right;
+  margin: 3.5%;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.3;
+}
+```
+
+- Create a CSS rule for the `h2` element inside of `hero-cta`:
+
+```css
+.hero-cta h2 {
+  font-style: italic;
+  font-size: 55px;
+  color: #fce138;
+}
+```
+
+Next we want to adjust our `.hero-form` rule to have these two declarations:
+
+- `width: 40%;`
+
+- `margin: 3.5%;`
+
+Notice how we used percentage values for the margins and widths this time around? Since margins and padding are usually done in very small amounts like 10 pixels, it's usually okay to not make their lengths relative to the size of the parent container or page. We used it here in this case more just to show how it can work in the overall flow of this section.
+
+> PRO-TIP: Picking a unit of measurement to use in CSS can sometimes be a daunting task that causes the us to constantly second guess our choice. All of these units of measurement exist for a reason and while some may work better than others in certain cases, there really is no such thing as a "wrong" decision, as we can achieve similar&mdash;if not the same&mdash;results with any mix of these units.
+>
+> This is why it is important to experiment with these different units of measurement and see what pattern works for you. A lot of developers will have an opinion on what they think is superior, but the most important opinion is your own since you are the one building page. Over time these decisions will become much easier to make, but only if you practice!
+
+The hero isn't 100% mobile-ready just yet as it doesn't break down onto the next line as nicely as our other flexboxes have done so far, but this isn't a problem. We'll tackle that in a future lesson when we handle all of our mobile-ready styles at once.
+
+As always, don't forget to save and commit your work!
 
 ## One column layouts for Section Titles and "What We Do"
 
