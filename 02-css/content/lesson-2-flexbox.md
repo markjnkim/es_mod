@@ -350,6 +350,8 @@ Notice how `justify-content` is set to `center` now? It's because we want these 
 
 We aren't quite there yet, however, as we now have to deal with the "call to action" we added in Lesson 1 being the full width of the hero flexbox. There are a few ways we can go about fixing this issue, one is a more basic application of the `width` property and the other is new flexbox specific property. The flexbox specific property provides a lot more control than we actually need in this situation, so we'll go with `width` for now and get into that property later.
 
+Let's add the following
+
 
 ## One column layouts for Section Titles and "What We Do"
 
