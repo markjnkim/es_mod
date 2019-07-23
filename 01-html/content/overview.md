@@ -10,8 +10,7 @@ link to any other hypertext document. This network of linked documents became kn
 Wide Web, and people used web browsers to navigate and display its content. Those documents 
 were written in Hypertext Markup Language, or HTML. 
 
-Thirty years later, the web still runs on HTML,
-and everyday folks still use browsers to navigate and display HTML documents. A notable difference
+Thirty years later, the web still runs on HTML, and everyday folks still use browsers to navigate and display HTML documents. A notable difference
 is that there are now a lot more cat memes.
  
 You might be skeptical that everything on the web can still be categorized as HTML—and you have good reason to be. Nowadays when you use your web browser, you see things like PNG, JPG, and GIF images. You watch videos. You listen to audio files. You might watch live streams or play games. You download Zip files, view PowerPoint 
