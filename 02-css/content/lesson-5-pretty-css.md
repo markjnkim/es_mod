@@ -281,13 +281,251 @@ Much better! Let's do something similar with the form inputs and textarea in the
 
 > **Hint:** You can consolidate your `:focus` rules with comma-separated selectors: `.contact-form input:focus, .contact-form textarea:focus`.
 
-So far, we've looked at hover, active, and focus, states that depend on user interactivity. There are other states that an element can be in, however, that have more to do with where the element is in relation to others.
+So far, we've looked at hover, active, and focus, states that depend on user interactivity. There are other states that an element can be in, however, that have more to do with where the element is in relation to others. Add this CSS rule alongside your other "What You Do" rules:
 
-...
+```css
+.step:last-child {
+  border-bottom: 1px solid #39a6b2;
+}
+```
+
+Look at the page in the browser, and you'll notice that a border was added to the last step:
+
+![border bottom](./assets/lesson-5/900-last-child-border.png)
+
+The `.step:last-child` selector means the CSS declarations will only apply to an element with class `step` that's also the last element in whatever container it's sitting in. Let's revisit the HTML, where we have a `<section>` tag with multiple child elements:
+
+```html
+<section id="what-you-do" class="steps">
+  <div class="flex-row">
+    ...
+  </div>
+  <div class="step">
+    <h3>Step 1.</h3>
+    ...
+  </div>
+  <div class="step">
+    <h3>Step 2.</h3>
+    ...
+  </div>
+  <div class="step">
+    <h3>Step 3.</h3>
+    ...
+  </div>
+  <div class="step">
+    <h3>Step 4.</h3>
+    ...
+  </div>
+</section>
+```
+
+The `<div>` with "Step 4" in it is the last child of the `<section>` tag. The `<div>` with class `flex-row` would be the first child. This parent/child relationship lets us do some interesting things with pseudo-classes. Try this one instead:
+
+```css
+.step:nth-child(even) {
+  border-bottom: 1px solid #39a6b2;
+}
+```
+
+This will add a border to every even-numbered child of the `<section>` that also has the class `step`. In this case, Step 1 and Step 3. That probably seems confusing, because Step 1 is not an even number! But keep in mind that `<div class="flex-row">` is the first official child, so Step 1 is actually the second child (an even number).
+
+For our needs, we need a bottom border applied to every step except the last one. There are a few different ways we could tackle this. One solution is to apply the border to all steps and then remove it from the last one:
+
+```css
+.step {
+  border-bottom: 1px solid #39a6b2;
+}
+
+.step:last-child {
+  border-bottom: none;
+}
+```
+
+Or we could combine `:last-child` with another pseudo-class, `:not`, to check for the inverse of that being true:
+
+```css
+.step:not(:last-child) {
+  border-bottom: 1px solid #39a6b2;
+}
+```
+
+The best solution, of course, is the one that makes the most sense to you!
 
 > **Deep Dive:** Read up on some of the other [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#Index_of_standard_pseudo-classes) available to us.
 
+> ## INSERT CODING CHALLENGE HERE
+
 ## Custom Form Elements
+
+The Run Buddy folks are liking the changes we've been making, but they've also been wondering when we're going to change those ugly, default checkboxes and radio buttons. In the following picture, the browser's default styling is on the left, and the requested styling is on the right:
+
+![checkboxes](./assets/lesson-5/1000-checkboxes.png)
+
+That's definitely an improvement, but getting there isn't exactly intuitive. Browsers don't let us change much about these elements. Some developers remove them entirely and use JavaScript to simulate their behavior, but it would be better practice to keep the radio buttons and checkboxes on the page for accessibility reasons. What we can do, though, is make them invisible and put our own custom buttons on top of them. Let's first restructure the HTML in the hero form to accommodate this approach:
+
+```html
+<p>
+  Have you worked out with a trainer before?
+  <span class="radio-wrapper">
+    <input type="radio" name="trainer-confirm" id="trainer-yes" />
+    <label for="trainer-yes">Yes</label>
+  </span>
+  <span class="radio-wrapper">
+    <input type="radio" name="trainer-confirm" id="trainer-no" />
+    <label for="trainer-no">No</label>
+  </span>
+</p>
+<p>
+  <span class="checkbox-wrapper">
+    <input type="checkbox" name="age-confirm" id="checkbox" />
+    <label for="checkbox">I acknowledge that I am at least 18 years of age.</label>
+  </span>
+</p>
+```
+
+Note that we wrapped each of these elements and their labels in a `<span>` tag. Perform a little CSS magic and make the inputs inside of these wrappers disappear:
+
+```css
+.checkbox-wrapper input, .radio-wrapper input {
+  opacity: 0;
+}
+```
+
+The `opacity` property works much like the alpha value in `rgba()`, where transparency is defined on a scale of 0 to 1. This turned all of the inputs invisible, but if you inspect the page with the Chrome DevTools, you can see that the elements are still there:
+
+![hidden buttons](./assets/lesson-5/1100-hidden-button.png)
+
+Before we add the custom buttons, we'll need to prep our `<label>` elements so our new buttons can fit inside:
+
+```css
+.checkbox-wrapper label, .radio-wrapper label {
+    position: relative;
+    left: 10px;
+    margin: 10px;
+    line-height: 1.6;
+}
+```
+
+> **Rewind:** In Module 1, we needed to apply relative positioning to the hero section so the form inside could be positioned absolutely. The same principle applies here. The custom radio/checkbox buttons are going to sit absolutely inside of the labels.
+
+Now here's the crazy part. We're not going to add our new buttons in the HTML code. We're going to use CSS and **pseudo-elements** to do this. Add the following CSS rule to your style sheet:
+
+```css
+.checkbox-wrapper label::before, .radio-wrapper label::before {
+    content: "";
+    height: 20px;
+    width: 20px;
+    background: rgba(255, 255, 255, 0.75);  
+    border: 1px solid #024e76;  
+    position: absolute;
+    top: -4px;
+    left: -30px;
+}
+```
+
+This should produce the following results in the browser:
+
+![custom inputs](./assets/lesson-5/1200-custom-inputs.png)
+
+Crazy, right? The `::before` pseudo-element lets us inject content into an element with CSS! `::before` places this content before everything else that currently resides in the element. Here, we left the actual `content` property empty but used additional CSS properties to create a white square with a blue border. We then used absolute positioning to move this box on top of the invisible, original input element.
+
+Unfortunately, we've made our new radio buttons square. Let's fix this with another CSS rule that targets only the `radio-wrapper` class:
+
+```css
+.radio-wrapper label::before {
+  border-radius: 15px;
+}
+```
+
+Awesome, we're halfway there! Next, we need to define what the buttons look like when checked, or clicked. We'll need another pseudo-element to overlay on top of our first one. We can't have two `::before` pseudo-elements in the same place, but we can use the `::after` pseudo-element:
+
+```css
+.radio-wrapper label::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 15px;
+  background: #024e76;
+  position: absolute;
+  left: -29px;
+  top: -3px;
+}
+
+.checkbox-wrapper label::after {
+  content: "";
+  height: 6px;
+  width: 14px;
+  border-left: 2px solid #024e76;
+  border-bottom: 2px solid #024e76;
+  position:absolute;
+  left: -26px;
+  top: 1px;
+}
+```
+
+Similar to `::before`, we didn't put any actual content in the `::after` pseudo-element. Instead, we used it to create a circle for the radio buttons and a checkmark for the checkbox:
+
+![pseudo-elements](./assets/lesson-5/1300-pseudo-after.png)
+
+You're right, it doesn't really look like a checkmark. Maybe if we rotated it:
+
+```css
+.checkbox-wrapper label::after {
+  /* add this alongside your other declarations */
+  transform: rotate(-58deg);
+}
+```
+
+We can also make the radio buttons look a little nicer by replacing the solid background color with a gradient:
+
+```css
+.radio-wrapper label::after {
+  /* add this alongside your other declarations */
+  background-image: radial-gradient(circle, #39a6b2, #024e76);
+}
+```
+
+These are looking pretty good:
+
+![completely checked](./assets/lesson-5/1400-pretty-checked.png)
+
+The only problem is that they're stuck in the "checked" state. Well, that's a little misleading. These are pseudo-elements. They don't have a checked state! But the invisible inputs that we covered up do. Remember how clicking on a `<label>` tag checks the input that's tied to it? That's still working. We just don't see it anymore. However, we can still tap into the state of these inputs using a pseudo-class:
+
+```css
+.checkbox-wrapper input:checked, .radio-wrapper input:checked {
+  opacity: 1;
+}
+```
+
+In the browser, click on our custom checkbox and notice how the visibility of the real checkbox is toggled on and off:
+
+![toggle checkbox](./assets/lesson-5/1500-toggle-checkbox.png)
+
+Obviously, this behavior isn't desirable. We want the state of this input to either show or hide the `::after` pseudo-element. Fortunately, CSS has [sibling selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator) where we can target an element that sits directly after another element. Let's rewrite the previous rule:
+
+```css
+.checkbox-wrapper input:checked + label, .radio-wrapper input:checked + label {
+  font-weight: bold;
+}
+```
+
+Now, the boldness of the `<label>` tag is dependent on the `:checked` state of its sibling element! That's still not quite what we wanted, though. Let's give this one last shot:
+
+```css
+.checkbox-wrapper input + label::after, 
+.radio-wrapper input + label::after {
+  content: none;
+}
+
+.checkbox-wrapper input:checked + label::after, 
+.radio-wrapper input:checked + label::after {
+  content: "";
+}
+```
+
+If the radio buttons or checkbox are in their default state, they will have no `::after` pseudo content. As soon as an input becomes `:checked`, however, the content and all of the other styles defined earlier will kick in.
+
+> **Important:** In programming, there's a big difference between empty text (`""`) and nothing at all. This will become doubly important once we get into JavaScript.
 
 ## CSS Variables
 
