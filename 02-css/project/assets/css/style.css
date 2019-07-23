@@ -321,9 +321,12 @@ section {
   align-items: center;
 }
 
-.step-info img {
+.step-info .step-img {
   flex: 1 12%;
   margin-right: 20px;
+}
+
+.step-info img {
   max-width: 100%;
 }
 
@@ -689,12 +692,16 @@ section {
     justify-content: center;
   }
 
-  .step-info img {
+.step-img {
     flex: 0 32%;
     margin-right: 0;
     margin-top: 15px;
     margin-bottom: 15px;
   }
+
+.step img {
+  max-width: 35%;
+}
 
   .step-text {
     flex: 100%;  
