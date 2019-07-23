@@ -527,6 +527,20 @@ If the radio buttons or checkbox are in their default state, they will have no `
 
 > **Important:** In programming, there's a big difference between empty text (`""`) and nothing at all. This will become doubly important once we get into JavaScript.
 
+It would seem that we're done, but as you scroll up and down on the page again, you may notice some weird overlapping with the header:
+
+![zindex overlap](./assets/lesson-5/1600-z-index.png)
+
+Um... why are the custom buttons and labels appearing in front? As soon as you give an HTML element positioning (relative, absolute, sticky), it becomes affected by the stacking order. Think of HTML elements like pieces of paper that lay on top of each other. The header was the first element to receive positioning, so it sat on top. Once we gave the form elements positioning, however, those "pieces of paper" were brought to the front and covered up the header. Fortunately, with the `z-index` property, we can change this stacking order, or reshuffle the papers. Add this declaration to the header:
+
+```css
+header {
+  z-index: 999;
+}
+```
+
+A higher `z-index` brings the element to the front while a lower `z-index` pushes it to the back. The value `999` may seem like overkill in this case. `z-index: 1;` would still fix our header/form problem. We may end up needing to add `z-index` to other elements, though, and we want to ensure the header is always on top, so we'll go with `999` to avoid future conflicts.
+
 ## CSS Variables
 
 Before we wrap up this GitHub issue, let's explore another newer (and really cool) feature of CSS called **variables**, or custom properties. If you skim over the CSS rules in `style.css`, you'll notice there's a lot of repetition in the values we use. Run Buddy basically has three colors that we use over and over: yellow (#fce138), navy blue (#024e76), and teal (#39a6b2). It would be really helpful if we could define these colors once and then just reference a name like "primary-color." Well, with CSS variables, we totally can!
