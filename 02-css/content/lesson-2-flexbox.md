@@ -257,13 +257,64 @@ Now we have a `nav` element where the links grow and shrink with the screen size
 >
 > [Here is a list of all units of measurement in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
 
-We're done with the entire `header` for now, so now is a good time to save our work in our `flexbox` branch using Git and we'll move onto the rest of our site's layout!
+We're done with the entire `header` for now, so now is a good time to save our work in our `flexbox` branch using Git and we'll move onto the rest of our site's layout, starting with the `footer`!
 
 > PAUSE: To reinforce some knowledge in how to use flexbox, check out a game called [Flexbox Froggy!](https://flexboxfroggy.com/)
 
 ## Flexing the Footer
 
-- footer -> flex container & justify/align
+Before moving onto the real "meat" of the page, let's take our newfound knowledge in flexbox and apply it the `footer`. Try and answer the following questions:
+
+- How is the `footer` element similar to the `header`?
+
+- If we considered the `footer` a parent element, how many children does it have?
+
+The `header` may have more going on in it overall, but when compared to the `footer`, they are roughly the same when it comes to the layout. The `header` has two direct children, the `h1` and `nav` elements, and `footer` has two as well with `h2` and `div` elements.
+
+Keep in mind how we can think of all web site layouts as a series of boxes or containers:
+
+![Footer boxes](assets/lesson-2/1100-flex-footer.jpeg)
+
+> IMPORTANT: Remember that the parent/child relationship is a direct relationship. Any elements nested an element deeper (i.e. `header > nav > a`) are children of the direct element they are inside of.
+
+Let's finish up our `footer` by copying what we did to the `header`:
+
+1. Remove the `display: inline` declaration from the footer's `h2` element's CSS rule.
+
+2. Remove the `float: right` declaration from the footer's `div` element's CSS rule.
+
+3. Add a `display` property with a value of `flex` to the `footer` element's CSS rule.
+
+4. Add `justify-content` and `flex-wrap` declarations to the `footer` as well.
+
+When you save the page and refresh, try moving the screen size in and out to make sure it looks like this:
+
+![Footer finished](assets/lesson-2/1200-flex-footer-finished.png)
+
+If it doesn't, double check to make sure the CSS rules match this:
+
+```css
+footer {
+  background: #fce138;
+  padding: 40px 35px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer h2 {
+  color: #024e76;
+  font-size: 30px;
+  margin: 0;
+}
+
+footer div {
+  line-height: 1.5;
+  text-align: right;
+}
+```
+
+Now that we've gotten used to the basics of flexbox, let's move onto the `hero` section of our page and create a nice two-column layout.
 
 ## Flexing the Hero
 
