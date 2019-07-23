@@ -318,6 +318,38 @@ Now that we've gotten used to the basics of flexbox, let's move onto the `hero` 
 
 ## Flexing the Hero
 
+We've now learned enough about flexbox to be dangerous, but the real key to understanding how to use flexbox and build advanced layouts is to always think about them as a series of boxes. Take a look at what we're doing next with the hero section:
+
+![Hero finished](assets/lesson-2/1300-hero-finished.jpg)
+
+Thinking about it in terms of a flexbox layout, we would have a "row" with two "columns" of content. Ignoring the content itself, we need a row with two boxes or containers that can be imagined like this:
+
+![Hero outlined](assets/lesson-2/1400-hero-outlined.jpeg)
+
+When building layouts using HTML and CSS, it is important to understand what the content of the layout is going to be, but it is a more important skill to understand how to take the mockup of the layout and understand how all of this content can be wrapped in containers and laid out that way.
+
+In the example above, we can see a rough example of how the hero section of our site can be laid out on the overall page. We don't even need to worry about what is happening in each of those boxes with white outlines, all we need to do is worry about the boxes themselves. Think of it as us creating a rough outline of what we want to do before we do it so we can visualize our problem.
+
+> URKEL SAYS: The practice of sketching the outline of a page's layout is called "wireframing" and it is used very widely throughout all of web development.
+
+Just like the `header` and `footer` styles, it would be best if we started by removing some current styles in our hero section:
+
+- In the `.hero` CSS rule, remove the `position` and `height` declarations
+
+- In the `.hero-form` rule, remove `width`, `position`, `bottom`, and `right` declarations.
+
+Once those are removed let's add in flexbox! In `.hero`, add our usual flexbox properties to it with one change:
+
+- `display: flex;`
+  
+- `justify-content: center;`
+
+- `flex-wrap: wrap;`
+
+Notice how `justify-content` is set to `center` now? It's because we want these two boxes as close to the middle of the screen as possible instead of far apart from one another like in the `header` and `footer`.
+
+We aren't quite there yet, however, as we now have to deal with the "call to action" we added in Lesson 1 being the full width of the hero flexbox. There are a few ways we can go about fixing this issue, one is a more basic application of the `width` property and the other is new flexbox specific property. The flexbox specific property provides a lot more control than we actually need in this situation, so we'll go with `width` for now and get into that property later.
+
 
 ## One column layouts for Section Titles and "What We Do"
 
