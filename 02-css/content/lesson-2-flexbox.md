@@ -198,8 +198,68 @@ Let's start by removing some pieces from our current HTML and CSS, starting with
 
 The funny thing is removing that list may not cause _too_ much of a difference in the current design, but having the HTML set up like it is now will make the CSS much simpler.
 
-Let's now turn our attention to removing some CSS before applying more
+Let's turn our attention to removing some CSS before applying our flexbox styles:
 
+- Completely remove the CSS rule for `header nav ul li`
+  
+- Rename `header nav ul li a` to `header nav a` so it looks like this:
+
+```css
+header nav a {
+  margin: 0 30px;
+  font-weight: lighter;
+  font-size: 22px;
+}
+```
+
+Once those are removed, we can now turn our attention to the `nav` element's flexbox styles. Add these property declarations to `header nav`:
+
+- `display: flex;`
+- `justify-content: space-between;`
+- `flex-wrap: wrap;`
+- `align-items: center;`
+
+
+
+We've already seen these three so no need to stop and explain those, but what about that last one? The property `align-items` works similar to `justify-content`, but on the opposite axis. To justify information means to position it on the horizontal axis, but align means to position it along the vertical axis. In this case we are ensuring that our content is vertically centered in the `nav` element.
+
+> DEEP DIVE: The `align-items` property is another one that is specifically used with flexbox or grid layouts. Not only does it keep child elements along a row matched up with another, but it can also be used to vertically center an element on a page. This may sound like a simple task, but it wasn't until this property that it was possible to achieve this type of vertical alignment without using JavaScript.
+>
+> [Read more about `align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)
+
+Let's finish by making a few adjustments to our `nav` element's link styles so it looks like this:
+
+```css
+header nav a {
+  margin: 0 30px;
+  font-weight: lighter;
+  font-size: 1.55vw;
+}
+```
+
+Can you spot the difference here? We're using the same properties as before, but we are using a different value for `font-size`. The value we provided is using a newer unit of measurement in CSS called `vw`, which is short for **viewport width**. Try resizing the page now and watch the font grow and shrink.
+
+> REWIND: Remember that the viewport is the actual browser window size!
+
+By setting the value to `1.55vw`, we are telling the browser that the font's size should be roughly 1.55 percent of the window's overall width. This means that if the browser grows or shrinks, that size will change relative to the new overall width. This unit of measurement is one of a few new methods we can use for flexible length values in CSS, but can be tricky to nail down compared to absolute units of measurement like "pixel".
+
+Now we have a `nav` element where the links grow and shrink with the screen size, but as we can see, they get a little too small when the screen narrows. This is something we'll circle back on and fix in a later lesson.
+
+> IMPORTANT: Absolute vs. Relative CSS Lengths
+>
+> The CSS language has a built in understanding of different units of measurement so it can interpret and display proper length values on the page. In the early days of CSS, these units of measurement closely resembled real life units of measurement like centimeter, millimeter, and even inch. 
+> 
+> Now those units of measurement are somewhat difficult to translate to a computer screen, so a base unit was used primarily instead. This unit is called a "pixel" and it represents one of the million little dots that come together and form a digital screen. Pixels were also used in a lot of print and graphic design programs at the time too such as Photoshop, so early developers had some familiarity and understanding of its size and scale.
+>
+> A problem emerged when screens went from being a predictable standard computer screen size to being used on devices as small as your watch and as large as sport stadium's jumbotron. The screen sizes varied, but a pixel is a pixel no matter what, and it would create a lot of broken designs and layouts. A new unit of measurement was needed.
+>
+> A series of new units of measurement made it into CSS to combat these issues. These units were not based on a set dimension but based on the dimensions of the screens displaying the information instead. These units of measurement are what's known as "relative" because they are based off of the something else's size.
+>
+> [Here is a list of all units of measurement in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
+
+We're done with the entire `header` for now, so now is a good time to save our work in our `flexbox` branch using Git and we'll move onto the rest of our site's layout!
+
+> PAUSE: To reinforce some knowledge in how to use flexbox, check out a game called [Flexbox Froggy!](https://flexboxfroggy.com/)
 
 ## Flexing the Footer
 
