@@ -20,7 +20,7 @@ Regardless of your operating system, you should see a window that looks like thi
 
 ![terminal window](./assets/step-1/100-terminal.png)
 
-In this window, type the command `pwd` and press Enter. The terminal will then display something like `/c/Users/YourName` on Windows or `/Users/YourName` on Mac. The command `pwd` stands for Print Working Directory and lets us know which folder (a.k.a. directory) the terminal is currently in. When you first open Terminal or Git Bash, you start in your user folder/directory. If you want to see what's in this directory, you could navigate to it through your operating system's GUI (by clicking on folder icons, etc.), but since we're already in the command line, let's try another command: `ls`.
+In this window, type the command `pwd` and press Enter. The terminal will then display something like `/c/Users/YourName` on Windows or `/Users/YourName` on Mac. The command `pwd` stands for Print Working Directory and lets us know which folder (aka directory) the terminal is currently in. When you first open Terminal or Git Bash, you start in your user folder/directory. If you want to see what's in this directory, you could navigate to it through your operating system's GUI (by clicking on folder icons, etc.), but since we're already in the command line, let's try another command: `ls`.
 
 The `ls` command lists any files and folders within the current directory. Some common folders you might see in here are `Documents`, `Pictures`, `Music`, and `Desktop`. Fun fact: the desktop you see when your computer first starts is this folder in your user directory! Let's "go" there now from the command line by typing the following commands, pressing Enter after each line:
 
@@ -62,7 +62,7 @@ cd run-buddy
 pwd
 ```
 
-Just for fun, you can run the `ls` command again while in the `run-buddy` directory, but nothing will happen, because we don't yet have any files in here to list out. Let's go ahead and make a few files with the `touch` command:
+Just for fun, you can run the `ls` command again while in the `run-buddy` directory, but nothing will happen because we don't yet have any files in here to list out. Let's go ahead and make a few files with the `touch` command:
 
 ```bash
 touch hello.txt
@@ -99,7 +99,7 @@ Google each of these to read up on what they do.
 
 ## Add a Little HTML
 
-HTML (or Hyper Text Markup Language, in case anyone asks) is the underlying structure of any web page. Looking at our Run Buddy mock-up, every piece&mdash;the header, the sign-up form, the trainer images&mdash;is an HTML element under the hood. This is why we created an `index.html` file in the previous step. All of our HTML code and content will go inside this HTML file.
+HTML is the underlying structure of any webpage. Looking at our Run Buddy mock-up, every piece&mdash;the header, the sign-up form, the trainer images&mdash;is an HTML element under the hood. This is why we created an `index.html` file in the previous step. All of our HTML code and content will go inside this HTML file.
 
 While we could open this single file directly in our code editor (VS Code), we should start thinking about Run Buddy as a "project" that will eventually have multiple files and folders. So let's open the entire `run-buddy` folder with VS Code. You can do this a number of ways, by either dragging the folder into VS Code, using VS Code's File > Open Folder menu option, or opening it from the command line! If you're still in the terminal in the `run-buddy` directory, run the command `code .` where the `.` means "this directory." 
 
@@ -127,17 +127,17 @@ Now we're ready to code! Type out the following code in your HTML file. We'll go
 </html>
 ```
 
-Awesome! You just wrote your first web page! Make sure you save the file before testing it out. You'll know the file hasn't been saved if a white dot appears in the tab next to the filename:
+Awesome! You just wrote your first webpage! Make sure you save the file before testing it out. You'll know the file hasn't been saved if a white dot appears in the tab next to the filename:
 
 ![unsaved](./assets/step-1/200-unsaved.png)
 
 > **Pro-Tip:** Press CTRL+S on Windows or Command+S on Mac to save via the keyboard.
 
-Next, open this HTML file in the browser (preferably Chrome). If you have the [Open in Browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) extension installed for VS Code, you can simply right-click anywhere in the HTML file and select Open in Default Browser. The web page should look like this:
+Next, open this HTML file in the browser (preferably Chrome). If you have the [Open in Browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) extension installed for VS Code, you can simply right-click anywhere in the HTML file and select Open in Default Browser. The webpage should look like this:
 
 ![first screenshot](./assets/step-1/300-html-screenshot.png)
 
-All right, so it's not the most exciting web page yet, but you gotta start somewhere. Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** with an opening `<tag>` and a closing `</tag>`. Anything in between these tags is affected by what that tag does. The `<h1>` tag, for instance, made the text inside big and bold. This denotes a heading. If we have other, less important headings on our web page, we can use additional tags like `<h2>`, `<h3>`, and so on.
+All right, so it's not the most exciting webpage yet, but you gotta start somewhere. Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** with an opening `<tag>` and a closing `</tag>`. Anything in between these tags is affected by what that tag does. The `<h1>` tag, for instance, made the text inside big and bold. This denotes a heading. If we have other, less important headings on our webpage, we can use additional tags like `<h2>`, `<h3>`, and so on.
 
 > **Deep Dive:** Read more about the different [heading tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
 
@@ -147,7 +147,7 @@ With this new understanding of HTML tags, let's look at the others we used. We'r
 
 > **Deep Dive:** Read more about the [DOCTYPE](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode).
 
-Inside the `<html>` tag, our web page is further broken up into two other tags: the `<head>` and the `<body>`. The `<body>` is where all of the content should go. Basically, everything in our mock-up will go here. The `<head>`, on the other hand, is where we can provide any additional information the browser needs to know about our page. For instance, the browser would like to know what to call this web page. Hence, the `<title>` tag. Whatever is in the `<title>` tag will become the name of the browser tab or window:
+Inside the `<html>` tag, our webpage is further broken up into two other tags: the `<head>` and the `<body>`. The `<body>` is where all of the content should go. Basically, everything in our mock-up will go here. The `<head>`, on the other hand, is where we can provide any additional information the browser needs to know about our page. For instance, the browser would like to know what to call this webpage. Hence, the `<title>` tag. Whatever is in the `<title>` tag will become the name of the browser tab or window:
 
 ![browser title](./assets/step-1/350-browser-title.png)
 
@@ -164,7 +164,7 @@ The `charset` meta tag is important to include now, though, because it specifies
 
 > **Deep Dive:** Read more about [character encoding](https://www.w3.org/International/questions/qa-what-is-encoding).
 
-The good news is, much of this is boilerplate, meaning every web page is going to start with the same structure. Every page needs a DOCTYPE, an `<html>` tag, a `<head>` tag, etc. It's worth typing out again and again just to reiterate their importance, but it can also be copy/pasted into future projects without harm.
+The good news is, much of this is boilerplate, meaning every webpage is going to start with the same structure. Every page needs a DOCTYPE, an `<html>` tag, a `<head>` tag, etc. It's worth typing out again and again just to reiterate their importance, but it can also be copy/pasted into future projects without harm.
 
 > **Pro-Tip:** Keep in mind how we've been organizing the code in our HTML file. New tags were put on a new line, and whenever a tag was inside of another, we indented the code. You could choose to write your HTML like this:
 >
@@ -178,7 +178,7 @@ The good news is, much of this is boilerplate, meaning every web page is going t
 
 ## Get Git
 
-Our web page doesn't look like much yet, but this is still a good place to stop and take care of another important aspect when it comes to managing a project: **version control**. Git is one option to accomplish this. It's a system that allows you to create save points (or in Git terms, **commits**) of your work. Whenever you reach a good stopping point, you can save/commit the current state of your codebase. This creates a nice history of changes that you can look back on and allows you to easily revert to an earlier version.
+Our webpage doesn't look like much yet, but this is still a good place to stop and take care of another important aspect when it comes to managing a project: **version control**. Git is one option to accomplish this. It's a system that allows you to create save points (or in Git terms, **commits**) of your work. Whenever you reach a good stopping point, you can save/commit the current state of your codebase. This creates a nice history of changes that you can look back on and allows you to easily revert to an earlier version.
 
 > **On the Job:** In development, you'll hear the term **production** a lot, which refers to the live version of your app or website that users are currently using. Sometimes bad code makes it to production, maybe causing the entire app to freeze, and the best course of action is to immediately undo! With Git, an older (working) version of the codebase can be pushed to production while developers investigate what went wrong with the new version.
 
@@ -282,7 +282,7 @@ Note that some containers aren't immediately apparent, because they do nothing b
 
 > **On the Job:** It's not uncommon for teams to spend many days or even weeks planning out a project before a single line of code is written. Drawing on a piece of paper may feel like a waste of time when we want to scratch that coding itch right away, but doing so ends up saving time and preventing potential problems in the long run.
 
-Keep your hand-drawn outline close by as we continue. If your outline doesn't 100% match with the code we end up writing, that's fine. There's always more than one way to build a web page! And for the remainder of this lesson, we won't fill in every container, just the higher-level, structural components. The smaller details will come in future lessons.
+Keep your hand-drawn outline close by as we continue. If your outline doesn't 100% match with the code we end up writing, that's fine. There's always more than one way to build a webpage! And for the remainder of this lesson, we won't fill in every container, just the higher-level, structural components. The smaller details will come in future lessons.
 
 We've discussed the `<div>` tag a little bit, so with that in mind, you may be tempted to reorganize your code to look like this:
 
@@ -333,7 +333,7 @@ With the advent of HTML5, however, newer **semantic** tags were introduced to he
 </body>
 ```
 
-Is there any ambiguity about what this block of code represents? Nope, it's a header, and we defined it as such using the HTML5 `<header>` tag. On a technical level, a `<header>` behaves exactly the same as a `<div>`. Its purpose is simply to convey meaning, not only to developers reading the code but to search engines who like to know which sections of a web page are more important than others.
+Is there any ambiguity about what this block of code represents? Nope, it's a header, and we defined it as such using the HTML5 `<header>` tag. On a technical level, a `<header>` behaves exactly the same as a `<div>`. Its purpose is simply to convey meaning, not only to developers reading the code but to search engines who like to know which sections of a webpage are more important than others.
 
 We have another clearly distinct section in our layout at the very bottom: the footer. No coincidence, there's a semantic tag for that:
 
@@ -399,7 +399,7 @@ How do you leave comments in HTML code?
 
 ## Publishing with GitHub
 
-As you get into a comfortable workflow, you'll want to commit to Git often. This ensures you don't accidentally lose any work and gives you a "save point" that you can potentially revert back to. We just finished an important milestone: outlining the high-level structure of our web page. This is the perfect time to commit. Before we commit, though, let's create another file in our project:
+As you get into a comfortable workflow, you'll want to commit to Git often. This ensures you don't accidentally lose any work and gives you a "save point" that you can potentially revert back to. We just finished an important milestone: outlining the high-level structure of our webpage. This is the perfect time to commit. Before we commit, though, let's create another file in our project:
 
 ```bash
 touch .gitignore
@@ -485,9 +485,9 @@ Then on the next page, scroll down to the GitHub Pages section. Change the dropd
 
 ![github pages](./assets/step-1/1500-github-pages.png)
 
-This tells GitHub to use the contents of your master branch for your live website. Once you do this, GitHub will then display the message: Your site is ready to be published at https://username.github.io/run-buddy/. It might take a minute for this to actually kick in, so wait a moment before visiting this link (replacing "username" with your GitHub username, of course). When you do open it, though, you'll see that your Run Buddy web page is now live on the Internet! As we continue to improve this project and push new commits to GitHub, this live link will automatically update. Thanks, GitHub!
+This tells GitHub to use the contents of your master branch for your live website. Once you do this, GitHub will then display the message: "Your site is ready to be published at https://username.github.io/run-buddy/." It might take a minute for this to actually kick in, so wait a moment before visiting this link (replacing "username" with your GitHub username, of course). When you do open it, you'll see that your Run Buddy webpage is now live on the Internet! As we continue to improve this project and push new commits to GitHub, this live link will automatically update. Thanks, GitHub!
 
-Let's back up and look at this link again, though: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that `index.html` is defined as a default by the server. If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html`, because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, it would be a good idea for every project to have an `index.html` file!
+Let's back up and look at this link again: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that `index.html` is defined as a default by the server. If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html`, because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, it would be a good idea for every project to have an `index.html` file!
 
 > **Check Point:** \
 What is the purpose of the `.gitignore` file?\
@@ -496,7 +496,9 @@ What is the command to "push" code to GitHub?
 
 ## Reflection
 
-This lesson was mostly about setting up the project, so even though the final result may not look like much yet, we've made life easier for our future selves. The HTML structure is in place and ready to be filled in with more detailed content and styling. We've established a good workflow with Git to continually save our code changes locally and on GitHub. We also have a live website on GitHub Pages that will begin to take shape once we complete the next several lessons. Some of the major takeaways include:
+This lesson was mostly about setting up the project, so even though the final result may not look like much yet, we've made life easier for our future selves. The HTML structure is in place and ready to be filled in with more detailed content and styling. We've established a good workflow with Git to continually save our code changes locally and on GitHub. We also have a live website on GitHub Pages that will begin to take shape once we complete the next several lessons. 
+
+Some of the major takeaways from this lesson are:
 
 * Creating files and folders with the `touch` and `mkdir` commands
 
