@@ -462,8 +462,91 @@ This section may have seemed a little uneventful, as we took out styles and put 
 
 The next part of this lesson is going to involve a fairly large restructuring of the "What You Do" section of the site. We are going to be introduced to some more tools flexbox offers us to build a slightly more complex layout, so as always, it is a good time to make sure our codebase is saved using Git.
 
+## Nesting and Flexing
 
-## Giving "What You Do" nested flexbox layouts
+Part of designing and building a web page is understanding how to make good use of the horizontal space so the page itself does not run too long vertically. The idea behind this is that frankly&mdash;users might be lazy&mdash;and they won't take the time to scroll that far down the page to get to all of the information. Some designers try to over-correct this issue by trying to cram as much up top as possible, but that makes the page feel a little top heavy and confusing to read.
+
+We are going to try and strike a nice balance of having better use of our horizontal space while also not overstuffing the page by reworking how the "What You Do" steps look like. Currently they look very well organized and it is very easy to see what image goes with a step's text, but they don't make very good use of the space on the left and right of the page, as is shown here:
+
+![Current step layout](assets/lesson-2/1500-step-old.jpeg)
+
+While it reads nice, it's also not making great use of that space to the left and right of the content. We're going to set it up so each step is still on its own horizontal row, but will have a left to right layout as opposed to a top to bottom one like this:
+
+![New step layout](assets/lesson-2/1600-step-new.jpeg)
+
+As we can see, each step will take up less vertical space and have a little more interesting layout for the user to experience while also keeping the content together in a meaningful way.
+
+Before we begin coding, let's take a minute and look at the above mock-up and consider how many "containers" we'd want to make for this content to be easily laid out using flexbox properties. The answer may be a little trickier than you would think just by glancing at it, but think of how we made containers around the `header` and `footer` elements' children to position them properly.
+
+> HINT: When in doubt, grab a piece of paper and physically recreate the layout using wireframes. You don't have to be an artist, but drawing the layout helps visualize it so it is easier to transfer to CSS!
+
+Just like our `header` element being a flexbox parent container having two children and one of them (`nav`) being its own flexbox container, that is how we will attack each step in this section:
+
+![New step outlined](assets/lesson-2/1700-step-outlines.jpeg)
+
+Looking at the above mock-up of this layout, we can see that we are making the entire step itself a flexbox with two children&mdash;the step number on the left and the step information on the right. Then we are going to make the step information's div it's own flexbox with two children for the image/icon and the text.
+
+Like everything else we've done so far, we have to start by restructuring our HTML a bit and then removing some CSS styles before we can think about what new styles are going to be used.
+
+Go through each `div` element with a class of `step` in `index.html` and change it so it matches this:
+
+```html
+<div class="step">
+  <h3>Step 1.</h3>
+  <div class="step-info">
+    <div class="step-img">
+      <img src="./assets/images/step-1.svg" alt="">
+    </div>
+    <div class="step-text">
+      <h4>Fill Out The Form Above</h4>
+      <p>You're already here, so why not?</p>
+    </div>
+  </div>
+</div>
+```
+
+> HINT: Use this structure but don't forget to keep the content for each step the same as it is now!
+
+What we've done here is create containers for each piece of the content in a step, so now it'll be easier to move the content around by adding style rules to the containers that surround them rather than the content itself.
+
+> PRO-TIP: Some HTML elements like the `img` element can be unreliable when it comes to sizing them for creating layouts, so it is a better practice to wrap the `img` tag in a `div` or some other container and tell the `img` to be 100 percent of its parent container's size.
+
+Let's hit the next part of this, which is removing existing CSS styles that may conflict with our new layout:
+
+- Remove the entire CSS rule for `.steps div`, `.steps img`, and `.steps span`
+
+- Remove the `margin-top` declaration from `.steps h3` and rename the selector to `.step h3` to tighten the relationship of the selector and make it a bit quicker for the browser to set the rule
+
+> IMPORTANT: The browser reads CSS selectors from right to left (or innermost element to outermost element), so given a selector of `header nav a` we can think of it as the browser saying to itself "find every `a` element that is inside of a `nav` element, but that `nav` element has to be in a `header` element." This means that the browser has to do a few pass-throughs and work its way up the HTML structure to ensure the CSS styles are only being applied to those distinct `a` elements.
+>
+> While the above selector is fine, having a whole page of that may prove not as performant as the page gets larger. A way to make this more performant is to provide a class to the elements you want to style and select just that class, but that could prove tedious and creating unnecessary amounts of extra HTML by adding a class attribute to every element.
+>
+> Situations like this are common throughout all of programming, there will likely be more than one way to achieve a solution for every problem you come across and it will be up to you to decide what route is best. In this case, it is a decision between making the code slightly more performant versus having code that is slightly easier to read. The answer usually lies in the middle with something like `.nav-class a`, which is very easy to read and understand but is also specific enough for the browser to read efficiently.
+
+Now that the HTML is ready and the CSS has been cleaned a little bit, we can start adding our flexbox styles to each step. Let's start with the step as a whole by creating a CSS rule for anything with a class of `.step`:
+
+```css
+.step {
+  margin: 50px auto;
+  padding-bottom: 50px;
+  width: 80%;
+  border-bottom: 1px solid #39a6b2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+```
+
+We've seen and used all of these properties a fair amount at this point, but this will be the first time we see the `align-items` property make a difference. If we didn't tell the two children to be center-aligned, the finished product would look like this:
+
+![step no align](assets/lesson-2/1800-step-noalign.jpeg)
+
+By centering them, it creates a better use of space on the left side.
+
+As we can see, we aren't quite there yet for the `.step` flexbox. Right now both of them share a horizontal line, but the widths of the children are varied based on the actual length of the content inside of them. Since we cannot rely on the content being uniform enough to provide a consistent layout, we need to tell the containers they live inside of to have some rules for how big they can be.
+
+In previous sections, we used the `width` property to give those flexbox child elements some dimensions and rules to follow. 
 
 ## Trainer Trading Cards
 
