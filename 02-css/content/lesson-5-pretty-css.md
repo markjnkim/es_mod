@@ -43,28 +43,18 @@ To change the transparency of the color, however, we'll need to use `rgba()` ins
 }
 ```
 
-Here, we're saying the shadow should start in the top-left corner (`0 0`), have a radius of `10px`, and be black with half transparency (`0.5`). Add this declaration to the following CSS rules in your style sheet:
+Here, we're saying the shadow should start in the top-left corner (`0 0`), have a radius of `10px`, and be black with half transparency (`0.5`). Add this same `text-shadow` declaration to the following CSS rules in your style sheet: 
 
 ```css
-header h1 { 
-  /* add text-shadow here */
-}
-
-header nav a { 
-  /* and here */
-}
-
-.hero-cta h2 { 
-  /* and here */
-}
+header h1
+header nav a
+.hero-cta h2
 ```
 
-Save, refresh the browser, and enjoy your new shadows! There's one more shadow we need to add to the hero form, though. `text-shadow` wouldn't be appropriate here; it would add shadows to all of the text inside the form! Instead, let's use `box-shadow`:
+Save, refresh the browser, and enjoy your new shadows! There's one more shadow we need to add to the hero form itself, though. `text-shadow` wouldn't be appropriate here; it would add shadows to all of the text inside the form! Instead, let's use `box-shadow`. Add this to your `.hero-form` rule:
 
 ```css
-.hero-form {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 ```
 
 While we're fiddling with the hero form, look closely at the mock-up and notice how the background color is slightly transparent:
@@ -85,32 +75,19 @@ How can we change this to add that transparency? First, we'd need to know the RG
 
 > **Hint:** You'll need to use `rgba()` and set the alpha to `0.8`.
 
-The hero form also utilizes several rounded corners, not only for the form itself but the different form elements inside. The CSS property to accomplish this is called `border-radius`. Add the following declaration to your hero form class:
+The hero form also utilizes several rounded corners, not only for the form itself but the different form elements inside. The CSS property to accomplish this is called `border-radius`. Add the following declaration to your `.hero-form` rule:
 
 ```css
-.hero-form {
-  border-radius: 15px;
-}
+border-radius: 15px;
 ```
 
-This is shorthand to add a rounded corner to all four corners of the element. If you wanted to, you could define separate values for each corner, starting in the top-left. For example: `border-radius: 5px 15px 5px 15px;`. Let's add a smaller rounded corner to all of the form elements on the page:
+This is shorthand to add a rounded corner to all four corners of the element. If you wanted to, you could define separate values for each corner, starting in the top-left. For example: `border-radius: 5px 15px 5px 15px;`. Let's add a smaller rounded corner to all of the form elements on the page. Update the following CSS rules to have a `border-radius` of `10px`:
 
 ```css
-.form-input {
-  border-radius: 10px;
-}
-
-.hero-form button {
-  /* add border-radius here */
-}
-
-.contact-form input, .contact-form textarea {
-  /* and here */
-}
-
-.contact-form button {
-  /* and here */
-}
+.form-input
+.hero-form button
+.contact-form input, .contact-form textarea
+.contact-form button
 ```
 
 > **Legacy Lem:** Before `border-radius`, developers had to jump through some annoying hoops to simulate rounded corners. One common trick was to add four images inside the `<div>`, one for each corner, and use absolute positioning to move them into the appropriate places.
@@ -123,13 +100,11 @@ We've managed to spruce up the page a little bit, but the Run Buddy execs are ge
 
 > ## NEED VIDEO TO DEMO BEHAVIOR
 
-Let's start with the stickiness aspect. In Module 1, we talked about different types of positioning: relative, absolute, fixed, etc. There's a new position in CSS called **sticky** that's kind of like a hybrid position. An element that's sticky will behave relatively until the viewport scrolls past it. Then the element will switch to fixed and remain visible even as the user scrolls further down. Add these declarations to the header, then scroll up/down in the browser and see what happens:
+Let's start with the stickiness aspect. In Module 1, we talked about different types of positioning: relative, absolute, fixed, etc. There's a new position in CSS called **sticky** that's kind of like a hybrid position. An element that's sticky will behave relatively until the viewport scrolls past it. Then the element will switch to fixed and remain visible even as the user scrolls further down. Add these declarations to the `header`, then scroll up/down in the browser and see what happens:
 
 ```css
-header {
-  position: sticky;
-  top: 0;
-}
+position: sticky;
+top: 0;
 ```
 
 The `top` property is important, because this tells the browser where to "stick" the element. We always want the header to be at the very top of the viewport, so `top: 0;` makes the most sense.
@@ -148,44 +123,33 @@ Before certain CSS properties become standard, browsers will sometimes implement
 }
 ```
 
-Until Safari joins the cool kids, we'll need to add a vendor prefix for our sticky header:
+Until Safari joins the cool kids, we'll need to add a vendor prefix for our sticky header. The `header` CSS rule should now include these three declarations:
 
 ```css
-header {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-}
+position: sticky;
+position: -webkit-sticky;
+top: 0;
 ```
 
 > **Pro-Tip:** [Can I Use](https://caniuse.com/#search=position%20sticky) is another popular website to quickly check which browsers support which features.
 
-Now that the header is sticky, we can copy the same background properties from the hero into the header:
+Now that the header is sticky, we can copy the same background properties from `.hero` into `header`:
 
 ```css
-header {
-  background-image: url('../images/hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
-}
+background-image: url('../images/hero-bg.jpg');
+background-size: cover;
+background-position: center;
 ```
 
 Well, that got us close, but it's not lining up as nicely as the mock-up:
 
 ![misaligned header](./assets/lesson-5/500-misaligned-header.png)
 
-We need the background images of these two elements to essentially be in the same place. Fortunately, we can do just that using the declaration `background-attachment: fixed;`, which will place the image relative to the viewport instead of the element itself. Let's add this declaration to the header and hero and tweak the background position at the same time to better match the mock-up:
+We need the background images of these two elements to essentially be in the same place. Fortunately, we can do just that by using the declaration `background-attachment: fixed;`, which will place the image relative to the viewport instead of the element itself. Let's add this declaration to the `header` and `.hero` rules and tweak the background position at the same time to better match the mock-up:
 
 ```css
-header {
-  background-attachment: fixed;
-  background-position: 80%;
-}
-
-.hero {
-  background-attachment: fixed;
-  background-position: 80%;
-}
+background-attachment: fixed;
+background-position: 80%;
 ```
 
 > **Check Point:**\
@@ -255,10 +219,12 @@ header nav a:hover {
 Using the `:focus` state, we can also visually highlight the form input that the user is currently in. Let's try this:
 
 ```css
+/* update existing rule with this declaration */
 .form-input {
   background-color: rgba(255,255,255, 0.75);
 }
 
+/* create a new rule for focus state */
 .form-input:focus {
   background-color: rgba(255,255,255, 1);
 }
@@ -333,6 +299,7 @@ For our needs, we need a bottom border applied to every step except the last one
 
 ```css
 .step {
+  /* add alongside existing declarations */
   border-bottom: 1px solid #39a6b2;
 }
 
@@ -352,6 +319,8 @@ Or we could combine `:last-child` with another pseudo-class, `:not`, to check fo
 The best solution, of course, is the one that makes the most sense to you!
 
 > **Deep Dive:** Read up on some of the other [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#Index_of_standard_pseudo-classes) available to us.
+
+> **Important:** This is a great stopping point to `add`, `commit`, and `push` these changes to your branch.
 
 > ## INSERT CODING CHALLENGE HERE
 
@@ -427,7 +396,7 @@ This should produce the following results in the browser:
 
 ![custom inputs](./assets/lesson-5/1200-custom-inputs.png)
 
-Crazy, right? The `::before` pseudo-element lets us inject content into an element with CSS! `::before` places this content before everything else that currently resides in the element. Here, we left the actual `content` property empty but used additional CSS properties to create a white square with a blue border. We then used absolute positioning to move this box on top of the invisible, original input element.
+Cool, right? The `::before` pseudo-element lets us inject content into an element with CSS! `::before` places this content before everything else that currently resides in the element. Here, we left the actual `content` property empty but used additional CSS properties to create a white square with a blue border. We then used absolute positioning to move this box on top of the invisible, original input element.
 
 Unfortunately, we've made our new radio buttons square. Let's fix this with another CSS rule that targets only the `radio-wrapper` class:
 
@@ -463,26 +432,20 @@ Awesome, we're halfway there! Next, we need to define what the buttons look like
 }
 ```
 
-Similar to `::before`, we didn't put any actual content in the `::after` pseudo-element. Instead, we used it to create a circle for the radio buttons and a checkmark for the checkbox:
+Similar to `::before`, we didn't put any text content in the `::after` pseudo-element. Instead, we used it to create a circle for the radio buttons and a checkmark for the checkbox:
 
 ![pseudo-elements](./assets/lesson-5/1300-pseudo-after.png)
 
-You're right, it doesn't really look like a checkmark. Maybe if we rotated it:
+You're right, it doesn't really look like a checkmark. Maybe if we rotated it. Add this declaration to the `.checkbox-wrapper label::after` rule:
 
 ```css
-.checkbox-wrapper label::after {
-  /* add this alongside your other declarations */
-  transform: rotate(-58deg);
-}
+transform: rotate(-58deg);
 ```
 
-We can also make the radio buttons look a little nicer by replacing the solid background color with a gradient:
+We can also make the radio buttons look a little nicer by replacing the solid background color with a gradient. Add this to the `.radio-wrapper label::after` rule:
 
 ```css
-.radio-wrapper label::after {
-  /* add this alongside your other declarations */
-  background-image: radial-gradient(circle, #39a6b2, #024e76);
-}
+background-image: radial-gradient(circle, #39a6b2, #024e76);
 ```
 
 These are looking pretty good:
@@ -531,20 +494,84 @@ It would seem that we're done, but as you scroll up and down on the page again, 
 
 ![zindex overlap](./assets/lesson-5/1600-z-index.png)
 
-Um... why are the custom buttons and labels appearing in front? As soon as you give an HTML element positioning (relative, absolute, sticky), it becomes affected by the stacking order. Think of HTML elements like pieces of paper that lay on top of each other. The header was the first element to receive positioning, so it sat on top. Once we gave the form elements positioning, however, those "pieces of paper" were brought to the front and covered up the header. Fortunately, with the `z-index` property, we can change this stacking order, or reshuffle the papers. Add this declaration to the header:
+Um... why are the custom buttons and labels appearing in front? As soon as you give an HTML element positioning (relative, absolute, sticky), it becomes affected by the stacking order. Think of HTML elements like pieces of paper that lay on top of each other. The header was the first element to receive positioning, so it sat on top. Once we gave the form elements positioning, however, those "pieces of paper" were brought to the front and covered up the header. Fortunately, with the `z-index` property, we can change this stacking order, or reshuffle the papers. Add this declaration to the `header`:
 
 ```css
-header {
-  z-index: 999;
-}
+z-index: 999;
 ```
 
 A higher `z-index` brings the element to the front while a lower `z-index` pushes it to the back. The value `999` may seem like overkill in this case. `z-index: 1;` would still fix our header/form problem. We may end up needing to add `z-index` to other elements, though, and we want to ensure the header is always on top, so we'll go with `999` to avoid future conflicts.
 
+> **Check Point:**\
+> What is a pseudo-class?\
+> What is a pseudo-element?\
+> What does the `z-index` property do?
+
 ## CSS Variables
 
-Before we wrap up this GitHub issue, let's explore another newer (and really cool) feature of CSS called **variables**, or custom properties. If you skim over the CSS rules in `style.css`, you'll notice there's a lot of repetition in the values we use. Run Buddy basically has three colors that we use over and over: yellow (#fce138), navy blue (#024e76), and teal (#39a6b2). It would be really helpful if we could define these colors once and then just reference a name like "primary-color." Well, with CSS variables, we totally can!
+Before we wrap up this GitHub issue, let's explore another newer (and really cool) feature of CSS called **variables**, or custom properties. If you skim over the CSS rules in `style.css`, you'll notice there's a lot of repetition in the values we use. Run Buddy basically has three colors: yellow (`#fce138`), navy blue (`#024e76`), and teal (`#39a6b2`). There are murmurings that Run Buddy wants to update this color scheme in the future, though. No one wants to have to search for and replace all of these color codes if/when that happens. What would be helpful is to define the colors once and then just reference a name like "primary-color." Well, with CSS variables, we totally can! The syntax is as follows:
 
-https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties#Browser_compatibility
+```css
+div {
+  --favorite-color: blue;
+  color: var(--favorite-color);
+  box-shadow: 5px 5px 10px var(--favorite-color);
+}
+```
+
+The custom property is defined using two hyphens (`--`) and then any name you'd like. Retrieving the custom property simply requires placing the name inside `var()` and can be used in place of any normal value. Here's another example:
+
+```css
+div {
+  --size-small: 12px;
+  --size-big: 50px;
+  font-size: var(--size-small);
+  margin: var(--size-big) var(--size-small);
+}
+```
+
+In these examples, though, we've tied the custom properties to only `<div>` tags and their children. In most cases, we probably want our custom properties to be global, meaning any element or class selector can use them. We can accomplish this with the `:root` pseudo-class. Add this new rule to the top of your style sheet:
+
+```css
+:root {
+  --primary-color: #fce138;
+  --secondary-color: #024e76;
+  --tertiary-color: #39a6b2;
+}
+```
+
+The `:root` pseudo-class targets the top-most parent element (most likely the `<html>` tag), so all other child elements will have access to any variables we declare here. Now that we've defined our three main colors for Run Buddy, go through the style sheet and replace every instance of `#fce138` with `var(--primary-color)`, every instance of `#024e76` with `var(--secondary-color)`, etc.
+
+> **Pro-Tip:** In VS Code, a handy shortcut is to highlight the first instance of what you're looking for and press CTRL+D on Windows or Command+D on macOS to continually select the next instance it finds. With multiple instances selected, you can type/replace them all at once.
+
+Save and refresh the browser to verify that nothing broke. If the page still looks the same, that means it worked! Try changing the three color properties in `:root` and marvel at how easy it is now to swap out color schemes.
+
+Alas, we do still need to be mindful of other browsers. If you check the [compatibility chart](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties#Browser_compatibility) for CSS variables, you'll see that Internet Explorer, once again, has zero support. This is what the page now looks like for IE users:
+
+![IE screenshot](./assets/lesson-5/1700-ie-screenshot.png)
+
+Yuck. But Run Buddy assures us they aren't interested in supporting IE. Various [browser stats](https://en.wikipedia.org/wiki/Usage_share_of_web_browsers#Summary_tables) put overall IE usage in pretty low percentiles, and Run Buddy's own market research suggests their users are more likely to be on Chrome or Safari. We're safe to leave our CSS variables in.
+
+> **On the Job:** Browser requirements will change from client to client. If your company has many overseas users, where older operating systems like Windows XP are still fairly common, you would need to be much more mindful of Internet Explorer. If you do all of your development on macOS, don't be afraid to ask your company for a Windows laptop to test on, or vice versa!
+
+With these final changes in place, `add`, `commit`, and `push` your branch. Then follow the steps from earlier lessons to merge this branch into staging. We're not quite ready to merge into master yet. The Run Buddy team needs to look over it and put in any last-minute requests, which we'll take care of in the next lesson.
 
 ## Reflection
+
+This lesson gave us a chance to experiment with some of the newer and cooler features of CSS, making our Run Buddy landing page truly stand out. As we dive into these fancier CSS properties, however, we should keep cross-browser support in the back of our minds according to the needs of the client. Let's recap some of the highlights:
+
+* `text-shadow` and `box-shadow`
+
+* Transparency with `rgba()` values and `opacity`
+
+* Sticky headers and the `-webkit-` vendor prefix
+
+* Pseudo-classes like `:hover` to target different states of an element
+
+* Pseudo-elements like `::before` to inject content with CSS
+
+* `z-index` to change the stacking order of elements
+
+* CSS variables (a.k.a. custom properties)
+
+Wow, those are a lot of new tricks! The good news is, you don't have to memorize them. They're always a quick [Google search](https://www.google.com/search?q=css+shadows) away.
