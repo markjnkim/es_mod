@@ -607,7 +607,7 @@ section {
 
 
 /* UTILITIES */
-.flex-container {
+.flex-row {
   display: flex;
 }
 
