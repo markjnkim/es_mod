@@ -245,7 +245,7 @@ By setting the value to `1.55vw`, we are telling the browser that the font's siz
 
 Now we have a `nav` element where the links grow and shrink with the screen size, but as we can see, they get a little too small when the screen narrows. This is something we'll circle back on and fix in a later lesson.
 
-> IMPORTANT: Absolute vs. Relative CSS Lengths
+> IMPORTANT: Absolute vs. Relative CSS Values
 >
 > The CSS language has a built in understanding of different units of measurement so it can interpret and display proper length values on the page. In the early days of CSS, these units of measurement closely resembled real life units of measurement like centimeter, millimeter, and even inch. 
 > 
@@ -392,6 +392,43 @@ The hero isn't 100% mobile-ready just yet as it doesn't break down onto the next
 As always, don't forget to save and commit your work!
 
 ## One column layouts for Section Titles and "What We Do"
+
+This part is going to demonstrate how to use flexbox to create a one-column layout, meaning it will only have one child. Now we don't have to do that in most cases to get it looking the way we want, as is demonstrated in all of our section titles and the paragraph in the "What We Do" section, but one thing that is nice about adjusting those to be flexboxes is that we can handle justify and align properties a little bit easier across multiple screen sizes. So while it may seem like overkill, it can actually make those areas a little more scalable and easier to work with.
+
+We'll start this off by going into our `index.html` page and making some edits to section titles. We are going to wrap each one of those `h2` elements in a `div` that we turn into a flexbox, so find every single `h2` element with a class of `section-title` in the document and make it look like this:
+
+```html
+<!-- Wrap every h2 with a class of "section-title" in this div! -->
+<div class="flex-row">
+  <h2 class="section-title primary-border">
+    What We Do
+  </h2>
+</div>
+```
+
+Notice how we added a class of `flex-row` to each one of these wrapping `div` elements. Why do you think we would give it a name like that? 
+
+The answer is simply because we are applying the same style to a number of different sections and it is a good use-case for having a class that we can reuse as many times as possible&mdash;just like we already have done with `section-title` and `primary-border`!
+
+Now that the HTML is in place, we can turn our attention to our styles. Just like we did earlier, we'll start by removing styles:
+
+- From the `.section-title` CSS rule, remove the declarations for `display`, `padding`, and `margin-bottom`
+
+- Remove the entire CSS rule for `.intro`
+
+- From the `.steps` CSS rule, remove the `text-align` declaration
+
+- From the `.trainers` CSS rule, remove the `text-align` declaration
+
+- From the `.contact` CSS rule, remove the `text-align` declaration
+
+We'll start rebuilding this by adding a style rule for anything with a class of `flex-row`. At the bottom of `style.css`, where we have our utility classes for `text-left` and `text-right`, and create a CSS rule that looks like this:
+
+```css
+.flex-row {
+  display: flex;
+}
+
 
 ## Giving "What You Do" nested flexbox layouts
 
