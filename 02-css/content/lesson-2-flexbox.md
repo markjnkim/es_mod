@@ -546,7 +546,57 @@ By centering them, it creates a better use of space on the left side.
 
 As we can see, we aren't quite there yet for the `.step` flexbox. Right now both of them share a horizontal line, but the widths of the children are varied based on the actual length of the content inside of them. Since we cannot rely on the content being uniform enough to provide a consistent layout, we need to tell the containers they live inside of to have some rules for how big they can be.
 
-In previous sections, we used the `width` property to give those flexbox child elements some dimensions and rules to follow. 
+In previous sections, we used the `width` property to give those flexbox child elements some dimensions and rules to follow. Setting the width is fine and would work exactly how we expect it to, but there is a new property specific to flexbox that we can provide the flexbox child elements to help them scale with the page.
+
+Add the following to `.step h3` and `.step-info`:
+
+- To `.step h3` add `flex: 1 30%;`
+
+- To `.step-info` add `flex: 2 70%;`
+
+The property we just added to our flexbox children is probably the most difficult flexbox property to understand. The `flex` property is a property used on flexbox children when we need to apply more specific instructions to how it should be displayed on the page compared to its sibling elements. It accepts up to three values in its declaration, as it rolls up three other flex properties into one:
+
+- **`flex-grow`**: A numeric value that is used to determine how much of the flexbox's unused space can be spread out to it's children. The number provided is used as a ratio compared to the other child's `flex-grow` value. The higher the number, the more unused space that child will be given. [The flex-grow property is explained here](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow)
+
+- **`flex-shrink`**: Same idea as `flex-grow`, but it is used to determine how to size the flexbox's children when the flexbox container shrinks. [The flex-shrink property is explained here](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)
+
+- **`flex-basis`**: This works similar to setting a `width` value to a child element, but it is used more as a baseline value that at the very least will let the child be that size no matter what and grow or shrink accordingly.[The flex-basis property is explained here](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)
+
+### NEED: VIDEO FOR FLEX ELEMENTS HERE
+
+These three properties are usually used in conjunction with one another, especially `flex-grow` and `flex-basis`, and are more commonly provided values rolled into one `flex` property. The `flex` property can read values in a few different ways:
+
+```css
+flex: <flex-grow value> <flex-shrink value> <flex-basis value>;
+
+flex: <flex-grow value> <flex-basis value>;
+
+flex: <flex-grow value> <flex-shrink value>;
+```
+
+[Read more about the `flex` shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
+
+The value we provided to our step's flexbox children uses the `<flex-grow value> <flex-basis value>` syntax, meaning that:
+
+- `.step h3` will be at the very least 30% wide, but will receive any extra space in the container
+
+- `.step-info` will be at the very least 70% wide, but will receive any extra space in the container at a 12 to 1 ratio, meaning it'll receive 12x more unused space than it's sibling with a `flex-grow` value of 1
+
+These properties are difficult to understand at first, but they allow the developer to create a much more fluid layout when they become more complex. Could we have used `width` for these instead, of course, but this is a good opportunity for us to use something we haven't seen before (and will definitely see again).
+
+Now we should have a step layout that looks like this:
+
+![Step without nested flexbox](assets/lesson-2/1900-step-no-inner.png)
+
+We're almost there, all we need to do now is take what we just learned and apply it again for `.step-info`. Start by adding these declarations to the `.step-info` rule:
+
+- `display: flex;`
+
+- `flex-wrap: wrap;`
+
+- `align-items: center;`
+
+Where did our icon go?! It has totally been removed from the screen for some reason. The reason for this is that when we set up `.step-info` as a flex container in
 
 ## Trainer Trading Cards
 
