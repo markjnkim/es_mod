@@ -505,7 +505,7 @@ Then on the next page, scroll down to the GitHub Pages section. Change the dropd
 
 This tells GitHub to use the contents of your master branch for your live website. Once you do this, GitHub will then display the message: Your site is ready to be published at https://username.github.io/run-buddy/. It might take a minute for this to actually kick in, so wait a moment before visiting this link (replacing "username" with your GitHub username, of course). When you do open it, though, you'll see that your Run Buddy webpage is now live on the Internet! As we continue to improve this project and push new commits to GitHub, this live link will automatically update. Thanks, GitHub!
 
-Let's back up and look at this link again, though: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that `index.html` is defined as a default by the server. If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html`, because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, it would be a good idea for every project to have an `index.html` file!
+Let's back up and look at this link again: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that `index.html` is defined as a default by the server. If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html`, because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, it would be a good idea for every project to have an `index.html` file!
 
 > **Check Point:** \
 What is the purpose of the `.gitignore` file?\
@@ -514,7 +514,9 @@ What is the command to "push" code to GitHub?
 
 ## Reflection
 
-This lesson was mostly about setting up the project, so even though the final result may not look like much yet, we've made life easier for our future selves. The HTML structure is in place and ready to be filled in with more detailed content and styling. We've established a good workflow with Git to continually save our code changes locally and on GitHub. We also have a live website on GitHub Pages that will begin to take shape once we complete the next several lessons. Some of the major takeaways include:
+This lesson was mostly about setting up the project, so even though the final result may not look like much yet, we've made life easier for our future selves. The HTML structure is in place and ready to be filled in with more detailed content and styling. We've established a good workflow with Git to continually save our code changes locally and on GitHub. We also have a live website on GitHub Pages that will begin to take shape once we complete the next several lessons. 
+
+Some of the major takeaways from this lesson are:
 
 * Creating files and folders with the `touch` and `mkdir` commands
 
