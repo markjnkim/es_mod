@@ -406,6 +406,16 @@ We'll start this off by going into our `index.html` page and making some edits t
 </div>
 ```
 
+When you are done wrapping those `section-title` elements, go and wrap the `p` element in the `section` element with an `id` attribute set to `what-we-do` so it looks like this:
+
+```html
+<div class="flex-row">
+  <p>
+    text goes here
+  </p>
+</div>
+```
+
 Notice how we added a class of `flex-row` to each one of these wrapping `div` elements. Why do you think we would give it a name like that? 
 
 The answer is simply because we are applying the same style to a number of different sections and it is a good use-case for having a class that we can reuse as many times as possible&mdash;just like we already have done with `section-title` and `primary-border`!
@@ -428,6 +438,29 @@ We'll start rebuilding this by adding a style rule for anything with a class of 
 .flex-row {
   display: flex;
 }
+```
+
+We just created a CSS rule that can be applied anytime we need a flexbox row container. This may not seem too useful now, but as you progress as a developer you will find that it is sometimes more efficient to create classes that can be used universally throughout a project as opposed to applying identical CSS property declarations to multiple items.
+
+Now that we have our flex row created, let's turn our attention to the `.section-title` CSS rule and add these property declarations:
+
+- `padding-bottom: 20px;`
+
+- `text-align: center;`
+
+- `margin: 0 auto 35px auto;`
+
+- `width: 50%;`
+
+> PAUSE: How much margin does each side get if the declaration reads `margin: 0 auto 35px auto`?
+>
+> ANSWER: top: 0, right: auto, bottom: 35px, and left: auto
+
+Lastly, we need to center the text in our "What We Do" paragraph, so we'll finish by adding a `text-align: center` to the `.intro p` CSS rule.
+
+This section may have seemed a little uneventful, as we took out styles and put it new ones to make the HTML look almost identical. It is very common for developers to update their code and not see any tangible payoff, but what these changes do for us is that our code is now more flexible and can easily be made mobile-friendly.
+
+The next part of this lesson is going to involve a fairly large restructuring of the "What You Do" section of the site. We are going to be introduced to some more tools flexbox offers us to build a slightly more complex layout, so as always, it is a good time to make sure our codebase is saved using Git.
 
 
 ## Giving "What You Do" nested flexbox layouts
