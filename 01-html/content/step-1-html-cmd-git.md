@@ -1,4 +1,4 @@
-# Lesson 1: Set Up the Project
+# Lesson 1: Setting Up the Project
 
 ## Introduction
 
@@ -151,7 +151,7 @@ Next, open this HTML file in the browser (preferably Chrome). If you have the [O
 
 ![first screenshot](./assets/step-1/300-html-screenshot.png)
 
-All right, so it's not the most exciting webpage yet, but you gotta start somewhere! Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** with an opening `<tag>` and a closing `</tag>`. Anything in between these tags is affected by what that tag does. The `<h1>` tag, for instance, made the text inside big and bold. This denotes a heading. If we have other, less important headings on our webpage, we can use additional tags like `<h2>`, `<h3>`, and so on.
+All right, so it's not the most exciting webpage in the world, but you gotta start somewhere! Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** with an opening `<tag>` and a closing `</tag>`. Anything in between these tags is affected by what that tag does. The `<h1>` tag, for instance, made the text inside it big and bold. This denotes a level 1 heading. If we have other, less important headings on our webpage, we can use additional tags like `<h2>`, `<h3>`, and so on.
 
 > **Deep Dive:** Read more about the different [heading tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
 
@@ -176,7 +176,7 @@ What is the purpose of the `<body>` tag?
 
 There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's a tag in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This is an example of a **meta tag**, [of which there are many](https://devhints.io/html-meta). Like the `<title>` tag, they give the browser extra information about the page, sometimes for display purposes and sometimes for search engine optimization. We'll discuss more of these in future modules.
 
-The `charset` meta tag is important to include now, though, because it specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character we would want, from foreign language symbols to emojis. Copy this emoji (🏃) and paste it somewhere in your `<body>`. Note that it shows up just fine in the browser, but if you change the meta tag to `<meta charset="ASCII" />`, it no longer works, because the browser will limit the available characters to those of the ASCII character set. Best to stick with UTF-8.
+The `charset` meta tag is important to include now, though, because it specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character we would want, from foreign language symbols to emojis. Copy this emoji (🏃) and paste it somewhere in your `<body>`. Note that it shows up just fine in the browser, but if you change the meta tag to `<meta charset="ASCII" />`, it no longer works because the browser will limit the available characters to those of the ASCII character set. Best to stick with UTF-8.
 
 > **Deep Dive:** Read more about [character encoding](https://www.w3.org/International/questions/qa-what-is-encoding).
 
@@ -276,7 +276,7 @@ What does the `git status` command tell us?\
 What command do you need to run before `git commit`?\
 How do you add a message to a `git commit`?
 
-## Outlining the Page
+## Outline the Page
 
 We'll have a chance to practice Git again before we're done, but let's jump back into building out the HTML. Looking at the design mock-up again, it may feel quite daunting to turn all of those colors and perfectly-positioned titles and images into raw HTML. That's why this next step is hugely important. As developers, we must resist the urge to start coding without a plan of attack. HTML can easily get out of control if we don't consider how elements fit together.
 
@@ -284,7 +284,7 @@ What's nice about HTML, though, is that it's really just a series of boxes that 
 
 ![box diagram](./assets/step-1/725-box-diagram.png)
 
-We're using `<div>` tags here, which are like containers to hold relevant information together. Note that Box 1 and 2 don't overlap; they're two separate areas of content. That's why `<div>` stands for "content division!" Maybe Box 1 is an annoying ad and Box 2 is a navigation bar. Inside of these boxes, we could have additional boxes, like an overall list (Box 3) that contains individual links (Boxes 4 and 5). Could we have omitted Box 3 in this example? Probably... but it helps to keep like content grouped together. Thus, Box 3's sole purpose is to better organize smaller information (the links).
+We're using `<div>` tags here, which are like containers to hold relevant information together. Note that Box 1 and 2 don't overlap; they're two separate areas of content. That's why `<div>` stands for "content division." Maybe Box 1 is an annoying ad and Box 2 is a navigation bar. Inside of these boxes, we could have additional boxes, like an overall list (Box 3) that contains individual links (Boxes 4 and 5). Could we have omitted Box 3 in this example? Probably, but it helps to keep like content grouped together. Thus, Box 3's sole purpose is to better organize smaller pieces of information (the links).
 
 > **Pause:** Why was it helpful to indent each nested `<div>`?
 
@@ -292,7 +292,9 @@ Let's take a piece of our mock-up and think about how we could break this down i
 
 ![containers](./assets/step-1/750-box-layout.png)
 
-Note that some containers aren't immediately apparent, because they do nothing but hold other containers. It's okay if this doesn't feel intuitive yet. The more apps you build, the better you'll get at mapping their layouts. This is as good a time as any to practice, so grab a pen and paper and sketch out the rest of the mock-up on your own. Take this step seriously! Stepping away from the computer screen and applying a physical touch to the development process can help shed new light on a problem. To help you, here's how we sketched out one of the later sections:
+Note that the purpose of some containers isn't immediately apparent, because they do nothing but hold other containers. It's okay if this doesn't feel intuitive yet. The more apps you build, the better you'll get at mapping their layouts. 
+
+This is as good a time as any to practice, so grab a pen and paper and sketch out the rest of the mock-up on your own. Take this step seriously! Stepping away from the computer screen and applying a physical touch to the development process can help shed new light on a problem. Here's how we sketched out one of the later sections:
 
 ![hand-drawn](./assets/step-1/775-drawn-outline.png)
 
