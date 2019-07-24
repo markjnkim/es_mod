@@ -5,22 +5,17 @@ employees, and academics freely shared information with one another across the g
 specialized command-line applications on mainframe computers. This was great for science, 
 governing, and academic research—but there was no easy way to share pictures of cats. 
 
-This changed when [Tim Berners-Lee](https://www.w3.org/People/Berners-Lee/) unleashed hypertext  media on the internet, allowing people to easily create hypertext documents that could directly
+This changed when [Tim Berners-Lee](https://www.w3.org/People/Berners-Lee/) unleashed hypertext media on the internet, allowing people to easily create hypertext documents that could directly
 link to any other hypertext document. This network of linked documents became known as the World
 Wide Web, and people used web browsers to navigate and display its content. Those documents 
 were written in Hypertext Markup Language, or HTML. 
 
-Thirty years later, the web still runs on HTML,
-and everyday folks still use browsers to navigate and display HTML documents. A notable difference
-is that there are now a lot more cat memes.
+Thirty years later, the web still runs on HTML, and everyday folks still use browsers to navigate and display HTML documents. A notable difference is that there are now a lot more cat memes.
  
-You might be skeptical that everything on the web can still be categorized as HTML—and you have good reason to be. Nowadays when you use your web browser, you see things like PNG, JPG, and GIF images. You watch videos. You listen to audio files. You might watch live streams or play games. You download Zip files, view PowerPoint 
-presentations, and try to avoid getting viruses. The list goes on. 
+You might be skeptical that everything on the web can still be categorized as HTML—and you have good reason to be. Nowadays when you use your web browser, you see things like PNG, JPG, and GIF images. You watch videos. You listen to audio files. You might watch live streams or play games. You download Zip files, view PowerPoint  presentations, and try to avoid getting viruses. The list goes on. 
 
-But guess what—a web browser can't discover or display any of these things without HTML. Let's prove it. In a new browser window, go to [YouTube](https://www.youtube.com/). 
-Right-click somewhere in the white 
-area of the page, like to the right of the YouTube logo, and select "View page source" from
-the contextual menu. You should see a page filled with code.
+But guess what—a web browser can't discover or display any of these things without HTML. Let's prove it. In a new browser window, go to [YouTube](https://www.youtube.com/). Right-click somewhere in the white 
+area of the page, like to the right of the YouTube logo, and select "View page source" from the contextual menu. You should see a page filled with code.
 
 > **Pro Tip:** You can view the HTML source of any webpage in Chrome by typing Control+U (on Windows) or Command+Option+U (on a Mac).
 
@@ -33,8 +28,7 @@ Now close that window immediately because prolonged exposure to HTML formatted i
 
 ## What Will I Learn? 
 
-In this unit, you'll learn how to create an HTML page from scratch and write HTML code that's easy for humans to read when they look at the source code. You'll also learn about Cascading Style Sheets, or CSS, which tells browsers how to display your HTML page in a
-way that's pleasing for humans to look at. Whereas HTML defines a page's structure (this is a heading, this is the body, this is a paragraph, this is a list), CSS defines a page's look and feel (this heading is blue, the body has a 10 pixel margin, this text is in the Times New Roman font).
+In this module, you'll learn how to create an HTML page from scratch and write HTML code that's easy for humans to read when they look at the source code. You'll also learn about Cascading Style Sheets, or CSS, which tells browsers how to display your HTML page in a way that's pleasing for humans to look at. Whereas HTML defines a page's structure (this is a heading, this is the body, this is a paragraph, this is a list), CSS defines a page's look and feel (this heading is blue, the body has a 10 pixel margin, this text is in the Times New Roman font).
 
 Remember how we were talking about the pre-web days of the internet, when scientists used terminals and command-line applications to manage information? You're going to do some of that too. Just like HTML, command-line tools remain essential for web development.
 
