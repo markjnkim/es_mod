@@ -596,7 +596,68 @@ We're almost there, all we need to do now is take what we just learned and apply
 
 - `align-items: center;`
 
-Where did our icon go?! It has totally been removed from the screen for some reason. The reason for this is that when we set up `.step-info` as a flex container in
+Where did our icon go?! It has been totally removed from the screen for some reason. Think about how a flexbox container works if its children does not have any set `width` or `flex-basis` values. It _tries_ to create space for both of them as evenly as possible based on the content of each child element, but what happens when one of the child element's content doesn't have a set dimension?
+
+As we can see here our `img` icon has no HTML `width` attribute nor any CSS rules giving it a width value, so the flex parent looks at each of it's children and sees nothing of substance hanging out in one child, but then sees text in another. So the one with text is accommodated by the flex parent first and will leave space for the other child if it ever needs to take up space, which as of now it doesn't know if it does or not because its content (the `img` element) isn't saying so.
+
+To fix this, we just need to give both children some type of value to give them their own space. So let's do that by first creating a new CSS rule for `.step-img` like this:
+
+```css
+.step-img {
+  flex: 1 12%;
+  margin-right: 20px;
+}
+```
+
+Now we're on our way, but it's creating some weird movement where steps with less text will have a bigger image. This is the nature of the `flex` property, but there's only one child with that property so it's basically ignoring the needs of the other child. Let's fix that by creating another CSS rule for `.step-text` that looks like this:
+
+```css
+.step-text {
+  flex: 12;
+}
+```
+
+Now both child elements have a `flex-grow` property of 1 and 12, respectively. This means that `.step-text` will be alloted 12 times more unused space than `.step-img`, but `.step-img` at the very least _has_ to be 12 percent of the width of `.step-info`. 
+
+Notice how we don't even need to worry about setting a `flex-basis` value for `.step-text`. When that value is omitted, the browser gives it a value of `auto`, which allows it to be whatever width is left over.
+
+One last thing we need to do is tell the `img` element to limit its width to be whatever it's container is. This isn't a problem with most browsers, but Microsoft Edge and Internet Explorer can be a little buggy with it, so it's always worth putting in a little extra to have a uniform design across browsers. Create this CSS rule for it:
+
+```css
+.step-img img {
+  max-width: 100%;
+}
+```
+
+Again, we just fixed a problem that probably did not occur on any of our machines if we are using Google Chrome, but it is a good practice to stay ahead of any browser quirks. You never know where the site's user is from or how Internet-savvy they are, so it is part of our job to never let them hit any issues like that just because they are on an older browser.
+
+The layout for each step should be in pretty good shape now, let's finish up with something easier and worrying about text content. We can start by updating our `.step p` CSS rule:
+
+- Change its selector to say `.step-text p` instead of `.step p`
+
+- Change it's `font-size` to be 18px instead of 23px
+
+> REWIND: Based on what we learned above regarding CSS selector efficiency, why would `.step-text p` be better than `.step p`?
+>
+> ANSWER: It is a closer parent/child relationship and since CSS is read in reverse, it'll only have to step up one parent element to find its match.
+
+Lastly, we'll create a new CSS style rule for the `h4` element:
+
+```css
+.step-text h4 {
+  font-size: 26px;
+  line-height: 1.5;
+  color: #024e76;
+}
+```
+
+We covered a lot of ground by updating these steps, and though it may have seem like a lot of work for not that much payoff, we reinforced a lot of good concepts like sketching out the boxes of a layout and how to use the `flex` property.
+
+> PAUSE: If you haven't started bookmarking good resources on web development just yet, it is a good time to start doing so! Most developers, beginners and veterans alike, keep resources handy at all times.
+>
+> [Here is a great guide on Flexbox for your collection!](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+The rest of this page's conversion to flexbox won't be as involved as this one, but it is cool to know that we can use this one tool to handle both very simple and complex layouts!
 
 ## Trainer Trading Cards
 
