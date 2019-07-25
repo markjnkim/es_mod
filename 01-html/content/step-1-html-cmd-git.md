@@ -1,4 +1,4 @@
-# Lesson 1: Set Up the Project
+# Lesson 1: Setting Up the Project
 
 ## Introduction
 
