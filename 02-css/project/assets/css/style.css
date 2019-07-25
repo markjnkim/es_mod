@@ -693,14 +693,10 @@ section {
   }
 
   .step-img {
-      flex: 0 32%;
-      margin-right: 0;
-      margin-top: 15px;
-      margin-bottom: 15px;
-    }
-
-  .step-img img {
-    max-width: 100%;
+    flex: 0 32%;
+    margin-right: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 
   .step-text {
