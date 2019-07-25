@@ -921,6 +921,86 @@ The `opacity` property accepts a value between 0 and 1 and it allows for HTML el
 
 Learning this much about layouts in CSS is exhausting, but it is very rewarding when you realize how much control you can exercise over your HTML elements. There is nothing more important for a CSS developer than the ability to visualize a page as a series of containers and sub-containers/children, and it is a very exciting time for CSS because of tools like flexbox are allowing layouts to be created that used to only be reserved for magazines.
 
-We've officially completed our first GitHub feature request and are ready to take the code from this branch and merge it into our `staging` branch. Then we'll be ready to tackle the next feature request on our list! 
+We've officially completed our first GitHub feature request and are ready to take the code from this branch and merge it into our `staging` branch. Then we'll be ready to tackle the next feature request on our list!
 
-## Merge branch into staging
+## Staging Features
+
+All of the work we just completed needs to make its way into our `staging` branch that we created in the first lesson. Remember that with this workflow we are doing all of our work in different branches specific to the feature or issue we're working on.
+
+> REWIND: In the beginning of this lesson we went over why a "feature" branch workflow is a good practice. Think back and try to list a few reasons why.
+>
+> ANSWER:
+>
+> 1. Makes working on a team easier
+>
+> 2. We don't want to directly update our main codebase in case we break something
+>
+> 3. It helps keep us organized so we can focus on one task at a time
+
+To keep the current Run Buddy web site up and running on the `master` branch while we work on our list of features to add, we created the `staging` branch. We won't touch the `master` branch until every GitHub issue is marked "complete", so in the meantime we'll be using `staging` to receive our updates as we progress.
+
+### NEED: video or graphic explaining this workflow
+
+Breaking this down into steps, this is going to be what our flow looks like:
+
+1. Create a branch based off the `master` branch and call it `staging` using `git checkout`
+
+2. From `staging` create a new branch for a feature we're working on, like `flexbox`
+
+3. We do all of our work for that feature in that new branch
+
+4. When it's complete, we take the code from that branch and **merge** it into `staging`, so `staging` now has all of the updates from that branch
+
+5. Make a new branch based off `staging` for the next feature or issue we're tackling
+
+6. Repeat step 4
+
+7. When all features are complete and all of the updated code is in `staging`, we test our `staging` branch one more time to make 100% sure it is ready to go into "production"
+
+8. We push the local `staging` branch to a `staging` branch in our GitHub repository and we request client "review" before merging it into `master` and going live with our new code
+
+Steps 2-4 will be repeated as long as there are GitHub issues, so we'll get a lot of practice over the next few lessons. The last step is going to be saved until the very end, as it is a different process since it needs to go into "review" before it is deemed ready to go.
+
+The nice thing about this workflow for us is that we are going to stay very organized and we can rest assured that even if we mess something up, it won't affect the current live site and we can fix it without anyone ever noticing!
+
+So what we'll work on now is getting our updated page with all of our flexbox layouts into the `staging` branch:
+
+### NEED: Video walkthrough or gif of each step
+
+1. Make sure your code is committed. You can use `git status` to check if there's anything you need to do.
+
+2. Use `git checkout staging` to move back into the `staging` branch. If you have uncommitted work, you will not be allowed to perform this command.
+
+3. Double-check that you in fact are in `staging` by typing in `git branch` or `git status`. Remember with `git branch` you have to type `q` to quit that list that is displayed.
+
+4. Now we want to tell the `staging` branch to go and look at the `flexbox` branch and copy the code from `flexbox` into `staging`. To do this we need to use a `git merge` command like this:
+
+```bash
+git merge flexbox
+```
+
+5. If there are no conflicts, the updated code from `flexbox` will now be reflected in `staging`. Open the page in a browser and test it!
+
+The next step is up to you or your team, and that is deciding what to do with the `flexbox` branch. A lot of times, for cleanliness, a branch will be deleted after it's merged since it isn't necessarily needed anymore. This is more for large projects where there is a team of people working in a ton of different branches for a repository and it could be confusing.
+
+For now, it may be best to just keep the branch for the time being. You can always clean it up after.
+
+We're now working like real-world developers! The workflow we adopted in this lesson is one used by development teams across the world, so it's one we'll practice a lot as we progress.
+
+> DEEP DIVE: To learn more about Git and GitHub branching, [check out try.github.io](https://try.github.io/)
+
+## Reflection
+
+This lesson introduced us to a few new tools and concepts that will be crucial in our growth as developers. We established a proper Git workflow so we can code with peace-of-mind since we are working on the site in a different branch and we are staying organized by tracking our progress using GitHub issues. While these skills don't necessarily involve coding, they are skills that every developer needs to have and understand in order to be successful.
+
+As far as our actual coding knowledge goes in this lesson, we picked up:
+
+- How to visualize layouts as parent/child relationships and relied on sketching to determine what we needed to do
+
+- How we can use flexbox properties to create layouts that will allow our page to scale
+
+- The concept of adjusting layouts so they take up more horizontal space than vertical space
+
+- The difference between Relative and Absolute units of measurement in CSS
+
+We'll be moving onto a different method of creating web layouts next. This new method isn't here to replace flexbox, but rather be used in conjunction with it to create some more advanced layouts.
