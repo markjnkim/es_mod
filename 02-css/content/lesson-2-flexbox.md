@@ -44,7 +44,7 @@ If you use the `git branch` command, you should see something similar to this:
 
 ![Current Git Branch - Staging](assets/lesson-2/400-current-branch.jpeg)
 
-> PRO-TIP: If you are using Visual Studio Code and only have your repository open, the current branch should be displayed in the lower left corner of the window. 
+> PRO-TIP: If you are using Visual Studio Code and only have your repository open, the current branch should be displayed in the lower left corner of the window.
 >
 > Visual Studio Code has a lot of great features for working with Git and GitHub, but it is best to learn the inner workings with the command line first before relying on any of those tools.
 
@@ -201,7 +201,7 @@ The funny thing is removing that list may not cause _too_ much of a difference i
 Let's turn our attention to removing some CSS before applying our flexbox styles:
 
 - Completely remove the CSS rule for `header nav ul li`
-  
+
 - Rename `header nav ul li a` to `header nav a` so it looks like this:
 
 ```css
@@ -218,8 +218,6 @@ Once those are removed, we can now turn our attention to the `nav` element's fle
 - `justify-content: space-between;`
 - `flex-wrap: wrap;`
 - `align-items: center;`
-
-
 
 We've already seen these three so no need to stop and explain those, but what about that last one? The property `align-items` works similar to `justify-content`, but on the opposite axis. To justify information means to position it on the horizontal axis, but align means to position it along the vertical axis. In this case we are ensuring that our content is vertically centered in the `nav` element.
 
@@ -247,8 +245,8 @@ Now we have a `nav` element where the links grow and shrink with the screen size
 
 > IMPORTANT: Absolute vs. Relative CSS Values
 >
-> The CSS language has a built in understanding of different units of measurement so it can interpret and display proper length values on the page. In the early days of CSS, these units of measurement closely resembled real life units of measurement like centimeter, millimeter, and even inch. 
-> 
+> The CSS language has a built in understanding of different units of measurement so it can interpret and display proper length values on the page. In the early days of CSS, these units of measurement closely resembled real life units of measurement like centimeter, millimeter, and even inch.
+>
 > Now those units of measurement are somewhat difficult to translate to a computer screen, so a base unit was used primarily instead. This unit is called a "pixel" and it represents one of the million little dots that come together and form a digital screen. Pixels were also used in a lot of print and graphic design programs at the time too such as Photoshop, so early developers had some familiarity and understanding of its size and scale.
 >
 > A problem emerged when screens went from being a predictable standard computer screen size to being used on devices as small as your watch and as large as sport stadium's jumbotron. The screen sizes varied, but a pixel is a pixel no matter what, and it would create a lot of broken designs and layouts. A new unit of measurement was needed.
@@ -341,7 +339,7 @@ Just like the `header` and `footer` styles, it would be best if we started by re
 Once those are removed let's add in flexbox! In `.hero`, add our usual flexbox properties to it with one change:
 
 - `display: flex;`
-  
+
 - `justify-content: center;`
 
 - `flex-wrap: wrap;`
@@ -416,7 +414,7 @@ When you are done wrapping those `section-title` elements, go and wrap the `p` e
 </div>
 ```
 
-Notice how we added a class of `flex-row` to each one of these wrapping `div` elements. Why do you think we would give it a name like that? 
+Notice how we added a class of `flex-row` to each one of these wrapping `div` elements. Why do you think we would give it a name like that?
 
 The answer is simply because we are applying the same style to a number of different sections and it is a good use-case for having a class that we can reuse as many times as possible&mdash;just like we already have done with `section-title` and `primary-border`!
 
@@ -495,7 +493,7 @@ Go through each `div` element with a class of `step` in `index.html` and change 
   <h3>Step 1.</h3>
   <div class="step-info">
     <div class="step-img">
-      <img src="./assets/images/step-1.svg" alt="">
+      <img src="./assets/images/step-1.svg" alt="" />
     </div>
     <div class="step-text">
       <h4>Fill Out The Form Above</h4>
@@ -617,7 +615,7 @@ Now we're on our way, but it's creating some weird movement where steps with les
 }
 ```
 
-Now both child elements have a `flex-grow` property of 1 and 12, respectively. This means that `.step-text` will be alloted 12 times more unused space than `.step-img`, but `.step-img` at the very least _has_ to be 12 percent of the width of `.step-info`. 
+Now both child elements have a `flex-grow` property of 1 and 12, respectively. This means that `.step-text` will be alloted 12 times more unused space than `.step-img`, but `.step-img` at the very least _has_ to be 12 percent of the width of `.step-info`.
 
 Notice how we don't even need to worry about setting a `flex-basis` value for `.step-text`. When that value is omitted, the browser gives it a value of `auto`, which allows it to be whatever width is left over.
 
@@ -660,6 +658,113 @@ We covered a lot of ground by updating these steps, and though it may have seem 
 The rest of this page's conversion to flexbox won't be as involved as this one, but it is cool to know that we can use this one tool to handle both very simple and complex layouts!
 
 ## Trainer Trading Cards
+
+Our contact at Run Buddy must really love this idea of tightening up sections to take up less vertical space, because we're about to give our trainers a treatment similar to the "What We Do" section we just finished up. Lucky for us, it doesn't seem to necessitate the granular control that the previous section did, so we can get this up and running pretty quick.
+
+Our current section for the trainers has all three of them stacked on top of one another, but now we want to flip each trainer's `article` on its side to make it run slightly longer, but narrow enough to allow all three to sit on one horizontal row:
+
+![Trainers finished](assets/lesson-2/200-trainers.jpg)
+
+While all three of these now run a little bit longer, they still aren't as tall as the current layout.
+
+> URKEL SAYS: When related HTML content is laid out in a narrow, vertical column, it is often referred to as a "card."
+
+For the sake of repetition, let's take the above mock-up and think about it in terms of a flexbox parent/children relationship and wireframe it. It should look something like this:
+
+![Trainer wireframe](assets/lesson-2/2000-trainer-outlines.jpeg)
+
+We'll start easy this time and update how our text content looks first:
+
+- Find the CSS rule for `.trainer-bio h3`
+
+  - Remove the declaration for `margin-bottom`
+
+  - Change the `font-size` value to 28px
+
+- Find the CSS rule for `.trainer-bio h4`
+
+  - Change the `font-size` value to 22px
+
+  - Change the `margin-bottom` value to 15px
+
+- Find the CSS rule for `.trainer-bio p` and move its `line-height` declaration to the `.trainer-bio` rule
+
+### NEED: Video/Gifs to show movement/deletion of code
+
+Next thing we want to do is go into the `index.html` document and move the second trainer's `img` element above the `div` with a class of `trainer-bio`, so it matches the other two trainers.
+
+Once that is complete, look through all three trainer `article` elements and remove any classes that mention `text-left`, `text-right`, `img-left`, or `img-right,` as we do not need those anymore. They should now all have this HTML structure (with varying content, of course):
+
+```html
+<article class="trainer">
+  <img src="./assets/images/trainer-1.jpg" alt="Tony Horton in his workout clothes, ready to pump iron" />
+  <div class="trainer-bio">
+    <h3 class="trainer-name">Tony Horton</h3>
+    <h4 class="trainer-role">Speed / Strength</h4>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi neque animi quo cupiditate commodi saepe culpa sed
+      itaque velit maiores optio dolorem excepturi aperiam dolores, voluptatibus suscipit amet quis repellat!
+    </p>
+  </div>
+</article>
+```
+
+Another thing we need to do is create a flexbox container around these three `article` elements, so wrap the three with a `div` element so it looks like this:
+
+```html
+<div>
+  <!-- This is for show, keep the article tags you have -->
+  <article>Trainer 1 Info</article>
+  <article>Trainer 2 Info</article>
+  <article>Trainer 3 Info</article>  
+</div>
+```
+
+Lastly we need to identify this element as a CSS selector, so remove the `class="trainers"` from the parent `section` element and move it to the `div` that was just created.
+
+Now all that needs to be done is turn these trainer cards into a row, so turn your attention back to `style.css` and give `.trainers` the flexbox treatment:
+
+```css
+.trainers {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+```
+
+It doesn't look great just yet, but that's because we have some styles in our newly created flexbox children (the `article` elements) that we need to adjust or remove, starting with `.trainer`:
+
+- Find the CSS rule for `.trainer`:
+
+  - Remove `width` and `overflow`
+
+  - Change `margin` to just 20px
+
+  - Add `flex: 1`
+
+> REWIND: If all flexbox children have a value of `flex: 1`, that means they will share any extra space evenly.
+
+- Find the CSS rule for `.trainer img`:
+
+  - Remove `float`
+
+  - Change `width` to 100%
+
+- Find the CSS rule for `.trainer-bio`:
+
+  - Remove `float` and `width`
+
+  - Change `padding` to 25px
+
+What we just finished is a very common layout technique in modern web design. It would be considered a "three column card layout", meaning we created one horizontal row that can hold onto three separate pieces of information.
+
+The concept of building a row/column layout is commonly called a "grid", as it keeps the content running along certain lines and nothing into one another. As we've seen so far, these "grids" can be implemented in different ways to achieve our layout goal.
+
+The CSS needed for these layouts can sometimes be tricky, but what is more important is to understand how to sketch the layout you want to build as a wireframe. The ability to visualize a layout like that will make you a much more efficient&mdash;and less frustrated&mdash;developer. Remember, you can always search for an answer or syntax hint on the Internet, but you still have to know how to ask the right question to get that result. Knowing what you _want to do_ is the first step to getting your answer.
+
+Only one more section left to fix up and we'll be finished with our first "feature", so we can mark that GitHub issue as "complete."
 
 ## 3 Column Reach Out
 
