@@ -768,4 +768,159 @@ Only one more section left to fix up and we'll be finished with our first "featu
 
 ## 3 Column Reach Out
 
+A wise man once said "a little more flexbox won't hurt", and in the case of our "Reach Out" section, adding one more flexbox is going to be a breeze. We have most of the knowledge needed to be pretty dangerous with flexbox layouts, so let's get our flex on one more time.
+
+![Broken Reach Out area](assets/lesson-2/2100-bad-contact.jpeg)
+
+If we recall, we left our current "Reach Out" section in shambles last lesson when we crudely added a contact form and didn't even bother to style it. This is a common thing to do when you know you'll be reworking the CSS anyway, why bother doing the work twice? Just throw it into the HTML and get it ready for styling but you'll get to it when you get to it. Well now we've gotten to it, so we'll be changing the above layout to this:
+
+![Fixed Reach Out area](assets/lesson-2/2200-good-contact.jpeg)
+
+One more time, think about this layout and create a visual wireframe of what it would look like as a flexbox parent / children relationship.
+
+> HINT: No hint or image this time! Look at how we wireframed previous sections and do the same here!
+
+The first obvious change we need to make is the actual order these three elements come in the HTML document, so navigate to `index.html` and adjust the three elements below the section title's parent `div` to be in this order:
+
+1. The `div` with the Run Buddy address and contact information
+
+2. The `div` with a class of `contact-form`
+
+3. The `iframe` for the Google Map embed
+
+Once that's set up in this order, wrap the three elements with a `div` that has a class of `contact-info`, so we can use that to create a flexbox container. The result should look like this:
+
+```html
+<div class="contact-info">
+<div>
+  <h3>Run Buddy</h3>
+  <p>
+    Any questions or concerns before signing up?
+    <br />
+    Let us know and we'll be happy to talk to you!
+  </p>
+
+  <address>
+    55 Main Street <br />
+    Some Town, Ca <br />
+    12345
+  </address>
+
+  <p>
+    P: <a href="tel:555.786.2839">555.RUN.BUDZ (555.786.2839)</a><br />
+    E: <a href="mailto://info@runbuddy.io">info@runbuddy.io</a>
+  </p>
+</div>
+
+<div class="contact-form">
+  <h3>Contact Us</h3>
+  <form>
+    <label for="contact-name">Your Name</label>
+    <input type="text" id="contact-name" placeholder="Your Name" />
+
+    <label for="contact-message">Message</label>
+    <textarea id="contact-message" placeholder="Message"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12182.30520634488!2d-74.0652613!3d40.2407219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1561060983193!5m2!1sen!2sus"
+  frameborder="0" style="border:0" allowfullscreen></iframe>
+
+</div>
+```
+
+Moving into `style.css`, let's start adjusting styles by removing some current ones that will get in our way:
+
+- Find the CSS rule for `.contact-info iframe`:
+
+  - Remove the `width`, but leave the `min-height`
+
+- Find the CSS rule for `.contact-info div`:
+
+  - Remove every property except `color`
+
+Now that we've stripped some breaking style declarations, we can add our flexbox. Create a CSS rule for `.contact-info` that has these properties:
+
+- `display: flex;`
+
+- `justify-content: space-between;`
+
+- `flex-wrap: wrap;`
+
+Last thing we need to do for the flexbox layout is have all three child elements share the space as equally as possible. If you recall, we did that just a little while ago in the trainer section by giving them all a `flex: 1` style declaration. Now our three elements don't all share a common element name or even class, so how do we select all three of them at once to make this easier?
+
+Well we could go back to the HTML and give them all a class, or we could skip that and select all of them with a familiar selector used in a different context:
+
+```css
+.contact-info > * {
+  flex: 1;
+  margin: 15px;
+}
+```
+
+Do you remember what the `*` selector did?
+
+> HINT: We're still using it at the very top of `style.css`
+
+That is the symbol we use to select all HTML elements, so how is it being used in this context? This is saying "select all elements that are direct children of anything with a class of `contact-info`." The `>` symbol means it is looking specifically for direct children of the element listed first.
+
+In this case, it will apply the above styles to the three flexbox child elements in our `contact-info` flexbox container, so we are now all set with this section's flexbox layout.
+
+We'll close out on this section by making some actual style updates and give ourselves a break from layouts&mdash;for now.
+
+- Find the CSS rule for `.contact-info p, .contact-info address`:
+
+  - Change the `font-size` to 16px
+
+Now for the contact form elements:
+
+- Create a CSS rule called `.contact-form input, .contact-form textarea` with:
+
+  - `border: 1px solid #024e76`
+  
+  - `display: block`
+
+  - `padding: 7px 15px`
+  
+  - `font-size: 16px`
+  
+  - `color: #024e76`
+  
+  - `width: 100%`
+  
+  - `margin-bottom: 15px`
+  
+  - `margin-top: 5px`
+
+- Create a CSS rule called `.contact-form button` with:
+
+  - `width: 100%`
+  
+  - `border: none`
+  
+  - `background: #fce138`
+  
+  - `color: #024e76`
+  
+  - `text-align: center`
+  
+  - `padding: 15px 0`
+  
+  - `font-size: 16px`
+
+- Create a CSS rule called `.contact-form label` with:
+
+  - `opacity: 0`
+
+All of these are styles we've used before, except this weird `opacity` thing. We're using `opacity` here to effectively hide the `label` element from the page, but still keep it in the HTML so a screen reader can interpret it. This way it still serves it's main purpose, but we can create a more aesthetically pleasing design for the user to see.
+
+The `opacity` property accepts a value between 0 and 1 and it allows for HTML elements to have a transparency to them. It controls the entire HTML element, not just certain parts of it. If we want to use transparencies for something like a background color or even a text color we'll have to use a different tool that will be introduced in a future lesson.
+
+Learning this much about layouts in CSS is exhausting, but it is very rewarding when you realize how much control you can exercise over your HTML elements. There is nothing more important for a CSS developer than the ability to visualize a page as a series of containers and sub-containers/children, and it is a very exciting time for CSS because of tools like flexbox are allowing layouts to be created that used to only be reserved for magazines.
+
+We've officially completed our first GitHub feature request and are ready to take the code from this branch and merge it into our `staging` branch. Then we'll be ready to tackle the next feature request on our list! 
+
 ## Merge branch into staging
