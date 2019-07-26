@@ -1,22 +1,38 @@
-# Lesson 5: A Pretty Bow on Top
+# Lesson 5: Add Some Visual Flair
 
 ## Introduction
 
-We've made several big changes to our web page over these last few lessons. We built a fairly complicated grid, adjusted the layout to be more flexible, and added media queries to ensure true mobile compatibility. While these were all super important aspects to take care of, the executives at Run Buddy are still itching to see their landing page stand out more visually. Look at the mock-up again and notice how this version utilizes things like shadows, rounded corners, and transparency:
+We've made several big changes to our webpage over these last few lessons. We built a fairly complicated grid, adjusted the layout to be more flexible, and added media queries to ensure true mobile compatibility. While these were all super important aspects to take care of, the executives at Run Buddy are still itching to see their landing page stand out more visually. Look at the mock-up again and notice how this version utilizes things like shadows, rounded corners, and transparency:
 
 ![pretty header](./assets/lesson-5/100-pretty-header.png)
 
 Years ago, these visual niceties would have been a huge headache to implement, but CSS has come a long ways since then. With the advent of CSS3, there are many new features available to make our lives easier. In this lesson, we'll explore many of these advanced techniques to give Run Buddy that final coat of paint it's been needing.
 
-Similar to previous lessons, create a new branch based on the corresponding GitHub issue. Remember to create the branch from staging.
+In this lesson, we'll do the following:
 
-> **Hint:** The command `git checkout staging` will switch you back to the staging branch. `git checkout -b <name>` will create a new branch based on the current branch and switch to it.
+1. Create a new feature branch
 
-Now that we have a new branch to work on, let's get started!
+2. Implement CSS shadows, rounded corners, and transparency
 
-## CSS Shadows and More
+3. Change the header to be "sticky"
 
-First, let's add shadows to some of our HTML elements. In CSS, shadows come in two flavors: text shadows and box shadows. They're represented by the following CSS declarations:
+4. Style the different states of our HTML elements
+
+5. Customize the sign-up form inputs
+
+6. Optimize our CSS code with variables
+
+7. Merge into staging
+
+Whew, sounds like a lot, but we'll get through this together.
+
+## Create the Branch
+
+> ## STEPS DEPENDENT ON HOW OTHER LESSONS DO IT
+
+## Add Shadows and More
+
+Our first code edit will be to add shadows to some of our HTML elements. In CSS, shadows come in two flavors: text shadows and box shadows. They're represented by the following CSS declarations:
 
 ```css
 .some-class {
@@ -92,9 +108,9 @@ This is shorthand to add a rounded corner to all four corners of the element. If
 
 > **Legacy Lem:** Before `border-radius`, developers had to jump through some annoying hoops to simulate rounded corners. One common trick was to add four images inside the `<div>`, one for each corner, and use absolute positioning to move them into the appropriate places.
 
-> **Skill Drill** Create an "eyeball" using only CSS and `<div>` tags. That is, create a black circle inside a white circle.
+> **Skill Drill** Create an "eyeball" using only CSS and `<div>` elements. That is, create a black circle inside a white circle.
 
-## How About That Header
+## Stick the Header
 
 We've managed to spruce up the page a little bit, but the Run Buddy execs are getting antsy about the header. It still doesn't look like the new mock-up. The design team also requested that the header be "sticky," meaning it follows the page as it scrolls. Here's a demo of the behavior they would like to see:
 
@@ -158,7 +174,7 @@ background-position: 80%;
 > What is a vendor prefix?\
 > How can you check if a CSS feature is supported in all browsers?
 
-## Pseudo-classes
+## Style the States
 
 While it's hard to see this from a still mock-up, Run Buddy has requested that the page feel more interactive. That is, they want buttons and links to change when the user hovers over them and form elements to change when the user clicks on them. For example, the "What We Do" link looks like it does, because this represents the hover state:
 
@@ -259,7 +275,7 @@ Look at the page in the browser, and you'll notice that a border was added to th
 
 ![border bottom](./assets/lesson-5/900-last-child-border.png)
 
-The `.step:last-child` selector means the CSS declarations will only apply to an element with class `step` that's also the last element in whatever container it's sitting in. Let's revisit the HTML, where we have a `<section>` tag with multiple child elements:
+The `.step:last-child` selector means the CSS declarations will only apply to an element with class `step` that's also the last element in whatever container it's sitting in. Let's revisit the HTML, where we have a `<section>` element with multiple child elements:
 
 ```html
 <section id="what-you-do" class="steps">
@@ -285,7 +301,7 @@ The `.step:last-child` selector means the CSS declarations will only apply to an
 </section>
 ```
 
-The `<div>` with "Step 4" in it is the last child of the `<section>` tag. The `<div>` with class `flex-row` would be the first child. This parent/child relationship lets us do some interesting things with pseudo-classes. Try this one instead:
+The `<div>` with "Step 4" in it is the last child of the `<section>` element. The `<div>` with class `flex-row` would be the first child. This parent/child relationship lets us do some interesting things with pseudo-classes. Try this one instead:
 
 ```css
 .step:nth-child(even) {
@@ -324,7 +340,7 @@ The best solution, of course, is the one that makes the most sense to you!
 
 > ## INSERT CODING CHALLENGE HERE
 
-## Custom Form Elements
+## Customize the Buttons
 
 The Run Buddy folks are liking the changes we've been making, but they've also been wondering when we're going to change those ugly, default checkboxes and radio buttons. In the following picture, the browser's default styling is on the left, and the requested styling is on the right:
 
@@ -352,7 +368,7 @@ That's definitely an improvement, but getting there isn't exactly intuitive. Bro
 </p>
 ```
 
-Note that we wrapped each of these elements and their labels in a `<span>` tag. Perform a little CSS magic and make the inputs inside of these wrappers disappear:
+Note that we wrapped each of these elements and their labels in a `<span>` element. Perform a little CSS magic and make the inputs inside of these wrappers disappear:
 
 ```css
 .checkbox-wrapper input, .radio-wrapper input {
@@ -452,7 +468,7 @@ These are looking pretty good:
 
 ![completely checked](./assets/lesson-5/1400-pretty-checked.png)
 
-The only problem is that they're stuck in the "checked" state. Well, that's a little misleading. These are pseudo-elements. They don't have a checked state! But the invisible inputs that we covered up do. Remember how clicking on a `<label>` tag checks the input that's tied to it? That's still working. We just don't see it anymore. However, we can still tap into the state of these inputs using a pseudo-class:
+The only problem is that they're stuck in the "checked" state. Well, that's a little misleading. These are pseudo-elements. They don't have a checked state! But the invisible inputs that we covered up do. Remember how clicking on a `<label>` element checks the input that's tied to it? That's still working. We just don't see it anymore. However, we can still tap into the state of these inputs using a pseudo-class:
 
 ```css
 .checkbox-wrapper input:checked, .radio-wrapper input:checked {
@@ -472,7 +488,7 @@ Obviously, this behavior isn't desirable. We want the state of this input to eit
 }
 ```
 
-Now, the boldness of the `<label>` tag is dependent on the `:checked` state of its sibling element! That's still not quite what we wanted, though. Let's give this one last shot:
+Now, the boldness of the `<label>` element is dependent on the `:checked` state of its sibling element! That's still not quite what we wanted, though. Let's give this one last shot:
 
 ```css
 .checkbox-wrapper input + label::after, 
@@ -507,7 +523,7 @@ A higher `z-index` brings the element to the front while a lower `z-index` pushe
 > What is a pseudo-element?\
 > What does the `z-index` property do?
 
-## CSS Variables
+## Optimize with Variables
 
 Before we wrap up this GitHub issue, let's explore another newer (and really cool) feature of CSS called **variables**, or custom properties. If you skim over the CSS rules in `style.css`, you'll notice there's a lot of repetition in the values we use. Run Buddy basically has three colors: yellow (`#fce138`), navy blue (`#024e76`), and teal (`#39a6b2`). There are murmurings that Run Buddy wants to update this color scheme in the future, though. No one wants to have to search for and replace all of these color codes if/when that happens. What would be helpful is to define the colors once and then just reference a name like "primary-color." Well, with CSS variables, we totally can! The syntax is as follows:
 
@@ -530,7 +546,7 @@ div {
 }
 ```
 
-In these examples, though, we've tied the custom properties to only `<div>` tags and their children. In most cases, we probably want our custom properties to be global, meaning any element or class selector can use them. We can accomplish this with the `:root` pseudo-class. Add this new rule to the top of your style sheet:
+In these examples, though, we've tied the custom properties to only `<div>` elements and their children. In most cases, we probably want our custom properties to be global, meaning any element or class selector can use them. We can accomplish this with the `:root` pseudo-class. Add this new rule to the top of your style sheet:
 
 ```css
 :root {
@@ -540,7 +556,7 @@ In these examples, though, we've tied the custom properties to only `<div>` tags
 }
 ```
 
-The `:root` pseudo-class targets the top-most parent element (most likely the `<html>` tag), so all other child elements will have access to any variables we declare here. Now that we've defined our three main colors for Run Buddy, go through the style sheet and replace every instance of `#fce138` with `var(--primary-color)`, every instance of `#024e76` with `var(--secondary-color)`, etc.
+The `:root` pseudo-class targets the top-most parent element (most likely the `<html>` element), so all other child elements will have access to any variables we declare here. Now that we've defined our three main colors for Run Buddy, go through the style sheet and replace every instance of `#fce138` with `var(--primary-color)`, every instance of `#024e76` with `var(--secondary-color)`, etc.
 
 > **Pro-Tip:** In VS Code, a handy shortcut is to highlight the first instance of what you're looking for and press CTRL+D on Windows or Command+D on macOS to continually select the next instance it finds. With multiple instances selected, you can type/replace them all at once.
 
@@ -554,24 +570,30 @@ Yuck. But Run Buddy assures us they aren't interested in supporting IE. Various 
 
 > **On the Job:** Browser requirements will change from client to client. If your company has many overseas users, where older operating systems like Windows XP are still fairly common, you would need to be much more mindful of Internet Explorer. If you do all of your development on macOS, don't be afraid to ask your company for a Windows laptop to test on, or vice versa!
 
-With these final changes in place, `add`, `commit`, and `push` your branch. Then follow the steps from earlier lessons to merge this branch into staging. We're not quite ready to merge into master yet. The Run Buddy team needs to look over it and put in any last-minute requests, which we'll take care of in the next lesson.
+## Merge It
+
+> ## STEPS DEPENDENT ON HOW OTHER LESSONS DEMO IT
+
+We're not quite ready to merge into master yet. The Run Buddy team needs to look it over and put in any last-minute requests, which we'll take care of in the next lesson.
 
 ## Reflection
 
-This lesson gave us a chance to experiment with some of the newer and cooler features of CSS, making our Run Buddy landing page truly stand out. As we dive into these fancier CSS properties, however, we should keep cross-browser support in the back of our minds according to the needs of the client. Let's recap some of the highlights:
+This lesson gave us a chance to experiment with some of the newer and cooler features of CSS, making our Run Buddy landing page truly stand out. As we dive into these fancier CSS properties, however, we should keep cross-browser support in the back of our minds according to the needs of the client.
 
-* `text-shadow` and `box-shadow`
+In the next lesson, we'll look at another hot topic in the world of the web: animation. But first, let's revisit some of the highlights from this lesson:
 
-* Transparency with `rgba()` values and `opacity`
+* We added shadows with the `text-shadow` and `box-shadow` properties.
 
-* Sticky headers and the `-webkit-` vendor prefix
+* We made elements transparent using `rgba()` values and `opacity`.
 
-* Pseudo-classes like `:hover` to target different states of an element
+* We made the header "sticky" while accounting for Safari support with the `-webkit-` vendor prefix.
 
-* Pseudo-elements like `::before` to inject content with CSS
+* We used pseudo-classes like `:hover` to style different states of an element.
 
-* `z-index` to change the stacking order of elements
+* We used pseudo-elements like `::before` to create custom form buttons.
 
-* CSS variables (a.k.a. custom properties)
+* We used `z-index` to change the stacking order of elements.
+
+* We implemented CSS variables (aka custom properties) to consolidate our color values and optimize the codebase.
 
 Wow, those are a lot of new tricks! The good news is, you don't have to memorize them. They're always a quick [Google search](https://www.google.com/search?q=css+shadows) away.
