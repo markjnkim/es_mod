@@ -8,13 +8,48 @@ Some companies even took the time to build a completely different version of the
 
 ![Run Buddy Mobile](assets/lesson-4/100-runbuddy-mobile.jpeg)
 
-## Create a feature branch
+## Creating a branch and minor edits
 
-- Make branch for setting up media queries off of `staging`
+Just like the previous two lessons, we want to make all of our updates in it's own branch so we don't disrupt the finished working code we've already written. We'll begin by creating a new branch:
 
-## Make current CSS more mobile-friendly
+1. Make sure you are currently in the `staging` branch
 
-- Adjust font-size and margin/padding
+2. Use `git checkout -b` to create a branch called `media-queries`
+
+3. Make sure you are now in that branch using the `git branch` command
+
+### NEED: Video for this process (can be done once generically and repeated with all lessons)
+
+Right now, our overall site looks solid when it comes to font sizes and margins/padding how it's displayed on a laptop or desktop screen. As we make the screen a little smaller, however, it starts to feel a little crowded.
+
+### NEED: Video demonstrating how tight it gets when the screen resizes
+
+To save ourselves from doing more work in the future by having these values adjusted at different screen sizes, we can adjust some of these now to strike a nicer balance across all devices. We'll start by finding and changing some of our current styles:
+
+- Find the CSS rule for `header nav a`:
+  
+  - Change its `padding` to "10px 15px" instead of "15px 20px"
+
+- Find the CSS rule for `.hero`:
+
+  - Add an `align-items: flex-start` declaration to it
+
+> PAUSE: If there is no `align-items` property set for a flexbox, what is the default value and how does that affect the two flex children?
+>
+> ANSWER: The default is `stretch` and it means all flex children will grow to the size of the tallest one.
+> ### NEED: Video/screenshot demonstration of what this looks like
+
+- Find the CSS rule for `.hero-cta`:
+
+  - Add `line-height: 1.2` to it
+
+- Find the CSS rule for `.section-title`:
+
+  - Change the `font-size` property to 48px
+
+### CHECK WITH MARK ABOUT GRID FONTS
+
+
 
 ## Media Query Intro
 
@@ -34,3 +69,4 @@ Some companies even took the time to build a completely different version of the
 ## Merge Branch
 
 ## Reflection
+
