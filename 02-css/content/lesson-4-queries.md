@@ -4,9 +4,9 @@ We've added some really nice features and updates to the Run Buddy site so far a
 
 If we were to be building this site ten years ago we could be all done with this layout and not worry about different screen sizes, but in modern-day web development we need to make sure all layouts look good across all devices and screen sizes. This need for responsive web sites became apparent when more and more users adopted smart mobile devices like the iPhone, iPad, or any Android device, and more sites were seeing web traffic coming from those devices instead of a standard desktop web browser.
 
-Some companies even took the time to build a completely different version of their site specifically for mobile; but maintaining one site is hard enough&mdash;let alone two&mdash;so new tools were released to help us create one site that could look good anywhere. These are the tools we'll be using to get Run Buddy looking like this at different screen sizes:
+Some companies even took the time to build a completely different version of their site specifically for mobile; but maintaining one site is hard enough&mdash;let alone two&mdash;so new tools were released to help us create one site that could look good anywhere. These same tools are the ones we'll be using to get Run Buddy looking like this as our screen gets smaller:
 
-
+![Run Buddy Mobile](assets/lesson-4/100-runbuddy-mobile.jpeg)
 
 ## Create a feature branch
 
