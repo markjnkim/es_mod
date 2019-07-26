@@ -1025,12 +1025,42 @@
   box-shadow: 0 0 15px #333333;
 }
 
+/* learning block styles */
+
 .markdown-body blockquote {
   border-left: 10px solid var(--trilogy-blue);
   color: #6a737d;
   font-size: 18px;
   background: rgb(238, 247, 248);
-  padding: 20px;
+  position: relative;
+}
+
+.markdown-body blockquote > strong {
+  font-size: 24px;
+  font-variant: small-caps;
+}
+
+.markdown-body blockquote.important {
+  border-color: #721c24;
+  background-color: #F8D7DA;
+}
+
+.markdown-body blockquote::before {
+  content: "";
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: -55px;
+}
+
+.markdown-body blockquote.important::before {
+  background-image: url("/courses/89/files/1921/preview");
+}
+
+.markdown-body blockquote.pro-tip::before {
+  background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg");
 }
 
 .markdown-body ol, .markdown-body ul {
