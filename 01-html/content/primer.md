@@ -68,7 +68,7 @@ volunteers to collaborate quickly and freely without his direct oversight. All
 he had to do was approve each release. The Linux kernel continues to grow
 rapidly thanks to Git, with up to seven merges per hour from thousands of collaborators around the globe. 
 
-As a deveoper, you'll find that Git is extremely useful whether you're collaborating with a
+As a developer, you'll find that Git is extremely useful whether you're collaborating with a
 team or working on your own projects.
 
 Conclusion
