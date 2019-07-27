@@ -36,7 +36,7 @@ Finally, you'll learn how to use Git, which is an extremely powerful and helpful
 
 ### Key Topics
 
-Here's a granular breakdown of the topics covered in this module: 
+Here's a breakdown of the topics covered in this module: 
 * Command-line basics
   * Navigating the file tree
   * Creating, copying, and removing files and directories
@@ -71,7 +71,7 @@ At the end of this module, you will be employer-ready if you can answer the foll
 * What is Git workflow?
 
 ## Learning Objectives
-At the end of this module, you will be employer-competitive if you can do the following:
+By the end of this module, you will be able to:
 * Build and style static webpages with semantic HTML & CSS.
 * Implement best practices and standards when structuring HTML files using nested elements, indentation, comments, and line breaks.
 * Implement CSS styling via class, id, and element selectors using external stylesheets, inline styles, and embedded style tags.
