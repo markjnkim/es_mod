@@ -469,7 +469,7 @@ What we'll do is create a new repository on GitHub, then link our local Run Budd
 
 ![new repo](./assets/step-1/1000-github-new.png)
 
-This will route you to a page where you'll be able to create a new repository. Give the repository a name (run-buddy) but don't change any other options. Then click the "Create respository" button.
+This will route you to a page where you'll be able to create a new repository. Give the repository a name (run-buddy) but don't change any other options. Then click the "Create repository" button.
 
 ![new repo](./assets/step-1/1100-github-create.png)
 
