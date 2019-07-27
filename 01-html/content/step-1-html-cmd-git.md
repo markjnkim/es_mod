@@ -1,8 +1,9 @@
-# Lesson 1: Setting Up the Project
+# Lesson 1: Set Up the Project
 
 ## Introduction
 
-Let's jump right in and get our hands dirty with some actual coding! We know this is a big undertaking for a newbie developer, but thankfully the app we're building—Run Buddy—gives us some leeway to learn as we build. 
+Let's jump right in and get our hands dirty with some actual coding! 
+We know this is a big undertaking for a newbie developer, but thankfully the app we're building—Run Buddy—gives us some leeway to learn as we build. 
 
 In fact, many real-world companies don't expect developers to know everything up front. Part of the development process is figuring out new technologies. Granted, we are brand new developers, so we have a longer road ahead of us than a seasoned programmer learning a new tool. The key is to take it one step at a time and set up the project correctly. 
 
@@ -151,13 +152,17 @@ Next, open this HTML file in the browser (preferably Chrome). If you have the [O
 
 ![first screenshot](./assets/step-1/300-html-screenshot.png)
 
-All right, so it's not the most exciting webpage in the world, but you gotta start somewhere! Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** with an opening `<tag>` and a closing `</tag>`. Anything in between these tags is affected by what that tag does. The `<h1>` tag, for instance, made the text inside it big and bold. This denotes a level 1 heading. If we have other, less important headings on our webpage, we can use additional tags like `<h2>`, `<h3>`, and so on.
+All right, so it's not the most exciting webpage in the world, but you gotta start somewhere! Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** that are made up of an opening tag (e.g., `<title>`) and a closing tag (e.g., `</title>`). Whatever is in between these tags is affected by what that element signifies. The `<h1>` element is a heading element, so it makes the text inside it big and bold. The `<h1>` element denotes a level 1 heading. If we have other, less important headings on our webpage, we can use other header elements like `<h2>`, `<h3>`, and so on.
 
-> **Deep Dive:** Read more about the different [heading tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
+> **Deep Dive:** Read more about the different [heading elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
 
-Try changing the code to `<h2>RUN BUDDY</h2>`. Save the file and refresh the tab in the browser. Notice how the text shrunk slightly. Also keep in mind that this only affected the RUN BUDDY text, because the tag was closed. If you remove the `</h2>`, the text underneath will become big and bold, too, because the browser doesn't know where the `<h2>` ends. Now change it to an `<h3>` and observe again how the text continues to shrink.
+Try changing `<h1>RUN BUDDY</h1>` to `<h2>RUN BUDDY</h2>`. Save the file and refresh the tab in the browser. Notice how the text shrunk slightly. 
 
-With this new understanding of HTML tags, let's look at the others we used. We're writing an HTML page, so it makes sense that everything would need to be wrapped in an `<html>` tag. The only thing that didn't go inside this tag was the `<!DOCTYPE html>`. This is an extra line that tells the browser how to interpret your HTML code. We don't need to worry about supporting very old browsers like Netscape Navigator, so this **DOCTYPE** will always be written as `<!DOCTYPE html>`.
+Also make a note that this change only affected the RUN BUDDY text. Why do you think that is? It's because the element was closed. If you remove the closing `</h2>` tag, the text underneath RUN BUDDY would also become big and bold because the browser wouldn't know where the `<h2>` content ends. 
+
+Now change it to an `<h3>` and observe again how the text shrunk.
+
+With this new understanding of HTML elements, let's look at the others we used. We're writing an HTML page, so it makes sense that everything would need to be contained in an `<html>` element. The only thing that didn't go inside this element was the `<!DOCTYPE html>`. This is an extra line that tells the browser how to interpret your HTML code. We don't need to worry about supporting very old browsers like Netscape Navigator, so this **DOCTYPE** will always be written as `<!DOCTYPE html>`.
 
 > **Deep Dive:** Read more about the [DOCTYPE](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode).
 
