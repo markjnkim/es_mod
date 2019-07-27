@@ -15,7 +15,7 @@ Thirty years later, the web still runs on HTML, and everyday folks still use bro
 You might be skeptical that everything on the web can still be categorized as HTML—and you have good reason to be. Nowadays when you use your web browser, you see things like PNG, JPG, and GIF images. You watch videos. You listen to audio files. You might watch live streams or play games. You download Zip files, view PowerPoint  presentations, and try to avoid getting viruses. The list goes on. 
 
 But guess what—a web browser can't discover or display any of these things without HTML. Let's prove it. In a new browser window, go to [YouTube](https://www.youtube.com/). Right-click somewhere in the white 
-area of the page, like to the right of the YouTube logo, and select "View page source" from the contextual menu. You should see a page filled with code.
+area of the page, like to the right of the YouTube logo, and select "View page source" from the popup menu. You should see a page filled with code.
 
 > **Pro Tip:** You can view the HTML source of any webpage in Chrome by typing Control+U (on Windows) or Command+Option+U (on a Mac).
 
