@@ -50,6 +50,11 @@ To save ourselves from doing more work in the future by having these values adju
 
 ### CHECK WITH MARK ABOUT GRID FONTS
 
+Making these changes may have seemed tedious and unnecessary, but now that our goal is to make our site look good on any device we need to start thinking about how we can achieve that with as little code as possible. When it comes to making a site look good across all devices and screen sizes, there are usually two routes to take:
+
+1. Create CSS rules for those screen sizes using a special tool in CSS called **media queries**. This is primarily used when we need to drastically change how the page look on different devices like make two columns stack on top of one another instead of side-by-side. They're a bit more involved to get set up, but not difficult to use, so we'll be getting to them shortly
+
+2. 
 
 
 ## Media Query Intro
