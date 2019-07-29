@@ -54,8 +54,13 @@ Making these changes may have seemed tedious and unnecessary, but now that our g
 
 1. Create CSS rules for those screen sizes using a special tool in CSS called **media queries**. This is primarily used when we need to drastically change how the page look on different devices like make two columns stack on top of one another instead of side-by-side. They're a bit more involved to get set up, but not difficult to use, so we'll be getting to them shortly
 
-2. 
+2. We can adjust our current CSS styles so they look good across all devices by finding lengths and sizes that aren't too big for mobile, but not too small for a computer screen. This isn't always a viable option, depending on the overall design of the site we're building, but it does reduce the amount of code we write.
 
+Of the two routes mentioned above, we just took the second one by updating styles that apply to all screen sizes, but we also have a lot of pieces of our UI that simply cannot look good at different sizes without some major changes. For example, if we attempt to make the page smaller the newly created "Service Plans" section will get very tight looking. We'll be fixing it so it takes on a slightly different layout for mobile:
+
+![Service Plans mobile](assets/lesson-4/200-serviceplans-fixed.jpeg)
+
+The above image's shift in layout cannot be achieved by simply adjusting our current CSS so we're going to have to add more to our stylesheet. Specifically, we're going to be adding in a set of conditions for our CSS styles follow called Media Queries.
 
 ## Media Query Intro
 
