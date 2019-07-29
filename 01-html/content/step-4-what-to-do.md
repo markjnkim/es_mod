@@ -1,12 +1,26 @@
-# Lesson 4: Build the "What you Do" Section
+# Lesson 4: Build the "What We/You Do" Sections
 
 ## Introduction
 
-Our Run Buddy web page is looking good. We've knocked out some pretty tricky sections like the header, hero, and sign-up form. This next lesson may feel like a bit of a breather since we don't need to use any complex CSS properties like floats or positioning. As we build out these two "What We Do" and "What You Do" sections, though, a few new concepts will still come into play. Be prepared to learn and exercise some previous skills at the same time!
+Our Run Buddy webpage is looking good. We've knocked out some pretty tricky sections like the header, hero, and sign-up form. Up next, we have these two more informative pieces to build:
+
+![overview](./assets/step-4/050-overview.png)
+
+This lesson may feel like a bit of a breather since we don't need to use any complex CSS properties like floats or positioning. As we build out these two "What We Do" and "What You Do" sections, though, a few new concepts will still come into play. Be prepared to learn and exercise some previous skills at the same time!
+
+High-level, here's our outline:
+
+1. Fill in the HTML content
+
+2. Add the image icons
+
+3. Style the "What We Do" section
+
+4. Style the "What You Do" section
 
 # Fill in the HTML
 
-In Lesson 1, we left high-level placeholders for these sections:
+In Lesson 1, we left placeholders for these sections:
 
 ```html
 <!-- "what we do" section -->
@@ -20,7 +34,7 @@ In Lesson 1, we left high-level placeholders for these sections:
 </section>
 ```
 
-Let's go ahead and fill in the missing HTML content. Ignore the images for now but take into consideration which elements would be appropriate to best organize the code:
+Let's go ahead and fill in the missing HTML content per the mock-up. Ignore the blue icons for now but take into consideration which elements would be appropriate to best organize the code:
 
 ```html
 <!-- "what we do" section -->
@@ -57,11 +71,17 @@ Let's go ahead and fill in the missing HTML content. Ignore the images for now b
 </section>
 ```
 
-> **Pro-Tip:** If you ever need to quickly fill an HTML element with dummy text in VS Code, type the word "lorem" and press Tab. There are also many [dummy text generators](https://www.lipsum.com/) available online.
+> **Pro Tip:** If you ever need to quickly fill an HTML element with dummy text in VS Code, type the word "lorem" and press Tab. There are also many dummy text generators available online. Run Buddy's design team prefers [Hipster Ipsum](https://hipsum.co/).
 
-Note how every step is wrapped in its own `<div>` to help keep the step title and description coupled together. This will make it easier to style them later with CSS, too. We also used `<h3>` for each step title since these headings are less important than the higher `<h2>What You Do</h2>` title.
+Note how every step is wrapped in its own `<div>` to help keep the step title and description coupled together. This will make it easier to style them later with CSS, too.
 
-This would be a good time to start adding the IDs that we talked about back in Lesson 2. Remember how we updated the attributes on our links to look like `href="#what-we-do"`? Right now, those links don't work, because we never defined `what-we-do` anywhere else. Add these `id` attributes to our sections:
+> **Pause:** Why should we use `<h3>` for the step titles (e.g. `<h3>Step 1</h3>`) instead of `<h2>` or `<h4>`?
+>
+> Answer: We already used `<h2>` for the main title of this section (What You Do), and we shouldn't skip heading levels.
+
+This would be a good time to start adding the IDs that we talked about back in Lesson 2. Remember how we updated the attributes on our `<a>` elements to look like `href="#what-we-do"`? Right now, those links in the header don't work, because we never defined `what-we-do` anywhere else.
+
+Add these `id` attributes to our sections:
 
 ```html
 <!-- "what we do" section -->
@@ -77,41 +97,68 @@ This would be a good time to start adding the IDs that we talked about back in L
 
 Save, refresh, then click on the links in the header. You'll see that the browser jumps down to these sections, and the URL in the address bar changes to `/run-buddy/index.html#what-you-do`. Very cool! We'll fill in the remaining `id` attributes in upcoming lessons.
 
-# Add Images
+> **Rewind:** The `<a>` element, or anchor element, can also be used to route users to an entirely different website. For example, the code `<a href="https://google.com">Google It!</a>` would turn the words "Google It!" into a clickable hyperlink that leads to Google's website.
 
-So the company's design team has given us some new images to work with. Download these [SVG files](./link-needed) and add them to your `assets/images` folder. You may be wondering why these are SVGs and not JPGs or PNGs. In fact, what the heck is an SVG? Just for fun, open one of these new files in VS Code. It'll look something like this:
+# Add the Images
+
+The company's design team has given us some new images to work with. Download these [SVG files](./link-needed) and add them to your `assets/images` folder. You may be wondering why these are SVGs and not JPGs or PNGs. In fact, what's an SVG?
+
+Just for fun, open one of these new files in VS Code. It'll look something like this:
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164.73 130.92"><defs><style>.cls-1{fill:#39a6b2;}</style></defs><title>Asset 2</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M163.69,109.93H99.88a.75.75,0,0,0-.69.69v2.6a2.92,2.92,0,0,1-3,3H68.67a3,3,0,0,1-3-3v-2.42a.73.73,0,0,0-.69-.69H1a1.12,1.12,0,0,0-1,1v10.58a9.25,9.25,0,0,0,9.19,9.19H155.54a9.26,9.26,0,0,0,9.19-9.19V111.15a1.16,1.16,0,0,0-1-1.22Z"/>
 ```
 
-How is it possible for something to look so familiar yet so confusing?! This looks kind of like HTML, doesn't it? But it's actually called [XML](https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction), which is like a cousin to HTML. Unlike PNGs or JPGs, which are made up of pixels, SVGs (or Scalable Vector Graphics) are defined as a series of points and lines (the `<path>` elements you see in the XML) that are filled in with color. This means the SVG image could accommodate basically any screen size and not lose quality. So SVGs are perfect for things like icons and logos.
+How is it possible for something to look so familiar yet so confusing?! This looks kind of like HTML, doesn't it? But it's actually called [XML](https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction), which is like a cousin to HTML. Unlike PNGs or JPGs, which are made up of pixels, SVGs (or Scalable Vector Graphics) are defined as a series of points and lines (the `<path>` elements you see in the XML) that are filled in with color. This means the SVG image could accommodate basically any screen size and not lose quality because the graphics will scale. That makes SVGs perfect for things like icons and logos.
 
-In the Step 1 `<div>`, add the following `<img>` element:
+In the first `<div>` under the `<h2>What You Do</h2>` heading, add the following `<img>` element:
 
 ```html
+<h2>What You Do</h2> 
+
 <div>
+  <!-- insert this img element -->
   <img src="./assets/images/step-1.svg" alt="" />
   <h3>Step 1: Fill Out The Form Above.</h3>
   <p>You're already here, so why not?</p>
 </div>
 ```
 
-The `<img>` element is very useful, because it can display any [image type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Supported_image_formats). We just need to make sure the `src` attribute points to a file that can be found. Much like how the `<link>` element had to relatively reference the style sheet as `./assets/css/style.css`, we do the same for images: `./assets/images/step-1.svg`.
+The `<img>` element is very useful, because it can display any [image format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Supported_image_formats). We just need to make sure the `src` attribute points to a file that can be found. Much like how the `<link>` element had to relatively reference the style sheet as `./assets/css/style.css`, we do the same for images: `./assets/images/step-1.svg`.
 
 > **Rewind:** Relative paths start from the current directory (e.g. `../images/hero-bg.jpg`). Absolute paths are more hard set (e.g. `/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css`) and should be avoided.
 
-There's an extra attribute we should make sure every image has, though: the `alt` attribute. This is how we can explain what the image is to search engines and screen readers. Imagine a visually impaired vistor who relies on a screen reader and what their experience might be if the reader got hung up on the context of every image it came across. Watch this [short video](https://www.youtube.com/watch?v=NvqasTVoW98) to see just how screen readers handle alt text.
+There's an extra attribute we should make sure every image has, though: the `alt` attribute. This is how we can explain what the image is to search engines and screen readers. Imagine a visually impaired visitor who relies on a screen reader and what their experience might be if the reader got hung up on the context of every image it came across. Watch this [short video about how screen readers handle alt text](https://www.youtube.com/watch?v=NvqasTVoW98).
 
 In our case, the `step-1.svg` image is purely "decorative," meaning the only information the user needs from this section is already provided by the surrounding text (the `<h3>` element). It might seem like the `alt` attribute isn't necessary, then, but a screen reader wouldn't know that a missing `alt` attribute means "unimportant icon." Hence, we set `alt` to empty text (`alt=""`) so the screen reader knows to ignore it.
 
-> **Deep Dive:** Read more about `alt` attribute guidelines from the [W3C](https://www.w3.org/WAI/tutorials/images/) web standard gurus.
+> **Deep Dive:** Read more about [alt attribute guidelines from the W3C](https://www.w3.org/WAI/tutorials/images/) web standard gurus.
 
 If you haven't already, save your HTML file and reload it in the browser. Things probably aren't looking so good anymore:
 
 ![image screenshot](./assets/step-4/100-big-screenshot.png)
 
-Our image is enormous! Remember, SVGs are scalable. There's no built-in, hard-set pixel count, so it's going to fill up any available space. But that's okay. We'll use CSS to size it down later. For now, add the other three images to Steps 2-4.
+Our image is enormous! Remember, SVGs are scalable. There's no built-in, hard-set pixel count, so it's going to fill up any available space. But that's okay. We'll use CSS to size it down later. For now, add the other three images to Steps 2-4:
+
+```html
+<div>
+  <img src="./assets/images/step-2.svg" alt="" />
+  <h3>Step 2: Consult With One Of Our Trainers.</h3>
+  <p>Are you here to build muscle, lose weight, or just feel good?</p>
+</div>
+
+<div>
+  <img src="./assets/images/step-3.svg" alt="" />
+  <h3>Step 3: Get Running.</h3>
+  <p>Hit the ground running (literally) once your trainer lays our your plan.</p>
+</div>
+
+<div>
+  <img src="./assets/images/step-4.svg" alt="" />
+  <h3>Step 4: See Results.</h3>
+  <p>Bi-weekly checkins with your trainer will keep you focused</p>
+</div>
+```
 
 > **Rewind:** This seems like a good stopping point, which means... time to `add`, `commit`, and `push`!
 
@@ -147,6 +194,16 @@ Now add some CSS declarations that apply to the `<h2>` element inside this secti
 The majority of this is stuff we've used before, but one thing worth highlighting is that we've specified a border on one side of the element only. We also gave the border two separate declarations, but you could have written it as one, using a shorthand property: `border: 3px solid #fce138;`. It's up to you.
 
 > **Pause:** If you were to write `padding: 0 100px 20px 100px;` as four separate declarations, which value would go with which property?
+>
+> Answer:
+> ```css
+> padding-top: 0px;
+> padding-right: 100px;
+> padding-bottom: 20px;
+> padding-left: 100px;
+> ```
+
+> **Deep Dive:** Read the [MDN documentation on CSS shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties).
 
 The heading for this section should now look like this:
 
@@ -165,7 +222,7 @@ The `<h2>` element, by default, is a block element, but with CSS, we can change 
 }
 ```
 
-We chose to use `inline-block` over just `inline` so it can have the best of both worlds. It's now an inline element, but things like padding still behave like they would on block elements. Coupled with our `text-align` property from before, we now have a nice, centered heading with an appropriately-sized border:
+We chose to use the `inline-block` value over the `inline` value so it can have the best of both worlds. It's now an inline element, but things like padding still behave like they would on block elements. Coupled with our `text-align` property from before, we now have a center-aligned heading with an appropriately sized border:
 
 ![inline heading](./assets/step-4/300-inline-heading.png)
 
@@ -195,13 +252,13 @@ Because we shrunk the width of the paragraph down to 80%, it no longer looks cen
 }
 ```
 
-This is shorthand for setting a top and bottom margin of zero and a left and right margin of auto. But what does "auto" mean? This essentially tells the browser to calculate the margins for us. When the browser is asked to do this on both sides of an element, it will do its best to make them even, thus pushing the element into the center. With the Chrome DevTools, we can inspect the element's margins (the orange boxes) before auto is applied and after:
+This is shorthand for setting a top and bottom margin of zero and a left and right margin of auto. But what does "auto" mean? This essentially tells the browser to calculate the margins for us. When the browser is asked to do this on both sides of an element, it will do its best to make them even, thus pushing the element into the center.
+
+With the Chrome DevTools, we can inspect the element's margins (the orange boxes) before auto is applied and after:
 
 ![margin comparison](./assets/step-4/500-margin-comparison.png)
 
 Pretty cool! Yet another CSS trick to put in your toolbelt. And that wraps up "What We Do."
-
-> **Deep Dive:** Check out some of the [other ways](https://css-tricks.com/centering-css-complete-guide/) content can be centered with CSS.
 
 # Style What You Do
 
@@ -272,7 +329,7 @@ Now we can delete the previous CSS rules for `.intro h2` and `.steps h2` (sorry!
 </section>
 ```
 
-Note that these `<h2>` elements in different sections are able to use the same `section-title` class, giving them all the same baseline in terms of size, spacing, etc. We can then add additional classes by separating the class names with a space. So the attribute `class="section-title primary-border"` is actually pulling in CSS declarations from two different classes.
+Note that these `<h2>` elements in different sections are able to use the same `section-title` class, giving them all the same baseline in terms of size, spacing, etc. We can then add additional classes by separating the class names with a space. The attribute `class="section-title primary-border"` is actually pulling in CSS declarations from two different classes.
 
 > **Skill Drill:** This is such an important concept with CSS that it's worth practicing a little more outside of this module. When you have a moment, try writing two classes (and only two classes, no other selectors) that could make the following possible:
 >
@@ -280,6 +337,24 @@ Note that these `<h2>` elements in different sections are able to use the same `
 > <div>bold, green text</div>
 > <div>bold, italic, underlined, green text</div>
 > <div>italic, underlined text</div>
+> ```
+>
+> Answer:
+> ```html
+> <div class="font-1">bold, green text</div>
+> <div class="font-1 font-2">bold, italic, underlined, green text</div>
+> <div class="font-2">italic, underlined text</div>
+> ```
+> ```css
+> .font-1 {
+>   font-weight: bold;
+>   color: green;
+> }
+> 
+> .font-2 {
+>   font-style: italic;
+>   text-decoration: underline;
+> }
 > ```
 
 What's left is some general clean-up to size and color elements correctly. Even though this may feel like repeat work, still type out each one instead of copy/pasting. It'll help you memorize the syntax faster!
@@ -308,7 +383,7 @@ What's left is some general clean-up to size and color elements correctly. Even 
 
 > **Deep Dive:** Something you may have noticed is that our parent `text-align: center;` property also centered the SVG icons. This can be a bit confusing at first, since images definitely are not text, but `text-align` essentially centers everything inside of an element, text or otherwise. If you want to use `text-align` to center an image, though, you must apply it to the parent element, not the image itself.
 
-So it may seem like we're done now, but anytime we're given a design mock-up to follow, we need to be absolutely sure we covered everything. Designers don't appreciate when developers say, "Eh, it's close enough." One thing that would be easy to overlook is the font size differences in the step titles:
+It may seem like we're done now, but anytime we're given a design mock-up to follow, we need to be absolutely sure we covered everything. Designers don't appreciate when developers say, "Eh, it's close enough." One thing that would be easy to overlook is the font size differences in the step titles:
 
 ![step title](./assets/step-4/600-step-span.png)
 
@@ -337,14 +412,16 @@ What are two ways you could center a 50%-width `<div>` with CSS?
 
 # Reflection
 
-This lesson gave us a chance to practice many of the CSS properties we learned previously to finish a pretty large chunk of the layout&mdash;the "What We Do" and "What You Do" sections. Along the way, we better organized our style sheet with reusable class names and learned a few new bits of HTML and CSS:
+This lesson gave us a chance to practice many of the CSS properties we learned previously to finish a pretty large chunk of the layout&mdash;the "What We Do" and "What You Do" sections. Along the way, we better organized our style sheet with reusable class names and learned a few new bits of HTML and CSS.
 
-* `<img>` elements for displaying images
+The next lesson, Meet the Trainers, will further test our skills with a more complicated layout, but first let's bask in what we accomplished here:
 
-* `<span>` elements for highlighting inline content
+* We used `<img>` elements to display SVG images
 
-* `auto` as a valid value for CSS margins
+* We used `<span>` elements to highlight inline content
 
-* `text-align` to center non-text content
+* We centered non-text content using `margin: auto` and `text-align`
+
+* We combined classes on the same element (e.g. `<h2 class="section-title primary-border">`)
 
 Keep these ideas in your back pocket, because they will surely come up again, not only in these last few lessons but in future web-related projects!
