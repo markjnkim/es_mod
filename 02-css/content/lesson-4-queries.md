@@ -10,7 +10,7 @@ Some companies even took the time to build a completely different version of the
 
 ## Creating a branch and minor edits
 
-Just like the previous two lessons, we want to make all of our updates in it's own branch so we don't disrupt the finished working code we've already written. We'll begin by creating a new branch:
+Just like the previous two lessons, we want to make all of our updates in it's own branch so we don't disrupt the finished working code we've already written. We'll begin by creating that new branch:
 
 1. Make sure you are currently in the `staging` branch
 
@@ -37,6 +37,7 @@ To save ourselves from doing more work in the future by having these values adju
 > PAUSE: If there is no `align-items` property set for a flexbox, what is the default value and how does that affect the two flex children?
 >
 > ANSWER: The default is `stretch` and it means all flex children will grow to the size of the tallest one.
+> 
 > ### NEED: Video/screenshot demonstration of what this looks like
 
 - Find the CSS rule for `.hero-cta`:
