@@ -1033,11 +1033,32 @@
   font-size: 18px;
   background: rgb(238, 247, 248);
   position: relative;
+  transition: border-width .2s;
 }
 
 .markdown-body blockquote > strong {
   font-size: 24px;
   font-variant: small-caps;
+}
+
+.markdown-body blockquote.hint.collapse > strong::after {
+  content: "?";
+}
+
+.markdown-body blockquote.collapse {
+  cursor: pointer;
+}
+
+.markdown-body blockquote.collapse:hover {
+  border-width: 15px;
+}
+
+.markdown-body blockquote.hint.collapse p {
+  display: none;
+}
+
+.markdown-body blockquote.pause.collapse p:not(:first-of-type) {
+  display: none;
 }
 
 .markdown-body blockquote.important {

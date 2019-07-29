@@ -1,27 +1,29 @@
 $(document).ready(function() {
   // find all learning blocks
   $(".markdown-body blockquote").each((function() {
+    // get title element
     var title = $(this).find("strong:first");
+    title.text(title.text().replace(":", ""));
 
-    // pull out type of learning block
-    var type = title.text().replace(":", "").replace(/ /g, "-").toLowerCase();
+    // create easy name
+    var type = title.text().replace(/ /g, "-").toLowerCase();
 
     // apply class to parent block
     $(this).addClass(type);
 
+    // remove dangling span next to title
+    title.next("span").remove();
+
     // move title outside of paragraph
     title.prependTo($(this));
 
-    // remove bad span
-    $(this).find("span:first").remove();
+    // add additional class for special types
+    if (type === "hint" || type === "pause") {
+      $(this).addClass("collapse");
 
-    // collapse hints
-    if (type === "hint") {
-      $(this).find("p").hide();
-
-      // show hints on click
-      $(this).on("click", () => {
-        $(this).find("p").show();
+      // remove class once clicked
+      $(this).one("click", () => {
+        $(this).removeClass("collapse");
       });
     }
   }));
