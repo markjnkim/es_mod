@@ -1,10 +1,10 @@
-# Lesson 4: What We All Do
+# Lesson 4: Build the "What you Do" Section
 
 ## Introduction
 
 Our Run Buddy web page is looking good. We've knocked out some pretty tricky sections like the header, hero, and sign-up form. This next lesson may feel like a bit of a breather since we don't need to use any complex CSS properties like floats or positioning. As we build out these two "What We Do" and "What You Do" sections, though, a few new concepts will still come into play. Be prepared to learn and exercise some previous skills at the same time!
 
-# Filling in the HTML
+# Fill in the HTML
 
 In Lesson 1, we left high-level placeholders for these sections:
 
@@ -20,7 +20,7 @@ In Lesson 1, we left high-level placeholders for these sections:
 </section>
 ```
 
-Let's go ahead and fill in the missing HTML content. Ignore the images for now but take into consideration which tags would be appropriate to best organize the code:
+Let's go ahead and fill in the missing HTML content. Ignore the images for now but take into consideration which elements would be appropriate to best organize the code:
 
 ```html
 <!-- "what we do" section -->
@@ -57,7 +57,7 @@ Let's go ahead and fill in the missing HTML content. Ignore the images for now b
 </section>
 ```
 
-> **Pro-Tip:** If you ever need to quickly fill an HTML tag with dummy text in VS Code, type the word "lorem" and press Tab. There are also many [dummy text generators](https://www.lipsum.com/) available online.
+> **Pro-Tip:** If you ever need to quickly fill an HTML element with dummy text in VS Code, type the word "lorem" and press Tab. There are also many [dummy text generators](https://www.lipsum.com/) available online.
 
 Note how every step is wrapped in its own `<div>` to help keep the step title and description coupled together. This will make it easier to style them later with CSS, too. We also used `<h3>` for each step title since these headings are less important than the higher `<h2>What You Do</h2>` title.
 
@@ -77,7 +77,7 @@ This would be a good time to start adding the IDs that we talked about back in L
 
 Save, refresh, then click on the links in the header. You'll see that the browser jumps down to these sections, and the URL in the address bar changes to `/run-buddy/index.html#what-you-do`. Very cool! We'll fill in the remaining `id` attributes in upcoming lessons.
 
-# Adding Images
+# Add Images
 
 So the company's design team has given us some new images to work with. Download these [SVG files](./link-needed) and add them to your `assets/images` folder. You may be wondering why these are SVGs and not JPGs or PNGs. In fact, what the heck is an SVG? Just for fun, open one of these new files in VS Code. It'll look something like this:
 
@@ -85,9 +85,9 @@ So the company's design team has given us some new images to work with. Download
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164.73 130.92"><defs><style>.cls-1{fill:#39a6b2;}</style></defs><title>Asset 2</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="cls-1" d="M163.69,109.93H99.88a.75.75,0,0,0-.69.69v2.6a2.92,2.92,0,0,1-3,3H68.67a3,3,0,0,1-3-3v-2.42a.73.73,0,0,0-.69-.69H1a1.12,1.12,0,0,0-1,1v10.58a9.25,9.25,0,0,0,9.19,9.19H155.54a9.26,9.26,0,0,0,9.19-9.19V111.15a1.16,1.16,0,0,0-1-1.22Z"/>
 ```
 
-How is it possible for something to look so familiar yet so confusing?! This looks kind of like HTML, doesn't it? But it's actually called [XML](https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction), which is like a cousin to HTML. Unlike PNGs or JPGs, which are made up of pixels, SVGs (or Scalable Vector Graphics) are defined as a series of points and lines (the `<path>` tags you see in the XML) that are filled in with color. This means the SVG image could accommodate basically any screen size and not lose quality. So SVGs are perfect for things like icons and logos.
+How is it possible for something to look so familiar yet so confusing?! This looks kind of like HTML, doesn't it? But it's actually called [XML](https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction), which is like a cousin to HTML. Unlike PNGs or JPGs, which are made up of pixels, SVGs (or Scalable Vector Graphics) are defined as a series of points and lines (the `<path>` elements you see in the XML) that are filled in with color. This means the SVG image could accommodate basically any screen size and not lose quality. So SVGs are perfect for things like icons and logos.
 
-In the Step 1 `<div>`, add the following `<img>` tag:
+In the Step 1 `<div>`, add the following `<img>` element:
 
 ```html
 <div>
@@ -97,13 +97,13 @@ In the Step 1 `<div>`, add the following `<img>` tag:
 </div>
 ```
 
-The `<img>` tag is very useful, because it can display any [image type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Supported_image_formats). We just need to make sure the `src` attribute points to a file that can be found. Much like how the `<link>` tag had to relatively reference the style sheet as `./assets/css/style.css`, we do the same for images: `./assets/images/step-1.svg`.
+The `<img>` element is very useful, because it can display any [image type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Supported_image_formats). We just need to make sure the `src` attribute points to a file that can be found. Much like how the `<link>` element had to relatively reference the style sheet as `./assets/css/style.css`, we do the same for images: `./assets/images/step-1.svg`.
 
 > **Rewind:** Relative paths start from the current directory (e.g. `../images/hero-bg.jpg`). Absolute paths are more hard set (e.g. `/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css`) and should be avoided.
 
 There's an extra attribute we should make sure every image has, though: the `alt` attribute. This is how we can explain what the image is to search engines and screen readers. Imagine a visually impaired vistor who relies on a screen reader and what their experience might be if the reader got hung up on the context of every image it came across. Watch this [short video](https://www.youtube.com/watch?v=NvqasTVoW98) to see just how screen readers handle alt text.
 
-In our case, the `step-1.svg` image is purely "decorative," meaning the only information the user needs from this section is already provided by the surrounding text (the `<h3>` tag). It might seem like the `alt` attribute isn't necessary, then, but a screen reader wouldn't know that a missing `alt` tag means "unimportant icon." Hence, we set `alt` to empty text (`alt=""`) so the screen reader knows to ignore it.
+In our case, the `step-1.svg` image is purely "decorative," meaning the only information the user needs from this section is already provided by the surrounding text (the `<h3>` element). It might seem like the `alt` attribute isn't necessary, then, but a screen reader wouldn't know that a missing `alt` attribute means "unimportant icon." Hence, we set `alt` to empty text (`alt=""`) so the screen reader knows to ignore it.
 
 > **Deep Dive:** Read more about `alt` attribute guidelines from the [W3C](https://www.w3.org/WAI/tutorials/images/) web standard gurus.
 
@@ -115,9 +115,9 @@ Our image is enormous! Remember, SVGs are scalable. There's no built-in, hard-se
 
 > **Rewind:** This seems like a good stopping point, which means... time to `add`, `commit`, and `push`!
 
-# Styling What We Do
+# Style What We Do
 
-With the HTML in place, we're ready to start prettying up the "What We Do" content. Add a class to the `<section>` tag so we can uniquely identify it in our style sheet:
+With the HTML in place, we're ready to start prettying up the "What We Do" content. Add a class to the `<section>` element so we can uniquely identify it in our style sheet:
 
 ```html
 <section id="what-we-do" class="intro">
@@ -131,7 +131,7 @@ Looking at the mock-up again, it would seem that everything in this section is c
 }
 ```
 
-Now add some CSS declarations that apply to the `<h2>` tag inside this section:
+Now add some CSS declarations that apply to the `<h2>` element inside this section:
 
 ```css
 .intro h2 {
@@ -169,7 +169,7 @@ We chose to use `inline-block` over just `inline` so it can have the best of bot
 
 ![inline heading](./assets/step-4/300-inline-heading.png)
 
-> **Legacy Lem:** In the early days of HTML, developers would center content with the `<center>` tag. While this tag still works in modern browsers, it is being officially phased out and shouldn't be used anymore.
+> **Legacy Lem:** In the early days of HTML, developers would center content with the `<center>` element. While this element still works in modern browsers, it is being officially phased out and shouldn't be used anymore.
 
 Now let's clean up that paragraph of text a little bit:
 
@@ -203,9 +203,9 @@ Pretty cool! Yet another CSS trick to put in your toolbelt. And that wraps up "W
 
 > **Deep Dive:** Check out some of the [other ways](https://css-tricks.com/centering-css-complete-guide/) content can be centered with CSS.
 
-# Styling What You Do
+# Style What You Do
 
-The setup for this next section is going to be similar to the last one we tackled. First, add a class to the `<section>` tag:
+The setup for this next section is going to be similar to the last one we tackled. First, add a class to the `<section>` element:
 
 ```html
 <section id="what-you-do" class="steps">
@@ -272,7 +272,7 @@ Now we can delete the previous CSS rules for `.intro h2` and `.steps h2` (sorry!
 </section>
 ```
 
-Note that these `<h2>` tags in different sections are able to use the same `section-title` class, giving them all the same baseline in terms of size, spacing, etc. We can then add additional classes by separating the class names with a space. So the attribute `class="section-title primary-border"` is actually pulling in CSS declarations from two different classes.
+Note that these `<h2>` elements in different sections are able to use the same `section-title` class, giving them all the same baseline in terms of size, spacing, etc. We can then add additional classes by separating the class names with a space. So the attribute `class="section-title primary-border"` is actually pulling in CSS declarations from two different classes.
 
 > **Skill Drill:** This is such an important concept with CSS that it's worth practicing a little more outside of this module. When you have a moment, try writing two classes (and only two classes, no other selectors) that could make the following possible:
 >
@@ -312,13 +312,13 @@ So it may seem like we're done now, but anytime we're given a design mock-up to 
 
 ![step title](./assets/step-4/600-step-span.png)
 
-Note that "Step 1:" is a bigger font than "Fill Out The Form Above." Ugh, does that mean we have to create two separate elements and meticulously position them side-by-side? Thankfully, no. We can more easily solve this problem using another HTML tag: the `<span>`. Rewrite your `<h3>` to look like this:
+Note that "Step 1:" is a bigger font than "Fill Out The Form Above." Ugh, does that mean we have to create two separate elements and meticulously position them side-by-side? Thankfully, no. We can more easily solve this problem using another HTML element: the `<span>`. Rewrite your `<h3>` to look like this:
 
 ```html
 <h3>Step 1: <span>Fill Out The Form Above.</span></h3>
 ```
 
-Refresh the browser. Nothing's changed! That's because the `<span>` tag doesn't affect anything visually. It's an inline element meant for highlighting sections of larger text blocks, where the highlighting is something we define ourselves with CSS. Let's do that now:
+Refresh the browser. Nothing's changed! That's because the `<span>` element doesn't affect anything visually. It's an inline element meant for highlighting sections of larger text blocks, where the highlighting is something we define ourselves with CSS. Let's do that now:
 
 ```css
 .steps span {
@@ -339,9 +339,9 @@ What are two ways you could center a 50%-width `<div>` with CSS?
 
 This lesson gave us a chance to practice many of the CSS properties we learned previously to finish a pretty large chunk of the layout&mdash;the "What We Do" and "What You Do" sections. Along the way, we better organized our style sheet with reusable class names and learned a few new bits of HTML and CSS:
 
-* `<img>` tags for displaying images
+* `<img>` elements for displaying images
 
-* `<span>` tags for highlighting inline content
+* `<span>` elements for highlighting inline content
 
 * `auto` as a valid value for CSS margins
 
