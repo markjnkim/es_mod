@@ -56,18 +56,104 @@ Making these changes may have seemed tedious and unnecessary, but now that our g
 
 2. We can adjust our current CSS styles so they look good across all devices by finding lengths and sizes that aren't too big for mobile, but not too small for a computer screen. This isn't always a viable option, depending on the overall design of the site we're building, but it does reduce the amount of code we write.
 
-Of the two routes mentioned above, we just took the second one by updating styles that apply to all screen sizes, but we also have a lot of pieces of our UI that simply cannot look good at different sizes without some major changes. For example, if we attempt to make the page smaller the newly created "Service Plans" section will get very tight looking. We'll be fixing it so it takes on a slightly different layout for mobile:
+Of the two methods described above, we just used the second one by updating styles that apply to all screen sizes, but we also have a lot of pieces of our UI that simply cannot look good at different sizes without some major changes. For example, if we attempt to make the page smaller the newly created "Service Plans" section will get very tight looking. We'll be fixing it so it takes on a slightly different layout for mobile:
 
 ![Service Plans mobile](assets/lesson-4/200-serviceplans-fixed.jpeg)
 
-The above image's shift in layout cannot be achieved by simply adjusting our current CSS so we're going to have to add more to our stylesheet. Specifically, we're going to be adding in a set of conditions for our CSS styles follow called Media Queries.
+The above image's shift in layout cannot be achieved by simply adjusting our current CSS so we're going to have to add more to our stylesheet. Specifically, we're going to be adding in a set of conditions for our CSS styles to change based on screen width using the first method listed above, media queries.
 
-## Media Query Intro
+## Introducing: Media Queries
 
-- Demo using DevTools
-- Mock-ups of what we'll be building and how we want it to look at each screen size
-- Set up <meta> for viewport ratio
-- Demonstrate / create breakpoints for 980, 768, 575
+As we've seen overall in CSS, there is no shortage of tools to get the job done. We've used specific tools to build grids and flexible layouts, provide different amounts of spacing using margin and padding, and at some point we'll even be able to animate elements on the page.
+
+The CSS tool we're going to use now is what's known as a **Media Query**. A media query is a special CSS rule that gates off certain styles until a condition is met. The condition that needs to be met can vary, but it typically revolves around the current width of the viewport. We'll get deeper into the syntax next, but first let's look at an example:
+
+```css
+@media screen and (max-width: 900px) {
+  a {
+    color: aquamarine;
+  }
+
+  h1 {
+    font-size: 200px;
+  }
+}
+```
+
+This is a very basic example of what a media query looks like in a stylesheet and it can be made a lot more complex than this, but only in very specific use cases does it need to be. What is happening in this block of code is that we want to make all `a` elements turn aquamarine and give all `h1` elements a font-size of 200 pixels, but only if the screen size is under 900 pixels wide. These styles will not be applied if the screen is any bigger than that.
+
+The syntax here may seem confusing at first, so let's dive into it piece by piece:
+
+![Media Query Syntax](assets/lesson-4/300-media-query-syntax.png)
+
+- **at-rule**: A special CSS statement that instructs the stylesheet to behave a certain way or apply certain styles when a condition is met. The most popular is `@media (rule)`, which applies styles to the page when a specific style value (call a "rule") is applied on the device. [More on the CSS at-rule syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule)
+
+- **Media Type**: There are three types of media we can tell our CSS to be applied to: screen, print, or speech. By specifying this in our media query, we are telling the stylesheet what type of media this is going to apply to. Omitting this value in a media query will apply to all media types, so it is better to apply it selectively since all three have different needs:
+
+  - **Screen**: Applies the rule only to digital screens and devices.
+
+  - **Speech**: Applies to how screen readers can interpret element's styles. This can even be used to change the voice a screen reader uses, but it is a good practice to keep the default screen reader voice as site visitors using it will be acclimated to its speech patterns.
+
+  - **Print**: Applies the rule only when the page is printed or displayed in print preview.
+
+> URKEL SAYS: Ever wonder why printing an article doesn't include all of the advertisements or unnecessary content and just the article itself? That site uses media queries to hide all of those extraneous elements when printing!
+
+- **Logical Operator**: A term that can be used to create more complex media queries by combining conditions. In the example above, by saying `screen and (max-width: 900px)` we are saying that this media query should apply to screen media and only when the width of that screen is under 900 pixels. The `and` operator is the most prevalent but there are others like `not` and `only`, which are used in more specific cases. [Read more about  logical operators](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Logical_operators)
+
+- **Media Features**: They are used to check if style characteristics the HTML document may be present. If they are, then the media query can determine if the condition for it to execute is met and apply the styles listed within the brackets.
+
+Notice how all of the styles we want to apply for this media query all happen within the media query's brackets `{ }`? It's almost like we're creating a stylesheet within the stylesheet, and that second stylesheet will only come into play when the media query's conditions are met. That is actually exactly what's happening, and with proper organization we can use these to have our site look different at any screen size we need.
+
+> DEEP DIVE: [Learn more about media queries and how it can be used in different ways.](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
+
+Applying media queries can be a slippery slope if we don't think critically about what we need to do and what screen sizes we should apply it to. Obviously no one is asking us to make the page look different at every possible pixel width, that would be insane! Instead what we will do is take three popular device sizes and use them as our `max-width` values.
+
+> URKEL SAYS: The value of the media feature used to apply a media query is what's known as a **Breakpoint**. [Here is a list of all known device breakpoints in both portrait and landscape modes.](http://viewportsizes.mattstow.com/)
+
+The three device sizes we'll be using in our media queries are used commonly as ballpark values for mobile phones, tablets, and smaller browser screens: `575px`, `768px`, and `980px`, respectively.
+
+Let's get these three media queries set up in our `style.css` file with some dummy styles to test if they work. It is important that they go in this order _after_ all of the other styles in the stylesheet:
+
+```css
+/* MEDIA QUERY FOR SMALLER SCREENS TO TABLETS */
+@media screen and (max-width: 980px) {
+  header h1 {
+    text-decoration: none;
+  }
+}
+
+/* MEDIA QUERY FOR TABLETS DOWN TO MOBILE PHONES */
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 80px;
+  }
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+  header h1 {
+    font-size: 100px;
+  }
+}
+```
+
+With these three in place, save this file and refresh the browser window, then resize the screen. Even better, if you open up Chrome DevTools and resize the page a little ruler will show up in the upper right hand corner of the screen to tell you the dimensions of the page!
+
+### NEED: Video demonstrating the three sizes and how DevTools will allow us to see the three styles being applied
+
+As you adjust the screen size and see the different styles taking place for our header's `h1` element, take note of the following:
+
+- It has an underline at anything below 980px. This is because when it set to `max-width: 980px`, this style will be applied to anything below it unless another media query is written to specifically remove it.
+
+- The `font-size` is being read from the `header h1` style rule we've had all along until we hit 768 pixels, which is the standard width for a tablet like the iPad. At that point it uses a new value of 80px. This value is large, but it's just to show how these new values take hold at a certain width.
+
+- The `font-size` is overridden again when we hit the `575px` breakpoint.
+
+> PRO-TIP: Keep DevTools open during this and watch the style rules get stricken out as new ones come in to take over.
+>
+> ### NEED: Video of styles being overridden in DevTools
+
+
 
 ## Apply media query rules
 
