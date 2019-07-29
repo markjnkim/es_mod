@@ -14,5 +14,15 @@ $(document).ready(function() {
 
     // remove bad span
     $(this).find("span:first").remove();
+
+    // collapse hints
+    if (type === "hint") {
+      $(this).find("p").hide();
+
+      // show hints on click
+      $(this).on("click", () => {
+        $(this).find("p").show();
+      });
+    }
   }));
 });
