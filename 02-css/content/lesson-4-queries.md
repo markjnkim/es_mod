@@ -175,13 +175,262 @@ Now that we know our media queries work in the right order, we can focus on actu
 
 Once that's complete, make sure to save your work to your `media-queries` branch!
 
-## Apply media query rules
+> CHECKPOINT: will write questions about media query syntax
 
-- Changes to all 980 first, demonstrate in devtools how they take over
+## Small Screen Styles
 
-- Changes to all 768
+The Run Buddy team has learned of our newfound knowledge in media queries and wants us to put it to the test. Their design team has provided three different mock-ups of what they want the page to look like at each screen size&mdash;980, 768, and 575 pixels.
 
-- Changes to all 575
+As we saw earlier, all we really need to do when writing our media queries is identifying the differences between the screen sizes and what CSS styles can be overridden at each breakpoint. When identifying how we want something to look at a different screen size and we don't have a mock-up to use as our guide, it is easiest to use Chrome DevTools to adjust the screen size and change styles there to see what works and what doesn't.
+
+Lucky for us, however, the team at Run Buddy has told us exactly how they envision the page looking at these three sizes. We'll start by taking care of how the page looks at 980 pixels, so take a look at this mock-up at 980 pixels and study it section-by-section:
+
+![Media Query 980 pixels](assets/lesson-4/400-980-mockup.jpg)
+
+Do we see an overall theme at this width? Instead of making our layouts run more narrow side-by-side, we make each flex child get its own row, which is going to be easier now that much of our layout is using flexbox properties. The other properties that we're going to change for this viewport width are a little harder to see, but they involve some minor edits to font sizes and margin/padding in certain areas. Let's update our media query for 980 pixels to look like this: 
+
+```css
+@media screen and (max-width: 980px) {
+  header {
+    padding-bottom: 0;
+  }
+
+  header h1 {
+    width: 100%;
+    text-align: center;
+  }
+
+  header nav {
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  header nav a {
+    font-size: 20px;
+  }
+
+  .hero-cta, .hero-form {
+    width: 100%;
+  }
+
+  .hero-cta {
+    text-align: center;
+  }
+  
+  .section-title {
+    width: 80%;
+  }
+
+  .trainer {
+    flex: 0 70%;
+  }
+
+  .service-grid {
+    width: 100%;
+  }
+
+  .contact-info iframe{
+    flex: 1 100%;
+  }
+
+  footer h2, footer div {
+    text-align: center;
+    width: 100%;
+  }
+}
+```
+
+Let's go through these changes section-by-section:
+
+- **Header/Footer**: Since both the `header` and `footer` elements are flex containers, all we had to do is tell both of their children to be 100% of the width. Since we have `flex-wrap` turned on to wrap overflowing content, it allows both children to get their own row one on top of the other. Only thing we needed to do then is adjust their justification properties to center them on the page and adjust some font sizes and spacing to tighten up the design a bit.
+
+- **Hero**: The hero section of our site got the same treatment by taking the section's flex children and giving them both a width of 100% and centering the text for the "call-to-action" part.
+
+- **What We Do/What You Do**: These sections will pretty much the same for now. We made some adjustments to all of the `.section-titles` to let them be wider on a smaller screen so they don't get too narrow. Since we used the `flex` property to create each step earlier, we don't have to worry about that not scaling well either. We'll adjust how that looks at the 768 pixel breakpoint, but for now it looks good as is.
+
+- **Trainers**: We didn't want any of the cards to run too narrow as the screen shrank but we also didn't want them to be completely full width either since they'd be way too big, so we made them just wide enough that they had to be on their own line. For that, we used `flex: 0 70%`.
+
+> PAUSE: What flex properties are being declared in the `flex: 0 70%` shorthand property? Will it grow to take up the unused space?
+
+- **Service Plans**: Here we didn't need to adjust the grid at all, but instead just make the grid container itself wider so the grid has more space to breathe.
+
+- **Reach Out**: This section actually didn't need much except to allow the Google Map to get its own row. We achieved that by using `flex: 1 100%` so the first two can share a row with more space and the map gets pushed down, creating a more unique layout than the others.
+
+Now that we have the site looking good for smaller screens and regular sized browser screens, we should turn our attention to what it looks like when it gets down to the tablet range. Open up Chrome DevTools and resize the browser window until it's around 768 pixels wide and you'll notice that our "What You Do" and "Service Plans" sections are getting a little tight. Everything else looks good still because of what we just did for the 980 pixel breakpoint, but we now need to make some adjustments two these two sections that went untouched previously.
+
+We're going to adjust those two sections so the site will look like this on an iPad or any device up to 768 pixels wide:
+
+![Tablet Mock-up](assets/lesson-4/500-768-mockup.jpg)
+
+The big changes here are that we're giving the "What You Do" section a similar treatment of stacking flex children instead of keeping them side-by-side, and we're adjusting the grid for "Service Plans" so they get more space. Again, these are both going to be fairly straightforward edits since flexbox and grid properties are easy to adjust for these situations.
+
+The first thing we're going to want to do is give each `section` element a little more breathing room. We currently have the `padding` for those elements set to 30px on all sides, which is great for larger screens because 30px isn't much space in that context; but as our screen shrinks, we realize we're going to want some of that space back on the left and right sides.
+
+Add the following CSS rule to our media query for 768px so it looks like this:
+
+```css
+@media screen and (max-width: 768px) {
+  section {
+    padding: 30px 15px;
+  }
+}
+```
+
+We want to keep the vertical padding, as it creates some nice breathing room for our section titles, but we freed up some space on the horizontal padding so there's more room for the content to take up. Let's now turn our attention to the "What You Do" section so it has these styles:
+
+```css
+@media screen and (max-width: 768px) {
+  
+  section {
+    padding: 30px 15px;
+  }
+  
+  .step h3 {
+    flex: 1 100%;
+    text-align: center
+  }
+
+  .step-info {
+    flex: 2 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .step-info img {
+    flex: 0 32%;
+    margin-right: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .step-text {
+    flex: 100%;  
+  }
+
+}
+```
+
+### NEED: Video explaining how the styles above are overridden at this breakpoint
+
+This follows some of the same beats as the 980px breakpoint where we take flex children and make them run full width of the page instead of sharing the horizontal row with other elements. We didn't want the icon to become full-width of the page, however, because it would get to large; so we capped it at 32% width using `flex-basis` and told it not to take up any extra unused space by setting `flex-grow` to 0 (these are done in the `flex` declaration).
+
+Last thing we need to do is adjust our CSS grid for "Service Plans":
+
+```css
+@media screen and (max-width: 768px) {
+  
+  section {
+    padding: 30px 15px;
+  }
+  
+  .step h3 {
+    flex: 1 100%;
+    text-align: center
+  }
+
+  .step-info {
+    flex: 2 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .step-info img {
+    flex: 0 32%;
+    margin-right: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .step-text {
+    flex: 100%;  
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .service-grid-item.basic {
+    grid-column: 1;
+  }
+
+  .service-grid-item.both {
+    grid-column: 1 / -1;
+  }
+
+  .service-grid-item.cancel {
+    transform: none;
+    writing-mode: unset;
+    grid-column: 1 / -1;
+    grid-row: -1;
+  }
+
+}
+```
+
+There's a few cool things going on here. Let's start off by looking at `.service-grid` and notice that we've now turned our grid from having three columns to having two! With CSS Grid and media queries, we can adjust how many rows or columns our grid needs on the fly. By setting the value of `grid-template-columns` to "1fr 1fr", we are creating two equal columns for this grid.
+
+> CHECKPOINT: What is another way to write `grid-template-columns: 1fr 1fr`?
+>
+> Answer: `repeat(2, 1fr)`
+
+Next we set the "basic" plan grid items to simply have `grid-column: 1`, meaning that we just want them to all start in the first column now instead of the second column. Since we moved all of the "basic" grid items to all start at column one and in the HTML the "premium" items come after their "basic" counterpart, they automatically assume that they should start at the second column without use explicitly telling them to.
+
+For the one row that spans both columns, which is the width of the whole grid, we told it to run from the beginning to the end by giving it `grid-column: 1 / -1`. This means that we want it to start at the first column but end at the last column.
+
+> PAUSE: What do negative values in a CSS Grid mean?
+
+Lastly, since we removed the first column completely at this screen size, we need to move the entire "Cancel" grid item over so it wasn't lost. This was easily accomplished by telling it to span both columns and end up on the bottom row now matter what.
+
+A couple of other things we had to do to it was to remove some of the interesting styles we applied to it earlier by setting `transform` to none and `writing-mode` to unset, both of which negate the styles that apply to them at larger screen sizes.
+
+At this point, the page is almost totally mobile responsive! There are a few pain points we need to address as the screen gets down to mobile phone size, but overall it is a very clean and readable site across most screens now. The big takeaway here is that using media queries, it is not as much work as one would expect to achieve a nice looking site on varying device screen sizes.
+
+For our 575 pixel width breakpoint, we really only need to tackle a few aesthetic updates and fix up the "Reach Out" section to read a little bit better, so let's go ahead and make our media query look like this:
+
+```css
+@media screen and (max-width: 575px) {
+  
+  .hero-form button {
+    width: 100%;
+  }
+
+  .section-title {
+    width: 95%;
+  }
+
+  .intro p {
+    width: 100%;
+  }
+
+  .trainer {
+    flex: 0 100%;
+  }
+  
+  .contact-info {
+    text-align: center;
+  }
+
+  .contact-info > * {
+    flex: 0 100%;
+  }
+
+  .contact-form {
+    order: 3;
+  }
+
+}
+```
+
+Most of these are purely aesthetic. We didn't _need_ to make the button in the form full width but if our user is in-fact on a mobile device, wouldn't it be easier for them to submit the form if they had a bigger button to push? So not only are we concerning ourselves with how things look on different screen sizes, we also need to consider how users are physically interacting with the page.
+
+Other items we changed gave them more horizontal space, like how the trainer cards and making sure all three flex children in `.contact-info` became full width. There is something new here, something we haven't seen before. Can you spot it?
+
+If we look at the page and resize the window to a phone's width, the contact form switches places with the map! This is being moved by using the `order` CSS property, another property that only adheres to child elements of a flexbox or CSS grid.
+
+The `order` property can be used to rearrange how these child elements appear on a page without actually moving the HTML code around and can be extremely useful in cases like this. A lot of times, a certain layout will look great on a bigger screen because there's more space, but as that space shrinks and the elements get closer to one another they end up looking like they're running into one another. The `order` property can be used to switch elements around and fix how they end up looking on different devices.
+
+> DEEP DIVE: [Learn more about the order property and how it's used.](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
 
 ## Merge Branch
 
