@@ -1,26 +1,36 @@
-# Reach Out and Convert
+# Reach Out and Contact 
 
 ## Introduction
 
-Way to go! Our landing page is nearly finished. Let's get to work on our last section of this page, and then we will finish up this project in the next lesson with a simple policy page to complete this project. First let's take a look at the mock-up and see what the Reach Out section looks like as a finished product.
-
+Way to go! The Run Buddy landing page is nearly complete. We have learned a lot of new web development concepts while creating our Run Buddy website. We have received a request from our sales team to build a contact section that will allow interested users to ask questions or request information and generate sales leads. This offers a great opportunity to practice some of the concepts we have learned as well as introduce an advanced HTML element called an inline frame or `iframe` to create an interactive map and configure a section with a two column layout.
+Let's take a look at our mock-up and see how we will approach building this section.
 ![Reach-Out Mock-up](./assets/step-6/100-RO-mock-up.png)
+Here's a quick look at the build process for this lesson.
+1) Initial class assignments for markup
+2) Build our `iframe` element 
+2) Add HTML for Run Buddy's contact info 
+3) Design two column layout
+4) Style and finish 
 
-Having met our trainers, our visitors are now motivated and pumped to get started on their fitness journey. In order to hit their goals, it's important to get started right away. So how do our visitors get in touch, to get in shape? This is where the Reach Out section will come into play. This section is where our visitors can reach out directly to our sales staff to get their questions answered and hopefully convert into customers.
+## Adding Some Class
 
-We can visualize some of the markup we will need to match the mock-up pictured above. Similarly to the previous sections, we have a heading, but in this case we also have a map and some contact info. Let's get started with the Reach Out section by starting with the markup provided to us and build our section piece by piece.
+Some of the markup for our section has already been provided for us.
+```html
+<!-- "reach out" section -->
+<section>
+  <h2>Reach Out</h2>
+</section>
+```
 
-## Step 1: Building a Contact
+In this step let's practice some of the skills we have learned in the previous lessons by adding an `id` as our in-page navigation anchor and classes to select the HTML elements for CSS styling.
 
-Due to the specific styling needed for this section like the blue background color, yellow font, and more, we will need to select this `section` element to target our custom styles.
-
-> **Do It Yourself**: Add attributes to our `<section>` and `<h2>` for our styling and navigational purposes.
+> **Do It Yourself**: Add the classes and id's to the `<section>` and `<h2>` tags for our styling and navigational purposes.
 
 > **Hint**: Look at the markup for the previous sections and headings for a great template of this step.
 
-> **Hint**: Whenever a similar style pattern starts to emerge, it is important to recognize where code might be repeated and try to use the same classes again to replicate styles.
+> **Hint**: Whenever a similar style pattern starts to emerge, it is important to recognize where code might be repeated and try to assign the class to the element to replicate the styles.
 
-After having spent some thinking and typing your markup, it should now look like this.
+After having spent some time thinking and adding markup, our section should look something like this.
 
 ```html
 <!-- "reach out" section -->
@@ -32,9 +42,20 @@ After having spent some thinking and typing your markup, it should now look like
 ```
 
 Let's unpack this code and see if our choices made sense.
+We created a new class called `contact` for the styling needed for this section's background color and alignment. As for the section headings, we used the class `section-title` because most of the styling needed has been done for us such as the font-size, margin, padding, and even border. Only the font color for the `h2` element will need to be reassigned, but that's better than rewriting this CSS rule since we could reuse five of the CSS declarations.
+```css
+.section-title {
+  font-size: 55px;
+  display: inline-block;
+  padding: 0 100px 20px 100px;
+  border-bottom: 3px solid;
+  margin-bottom: 35px;
+  color: #024e76;
+}
+```
+Having used a similar bottom border size and color previously in the "What You Do" section, we can simply reassign the classes for `section-title` and `secondary-border` to the `h2` element.  
 
-It's time for the final styling steps.  We can use CSS to declare the height and width of the `iframe`.  We can now remove the inline styling that we added in the `<iframe>` for the width and height since it is not best practice to have inline styling.
-
+Don't forget to add our `id` to the navigation link in our `nav` element, otherwise this link won't work as expected.
 ```html
 <nav>
   <ul>
@@ -45,12 +66,10 @@ It's time for the final styling steps.  We can use CSS to declare the height and
   </ul>
 </nav>
 ```
+<!-- 
+It's time for the final styling steps.  We can use CSS to declare the height and width of the `iframe`.  We can now remove the inline styling that we added in the `<iframe>` for the width and height since it is not best practice to have inline styling. -->
 
-We created a new class called `contact` for the styling needed for this section. As for the section headings, we used the class `section-title` because most of the styling needed has been done for us here except the font color will need to be reassigned to yellow.  Also having used a similar bottom border for our trainer section, we can reuse this class and thus save us a bit of writing and repeating by assigning the classes for `section-title` and `secondary-border` to the `h2` element.
-
-> **Heads up**: Notice how a second class was declared for the `h2` elements by simply adding another class name within the quotation marks. Whitespace is the delimiter syntax for separate classes, id's, and almost all the attributes except for the `style` attribute since this is using CSS syntax.
-
-## Step 2. Iframe, Uframe, we all frame for ice cream.
+## Building the iframe
 
 First off, before we can start on the map, we need to wrap the following content of this section into a `div` which we will call our contact container.  We'll do this because all of the contact information is semantically related, and wrapping them in a parent element enables us to constrain their flow to the bounds of that parent. Let's add a `class` called `contact-info` to this `div`.
 
@@ -63,7 +82,7 @@ Since we have just started to learn web development, we don't yet have the skill
 We can use a nice trick with some of Google Maps code to embed a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embed an HTML page into the current page.
 Let's nest the `iframe` into our contact container. In our case, we will need a google map for a specific location so let's follow the instructions to retrieve an `iframe` for our map address.
 
-> **Linear Steps**: How to embed a Google Map
+> **Video Walkthrough**
 
 1. Enter your address in the search box at [Google Maps.](https://www.google.com/maps)
 2. Click on the Share icon.
@@ -110,7 +129,7 @@ These interactive controls aren't actually a part of the `iframe`, but rather he
 > **Deep Dive**: It is important to note that the use of an `iframe` element does have a good and bad practice associated with it.  Please look [here](https://www.lifewire.com/when-to-use-iframes-3468667) and [here](https://stackoverflow.com/questions/362730/are-iframes-considered-bad-practice) for a closer look.
 Please note that not all websites allow for use in `iframe`.
 
-## Step 3: Creating our Contact Info
+## Creating our Contact Info
 
 In this step we will be adding the company's contact information. According to the mock-up we will need a heading and some text so let's do this step first.
 
@@ -190,7 +209,7 @@ Now let's breakdown this markup and introduce some new tags including some seman
 
 Sure, the current section doesn't look quite right yet, but now that the HTML is finished, let's apply some CSS styling to fix the layout and colors.
 
-## Step 4: Our Reach Out section needs some style
+## Our Reach Out section needs some style
 In this step, we will style the Reach Out container and the child elements.  Let's take a quick look at the mock-up to see what properties we need to change or add.
 > **Pause**: Add some CSS rules in your style sheet to center our elements, add a background color of #024e76, and change the heading font color to #fce138.
 
@@ -208,10 +227,6 @@ The new code should look like this:
   color: #fce138;
 }
 ```
-> **Dev Guru**: Even seasoned programmers can struggle and become frustrated when learning new tools.  The difference is that knowledgeable programmers have a much higher familiarity with not only the syntax, but also experience with past tools that allows  for some intuitive problem solving.  That's why it is important in programming to have lots of hands on experience struggling through problems to find a solution.
-
-
-Trying and failing is often the case when learning new things.  The struggle and frustration are often the key inflection points that lead to breakthroughs in understanding.  
 
 Just as we did in previous sections, we added CSS declarations to our CSS rule that targets our `contact` class to add some distinct style to our Reach Out section.  For this rule, we updated the background color and center aligned the `div` container which includes our map and contact info. 
 
@@ -232,7 +247,7 @@ Please save and view in the browser to see style changes.
 
 Very nicely centered.  Now it looks like we are ready to apply some style to the `iframe` and contact info container.
 
-## Step 5: Styling our iframe and contact info
+## Styling our iframe and contact info
 It's time for the final styling steps to complete not only our Reach Out section, but also the landing page as well. 
 
  Let's start with the `iframe` and create the CSS rule that will give us some of the size dimensions.  But wait, didn't we do that already in the markup with the attributes?  
@@ -316,7 +331,6 @@ Your completed CSS rules for the Reach Out section should look like this:
   color: #fce138;
 }
 
-
 /* REACH OUT STYLES END */
 
 ```
@@ -328,6 +342,17 @@ Congrats, you have completed the landing page and created a professional layout.
 Next we will create our `policy.html` page, to complete our mock-up requirements.
 
 ## Reflection
+We covered quite a few different topics in this lesson. 
+
+Let's think about some of the important concepts we just covered in this lesson. One major discover
+
+
+
+
+
+
+
+
 Let's recap some of the basic fundamentals we have learned in this lesson.
 
 * **CSS selectors**: Learning how to select and target the specific element or group of elements is a critical first step since its not just about the style, but also *what* needs to be styled that is also important.  Just imagine the color by numbers concept in a coloring book.  Certain colors and styles should only go where needed which is why CSS selectors like classes are such great helpers.  These CSS selectors not only specify the target elements, but can be redeclared on other elements if a style design pattern needs duplication.  Changes to a style pattern such as color or sizing is simple due to the cascading nature of style sheets that allow reassignment of properties if occurring below the original assignment. 
@@ -337,3 +362,7 @@ Let's recap some of the basic fundamentals we have learned in this lesson.
 Let's proceed to the last requirement for our mock-up to be complete by finishing this policy html page and finish our module project.
 
 
+> **Dev Guru**: Even seasoned programmers can struggle and become frustrated when learning new tools.  The difference is that knowledgeable programmers have a much higher familiarity with not only the syntax, but also experience with past tools that allows  for some intuitive problem solving.  That's why it is important in programming to have lots of hands on experience struggling through problems to find a solution.
+
+
+Trying and failing is often the case when learning new things.  The struggle and frustration are often the key inflection points that lead to breakthroughs in understanding.  
