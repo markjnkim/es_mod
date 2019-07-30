@@ -8,7 +8,7 @@ We've made several big changes to our webpage over these last few lessons. We bu
 
 Years ago, these visual niceties would have been a huge headache to implement, but CSS has come a long ways since then. With the advent of CSS3, there are many new features available to make our lives easier. In this lesson, we'll explore many of these advanced techniques to give Run Buddy that final coat of paint it's been needing.
 
-In this lesson, we'll do the following:
+Here's what our game plan looks like:
 
 1. Create a new feature branch
 
@@ -43,7 +43,7 @@ Our first code edit will be to add shadows to some of our HTML elements. In CSS,
 
 > **Pause:** `text-shadow` would obviously be used for text, so when/where would you use `box-shadow`?
 
-There are quite a few [value possibilities](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow#Syntax) for shadows, but the most common usage is to define the horizontal offset (`5px` in our example), vertical offset (`10px`), radius of the shadow blur (`15px`), and finally the color. The offsets start in the top-left corner of the element that has the shadow, and these numbers can be negative. For example:
+There are quite a few [value possibilities for shadows](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow#Syntax), but the most common usage is to define the horizontal offset (`5px` in our example), vertical offset (`10px`), radius of the shadow blur (`15px`), and finally the color. The offsets start in the top-left corner of the element that has the shadow, and these numbers can be negative. For example:
 
 ![box shadow example](./assets/lesson-5/200-box-shadow.png)
 
@@ -54,12 +54,10 @@ That black shadow is a little too in-your-face, however. We can lighten it by ap
 To change the transparency of the color, however, we'll need to use `rgba()` instead of `rgb()`, where the "a" stands for "alpha." In other words, alpha is the transparency. An alpha value of 1 would be fully opaque while 0 would be fully transparent. Note the following declaration:
 
 ```css
-.shadow {
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 ```
 
-Here, we're saying the shadow should start in the top-left corner (`0 0`), have a radius of `10px`, and be black with half transparency (`0.5`). Add this same `text-shadow` declaration to the following CSS rules in your style sheet: 
+Here, we're saying the shadow should start in the top-left corner (`0 0`), have a radius of `10px`, and be black with half transparency (`0.5`). Add this declaration, `text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);`, to the following CSS rules in your style sheet: 
 
 ```css
 header h1
@@ -85,7 +83,7 @@ The style sheet currently defines the background color as:
 }
 ```
 
-How can we change this to add that transparency? First, we'd need to know the RGB equivalent of `#fce138`, which we can find out by using a [HEX to RGB converter](https://www.google.com/search?q=convert+hex+to+rgb). Once you have the correct values, rewrite the `background-color` declaration to be 80% opaque.
+How can we change this declaration to add that transparency? First, we'd need to know the RGB equivalent of `#fce138`, which we can find out by using a [HEX to RGB converter](https://www.google.com/search?q=convert+hex+to+rgb). Once you have the correct values, rewrite the `background-color` declaration to be 80% opaque.
 
 > **Hint:** The RBG values are 252, 225, and 56.
 
@@ -125,7 +123,7 @@ top: 0;
 
 The `top` property is important, because this tells the browser where to "stick" the element. We always want the header to be at the very top of the viewport, so `top: 0;` makes the most sense.
 
-While sticky headers are pretty cool, it's important to know that not all browsers support this feature of CSS. Looking at the [compatibility chart](https://developer.mozilla.org/en-US/docs/Web/CSS/position#Browser_compatibility) from MDN, we can see that position sticky doesn't work at all in Internet Explorer. Fortunately, Run Buddy has determined that none of its users are on IE. However, they do want support for Safari, and Safari comes with a caveat: you have to use a **vendor prefix**.
+While sticky headers are pretty cool, it's important to know that not all browsers support this feature of CSS. Looking at the [compatibility chart from MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/position#Browser_compatibility), we can see that position sticky doesn't work at all in Internet Explorer. Fortunately, Run Buddy has determined that none of its users are on IE. However, they do want support for Safari, and Safari comes with a caveat: you have to use a **vendor prefix**.
 
 ![sticky support](./assets/lesson-5/400-sticky-support.png)
 
@@ -147,7 +145,7 @@ position: -webkit-sticky;
 top: 0;
 ```
 
-> **Pro-Tip:** [Can I Use](https://caniuse.com/#search=position%20sticky) is another popular website to quickly check which browsers support which features.
+> **Pro Tip:** [Can I Use](https://caniuse.com/#search=position%20sticky) is another popular website to quickly check which browsers support which features.
 
 Now that the header is sticky, we can copy the same background properties from `.hero` into `header`:
 
@@ -228,11 +226,11 @@ header nav a:hover {
 }
 ```
 
-> **Pro-Tip:** The Chrome DevTools allow you to toggle these states on and off, making it easier to style and debug them:
+> **Pro Tip:** The Chrome DevTools allow you to toggle these states on and off, making it easier to style and debug them:
 >
 > ![dev tools](./assets/lesson-5/800-devtools.png)
 
-Using the `:focus` state, we can also visually highlight the form input that the user is currently in. Let's try this:
+Using the `:focus` state, we can also visually highlight the form input that the user is currently typing in. Let's try this:
 
 ```css
 /* update existing rule with this declaration */
@@ -342,7 +340,7 @@ The best solution, of course, is the one that makes the most sense to you!
 
 ## Customize the Buttons
 
-The Run Buddy folks are liking the changes we've been making, but they've also been wondering when we're going to change those ugly, default checkboxes and radio buttons. In the following picture, the browser's default styling is on the left, and the requested styling is on the right:
+The Run Buddy folks are liking the changes we've been making, but they've also been wondering when we're going to update those ugly, default checkboxes and radio buttons. In the following picture, the browser's default styling is on the left, and the requested styling is on the right:
 
 ![checkboxes](./assets/lesson-5/1000-checkboxes.png)
 
@@ -510,7 +508,7 @@ It would seem that we're done, but as you scroll up and down on the page again, 
 
 ![zindex overlap](./assets/lesson-5/1600-z-index.png)
 
-Um... why are the custom buttons and labels appearing in front? As soon as you give an HTML element positioning (relative, absolute, sticky), it becomes affected by the stacking order. Think of HTML elements like pieces of paper that lay on top of each other. The header was the first element to receive positioning, so it sat on top. Once we gave the form elements positioning, however, those "pieces of paper" were brought to the front and covered up the header. Fortunately, with the `z-index` property, we can change this stacking order, or reshuffle the papers. Add this declaration to the `header`:
+Um... why are the custom buttons and labels appearing in front? As soon as you give an HTML element positioning (relative, absolute, sticky), it becomes affected by the **stacking order**. Think of HTML elements like pieces of paper that lay on top of each other. The header was the first element to receive positioning, so it sat on top. Once we gave the form elements positioning, however, those "pieces of paper" were brought to the front and covered up the header. Fortunately, with the `z-index` property, we can change this stacking order, or reshuffle the papers. Add this declaration to the `header`:
 
 ```css
 z-index: 999;
@@ -558,7 +556,7 @@ In these examples, though, we've tied the custom properties to only `<div>` elem
 
 The `:root` pseudo-class targets the top-most parent element (most likely the `<html>` element), so all other child elements will have access to any variables we declare here. Now that we've defined our three main colors for Run Buddy, go through the style sheet and replace every instance of `#fce138` with `var(--primary-color)`, every instance of `#024e76` with `var(--secondary-color)`, etc.
 
-> **Pro-Tip:** In VS Code, a handy shortcut is to highlight the first instance of what you're looking for and press CTRL+D on Windows or Command+D on macOS to continually select the next instance it finds. With multiple instances selected, you can type/replace them all at once.
+> **Pro Tip:** In VS Code, a handy shortcut is to highlight the first instance of what you're looking for and press CTRL+D on Windows or Command+D on macOS to continually select the next instance it finds. With multiple instances selected, you can type/replace them all at once.
 
 Save and refresh the browser to verify that nothing broke. If the page still looks the same, that means it worked! Try changing the three color properties in `:root` and marvel at how easy it is now to swap out color schemes.
 
