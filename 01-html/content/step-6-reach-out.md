@@ -213,7 +213,7 @@ Sure, the current section doesn't look quite right yet, but now that the HTML is
 In this step, we will style the Reach Out container and the child elements.  Let's take a quick look at the mock-up to see what properties we need to change or add.
 > **Pause**: Add some CSS rules in your style sheet to center our elements, add a background color of #024e76, and change the heading font color to #fce138.
 
-> **Hint**:   We will need two CSS rules to accomplish this task.  Can you think how we can target this section and heading for our CSS selectors?  Working code is a great source of information and now we have quite a bit we can use as a resource.  Use the code we have already created in the previous sections to help guide you.
+> **Hint**: We will need two CSS rules to accomplish this task.  Can you think how we can target this section and heading for our CSS selectors?  Working code is a great source of information and now we have quite a bit we can use as a resource.  Use the code we have already created in the previous sections to help guide you.
 
 The new code should look like this:
 ```css
@@ -247,7 +247,7 @@ Please save and view in the browser to see style changes.
 
 Very nicely centered.  Now it looks like we are ready to apply some style to the `iframe` and contact info container.
 
-## Styling our iframe and contact info
+## Adding Styles to our iframe and contact info
 It's time for the final styling steps to complete not only our Reach Out section, but also the landing page as well. 
 
  Let's start with the `iframe` and create the CSS rule that will give us some of the size dimensions.  But wait, didn't we do that already in the markup with the attributes?  
@@ -339,30 +339,13 @@ Note that the second CSS rule targets two different elements.  The comma separat
 Let's save the file and reload `index.html` in the browser.  
 Congrats, you have completed the landing page and created a professional layout.  Now is a great time to add, commit, and push your work to your repo. 
 
-Next we will create our `policy.html` page, to complete our mock-up requirements.
+Next we will create our `policy.html` page, to complete our mock-up requirements, but first let's recap some of the highlights from this lesson.
 
 ## Reflection
-We covered quite a few different topics in this lesson. 
+There were quite a few different topics covered in this lesson so let's go over the biggest takeaways and key concepts.
 
-Let's think about some of the important concepts we just covered in this lesson. One major discover
+* We created a multi column layout by creating container elements to a set width and declaring the `display: inline-block;`.
+* We learned the alignment properties to render our contact information more legibly with `vertical-align`, `display`, and `text-align`.
+* We implemented unique HTML element that allows nested browser content from another HTML page to be embedded into the current one. This can offer some user interactivity and interoperability with another website that adds visual features without adding a lot of code.
 
-
-
-
-
-
-
-
-Let's recap some of the basic fundamentals we have learned in this lesson.
-
-* **CSS selectors**: Learning how to select and target the specific element or group of elements is a critical first step since its not just about the style, but also *what* needs to be styled that is also important.  Just imagine the color by numbers concept in a coloring book.  Certain colors and styles should only go where needed which is why CSS selectors like classes are such great helpers.  These CSS selectors not only specify the target elements, but can be redeclared on other elements if a style design pattern needs duplication.  Changes to a style pattern such as color or sizing is simple due to the cascading nature of style sheets that allow reassignment of properties if occurring below the original assignment. 
-* **CSS layout properties**: Understanding the layout of an element using the CSS box model is essential to website design.  This box representation is the layout of each HTML element that CSS can position, color, and style.
-* **CSS display property**: The layout on the page for the elements can be manipulated by changing some of the default display properties to either align items on the same row and make items wrap to the next row.
-* **iframe**: Also known as an inline frame, an `iframe` is a unique HTML element that allows nested browser content from another HTML page to be embedded into the current one.  Depending on the `iframe`,  this grants the user the ability to interact with a map or play a video.
-Let's proceed to the last requirement for our mock-up to be complete by finishing this policy html page and finish our module project.
-
-
-> **Dev Guru**: Even seasoned programmers can struggle and become frustrated when learning new tools.  The difference is that knowledgeable programmers have a much higher familiarity with not only the syntax, but also experience with past tools that allows  for some intuitive problem solving.  That's why it is important in programming to have lots of hands on experience struggling through problems to find a solution.
-
-
-Trying and failing is often the case when learning new things.  The struggle and frustration are often the key inflection points that lead to breakthroughs in understanding.  
+> **Pro Tip**: Knowing that learning new technologies can be challenging, realize that in the learning process, the challenges are when breakthroughs in understanding can happen. Patience and confidence with yourself will need to many rewarding discoveries. 
