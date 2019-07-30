@@ -86,7 +86,7 @@ div:hover {
 }
 ```
 
-> **Deep Dive:** Read more about [CSS animation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) from MDN.
+> **Deep Dive:** Read more about [CSS animation from MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations).
 
 This seems pretty useful overall. Let's switch gears and see what `transition` has to offer. This property is a little different, because we don't set up keyframes. Instead, it's a way to specify the speed in which other CSS properties change. Consider this:
 
@@ -134,7 +134,7 @@ div:hover {
 }
 ```
 
-> **Deep Dive:** Look over some of the other [transition properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions) available in CSS.
+> **Deep Dive:** Look over some of the other [transition properties available in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions).
 
 These were fairly high-level examples of CSS animation, though, and what Run Buddy wants us to accomplish still seems a little daunting. Watch the demo video again. Notice how the background image has an animated gradient, and the trainer's name and role slide in at different times. Which technique, `animation` or `transition`, would be most applicable?
 
@@ -184,11 +184,11 @@ But that's okay. We'll fix it soon enough. On each `<div class="trainer-img">` e
 
 ```css
 .trainer-1 {
-  background-image: url('../images/trainer-1.jpg');
+  background-image: url(""); /* insert correct url here */
 }
 ```
 
-You won't be able to see the background image yet until we stretch out the containing `<div>`. In your style sheet, add the following rule:
+You won't be able to fully see the background image yet until we stretch out the containing `<div>`. In your style sheet, add the following rule:
 
 ```css
 .trainer-img {
@@ -251,7 +251,7 @@ Once you've figured it out, the trainer cards should now look like this:
 
 ![yellow trainers](./assets/lesson-6/600-yellow-trainers.png)
 
-Awesome, we're making great progress! Now we just need to change the background from a consistent yellow color to a gradient. Skim over the documentation for [linear gradients](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient) and see how you would create a gradient from `rgba(252, 225, 56, 0.3)` to our theme's "secondary color."
+Awesome, we're making great progress! Now we just need to change the background from a consistent yellow color to a gradient. Skim over the [documentation for linear gradients](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient) and see how you would create a gradient from `rgba(252, 225, 56, 0.3)` to our theme's "secondary color."
 
 Once the background gradient is correct, you'll notice we have a new problem. It's now clear that the pseudo-element has been covering up the other elements in this container the whole time:
 
@@ -281,7 +281,7 @@ That's it! That's what the final animated position looks like. We realize this i
 
 ## Animate the Hover
 
-Now that we know what the end result looks like, we can define the starting point and bridge the gap between them with a `transition`. Let's start with the gradient, since it's more straightforward. The starting point is an `opacity` of 0, so add that to the pseudo-element rule.
+Now that we know what the end result looks like, we can define the starting point and bridge the gap between them with a `transition`. Let's start with the gradient, since it's more straightforward. The starting point is an `opacity` of 0, so add that `opacity` to the pseudo-element rule.
 
 Next, we want to change the `opacity` to 1 when the mouse hovers over any part of the trainer `<article>`, not just the background image. Hold on, though. How can a parent's hover state affect a child? Consider for a moment the following CSS rule:
 
@@ -291,7 +291,7 @@ div span {
 }
 ```
 
-What does this mean again? Any `<span>` element that's inside of a `<div>` element will have blue text. So what about this example:
+What does this mean again? Any `<span>` element that's inside of a `<div>` element will have blue text. What about this example:
 
 ```css
 div:hover span {
@@ -313,7 +313,7 @@ By now, your `<h3>` and `<h4>` elements should already have `position: relative`
 
 ![top position](./assets/lesson-6/800-top-position.png)
 
-Hmmm. These elements are not very good at hide-and-seek. We can still see them! With the [overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow) property, however, we can hide any content that has fallen outside of its parent. Look at the documentation and see which value will accomplish this for us.
+Hmmm. These elements are not very good at hide-and-seek. We can still see them! With the [overflow property](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow), however, we can hide any content that has fallen outside of its parent. Look at the documentation and see which value will accomplish this for us.
 
 > **Hint:** `overflow` would be applied to the immediate parent, not the children you're actually trying to hide.
 
@@ -378,7 +378,7 @@ display: none;
 >
 > Answer: `visibility: hidden` turned the element invisible but didn't remove it from the flow. `display: none` made it seem like the element didn't exist at all.
 
-Next, we'll need to add the same declaration to our gradient pseudo-element and `trainer-img` name and role elements. Of course, we only want to hide these elements on smaller touchscreen devices. Back in Lesson 4, we declared a set of media query rules for tablets:
+Next, we'll need to add the same `display: none` declaration to our gradient pseudo-element and `trainer-img` name and role elements. Of course, we only want to hide these elements on smaller touchscreen devices. Back in Lesson 4, we declared a set of media query rules for tablets:
 
 ```css
 @media screen and (max-width: 768px) {
@@ -390,7 +390,7 @@ Inside of this media query, add additional rules that will hide/remove the gradi
 
 > ## VIDEO DEMO OF SCREEN SIZE DIFFERENCES?
 
-Well, that's something we still need to fix. In the same media query where we hid the hover elements, we'll need to show the `.trainer-bio h3` and `.trainer-bio h4`. If `display: none` removes an element entirely from the flow of the webpage, what [display](https://developer.mozilla.org/en-US/docs/Web/CSS/display) value would bring it back?
+Well, that's something we still need to fix. In the same media query where we hid the hover elements, we'll need to show the `.trainer-bio h3` and `.trainer-bio h4`. If `display: none` removes an element entirely from the flow of the webpage, what [display value](https://developer.mozilla.org/en-US/docs/Web/CSS/display) would bring it back?
 
 > **Hint:** Think about what type of element an `<h3>` is and how it normally flows.
 
