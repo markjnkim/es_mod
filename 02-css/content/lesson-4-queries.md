@@ -102,13 +102,13 @@ The syntax here may seem confusing at first, so let's dive into it piece by piec
 
 - **Media Features**: They are used to check if style characteristics the HTML document may be present. If they are, then the media query can determine if the condition for it to execute is met and apply the styles listed within the brackets.
 
-Notice how all of the styles we want to apply for this media query all happen within the media query's brackets `{ }`? It's almost like we're creating a stylesheet within the stylesheet, and that second stylesheet will only come into play when the media query's conditions are met. That is actually exactly what's happening, and with proper organization we can use these to have our site look different at any screen size we need.
+Notice how all of the style rules we want to apply in this media query all happen within the media query's brackets `{ }`? It's almost like we're creating a stylesheet within the stylesheet, and that second stylesheet will only come into play when the media query's conditions are met. That is actually exactly what's happening, and with proper organization we can use these to have our site look different at any screen size we need.
 
 > DEEP DIVE: [Learn more about media queries and how it can be used in different ways.](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
 
-Applying media queries can be a slippery slope if we don't think critically about what we need to do and what screen sizes we should apply it to. Obviously no one is asking us to make the page look different at every possible pixel width, that would be insane! Instead what we will do is take three popular device sizes and use them as our `max-width` values.
+Applying media queries can be a slippery slope if we don't think critically about what we need to do and what screen sizes we should be considering. Obviously no one is asking us to make the page look different at every possible pixel width, that would be insane! Instead what we will do is take three popular device sizes and use them as our `max-width` values.
 
-> URKEL SAYS: The value of the media feature used to apply a media query is what's known as a **Breakpoint**. [Here is a list of all known device breakpoints in both portrait and landscape modes.](http://viewportsizes.mattstow.com/)
+> URKEL SAYS: The value of the media feature used to apply a media query is what's known as a **breakpoint**. [Here is a list of all known device breakpoints in both portrait and landscape modes.](http://viewportsizes.mattstow.com/)
 
 The three device sizes we'll be using in our media queries are used commonly as ballpark values for mobile phones, tablets, and smaller browser screens: `575px`, `768px`, and `980px`, respectively.
 
@@ -153,7 +153,27 @@ As you adjust the screen size and see the different styles taking place for our 
 >
 > ### NEED: Video of styles being overridden in DevTools
 
+The order of how we write our media queries matters. In our case we put the biggest screen size first and worked our way down, using `max-width` as our way of determining if a media query should run or not. What would happen if we were to reverse that order by putting `575px` first and `980px` last? The result will show that the `font-size` will stay at 80px even when the screen gets smaller than 575px wide.
 
+### NEED: Image or video of what the above looks like
+
+The reason this happens is because of the "cascade" in CSS. The browser reads the stylesheet in order and sees the media query for 575px, but then it continues and sees the media query for 768px, which will now take precedence over any conflicting style rules for 575px because it came later in the stylesheet. If we were to change the value to `min-width`, however, it would work; but since we are using `max-width`, we have to work from large sizes to small instead of small to large.
+
+> IMPORTANT: Writing media queries that handle screen sizes going from large to small is a good practice when there is already a site created that looks good on a desktop browser screen. When starting a new site from scratch, however, it is best practice to take a "mobile-first" approach and use `min-width` values instead of `max-width` ones.
+>
+> A "mobile-first" approach means we think about how the site looks like on mobile before anything else. The reason behind this is that it is inherently more difficult to make a site look good on a small screen and much easier on a large screen, so think of how it looks on mobile first and build out those CSS styles. When you are satisfied with how it looks on mobile, then scale it up for tablets and computer screens.
+>
+> Overall it is more work up front, but it makes for an easier build process because we are giving ourselves more space as we get larger as opposed to taking away space.
+
+Now that we know our media queries work in the right order, we can focus on actually updating the Run Buddy site to look good on all devices. Before we move on, go ahead and remove the CSS style rules from the media queries, but keep the media queries so they look like this:
+
+```css
+@media screen and (max-width: 980px) {
+
+}
+```
+
+Once that's complete, make sure to save your work to your `media-queries` branch!
 
 ## Apply media query rules
 
