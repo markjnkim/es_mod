@@ -4,9 +4,19 @@ At this point, we're over 50% complete with our Run Buddy product page! We've gi
 
 This next lesson involves building out another `<section>` of our page with three similar pieces of content, so expect a fair amount of repetition. Because of that repetition, the lesson is a good opportunity for us to continue practicing what we've learned so far while also picking up a few new tricks along the way.
 
-Just a reminder, this is what we'll be working towards in this section:
+The Run Buddy design team has an idea of how they want this section to look:
 
 ![trainers complete](assets/step-5/100-trainers-complete.jpg)
+
+This may seem like a lot, but we are going to break it down into smaller steps by:
+
+1. Making both HTML and CSS edits to the overall `<section>` element that will hold this content
+
+2. Build out one trainer's HTML content first
+
+3. Add CSS to that trainer's HTML content
+
+4. Take what we learned in steps 2 and 3 and use that knowledge to create our other two trainers' HTML content
 
 ## Setting up the HTML
 
@@ -192,7 +202,7 @@ Notice how these classes have generic names that do not indicate where exactly t
 >
 > [Read more about CSS utility classes](https://blog.mariano.io/css-utility-classes-how-to-use-them-effectively-d61ee00dad2d)
 
-Let's revisit our HTML and the class `text-left` to the `<div class="trainer-bio">` tag. It should look like this when it's done:
+Let's revisit our HTML and add the class `text-left` to the `<div class="trainer-bio">` tag. It should look like this when it's done:
 
 ```HTML
 <div class="trainer-bio text-left">
@@ -202,9 +212,9 @@ Let's revisit our HTML and the class `text-left` to the `<div class="trainer-bio
 </div>
 ```
 
-Now the trainer's text is left-aligned because we added another class `text-left` to it. This class was created for the sole purpose of left-aligning text when needed.
+Now the trainer's `<article>` element text is left-aligned because we added another class `text-left` to it. This class was created for the sole purpose of left-aligning text when needed.
 
-When we add the next two trainers, we will also be applying `text-left` and `text-right` to them just as we did with this first one.
+When we add the next two trainers' `<article>` elements, we will also be applying `text-left` and `text-right` to them just as we did with this first one.
 
 Let's add some styles more specific to our trainers:
 
@@ -232,17 +242,17 @@ And there we go! Our trainer's styles are now set up and everything should be lo
 
 > HEADS UP: For some users&mdash;especially Windows&mdash;the font we are using here, Helvetica, may not be loaded on the computer and this page will use the fall-back font, Arial. There are differences between the two, namely the variations of the `font-weight` property. It does not have a weight for the value `lighter`, so it ends up using the closest weight. In this case, it is `normal`.
 >
-> This is something we as developers may deal with a regular basis, but the nice thing is that the fall-back weight that is provided doesn't break the page. It just may look a little different than Mac users.
+> This is something we as developers may deal with on a regular basis, but the nice thing is that the fall-back weight that is provided doesn't break the page. It just may look a little different than MacOS users.
 >
-> [More on `font-weight` here.](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)
-
-At this point all of the style properties used in the last bit of CSS have already been used, so there's no real need to rehash it. If further review is desired, remember to keep [this reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index) handy.
+> [More on the `font-weight` property and how it works here.](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)
 
 Let's go ahead and get our other two trainers added to the page, then we'll be done with this section!
 
-## Adding more trainers
+## Adding the other two trainers' content
 
-Now that we have our first trainer already laid out and styled, we have something to go off of for the next two and just need to make a couple of tweaks for the content. So let's add the next two, but make sure to notice a subtle difference between the second trainer and the third trainer:
+![Trainers Mock-up](assets/step-5/100-trainers-complete.jpg)
+
+Now that we have our first trainer's `<article>` element laid out and styled, we can use it as a reference to build the other two trainers' `<article>` elements in our mock-up. We'll just need to make a couple of tweaks for the content since each trainer has their own name, role, bio, and image. So let's add the next two, but make sure to notice a subtle difference between the second trainer's HTML and the third trainer's HTML:
 
 ```html
 <!-- second trainer bio -->
@@ -272,7 +282,7 @@ Now that we have our first trainer already laid out and styled, we have somethin
 </article>
 ```
 
-So besides the content and images changing to reflect each trainer's information, what changed here and how did affect our layout? It has nothing to do with the CSS, but rather how we organized the HTML content.
+So besides the content and images changing to reflect each trainer's information, what changed here and how did it affect our layout? It has nothing to do with the CSS, but rather how we organized the HTML content.
 
 For our second trainer, we wanted to have the image on the right and text on the left. So to achieve this, we could've floated it to the right, but instead we simply switched the order of their appearance in the HTML. This way the text comes first naturally and the image is to the right since it's after it. That may not always be the best solution for all situations needing this type of layout, but this works for our current layout which makes our lives a bit easier.
 
@@ -280,7 +290,7 @@ So now we should have a finished "Meet The Trainers" section:
 
 ![Section Finished](assets/step-5/600-section-complete.jpg)
 
-> IMPORTANT: Don't forget to do a `git add -A`, `git commit -m "commit message"`, and `git push origin master` to save your work and get it up to GitHub.
+Don't forget to do a `git add -A`, `git commit -m "commit message"`, and `git push origin master` to save your work and get it up to GitHub.
 
 ## Reflection
 
@@ -290,8 +300,8 @@ We're almost there! There are two more important pieces left to build, but at th
 
 - We created "utility" classes that can be applied to control text alignment for any element on our page.
 
-- We implemented the `<article>` tag to help encapsulate related content on the page, allowing the browser and screenreaders to have an easier time reading our content.
+- We implemented the `<article>` tag to help encapsulate related content on the page, allowing the browser and screen readers to have an easier time reading our content.
 
-- Lastly, we got to utilize a lot of what we've learned previously in this project and reinforce our knowledge in both HTML and CSS.
+- Lastly, we utilized a lot of what we've learned previously in this project and reinforce our knowledge in both HTML and CSS.
 
-The next lesson will introduce us to a new couple of new HTML tags, as we will be building the "Reach Out" section of our page.
+The next lesson will introduce us to a couple of new HTML tags, as we will be building the "Reach Out" section of our page.
