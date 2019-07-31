@@ -480,4 +480,4 @@ Let's recap some key concepts:
 
 - When dealing with complex styles and responsive design, Chrome DevTools can be used to debug and test possible solutions.
 
-At this point, the site _could_ be ready to go into production since it has all of its new content and is mobile-friendly, but it still feels a little too box-y and it doesn't have many modern design features like transparent colors or rounded corners. We've taken care of all the heavy lifting by making the page responsive, let's now make it pop!
+At this point, the site _could_ be ready to go into production since it has all of its new content and is mobile-friendly, but it still feels a little too box-y and it doesn't have many modern design features like transparent colors or rounded corners. We've taken care of all the heavy lifting by making the page responsive, now let's make it pop!
