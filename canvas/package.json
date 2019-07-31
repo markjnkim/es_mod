@@ -1,0 +1,15 @@
+{
+  "name": "canvas",
+  "version": "1.0.0",
+  "description": "This directory is for housing assets and utilities for publishing our content on Canvas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node-sass -w src/css -o build --output-style compact"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  }
+}
