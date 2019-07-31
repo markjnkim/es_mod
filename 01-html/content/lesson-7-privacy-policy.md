@@ -1,18 +1,18 @@
-# Second Page and Wrap-up
+# Adding a Privacy Policy and Wrap-up
 
 Throughout this project we have learned how to create and organize content for a web page, create custom styles and layouts for that content, and utilize the proper tools to protect, backup, and publish our work. This is a lot to take in, so we're going to use this last lesson to reinforce these concepts and "take the training wheels off" by building a second (simpler) page for our Run Buddy product site.
 
-The Run Buddy legal department finalized the privacy policy and it's ready to code, so that's what we'll be taking on next.
+The Run Buddy legal department has finalized the privacy policy and it's ready to code, so that's what we'll be taking on next.
 
 The main three points that will be introduced in this lesson are:
 
 1. Adding a second HTML document to our web site and how the site's pages can link to each other using `<a>` elements.
 
-2. How to reuse HTML content through selective copy and pasting.
+2. Reusing HTML content through selective copy and pasting.
 
-3. How two HTML pages can share CSS styles, but also implement a second style sheet for styles more specific to the second page. The second style sheet will override some styles we defined in the first one.
+3. Reusing CSS styles across two HTML documents, but also implement a second style sheet for styles more specific to the second page. The second style sheet will override some styles we defined in the first one.
 
-For reference, this is a mock-up of the page we will be building:
+For reference, this is a mockup of the page we will be building:
 
 ![Privacy Policy completed](assets/step-7/100-privacy-complete.png)
 
@@ -44,12 +44,14 @@ Before we add the actual content, we need to create the skeleton of our HTML doc
 </html>
 ```
 
-> PAUSE
+> Checkpoint
 >
-> What is the main purpose of the `<head>` tag?\
-> A: The `<head>` holds specific HTML tags that provide information that isn't necessary for the page's visitor to see, but to help the browser understand what the page is about, what it should look like, and any other behind-the-scenes data. None of this content is displayed physically on the page.
+> What is the main purpose of the `<head>` element?
 >
-> What is the main purpose of the `<body>` tag?\
+> A: The `<head>` element holds specific HTML tags that provide information that isn't necessary for the user to see, but to help the browser understand what the page is about, what it should look like, and any other behind-the-scenes data. None of this content is displayed physically on the page.
+>
+> What is the main purpose of the `<body>` tag?
+>
 > A: The `<body>` holds all of the document's actual content that is meant to be seen or interacted with by the page's visitor. Anything that is between the opening and closing `<body>` tags is visible to the user by default.
 
 > URKEL SAYS: Creating the skeleton of an HTML document is also known as "scaffolding."
@@ -63,31 +65,39 @@ Now that we have our document scaffolded, let's make a couple of edits. Since we
 > PRO-TIP: The `<title>` element's content is what appears in the browser's tab, so it is a good practice to structure the content as `[page title] - [site title]`. 
 >
 > While a descriptive page title is important, it should also be concise and to the point. Google cuts off search result titles at around 60 characters, so anything under that is optimal.
+>
+> [Learn more about creating an SEO-friendly page title.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title#Page_titles_and_SEO)
 
-Take another look at the screenshot of the finished product we're working towards and compare it to `index.html`. Notice any similar pieces that we can reuse here? It would be confusing for visitors to experience different styles throughout a single web site, so most sites have similar&mdash;if not identical&mdash;components to them.
+Take another look at the mockup of the finished product we're working towards and compare it to the main Run Buddy page we just finished. Notice any similar pieces that we can reuse here? It would be confusing for visitors to experience different styles throughout a single web site, so most sites have similar&mdash;if not identical&mdash;components to them.
 
-Let's identify the obvious sections in the HTML and we'll copy and paste them into our new document:
+> URKEL SAYS: A set of HTML code that builds out a part of the overall page's UI is commonly referred to as a "component". The idea behind a component is that it can be reused in multiple places throughout a site.
 
-- **`<header>`** - This entire header can be copied over to the new page. In this design, there is nothing that differentiates the `<header>` content between any pages. What does need to be edited, however, are the navigation's `<a>` elements' `href` values. They all need to be changed to have the same `#what-we-do` values, but with `./index.html` in front of them. So the finished product for one of them should look like this:
+Let's identify these components in the HTML and we'll copy and paste them into our new document:
+
+- **`<header>`** - This entire `<header>` element can be copied over to the new page, as it's design and layout will be the same on both pages. What does need to be edited, however, are the navigation's `<a>` elements' `href` values. They all need to be changed to have the same `#what-we-do` values, but with `./index.html` in front of them. So the finished product for one of them should look like this:
 
 ```html
 <!-- Do this to all of them in privacy-policy.html -->
 <a href="./index.html#what-we-do">What We Do</a>
 ```
 
-Before we move on to getting the other sections over, let's think about that new value for the `href`. In `index.html` we simply provided a value of `#what-we-do` and that told the browser that when clicked, it should navigate to another location within the same page that had an `id` attribute with value set to `what-we-do`. We still want this functionality, but now that `<a>` element is on a different page. So how do we get the user from `privacy-policy.html` to `index.html`, specifically to that section with a corresponding `id`? Well as we can see by this edit in the code above, we have to just tell them both at once. The value `./index.html#what-we-do` can almost be read in two parts:
+Before we move on, let's think about that new value for the `href`. In `index.html` we simply provided a value of `#what-we-do` and that told the browser that when clicked, it should route the user to another location within the same page that had an `id` attribute with value set to `what-we-do`.
+
+We still want this functionality, but now that `<a>` element is on a different page. So how do we get the user from `privacy-policy.html` to `index.html`, specifically to that section with a corresponding `id`? Well as we can see by this edit in the code above, we have to just tell them both at once. The value `./index.html#what-we-do` can almost be read in two parts:
 
 1. Go to the index.html file at this location `./`, which means "in this current directory"
 
 2. Once at that file, navigate within it to the element with an `id` of `what-we-do`
 
-Now that we know how to make it work, go ahead and make sure the other three navigation `<a>` elements follow the same pattern.
+Now that we know how to make these new `href` values work, go ahead and make sure the other three navigation `<a>` elements follow the same pattern.
 
-Moving onto the other two sections from our home page that can be copied over to our privacy policy:
+> REWIND: The `<a>` element routing you to a different location is an example of the "hypertext" in HTML.
+
+Let's move on to the next section. The other content from our home page that can be copied over to our privacy policy:
 
 - **`<footer>`** - This can be copied directly into our new document. Nothing needs to be edited here.
 
-- **`<section class="hero">`** - We're also going to reuse this, but then edit the inner content of it, so for now it is easier (and better practice) to go into `privacy-policy.html` and add right after the closing `</header>` tag:
+- **`<section class="hero">`** - We will also reuse this, but then edit the  content so it includes Run Buddy's privacy policy verbiage, so for now it is easier to go into `privacy-policy.html` and add right after the closing `</header>` tag:
 
 ```html
 <section class="hero">
@@ -602,7 +612,7 @@ There are some styles that are a little out of sorts, however. The `<header>` an
 
 ![Privacy Policy CSS start](assets/step-7/400-css-start.jpg)
 
-Both of these issues are fine because all we need to do now is add just a _little_ bit more to get it how we want it. Referring to the finished mock-up at the top of this lesson, we can see there are only a few additions and changes we need to make when it comes to styling what a non-Homepage should look like.
+Both of these issues are fine because all we need to do now is add just a _little_ bit more to get it how we want it. Referring to the finished mockup at the top of this lesson, we can see there are only a few additions and changes we need to make when it comes to styling what a non-Homepage should look like.
 
 This is going to entail two things:
 
