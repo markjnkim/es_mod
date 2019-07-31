@@ -474,8 +474,10 @@ Visualizing a web page that looks good across multiple screen sizes is not alway
 
 Let's recap some key concepts:
 
-- A media query is a special CSS tool used to change the style or layout of the site when a condition is met, such as the browser being under or over a specified width
+- A media query is a special CSS tool used to change the style or layout of the site when a condition is met, such as the browser being under or over a specified width.
 
-- It is easier to change a layout that is using flexbox or grid as opposed to `float` and `position` since all of the elements getting moved are controlled by those flex/grid containers
+- It is easier to change a layout that is using flexbox or grid as opposed to `float` and `position` since all of the elements getting moved are controlled by those flex/grid containers.
+
+- When dealing with complex styles and responsive design, Chrome DevTools can be used to debug and test possible solutions.
 
 At this point, the site _could_ be ready to go into production since it has all of its new content and is mobile-friendly, but it still feels a little too box-y and it doesn't have many modern design features like transparent colors or rounded corners. We've taken care of all the heavy lifting by making the page responsive, let's now make it pop!
