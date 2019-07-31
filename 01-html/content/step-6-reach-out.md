@@ -6,56 +6,21 @@ Way to go! The Run Buddy landing page is nearly complete. We have learned a lot 
 Let's take a look at our mock-up and see how we will approach building this section.
 ![Reach-Out Mock-up](./assets/step-6/100-RO-mock-up.png)
 Here's a quick look at the build process for this lesson.
-1) Initial class assignments for markup
+1) Initial id and class assignments for markup
 2) Build our `iframe` element 
 2) Add HTML for Run Buddy's contact info 
 3) Design two column layout
-4) Style and finish 
+4) Style section background and typography
 
 ## Adding Some Class
-
-Some of the markup for our section has already been provided for us.
+In this step let's practice some of the skills we have learned in the previous lessons to the markup that has already been provided for us.
 ```html
 <!-- "reach out" section -->
 <section>
   <h2>Reach Out</h2>
 </section>
 ```
-
-In this step let's practice some of the skills we have learned in the previous lessons by adding an `id` as our in-page navigation anchor and classes to select the HTML elements for CSS styling.
-
-> **Do It Yourself**: Add the classes and id's to the `<section>` and `<h2>` tags for our styling and navigational purposes.
-
-> **Hint**: Look at the markup for the previous sections and headings for a great template of this step.
-
-> **Hint**: Whenever a similar style pattern starts to emerge, it is important to recognize where code might be repeated and try to assign the class to the element to replicate the styles.
-
-After having spent some time thinking and adding markup, our section should look something like this.
-
-```html
-<!-- "reach out" section -->
-<section id="reach-out" class="contact">
-  <h2 class="section-title secondary-border">
-    Reach Out
-  </h2>
-</section>
-```
-
-Let's unpack this code and see if our choices made sense.
-We created a new class called `contact` for the styling needed for this section's background color and alignment. As for the section headings, we used the class `section-title` because most of the styling needed has been done for us such as the font-size, margin, padding, and even border. Only the font color for the `h2` element will need to be reassigned, but that's better than rewriting this CSS rule since we could reuse five of the CSS declarations.
-```css
-.section-title {
-  font-size: 55px;
-  display: inline-block;
-  padding: 0 100px 20px 100px;
-  border-bottom: 3px solid;
-  margin-bottom: 35px;
-  color: #024e76;
-}
-```
-Having used a similar bottom border size and color previously in the "What You Do" section, we can simply reassign the classes for `section-title` and `secondary-border` to the `h2` element.  
-
-Don't forget to add our `id` to the navigation link in our `nav` element, otherwise this link won't work as expected.
+Currently the link in our `nav` element doesn't work. 
 ```html
 <nav>
   <ul>
@@ -66,20 +31,45 @@ Don't forget to add our `id` to the navigation link in our `nav` element, otherw
   </ul>
 </nav>
 ```
-<!-- 
-It's time for the final styling steps.  We can use CSS to declare the height and width of the `iframe`.  We can now remove the inline styling that we added in the `<iframe>` for the width and height since it is not best practice to have inline styling. -->
+> **Activity**: Add the classes and id's to the `<section>` and `<h2>` tags for our styling and navigational purposes.
+![Section Heading](./assets/step-6/150-Heading-css.png)
+> **Hint**: Look at the markup for the previous sections and headings for a great template of this step. Whenever a similar style pattern starts to emerge, it is important to recognize where code might be repeated and try to assign the class to the element to replicate the styles.
+
+After having spent some time thinking and adding classes to our markup, our section should look something like this.
+> **Solution**:
+```html
+<!-- "reach out" section -->
+<section id="reach-out" class="contact">
+  <h2 class="section-title secondary-border">
+    Reach Out
+  </h2>
+</section>
+```
+
+> Let's unpack this solution and see if our choices made sense. We created a new class called `contact` for the styling needed for this section's blue background color and alignment we will soon add to our style sheet. As for the section headings, we used the class `section-title` because most of the styling needed has been done for us such as the font-size, margin, padding, and even border. Only the font color for the `h2` element will need to be reassigned, but that's better than rewriting this CSS rule since we could reuse five of the CSS declarations.
+```css
+.section-title {
+  font-size: 55px;
+  display: inline-block;
+  padding: 0 100px 20px 100px;
+  border-bottom: 3px solid;
+  margin-bottom: 35px;
+  color: #024e76;
+}
+```
+> Knowing we need a light blue bottom border, we can add the `secondary-border` class to the `h2` element as we did previously in the "What You Do" section.  
+The id `reach-out` was also added to the `section` element to enable the "#reach-out" link in `nav` element.
 
 ## Building the iframe
-
+Let's take a look at this in our mock-up to see what we will be building in this step.
+![Inline Frame Mock-up](./assets/step-6/170-iframe-mock-up-html.png)
 First off, before we can start on the map, we need to wrap the following content of this section into a `div` which we will call our contact container.  We'll do this because all of the contact information is semantically related, and wrapping them in a parent element enables us to constrain their flow to the bounds of that parent. Let's add a `class` called `contact-info` to this `div`.
 
 > **Rewind**: Remember how we wrapped the content for our trainers' info inside an `<article>`.  What we are doing here with the contact info is the same concept.
 
-Now let's take a closer look at this map and we will find that the requirements for the landing page specifies that this map needs to be interactive, meaning the visitors will be able to scroll, move, and zoom the image.  But how the heck are we going to do that?
+The requirements from the design team made it clear that this map needs to be interactive, meaning the users will be able to scroll, move, and zoom on the map.  But how the heck are we going to do that?
 Since we have just started to learn web development, we don't yet have the skills to accomplish this type of task or do we?
-We can use a nice trick with some of Google Maps code to embed a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embed an HTML page into the current page.  But how the heck are we going to do that?
-Since we have just started to learn web development, we don't yet have the skills to accomplish this type of task or do we?
-We can use a nice trick with some of Google Maps code to embed a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embed an HTML page into the current page.
+Actually we can! Just need to use a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embed an HTML page into the current page. One caveat is that not all websites offer this feature.
 Let's nest the `iframe` into our contact container. In our case, we will need a google map for a specific location so let's follow the instructions to retrieve an `iframe` for our map address.
 
 > **Video Walkthrough**
