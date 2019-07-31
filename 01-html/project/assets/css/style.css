@@ -13,15 +13,26 @@ body {
 /* HEADER / NAV BAR STYLES START */
 
 header {
+<<<<<<< HEAD
     padding: 20px 35px;
     background-color: #39a6b2;
+=======
+  padding: 20px 35px;
+  background-color: #39a6b2;
+>>>>>>> 00f5ff69e7d0dffd78be2a4352697a23aca1669f
 }
 
 header h1 {
   font-weight: bold;
+<<<<<<< HEAD
   display: inline-block;
+=======
+  display: inline;
+>>>>>>> 00f5ff69e7d0dffd78be2a4352697a23aca1669f
   margin: 0;
   font-size: 36px;
+  color: #fce138;
+
 }
 
 header a {
@@ -61,9 +72,10 @@ footer h2 {
   margin: 0;
 }
 
-footer span {
+footer div {
   float: right;
   line-height: 1.5;
+  text-align: right;
 }
 
 footer a {
@@ -93,7 +105,7 @@ section {
   color: #024e76;
   position: absolute;
   bottom: 120px;
-  right: 10%;
+  right: 140px;
 }
 
 .hero-form h3 {
@@ -124,7 +136,7 @@ section {
   border: none;
   padding: 10px 20px;
   font-size: 16px;
-}
+} 
 /* HERO STYLES END */
 
 
@@ -283,7 +295,6 @@ section {
 
 
 /* REACH OUT STYLES END */
-
 
 /* UTILITIES */
 .text-left {

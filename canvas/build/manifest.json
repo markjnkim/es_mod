@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Canvas Overrides",
+  "version": "0.1",
+  "browser_action": {
+    "default_title": "Canvas Overrides"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://trilogyed.instructure.com/courses/89/pages/*"
+      ],
+      "js": ["extension-files/jquery-3.4.1.slim.min.js", "canvas-fsfo-script.js"],
+      "css": ["canvas-fsfo-theme.css"]
+    }
+  ],
+  "background": {
+    "scripts": ["extension-files/chrome.js"]
+  },
+  "permissions": ["management"]
+}
