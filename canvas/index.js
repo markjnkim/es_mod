@@ -8,7 +8,7 @@ showdown.setFlavor('github');
 const mdFilePath = '../01-html/content/step-1-html-cmd-git.md';
 
 async function transformMarkdown(path) {
-  return await readFile(path);
+  return await readFile(path, 'utf-8');
 }
 
 transformMarkdown(mdFilePath).then(data => {
