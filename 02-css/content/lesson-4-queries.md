@@ -424,7 +424,7 @@ For our 575 pixel width breakpoint, we really only need to tackle a few aestheti
 
 Most of these are purely aesthetic. We didn't _need_ to make the button in the form full width but if our user is in-fact on a mobile device, wouldn't it be easier for them to submit the form if they had a bigger button to push? So not only are we concerning ourselves with how things look on different screen sizes, we also need to consider how users are physically interacting with the page.
 
-Other items we changed gave them more horizontal space, like how the trainer cards and making sure all three flex children in `.contact-info` became full width. There is something new here, something we haven't seen before. Can you spot it?
+Other items we changed gave them more horizontal space, like how the trainer cards and making sure all three flex children in `.contact-info` became full width. There is also a new CSS property here, something we haven't seen before. Can you spot it?
 
 If we look at the page and resize the window to a phone's width, the contact form switches places with the map! This is being moved by using the `order` CSS property, another property that only adheres to child elements of a flexbox or CSS grid.
 
@@ -432,7 +432,50 @@ The `order` property can be used to rearrange how these child elements appear on
 
 > DEEP DIVE: [Learn more about the order property and how it's used.](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
 
-## Merge Branch
+## A pixel is not a pixel
+
+The page is now looking great as the browser size gets wider and narrower. By setting up these three media query breakpoints, the page is now responsive and will adjust its "flow" as the screen size changes. There is a slight bug on actual tablet and mobile device browsers, however, and it has nothing to do with our code. Our code is great, it's the devices that are the problem.
+
+We set our breakpoints at very specific pixel width values, and our devices are actually respecting those breakpoints by applying the correct CSS styles that media query is asking for. The problem is that they seem to be magnifying everything and showing only a portion of the page at a time:
+
+![Safari on iPhone Xr without meta tag](assets/lesson-4/700-safari-nometa.png)
+
+The reason for this is because of how these devices render a page. The software renders a web page in a virtual viewport and attempts to view it as if it were a normal browser, but then it scales it down. The result is usually something like the above image.
+
+Since Apple pretty much invented this problem for developers, they were kind enough to create a new HTML `<meta>` tag that can be used to fix it:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+This tag is to be used in between the `<head>` tags to fix the problem. By using the `name` attribute we are telling the browser what this `<meta>` tag pertains to, and the `content` attribute has two values:
+
+- **`width=device-width`**: This is setting the virtual viewport's width to match the width of the device itself
+
+- **`initial-scale=1.0`**: This is used to set the initial zoom level to "normal"
+
+Once this tag is in place and we look again in Safari on iOS, it should look the way our 575 pixel media query said it should:
+
+![Safari on iPhone Xr with meta tag](assets/lesson-4/800-safari-meta.png)
+
+That one little tag fixed everything! What's great about that tag is that it won't have to change, so you can feel safe copying and pasting it in all of your projects.
+
+> DEEP DIVE: [Learn more about the viewport meta tag.](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag)
+
+The page is now not only responsive, but it is completely mobile-friendly! We've completed what the team at Run Buddy asked us to complete for this feature, so let's cross this issue off our list and merge our working branch's finished code into `staging`!
+
+## NEED: General video reviewing local `git merge` process, maybe use one for end of all lessons
 
 ## Reflection
 
+The team at Run Buddy is going to be thrilled to see we were able to match the specifications their mock-ups had. By using CSS media queries, we were able to control our page's layout and style at various  viewport breakpoints. The combination of modern tools like flexbox and grid and media queries make creating these layouts a lot easier than they used to be, as we can set styles that can adapt to different screen sizes better and write less overriding styles in our media queries.
+
+Visualizing a web page that looks good across multiple screen sizes is not always an easy task, and we were fortunate that the team at Run Buddy already had an idea in mind of what they wanted, because that is not always the case. Lucky for us, even if we had to come up with the layout changes ourselves, we can use Chrome DevTools to help with the task. At first it may seem like cheating to use such a powerful tool, but in reality that tool was built specifically for us to become better, more efficient developers.
+
+Let's recap some key concepts:
+
+- A media query is a special CSS tool used to change the style or layout of the site when a condition is met, such as the browser being under or over a specified width
+
+- It is easier to change a layout that is using flexbox or grid as opposed to `float` and `position` since all of the elements getting moved are controlled by those flex/grid containers
+
+At this point, the site _could_ be ready to go into production since it has all of its new content and is mobile-friendly, but it still feels a little too box-y and it doesn't have many modern design features like transparent colors or rounded corners. We've taken care of all the heavy lifting by making the page responsive, let's now make it pop!
