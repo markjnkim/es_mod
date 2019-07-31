@@ -121,9 +121,12 @@ Please note that not all websites allow for use in `iframe`.
 
 ## Creating our Contact Info
 
-In this step we will be adding the company's contact information. According to the mock-up we will need a heading and some text so let's do this step first.
+In this step we will be adding the company's contact information. 
+According to the design team, they want the contact info contained in separate column so let's take a look at the mock-up before we proceed.
+![Contact Info](./assets/step-6/250-contact-mock-up.png)
+we will need a heading and some text so let's do this step first.
 
-> **Do It Yourself**: Create a container `div` that will hold this content then nest some of the child elements within the contact info container.  Then, let's add the markup for the heading and text.   
+> **Activity**: Create a container `div` that will hold this content then nest some of the child elements within the contact info container. 
 
 Take the necessary time to figure out this code yourself. Remember, this is not a race to finish but an exercise in learning.  Use some of the code we have already written including headings and text tags to help guide your syntax.  Don't be afraid to try new things.
 
