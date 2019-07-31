@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:700,800|Roboto:400,400i,700&display=swap');
+
+:root {
+  --trilogy-blue: #28c8e5;
+  --trilogy-teal: #3393a3;
+  --trilogy-dark-gray: #333333;
+  --trilogy-light-gray: #f2f2f2;
+  --trilogy-light-teal: #eef7f8;
+  --black: #000000;
+  --white: #ffffff;
+}
+
+// wrapper for all of our custom styles in canvas
+.markdown-body {
+  width: 85%;
+  padding: 20px 30px 75px 30px;
+  background: rgba(255,255,255,0.8);
+  font-family: 'Roboto', sans-serif;
+  color: var(--trilogy-dark-gray);
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+    color: var(--trilogy-blue);
+    font-weight: 800;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+  
+  p {
+    font-size: 1.1em;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  
+  a {
+    color: var(--trilogy-teal);
+  }
+  
+  a[href*=".png"],
+  a[href*=".gif"],
+  a[href*=".jpg"],
+  a[href*=".jpeg"],
+  a[href*=".pdf"] {
+    display: block;
+    width: 100%;
+    text-align:center;
+  }
+  
+  img {
+    max-width: 90% !important;
+    margin: 20px auto;
+    box-shadow: 0 0 15px #333333;
+  }
+  
+  ol, ul {
+    padding-left: 0;
+  }
+  
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    margin: 20px 0;
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 10px #333333;
+  }
+  
+  // import secondary style sheets within markdown body context
+  @import "_code-snippets.scss";
+  @import "_learning-blocks.scss";
+}
+
+.page-title {
+  background: var(--trilogy-light-gray);
+  padding: 10px;
+  border-bottom: 5px solid var(--trilogy-blue);
+  font-family: 'Raleway', sans-serif;
+  color: var(--trilogy-blue);
+  font-weight: 800;
+}

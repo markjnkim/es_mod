@@ -1,0 +1,69 @@
+// learning blocks are any blockquote elements inside the markdown body
+
+blockquote {
+  border-left: 10px solid var(--trilogy-blue);
+  color: #6a737d;
+  font-size: 17px;
+  background: rgb(238, 247, 248);
+  position: relative;
+  transition: border-width .2s;
+
+  // title
+  & > strong {
+   font-size: 22px;
+   font-variant: small-caps;
+  }
+
+  // some learning blocks start collapsed
+  &.collapse {
+    cursor: pointer;
+  
+    &:hover {
+      border-width: 15px;
+    }
+
+    &.hint {
+      & > strong::after {
+        content: "?";
+      }
+
+      p {
+        display: none;
+      }
+    }
+
+    &.pause {
+      p:not(:first-of-type) {
+        display: none;
+      }
+    }
+  }
+  
+  // icon placeholder
+  &::before {
+    content: "";
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: -55px;
+  }
+  
+  // specific background styles per learning block type
+
+  &.important {
+    border-color: #721c24;
+    background-color: #F8D7DA;
+
+    &::before {
+      background-image: url("/courses/89/files/1921/preview");
+    }
+  }
+
+  &.pro-tip {
+    &::before {
+      background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg");
+    }
+  }
+}
