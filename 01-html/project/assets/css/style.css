@@ -95,7 +95,7 @@ section {
   color: #024e76;
   position: absolute;
   bottom: 120px;
-  right: 10%;
+  right: 140px;
 }
 
 .hero-form h3 {
@@ -126,7 +126,7 @@ section {
   border: none;
   padding: 10px 20px;
   font-size: 16px;
-}
+} 
 /* HERO STYLES END */
 
 
@@ -285,7 +285,6 @@ section {
 
 
 /* REACH OUT STYLES END */
-
 
 /* UTILITIES */
 .text-left {
