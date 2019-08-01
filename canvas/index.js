@@ -12,8 +12,14 @@ async function transformMarkdown(path) {
 }
 
 transformMarkdown(mdFilePath).then(data => {
+  // convert videos first
+  let dataWithVideos = data.replace(/^video:(.*)$/gm, (match, url) => {
+    return `<p><iframe src="${url}"></iframe></p>`;
+  });
+
+  // then let showdown convert everything else
   const converter = new showdown.Converter();
-  console.log(converter.makeHtml(data));
+  console.log(converter.makeHtml(dataWithVideos));
 });
 
 
