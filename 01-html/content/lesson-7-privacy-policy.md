@@ -111,15 +111,19 @@ We'll get to adding content to this section next, but first let's save our work 
 >
 > Keep in mind, this will only work for HTML files.
 
-The page should look something like this:
+If your page does not look like the below image, review the previous steps to troubleshoot. It is often something very simple but easy to overlook. Even the pros make mistakes.
 
 ![Privacy Policy - html started](assets/step-7/200-html-starter.png)
 
-One thing we want to do though is make sure a user can get to this new page from `index.html`. In `index.html`, change the `<a>` tag's `href` value in the `<footer>` tag to have a value of `./privacy-policy.html`. We can remove the `href` attribute from this element in `privacy-policy.html` entirely since we are already on this page.
+Now that we have a second page for our site's privacy policy, how can a user get to it from the home page? In `index.html`, change the `<a>` tag's `href` value in the `<footer>` tag to have a value of `./privacy-policy.html`. We can remove the `href` attribute from this element in `privacy-policy.html` entirely since we are already on this page and don't want users accidentally clicking the link and reloading the page for no reason.
 
-> **PRO-TIP**: It is a good practice when possible to disable `<a>` elements that bring you to the page you are currently on when clicked. This is to avoid unnecessary page reloads if someone were to click on the link. It won't always be a possibility depending on the project, but it is something to keep an eye out for when it comes to optimizing a web page's performance.
+> **PRO-TIP**: When you have an `<a>` element with an `href` value set to take a user to the same page they are already on, it has potential to decrease the site's performance because it has to download and display all of the page's data again. Due to this, it is a good practice when possible to disable `<a>` elements that bring you to the page you are currently on when clicked.
+>
+> It won't always be possible depending on the project, but it is something to keep an eye out for when it comes to optimizing a web page's performance.
 
-We've used relative pathing in our `<img>` and `<link>` tags to target other files in our project's folder structure, and now we're doing the same thing here to target our `privacy-policy.html` file that lives in the same directory as `index.html`. The biggest difference is how these HTML elements interact with the other file. When we use `<img>` and `<link>` elements, we are telling another file to join this HTML file in some fashion. Those elements don't bring us anywhere, but they bring resources to us. When we use `<a>` elements, however we are doing the opposite by saying "when I'm clicked, I'll bring you somewhere else in your browser and leave this location."
+We've used relative pathing in our `<img>` and `<link>` tags to target other files in our project's folder structure, and now we're doing the same thing here to target our `privacy-policy.html` file that we created in the same directory as `index.html`. The biggest difference is how these HTML elements interact with the other file.
+
+When we use `<img>` and `<link>` elements, we are telling another file to join this HTML file in some fashion. Those elements don't bring us anywhere, but they bring resources to us. When we use `<a>` elements, however we are doing the opposite by saying "when I'm clicked, I'll bring you somewhere else in your browser and leave this location." Again, all of these HTML elements exemplify the concept of hypertext in HTML.
 
 > DEEP DIVE: We can use `<a>` elements to bring a user to a variety of resources and locations. They could bring us to a page in our site or another web site entirely, which is the most popular use case, but they can also be used to open photos, PDFs, audio files, pretty much anything that can be opened in a browser can be used as an `href` value.
 >
@@ -576,7 +580,7 @@ Now that we are done adding content it is a good time for us to start including 
 
 ![privacy policy html](assets/step-7/300-html-complete.png)
 
-It's not as pretty as it will be once we've added in our CSS, but the browser still prints everything to the page in a very organized and readable fashion. To reiterate concepts we've discussed earlier in this project, this is what's known as the "normal flow" of a web page. Everything comes onto the page in the order it was placed in the HTML document and all content gets its own space based on what HTML tag wraps it. While the result isn't the most visually appealing, it serves its core purpose very well, which is to get HTML content to the visitor.
+It's not as pretty as it will be once we've added in our CSS, but the browser still prints the content to the page in a very organized and readable fashion. To reiterate concepts we've discussed earlier in this project, this is what's known as the "normal flow" of a web page. All of the content comes onto the page in the order it was placed in the HTML document and all content gets its own space based on what HTML tag wraps it. While the result isn't the most visually appealing, it serves its core purpose very well, which is to get HTML content to the visitor.
 
 Well that's enough praise for the browser and its default styling, let's add our own!
 
@@ -584,7 +588,7 @@ Well that's enough praise for the browser and its default styling, let's add our
 
 ## Adding our styles
 
-Let's jump right out the gate and add our `style.css` file to this HTML document. 
+Let's jump right out the gate and add our `style.css` file to this HTML document.
 
 Remember what HTML tag we used in `index.html` to bring in our style sheet? Go ahead and add that to our document's `<head>`.
 
@@ -595,8 +599,6 @@ Remember what HTML tag we used in `index.html` to bring in our style sheet? Go a
 >
 > <link rel="stylesheet" href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css" />
 > ```
->
-> HINT: Don't be afraid to use Google! Just type in "css pathing" and you'll get your answer with examples!
 >
 > ANSWER: The first is "relative pathing" and the second is "absolute pathing". Relative is preferred because no matter where the project folder ends up the files will stay related to one another. Absolute pathing means it only works at that exact path and if the project folder is relocated, the path will have to change.
 >
@@ -620,17 +622,60 @@ This is going to entail two things:
 
 2. Then we'll add some new style definitions for our page's `<article>` tag by targeting its `secondary-content` class.
 
-Let's discuss the first point. If you compare the finished product of `index.html` with the screenshot of the finished product we're working towards for `privacy-policy.html`, the hero sections have the same background but the privacy policy page has a centered title and it's much shorter in length. What we'll do is edit some styles and have them _only_ apply to our privacy policy's hero. There are a couple of ways we can do this:
+Let's discuss the first point. If you compare the finished product of `index.html` with the screenshot of the finished product we're working towards for `privacy-policy.html`, the hero sections have the same background but the privacy policy page has a centered title and it's much shorter in length. Here's a comparison, for reference:
 
-1. **Change the class names**: Use most of the CSS declaration blocks with a few edits including the CSS selector with a new class name. This way we can target different sections, but still have a similar look.
+![Hero section comparison](assets/step-7/401-hero-comparison.jpg)
 
-2. **Keep the class names, but override some of the declarations**: This choice seems the most efficient with less duplicate code being rewritten since most of the declarations will be the same except for a few changes.
+What we'll do is edit some styles and have them _only_ apply to our privacy policy's hero. There are a couple of ways we can do this:
+
+1. **Change the class names**: Reuse most of the current CSS rule blocks with only a few edits to the style declarations and giving the CSS selector  a new class name. This way we can target different sections, but still have a similar look. An example of this would be if we wanted both paths to have the same margins and font sizes, but different colors:
+
+```css
+/* home page hero */
+.hero {
+  margin: 20px;
+  background-color: white;
+  font-size: 20px;
+  color: blue;
+}
+
+/* secondary page hero */
+.hero-secondary {
+  margin: 20px;
+  background-color: black;
+  font-size: 20px;
+  color: red;
+}
+
+```
+
+2. **Keep the class names, but override some of the declarations**: This choice seems the most efficient with less duplicate code being written since most of the declarations will be the same except for a few changes. In the example below, there will be an HTML element that gets most of its styles from one class, but then has a couple of them overridden by a second one:
+
+```html
+<div class="hero hero-secondary"></div>
+```
+
+```css
+.hero {
+  margin: 20px;
+  font-size: 20px;
+  background-color: white;
+  color: blue;
+}
+
+/* these two colors will override the ones above in .hero */
+.hero-secondary {
+  background-color: black;
+  color: red;
+}
+
+```
 
 > **Warning**: Overriding CSS declarations can be tricky since we do not want to accidentally reassign working declarations in our hero section.
 
  What we can do is create a second CSS file and have it accessible only to the `privacy-policy.html` file by placing the secondary style sheet link in our `privacy-policy.html` and not our `index.html`. This is also useful for us because Run Buddy is currently reviewing the work we did on the first page, so making edits to `style.css` at this moment may end up breaking things for them during the review, and an unhappy client makes for an unhappy developer.
 
-> IMPORTANT: Not every HTML page created needs its own unique style sheet attached to it. In a lot of cases across the Internet, entire sites share one style sheet instead. 
+> IMPORTANT: Not every HTML page created needs its own unique style sheet attached to it. In a lot of cases across the Internet, entire sites share one style sheet instead.
 >
 > Having separate style sheets can be useful when there are a lot of different styles that need to be applied and one sheet is difficult to keep organized or if there are multiple CSS developers handling different parts of the overall site and don't want to step on each other's toes.
 
@@ -681,13 +726,14 @@ As we can see, there are two sets of styles being applied to our class of `hero`
 >
 > Switch the order of the `<link>` elements in the `<head>` element to see how the applied styles will be different due to our source order change.
 >
-> [More information on this here.](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance)
+> [More information on CSS cascade and inheritance here.](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance)
 
 In `privacy-policy.html`, we have the `<link>` tag for `secondary-styles.css` coming after `style.css`. The browser reads these tags in order of appearance, so everything from `style.css` is applied first. Then it sees the styles defined in `secondary-styles.css` and those get applied. Any conflicting property definitions are overridden by the declarations that got read last. This is what "source order" means, whichever one comes later wins.
 
 A useful feature of CSS is that it overrides at the declaration level, not the rule level. Any property declarations in the overridden rule will remain intact if the overriding rule does not redeclare them. We didn't define new values for `background-image`, `background-size`, or `position` because we want to use the same styles, so they get to carry over from the other style definition.
 
-> REWIND: Remember the difference between "declaration level" and "rule level"
+### NEED: Video demonstrating Rule-level vs Declaration-level
+
 >
 > **Declaration Level**
 > 
@@ -705,7 +751,23 @@ A useful feature of CSS is that it overrides at the declaration level, not the r
 > }
 > ```
 
-In the case of `background-position` and `height`, we needed to change those values for this page's hero section to look correct. By explicitly re-declaring those styles in `secondary-styles.css`, they will now be the ones that are applied. And since `text-align` and `margin-bottom` are not even part of the original `.hero` definition in `style.css`, they are simply added on when we define it in `secondary-styles.css`.
+Again, we can see these CSS rules and overrides working together to create this updated hero section in DevTools:
+
+![DevTools CSS Overrides](assets/step-7/500-devtools.jpeg)
+
+As far as the hero section in `privacy-policy.html` is concerned, it sees two sets of CSS rules from the two stylesheets and combines them, then prioritizes the values that come later in conflicting declarations. The result is this:
+
+```css
+.hero {
+  background-image: url(../assets/images/hero-bg.jpg);
+  background-size: cover;
+  background-position: bottom;
+  position: relative;
+  height: auto;
+  text-align: center;
+  margin-bottom: 40px;
+}
+```
 
 Now all of the style overriding is done, so we can turn our attention to creating the new style definitions for this page.
 
