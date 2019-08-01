@@ -14,7 +14,7 @@ The main three points that will be introduced in this lesson are:
 
 For reference, this is a mockup of the page we will be building:
 
-![Privacy Policy completed](assets/step-7/100-privacy-complete.png)
+![Privacy Policy completed](assets/step-7/100-privacy-complete.jpg)
 
 As we can see, this is a very text-heavy page with some similar components and styles, so we'll get to recycle a good amount of code we wrote earlier. Don't worry, you won't need to type out all the content; we'll provide that for you. Let's get started!
 
@@ -113,7 +113,7 @@ We'll get to adding content to this section next, but first let's save our work 
 
 If your page does not look like the below image, review the previous steps to troubleshoot. It is often something very simple but easy to overlook. Even the pros make mistakes.
 
-![Privacy Policy - html started](assets/step-7/200-html-starter.png)
+![Privacy Policy - html started](assets/step-7/200-html-starter.jpg)
 
 Now that we have a second page for our site's privacy policy, how can a user get to it from the home page? In `index.html`, change the `<a>` tag's `href` value in the `<footer>` tag to have a value of `./privacy-policy.html`. We can remove the `href` attribute from this element in `privacy-policy.html` entirely since we are already on this page and don't want users accidentally clicking the link and reloading the page for no reason.
 
@@ -578,7 +578,7 @@ This is a lot of content, but that is why copy and paste exists!
 
 Now that we are done adding content it is a good time for us to start including the styles for the page, but first let's take one more look at how the browser displays all of this HTML without any custom CSS included:
 
-![privacy policy html](assets/step-7/300-html-complete.png)
+![privacy policy html](assets/step-7/300-html-complete.jpg)
 
 It's not as pretty as it will be once we've added in our CSS, but the browser still prints the content to the page in a very organized and readable fashion. To reiterate concepts we've discussed earlier in this project, this is what's known as the "normal flow" of a web page. All of the content comes onto the page in the order it was placed in the HTML document and all content gets its own space based on what HTML tag wraps it. While the result isn't the most visually appealing, it serves its core purpose very well, which is to get HTML content to the visitor.
 
@@ -718,7 +718,7 @@ Now that we have our files in place, let's add some style definitions to `second
 
 That should've fixed our spacing issues in that section. We overrode the `background-position` and `height` properties and we added `text-align` and `margin-bottom`. Notice how we didn't even list the `background-image` and `background-size` properties? We can get a better idea of what's happening right now in Chrome DevTools:
 
-![Chrome DevTools Override](assets/step-7/500-devtools.jpeg)
+![Chrome DevTools Override](assets/step-7/500-devtools.jpg)
 
 As we can see, there are two sets of styles being applied to our class of `hero`. One is in `secondary-styles.css` at line 2 (in this screenshot), and the other is in `style.css` at line 75. To explain how the browser chose which styles to apply and which ones to discard, just look at how the `secondary-styles` one is listed on top of the other one, as if it's taking precedence. That's because it is.
 
@@ -753,7 +753,7 @@ A useful feature of CSS is that it overrides at the declaration level, not the r
 
 Again, we can see these CSS rules and overrides working together to create this updated hero section in DevTools:
 
-![DevTools CSS Overrides](assets/step-7/500-devtools.jpeg)
+![DevTools CSS Overrides](assets/step-7/500-devtools.jpg)
 
 As far as the hero section in `privacy-policy.html` is concerned, it sees two sets of CSS rules from the two stylesheets and combines them, then prioritizes the values that come later in conflicting declarations. The result is this:
 
@@ -807,7 +807,7 @@ If any of the spacing seems off, remember you can always use Chrome DevTools to 
 
 The result should look like this:
 
-![Privacy Policy Hero](assets/step-7/600-page-title-css.png)
+![Privacy Policy Hero](assets/step-7/600-page-title-css.jpg)
 
 Now let's do the same thing and add styles to our `secondary-content` class and its child elements using class selectors and nested selectors using these specifications:
 
