@@ -194,7 +194,7 @@ What is the correct syntax to close the `<title>` element?\
 What is the difference between `<h1>` and `<h2>`?\
 What is the purpose of the `<body>` element?
 
-There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's an element in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This is an example of a **meta tag**, [of which there are many](https://devhints.io/html-meta). Like `<title>` elements, they give the browser extra information about the page, sometimes for display purposes and sometimes for search engine optimization. We'll discuss more of these in future modules.
+There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's an element in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This is an example of a [**meta tag**, of which there are many](https://devhints.io/html-meta). Like `<title>` elements, they give the browser extra information about the page, sometimes for display purposes and sometimes for search engine optimization. We'll discuss more of these in future modules.
 
 The `charset` meta tag is important to include now, though, because it specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character we would want, from foreign language symbols to emojis. 
 
@@ -313,6 +313,7 @@ Inside these boxes, we can have additional boxes, like an overall list (Box 3) t
 Could we have omitted Box 3 in this example, and allowed the link in Boxes 4 and 5 to be inside Box 2? Probably, but it helps to keep like content grouped together. Thus, Box 3's sole purpose is to better organize smaller pieces of information (the links).
 
 > **Pause:** Why is it helpful to indent each nested `<div>`?
+
 Answer: To make the code more readable.
 
 Let's take a piece of our mock-up and think about how we could break this down into logical boxes or containers:
