@@ -160,7 +160,7 @@ Our image is enormous! Remember, SVGs are scalable. There's no built-in, hard-se
 </div>
 ```
 
-> **Rewind:** This seems like a good stopping point, which means... time to `add`, `commit`, and `push`!
+> **Pro Tip:** This seems like a good stopping point, which means... time to `add`, `commit`, and `push`!
 
 # Style What We Do
 
@@ -211,7 +211,7 @@ The heading for this section should now look like this:
 
 And that's definitely an improvement, but if we left it like that, the design team would not be happy. The yellow border isn't supposed to extend to the edges of the screen! You may wonder why that's even happening, since the text "What We Do" doesn't take up that much space, but think back to previous lessons where we talked about inline elements and block elements.
 
-> **Rewind:** Block elements take up 100% of the width of their parent, regardless of content size. Inline elements only take up as much space as their content needs, allowing multiple inline elements to sit next to each other.
+Block elements take up 100% of the width of their parent, regardless of content size. Inline elements only take up as much space as their content needs, allowing multiple inline elements to sit next to each other.
 
 The `<h2>` element, by default, is a block element, but with CSS, we can change that default behavior: 
 
@@ -292,9 +292,9 @@ Then we can clean up the heading:
 
 Huh. You know what? Those CSS declarations look almost identical to the ones we wrote for `.intro h2`. The only thing that's different is the `border-color`. In programming, we want to cut down on duplicate code as much as possible, and this is a great example of unnecessary duplication.
 
-> **Important:** An important principle in software development that you might hear is the term [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), or Don't Repeat Yourself.
+> **Pro Tip:** An important principle in software development that you might hear is the term [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), or Don't Repeat Yourself.
 
-We could consolidate these CSS rules into more generic classes that all of our headings (including "Meet the Trainers" in the next lesson) could pull from. Let's reorganize our CSS with a few new classes:
+We could consolidate these CSS rules into more generic classes that all of our headings (including "Meet the Trainers" in the next lesson) could pull from. Let's reorganize our CSS with a few new rules:
 
 ```css
 .section-title {
@@ -315,7 +315,7 @@ We could consolidate these CSS rules into more generic classes that all of our h
 }
 ```
 
-Now we can delete the previous CSS rules for `.intro h2` and `.steps h2` (sorry!). We'll also need to update the HTML code to use these new classes:
+Now we can delete the previous CSS rules for `.intro h2` and `.steps h2`, since we have combined their declarations. We'll also need to update the HTML code to use these new classes:
 
 ```html
 <section id="what-we-do" class="intro">
@@ -331,7 +331,7 @@ Now we can delete the previous CSS rules for `.intro h2` and `.steps h2` (sorry!
 
 Note that these `<h2>` elements in different sections are able to use the same `section-title` class, giving them all the same baseline in terms of size, spacing, etc. We can then add additional classes by separating the class names with a space. The attribute `class="section-title primary-border"` is actually pulling in CSS declarations from two different classes.
 
-> **Skill Drill:** This is such an important concept with CSS that it's worth practicing a little more outside of this module. When you have a moment, try writing two classes (and only two classes, no other selectors) that could make the following possible:
+> **Skill Drill:** This is such an important concept with CSS that it's worth practicing a little more outside of this module. When you have a moment, try writing two class rules (and only two classes, no other selectors) that could make the following possible:
 >
 > ```html
 > <div>bold, green text</div>
@@ -340,12 +340,9 @@ Note that these `<h2>` elements in different sections are able to use the same `
 > ```
 >
 > Answer:
-> ```html
-> <div class="font-1">bold, green text</div>
-> <div class="font-1 font-2">bold, italic, underlined, green text</div>
-> <div class="font-2">italic, underlined text</div>
-> ```
 > ```css
+> /* declare two class rules, one for bold-green and one for italic-underline */
+>
 > .font-1 {
 >   font-weight: bold;
 >   color: green;
@@ -355,6 +352,12 @@ Note that these `<h2>` elements in different sections are able to use the same `
 >   font-style: italic;
 >   text-decoration: underline;
 > }
+> ```
+> ```html
+> <div class="font-1">bold, green text</div>
+> <!-- add both classes to the second <div> to bring in all four declarations -->
+> <div class="font-1 font-2">bold, italic, underlined, green text</div>
+> <div class="font-2">italic, underlined text</div>
 > ```
 
 What's left is some general clean-up to size and color elements correctly. Even though this may feel like repeat work, still type out each one instead of copy/pasting. It'll help you memorize the syntax faster!
