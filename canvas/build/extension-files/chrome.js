@@ -5,10 +5,10 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 });
 
 // block currently live assets so local changes can override
-chrome.webRequest.onBeforeRequest.addListener(
-  function() { return {cancel: true}; },
-  {
-    urls: ["canvas-fsfo-theme.css", "canvas-fsfo-script.js"]
-  },
-  ["blocking"]
-);
+// chrome.webRequest.onBeforeRequest.addListener(
+//   function() { return {cancel: true}; },
+//   {
+//     urls: ["canvas-fsfo-theme.css", "canvas-fsfo-script.js"]
+//   },
+//   ["blocking"]
+// );
