@@ -12,7 +12,7 @@ Here's a quick look at the build process which starts with adding the markup and
 4) Style section background, alignment, and typography
 
 ## Building the Map
-Take a close look at the map we would like to build in this step.<br />
+Take a close look at the map to get an idea of what we are building in this step.<br />
 ![Inline Frame Mock-up](./assets/step-6/170-iframe-mock-up-html.png) <br />
 
 Begin with the markup that has been provided for us from Lesson 1.
@@ -44,19 +44,27 @@ The markup should look like this:
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12182.30520634488!2d-74.0652613!3d40.2407219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1561060983193!5m2!1sen!2sus"
     frameborder="0"
-    height="400"
-    width="400"
     style="border:0"
     allowfullscreen
   ></iframe>
 </div>
 ```
 
-Let's unpack the attributes for the `iframe` as well as talk about some of the other options available.
+Let's add a height and width attribute to enable of Google Maps interactive controls.
+```html
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12182.30520634488!2d-74.0652613!3d40.2407219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1561060983193!5m2!1sen!2sus"
+    frameborder="0"
+    height="400"
+    width="400"
+    style="border:0"
+    allowfullscreen
+  ></iframe>
+  ```
+ Now let's unpack the attributes for the `iframe` as well as talk about some of the other options available.
 
 - **src**: The most important attribute is the `src` since without this, nothing will render. The `src` value is a URL path linking to the external website content that will be embedded. This should be familiar since it is the same attribute used in the `img` element.
 - **frameborder**: By default, the browser will render an `iframe` element with a thin border. This attribute allows us to override that default, effectively removing the border.
-- **height** and **width**: We are able change the `iframe` size dimensions by declaring the `width` and `height` attributes. The `height` and `width` of the `iframe` can also be controlled by CSS rules in the style sheet.
 - **style**: This is an inline style to set no border for newer browsers.
 - **allowfullscreen**: Some attributes are properties that can be turned on by simply adding the attribute. The `allowfullscreen` attribute will offer a link to view the map on a new page in full screen mode. Notice how `allowfullscreen` doesn't have any value assignment. Another popular attribute that doesn't have a value assignment for example is `checked` for a `checkbox` input element.
 > **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers so we will use the `border` property from CSS to declare this property. We wouldn't typically worry about old browser support however Google likes to cover all their bases.
