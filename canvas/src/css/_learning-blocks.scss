@@ -9,9 +9,10 @@ blockquote {
   transition: border-width .2s;
 
   // title
-  & > strong {
+  .title {
    font-size: 22px;
    font-variant: small-caps;
+   display: block;
   }
 
   // some learning blocks start collapsed
@@ -23,7 +24,7 @@ blockquote {
     }
 
     &.hint {
-      & > strong::after {
+      .title::after {
         content: "?";
       }
 
