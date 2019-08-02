@@ -1,4 +1,4 @@
-# Reach Out and Contact 
+# Lesson 6: Contact Us 
 
 ## Introduction
 
@@ -11,10 +11,11 @@ Here's a quick look at the build process which starts with adding the markup and
 3) Design two column layout
 4) Style section background, alignment, and typography
 
-## Building the map
-Let's take a close look at our mock-up and think about how we will accomplish this step. <br />
+## Building the Map
+Take a close look at the map we would like to build in this step.<br />
 ![Inline Frame Mock-up](./assets/step-6/170-iframe-mock-up-html.png) <br />
-Let's begin with the markup that has been provided for us from Lesson 1.
+
+Begin with the markup that has been provided for us from Lesson 1.
 ```html
 <!-- "reach out" section -->
 <section>
