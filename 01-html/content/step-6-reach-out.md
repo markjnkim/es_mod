@@ -2,30 +2,30 @@
 
 ## Introduction
 
-Way to go! The Run Buddy landing page is nearly complete and along the way we have learned a lot of new web development concepts. We have received a request from our sales team to build a contact section that can direct user questions and generate potential sales leads. This offers a great opportunity to not only practice some of the concepts we have already learned, but also introduce an advanced HTML element called an `iframe`, to create our map, as well as how to design a two column layout.
-Let's take a look at our mock-up to see what we will be building for this section.
+Way to go! The Run Buddy landing page is nearly complete and along the way we have learned a lot of new web development concepts. We have received a request from our sales team to build a contact section that can direct users' questions and generate potential sales leads. 
+Let's take a look at our mock-up to see what we will be building for this lesson.
 ![Reach-Out Mock-up](./assets/step-6/100-RO-mock-up.png)
-Here's a quick look at the build process for this lesson which starts with adding the markup and then the styling.
-1) Add markup for the `iframe` element 
-2) Add markup for Run Buddy's contact info 
+Here's a quick look at the build process which starts with adding the markup and then the styling.
+1) Add a map
+2) Add Run Buddy's contact info 
 3) Design two column layout
 4) Style section background, alignment, and typography
 
-## Building the iframe
-Let's take a close look at this element in our mock-up to see what we will be building in this step. <br />
+## Building the map
+Let's take a close look at our mock-up and think about how we will accomplish this step. <br />
 ![Inline Frame Mock-up](./assets/step-6/170-iframe-mock-up-html.png) <br />
-To begin, let's take a look at some of the markup that has been provided for us from Lesson 1.
+Let's begin with the markup that has been provided for us from Lesson 1.
 ```html
 <!-- "reach out" section -->
 <section>
   <h2>Reach Out</h2>
 </section>
 ```
-Under the `h2` element, inside our Reach Out section, we need to add a `div` which we will act as a container for the content in this section. We'll do this because all of the contact information is conceptually related and wrapping them in a parent element enables us to constrain their flow to the bounds of that parent. Let's add a `class` called `contact-info` to this `div` which we will use later in our style sheet.
+Under the `h2` element, inside our Reach Out section, we need to add a `div` which we will act as a container for the body of content in this section. All of the contact information is conceptually related and wrapping them in a parent element, the container, enables us to constrain their flow to the bounds of that parent. Let's add a `class` called `contact-info` to this `div` which we can now call the *contact container*.
 
-The requirements from the design team made it clear that this map needs to be interactive, meaning the users will be able to scroll, move, and zoom on the map. But how the heck are we going to do that?
-Thankfully, we just need to use a special HTML element called an `iframe`. An `iframe`, which stands for inline frame, is able to nest browsing content and embed an HTML page into the current page. An `iframe` can add rich features to our website including videos with playback controls, gif's, and of course maps, but one caveat is that not all websites offer this feature. 
-Let's nest the `iframe` into our contact `div` container which we will assign the `.contact-info` class for later styling in CSS. In our case, we will use Google Maps to display Run Buddy's address so let's follow the instructions to retrieve an `iframe` for our address.
+The requirements from the design team made it clear that this map needs to be interactive, meaning the users must be able to scroll, move, and zoom on the map. But how the heck are we going to do that?
+Thankfully, there is a special HTML element called an `iframe` we can use. An `iframe`, which stands for inline frame, is able to nest browsing content and embed an HTML page into the current page. An `iframe` can add rich features to our website including videos with playback controls, gif's, and of course maps, but one caveat is that not all websites offer this feature. 
+Let's place the `iframe` inside the *contact container*. In our case, we will use Google Maps to display Run Buddy's address so let's follow the instructions to retrieve an `iframe` for our address.
 
 > **Video Walkthrough**: For the following steps:
 
@@ -67,17 +67,16 @@ These interactive controls aren't actually a part of the `iframe`, but rather he
 
 ![iframe-map](./assets/step-6/200-iframe-html.png)
 > **Activity**: Try replacing the iframe with a [YouTube](https://www.youtube.com/) video or a [gif](https://giphy.com/).
-> **Pro Tip**: It is important to note that with the power of the `iframe` also comes responsibility. Be careful with the use of an `iframe` with any copy right protected websites.
+> **Pro Tip**: It is important to note that with the power of the `iframe` also comes with responsibility. Be careful with the use of an `iframe` with any copyrighted websites. Security risks must also be assessed since an `iframe` from a compromised website may prove to be dangerous.
 ## Creating our Contact Info
 
-In this step we will be adding the company's contact information. 
-According to the design team, they want the contact info contained in a separate column so let's take a look at the mock-up before we proceed to see what our content should be.<br />
+In this step we will be adding Run Buddy's company contact information to the Reach Out section. The design team wants the contact info contained in a column format so let's take a look at the mock-up and plan how we will proceed.<br />
 ![Contact Info](./assets/step-6/250-contact-mock-up.png)<br />
-In the next step let's add our heading and the body text first and then we will proceed to the address information in the following step.
+In the next step, let's add our heading and text first and then add the address information in the following step.
 
-> **Activity**: Create a  `div` container and its child elements like an `h3` element for the heading and a `p` element for the following two lines of text.  
+> **Activity**: Create a `div` container and its child elements like an HTML heading element and a `p` element for the following two lines of text.  
 > **Solution**:
-The first part of the html code should look similar to this:
+The first part of the HTML code following the `iframe` should look similar to this:
 ```html
 <div>
   <h3>Run Buddy</h3>
@@ -88,16 +87,16 @@ The first part of the html code should look similar to this:
   </p>
 </div>
 ```
-This part should've be more or less straight forward. We chose an `h3` element because best practice states content with less prominence in the document should be resigned to a higher heading number designation such as `h3`.  The `p` element will render the text, but what is the `<br />`? This HTML element creates a line break. We are using a self closing tag since this element has no content or child elements. We could've just added another `p` element for the second line of text, but in programming, sometimes there are multiple "correct" solutions.
+This part should've be more or less straight forward. We chose an `h3` element because best practice states that headings with less importance in the document should be receive a higher heading number designation. Let's take a look at a new element introduced here called the `<br />` element. This HTML element creates a line break. We are using a self closing tag since this element has no content or child elements. We could've just added another `p` element for the second line of text, but in programming, sometimes there are multiple "correct" solutions.
 
 Now let's save and render this view in the browser.
 
 ![contact-heading](./assets/step-6/600-contact-heading-html.png)
 
 Our next step will be adding the address content to our markup using another new HTML element called `address`.
-The `address` element defines the contact information for the author/owner of a document or an article. If the `address` element is inside the `body` element, it represents contact information for the document. Inside the `address` element will be the physical address as well as the phone number and email address. Please note here that the design team required the email address should be a link that opens the user's default email application and begins a new email with the address input field populated with the Run Buddy's email address "info@runbuddy.io". 
+The `address` element defines the contact information for the author/owner of a document or an article. If the `address` element is inside the `body` element, it represents contact information for the document. Inside the `address` element will be the physical address as well as the phone number and email address. Please note  that the design team requires the email address to be a link that opens the user's default email application and begins a new email with the "To:" address input field populated with the Run Buddy's email address, "info@runbuddy.io". 
 
-Let's first add this markup and then explain it.
+Let's add this markup and then explain it.
 
 ```html
 <div>
@@ -120,7 +119,7 @@ Let's first add this markup and then explain it.
 * **`<address>`**: Defines the contact information for the author or owner of the document or parent element.
 * **`<a href="mailto:info@runbuddy.io">`**: Using the `mailto:` prefix in the anchor tag's `href` attribute instructs the browser to open the default mail client application upon clicking the link and then populates the address field with the email address listed in the `href` value. Review the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) to look at some of the other options available for the anchor element.
 
-Let's save then render in the browser.
+Let's save and then render in the browser.
 ![contact-info](./assets/step-6/630-contact-info-html.png)
 Sure, the current section doesn't look quite right yet, but now that the HTML is finished, let's apply some CSS styling to fix the layout and colors.
 This is also a great place to `add` and `commit` our new additions to the page.
