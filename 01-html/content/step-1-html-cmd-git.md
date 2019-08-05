@@ -2,10 +2,15 @@
 
 ## Introduction
 
-Let's jump right in and get our hands dirty with some actual coding! 
-We know this is a big undertaking for a newbie developer, but thankfully the app we're building—Run Buddy—gives us some leeway to learn as we build. 
+A friend of a friend who works at Run Buddy put in a good word for us, and the company has agreed to hire us as a freelance web developer! Run Buddy is trying to increase its subscriptions and wants to launch a new landing page to attract sign-ups. The Run Buddy design team has provided a mock-up of what they want the landing page to look like:
 
-In fact, many real-world companies don't expect developers to know everything up front. Part of the development process is figuring out new technologies. Granted, we are brand new developers, so we have a longer road ahead of us than a seasoned programmer learning a new tool. The key is to take it one step at a time and set up the project correctly. 
+![mock-up](./assets/step-1/050-mock-up.png)
+
+Your job is to make the Run Buddy landing page look nice, then hand it off to Run Buddy's internal developers to finalize the data collecting portion of it. Later in the boot camp, we'll know enough to do both the visuals and database work. For now, though, the goal is to build the landing page's content and visual design with HTML and CSS.
+
+That said, let's jump right in and get our hands dirty with some actual coding! We know this is a big undertaking for a newbie developer, but thankfully Run Buddy has given us a generous deadline. That means we have ample time to learn as we build.
+
+Incidentally, did you know that many real-world companies don't expect developers to know everything up front? Part of the development process is figuring out new technologies. Granted, we are brand new developers, so we have a longer road ahead of us than a seasoned programmer learning a new tool. The key is to take it one step at a time and set up the project correctly. 
 
 In this first lesson, we'll familiarize ourselves with some important tools and processes on our way to writing that first line of HTML code.
 
@@ -13,7 +18,9 @@ In this first lesson, we'll familiarize ourselves with some important tools and 
 
 In the old days, entering text-based commands on a black screen (known as the **command-line interface**, or **CLI**) was the only way to interact with a computer. There was no graphical user interface (aka GUI) with icons, menus, and buttons to click. 
 
-Now that powerful operating systems like Windows and macOS exist, most computer users never have to look at a CLI. For developers, though, the command line (often called the **terminal**) is still commonly used for certain tasks. Later in the course, the CLI will become integral to building full-stack applications. For now, we'll be using it to set up our project.
+Now that powerful operating systems like Windows and macOS exist, most computer users never have to even look at a CLI. For developers, though, the command line (often called the **terminal**) is still commonly used for certain tasks. 
+
+Later in the course, the CLI will become integral to building full-stack applications. For now, we'll be using it to set up our project.
 
 ### Access the Command Line on a Mac
 Mac users, you already have a built-in Terminal app, which you can go ahead and launch by searching for "terminal" in the Spotlight Search (click the 🔍 icon in the top-right corner, or use the keyboard shortcut Command+Spacebar).
@@ -25,9 +32,15 @@ Regardless of your operating system, you should see a window that looks like thi
 
 ![terminal window](./assets/step-1/100-terminal.png)
 
-In this window, type `pwd` and press Enter. The terminal will display something like `/c/Users/YourName` on Windows or `/Users/YourName` on Mac. This is because when you first open Terminal or Git Bash, you start in your user directory. The command `pwd` stands for "print working directory" and lets us know which directory (aka folder) the terminal is currently "in," or looking at. It's like asking "Where am I?" 
+In this window, type `pwd` and press Enter. The terminal will display something like `/c/Users/YourName` on Windows or `/Users/YourName` on Mac. This is because when you first open Terminal or Git Bash, you start in your user directory. 
 
-If you want to see what's in this directory, you could navigate to it through your operating system's GUI (by clicking on folder icons, etc.), but since we're in the command line, let's try looking at the contents using another command: `ls`. The `ls` command lists the files and folders within the current directory. Some common folders you might see in here are `Documents`, `Pictures`, `Music`, and `Desktop`. 
+> **Important:** To succeed in this boot camp, type out every code snippet yourself instead of copying and pasting. It will help build up that muscle memory you need to become an expert coder faster!
+
+The command `pwd` stands for "print working directory" ("print" in this context means "display to the screen") and lets us know which directory (aka folder) the terminal is currently in, or looking at. Typing `pwd` is like asking "Where am I?" 
+
+If you want to see what's in this directory, you could navigate to it through your operating system's GUI (by clicking on folder icons, etc.), but since we're in the command line, let's try looking at the contents using another command: `ls`. 
+
+The `ls` command lists the files and folders within the current directory; it's like asking "What's here?" Some common folders you might see in your user directory are `Documents`, `Pictures`, `Music`, and `Desktop`. 
 
 Fun fact: the graphical "desktop" you see when your computer first starts is this `Desktop` folder in your user directory! Let's "go" there now from the command line by typing the following commands, pressing Enter after each line:
 
@@ -36,7 +49,7 @@ cd Desktop
 pwd
 ```
 > **Pause:** What do you think `cd` stands for?\
-Answer: Change directory.
+>     Answer: Change directory.
 
 We can use the `cd` command to move in to directories and to back out of directories. Try the following commands, noting what `pwd` prints each time:
 
@@ -92,7 +105,7 @@ rm hello.txt
 ls
 ```
 
-Of course, everything we've done up to this point could also be accomplished with mouse clicks and context menus, but you'll find that, once you're used to it, the command line allows you to work faster as a developer. Plus, it makes you feel really cool. 
+Of course, everything we've done up to this point could also be accomplished with mouse clicks and context (right-click) menus, but you'll find that, once you're used to it, the command line allows you to work faster as a developer. Plus, it makes you feel really cool. 
 
 To recap what we've learned:
 
@@ -164,7 +177,7 @@ Also make a note that this change only affected the RUN BUDDY text. Why do you t
 
 Now change it to an `<h3>` and observe again how the text shrunk.
 
-With this new understanding of HTML elements, let's look at the others we used. We're writing an HTML page, so it makes sense that everything would need to be contained in an `<html>` element. The only thing that didn't go inside this element was the `<!DOCTYPE html>`. This is an extra line that tells the browser how to interpret your HTML code. We don't need to worry about supporting very old browsers like Netscape Navigator, so this **DOCTYPE** will always be written as `<!DOCTYPE html>`.
+With this new understanding of HTML elements, let's look at the others we used. We're writing an HTML page, so it makes sense that everything would need to be contained in an `<html>` element. The only thing that didn't go inside this element was the `<!DOCTYPE html>`. This is an extra line that tells the browser how to interpret your HTML code.
 
 > **Deep Dive:** Read more about the [DOCTYPE](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode).
 
@@ -177,13 +190,20 @@ For instance, the browser would like to know what to call this webpage. Hence, t
 Try changing the title in the HTML file, making sure you see the change reflected in the browser.
 
 > **Check Point:** \
-What is the correct syntax to close the `<title>` element?\
-What is the difference between `<h1>` and `<h2>`?\
-What is the purpose of the `<body>` element?
+>What is the correct syntax to close the `<title>` element?\
+>    Answer: `</title>`
+>    
+>What is the difference between `<h1>` and `<h2>`?\
+>    Answer: An `<h1>` is the most important heading and is visually larger.
+> 
+>What is the purpose of the `<body>` element?\
+>    Answer: This is where all of the webpage's content will go.
 
-There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's an element in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This is an example of a **meta tag**, [of which there are many](https://devhints.io/html-meta). Like `<title>` elements, they give the browser extra information about the page, sometimes for display purposes and sometimes for search engine optimization. We'll discuss more of these in future modules.
+There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's an element in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This is an example of a [**meta tag**, of which there are many](https://devhints.io/html-meta). Like `<title>` elements, they give the browser extra information about the page, sometimes for display purposes and sometimes for search engine optimization. We'll discuss more of these in future modules.
 
-The `charset` meta tag is important to include now, though, because it specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character we would want, from foreign language symbols to emojis. Copy this emoji (🏃) and paste it somewhere in your `<body>`. Note that it shows up just fine in the browser, but if you change the meta tag to `<meta charset="ASCII" />`, it no longer works because the browser will limit the available characters to those of the ASCII character set. Best to stick with UTF-8.
+The `charset` meta tag is important to include now, though, because it specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character we would want, from foreign language symbols to emojis. 
+
+Try this out for fun: Copy this emoji (🏃) and paste it somewhere in your `<body>`. Note that it shows up just fine in the browser, but if you change the meta tag to `<meta charset="ASCII" />`, it no longer works because the browser will limit the available characters to those of the ASCII character set. Best to stick with UTF-8.
 
 > **Deep Dive:** Read more about [character encoding](https://www.w3.org/International/questions/qa-what-is-encoding).
 
@@ -278,10 +298,17 @@ With two commits under our belt, run the command `git log`. This will show a his
 This could be very useful once we start working on larger apps and/or with multiple developers!
 
 > **Check Point:** \
-What command creates a new Git repository?\
-What does the `git status` command tell us?\
-What command do you need to run before `git commit`?\
-How do you add a message to a `git commit`?
+> What command creates a new Git repository?\
+>    Answer: `git init`
+
+> What does the `git status` command tell us?\
+>    Answer: What's changed since the last commit. 
+
+> What command do you need to run before `git commit`?\
+>    Answer: `git add`
+
+> How do you add a message to a `git commit`?\
+>    Answer: Add a `-m` "message" at the end of `git commit`.
 
 ## Outline the Page
 
@@ -298,6 +325,8 @@ Inside these boxes, we can have additional boxes, like an overall list (Box 3) t
 Could we have omitted Box 3 in this example, and allowed the link in Boxes 4 and 5 to be inside Box 2? Probably, but it helps to keep like content grouped together. Thus, Box 3's sole purpose is to better organize smaller pieces of information (the links).
 
 > **Pause:** Why is it helpful to indent each nested `<div>`?
+
+>  Answer: To make the code more readable.
 
 Let's take a piece of our mock-up and think about how we could break this down into logical boxes or containers:
 
@@ -362,6 +391,8 @@ With the advent of HTML5, however, newer **semantic elements** were introduced t
 </body>
 ```
 
+> **Deep Dive:** Read about [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5).
+
 Is there any ambiguity about what this block of code represents? Nope, it's a header, and we defined it as such using the HTML5 `<header>` element. On a technical level, a `<header>` behaves exactly the same as a `<div>`. Its purpose is simply to convey meaning, not only to developers reading the code but to search engines who like to know which sections of a webpage are more important than others.
 
 We have another clearly distinct section in our layout at the very bottom: the footer. No coincidence, there's a semantic element for that:
@@ -373,6 +404,8 @@ We have another clearly distinct section in our layout at the very bottom: the f
 ```
 
 While there are dozens of [semantic elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning) available to us, it might be harder to find appropriate matches for the rest of the layout. The large image at the top is sometimes referred to as a "jumbotron" or "hero," but there's no `<jumbotron>` element in HTML. If none of the existing elements make sense, there's no harm in falling back on a good ol' `<div>`. At the very least, though, we can think of our layout as having several key sections. 
+
+> **Important:** Remember to type out every code snippet in this lesson instead of copying and pasting! 
 
 Hey, what do you know, there's a `<section>` element! Let's go ahead and outline all of our sections in the `index.html` file:
 
@@ -413,8 +446,6 @@ Hey, what do you know, there's a `<section>` element! Let's go ahead and outline
 </footer>
 ```
 
-> **Important:** To succeed in the boot camp, type out every code snippet yourself instead of copying and pasting. It will help build up that muscle memory you need to become an expert coder faster!
-
 > **Pro Tip:** You may have noticed something new here: the `<!-- -->` element. This is how we can leave notes, or comments, in the code. These do not show up in the browser but are helpful to have to make the code even easier to read.
 
 Save, refresh the browser, and admire your efforts:
@@ -424,11 +455,17 @@ Save, refresh the browser, and admire your efforts:
 Okay, still not very pretty, but we've laid some important groundwork that's going to make the next several steps much easier to complete.
 
 > **Check Point:** \
-What's the first thing you should do before writing a single line of HTML code?\
-What's the difference between a `<section>` element and a `<div>`?\
-How do you leave comments in HTML code?
+> What's the first thing you should do before writing a single line of HTML code?\
+>    Answer: Sketch out what the webpage should look like.
 
-## Ignore Potentially Problematic Files
+What's the difference between a `<section>` element and a `<div>`?\
+>    Answer: On a technical level, there is no difference, but a `<section>` element can convey more meaning to other developers or search engines.
+
+How do you leave comments in HTML code?
+>    Answer: `<!-- -->`
+
+
+## Revisit Our Git Workflow
 
 As you get into a comfortable workflow, you'll want to commit to Git often. This ensures you don't accidentally lose any work and gives you a "save point" that you can potentially revert back to. We just finished an important milestone: outlining the high-level structure of our webpage. This is the perfect time to commit. Before we commit, though, let's create another file in our project:
 
@@ -449,7 +486,9 @@ git add .
 git add -A
 ```
 
-`git add .` will add any untracked or modified files in the current directory (`.`) and all subdirectories. `git add -A` will add any files in the entire project. Both are useful when needing to stage multiple files at once but should be used carefully and not without a `.gitignore` file in place first! With these changes staged, let's commit now:
+`git add .` will add any untracked or modified files in the current directory (the current directory being represented by a `.`) and all subdirectories. `git add -A` will add any files in the entire project. Both are useful when you need to stage multiple files at once but should be used carefully and not without a `.gitignore` file in place first! 
+
+With these changes staged, let's commit now:
 
 ```bash
 git commit -m "html outline and gitignore"
@@ -457,15 +496,15 @@ git commit -m "html outline and gitignore"
 
 ## Publish with GitHub
 
-Awesome, we've now saved our hard work to Git. The problem, however, is that these commits only live on our local computer. So if our computer dies, our work is lost. The Run Buddy company would be pretty upset if that happened. It would be helpful if we could save this repository in a remote location (i.e., on someone else's computer!). 
+Awesome, we've now saved our hard work to Git. The problem, however, is that these commits only live on our local computer—so if our computer dies, our work is lost. The Run Buddy company would be pretty upset if that happened. 
 
-That's where GitHub comes in. [GitHub](https://github.com/) is a website that hosts Git repositories. It's free and very popular among developers, so make sure you have an account!
+It would be helpful if we could save this repository in a remote location (i.e., on someone else's computer!). That's where GitHub comes in. [GitHub](https://github.com/) is a website that hosts Git repositories. It's free and very popular among developers, so make sure you have an account!
 
-> **Career Prep:** GitHub has become a vital resource to recruiters and hiring managers as it helps them see a candidate's recent activity, samples of their code, and their thought process via READMEs.
+> **Career Prep:** GitHub has become a vital resource to recruiters and hiring managers because it helps them see a candidate's recent activity, samples of their code, and their thought process via READMEs.
 
 > **Important:** A common misconception is that Git and GitHub are the same thing. Git is the version control software that we've installed on our computer. GitHub is a service that lets us create Git repositories on the internet. There are [other websites](https://opensource.com/article/18/8/github-alternatives) that perform the same service as GitHub, but the software on your computer (Git) wouldn't change.
 
-What we'll do is create a new repository on GitHub, then link our local Run Buddy project with this remote repository. After logging in to GitHub, find and click the green New button:
+What we'll do is create a new, remote repository on GitHub, then link our local Run Buddy project with it. After logging in to GitHub, find and click the green New button:
 
 ![new repo](./assets/step-1/1000-github-new.png)
 
@@ -526,22 +565,31 @@ Then on the next page, scroll down to the GitHub Pages section. Change the dropd
 
 This tells GitHub to use the contents of your master branch for your live website. Once you do this, GitHub will then display the message: Your site is ready to be published at https://username.github.io/run-buddy/. It might take a minute for this to actually kick in, so wait a moment before visiting this link (replacing "username" with your GitHub username, of course). When you do open it, though, you'll see that your Run Buddy webpage is now live on the internet! As we continue to improve this project and push new commits to GitHub, this live link will automatically update. Thanks, GitHub!
 
-Let's back up and look at this link again: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that `index.html` is defined as a default by the server. If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html` because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, it would be a good idea for every project to have an `index.html` file!
+Let's back up and look at this link again: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that `index.html` is defined as a default by the server. If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html` because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, make sure every project has an `index.html` file!
 
 > **Check Point:** \
-What is the purpose of the `.gitignore` file?\
-What is the relationship between Git and GitHub?\
-What is the command to "push" code to GitHub?
+> What is the purpose of the `.gitignore` file?\
+>    Answer: To prevent unwanted files from being committed.
+>
+> What is the relationship between Git and GitHub?\
+>    Answer: Git is the version control software on your computer. GitHub is a website that can host remote Git repositories.
+
+> What is the command to "push" code to GitHub?\
+>    Answer: `git push origin master`
+
+
 
 ## Reflection
 
-This lesson was mostly about setting up the project, so even though the final result may not look like much yet, we've made life easier for our future selves. The HTML structure is in place and ready to be filled in with more detailed content and styling. We've established a good workflow with Git to continually save our code changes locally and on GitHub. We also have a live website on GitHub Pages that will begin to take shape as we complete the next several lessons. 
+This lesson mostly focused on setting up the project, so even though the it might not look like much yet, you've made life much easier for your future self and have paved the way to building out the Run Buddy landing page.
+
+You've already accomplished a lot! The HTML structure is in place and ready to be filled in with more detailed content and styling. You've established a good workflow with Git to continually save your code changes locally and on GitHub. You also have a live website on GitHub Pages that will begin to take shape as you complete the next several lessons. 
 
 Some of the major takeaways from this lesson are:
 
-* Creating files and folders with the `touch` and `mkdir` commands.
+* Creating files and folders by using the `touch` and `mkdir` commands.
 
-* Moving in and out of folders with `cd` and `cd ..`
+* Moving in and out of folders by using `cd` and `cd ..`
 
 * Setting up the HTML structure with `<html>`, `<head>`, and `<body>`.
 
@@ -551,9 +599,11 @@ Some of the major takeaways from this lesson are:
 
 * Making commits with `git commit -m ""` and sending them to GitHub with `git push origin master`.
 
-Was it a lot of information to take in? Absolutely! These first few lessons are always challenging, simply because everything is so new. That's why it's important to keep practicing. Force yourself to use the command line. Type out every HTML element. Make practice repositories on GitHub. The more you do it, the quicker it will become second nature.
+Was it a lot of information to take in? Absolutely! These first few lessons are always challenging, simply because everything is so new. That's why it's important to keep practicing. Force yourself to use the command line. Type out every HTML element. Make practice repositories on GitHub. The more you do it, the more quickly it will become second nature.
 
-Next up, we'll continue to learn more about HTML while applying a much-needed visual makeover to our elements. By the end of the module, you'll have everything you need to make beautiful websites beyond Run Buddy. But let's finish this landing page first!
+Next up, we'll continue to learn more about HTML while applying a much-needed visual makeover to our elements. By the end of the module, you'll have everything you need to make beautiful websites beyond Run Buddy. 
+
+But let's finish this landing page first!
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
