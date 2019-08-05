@@ -49,7 +49,7 @@ cd Desktop
 pwd
 ```
 > **Pause:** What do you think `cd` stands for?\
-Answer: Change directory.
+>     Answer: Change directory.
 
 We can use the `cd` command to move in to directories and to back out of directories. Try the following commands, noting what `pwd` prints each time:
 
@@ -190,9 +190,14 @@ For instance, the browser would like to know what to call this webpage. Hence, t
 Try changing the title in the HTML file, making sure you see the change reflected in the browser.
 
 > **Check Point:** \
-What is the correct syntax to close the `<title>` element?\
-What is the difference between `<h1>` and `<h2>`?\
-What is the purpose of the `<body>` element?
+>What is the correct syntax to close the `<title>` element?\
+>    Answer: `</title>`
+>    
+>What is the difference between `<h1>` and `<h2>`?\
+>    Answer: An `<h1>` is the most important heading and is visually larger.
+> 
+>What is the purpose of the `<body>` element?\
+>    Answer: This is where all of the webpage's content will go.
 
 There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's an element in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This is an example of a [**meta tag**, of which there are many](https://devhints.io/html-meta). Like `<title>` elements, they give the browser extra information about the page, sometimes for display purposes and sometimes for search engine optimization. We'll discuss more of these in future modules.
 
@@ -321,7 +326,7 @@ Could we have omitted Box 3 in this example, and allowed the link in Boxes 4 and
 
 > **Pause:** Why is it helpful to indent each nested `<div>`?
 
-Answer: To make the code more readable.
+>  Answer: To make the code more readable.
 
 Let's take a piece of our mock-up and think about how we could break this down into logical boxes or containers:
 
@@ -451,13 +456,14 @@ Okay, still not very pretty, but we've laid some important groundwork that's goi
 
 > **Check Point:** \
 > What's the first thing you should do before writing a single line of HTML code?\
->    Answer: 
+>    Answer: Sketch out what the webpage should look like.
 
 What's the difference between a `<section>` element and a `<div>`?\
->    Answer: 
+>    Answer: On a technical level, there is no difference, but a `<section>` element can convey more meaning to other developers or search engines.
 
 How do you leave comments in HTML code?
->    Answer: 
+>    Answer: `<!-- -->`
+
 
 ## Revisit Our Git Workflow
 
@@ -562,21 +568,28 @@ This tells GitHub to use the contents of your master branch for your live websit
 Let's back up and look at this link again: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that `index.html` is defined as a default by the server. If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html` because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, make sure every project has an `index.html` file!
 
 > **Check Point:** \
-What is the purpose of the `.gitignore` file?\
-What is the relationship between Git and GitHub?\
-What is the command to "push" code to GitHub?
+> What is the purpose of the `.gitignore` file?\
+>    Answer: To prevent unwanted files from being committed.
+>
+> What is the relationship between Git and GitHub?\
+>    Answer: Git is the version control software on your computer. GitHub is a website that can host remote Git repositories.
+
+> What is the command to "push" code to GitHub?\
+>    Answer: `git push origin master`
+
+
 
 ## Reflection
 
-This lesson was mostly about setting up the project, so even though the final result may not look like much yet, we've made life easier for our future selves. 
+This lesson mostly focused on setting up the project, so even though the it might not look like much yet, you've made life much easier for your future self and have paved the way to building out the Run Buddy landing page.
 
-The HTML structure is in place and ready to be filled in with more detailed content and styling. We've established a good workflow with Git to continually save our code changes locally and on GitHub. We also have a live website on GitHub Pages that will begin to take shape as we complete the next several lessons. 
+You've already accomplished a lot! The HTML structure is in place and ready to be filled in with more detailed content and styling. You've established a good workflow with Git to continually save your code changes locally and on GitHub. You also have a live website on GitHub Pages that will begin to take shape as you complete the next several lessons. 
 
 Some of the major takeaways from this lesson are:
 
-* Creating files and folders with the `touch` and `mkdir` commands.
+* Creating files and folders by using the `touch` and `mkdir` commands.
 
-* Moving in and out of folders with `cd` and `cd ..`
+* Moving in and out of folders by using `cd` and `cd ..`
 
 * Setting up the HTML structure with `<html>`, `<head>`, and `<body>`.
 
