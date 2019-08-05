@@ -443,9 +443,14 @@ Save, refresh the browser, and admire your efforts:
 Okay, still not very pretty, but we've laid some important groundwork that's going to make the next several steps much easier to complete.
 
 > **Check Point:** \
-What's the first thing you should do before writing a single line of HTML code?\
+> What's the first thing you should do before writing a single line of HTML code?\
+>    Answer: 
+
 What's the difference between a `<section>` element and a `<div>`?\
+>    Answer: 
+
 How do you leave comments in HTML code?
+>    Answer: 
 
 ## Revisit Our Git Workflow
 
