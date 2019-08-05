@@ -1,4 +1,127 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:700,800|Roboto:400,400i,700&display=swap);
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #ccc;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #2d2d2d;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #999;
+}
+
+.token.punctuation {
+	color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+	color: #e2777a;
+}
+
+.token.function-name {
+	color: #6196cc;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+	color: #f08d49;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+	color: #f8c555;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+	color: #cc99cd;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #7ec699;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.inserted {
+	color: green;
+}
+
 :root {
   --trilogy-blue: #28c8e5;
   --trilogy-teal: #3393a3;
@@ -8,265 +131,113 @@
   --black: #000000;
   --white: #ffffff; }
 
-.markdown-body {
+#bootcamp {
   width: 85%;
   padding: 20px 30px 75px 30px;
   background: rgba(255, 255, 255, 0.8);
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
   color: var(--trilogy-dark-gray); }
-  .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+  #bootcamp h1, #bootcamp h2, #bootcamp h3, #bootcamp h4, #bootcamp h5, #bootcamp h6 {
     font-family: 'Raleway', sans-serif;
     color: var(--trilogy-blue);
-    font-weight: 800; }
-  .markdown-body h3 {
+    font-weight: 800;
+    line-height: 1.5; }
+  #bootcamp h1 {
+    font-size: 2.5em; }
+  #bootcamp h2 {
+    font-size: 2.25em; }
+  #bootcamp h3 {
+    font-size: 2em; }
+  #bootcamp h4 {
+    font-size: 1.75em; }
+  #bootcamp h5 {
     font-size: 1.5em; }
-  .markdown-body p {
+  #bootcamp h6 {
+    font-size: 1.25em; }
+  #bootcamp p {
     font-size: 1.1em;
     font-weight: 400;
     line-height: 1.7; }
-  .markdown-body a {
+  #bootcamp a {
     color: var(--trilogy-teal); }
-  .markdown-body a[href*=".png"],
-  .markdown-body a[href*=".gif"],
-  .markdown-body a[href*=".jpg"],
-  .markdown-body a[href*=".jpeg"],
-  .markdown-body a[href*=".pdf"] {
+  #bootcamp a[href*=".png"],
+  #bootcamp a[href*=".gif"],
+  #bootcamp a[href*=".jpg"],
+  #bootcamp a[href*=".jpeg"],
+  #bootcamp a[href*=".pdf"] {
     display: block;
     width: 100%;
     text-align: center; }
-  .markdown-body img {
+  #bootcamp img {
     max-width: 90% !important;
     margin: 20px auto;
     box-shadow: 0 0 15px #333333; }
-  .markdown-body ol, .markdown-body ul {
+  #bootcamp ol, #bootcamp ul {
     padding-left: 0; }
-  .markdown-body .video-wrapper {
+  #bootcamp .video-wrapper {
     position: relative;
     padding-bottom: 56.25%;
     /* 16:9 */
     padding-top: 25px;
     height: 0;
     margin: 20px 0; }
-  .markdown-body .video-wrapper iframe {
+  #bootcamp .video-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     box-shadow: 0 0 10px #333333; }
-  .markdown-body .pl-c {
-    color: #6a737d; }
-  .markdown-body .pl-c1,
-  .markdown-body .pl-s .pl-v {
-    color: #005cc5; }
-  .markdown-body .pl-e,
-  .markdown-body .pl-en {
-    color: #6f42c1; }
-  .markdown-body .pl-s .pl-s1,
-  .markdown-body .pl-smi {
-    color: #24292e; }
-  .markdown-body .pl-ent {
-    color: #22863a; }
-  .markdown-body .pl-k {
-    color: #d73a49; }
-  .markdown-body .pl-pds,
-  .markdown-body .pl-s,
-  .markdown-body .pl-s .pl-pse .pl-s1,
-  .markdown-body .pl-sr,
-  .markdown-body .pl-sr .pl-cce,
-  .markdown-body .pl-sr .pl-sra,
-  .markdown-body .pl-sr .pl-sre {
-    color: #032f62; }
-  .markdown-body .pl-smw,
-  .markdown-body .pl-v {
-    color: #e36209; }
-  .markdown-body .pl-bu {
-    color: #b31d28; }
-  .markdown-body .pl-ii {
-    background-color: #b31d28;
-    color: #fafbfc; }
-  .markdown-body .pl-c2 {
-    background-color: #d73a49;
-    color: #fafbfc; }
-  .markdown-body .pl-c2:before {
-    content: "^M"; }
-  .markdown-body .pl-sr .pl-cce {
-    color: #22863a;
-    font-weight: 700; }
-  .markdown-body .pl-ml {
-    color: #735c0f; }
-  .markdown-body .pl-mh,
-  .markdown-body .pl-mh .pl-en,
-  .markdown-body .pl-ms {
-    color: #005cc5;
-    font-weight: 700; }
-  .markdown-body .pl-mi {
-    color: #24292e;
-    font-style: italic; }
-  .markdown-body .pl-mb {
-    color: #24292e;
-    font-weight: 700; }
-  .markdown-body .pl-md {
-    background-color: #ffeef0;
-    color: #b31d28; }
-  .markdown-body .pl-mi1 {
-    background-color: #f0fff4;
-    color: #22863a; }
-  .markdown-body .pl-mc {
-    background-color: #ffebda;
-    color: #e36209; }
-  .markdown-body .pl-mi2 {
-    background-color: #005cc5;
-    color: #f6f8fa; }
-  .markdown-body .pl-mdr {
-    color: #6f42c1;
-    font-weight: 700; }
-  .markdown-body .pl-ba {
-    color: #586069; }
-  .markdown-body .pl-sg {
-    color: #959da5; }
-  .markdown-body .pl-corl {
-    color: #032f62;
-    text-decoration: underline; }
-  .markdown-body code,
-  .markdown-body kbd,
-  .markdown-body pre {
-    font-family: monospace,monospace;
-    font-size: 1em; }
-  .markdown-body code,
-  .markdown-body pre {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-    font-size: 12px; }
-  .markdown-body pre {
-    margin-bottom: 0;
-    margin-top: 0; }
-  .markdown-body .pl-0 {
-    padding-left: 0 !important; }
-  .markdown-body .py-0 {
-    padding-bottom: 0 !important;
-    padding-top: 0 !important; }
-  .markdown-body .pl-1 {
-    padding-left: 4px !important; }
-  .markdown-body .pl-2 {
-    padding-left: 8px !important; }
-  .markdown-body .py-2 {
-    padding-bottom: 8px !important;
-    padding-top: 8px !important; }
-  .markdown-body .pl-3,
-  .markdown-body .px-3 {
-    padding-left: 16px !important; }
-  .markdown-body .px-3 {
-    padding-right: 16px !important; }
-  .markdown-body .pl-4 {
-    padding-left: 24px !important; }
-  .markdown-body .pl-5 {
-    padding-left: 32px !important; }
-  .markdown-body .pl-6 {
-    padding-left: 40px !important; }
-  .markdown-body code {
-    background-color: rgba(27, 31, 35, 0.05);
-    border-radius: 3px;
-    font-size: 85%;
-    margin: 0;
-    padding: .2em .4em; }
-  .markdown-body pre {
-    word-wrap: normal; }
-  .markdown-body pre > code {
-    background: transparent;
-    border: 0;
-    font-size: 100%;
-    margin: 0;
-    padding: 0;
-    white-space: pre;
-    word-break: normal; }
-  .markdown-body .highlight {
-    margin-bottom: 16px; }
-  .markdown-body .highlight pre {
-    margin-bottom: 0;
-    word-break: normal; }
-  .markdown-body .highlight pre,
-  .markdown-body pre {
-    background-color: #f6f8fa;
-    border-radius: 3px;
-    font-size: 85%;
-    line-height: 1.45;
-    overflow: auto;
-    padding: 16px; }
-  .markdown-body pre code {
-    background-color: transparent;
-    border: 0;
-    display: inline;
-    line-height: inherit;
-    margin: 0;
-    max-width: auto;
-    overflow: visible;
-    padding: 0;
-    word-wrap: normal; }
-  .markdown-body .pl-token.active,
-  .markdown-body .pl-token:hover {
-    background: #ffea7f;
-    cursor: pointer; }
-  .markdown-body .pl-0 {
-    padding-left: 0 !important; }
-  .markdown-body .pl-1 {
-    padding-left: 4px !important; }
-  .markdown-body .pl-2 {
-    padding-left: 8px !important; }
-  .markdown-body .pl-3 {
-    padding-left: 16px !important; }
-  .markdown-body .pl-4 {
-    padding-left: 24px !important; }
-  .markdown-body .pl-5 {
-    padding-left: 32px !important; }
-  .markdown-body .pl-6 {
-    padding-left: 40px !important; }
-  .markdown-body .pl-7 {
-    padding-left: 48px !important; }
-  .markdown-body .pl-8 {
-    padding-left: 64px !important; }
-  .markdown-body .pl-9 {
-    padding-left: 80px !important; }
-  .markdown-body .pl-10 {
-    padding-left: 96px !important; }
-  .markdown-body .pl-11 {
-    padding-left: 112px !important; }
-  .markdown-body .pl-12 {
-    padding-left: 128px !important; }
-  .markdown-body blockquote {
+  #bootcamp blockquote {
     border-left: 10px solid var(--trilogy-blue);
     color: #6a737d;
     font-size: 17px;
     background: #eef7f8;
     position: relative;
+    left: 64px;
+    width: calc(90% - 64px);
+    padding: 20px;
     transition: border-width .2s; }
-    .markdown-body blockquote > strong {
+    #bootcamp blockquote .title {
       font-size: 22px;
-      font-variant: small-caps; }
-    .markdown-body blockquote.collapse {
+      font-variant: small-caps;
+      display: block; }
+    #bootcamp blockquote.collapse {
       cursor: pointer; }
-      .markdown-body blockquote.collapse:hover {
+      #bootcamp blockquote.collapse:hover {
         border-width: 15px; }
-      .markdown-body blockquote.collapse.hint > strong::after {
+      #bootcamp blockquote.collapse.hint .title::after {
         content: "?"; }
-      .markdown-body blockquote.collapse.hint p {
+      #bootcamp blockquote.collapse.hint p {
         display: none; }
-      .markdown-body blockquote.collapse.pause p:not(:first-of-type) {
+      #bootcamp blockquote.collapse.pause p:not(:first-of-type) {
         display: none; }
-    .markdown-body blockquote::before {
+    #bootcamp blockquote::before {
       content: "";
       background-size: cover;
-      width: 40px;
-      height: 40px;
       position: absolute;
-      top: 0;
-      left: -55px; }
-    .markdown-body blockquote.important {
+      height: 50px;
+      left: -75px;
+      width: 50px;
+      top: 28px; }
+    #bootcamp blockquote.important {
       border-color: #721c24;
       background-color: #F8D7DA; }
-      .markdown-body blockquote.important::before {
+      #bootcamp blockquote.important::before {
         background-image: url("/courses/89/files/1921/preview"); }
-    .markdown-body blockquote.pro-tip::before {
+    #bootcamp blockquote.pro-tip::before {
       background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg"); }
+    #bootcamp blockquote.caution::before, #bootcamp blockquote.important::before {
+      background-image: url("/courses/87/files/381/preview"); }
+    #bootcamp blockquote.checkpoint::before {
+      background-image: url("/courses/87/files/382/preview"); }
+    #bootcamp blockquote.narrative::before {
+      background-image: url("/courses/87/files/383/preview"); }
+    #bootcamp blockquote.skill-drill::before {
+      background-image: url("/courses/87/files/384/preview"); }
+    #bootcamp blockquote.video::before {
+      background-image: url("/courses/87/files/385/preview"); }
 
 .pages.show .page-title {
   background: var(--trilogy-light-gray);

@@ -16,16 +16,38 @@
   padding: 20px 30px 75px 30px;
   background: rgba(255,255,255,0.8);
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
   color: var(--trilogy-dark-gray);
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', sans-serif;
     color: var(--trilogy-blue);
     font-weight: 800;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 2.25em;
   }
 
   h3 {
+    font-size: 2em;
+  }
+
+  h4 {
+    font-size: 1.75em;
+  }
+
+  h5 {
     font-size: 1.5em;
+  }
+
+  h6 {
+    font-size: 1.25em;
   }
   
   p {
