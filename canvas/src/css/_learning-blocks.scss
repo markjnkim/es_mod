@@ -56,24 +56,21 @@ blockquote {
   
   // specific background styles per learning block type
 
-  &.important {
+  &.important, &.caution {
     border-color: #721c24;
     background-color: #F8D7DA;
 
-    &::before {
-      background-image: url("/courses/89/files/1921/preview");
+     &::before {
+      background-image: url("/courses/87/files/381/preview");
     }
   }
 
   &.pro-tip {
+    border-color: #067742;
+    background-color: rgb(5, 255, 151);
+
     &::before {
       background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg");
-    }
-  }
-
-  &.caution, &.important {
-    &::before {
-      background-image: url("/courses/87/files/381/preview");
     }
   }
 
@@ -84,6 +81,9 @@ blockquote {
   }
 
   &.narrative {
+    border-color: #067742;
+    background-color: rgba(5, 255, 151, 0.267);
+    
     &::before {
       background-image: url("/courses/87/files/383/preview");
     }
@@ -95,7 +95,7 @@ blockquote {
     }
   }
   
-  &.video {
+  &.video, &.technical-overview-video, &.context-overview-video {
     &::before {
       background-image: url("/courses/87/files/385/preview");
     }

@@ -221,22 +221,26 @@ pre[class*="language-"] {
       left: -75px;
       width: 50px;
       top: 28px; }
-    #bootcamp blockquote.important {
+    #bootcamp blockquote.important, #bootcamp blockquote.caution {
       border-color: #721c24;
       background-color: #F8D7DA; }
-      #bootcamp blockquote.important::before {
-        background-image: url("/courses/89/files/1921/preview"); }
-    #bootcamp blockquote.pro-tip::before {
-      background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg"); }
-    #bootcamp blockquote.caution::before, #bootcamp blockquote.important::before {
-      background-image: url("/courses/87/files/381/preview"); }
+      #bootcamp blockquote.important::before, #bootcamp blockquote.caution::before {
+        background-image: url("/courses/87/files/381/preview"); }
+    #bootcamp blockquote.pro-tip {
+      border-color: #067742;
+      background-color: #05ff97; }
+      #bootcamp blockquote.pro-tip::before {
+        background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg"); }
     #bootcamp blockquote.checkpoint::before {
       background-image: url("/courses/87/files/382/preview"); }
-    #bootcamp blockquote.narrative::before {
-      background-image: url("/courses/87/files/383/preview"); }
+    #bootcamp blockquote.narrative {
+      border-color: #067742;
+      background-color: rgba(5, 255, 151, 0.267); }
+      #bootcamp blockquote.narrative::before {
+        background-image: url("/courses/87/files/383/preview"); }
     #bootcamp blockquote.skill-drill::before {
       background-image: url("/courses/87/files/384/preview"); }
-    #bootcamp blockquote.video::before {
+    #bootcamp blockquote.video::before, #bootcamp blockquote.technical-overview-video::before, #bootcamp blockquote.context-overview-video::before {
       background-image: url("/courses/87/files/385/preview"); }
 
 .pages.show .page-title {
