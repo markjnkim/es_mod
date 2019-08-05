@@ -66,6 +66,11 @@ $(document).ready(function() {
     }
   });
 
+  // remove any google docs errors
+  $("[id*=gdc]").each(function() {
+    $(this).remove();
+  });
+
   // make sure code snippets are formatted for prism
   $("pre:not(:has(>code))").each(function() {
     // default to bash if no class is set
