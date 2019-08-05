@@ -1,10 +1,19 @@
-# Part 3 - I Need a Hero
+# Lesson 3 - I Need a Hero
+## Introduction
+Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website. The design team has requested we build a splashy section to grab visitors' attention. They have created an image to be used as the background of this section.  Let's take a look at the design team's mock-up.
+![Hero Mock-up](./assets/step-3/50-hero-section-mock-up.png)
+
+In this lesson, we will build upon our knowledge of HTML and CSS as well as introduce more concepts essential in web development. For the build process we will approach this lesson using the following steps:
+1) Add the HTML element to create a form
+2) Add CSS selectors to style specific elements
+3) Add our Hero image to the background
+4) Position the elements 
+5) Style the web form
+
 
 ## Our Hero's Purpose
 
-Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website. HTML elements in large part, can be considered as a series of rectangular boxes as was described in Lesson 1. These boxes can be stacked on top of each other like blocks and also can be nested within each other similar to Russian nesting dolls. If we take a good look at our mock-up, we can see that each part of our landing page seems to be separated by different colored blocks. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. In the first lesson, we created the basic layout of each `section` element. We will be building upon this framework, `section` by `section` until our mock-up is complete.
-
-The first block is considered the most important `section` because this will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms, a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
+The section we are about to build is the most important because it will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. In web terms, it means a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
 
 > **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article. Click [here](https://en.wikipedia.org/wiki/Above_the_fold) to find out more.
 
@@ -14,15 +23,16 @@ Think of the hero section as the banner, headline, or billboard of our site. But
 
 Let's build upon the `section` we created in Lesson 1. This `section` element will be the parent element that contains the children elements like the heading and sign-up form.
 
-> **Rewind**: HTML5 semantic elements help distinguish each part of the document and its function in relation to the document overall. For a closer look check out [this link](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML).
+### Adding the Sign-up Form Container
 
-### Step: 1 - Sign-up Form Container
+Let's take a look at the sign-up form in our mock-up.
+![Sign-up Mock-up](./assets/step-3/70-sign-up-mock-up.png)
 
-> **Pause**: As seen in the mock-up, our hero section will contain a large background picture with input fields. But before we can create our sign-up form, can you see any content or HTML elements that will be needed?
+> **Pause**: From the mock-up can you identify any HTML elements that will be needed to create the sign-up form?
 
-> **Hint**: Look for any content like text, heading, and especially distinct elements like boxes.
+> **Hint**: Look for any content like text, heading, and/or boxes.
 
-> **Answer**: We will need a box that contains a heading, text, input fields, and a button.
+> **Answer**: Initially we will need a box that contains a heading, text, input fields, and a button.
 
 We must place our `<div>` tags carefully to ensure that they are nested within the section element.
 
@@ -70,18 +80,21 @@ Your page should now look something like this:
 
 So not yet exactly what we are looking for stylistically speaking, but this is a proper workflow and we are laying the groundwork first. Just like building a house, the foundation and frame must go up first, only then can the rest be built. The decorating or styling always comes last.
 
-### Step 2: Web Forms
+### Introduction to Web Forms
 
-Forms are an important mechanism used by the web to receive user input. Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form. HTML Forms are a major point of interaction between the user and a website or application. They allow users to send data to the website, normally to the server. Within this `form` will be the `form` elements such as `input` elements and their associated `label` elements. `Input` elements come in many different types and flavors depending on the type of information needed such as a text input fields, radio buttons, or checkboxes.
+The sales team has requested that we include a form in our hero section. The importance of this form is emphasized due to its position at the top section of our website. The will generate sales leads and convert visitors into customers.
+Forms are an important mechanism used by the web to receive user input. Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form. HTML Forms are a major point of interaction between the user and a website or application. They allow users to send data to the website, normally to the server. Within this `form` will be the `form` elements such as `input` elements and their associated `label` elements. `Input` elements come in many different types  depending on the answer choices such as open-ended(text field) vs closed-ended(radio button, drop list, or checkbox).
 
 > **On The Job**: The sign-up form is a "call to action" or CTA. The main purpose is to encourage the users through a story, advertisement, or piece of content to do something. In our case we would like our visitor to share their contact info for a possible future engagement. CTAs can play a vital role in converting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
 
-#### Text Fields
+### Adding Text Input Fields
 
 Let's create the markup now, within the `form` to create our text fields.
 > **Pause**: How many text fields will be needed in the sign-up form? 
 
 > **Answer**: We will need three text fields. 
+Let's take a look at these text fields in our mock-up.
+![Text Fields](./assets/step-3/150-text-input-html.png)
 
 Look closely at how we pair the `input` and corresponding `label` elements and their different attributes.
 
@@ -107,7 +120,7 @@ The `label` text not only offers a visual directive of what data to enter, but a
 
 > **Answer**: This is known as a self closing tag and is a common sight in HTML. Certain elements like `input` do not contain any content or child elements, so the closing tag immediately follows the opening tag. A shortcut or abbreviation was created to self close an opening tag therefore not needing to type the closing tag. Of course HTML elements with content or child elements need to be wrapped by an opening and closing tag so cannot use this self closing tag.
 
-### Radio Button
+### Adding the Radio Button Input 
 
 Next we will create the inputs for our `radio button` and `checkbox`, but first, what the heck is a `radio button`? This is something you probably have come across a hundred times and now you will know the name of it. A `radio button` allows a single selection to be made from a list of choices and is normally a small circle that gets filled when clicked.
 
@@ -158,11 +171,11 @@ clickable surface area.
 
 > **Heads Up**: The `radio button` elements must have the same `name` attribute in order to be associated with the same radio group. This is how the browser identifies a group of choices can have an exclusive singular answer. In this case the value of our radio group in `name` is `trainer-confirm`.
 
-### Checkbox
+### Adding the Checkbox Input
 
 > **Try It Yourself**: Understanding what we know as far as `input` element syntax and google searches, try the following checkbox on your own. For accessibility purposes, we should wrap the content of the `p` in our checkbox in a `label` thereby enabling the checkbox to toggle when anywhere in the content is clicked. This simple fix can greatly assist anyone with a motor skills deficiency trying to check a very small box.
 
-### Button
+### Adding the Submit Button
 
 A button is an essential component of user interface and can have a variety of different functions and uses. A button can link to another area on a web page, link to an external site, submit data to a server, or can be programmed for any activity. Our button has a special function to submit the user data gathered inside the `form`. Once again we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element, "Get running", will be written within the `button` tags to render a label onto the `button` itself.  Currently our requirements in the mock-up don't have an action to assign to the button, but normally we would assign a url path in the `<form>` tag in the `action` attribute.  Let's take a look at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) for a closer at the `form` element and its attributes.  
 
@@ -275,9 +288,9 @@ Our foundation work is now complete, so we can proceed to the design phase of th
 ## Making our Hero Super
 
 So our hero section doesn't look all that great, but fear not, we will learn how to design it to make it super! Let's take a look at the mock-up and examine the styling we will need to deliver our finished product. Then we'll dive into CSS and open our `style.css` in VS Code.
-![hero-mock-up](./assets/step-3/900-hero-mock-up.png)
+![hero-mock-up](./assets/step-3/50-hero-section-mock-up.png)
 
-### Step 3: Universal Styles
+### Adding Global Styles
 
 In similar fashion to our HTML build process, we will start our CSS styling from a top down approach and drill down into our nested elements until we are satisfied with the finished product. 
 For the sake of consistency, there should be a few styles that will keep all our `section` elements looking similar.
@@ -296,7 +309,7 @@ section {
 
 > **Deep Dive**: To learn and discover more about CSS box model, click [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model).
 
-### Step 4: Using Class for Styling
+### Using CSS Class Selector
 
 Now let's add some pizzazz by adding a background image into our hero section. 
 First we need to create an `images` directory inside the `assets` directory. Now let's download all our images and place them inside the `images` directory from our image link <b>_(AWS S3 Bucket URL TBA)_</b>.
@@ -324,7 +337,7 @@ section {
 Now let's save and refresh the page to see our changes.
 ![repeated-images](./assets/step-3/502-bg-img-css.png)
 
-As we see, if we use the `section` element as our CSS selector, we would apply the same background image to all our subsequent `section` elements which is not something we want. Let's remove our `background-image` declaration from our `section` CSS rule. We need a way to target the hero section specifically and not create a global `section` rule. Thankfully we can use the `class` attribute to target one or many HTML elements. The neat trick about a `class` is that this attribute can be added to any one HTML element or many elements that will need the same styling or CSS declarations, therefore saving some time by writing less duplicate code. 
+If we use the `section` element as our CSS selector, we would apply the same background image to all our subsequent `section` elements which is not something we want. Let's remove our `background-image` declaration from our `section` CSS rule. We need a way to target the hero section specifically and not create a global `section` rule. Thankfully we can use the `class` attribute to target one or many HTML elements. The neat trick about a `class` is that this attribute can be added to any one HTML element or many elements that will need the same styling or CSS declarations, therefore saving some time by writing less duplicate code. 
 Let's create our CSS rule for our `hero` class that will only target our hero section. Please note the name of this `class` is up to us, but it is customary to name it to correspond to the element's function or use so it can be easily be recognized in the CSS style sheet to help identify which element is being styled.
 
 Your markup should look like this. Notice `class` is an attribute, therefore placed inside the opening tag.
@@ -373,7 +386,7 @@ Our website should look like this:
 
 Congrats! Give yourself a nice pat on the back. Way to hang in there! We will now style our form box and finish up with our hero section.
 
-### Step 5: Styling Forms and Input Fields
+### Styling Forms and Input Fields
 
 According to the mock-up, the box or `div` containing our `form` will have some styling requirements including the background color, border, font color, and a specific width. Due to the specific styling requirements needed for our form container, we should be thinking about how we will need to select this `div` to create a CSS rule. One way would be to create a new class called `hero-form` and add this to the opening `<div>`. The font color in this `div` will be `#024e76` and the background color is `#fce138`. Let's try to finish the styling ourselves and include the following declarations in your CSS rule for the `hero-form` class for the font color, padding, width, and background color to match the mock-up. We will handle the `border` together due to the many variations and configuration possibilities.
 
@@ -704,12 +717,13 @@ Excellent work, our section is now done and looking just like our mock-up. Now l
 
 ## Reflection
 
-This was another dense lesson of concepts and syntax. Don't worry that you haven't nailed everything down yet, this will happen in time with practice. In programming, practice doesn't make perfect, it makes developers. Programming isn't something you can watch in a youtube video or read in a book to make yourself proficient. The one and only way to become a developer is to practice practice practice, which means a lot of playing around in sand boxes and DevTools to see what does what. If you get stuck, become a Google-fu master since this is a vital developer skill that can get you unstuck. Your answer is out there, now you just have to go find it.
+This was a dense lesson of concepts and syntax. Don't worry that you haven't nailed everything down yet, this will happen in time with practice. In programming, practice doesn't make perfect, it makes developers. Programming isn't something you can watch in a YouTube video or read in a book to make yourself proficient. The one and only way to become a developer is to practice, practice, practice, which means a lot of playing around in sand boxes and DevTools to see what does what. If you get stuck, become a Google-fu master since this is a vital developer skill that can get you unstuck. Your answer is out there, now you just have to go find it.
 
-- **HTML5 Semantic Elements** are an important part of the modern web that can help with organization by using meaningful tag names that relate function and purpose as well as with accessibility by assisting screen readers interpret the page and communicate the relevancy of each element relative to the document.
-- **Class Attributes as CSS Selectors** help target specific elements on our document for custom styling.  Once we have our selector we can create our CSS rule and declare the properties to change.
-- **Position Property** helps us with the layout of our page by allowing positioning of elements relative to each other or the browser window or viewport.  Important to understand the differences especially between a relative and absolute position.
-- **CSS box model** is the layout design model of the Web, based on labeling each layer of our box diagrams to improve spacing, styling, and legibility of our HTML elements.  It is key to understand the position of each layer of the element starting from the content, padding, border, and margin.
+Let's take a look back at some of the key concepts we learned in this lesson.
+* How to create forms and the different inputs that control the question type and answer choices.
+- How to target HTML elements for layout, positioning, and styling with **CSS Class Selectors**. 
+* Controlling the layout of HTML elements using the **display** property for block-level or inline-level values.
+- Understanding the differences between a relative and absolute position to layout HTML elements in the document.
 - **DevTools** are a front-end developer's best friend. We can make temporary changes to our view in the browser by selecting an element of interest and then changing our CSS and/or HTML in the DevTools window by changing the CSS rules or markup. We will get well acquainted with its various tools as the course progresses.
 
 Now let's continue onto our next lesson and complete the "What We Do" section.

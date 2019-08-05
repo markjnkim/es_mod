@@ -1,6 +1,10 @@
 // prism highlighting
 import Prism from "prismjs";
 import  "prismjs/components/prism-bash";
+import  "prismjs/components/prism-python";
+import  "prismjs/components/prism-visual-basic";
+import  "prismjs/components/prism-sql";
+import  "prismjs/components/prism-r";
 
 // style sheets
 import "../css/main.scss";
@@ -9,6 +13,7 @@ $(document).ready(function() {
   // add custom wrapper if not already there
   if ($("#bootcamp").length == 0) {
     $('#wiki_page_show .user_content').wrapInner("<div id='bootcamp'>");
+    $("#bootcamp h1.page-title").prependTo($("#bootcamp").parent());
   }
 
   // find crappy tables
@@ -71,6 +76,12 @@ $(document).ready(function() {
   });
 
   // make sure code snippets are formatted for prism
-  $("pre:not(:has(>code))").wrapInner("<code class='language-bash'>");
+  $("pre:not(:has(>code))").each(function() {
+    // default to bash if no class is set
+    var className = $(this).attr("class").indexOf("language-") !== -1 ? $(this).attr("class") : "language-bash";
+
+    $(this).wrapInner(`<code class="${className}">`);
+  });
+
   Prism.highlightAll();
 });
