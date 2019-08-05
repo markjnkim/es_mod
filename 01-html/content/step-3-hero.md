@@ -30,7 +30,7 @@ Let's take a look at the sign-up form in our mock-up.
 
 > **Pause**: From the mock-up can you identify any HTML elements that will be needed to create the sign-up form?
 
-> **Hint**: Look for any content like text, heading, and/or boxes.
+> **Hint**: Look for any content like text, heading, and boxes.
 
 > **Answer**: Initially we will need a box that contains a heading, text, input fields, and a button.
 
@@ -57,7 +57,7 @@ So your `index.html` file should now look something like this.
 </section>
 ```
 
-> **Heads up**: The browser doesn't care if lines are indented or if every element is on the same line. But indentation is an organizational tool for yourself and other developers to help read and understand the code and a great habit to start. 
+> **Heads up**: The browser doesn't care if lines are indented or if every element is on the same line. But indentation is an organizational tool for yourself and other developers to help read and understand the code and is a great habit to start. 
 
 Now that we have our `div` element, let's insert the child elements within this `div` including the heading and text.
 ```html
@@ -73,17 +73,17 @@ For our heading, we have chosen the `h3` element. But why not the `h1` or `h4` f
 After adding the text content from the mock-up, we find a `<p>` tag. The `p` stands for paragraph and is an element used to render normal styled text like text in the body of a page. The browser will not add font-size or font-weight to the content of this element, but will make the `display` property, mentioned in the last lesson, a `block` element.
 
 
-> **Deep Dive**: For a nice visual explainer for the display property look [here](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197?selectedIssue=FSFO-46).
+> **Deep Dive**: For a nice visual explainer for the display property look [Jira issue 46](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197?selectedIssue=FSFO-46).
 
 Your page should now look something like this:
 ![hero-heading](./assets/step-3/100-heading-html.png)
 
-So not yet exactly what we are looking for stylistically speaking, but this is a proper workflow and we are laying the groundwork first. Just like building a house, the foundation and frame must go up first, only then can the rest be built. The decorating or styling always comes last.
+So not yet exactly what we are looking for stylistically speaking, but this is a proper workflow. Just like building a house, the foundation and frame must go up first, only then can the rest be built. The decorating or styling always comes last.
 
 ### Introduction to Web Forms
 
 The sales team has requested that we include a form in our hero section. The importance of this form is emphasized due to its position at the top section of our website. The will generate sales leads and convert visitors into customers.
-Forms are an important mechanism used by the web to receive user input. Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form. HTML Forms are a major point of interaction between the user and a website or application. They allow users to send data to the website, normally to the server. Within this `form` will be the `form` elements such as `input` elements and their associated `label` elements. `Input` elements come in many different types  depending on the answer choices such as open-ended(text field) vs closed-ended(radio button, drop-down list, or checkbox).
+Forms are an important mechanism used by the web to receive user input. Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form. HTML Forms are a major point of interaction between the user and a website or application. They allow users to send data to the website, normally to the server. Within this `form` will be the `form` elements such as `input` elements and their associated `label` elements. `Input` elements come in many different types  depending on the answer choices such as open-ended(text field) vs closed-ended(radio button or checkbox).
 
 > **On The Job**: The sign-up form is a "call to action" or CTA. The main purpose is to encourage the users through a story, advertisement, or piece of content to do something. In our case we would like our visitor to share their contact info for a possible future engagement. CTAs can play a vital role in converting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
 
@@ -104,7 +104,9 @@ Look closely at how we pair the `input` and corresponding `label` elements and t
  <input type="text" placeholder="Your Name" name="name" id="name" />
 </form>
 ```
-The `label` text not only offers a visual directive of what data to enter, but also programmatically links to the associated `input`.  This means that with a screen reader, when a visitor focuses on the input field, the label will be read out, making it easier for an assistive technology user to understand what data should be entered.  Labels also enhance the user experience on a mobile device for instance because clicking on the label will target the focus in the associated input field, which is especially helpful when using a touch screen.
+The `label` text not only offers a visual directive of what data to enter, but also programmatically links to the associated `input`.  So when a user with a disability uses a screen reader, the label will be read out when they focus on the input field. This makes it easier for an assistive technology user to understand what data should be entered.  Labels also enhance the user experience on a mobile device for instance because clicking on the label will target the focus in the associated input field, which is especially helpful when using a touch screen.
+
+Let's breakdown the markup and account for the attributes in a `input` element.
 
 - **for** is an attribute in the `label` that programmatically links to the `id` attribute in the `input`. 
 - **type** attribute relates to what kind of input element we are using. Here we want a text field, which is also the default value.
@@ -116,19 +118,19 @@ The `label` text not only offers a visual directive of what data to enter, but a
 
 > **Hint**: The label and inputs will need the attributes for `name`, `for`, `type`, `id`, and `placeholder`. 
 
-> **Pause**: Notice at the end of the input tag is a forward slash. What is this slash for?
+> **Pause**: Notice at the end of the `<input />` tag is a forward slash. What is this slash for?
 
 > **Answer**: This is known as a self closing tag and is a common sight in HTML. Certain elements like `input` do not contain any content or child elements, so the closing tag immediately follows the opening tag. A shortcut or abbreviation was created to self close an opening tag therefore not needing to type the closing tag. Of course HTML elements with content or child elements need to be wrapped by an opening and closing tag so cannot use this self closing tag.
 
-### Adding the Radio Button Input 
+### Radio Button Input 
 
 Next we will create the inputs for our `radio button` and `checkbox`, but first, what the heck is a `radio button`? This is something you probably have come across a hundred times and now you will know the name of it. A `radio button` allows a single selection to be made from a list of choices and is normally a small circle that gets filled when clicked.
 
 ![radio-button](./assets/step-3/1000-radio-button.png)
 
-> **Google Fu**: Let's use our powers of Google and see if we can find some information about the function and syntax of a `radio button`.
+> **Activity**: Let's use our powers of Google and see if we can find some information about the function and syntax of a `radio button`.
 
-> **Hint**: Although Google may offer many search results, [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) web docs should be a favorite because MDN is more likely to update when technologies change.  
+> **Hint**: Although Google may offer many search results, [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) should be a favorite because MDN is more likely to update when technologies change. For this reason the best documents to learn from online should come from official sources. 
 
 So a `radio` type input element, commonly referred to as a `radio button`, is generally used in groups using the `name` attribute as the group reference, each `radio button` must have the same `name` value to be considered in the same group. Let's type some code and then explain the attributes. Your `index.html` file should look like this. (Remember to place this `form` inside the `div`.)
 
@@ -173,7 +175,7 @@ clickable surface area.
 
 ### Adding the Checkbox Input
 
-> **Try It Yourself**: Understanding what we know as far as `input` element syntax and google searches, try the following checkbox on your own. For accessibility purposes, we should wrap the content of the `p` in our checkbox in a `label` thereby enabling the checkbox to toggle when anywhere in the content is clicked. This simple fix can greatly assist anyone with a motor skills deficiency trying to check a very small box.
+> **Activity**: Understanding what we know as far as `input` element syntax and google searches, try the following checkbox on your own. For accessibility purposes, we should wrap the content of the `p` in our checkbox in a `label` thereby enabling the checkbox to toggle when anywhere in the content is clicked. This simple fix can greatly assist anyone with a motor skills deficiency trying to check a very small box.
 
 ### Adding the Submit Button
 
@@ -205,7 +207,7 @@ Let's take a look at our hero section's HTML code.
         <label for="checkbox" >
           I acknowledge that I am at least 18 years of age.
         </label>
-        <input type="checkbox" name="age-confirm" id="checkbox" />
+        <input type="checkbox" name="checkpoint1" id="checkbox" />
       </p>
       <button type="submit">
         Get running!
@@ -283,7 +285,23 @@ when you tap on the phone number field.
 
 > **Activity**: HTML nesting game. Place our boiler plate HTML code with finished CSS in parallel. Ask the student to place certain items here or there by nesting them properly.
 
-Our foundation work is now complete, so we can proceed to the design phase of this lesson.
+Our foundation work is now complete, so we can proceed to the design phase of this lesson after a quick checkpoint.
+> **Checkpoint**: <br />
+>  Block elements are normally displayed without starting a new line.<br />
+>  <input type="radio" name="checkpoint-1" id="checkpoint-11" /><label for="checkpoint-11"> True</label> <br />
+>  <input type="radio" name="checkpoint-1" id="checkpoint-12" /><label for="checkpoint-12"> False</label> <br />
+
+> Inline elements are normally display without starting a new line <br />
+>  <input type="radio" name="checkpoint-2" id="checkpoint-21" /><label for="checkpoint-21"> True</label> <br />
+>  <input type="radio" name="checkpoint-2" id="checkpoint-22" /><label for="checkpoint-22"> False</label> <br />
+
+> What is the correct HTML for making a radio button? <br />
+>  <input type="radio" name="checkpoint-3" id="checkpoint-31" /> <label for="checkpoint-31">`<radio>`</label> <br />
+>  <input type="radio" name="checkpoint-3" id="checkpoint-32" /><label for="checkpoint-32"> `<radiobutton>` </label><br />
+>  <input type="radio" name="checkpoint-3" id="checkpoint-33" /><label for="checkpoint-33"> `<input type="radiobutton">`</label> <br />
+>  <input type="radio" name="checkpoint-3" id="checkpoint-34" /><label for="checkpoint-34"> `<input type="radio">`</label> <br />
+<br />
+> <input type="submit" />
 
 ## Making our Hero Super
 
@@ -559,8 +577,24 @@ And now with the `box-sizing` property with `border-box` assignment.
 
 As you can see, the `border-box` constrains the elements by includes the padding and border with the width making calculating and formatting easier.
 
-Success. Nice job! Now let's preview a new way to make changes to your styling.
+Success. Nice job! Now let's preview a new way to make changes to your styling after this checkpoint.
 
+> **Checkpoint**: <br />
+>  Block elements are normally displayed without starting a new line.<br />
+>  <input type="radio" name="checkpoint-1" id="checkpoint-1"> True  <br />
+>  <input type="radio" name="checkpoint-1" id="checkpoint-1"> False <br />
+
+> Inline elements are normally display without starting a new line <br />
+>  <input type="radio" name="checkpoint-2" id="checkpoint-2"> True <br />
+>  <input type="radio" name="checkpoint-2" id="checkpoint-2"> False <br />
+
+> What is the correct HTML for making a radio button? <br />
+>  <input type="radio" name="checkpoint-3" id="checkpoint-3"> `<radio>` <br />
+>  <input type="radio" name="checkpoint-3" id="checkpoint-3"> `<radiobutton>` <br />
+>  <input type="radio" name="checkpoint-3" id="checkpoint-3"> `<input type="radiobutton">` <br />
+>  <input type="radio" name="checkpoint-3" id="checkpoint-3"> `<input type="radio">` <br />
+<br />
+> <input type="submit" />
 ### Chrome's Dev Tools
 
 Ever think it's kind of a pain hopping back and forth between the CSS file and the browser to see how the changes look even for little tweaks. Let's use a tool in our Chrome browser called Developer Tools.
@@ -570,7 +604,7 @@ This tool can be found by clicking on the hamburger button located on the top-ri
 
 This will open a browser menu. Open the `More Tools` option to open a sub-menu containing the `Developer Tools` option.
 
-> **Keyboard Shortcut**: Developer Tools = (Mac: OPTION+CMD+I) (Windows: CONTROL+SHIFT+I )
+> **Pro Tip**: Keyboard shortcuts improve speed and efficiency. Developer Tools = (Mac: OPTION+CMD+I) (Windows: CONTROL+SHIFT+I )
 
 Depending on your version of Chrome, your screen should look something like this:
 ![Developer Tools](./assets/step-3/800-dev-tools.png)
@@ -727,7 +761,7 @@ In the next lesson we will continue building our Run Buddy website and learn som
 
 * We used a `form` element to create our sign-up form that allows user interaction with the visitor and our website.
 * We then used `input` elements to define the type of answer that is allowed to control user input.
-* We used **CSS Class Selectors** to target specific HTML elements to apply styles when using the global type selectors was not selective enough. This enables style to a single elements or a group of elements that need the same styles.
+* We used **CSS Class Selectors** to target specific HTML elements to apply styles when using the global element selectors was not selective enough. This enables style to a single element or a group of elements that need the same styles.
 * We used the **display** property for block-level or inline-level values to control the document flow and decide how elements would sit in a row or in a column.
 * We used **relative** and **absolute** positioning to layout HTML elements in the document or in a container depending on the element's location. This provided a mechanism that allowed precise placement in relation to either the parent or to the document.
 * We used Chrome's ***DevTools** to make temporary changes to our view in the browser by selecting an element of interest and then changing our CSS and/or HTML in the DevTools window by changing the CSS rules or markup. We will get well acquainted with its various tools as the course progresses.
