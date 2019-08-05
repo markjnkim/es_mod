@@ -74,6 +74,18 @@
     max-width: 90% !important;
     margin: 20px auto;
     box-shadow: 0 0 15px #333333;
+
+    &.img-left {
+      max-width: 50%;
+      float: left;
+      margin: 20px 25px 20px 0;
+    }
+
+    &.img-right {
+      max-width: 50%;
+      float: right;
+      margin: 20px 0 20px 25px;
+    }
   }
   
   ol, ul {
@@ -86,15 +98,15 @@
     padding-top: 25px;
     height: 0;
     margin: 20px 0;
-  }
-  
-  .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 10px #333333;
+
+    iframe, img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 0 10px #333333; 
+    }
   }
   
   // import secondary style sheets within markdown body context
@@ -103,10 +115,18 @@
 }
 
 .pages.show .page-title {
-  background: var(--trilogy-light-gray);
+  background-color: rgba(33,33,33, 0.8);
+  background-image: url('https://bootcampspot.instructure.com/courses/87/files/402/preview');
   padding: 10px;
+  min-height: 16vh;
   border-bottom: 5px solid var(--trilogy-blue);
   font-family: 'Raleway', sans-serif;
-  color: var(--trilogy-blue);
-  font-weight: 800;
+  color: #ffffff !important;
+  font-weight: 200 !important;
+  font-size: 3em !important;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  display: flex;
+  align-items: flex-end;
 }

@@ -1,6 +1,10 @@
 // prism highlighting
 import Prism from "prismjs";
 import  "prismjs/components/prism-bash";
+import  "prismjs/components/prism-python";
+import  "prismjs/components/prism-visual-basic";
+import  "prismjs/components/prism-sql";
+import  "prismjs/components/prism-r";
 
 // style sheets
 import "../css/main.scss";
@@ -10,6 +14,17 @@ $(document).ready(function() {
   if ($("#bootcamp").length == 0) {
     $('#wiki_page_show .user_content').wrapInner("<div id='bootcamp'>");
     $("#bootcamp h1.page-title").prependTo($("#bootcamp").parent());
+  }
+
+  // create hero banner if image is present with alt="lesson banner"
+  if ($("#bootcamp img[alt='lesson banner']").length) {
+    var bannerImg = $("#bootcamp img[alt='lesson banner']").attr('src');
+
+    // place it into bg of `.page-title`
+    $('.pages.show .page-title').css("background-image", `url(${bannerImg})`);
+
+    // remove it from lesson
+    $("#bootcamp img[alt='lesson banner']").remove();
   }
 
   // find crappy tables
@@ -67,8 +82,13 @@ $(document).ready(function() {
   });
 
   // remove any google docs errors
-  $("[id*=gdc]").each(function() {
+  $("#bootcamp [id*=gdc]").each(function() {
     $(this).remove();
+  });
+
+  // remove 404 images
+  $("#bootcamp img").on("error", function() {
+    $(this).attr("src", "https://bootcampspot.instructure.com/courses/87/files/400/preview")
   });
 
   // make sure code snippets are formatted for prism

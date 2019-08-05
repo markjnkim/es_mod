@@ -17,5 +17,5 @@
   "background": {
     "scripts": ["extension-files/chrome.js"]
   },
-  "permissions": ["management"]
+  "permissions": ["management", "webRequest", "webRequestBlocking", "*://*.amazonaws.com/*", "*://*.instructure.com/*"]
 }
