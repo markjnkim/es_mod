@@ -82,8 +82,13 @@ $(document).ready(function() {
   });
 
   // remove any google docs errors
-  $("[id*=gdc]").each(function() {
+  $("#bootcamp [id*=gdc]").each(function() {
     $(this).remove();
+  });
+
+  // remove 404 images
+  $("#bootcamp img").on("error", function() {
+    $(this).attr("src", "https://bootcampspot.instructure.com/courses/87/files/400/preview")
   });
 
   // make sure code snippets are formatted for prism
