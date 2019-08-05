@@ -16,6 +16,17 @@ $(document).ready(function() {
     $("#bootcamp h1.page-title").prependTo($("#bootcamp").parent());
   }
 
+  // create hero banner if image is present with alt="lesson banner"
+  if ($("#bootcamp img[alt='lesson banner']").length) {
+    var bannerImg = $("#bootcamp img[alt='lesson banner']").attr('src');
+
+    // place it into bg of `.page-title`
+    $('.pages.show .page-title').css("background-image", `url(${bannerImg})`);
+
+    // remove it from lesson
+    $("#bootcamp img[alt='lesson banner']").remove();
+  }
+
   // find crappy tables
   $("#bootcamp table").each(function() {
 
