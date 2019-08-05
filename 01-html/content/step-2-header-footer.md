@@ -1,24 +1,27 @@
-# Step 2 - Build out our Header and Footer
+# Step 2: Build Out the Header and Footer
 
 ## Introduction
 
-Let us take a moment to start by giving ourselves a pat on the back. The hardest part of building a new HTML document is actually getting started, and we now have more than enough to work with in these upcoming steps even though there is not much visible content on our page.
+Before we go any further, take a moment to give yourself a pat on the back. The hardest part of building any new HTML document is getting started, and you've done that beautifully. Even thought it doesn't look like it when you view the Run Buddy landing page in a browser, you have more than enough to work with during these next few steps. 
 
-In the previous step we built a series of "containers" for our web page to hold different types of content. At first glance, this may seem like a lot of extra work, but as we continue to add content and apply style to each section one at a time we won't have to worry about our work affecting the other sections.
+In the previous step, you built a series of "containers" (aka divs) in your webpage to hold different types of content. At first glance, this may seem like a lot of extra work, but as you continue to add content and apply styles to each section one at a time, you won't have to worry about that affecting the other sections.
 
-This step will focus on building out the content and applying styles for both the header and footer of our page. Why the header and footer? Why do the top and bottom and leave everything in the middle untouched? This is because the header and footer typically follow similar patterns when adding both inner HTML content and applying styles. Since this is our introduction to a lot of these concepts, we'll keep it a little bit on the plain side so we can focus on learning.
-  
-We will be introduced to both new HTML elements and **Cascading Style Sheets**, which will be referred to throughout the rest of this unit (and our careers) as **CSS**. The nice thing about what we will be working on here is that a lot of what we learn will be repeated in future steps. It is technology that is best learned through doing, so let's get started!
+This step focuses on building out the content and applying styles to the header and footer of our page. Why focus the top and bottom and leave everything in the middle untouched? This is a good place to start because the header and footer typically share similar patterns when it comes to adding HTML content and applying styles. If this doesn't make sense, don't worry about it. You'll see what we mean in a few minutes. 
 
-## Add content to our `<header>`
+Because this is our introduction to a lot of these concepts, we'll keep it a little bit on the plain side so we can focus on learning.
+In this lesson, we will learn about new HTML elements and **Cascading Style Sheets**, which will be referred to throughout the rest of this unit (and your career) as **CSS**. 
+
+The nice thing about what we'll be working on here is that a lot of it will be repeated in future steps. It is technology that is best learned through doing, so let's get started!
+
+## Add Content to the Header
 
 ![header html](assets/step-2/100-header-html.png)
 
-We'll begin by adding some information that most modern web pages have: branding and navigation. These two pieces of a **user interface** (also known as "UI" for the hip) usually find their way into the `header` of an HTML document.
+We'll begin by adding some information that most modern webpages have: branding and navigation. These two pieces of a **user interface** (also known as "UI" for the hip) usually find their way into the `header` of an HTML document.
 
 ### Branding
 
-Branding is something most web pages have on them in a prominent position so users know where they are. We have already provided this type of content since we added the `<h1>RUN BUDDY</h1>` to the `<header>` in Lesson 1.
+Branding is something most webpages have on them in a prominent position so users know where they are. We have already provided this type of content since we added the `<h1>RUN BUDDY</h1>` to the `<header>` in Lesson 1.
 
 Now we have our page's identity in place, let's turn our attention to the navigation portion of our `header`. To begin, let's start by adding `<nav>` and `</nav>` immediately below our `h1`, but above the closing `</header>` tag. It should look something like this when you're done adding it:
 
@@ -172,15 +175,15 @@ If your code now looks something like the following, then we are ready to move o
 
 As we've seen, the HTML tags we have implemented so far do a great job at these two things:
 
-- Organizing content for a web page (i.e. the content between `<h1>RUN BUDDY</h1>`)
+- Organizing content for a webpage (i.e. the content between `<h1>RUN BUDDY</h1>`)
 
 - Providing interactivity (i.e. the `<a>` element's `href` attribute taking the user somewhere else upon click)
 
-One question that HTML _used_ to know how to answer for itself was **"How do I look?"**. Early HTML developers were provided a very limited set of options for changing how a web page was designed such as changing the color of text, adding a background color, or giving an image height and width dimensions. Most advanced (for the time) designs were achieved by taking a mock-up of the design and slicing it into a bunch of small images, then laying them all into an HTML table element to get them just how they want. Think about how difficult it would be to create a nice design using Microsoft Excel, it is probably very frustrating.
+One question that HTML _used_ to know how to answer for itself was **"How do I look?"**. Early HTML developers were provided a very limited set of options for changing how a webpage was designed such as changing the color of text, adding a background color, or giving an image height and width dimensions. Most advanced (for the time) designs were achieved by taking a mock-up of the design and slicing it into a bunch of small images, then laying them all into an HTML table element to get them just how they want. Think about how difficult it would be to create a nice design using Microsoft Excel, it is probably very frustrating.
 
 > LEGACY LEM SAYS: Most older web site designs have been removed from the Internet at this point, but if you want to see a true example of how developers used to design sites look no further than the [web site for the 1996 movie, _Space Jam_](https://www.spacejam.com/archive/spacejam/movie/jam.htm)
 
-As developers wanted more control over their web page designs, it was realized that HTML may not be capable of supporting so many more options on its own since it is already in charge of handling a page's content. At this time, a new language was created and released to take some responsibility off of HTML when it came to the actual presentation of its content.
+As developers wanted more control over their webpage designs, it was realized that HTML may not be capable of supporting so many more options on its own since it is already in charge of handling a page's content. At this time, a new language was created and released to take some responsibility off of HTML when it came to the actual presentation of its content.
 
 ## Enter CSS
 
@@ -274,7 +277,7 @@ Before we move on, let's go ahead and remove the `<style>` element and all of it
 
 ## Setting up our first stylesheet
 
-So now we know which route we're taking to include CSS into our web page, let's do it!
+So now we know which route we're taking to include CSS into our webpage, let's do it!
 
 > LINEAR STEPS
 >
@@ -746,7 +749,7 @@ Okay so now we've officially completed all of our styles for the header and foot
 
 So we covered A LOT in this section. There's no "soft" way to be introduced to some of these concepts, CSS in particular, so it required us to get our hands dirty. To recap what we did:
 
-- We built two major components that typically go on every web page. By doing them one-by-one, we were able to learn about new HTML tags and structure without getting overwhelmed. This is a good workflow to practice, especially as beginners.
+- We built two major components that typically go on every webpage. By doing them one-by-one, we were able to learn about new HTML tags and structure without getting overwhelmed. This is a good workflow to practice, especially as beginners.
 
 - We introduced quite a few new HTML tags that we will be using not only a lot throughout the rest of this project, but throughout the rest of our careers.
 
