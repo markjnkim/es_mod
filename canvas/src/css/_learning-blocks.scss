@@ -74,16 +74,13 @@ blockquote {
     }
   }
 
-  &.checkpoint {
+  &.checkpoint, &.check-point {
     &::before {
       background-image: url("https://bootcampspot.instructure.com/courses/87/files/382/preview");
     }
   }
 
   &.narrative {
-    border-color: #067742;
-    background-color: rgba(5, 255, 151, 0.267);
-    
     &::before {
       background-image: url("https://bootcampspot.instructure.com/courses/87/files/383/preview");
     }
