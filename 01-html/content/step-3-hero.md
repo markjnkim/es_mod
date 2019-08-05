@@ -1,4 +1,4 @@
-# Lesson 3 - I Need a Hero
+# Lesson 3: Create the Hero
 ## Introduction
 Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website. The design team has requested we build a splashy section to grab visitors' attention. They have created an image to be used as the background of this section.  Let's take a look at the design team's mock-up.
 ![Hero Mock-up](./assets/step-3/50-hero-section-mock-up.png)
@@ -6,7 +6,7 @@ Now that we have the `header` and `footer` for our page, let's get started with 
 In this lesson, we will build upon our knowledge of HTML and CSS as well as introduce more concepts essential in web development. For the build process we will approach this lesson using the following steps:
 1) Add the HTML element to create a form
 2) Add CSS selectors to style specific elements
-3) Add our Hero image to the background
+3) Add the background image
 4) Position the elements 
 5) Style the web form
 
@@ -15,7 +15,7 @@ In this lesson, we will build upon our knowledge of HTML and CSS as well as intr
 
 The section we are about to build is the most important because it will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. In web terms, it means a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
 
-> **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article. Click [here](https://en.wikipedia.org/wiki/Above_the_fold) to find out more.
+> **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article. For more take a look at [Wikipedia](https://en.wikipedia.org/wiki/Above_the_fold).
 
 Think of the hero section as the banner, headline, or billboard of our site. But before we can add our pizzazz, let's first add some HTML markup that will provide our structure and content.
 
@@ -83,7 +83,7 @@ So not yet exactly what we are looking for stylistically speaking, but this is a
 ### Introduction to Web Forms
 
 The sales team has requested that we include a form in our hero section. The importance of this form is emphasized due to its position at the top section of our website. The will generate sales leads and convert visitors into customers.
-Forms are an important mechanism used by the web to receive user input. Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form. HTML Forms are a major point of interaction between the user and a website or application. They allow users to send data to the website, normally to the server. Within this `form` will be the `form` elements such as `input` elements and their associated `label` elements. `Input` elements come in many different types  depending on the answer choices such as open-ended(text field) vs closed-ended(radio button, drop list, or checkbox).
+Forms are an important mechanism used by the web to receive user input. Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form. HTML Forms are a major point of interaction between the user and a website or application. They allow users to send data to the website, normally to the server. Within this `form` will be the `form` elements such as `input` elements and their associated `label` elements. `Input` elements come in many different types  depending on the answer choices such as open-ended(text field) vs closed-ended(radio button, drop-down list, or checkbox).
 
 > **On The Job**: The sign-up form is a "call to action" or CTA. The main purpose is to encourage the users through a story, advertisement, or piece of content to do something. In our case we would like our visitor to share their contact info for a possible future engagement. CTAs can play a vital role in converting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
 
@@ -111,7 +111,7 @@ The `label` text not only offers a visual directive of what data to enter, but a
 - **placeholder** offers a hint or label within the text field itself, but will not be submitted if this field if left blank.
 - **name** attribute identifies the element so the response can later be referenced after the form is submitted.
 
-> **Do It Yourself**: Given the first text input field for "name," can you code
+> **Activity**: Given the first text input field for "name," can you code
 > the fields for "email" and "phone number?"
 
 > **Hint**: The label and inputs will need the attributes for `name`, `for`, `type`, `id`, and `placeholder`. 
@@ -390,7 +390,7 @@ Congrats! Give yourself a nice pat on the back. Way to hang in there! We will no
 
 According to the mock-up, the box or `div` containing our `form` will have some styling requirements including the background color, border, font color, and a specific width. Due to the specific styling requirements needed for our form container, we should be thinking about how we will need to select this `div` to create a CSS rule. One way would be to create a new class called `hero-form` and add this to the opening `<div>`. The font color in this `div` will be `#024e76` and the background color is `#fce138`. Let's try to finish the styling ourselves and include the following declarations in your CSS rule for the `hero-form` class for the font color, padding, width, and background color to match the mock-up. We will handle the `border` together due to the many variations and configuration possibilities.
 
-> **Do It Yourself**: Create the CSS rule for the class `hero-form`.
+> **Activity**: Create the CSS rule for the class `hero-form`.
 
 > **Hint**: Don't forget to add the `hero-form` class to our sign-up form container `div`.
 
@@ -584,9 +584,9 @@ This tool is a tremendous asset to front-end developers with the ability to:
 - Change the text content
 - And much much more which we will continuously learn throughout this class
 
-> **Deep Dive**: Discover more about Chrome's [DevTools here.](https://developers.google.com/web/tools/chrome-devtools/) If it is seems a little much for now, it's because this tool has a large array of uses, many of which are currently our current concept scope. Don't worry, we will keep learning more about these tools as they become more relevant and useful for us.
+> **Deep Dive**: Discover more about Chrome's [DevTools here.](https://developers.google.com/web/tools/chrome-devtools/) If it is seems a little much for now, it's because this tool has a large array of uses, many of which are outside our current knowledge base. Don't worry, we will be learning more about these tools as learn more web development.
 
-> **Preservable Walk Through**: Quick gif demonstration showing how to use Chrome DevTools to quickly change the background-color of google.com
+> **Preservable Walk Through**: Quick gif demonstration showing how to use Chrome DevTools to quickly change the background-color of Google using [Google Dev Tools](https://youtu.be/G_P6rpRSr4g)
 
 > **Activity/Pause**: Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`. Try out the `element inspector`, the arrow icon in the top-left corner of the DevTool window. 
 
@@ -611,22 +611,23 @@ Scrolling down to the bottom of the Styles panel offers an interactive CSS box m
 
 ### Step 6: Styling Form
 
-It's time to give our `form` some needed layout and styling to match our mock-up.
+Let's make our design team happy by following their mock-up to give the `form` some needed layout and styling.
 
-> **Linear Steps**:
-
-1. **Heading**: let's jazz up our heading! We need to bring some excitement and enthusiasm and the current `h3` element leaves a bit to be desired. There are several ways that we can select this element by CSS.
+#### **Heading** 
+Let's jazz up our heading! We need to bring some excitement and enthusiasm and the current `h3` element leaves a bit to be desired. There are several ways that we can select this element by CSS.
 
 - We could give this `h3` element a class and select it as we did for the form container and the `section`.
 - We could select the parent element and then the child element that is contained within the parent, as we did in the previous lesson in the `header` and `footer`.
 
 We have chosen the second option for one reason, class attributes are used to distinguish or select one or more set of elements from other elements. Since there is only one `h3`, creating a new class is a bit of an overkill or over engineered. Simplicity is a great rule of thumb to go by when possible.
 
-> **Do It Yourself**: Let's go to your `style.css` file to select this `h3` element to make it a bit larger and set the `margin` to zero to reduce any possible word wrapping.
+> **Activity**: Let's go to your `style.css` file to select this `h3` element to make it a bit larger and set the `margin` to zero to reduce any possible word wrapping.
 
-2. **Text Spacing**: Next will be adding some space to the `p` for legibility and spacing, specifically to the top and bottom margins.
+#### **Text Spacing**
+Next will be adding some space to the `p` for legibility and spacing, specifically to the top and bottom margins.
 
-3. **Input Fields**: It's time to give our input fields some style and panache. First let's get each one to exist on its own line while making the `font-size` bigger with a nice `border`. Part of having a good website is giving the visitor an easy time navigating and using our page. Especially when it comes to user interaction, it's really important to make it as simple and as straightforward as possible. This means having clear demarcations on each line and to address what each input field is for.
+#### **Input Fields**
+It's time to give our input fields some style and panache. First let's get each one to exist on its own line while making the `font-size` bigger with a nice `border`. Part of having a good website is giving the visitor an easy time navigating and using our page. Especially when it comes to user interaction, it's really important to make it as simple and as straightforward as possible. This means having clear demarcations on each line and to address what each input field is for.
 
 > **Pause**: If we selected `input` as our CSS selector, we would style the radio button and checkbox as well as the input fields which isn't our goal. So how would we select just the input fields for this styling?
 
@@ -642,7 +643,7 @@ Your `input` elements in your HTML code should now look like this:
 
 Now let's add a border, display each line separately, make the font larger, extend each input field box the length of the form container, and use the navy font color we used for the `footer` font color.
 
-> **Do It Yourself**: Let's type in some code and use the Chrome DevTools to manipulate some sizes for our `padding`, `margin`, and sizing.
+> **Activity**: Let's type in some code and use the Chrome DevTools to manipulate some sizes for our `padding`, `margin`, and sizing.
 
 Our CSS code should now look like this:
 
@@ -683,7 +684,7 @@ Remember to save these changes and take a look at the new page's styles in the b
 
 4: **Radio Buttons**: Adding some spacing for our `label` element in our `radio button` elements helps the user doesn't misinterpret which selection is for which answer by adding a bit of horizontal margin. Let's go ahead and add that in now.
 
-> **Do It Yourself**: It is important to try and implement these styles yourself and give it a try. Getting syntax errors or red squiggly lines are helpful reminders that you may be missing or misplacing a syntax character. In time, the syntax will become second nature to you and your speed to develop time will increase with practice! Remember, you can always experiment in the Chrome DevTools until you get it just right.
+> **Activity**: It is important to try and implement these styles yourself and give it a try. Getting syntax errors or red squiggly lines are helpful reminders that you may be missing or misplacing a syntax character. In time, the syntax will become second nature to you and your speed to develop time will increase with practice! Remember, you can always experiment in the Chrome DevTools until you get it just right.
 
 ```css
 .hero-form label {
@@ -695,11 +696,13 @@ Let's save our work and take a look at the browser for what we have completed so
 
 ![cta-sign-up](./assets/step-3/1200-cta-sign-up.png)
 
-Awesome, our `section` looks almost finished. Time to nip this `section` in the `button`.
+Awesome, our `section` looks almost finished. Time to nip this `section` in the `button`. The design team wouldn't be very pleased with our "Get running" so let's style it according to the mock-up.
 
-5. **Button**: According to the mock-up, the `button` should be navy(#024e76) and the font color should be yellow(#fce138). Style the `button` adding some size to our font and `padding`.
+5. **Button**: The design team wants the `button` to be navy(#024e76) and the font color yellow(#fce138), like so: <br />
+![Button Mock-up](./assets/step-3/1250-button-mock-up.png) <br />
+Style the `button` as requested and also add some size to our font and `padding`.
 
-> **Do it Yourself**: Let's flex our new CSS skills and style this `button` to match our mock-up. Open up DevTools in the browser and select the `button` using the element selector or arrow icon to select our `button`, then go to the Styles panel to experiment with some of our `button` element's properties. By clicking on the declaration, the property or value can be changed. By clicking to the right of the declaration, a new line is added for a new declaration. Once you have the look that matches our mock-up, the CSS rule for the button should look something like this.
+> **Activity**: Let's flex our new CSS skills and style this `button` to match our mock-up. Open up DevTools in the browser and select the `button` using the element selector or arrow icon to select our `button`, then go to the Styles panel to experiment with some of our `button` element's properties. By clicking on the declaration, the property or value can be changed. By clicking to the right of the declaration, a new line is added for a new declaration. Once you have the look that matches our mock-up, the CSS rule for the button should look something like this.
 
 ```css
 .hero-form button {
@@ -713,17 +716,20 @@ Awesome, our `section` looks almost finished. Time to nip this `section` in the 
 ```
 
 It's time for our moment of truth. Let's save the file or just auto save it like a pro, and refresh our browser to look at our finished hero!
-Excellent work, our section is now done and looking just like our mock-up. Now let's take a moment to review some of the major concepts learned in this lesson.
+Excellent work, our section is now done and looking just like our mock-up. Now let's take a moment to review some of the major concepts learned in this lesson. After completion of a large section, this is a great place to not only save, but also add and commit our work with Git.
+> **Heads Up**: Don't worry if you haven't nailed all the concepts yet, this is a lot of information that will take patience to master. In programming, practice doesn't make perfect, it makes developers. Programming isn't something you can watch in a YouTube video or read in a book to make yourself proficient. The one and only way to become a developer is to practice, practice, practice, which means a lot of playing around in sand boxes and DevTools to see what does what. If you get stuck, become a Google-fu master since this is a vital developer skill that can get you unstuck. Your answer is out there, now you just have to go find it.
 
 ## Reflection
 
-This was a dense lesson of concepts and syntax. Don't worry that you haven't nailed everything down yet, this will happen in time with practice. In programming, practice doesn't make perfect, it makes developers. Programming isn't something you can watch in a YouTube video or read in a book to make yourself proficient. The one and only way to become a developer is to practice, practice, practice, which means a lot of playing around in sand boxes and DevTools to see what does what. If you get stuck, become a Google-fu master since this is a vital developer skill that can get you unstuck. Your answer is out there, now you just have to go find it.
+Great job making it through a dense lesson of concepts and syntax. In this lesson we created our hero section and learned how to make a sign-up form with a splashy background image. These concepts will form the foundation on which we will build our advancing skills in HTML and CSS. 
 
-Let's take a look back at some of the key concepts we learned in this lesson.
-* How to create forms and the different inputs that control the question type and answer choices.
-- How to target HTML elements for layout, positioning, and styling with **CSS Class Selectors**. 
-* Controlling the layout of HTML elements using the **display** property for block-level or inline-level values.
-- Understanding the differences between a relative and absolute position to layout HTML elements in the document.
-- **DevTools** are a front-end developer's best friend. We can make temporary changes to our view in the browser by selecting an element of interest and then changing our CSS and/or HTML in the DevTools window by changing the CSS rules or markup. We will get well acquainted with its various tools as the course progresses.
+In the next lesson we will continue building our Run Buddy website and learn some key concepts regarding web icons and image sizing. But before we go ahead, let's take a look back at the major highlights from this lesson.
+
+* We used a `form` element to create our sign-up form that allows user interaction with the visitor and our website.
+* We then used `input` elements to define the type of answer that is allowed to control user input.
+* We used **CSS Class Selectors** to target specific HTML elements to apply styles when using the global type selectors was not selective enough. This enables style to a single elements or a group of elements that need the same styles.
+* We used the **display** property for block-level or inline-level values to control the document flow and decide how elements would sit in a row or in a column.
+* We used **relative** and **absolute** positioning to layout HTML elements in the document or in a container depending on the element's location. This provided a mechanism that allowed precise placement in relation to either the parent or to the document.
+* We used Chrome's ***DevTools** to make temporary changes to our view in the browser by selecting an element of interest and then changing our CSS and/or HTML in the DevTools window by changing the CSS rules or markup. We will get well acquainted with its various tools as the course progresses.
 
 Now let's continue onto our next lesson and complete the "What We Do" section.
