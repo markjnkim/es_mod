@@ -11,7 +11,7 @@
 }
 
 // wrapper for all of our custom styles in canvas
-.markdown-body {
+#bootcamp {
   width: 85%;
   padding: 20px 30px 75px 30px;
   background: rgba(255,255,255,0.8);
@@ -76,7 +76,7 @@
   }
   
   // import secondary style sheets within markdown body context
-  @import "_code-snippets.scss";
+  @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
   @import "_learning-blocks.scss";
 }
 
