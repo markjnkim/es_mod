@@ -1,18 +1,19 @@
 # Lesson 3 - I Need a Hero
 ## Introduction
-Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website. The design team has requested we build a splashy section for our website to grab visitors' attention. They have created an image to place as the background of this section.  Let's take a look at the design team's mock-up for the section.
+Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website. The design team has requested we build a splashy section to grab visitors' attention. They have created an image to be used as the background of this section.  Let's take a look at the design team's mock-up.
 ![Hero Mock-up](./assets/step-3/50-hero-section-mock-up.png)
 
-In this lesson, we will build upon our knowledge of HTML and CSS and introduce concepts essential in web development. For the build process we will approach this lesson using the following steps:
+In this lesson, we will build upon our knowledge of HTML and CSS as well as introduce more concepts essential in web development. For the build process we will approach this lesson using the following steps:
 1) Add the HTML element to create a form
 2) Add CSS selectors to style specific elements
-3) Position elements 
-4) Style the web form
+3) Add our Hero image to the background
+4) Position the elements 
+5) Style the web form
 
 
 ## Our Hero's Purpose
 
-The section we are about to build is the most important because it will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms, a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
+The section we are about to build is the most important because it will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. In web terms, it means a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
 
 > **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article. Click [here](https://en.wikipedia.org/wiki/Above_the_fold) to find out more.
 
@@ -27,11 +28,11 @@ Let's build upon the `section` we created in Lesson 1. This `section` element wi
 Let's take a look at the sign-up form in our mock-up.
 ![Sign-up Mock-up](./assets/step-3/70-sign-up-mock-up.png)
 
-> **Pause**: From the mock-up can you identify any HTML elements that will be needed?
+> **Pause**: From the mock-up can you identify any HTML elements that will be needed to create the sign-up form?
 
 > **Hint**: Look for any content like text, heading, and/or boxes.
 
-> **Answer**: We will need a box that contains a heading, text, input fields, and a button.
+> **Answer**: Initially we will need a box that contains a heading, text, input fields, and a button.
 
 We must place our `<div>` tags carefully to ensure that they are nested within the section element.
 
@@ -287,7 +288,7 @@ Our foundation work is now complete, so we can proceed to the design phase of th
 ## Making our Hero Super
 
 So our hero section doesn't look all that great, but fear not, we will learn how to design it to make it super! Let's take a look at the mock-up and examine the styling we will need to deliver our finished product. Then we'll dive into CSS and open our `style.css` in VS Code.
-![hero-mock-up](./assets/step-3/900-hero-mock-up.png)
+![hero-mock-up](./assets/step-3/50-hero-section-mock-up.png)
 
 ### Adding Global Styles
 
@@ -716,12 +717,13 @@ Excellent work, our section is now done and looking just like our mock-up. Now l
 
 ## Reflection
 
-This was another dense lesson of concepts and syntax. Don't worry that you haven't nailed everything down yet, this will happen in time with practice. In programming, practice doesn't make perfect, it makes developers. Programming isn't something you can watch in a youtube video or read in a book to make yourself proficient. The one and only way to become a developer is to practice practice practice, which means a lot of playing around in sand boxes and DevTools to see what does what. If you get stuck, become a Google-fu master since this is a vital developer skill that can get you unstuck. Your answer is out there, now you just have to go find it.
+This was a dense lesson of concepts and syntax. Don't worry that you haven't nailed everything down yet, this will happen in time with practice. In programming, practice doesn't make perfect, it makes developers. Programming isn't something you can watch in a YouTube video or read in a book to make yourself proficient. The one and only way to become a developer is to practice, practice, practice, which means a lot of playing around in sand boxes and DevTools to see what does what. If you get stuck, become a Google-fu master since this is a vital developer skill that can get you unstuck. Your answer is out there, now you just have to go find it.
 
-- **HTML5 Semantic Elements** are an important part of the modern web that can help with organization by using meaningful tag names that relate function and purpose as well as with accessibility by assisting screen readers interpret the page and communicate the relevancy of each element relative to the document.
-- **Class Attributes as CSS Selectors** help target specific elements on our document for custom styling.  Once we have our selector we can create our CSS rule and declare the properties to change.
-- **Position Property** helps us with the layout of our page by allowing positioning of elements relative to each other or the browser window or viewport.  Important to understand the differences especially between a relative and absolute position.
-- **CSS box model** is the layout design model of the Web, based on labeling each layer of our box diagrams to improve spacing, styling, and legibility of our HTML elements.  It is key to understand the position of each layer of the element starting from the content, padding, border, and margin.
+Let's take a look back at some of the key concepts we learned in this lesson.
+* How to create forms and the different inputs that control the question type and answer choices.
+- How to target HTML elements for layout, positioning, and styling with **CSS Class Selectors**. 
+* Controlling the layout of HTML elements using the **display** property for block-level or inline-level values.
+- Understanding the differences between a relative and absolute position to layout HTML elements in the document.
 - **DevTools** are a front-end developer's best friend. We can make temporary changes to our view in the browser by selecting an element of interest and then changing our CSS and/or HTML in the DevTools window by changing the CSS rules or markup. We will get well acquainted with its various tools as the course progresses.
 
 Now let's continue onto our next lesson and complete the "What We Do" section.
