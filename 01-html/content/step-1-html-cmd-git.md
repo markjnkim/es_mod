@@ -293,10 +293,17 @@ With two commits under our belt, run the command `git log`. This will show a his
 This could be very useful once we start working on larger apps and/or with multiple developers!
 
 > **Check Point:** \
-What command creates a new Git repository?\
-What does the `git status` command tell us?\
-What command do you need to run before `git commit`?\
-How do you add a message to a `git commit`?
+> What command creates a new Git repository?\
+>    Answer: `git init`
+
+> What does the `git status` command tell us?\
+>    Answer: What's changed since the last commit. 
+
+> What command do you need to run before `git commit`?\
+>    Answer: `git add`
+
+> How do you add a message to a `git commit`?\
+>    Answer: Add a `-m` "message" at the end of `git commit`.
 
 ## Outline the Page
 
