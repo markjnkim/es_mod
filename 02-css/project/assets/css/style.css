@@ -28,6 +28,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   position:sticky;
+  position: -webkit-sticky;
   top: 0;
   z-index: 9999;
 }
@@ -37,7 +38,6 @@ header h1 {
   margin: 0;
   font-size: 36px;
   color: var(--primary-color);
-  width: 30%;
   text-shadow: 0px 0 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -48,7 +48,6 @@ header a {
 
 header nav {
   margin: 7px 0;
-  width: 70%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -320,9 +319,12 @@ section {
   align-items: center;
 }
 
-.step-info img {
+.step-img {
   flex: 1 12%;
   margin-right: 20px;
+}
+
+.step-img img {
   max-width: 100%;
 }
 
@@ -551,13 +553,8 @@ section {
   color: var(--primary-color);
 }
 
-.contact-form label, .contact-form input, .contact-form textarea {
-  display: block;
-  width: 100%;
-}
-
 .contact-form label {
-  margin-top: 20px;
+  opacity: 0;
 }
 
 .contact-form input, .contact-form textarea {
@@ -603,7 +600,7 @@ section {
 
 
 /* UTILITIES */
-.flex-container {
+.flex-row {
   display: flex;
 }
 
@@ -666,7 +663,7 @@ section {
 @media screen and (max-width: 768px) {
 
   section {
-    padding: 15px;
+    padding: 30px 15px;
   }
 
   .checkbox label, .radio label {
@@ -688,7 +685,7 @@ section {
     justify-content: center;
   }
 
-  .step-info img {
+  .step-img {
     flex: 0 32%;
     margin-right: 0;
     margin-top: 15px;
