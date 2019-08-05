@@ -65,6 +65,11 @@ $(document).ready(function() {
     }
   });
 
+  // remove any google docs errors
+  $("[id*=gdc]").each(function() {
+    $(this).remove();
+  });
+
   // make sure code snippets are formatted for prism
   $("pre:not(:has(>code))").wrapInner("<code class='language-bash'>");
   Prism.highlightAll();
