@@ -3,7 +3,7 @@
 Now that we have the `header` and `footer` for our page, let's get started with the body or content of our website. The design team has requested we build a splashy section for our website to grab visitors' attention. They have created an image to place as the background of this section.  Let's take a look at the design team's mock-up for the section.
 ![Hero Mock-up](./assets/step-3/50-hero-section-mock-up.png)
 
-In this lesson we will build upon our knowledge of HTML and CSS and introduce concepts essential in web development. For the build process we will approach this lesson using the following steps
+In this lesson, we will build upon our knowledge of HTML and CSS and introduce concepts essential in web development. For the build process we will approach this lesson using the following steps:
 1) Add the HTML element to create a form
 2) Add CSS selectors to style specific elements
 3) Position elements 
@@ -12,9 +12,7 @@ In this lesson we will build upon our knowledge of HTML and CSS and introduce co
 
 ## Our Hero's Purpose
 
- HTML elements in large part, can be considered as a series of rectangular boxes as was described in Lesson 1. These boxes can be stacked on top of each other like blocks and also can be nested within each other similar to Russian nesting dolls. If we take a good look at our mock-up, we can see that each part of our landing page seems to be separated by different colored blocks. This serves as a stylistic way to communicate to the reader that each part conveys a different purpose or information type. In the first lesson, we created the basic layout of each `section` element. We will be building upon this framework, `section` by `section` until our mock-up is complete.
-
-The first block is considered the most important `section` because this will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms, a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
+The section we are about to build is the most important because it will be seen by every visitor to our landing page. In this section we have what is called a "Hero" image. This is in web terms, a large banner image placed prominently on the page. The placement is considered "above the fold," hence has a particular task; pique the curiosity of the visitors to keep reading, scrolling, clicking, and engaging with the website.
 
 > **Urkel Says**: Newspapers need to be folded due to their large paper format and thus termed the phrase "above the fold" for the upper half of the front page that often contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted into the language of the web, including semantic HTML elements like the terms for a section, aside, header, footer, and article. Click [here](https://en.wikipedia.org/wiki/Above_the_fold) to find out more.
 
@@ -24,13 +22,14 @@ Think of the hero section as the banner, headline, or billboard of our site. But
 
 Let's build upon the `section` we created in Lesson 1. This `section` element will be the parent element that contains the children elements like the heading and sign-up form.
 
-> **Rewind**: HTML5 semantic elements help distinguish each part of the document and its function in relation to the document overall. For a closer look check out [this link](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML).
-
 ### Adding the Sign-up Form Container
 
-> **Pause**: As seen in the mock-up, our hero section will contain a large background picture with input fields. But before we can create our sign-up form, can you see any content or HTML elements that will be needed?
+Let's take a look at the sign-up form in our mock-up.
+![Sign-up Mock-up](./assets/step-3/70-sign-up-mock-up.png)
 
-> **Hint**: Look for any content like text, heading, and especially distinct elements like boxes.
+> **Pause**: From the mock-up can you identify any HTML elements that will be needed?
+
+> **Hint**: Look for any content like text, heading, and/or boxes.
 
 > **Answer**: We will need a box that contains a heading, text, input fields, and a button.
 
@@ -82,7 +81,8 @@ So not yet exactly what we are looking for stylistically speaking, but this is a
 
 ### Introduction to Web Forms
 
-Forms are an important mechanism used by the web to receive user input. Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form. HTML Forms are a major point of interaction between the user and a website or application. They allow users to send data to the website, normally to the server. Within this `form` will be the `form` elements such as `input` elements and their associated `label` elements. `Input` elements come in many different types and flavors depending on the type of information needed such as a text input fields, radio buttons, or checkboxes.
+The sales team has requested that we include a form in our hero section. The importance of this form is emphasized due to its position at the top section of our website. The will generate sales leads and convert visitors into customers.
+Forms are an important mechanism used by the web to receive user input. Now we will learn how to build our own forms and the different input types that are possible. First let's create the sign-up form by using the `<form>` tag to wrap our sign-up form. HTML Forms are a major point of interaction between the user and a website or application. They allow users to send data to the website, normally to the server. Within this `form` will be the `form` elements such as `input` elements and their associated `label` elements. `Input` elements come in many different types  depending on the answer choices such as open-ended(text field) vs closed-ended(radio button, drop list, or checkbox).
 
 > **On The Job**: The sign-up form is a "call to action" or CTA. The main purpose is to encourage the users through a story, advertisement, or piece of content to do something. In our case we would like our visitor to share their contact info for a possible future engagement. CTAs can play a vital role in converting a visitor into a sales lead. Placing the CTA in the hero section reveals the strategic importance of retaining user info.
 
@@ -92,6 +92,8 @@ Let's create the markup now, within the `form` to create our text fields.
 > **Pause**: How many text fields will be needed in the sign-up form? 
 
 > **Answer**: We will need three text fields. 
+Let's take a look at these text fields in our mock-up.
+![Text Fields](./assets/step-3/150-text-input-html.png)
 
 Look closely at how we pair the `input` and corresponding `label` elements and their different attributes.
 
