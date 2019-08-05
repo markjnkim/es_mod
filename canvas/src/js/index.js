@@ -13,8 +13,22 @@ $(document).ready(function() {
 
   // find crappy tables
   $("#bootcamp table").each(function() {
-    var type = $(this).find("td:first p:last").text();
+
+    $(this)
+      .find("[id*=gdc]")
+      .remove();
+
+    var type = $(this).find("td:first").text().trim()
     var content = $(this).find("td:last").html();
+
+    // fixing spacing issue
+    if (type === "Technical OverviewVideo") {
+      type = "Technical Overview Video";
+    }
+
+    if (type === "Context OverviewVideo") {
+      type = "Context Overview Video";
+    }
 
     // and convert to blockquotes
     var block = $("<blockquote>").append(`<strong>${type}</strong>`).append(content);
