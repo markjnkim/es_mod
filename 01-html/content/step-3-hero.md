@@ -563,7 +563,7 @@ In our case, when we declare the width of the `div` to be 500px and keep the the
 
 Let's add this code into our CSS style sheet and take a look at the new changes on your page in the browser. Don't forget to save your changes.
 
-> **Pro Tips**: 
+> **Pro Tip**: 
 >* Learn keyboard shortcuts to greatly increase your speed and efficiency. Look into the VS Code shortcuts as well as for Chrome for your operating system for Save, Format, Open in Default Browser, and much more for [Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) and [Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf). They are also labeled in your menu options. 
 > * Use an iterative process, meaning save your work then check the browser after each step to ensure the page is progressing in the right direction. This offers the chance to fix any issues before writing more code and adding any additional errors.  
 >* Select the `Auto Save` option in the `File` menu due to all the time saved from forgetting to do that.
@@ -580,21 +580,34 @@ As you can see, the `border-box` constrains the elements by includes the padding
 Success. Nice job! Now let's preview a new way to make changes to your styling after this checkpoint.
 
 > **Checkpoint**: <br />
->  Block elements are normally displayed without starting a new line.<br />
->  <input type="radio" name="checkpoint-1" id="checkpoint-1"> True  <br />
->  <input type="radio" name="checkpoint-1" id="checkpoint-1"> False <br />
+>  Box-sizing is a property that changes the calculation of which value of the element?<br />
+>  <input type="checkbox" name="checkpoint-1" id="checkpoint-11" /><label for="checkpoint-11"> Width</label> <br />
+>  <input type="checkbox" name="checkpoint-1" id="checkpoint-12" /><label for="checkpoint-12"> Height</label> <br />
+>  <input type="checkbox" name="checkpoint-1" id="checkpoint-12" /><label for="checkpoint-12"> Margin</label> <br />
+>  <input type="checkbox" name="checkpoint-1" id="checkpoint-12" /><label for="checkpoint-12"> Content</label> <br />
 
-> Inline elements are normally display without starting a new line <br />
->  <input type="radio" name="checkpoint-2" id="checkpoint-2"> True <br />
->  <input type="radio" name="checkpoint-2" id="checkpoint-2"> False <br />
+> If you need to position a child element in relation to its parent element, which value will you set the `position` property to? <br />
+>  <input type="checkbox" name="checkpoint-2" id="checkpoint-21" /><label for="checkpoint-21"> Display</label> <br />
+>  <input type="checkbox" name="checkpoint-2" id="checkpoint-22" /><label for="checkpoint-22"> Static</label> <br />
+>  <input type="checkbox" name="checkpoint-2" id="checkpoint-32" /><label for="checkpoint-32"> Absolute</label> <br />
+>  <input type="checkbox" name="checkpoint-2" id="checkpoint-33" /><label for="checkpoint-33"> Relative</label> <br />
 
-> What is the correct HTML for making a radio button? <br />
->  <input type="radio" name="checkpoint-3" id="checkpoint-3"> `<radio>` <br />
->  <input type="radio" name="checkpoint-3" id="checkpoint-3"> `<radiobutton>` <br />
->  <input type="radio" name="checkpoint-3" id="checkpoint-3"> `<input type="radiobutton">` <br />
->  <input type="radio" name="checkpoint-3" id="checkpoint-3"> `<input type="radio">` <br />
+> What is the correct selector to choose a single `p` element for styling?<br />
+```html
+<div id="p">
+  <p> lorem </p>
+  <p class="para"> lorem</p>
+</div>
+
+```
+
+>  <input type="radio" name="checkpoint-3" id="checkpoint-31" /> <label for="checkpoint-31">`p`</label> <br />
+>  <input type="radio" name="checkpoint-3" id="checkpoint-32" /><label for="checkpoint-32"> `#p` </label><br />
+>  <input type="radio" name="checkpoint-3" id="checkpoint-33" /><label for="checkpoint-33"> `div`</label> <br />
+>  <input type="radio" name="checkpoint-3" id="checkpoint-34" /><label for="checkpoint-34"> `.para`</label> <br />
 <br />
 > <input type="submit" />
+
 ### Chrome's Dev Tools
 
 Ever think it's kind of a pain hopping back and forth between the CSS file and the browser to see how the changes look even for little tweaks. Let's use a tool in our Chrome browser called Developer Tools.
