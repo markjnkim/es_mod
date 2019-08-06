@@ -6,7 +6,7 @@ Website needs to go mobile ASAP. reason? CEO was out on a jog and stopped in his
 Management teams relays this message: 
 Currently the site is not mobile responsive. Marketing pitches that mobile devices are actually the biggest participants of the web. (stats here, etc. ) We need access to those potential customers especially since our service is for people on the run. 
 
-# Lesson 1 - Development Stage 
+# Lesson 1 - Gitflow 
 ## Introduction
 After receiving the mandate from management for the next update for Run Buddy 2.0, we will need to make the landing page mobile friendly or responsive. Here is the mock-up we will need to follow for our update.
 
