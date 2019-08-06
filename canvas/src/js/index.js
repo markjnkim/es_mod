@@ -9,7 +9,21 @@ import  "prismjs/components/prism-r";
 // style sheets
 import "../css/main.scss";
 
-$(document).ready(function() {
+// wait for page content to fully load
+var observer = new MutationObserver(function() {
+  bootCampMagic();
+  observer.disconnect();
+});
+
+// but only on actual course pages
+if (window.location.href.match(/\/courses\/[0-9]+\/pages\/.+/)) {
+  observer.observe(document.getElementById("wiki_page_show"), {
+    childList: true,
+    subtree: true
+  });
+}
+
+function bootCampMagic() {
   // add custom wrapper if not already there
   if ($("#bootcamp").length == 0) {
     $('#wiki_page_show .user_content').wrapInner("<div id='bootcamp'>");
@@ -100,4 +114,4 @@ $(document).ready(function() {
   });
 
   Prism.highlightAll();
-});
+}
