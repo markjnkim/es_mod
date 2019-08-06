@@ -67,15 +67,15 @@ Let's add a height and width attribute to enable of Google Maps interactive cont
 - **frameborder**: By default, the browser will render an `iframe` element with a thin border. This attribute allows us to override that default, effectively removing the border.
 - **style**: This is an inline style to set no border for newer browsers.
 - **allowfullscreen**: Some attributes are properties that can be turned on by simply adding the attribute. The `allowfullscreen` attribute will offer a link to view the map on a new page in full screen mode. Notice how `allowfullscreen` doesn't have any value assignment. Another popular attribute that doesn't have a value assignment for example is `checked` for a `checkbox` input element.
-> **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers so we will use the `border` property from CSS to declare this property. We wouldn't typically worry about old browser support however Google likes to cover all their bases.
-> **Heads up**: We had to manually add the height and width attributes in the `iframe` to render a larger image capable of testing interactivity because the default sizing was too small to offer any interactive controls.
+> **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers so we will use the `border` property from CSS to declare this property. We wouldn't typically worry about old browser support however Google likes to cover all their bases. Browsers have changed over time much like any technology. Browser enhancements such as tabbed browsing and phishing filters improved user experiences, but certain properties were deprecated or no longer used or supported in favor of off loading this property onto new technologies like CSS. For more information about browser histories and the browser wars please check [Wikipedia](https://en.wikipedia.org/wiki/Browser_wars).
+
+> **Heads up**: We had to manually add the height and width attributes in the `iframe` to render a larger image capable of testing interactivity because the default sizing was too small to enable controls.
 
 Let's take a look at our page now and see what the `iframe` looks like. Take a moment to play with the map using the zoom and scrolling functionality.
 
 These interactive controls aren't actually a part of the `iframe`, but rather helpful controls that Google adds to the page when it detects the map is being rendered inside an `iframe`.
 
 ![iframe-map](./assets/step-6/200-iframe-html.png)
-> **Activity**: Try replacing the iframe with a [YouTube](https://www.youtube.com/) video or a [gif](https://giphy.com/).
 > **Pro Tip**: It is important to note that with the power of the `iframe` also comes with responsibility. Be careful with the use of an `iframe` with any copyrighted websites. Security risks must also be assessed since an `iframe` from a compromised website may prove to be dangerous.
 ## Creating our Contact Info
 
@@ -261,7 +261,7 @@ Your code should look something like this:
   color: white;
 }
 ```
-It is important to note that in the CSS rule above targetting the child `div`, we overwrote the default `display` property for a `div` and changed it from `block` to `inline-block`. This allows the `.contact-info` container to sit on the same row as the `iframe` element *and* allows us to assign a width, something that the property value `inline` would not let us do.
+It is important to note that in the CSS rule above targeting the child `div`, we overwrote the default `display` property for a `div` and changed it from `block` to `inline-block`. This allows the `.contact-info` container to sit on the same row as the `iframe` element *and* allows us to assign a width, something that the property value `inline` would not let us do.
 
 Another important property used here is the `vertical-align` property.
 > **Pause**: Please take a moment think about what the purpose of the `vertical-align` property and what problem it solves here.
@@ -303,13 +303,13 @@ Note that the second CSS rule targets two different elements. The comma separate
 Let's save the file and reload `index.html` in the browser. 
 Congrats, you have completed the landing page and created a professional layout. Now is a great time to add, commit, and push your work to your repo. 
 
-Next we will create our `policy.html` page, to complete our mock-up requirements, but first let's recap some of the highlights from this lesson.
+
 
 ## Reflection
-There were quite a few different topics covered in this lesson so let's go over the biggest takeaways and key concepts.
+Nice job! In this lesson, we are continuing to build upon the our HTML and CSS skills by creating new content and tackling more advanced HTML elements. We built an interactive map as well as implemented a multi-column layout. 
 
-* We created a multi column layout by creating container elements to a set width and declaring the `display: inline-block;`.
-* We learned the alignment properties to render our contact information more legibly with `vertical-align`, `display`, and `text-align`.
-* We implemented unique HTML element called an `iframe` that allows nested browser content from another HTML page to be embedded into the current one. This can offer some user interactivity and interoperability with another website that adds visual features without adding a lot of code.
+Next we will create our `policy.html` page, to complete our mock-up requirements, but first let's recap some of the highlights from this lesson.
 
-> **Pro Tip**: Knowing that learning new technologies can be challenging, realize that in the learning process, the challenges are when breakthroughs in understanding can happen. Patience and confidence with yourself will need to many rewarding discoveries. 
+* We gained more experience with the build process, starting with the markup and then adding style. We were able to reuse CSS rules by applying CSS class selectors to achieve an efficient and clean codebase without repeating code. Getting into the habit of writing code that is concise is a best practice that takes time to master but is worthwhile because of the improved readability and maintainability.
+* We created a multi-column layout by creating container elements to a set width and declaring the `display: inline-block;`. An important skill that will be used often because modern websites demand interesting ways to delivery content.
+* We implemented a unique HTML element called an `iframe` that allows nested browser content from another HTML page to be embedded into the current one. This can offer some user interactivity and interoperability with another website that adds rich visual features without adding a lot of code.
