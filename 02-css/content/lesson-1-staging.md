@@ -12,27 +12,28 @@ After receiving the mandate from management for the next update for Run Buddy 2.
 
 ![version_2.0-mock-up](./assets/lesson-1/001-version2-mock-up-main.jpg)
 
-Since the website is currently deployed or live on the `master` branch, what will happen if we try to make these changes on the `master` like we did back in Module 1?
-It will cause the website to look broken or may even crash on our visitors which isn't just annoying or frustrating, but may even relate to some visitors on a first impression that this is a fake internet site. 
+> **Pause**:Since the website is currently deployed or live on the `master` branch, what will happen if we try to make these changes on the `master` like we did back in Module 1?
+> **Answer**:It will cause the website to look broken or may even crash on our visitors which isn't just annoying or frustrating, but may even relate to some visitors on a first impression that undermines the credibility of the company. 
 
-This is where our friend Git comes into play. 
+This is where our friend Git comes into play.
+> **Rewind**: Git is a version control system that allows your project not only to be saved with access to the full history of commits, but also allows versions of the code to be created by branching.
+ 
 > **Career Path**: Git is the industry standard for developers.
 Employers will want employees with experience with Git. Employer-ready students will be able to demonstrate a solid familiarity with Git version control.
 
-> **Rewind**: Git is a version control system that allows your project not only to be saved with access to the full history of commits, but also allows versions of the code to be created by branching.
-
 ## Branching for version control
-Branches in Git allow developers to copy versions of the repo. In our case we would like to have one version that is deployed which will continue to serve our customers and another version of the same exact code so we can work in isolation that will allow us to edit and create without worrying about blocking visitors who wish to use our website. We will call this branch `staging`. This will become our development environment. We will work on the code in our `staging` branch while our deployed site will remain in the production environment. Development environments are not exposed to the public whereas production is.
-> **Deep Dive**: Development vs Production Recap
+Git allows developers to create copies of the codebase to test out new features or fix bugs. These copies are referred to as branches. In our case we would like to have one version that is deployed which will continue to serve our customers and another version of the same exact code so we can work in isolation that will allow us to edit and create without worrying about blocking visitors who wish to use our website. We will call this branch `staging`. This will become our development environment. We will work on the code in our `staging` branch while our deployed site will remain in the production environment. Development environments are not exposed to the public whereas production is.
+## Development vs Production Recap
 
-> |         | Production | Development |
-> |------------------|------------| ----------- |
-> |exposed to public | true    | false    |
-> |testing phase   | false   | true    |
-> |branch name    | master   | staging   |
-> |deployed     | true    | false    |
-> |located in repo  | true    | true    |
-> |contains test data| false   | true    |
+|         | Production | Development |
+|------------------|------------| ----------- |
+|exposed to public | true    | false    |
+|testing phase   | false   | true    |
+|branch name    | master   | staging   |
+|deployed     | true    | false    |
+|located in repo  | true    | true    |
+|contains test data| false   | true    |
+
 Please note the branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, however in our situation this will be the case. 
 
 The `staging` branch will be where we collect the new features or enhancements and test them. Once we are satisfied with the final result and we have a stable working version, we can then "merge" our new work into the `master` branch and then ship or deploy our update to the users. 
@@ -43,32 +44,37 @@ $ git branch
 ```
 Displays a list of all the current branches currently in our repo. This also highlights which branch you are currently on. This is called the active branch.
 ```
-$ git branch "<branch-name>"
+$ git branch <branch-name>
 
 ```
 This command creates a new branch with your `<branch-name>`. This branch will be the exact copy of the current active branch. Once changes are committed onto the new branch, the branches will no longer be copies of each other since their commit histories will now diverge. The new branch name must not contain any spaces. 
 ```
-$ git checkout "<branch-name>"
+$ git checkout <branch-name>
 ```
 The `checkout` command enables a user to move into a different branch or version which will become the new active branch. 
 ```
-$ git checkout -b "<branch-name>"
+$ git checkout -b <branch-name>
 ```
-Creates a new branch **AND** moves into the new branch making it the active branch.
+Allows us to perform these two Git operations at once.
+```
+git branch <branch-name>
+git checkout <branch-name>
+```
+Using the **-b** flag which is short for branch, we can create a new branch **AND** `checkout` into the new branch we just created.
 
-> **Do It Yourself**: Now let's practice using some of these commands to create our `staging` branch and verify our work. Remember we must go to the terminal and `cd` into our working directory. Let's go to the root directory of our project so we can make a new version or branch. 
+> **Activity**: Now let's practice using some of these commands to create our `staging` branch and verify our work. Remember we must go to the terminal and `cd` into our working directory. Let's go to the root directory of our project so we can make a new version or branch. 
 
 ```
-$ git branch "staging"
+$ git branch staging
 ```
 ```
-$ git checkout "staging"
+$ git checkout staging
 ```
 Now let's type in our command to list the branches to verify our work.
 ``` 
 $ git branch
 ```
-Excellent. Your terminal should now look like this.
+Your terminal should now look like this.
 ![git-branch](./assets/lesson-1/100-git-branch-cli.png)<br />
 
 
@@ -239,7 +245,7 @@ From there we can create a new issue by clicking on the green New Issue button.
 ![new-git-issue](./assets/lesson-1/800-new-git-issue.png)
 
 As the text input field suggests, we will be creating a new git issue named after the new CSS tool we will be using to implement a mobile responsive website called CSS flexbox. We will cover much more on this in the next lesson.
-Git issues are useful because they create a project to-do list that can be labelled or categorized under issue type, assigned to a person, and much more. Take a look at [GitHub Help](![git-issues](./assets/lesson-1/700-git-issue-sdlc.png)) for a detailed explanation regarding how git issues can improve your project's workflow.
+Git issues are useful because they create a project to-do list that can be labelled or categorized under issue type, assigned to a person, and much more. Take a look at ![GitHub Help](./assets/lesson-1/700-git-issue-sdlc.png) for a detailed explanation regarding how git issues can improve your project's workflow.
 Let's leave a quick comment "Use flexbox to create a more mobile responsive website" and click on the "Submit new issue" button.
 
 To verify our issue was completed correctly, let's click on the Issues tab. Here we will see our list of issues that need resolution. Let's click on our flexbox issue. From here we can add comments, reassign the issue to someone else, add more descriptions including project requirements, and add a label. Let's add a label to our flexbox issue now.
