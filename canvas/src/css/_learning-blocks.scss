@@ -67,7 +67,7 @@ blockquote {
 
   &.pro-tip {
     border-color: #067742;
-    background-color: rgb(5, 255, 151);
+    background-color: rgba(5, 255, 151, 0.705);
 
     &::before {
       background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg");
