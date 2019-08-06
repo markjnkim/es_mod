@@ -10,7 +10,7 @@ import  "prismjs/components/prism-r";
 import "../css/main.scss";
 
 // only run on course content pages
-if (window.location.href.match(/\/courses\/[0-9]+\/pages\/.+/)) {
+if (window.location.href.match(/\/courses\/[0-9]+\/pages\/((?!\/edit).)+$/)) {
   // if content exists, run immediately
   if (document.querySelector("#wiki_page_show .user_content")) {
     bootCampMagic();
