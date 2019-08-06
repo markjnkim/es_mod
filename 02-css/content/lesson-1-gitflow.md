@@ -85,7 +85,8 @@ Now that we have learned an important use of Git's branches to create an isolate
 
 ## Now Featuring. . . Branches
 
-Rather than a different type of branch, a feature branch is actually just a different use of the same idea. Previously we used a `develop` branch to create a development environment to leave our production environment undisturbed. In this case, we will be creating a feature branch that is an exact duplicate of the `develop` branch to create our new feature. This will allow work to be done on the same repo or project independently and in isolation to eliminate accidentally overwriting or losing a team member's work. 
+A feature is an enhancement to the codebase. Examples of possible features include much of the work we did in Module 1. For instance adding a header or footer can be considered a new feature. Adding the hero section or a contact form could also be considered a new feature. Features are simply significant additions or changes to the codebase. A feature branch is a branch or version of the code that is developing this feature.
+Previously we used a `develop` branch to create a development environment to leave our production environment undisturbed. In this case, we will be creating a feature branch that is an exact duplicate of the `develop` branch to create our new feature. This will allow work to be done on the same repo or project independently and in isolation to eliminate accidentally overwriting or losing a team member's work. 
 
 > **Preservable Walk Through**: How branches create versions <br />
 Possible video, example on [Youtube](https://www.google.com/search?q=examples+of+version+control+video&source=lnms&tbm=vid&sa=X&ved=0ahUKEwignK24ib_jAhXxIDQIHWysDQ0Q_AUIEigC&biw=1440&bih=727)
