@@ -73,15 +73,19 @@
   
   img {
     max-width: 90% !important;
-    margin: 20px auto;
+    margin: 20px 0;
     box-shadow: 0 0 15px #333333;
 
     &.image-large {
+      margin: 20px auto;
+      display: block;
       max-width: 80%;
       text-align: center;
     }
 
     &.image-small {
+      margin: 20px auto;
+      display: block;
       max-width: 45%;
       text-align: center;
     }
@@ -127,6 +131,7 @@
     margin: 20px 0;
 
     iframe, img {
+      display: block;
       position: absolute;
       top: 0;
       left: 0;
