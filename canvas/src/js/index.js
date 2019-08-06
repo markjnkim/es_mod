@@ -9,7 +9,27 @@ import  "prismjs/components/prism-r";
 // style sheets
 import "../css/main.scss";
 
-$(document).ready(function() {
+// only run on course content pages
+if (window.location.href.match(/\/courses\/[0-9]+\/pages\/.+/)) {
+  // if content exists, run immediately
+  if (document.querySelector("#wiki_page_show .user_content")) {
+    bootCampMagic();
+  }
+  // otherwise set up dom listener
+  else {
+    var observer = new MutationObserver(function() {
+      bootCampMagic();
+      observer.disconnect();
+    });
+
+    observer.observe(document.getElementById("wiki_page_show"), {
+      childList: true,
+      subtree: true
+    });
+  }
+}
+
+function bootCampMagic() {
   // add custom wrapper if not already there
   if ($("#bootcamp").length == 0) {
     $('#wiki_page_show .user_content').wrapInner("<div id='bootcamp'>");
@@ -94,10 +114,10 @@ $(document).ready(function() {
   // make sure code snippets are formatted for prism
   $("pre:not(:has(>code))").each(function() {
     // default to bash if no class is set
-    var className = $(this).attr("class").indexOf("language-") !== -1 ? $(this).attr("class") : "language-bash";
+    var className = this.className.indexOf("language-") !== -1 ? $(this).attr("class") : "language-bash";
 
     $(this).wrapInner(`<code class="${className}">`);
   });
 
   Prism.highlightAll();
-});
+}
