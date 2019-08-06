@@ -2,16 +2,15 @@
 
 ## Introduction
 
-Before we go any further, take a moment to give yourself a pat on the back. The hardest part of building any new HTML document is getting started, and you've done that beautifully. Even though it doesn't look like much when you view the webpage in a browser, you've already done a lot to pave the way for building out the Run Buddy website! 
+Before we go any further, take a moment to give yourself a pat on the back. The hardest part of building any new HTML document is getting started, and you've done that beautifully. Even though the Run Buddy landing page doesn't look like much in a browser, you've already done a lot to pave the way for building out entire website! 
 
 In the previous step, you built a series of "containers" (aka divs) in your webpage to hold different types of content. At first glance, this may seem like a lot of extra work, but as you continue to add content and apply styles to each section one at a time, you won't have to worry about that affecting the other sections.
 
-This step focuses on building out the content and applying styles to the header and footer of our page. Why focus the top and bottom and leave everything in the middle untouched? This is a good place to start because the header and footer typically share similar patterns when it comes to adding HTML content and applying styles. If this doesn't make sense, don't worry about it. You'll see what we mean in a few minutes. 
+This step focuses on building out the content and applying styles to the header and footer of our page. Why focus the top and bottom and leave everything in the middle untouched? Because the header and footer typically share similar patterns when it comes to adding HTML content and applying styles. If this doesn't make sense, don't worry about it. You'll see what we mean in a few minutes. 
 
-Because this is our introduction to a lot of these concepts, we'll keep it a little bit on the plain side so we can focus on learning.
-In this lesson, we will learn about new HTML elements and **Cascading Style Sheets**, which will be referred to throughout the rest of this unit (and your career) as **CSS**. 
+Because this is our introduction to these concepts, we'll keep it a little bit on the plain side. In this lesson, we'll learn about new HTML elements and **Cascading Style Sheets**, which will be referred to throughout the rest of this unit (and your career) as **CSS**. The nice thing about what we'll be working on here is that a lot of it will be repeated in future lessons. 
 
-The nice thing about what we'll be working on here is that a lot of it will be repeated in future steps. This is technology that is best learned through doing, so let's get started!
+This is best learned through doing, so let's get started!
 
 ## Add Content to the Header
 
@@ -21,9 +20,9 @@ The nice thing about what we'll be working on here is that a lot of it will be r
 
 ### Branding
 
-Branding is something most webpages have on them in a prominent position so users know where they are. We have already provided this type of content since we added the `<h1>RUN BUDDY</h1>` to the `<header>` in Lesson 1. @@@ ALT DEF OF BRANDING
+Branding is something most webpages have on them in a prominent position so users know where they are. We took care of this already in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. @@@ ALT DEF OF BRANDING
 
-Now that we have our page's identity in place, let's turn our attention to the navigation portion of our `header`. Let's start by adding `<nav>` and `</nav>` immediately below `h1`, but above the closing `</header>` tag. It should look something like this: 
+So branding is taken care of, but what about navigation? Let's start by adding `<nav>` and `</nav>` immediately below `h1` but above the closing `</header>` tag. It should look something like this: 
 
 ```html
 <header>
@@ -32,19 +31,19 @@ Now that we have our page's identity in place, let's turn our attention to the n
 </header>
 ```
 
-The `nav` HTML element is a newer "semantic" element designed to help with accessibility and SEO. The browser can now read these elements and get an idea of what information is inside.
+The `nav` HTML element is a newer "semantic" element designed to help with accessibility and SEO. The browser can now read these elements and get an idea about the information that's inside.
 
-> **Important:** Web Accessibility @@@ IS THIS A LEARNING BLOCK? CHECK 
+> **Important:** Web Accessibility
 >
-> As the web has grown, so has the need to make it available to as many people as possible. As a developer, our main role is to create products that can provide a similar&mdash;if not identical&mdash;experience to every single user, even those with limited abilities. @@@ "LIMITED ABILITIES" CHECK INCLUSIVITY Special applications and even browsers now provide support to those with special needs on the Internet.
+> As the web has grown, so has the need to make it available to as many people as possible. As a developer, our main role is to create products that can provide a similar&mdash;if not identical&mdash;experience to every user, including those with disabilities. 
 >
-> The best example of this is a screen reader, where the browser will interpret an HTML element and its content, then read it to the user as they move along the site and select/hover over elements with their mouse or by using the `tab` key on a keyboard. However, the browser can only infer so much on its own, so it's up to us to use the proper tools and methods to provide important information in a way the browser can interpret.
+> Software now exists to make content accessible to people with visual and hearing impairment, cognitive and hearing disabilities, and more. Perhaps the most well-known example is a screen reader, where the browser will interpret an HTML element and its content, then read it to the user as they move along the site and select/hover over elements with their mouse or by using the tab key on a keyboard. However, the browser can only infer so much on its own, so it's up to developers to provide information in a way the browser can interpret.
 >
-> There are a number of tools we can use to add accessibility to our pages, the most prominent and easy to implement being HTML5 semantic elements. Up until the late 2000s the `<div>` element was used everywhere a block of content was needed. This led to developers having to work extra hard to properly identify sections of content so screen readers could interpret the page better. Now we have elements that structurally work like a `<div>` element but have more meaningful names like `<header>`, `<footer>`, and `<nav>`. This means the browser can start by reading the HTML element itself and inferring what content is inside of it and how important it must be on the page.
+> There are a number of tools developers can use to add accessibility to webpages, the most prominent and easy to implement being HTML5 semantic elements. Up until the late 2000s the `<div>` element was used anytime a block of content was needed. This led to developers having to work extra hard to properly identify sections of content so screen readers could interpret the page better. Now we have elements that work like a `<div>` element structurally, but that have more meaningful names like `<header>`, `<footer>`, and `<nav>`. This means the browser can start by reading the HTML element itself and inferring what content is inside of it and how important it must be on the page.
 >
-> We will be exploring more of these tools in this project and in upcoming projects, but [here is more information about accessibility on the web](https://developer.mozilla.org/en-US/docs/Web/Accessibility). Take a few minutes to skim this so you can get an idea of what creating accessible content entails. 
+> We'll explore more of these tools in this project and in upcoming projects, but if you'd like to learn more now, take a few minutes to check out all the resources available on MDN on [web accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility). 
 
-There are a number of ways to organize navigation links. We will use a popular method by creating a list and giving each navigation link its own spot on that list. Right after the opening `nav` we just created, place the following:
+There are a number of ways to organize navigation links. We will use a popular method by creating a list and giving each navigation link its own spot on that list. Right after the opening `nav` you just created, type the following: @@@ ARE WE STILL TELLING THEM TO TYPE EVERYTHING OUT?
 
 ```html
 <!-- Unordered list element -->
@@ -66,26 +65,26 @@ There are a number of ways to organize navigation links. We will use a popular m
 </ul>
 ```
 
-So let's unpack what we just created, starting with lists. In HTML there are two
-types of lists: "ordered" and "unordered". Ordered lists or **`<ol>`** tell the
+Let's unpack what we just created, starting with lists. In HTML, there are two
+types of lists: ordered and unordered. Ordered lists or **`<ol>`** tell the
 browser to interpret any nested "list item" **`<li>`** in numeric order (1, 2,
-3, etc). Unordered lists **`<ul>`** allow for a more loosely formatted list by
+3, etc.). Unordered lists **`<ul>`** allow for a more loosely formatted list by
 marking each nested list item with a symbol (such as a bullet point or square).
 
 ![Ordered lists with numbers vs. unordered list with
 bullets](assets/step-2/100.5-ordered-unordered.png)
 
-The relationship between `ul` and `ol` with an `li` is a direct parent/child relationship, meaning that `li` or child should be nested or contained within the parent element's opening and closing tags, in this case the `ol` or `ul` elements.
+The relationship between `ul` and `ol` with an `li` is a direct parent/child relationship, meaning that an `li` or child should be nested or contained within the parent element's opening and closing tags—in this case, the `ol` or `ul` elements.
 
-Within reason, anything can be nested inside of an `<li>` element. In our case for creating a navigation, we used an "anchor" **`<a>`** element. Anchor elements are crucial tools for us as they give us the ability to create links in our HTML that take us to other destinations when clicked. These destinations can be within the same page, another page within our site, or another website entirely.
+Within reason, anything can be nested inside an `<li>` element. In our case for creating a navigation, we used an "anchor" **`<a>`** element. Anchor elements are crucial tools for us as they give us the ability to create links in our HTML that take us to other destinations when clicked. These destinations can be within the same page, another page within our site, or another website entirely.
 
-> **Connect the Dots:** The `<a>` element is a prime example of the "hypertext" in HTML, as hypertext is defined as text that links to other texts. Since this term was coined in the early 1960s, its definition has grown beyond just text and also includes other types of media.
+> **Connect the Dots:** The `<a>` element is a prime example of the "hypertext" in Hypertext Markup Language (HTML). Hypertext is defined as text that links to other text. Since this term was coined in the early 1960s, its definition has expanded to include not just text but other types of media. @@@ ADD EXAMPLE
 
 Take a look below to see a few examples:
 
 ```html
-<!-- When we click "Go To Google" it will take you to Google -->
-<a href="https://google.com">Go To Google</a>
+<!-- When we click "Go to Google," it will take you to Google -->
+<a href="https://google.com">Go to Google</a>
 
 <!-- This will take us to our own site's privacy policy HTML page -->
 <a href="./privacy-policy.html">View Our Privacy Policy</a>
@@ -94,9 +93,9 @@ Take a look below to see a few examples:
 <a>This does nothing</a>
 ```
 
-Notice the first two have an `href=` inside of their opening tags? This is what is known as an HTML "attribute", and in this case it is critical for it to be included with a value associated in order for the `a` element to work as intended.
+Did you notice that the first two have an `href=` inside of their opening tags? This is what is known as an **HTML attribute**. In this case, in order for the `a` element to work as intended, it must include an associated value. @@@ INCLUDE EXAMPLE
 
-**Attributes** help us provide different functionality, meaning, and context for our HTML elements. They are not necessary for every element (as we can see, we've written a lot of HTML so far without them) but can be added to any element. There are some elements that do in fact require them to work as intended, such as `<a>`. If we were to omit the `href` attribute, then the `<a>` element would not be clickable.
+**Attributes** help us provide functionality, meaning, and context for our HTML elements. They are not necessary for every element (as we can see, we've written a lot of HTML so far without them) but can be added to any element. There are some elements that do in fact require them to work as intended, such as `<a>`. If we were to omit the `href` attribute, then the `<a>` element would not be clickable.
 
 Throughout this lesson and in the future we will be introduced to some other very important attributes. These attributes will help us provide an HTML element a unique identity, create relationships with other elements, and provide design changes using CSS.
 
@@ -149,15 +148,16 @@ If your code now looks something like the following, then we are ready to move o
   </nav>
 </header>
 ```
+@@@ AVOID STACKING LEARNING BLOCKS ONE ON TOP OF ANOTHER
 
-> Deep Dive: Learn more about the HTML elements we just used.\
+> **Deep Dive:** Learn more about the HTML elements we just used.\
 > [Anchor Element `<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)\
 > [Heading Elements `<h1> - <h6>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)\
 > [Navigation Element `<nav>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)\
 > [Unordered List `<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)\
 > [List Item `<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
 
-> PAUSE: We just did a fairly decent amount of work, we should save our work and make sure it's backed up to Github. Using the commands from the last step, make sure the work is saved when a good amount is complete. We don't need to save after EVERY line of code written, but if a big section is completed, save it.
+> **Pause:** You just did a decent amount of work, so you should save it and push it up to GitHub for safekeeping. Using the commands you learned in the last lesson, go ahead and do this now. You don't need to save after every single line of code written, but if a big section is completed, save it.
 >
 > Git Commands:
 >
@@ -165,7 +165,7 @@ If your code now looks something like the following, then we are ready to move o
 >
 > - **git commit -m "commit message"**: now that the files are being tracked by Git (by using `git add -A`), tell git _what_ we've added or changed. That goes into the `commit message` portion in the command.
 >
-> **NOTE**: These two commands are responsible for telling Git what we're saving and why we're saving it. Think of it as a local save point for our project. What hasn't happened yet is getting GitHub to see these new changes, but these two have to be done first (in this order) before we can get this code to GitHub.
+> **Note**: These two commands are responsible for telling Git what we're saving and why we're saving it. Think of it as a local save point for our project. What hasn't happened yet is getting GitHub to see these new changes, but these two have to be done first (in this order) before we can get this code to GitHub.
 >
 > - **git push origin master**: use this command to take all of the code and file edits from our recent `commit` and get it all up to GitHub. So now our code is saved both locally on our machines and there's a direct copy of it on our GitHub profiles.
 >
@@ -311,9 +311,9 @@ The other attribute, `rel`, is providing a little more context as to what the HT
 >
 > The best solution for this is to work with relative pathing, as we typically push the entire folder structure for the project up together and the paths don't lose context as to where they are.
 >
-> The idea of pathing is just like the command-line commands we learned in the last lesson, where we move relative to where we are currently in the folder structure and can move into subdirectories with `./subdirectory-name` and move out of a folder with `../`, which will step us up a level into the parent directory.
+> The idea of pathing is just like the CLI commands we learned in the last lesson, where we move relative to where we are currently in the directory structure and can move into subdirectories by using `./subdirectory-name` and move out of a folder by using `../`, which steps us up a level into the parent directory.
 
-Let's test this and make sure it worked by adding the following to `style.css`:
+Let's test this and make sure it works by adding the following to `style.css`:
 
 ```css
 body {
@@ -324,11 +324,14 @@ body {
 
 If that turned the whole background of your page to red, then it works! Please remove the `background-color` style from the page as we won't need it anymore.
 
-> **Pause:** We'll get into explaining the above CSS syntax in the next step, but take a moment and think about what's happening here. In CSS, we used the word `body`, where have we seen `body` before? Maybe in the HTML document?
+> **Pause:** We'll get into explaining the above CSS syntax in a minute. Before we do, take a moment and think about what's happening here. In CSS, you'll often see the word `body`. Where have we seen "body" before?\
+> 
+>    Answer: We used the word "body" to create the HTML `<body>` element in Lesson 1. The `<body>` element contains all the content that a user sees on a webpage.
+
 
 ## Our First Styles
 
-Okay, so let's take that wonderfully plain `header` we've been working on and actually make it look like a professional navigation bar. We'll start by exploring exactly _how_ we can tell CSS to attach styles to specific HTML elements using `selectors`.
+Okay, so let's take that wonderfully plain `header` we've been working on and make it look like a professional navigation bar. We'll start by exploring exactly _how_ we can tell CSS to attach styles to specific HTML elements using `selectors`.
 
 Now that we know the basic "ins and outs" of how we can write CSS, let's actually do it to our page!
 
@@ -403,21 +406,25 @@ We just told the `header` element to apply `padding`, meaning we wanted to add s
 
 > **Deep Dive:** CSS properties that allow listing multiple values at once are what's known as [shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties), and can save a ton of time and cut out a lot of repetitive code.
 
-Before we move on to the rest of these styles, let's take a moment to learn and understand how an HTML element's height and width dimensions are calculated for placement on a page. This called the **Box Model** and can be a little tricky at first, since we are dealing with some things that aren't visible, but it is an important concept for any web developer to know.
+Before we move on to the rest of these styles, let's take a moment to learn and understand how an HTML element's height and width dimensions are calculated for placement on a page. This is called the **CSS Box Model** and can be a little tricky at first, because we are dealing with some things that aren't visible, but it is an important concept for any web developer to know.
 
-## CSS Box Model
+### The CSS Box Model
 
-All HTML elements can be represented by a rectangular box which we will call the CSS box. The CSS box model is a visual display of the properties in the CSS box that includes the content, padding, border, and margin that are all built around each other like layers in an onion. Some of the styles of each layer like the thickness, style, and/or color can be manipulated using CSS.
+All HTML elements can be represented by a rectangular box, which we can call the CSS box. The CSS box model is a visual display of the properties in the CSS box that includes the content, padding, border, and margin that are all built around each other like layers in an onion. Some of the styles of each layer—like border thickness, style, and color—can be manipulated using CSS. @@@ BORDER THICKNESS OKAY?
 
 ![Box Model](assets/step-2/103-box-model.png)
 
-1. **Content** is the innermost box inside our CSS box that will contain text as well as any nested elements. The content box size is determined by the height and width.
 
-2. **Padding** refers to the inside margin within the CSS box. Each of the four sides of the padding size can be specified as detailed in the previous lesson.
 
-3. **Border** sits on the outside edge of the padding and the inside edge of the margin. This layer's sides, size, and styles can be specified, similarly to the padding and margin. Such as border-bottom or border-style or even border-top-color. This property also needs a weight of the line, style, and color in order to render.
+Let's break down the CSS Box Model: 
 
-4. **Margin** behaves a lot like `padding` does, whereas `padding` creates space _inside_ the box, `margin` creates space _outside_ the box and pushes any other HTML elements before and after it away. It also behaves like `padding` in the sense of how it's values are provided (top, right, bottom, left).
+* **Content** is the innermost box inside our CSS box that will contain text as well as any nested elements. The content box size is determined by the height and width.
+
+* **Padding** refers to the inside margin within the CSS box. Each of the four sides of the padding size can be specified as detailed in the previous lesson.
+
+* **Border** sits on the outside edge of the padding and the inside edge of the margin. This layer's sides, size, and styles can be specified, similarly to the padding and margin. Such as border-bottom or border-style or even border-top-color. This property also needs a weight of the line, style, and color in order to render.
+
+* **Margin** behaves a lot like `padding` does, whereas `padding` creates space _inside_ the box, `margin` creates space _outside_ the box and pushes any other HTML elements before and after it away. It also behaves like `padding` in the sense of how it's values are provided (top, right, bottom, left).
 
 All four of these pieces are included in a browser's calculation of an HTML element's dimensions. This is something that even veteran developers can get tripped up with, as it may be easy to assume that the HTML's height or width should only be accounting for the physical/visible content inside of it. But in reality, the content is only a piece of the puzzle. 
 
