@@ -5,11 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node-sass -w src/css -o build --output-style compact"
+    "start": "webpack"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "node-sass": "^4.12.0"
+  "devDependencies": {
+    "css-loader": "^3.1.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "prismjs": "^1.17.1",
+    "sass-loader": "^7.1.0",
+    "showdown": "^1.9.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
   }
 }
