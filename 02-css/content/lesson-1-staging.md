@@ -1,7 +1,7 @@
-_Primer_ - Module Preface
+_Overview_ - Module Preface
 Company was thrilled with success of our landing page! 
-Website needs to go mobile ASAP. reason? CEO was out on a jog and stopped in his tracks when he saw the website on his mobile device. 
-> insert pic of the broken website on CEO's mobile device
+Website needs to go mobile ASAP. reason? CEO was out on a jog and stopped in her tracks when she saw the website on her mobile device. 
+> ## insert pic of the broken website on CEO's mobile device
 
 Management teams relays this message: 
 Currently the site is not mobile responsive. Marketing pitches that mobile devices are actually the biggest participants of the web. (stats here, etc. ) We need access to those potential customers especially since our service is for people on the run. 
@@ -70,6 +70,8 @@ $ git branch
 ```
 Excellent. Your terminal should now look like this.
 ![git-branch](./assets/lesson-1/100-git-branch-cli.png)<br />
+
+
 > ## Will fix terminal prompt to be anonymous
 The green font color and asterisk indicate the current active branch.
 > **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` a different branch, the Explorer side panel will update with the new branch's folder hierarchy. Also note that on the bottom left on the status bar in VS Code under the Explorer side panel, the current active branch will be displayed to help keep track of the version being edited. Be sure you are not working on the `master` since management will not be very happy if the production environment gets corrupted.
