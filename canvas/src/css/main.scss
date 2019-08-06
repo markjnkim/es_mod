@@ -12,18 +12,19 @@
 
 // wrapper for all of our custom styles in canvas
 #bootcamp {
-  width: 85%;
+  width: 85ch;
   padding: 20px 30px 75px 30px;
   background: rgba(255,255,255,0.8);
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.5;
   color: var(--trilogy-dark-gray);
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', sans-serif;
     color: var(--trilogy-blue);
     font-weight: 800;
-    line-height: 1.5;
+    margin-top: 20px;
   }
 
   h1 {
@@ -75,13 +76,23 @@
     margin: 20px auto;
     box-shadow: 0 0 15px #333333;
 
-    &.img-left {
+    &.image-large {
+      max-width: 80%;
+      text-align: center;
+    }
+
+    &.image-small {
+      max-width: 45%;
+      text-align: center;
+    }
+
+    &.image-left {
       max-width: 50%;
       float: left;
       margin: 20px 25px 20px 0;
     }
 
-    &.img-right {
+    &.image-right {
       max-width: 50%;
       float: right;
       margin: 20px 0 20px 25px;
@@ -90,6 +101,22 @@
   
   ol, ul {
     padding-left: 0;
+  }
+
+  .inline {
+    display: inline;
+  }
+  
+  .code-large {
+    margin: 20px auto;
+    box-shadow: 0 0 10px #333333;
+    width: 80%;
+  }
+
+  .code-small {
+    margin: 20px auto;
+    box-shadow: 0 0 10px #333333;
+    width: 80%;
   }
   
   .video-wrapper {
@@ -108,6 +135,7 @@
       box-shadow: 0 0 10px #333333; 
     }
   }
+  
   
   // import secondary style sheets within markdown body context
   @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
