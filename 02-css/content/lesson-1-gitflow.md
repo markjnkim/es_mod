@@ -1,28 +1,29 @@
-_Primer_ - Module Preface
+> _Overview_ - Module Preface
 Company was thrilled with success of our landing page! 
-Website needs to go mobile ASAP. reason? CEO was out on a jog and stopped in his tracks when he saw the website on his mobile device. 
-> insert pic of the broken website on CEO's mobile device
-
+Website needs to go mobile ASAP. reason? CEO was out on a jog and stopped in her tracks when she saw the website on her mobile device. 
+The website layout has been thrown into disarray when viewed on a mobile device.
+![Broken Mobile Site](./assets/lesson-1/003-broken-mock-up.png)
 Management teams relays this message: 
-Currently the site is not mobile responsive. Marketing pitches that mobile devices are actually the biggest participants of the web. (stats here, etc. ) We need access to those potential customers especially since our service is for people on the run. 
+Currently the site is not mobile responsive. The marketing team pitches that mobile devices generate nearly half of global website traffic and is expected to increase yearly. We need access to those potential customers especially since our service is for people on the run. 
 
-# Lesson 1 - Gitflow 
+# Lesson 1 - Set Up the Git Workflow
 ## Introduction
-After receiving the mandate from management for the next update for Run Buddy 2.0, we will need to make the landing page mobile friendly or responsive. Here is the mock-up we will need to follow for our update.
+After receiving the mandate from management for the next update for Run Buddy 2.0, we will need to make the website mobile friendly as well as improve the UX or user experience by adding some advanced CSS properties. Here is the mock-up we will need to follow for our update which we will build over the course of this module.
 
-![Version_2.0 Mock-up](./assets/lesson-1/001-version2-mock-up-main.jpg)
+![version_2.0-mock-up](./assets/lesson-1/001-version2-mock-up-main.jpg)
 
-> **Pause**:Since the website is currently deployed or live on the `master` branch, what will happen if we try to make these changes on the `master` like we did back in Module 1?
-> **Answer**:It will cause the website to look broken or may even crash on our visitors which isn't just annoying or frustrating, but may even undermine our company's credibility. 
+Since the website is currently deployed on the `master` branch, if we try to make changes on the `master` like we did back in Module 1, this will result in a broken website that will block our visitors from using Run Buddy's services. The management team would not be very happy about turning away potential customers.
 
-This is where our friend Git comes into play.
-> **Rewind**: Git is a version control system that allows your project not only to be saved with access to the full history of commits, but also allows versions of the code to be created by branching.
- 
-> **Career Path**: Git is the industry standard for developers.
-Employers will want employees with experience with Git. Employer-ready students will be able to demonstrate a solid familiarity with Git version control.
+This is where our friend Git comes back into play.
+In this lesson we will introduce three main concepts.
+* Using Git to create branches to make versions of our codebase.
+* Interacting with Github which will house the project's codebase.
+* Learning Gitflow, a branching model made for team collaboration and releasing updates.
 
-## Development vs Production Environments
-Git allows developers to create copies of the codebase to test out new features or fix bugs. These copies are referred to as branches. In our case we would like to have one version that is deployed which will continue to serve our customers and another version of the same exact code so we can work in isolation that will allow us to edit and create without worrying about blocking visitors who wish to use our website. We will call this branch `develop`. This will become our development environment. We will work on the code in our `develop` branch while our deployed site will remain in the production environment. Development environments are not exposed to the public whereas production is.
+> **Career Path**: Git is the industry standard for developers. Employer-ready students must demonstrate a solid familiarity with Git version control.
+
+## Introducing Gitflow
+Git allows developers to create copies of the codebase to develop new features or fix bugs. These copies are referred to as branches. In our case we would like to have one version that is deployed which will continue to serve our visitors and another version of the same exact code so we can work in isolation that will allow us to edit and develop without worrying about disrupting the website for visitors. We will call this branch `develop`. This will become our development environment. We will work on the code in our `develop` branch while our deployed site will remain in the production environment. Development environments are not exposed to the public whereas production is.
 
 <!-- 
 |         | Production | Development |
@@ -36,57 +37,70 @@ Git allows developers to create copies of the codebase to test out new features 
 
 Please note the branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, however in our situation this will be the case. 
 
-The `develop` branch will be where we collect the new features or enhancements and test them. Once we are satisfied with the final result and we have a stable working version, we can then "merge" our new work into the `release` branch. From there we will make a Pull Request  
+The `develop` branch will be where we collect the new features or enhancements and test them. Once we are satisfied with the final result and we have a stable working version, we can then "merge" our new work into the `release` branch. From there we will make a `pull request` which is a formal request to merge into the `master` that will allow team members to review and test the code as well as offer comments.  The `release` branch will be where we perform our final tests before updating or releasing our new version into the `master` branch. This type of Git workflow that emphasizes the release cycle for updates to production is known as Gitflow.
+![Gitflow Diagram](./assets/lesson-1/40-gitflow-release-diagram.png)
+Gitflow a Git branching model devised by Vincent Driessen  that was created for team collaborations on projects based on a release cycle. Much of the Gitflow process includes a strict naming convention for branches as well as keeping the production environment isolated from development except for releases or updates which would include batches of tested additional features. For a closer look at the different rules for Gitflow take a look at [Vincent's post.](https://nvie.com/posts/a-successful-git-branching-model/)
 
-Before we create our `develop` branch, let's first learn some new Git commands for the terminal. 
+Before we can create our development environment, let's first learn some new Git commands for the terminal. 
 ```
 $ git branch
 ```
-Displays a list of all the current branches currently in our repo. This also highlights which branch you are currently on. This is called the active branch.
+Displays a list of all the current branches currently in our repo. This also highlights which branch you are currently on. This is called the **active** branch.
 ```
 $ git branch <branch-name>
 
 ```
-This command creates a new branch with your `<branch-name>`. This branch will be the exact copy of the current active branch. Once changes are committed onto the new branch, the branches will no longer be copies of each other since their commit histories will now diverge. The new branch name must not contain any spaces. 
+This command creates a new branch with your `<branch-name>`. This branch will be the exact copy of the current active branch. Once changes are committed onto the new branch, the branches will no longer be copies of each other since their commit histories will now diverge. This is how we make a new version of the active branch.
 ```
 $ git checkout <branch-name>
 ```
-The `checkout` command enables a user to move into a different branch or version which will become the new active branch. 
+The `checkout` command enables a user to move into a different branch which will become the new active branch. 
 ```
 $ git checkout -b <branch-name>
 ```
-Allows us to perform these two Git operations at once.
+This Git command performs the following two Git operations at once.
 ```
 git branch <branch-name>
 git checkout <branch-name>
 ```
-Using the **-b** flag which is short for branch, we can create a new branch **AND** `checkout` into the new branch we just created.
+Using the **-b** flag, which is short for *branch*, we can create a new branch **AND** `checkout` into the new branch we just created. So essentially the new branch becomes the new active branch.
 
-> **Activity**: Now let's practice using some of these commands to create our `develop` branch and verify our work. Remember we must go to the terminal and `cd` into our working directory. Let's go to the root directory of our project so we can make a new version or branch. 
+Now let's practice using these commands to create our development environment by making a `develop` branch. Remember we must go to the terminal and `cd` into our working directory. 
+
+Let's go to the root directory of our project so we can make a new branch from our `master` branch. 
 
 ```
 $ git branch develop
-```
-```
+
 $ git checkout develop
+```
+or we could have just used the command:
+```
+$ git checkout -b develop
 ```
 Now let's type in our command to list the branches to verify our work.
 ``` 
 $ git branch
 ```
-Your terminal should now look like this.
-![git-branch](./assets/lesson-1/100-git-branch-cli.png)<br />
-> ## Will fix terminal prompt to be anonymous
-The green font color and asterisk indicate the current active branch.
-> **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` a different branch, the Explorer side panel will update with the new branch's folder hierarchy. Also note that on the bottom left on the status bar in VS Code under the Explorer side panel, the current active branch will be displayed to help keep track of the version being edited. Be sure you are not working on the `master` since management will not be very happy if the production environment gets corrupted.<BR />
-> ### (ADD SCREENSHOT OF INTEGRATED TERMINAL WINDOW)
+Your terminal should now look like this.<br />
+```
+$ git branch
+   master
+ * develop
+```
+<!--How do I make the develop line GREEN! -->
+The  asterisk indicates the current active branch.
+<!-- ![git-branch](./assets/lesson-1/100-git-branch-cli.png)<br /> -->
+<!-- >> ## Will fix terminal prompt to be anonymous -->
 
-Now that we have learned an important use of Git's branches to create an isolated development environment for working and editing without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. 
+Now that we have learned an important use of Git's branches to create an isolated development environment to work and edit without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. 
 
 ## Now Featuring. . . Branches
 
-A feature is an enhancement to the codebase. Examples of possible features include much of the work we did in Module 1. For instance adding a header or footer can be considered a new feature. Adding the hero section or a contact form could also be considered a new feature. Features are simply significant additions or changes to the codebase. A feature branch is a branch or version of the code that is developing this feature.
-Previously we used a `develop` branch to create a development environment to leave our production environment undisturbed. In this case, we will be creating a feature branch that is an exact duplicate of the `develop` branch to create our new feature. This will allow work to be done on the same repo or project independently and in isolation to eliminate accidentally overwriting or losing a team member's work. 
+A feature is an enhancement to the codebase. Examples of possible features include much of the work we did in Module 1. For instance adding a header or footer can be considered a new feature. Adding a new section or a contact form could also be considered a new feature. Features are simply significant additions or changes to the codebase. A feature branch is the branch that is developing this feature.
+Previously we used a `develop` branch to create a development environment to leave our production environment undisturbed. In this case, we will "fork" or branch from the `develop` branch to create a feature branch 
+
+. This will allow work to be done on the same repo or project independently and in isolation to eliminate accidentally overwriting or losing a team member's work. 
 
 > **Preservable Walk Through**: How branches create versions <br />
 Possible video, example on [Youtube](https://www.google.com/search?q=examples+of+version+control+video&source=lnms&tbm=vid&sa=X&ved=0ahUKEwignK24ib_jAhXxIDQIHWysDQ0Q_AUIEigC&biw=1440&bih=727)
@@ -253,6 +267,11 @@ Let's leave a quick comment "Use flexbox to create a more mobile responsive webs
 To verify our issue was completed correctly, let's click on the Issues tab. Here we will see our list of issues that need resolution. Let's click on our flexbox issue. From here we can add comments, reassign the issue to someone else, add more descriptions including project requirements, and add a label. Let's add a label to our flexbox issue now.
 > **Pause**: Which label should we choose?
 > **Answer**: enhancement because this will be a new feature.
+
+<!-- > **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` a different branch, the Explorer side panel will update with the new branch's folder hierarchy. Also note that on the bottom left on the status bar in VS Code under the Explorer side panel, the current active branch will be displayed to help keep track of the version being edited or copied. This helps ensure we are not working on the `master` branch since management will not be very happy if the production environment gets corrupted.<BR />
+> ### (ADD SCREENSHOT OF INTEGRATED TERMINAL WINDOW) -->
+<!-- > **Video**: Screencast of switch between branches -->
+
 
 In the next lesson we will learn how our issue will turn into a feature branch.
 > **Checkpoint**: Possible stopping place
