@@ -10,12 +10,12 @@
       "matches": [
         "https://*.instructure.com/courses/*/pages/*"
       ],
-      "js": ["extension-files/jquery-3.4.1.slim.min.js", "canvas-fsfo-script.js"],
-      "css": ["canvas-fsfo-theme.css"]
+      "js": ["extension-files/content.js"]
     }
   ],
   "background": {
-    "scripts": ["extension-files/chrome.js"]
+    "scripts": ["extension-files/background.js"]
   },
+  "web_accessible_resources": ["canvas-fsfo-script.js", "canvas-fsfo-theme.css"],
   "permissions": ["management", "webRequest", "webRequestBlocking", "*://*.amazonaws.com/*", "*://*.instructure.com/*"]
 }
