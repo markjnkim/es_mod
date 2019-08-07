@@ -157,9 +157,10 @@ pre[class*="language-"] {
   #bootcamp h6 {
     font-size: 1.25em; }
   #bootcamp p {
-    font-size: 1.1em;
+    font-size: inherit;
     font-weight: 400;
-    line-height: 1.7; }
+    line-height: inherit;
+    margin: 12px 0; }
   #bootcamp a {
     color: var(--trilogy-teal); }
   #bootcamp a[href*=".png"],
@@ -172,12 +173,16 @@ pre[class*="language-"] {
     text-align: center; }
   #bootcamp img {
     max-width: 90% !important;
-    margin: 20px auto;
+    margin: 20px 0;
     box-shadow: 0 0 15px #333333; }
     #bootcamp img.image-large {
+      margin: 20px auto;
+      display: block;
       max-width: 80%;
       text-align: center; }
     #bootcamp img.image-small {
+      margin: 20px auto;
+      display: block;
       max-width: 45%;
       text-align: center; }
     #bootcamp img.image-left {
@@ -190,6 +195,8 @@ pre[class*="language-"] {
       margin: 20px 0 20px 25px; }
   #bootcamp ol, #bootcamp ul {
     padding-left: 0; }
+    #bootcamp ol li:not(:last-child), #bootcamp ul li:not(:last-child) {
+      margin-bottom: .3em; }
   #bootcamp .inline {
     display: inline; }
   #bootcamp .code-large {
@@ -208,6 +215,7 @@ pre[class*="language-"] {
     height: 0;
     margin: 20px 0; }
     #bootcamp .video-wrapper iframe, #bootcamp .video-wrapper img {
+      display: block;
       position: absolute;
       top: 0;
       left: 0;
@@ -253,7 +261,7 @@ pre[class*="language-"] {
         background-image: url("https://bootcampspot.instructure.com/courses/87/files/381/preview"); }
     #bootcamp blockquote.pro-tip {
       border-color: #067742;
-      background-color: #05ff97; }
+      background-color: rgba(5, 255, 151, 0.705); }
       #bootcamp blockquote.pro-tip::before {
         background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg"); }
     #bootcamp blockquote.checkpoint::before, #bootcamp blockquote.check-point::before {
