@@ -1,8 +1,8 @@
 > _Overview_ - Module Preface
 Company was thrilled with success of our landing page! 
-Website needs to go mobile ASAP. reason? CEO was out on a jog and stopped in her tracks when she saw the website on her mobile device. 
+Website needs to go mobile ASAP. reason? CEO was out on a jog and stopped in her tracks when she saw the website on her mobile device. <br />
 The website layout has been thrown into disarray when viewed on a mobile device.
-![Broken Mobile Site](./assets/lesson-1/003-broken-mock-up.png)
+![Broken Mobile Site](assets/lesson-1/003-broken-mock-up.png)
 Management teams relays this message: 
 Currently the site is not mobile responsive. The marketing team pitches that mobile devices generate nearly half of global website traffic and is expected to increase yearly. We need access to those potential customers especially since our service is for people on the run. 
 
@@ -10,7 +10,7 @@ Currently the site is not mobile responsive. The marketing team pitches that mob
 ## Introduction
 After receiving the mandate from management for the next update for Run Buddy 2.0, we will need to make the website mobile friendly as well as improve the UX or user experience by adding some advanced CSS properties. Here is the mock-up we will need to follow for our update which we will build over the course of this module.
 
-![version_2.0-mock-up](./assets/lesson-1/001-version2-mock-up-main.jpg)
+![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
 Since the website is currently deployed on the `master` branch, if we try to make changes on the `master` like we did back in Module 1, this will result in a broken website that will block our visitors from using Run Buddy's services. The management team would not be very happy about turning away potential customers.
 
@@ -37,9 +37,11 @@ Git allows developers to create copies of the codebase to develop new features o
 
 Please note the branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, however in our situation this will be the case. 
 
-The `develop` branch will be where we collect the new features or enhancements and test them. Once we are satisfied with the final result and we have a stable working version, we can then "merge" our new work into the `release` branch. From there we will make a `pull request` which is a formal request to merge into the `master` that will allow team members to review and test the code as well as offer comments.  The `release` branch will be where we perform our final tests before updating or releasing our new version into the `master` branch. This type of Git workflow that emphasizes the release cycle for updates to production is known as Gitflow.
-![Gitflow Diagram](./assets/lesson-1/40-gitflow-release-diagram.png)
-Gitflow a Git branching model devised by Vincent Driessen  that was created for team collaborations on projects based on a release cycle. Much of the Gitflow process includes a strict naming convention for branches as well as keeping the production environment isolated from development except for releases or updates which would include batches of tested additional features. For a closer look at the different rules for Gitflow take a look at [Vincent's post.](https://nvie.com/posts/a-successful-git-branching-model/)
+The `develop` branch will be where we collect the new features or enhancements and test them. Once we are satisfied with the final result and we have a stable working version, we can then "merge" our new work into the `release` branch. From there we will make a `pull request` which is a formal request to merge the new changes into the `master` which will allow team members to review and test the code as well as offer comments.  The `release` branch will be where we perform our final tests before updating or releasing our new version into the `master` branch. 
+
+This type of Git workflow or methodology that emphasizes the release cycle for updates to production is known as Gitflow.
+![Gitflow Diagram](assets/lesson-1/40-gitflow-release-diagram.png)
+Gitflow a Git branching model devised by Vincent Driessen that was created for team collaboration on projects based on a release cycle. Much of the Gitflow process includes a strict naming convention for branches as well as keeping the production environment completely isolated from development except for timed releases or updates which would include batches of tested website enhancements or features. For a closer look at the different rules for Gitflow take a look at [Vincent's post.](https://nvie.com/posts/a-successful-git-branching-model/)
 
 Before we can create our development environment, let's first learn some new Git commands for the terminal. 
 ```
@@ -50,11 +52,11 @@ Displays a list of all the current branches currently in our repo. This also hig
 $ git branch <branch-name>
 
 ```
-This command creates a new branch with your `<branch-name>`. This branch will be the exact copy of the current active branch. Once changes are committed onto the new branch, the branches will no longer be copies of each other since their commit histories will now diverge. This is how we make a new version of the active branch.
+This command creates a new branch with your `<branch-name>`. This branch will be the exact copy of the current active branch. Once changes are committed onto the new branch, the branches will no longer be in sync with each other since their commit histories will diverge. This is how we make a new version of the active branch. We can only make version or "fork" the active branch so it is a good practice to use the `git branch` command before making a new branch.
 ```
 $ git checkout <branch-name>
 ```
-The `checkout` command enables a user to move into a different branch which will become the new active branch. 
+The `checkout` command enables a user to move into a different branch which will become the new active branch. This is how to navigate between different version of the codebase.
 ```
 $ git checkout -b <branch-name>
 ```
@@ -90,27 +92,27 @@ $ git branch
 ```
 <!--How do I make the develop line GREEN! -->
 The  asterisk indicates the current active branch.
-<!-- ![git-branch](./assets/lesson-1/100-git-branch-cli.png)<br /> -->
+<!-- ![git-branch](assets/lesson-1/100-git-branch-cli.png)<br /> -->
 <!-- >> ## Will fix terminal prompt to be anonymous -->
 
 Now that we have learned an important use of Git's branches to create an isolated development environment to work and edit without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. 
 
 ## Now Featuring. . . Branches
 
-A feature is an enhancement to the codebase. Examples of possible features include much of the work we did in Module 1. For instance adding a header or footer can be considered a new feature. Adding a new section or a contact form could also be considered a new feature. Features are simply significant additions or changes to the codebase. A feature branch is the branch that is developing this feature.
-Previously we used a `develop` branch to create a development environment to leave our production environment undisturbed. In this case, we will "fork" or branch from the `develop` branch to create a feature branch 
+A feature is an enhancement to the codebase. Examples of possible features include much of the work we did in Module 1. For instance adding a header or footer can be considered a new feature. Adding a new section or a contact form could also be considered a new feature. Features are significant additions or changes to the codebase.
 
-. This will allow work to be done on the same repo or project independently and in isolation to eliminate accidentally overwriting or losing a team member's work. 
+Previously we used a `develop` branch to create a development environment to protect and isolate our production environment from our code changes. In this step, we will fork from the `develop` branch to create a new feature branch where the feature development work will be done. 
+![Feature Branch](assets/lesson-1/60-feature-branch.png)
+As can be seen in the diagram, several feature branches can be forked off the `develop` branch. Once the feature is complete, it is merged back into the `develop` branch.
+There are several important reasons to work on the codebase in a separate branch and not in the `develop` branch.
+* Developing code on a separate branch preserves a version, in our case the `develop` branch, which allows other team members to fork from a branch that is in working condition.
+* Working on separate branches allows team members to work in parallel, developing features simultaneously which increases productivity and accountability.
+* Features can be added independently, meaning a finished `feature` branch can be merged to the `develop` branch without needing to wait for other team members to finish their work.
+* Testing the feature branch in isolation will help find errors or bugs more quickly since the changes in the codebase will be unique to the feature.
 
-> **Preservable Walk Through**: How branches create versions <br />
-Possible video, example on [Youtube](https://www.google.com/search?q=examples+of+version+control+video&source=lnms&tbm=vid&sa=X&ved=0ahUKEwignK24ib_jAhXxIDQIHWysDQ0Q_AUIEigC&biw=1440&bih=727)
-
-This is also modular approach which allows each feature to be added or merged when finished rather than needing all the features to be completed before merging. Think about the benefits of this approach:
-* Increase productivity and accountability of each team member, with individual feature assignments.
-* Able to ship features independently, meaning a finished feature can be added right away without needing to wait for other features to finish. This is done by merging the feature branch into the development environment branch, in this case, the `develop` branch.
-* Check for bugs or unintended side effects by testing the feature branch and its affect on the rest of the website after merging. This will help isolate the error recovery process.
-> ### (ADD SCREENSHOT OF FEATURE BRANCH WINDOW)
-Here is a nice explainer regarding feature branch work flow.
+> **Preservable Walk Through**: Why working in isolation is important <br />
+Possible video, example on [Youtube](https://www.youtube.com/watch?v=9GKpbI1siow)
+Example here. Let's say two people are working on the same page, how overwriting might occur. 
 
 It's time to switch gears now that we have our development environment set up. Let's go to our repo in GitHub and create a `README.md` file.
 
@@ -180,7 +182,7 @@ $ git pull origin master
 ```
 You should see the following screen after a successful `pull`.
 
-![vim](./assets/lesson-1/200-vim-cli.png)
+![vim](assets/lesson-1/200-vim-cli.png)
 
 This is a text editor called Vim. In order to exit out of this screen type the following into the editor
 ```
@@ -189,7 +191,7 @@ SHIFT+Z+Z
 So what is Vim? To learn more, check out this link to [Wikipedia](https://en.wikipedia.org/wiki/Vim_(text_editor)).
 This will bring you back to your terminal window which should look like this.
 
-![pull-success](./assets/lesson-1/300-pull-success-cli.png)
+![pull-success](assets/lesson-1/300-pull-success-cli.png)
 >**Graphics Team Request**: Modifications needed to scrub name from terminal?
 
 Now let's verify if our `README.md` file was successfully downloaded. Open the `develop` branch in VS Code and open the `README.md` file.
@@ -200,7 +202,7 @@ Now that we have our `develop` branch updated, we can continue with our project 
 
 ## Add New Content with HTML
 According to our mock-up we will need to add a bit of content to our landing page. Let's take a look at the new text block we will need to add.
-![hero-section-mock-up](./assets/lesson-1/500-hero-mock-up.png)
+![hero-section-mock-up](assets/lesson-1/500-hero-mock-up.png)
 
 Please proceed with adding just the HTML content needed here.
 
@@ -226,10 +228,10 @@ Please proceed with adding just the HTML content needed here.
 > **Answer**: Absolute position removed the `form` from the document flow which allows the text block to overlap. We will fix this in the next section when implementing the CSS. 
 
 One more thing, let's flip our hero image to improve the legibility of our text block by updating our background hero image the the css with the following image.
-> **Image download** from Canvas/AWS [flipped-hero-image](./assets/lesson-1/400-hero-flip-css.jpg)
+> **Image download** from Canvas/AWS [flipped-hero-image](assets/lesson-1/400-hero-flip-css.jpg)
 
 Great! Now that this is done, let's add the markup for our contact form for our Reach Out Section. Let's review the Reach Out section on our mock-up
-![contact-form](./assets/lesson-1/600-Reach-Out-mock-up.png)
+![contact-form](assets/lesson-1/600-Reach-Out-mock-up.png)
 Notice the large text input field for Message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters like the size of the rendered input field, maximum character length, and if it is a required input in order to submit. This and many more attributes can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) for a more detailed look.
 ```html
 <!-- 2.1 - Added contact form -->
@@ -250,7 +252,7 @@ Now that we have created our development environment and added some HTML content
 
 ## Git Issues Create Feature Branches
 
-Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called git issues. Git issue is a workflow process development tool that is often used with teams that will help organize and communicate the state of each task and who is responsible for its completion. This tool can prevent team members from forgetting to do important tasks, identify bottle necks, and prevent anyone from duplicating work. Now how it works is very simple. Let's go to our GitHub repo and select on the Issues tab.
+Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called git issues. Git issues are a workflow process development tool that is often used with teams that will help organize and communicate what needs to be done, when it needs to be done by, and who is responsible for its completion. This tool can prevent team members from forgetting to do important tasks, identify bottle necks, and prevent anyone from duplicating work. Now how it works is very simple. Let's go to our GitHub repo and select on the Issues tab.
 > ### Need to Recreate Student Repo for screen shot
 
 > **Possible Video Walkthrough** gif git
@@ -258,10 +260,10 @@ Now we could dive right in and get started on a new feature branch, but instead 
 issue, comment on issue, close issue
 From there we can create a new issue by clicking on the green New Issue button.
 
-![new-git-issue](./assets/lesson-1/800-new-git-issue.png)
+![new-git-issue](assets/lesson-1/800-new-git-issue.png)
 
 As the text input field suggests, we will be creating a new git issue named after the new CSS tool we will be using to implement a mobile responsive website called CSS flexbox. We will cover much more on this in the next lesson.
-Git issues are useful because they create a project to-do list that can be labelled or categorized under issue type, assigned to a person, and much more. Take a look at ![GitHub Help](./assets/lesson-1/700-git-issue-sdlc.png) for a detailed explanation regarding how git issues can improve your project's workflow.
+Git issues are useful because they create a project to-do list that can be labelled or categorized under issue type, assigned to a person, and much more. Take a look at ![GitHub Help](assets/lesson-1/700-git-issue-sdlc.png) for a detailed explanation regarding how git issues can improve your project's workflow.
 Let's leave a quick comment "Use flexbox to create a more mobile responsive website" and click on the "Submit new issue" button.
 
 To verify our issue was completed correctly, let's click on the Issues tab. Here we will see our list of issues that need resolution. Let's click on our flexbox issue. From here we can add comments, reassign the issue to someone else, add more descriptions including project requirements, and add a label. Let's add a label to our flexbox issue now.
