@@ -182,19 +182,17 @@ Let's update our local repo with our remote repo in GitHub by introducing a Git 
 > **Possible Video Animation** Showing data flowing back and forth b/n remote and local repos.
 ![Git Pull](assets/lesson-1/250-pull-git.png)<br />
 Before we can update our local repo, it is always a good practice to see if local changes need to be staged and committed. Let's first make sure we are in our `develop` branch. Now let's run our `git status` command to verify if our working tree is clean, which means our files are `added` and there is nothing new to `commit`, otherwise please `stage` and `commit`. 
-Now once we have a "clean" branch, we are ready to "pull" or update our local repo with the remote thereby downloading any new changes. Let's examine a new Git command.
+Now once we have a "clean" branch, we are ready to "pull" or update our local repo with the remote thereby downloading any new changes. Let's examine the Git command.
 ```
 $ git pull origin master
 ```
 The `pull` command directs the download process to occur. The `origin` and `master` designate the source of the download or `pull`. The `origin` describes the remote in other words, the GitHub repo, and `master` designates the branch or version in the remote repo we would like to `pull` from or download. Please note if the `<branch-name>` does not exist on the remote repo, the `pull` process will error and not complete.
 > **Pause**: Wait, but how does the `pull` command know where the download will to go to?
 any thoughts? guesses?<br />
-> **Answer**: `git pull` will download to the current active branch or whatever branch you are currently checked out on.
-
-> **Potential Video Walkthrough** difference b/n fetch and pull, See [Youtube video](https://www.youtube.com/watch?v=q6rYglziOjM) or diagram showing 
+> **Answer**: `git pull` will download to the current active branch or whatever branch you are currently checked-out on. That's why it's always a good idea to use a `git branch` to verify the active branch before doing a `git pull`.
 
 So a little more on the `pull` process. The `pull` command is actually a combination of two different commands, `git fetch` and `git merge`.
-The git command `git fetch` gets branches from the remote repo and allows local access to them. This operation will not overwrite any files but will only add any branches in the remote repo that is not present in your local computer. However `git merge` will combine or merge the branch into your current active branch, which means some code management may need to occur due to the potential addition of new code into your current branch. Merge conflicts and their resolution will be covered in great detail later in this course. 
+The git command `git fetch` can get one or more branches from the remote repo and allows local access to them through `git checkout` process. This operation will not overwrite any files but will only add any branches in the remote repo that is not present in your local computer. A use case for `git fetch` would be to look at a team member's feature branch to check However `git merge` will combine or merge the branch into your current active branch, which means some code management may need to occur due to the potential addition of new code into your current branch. Merge conflicts and their resolution will be covered in great detail later in this course. 
 
 After the merge, the current active branch, in this case `develop`, we not only receive the new updates from the remote `master` branch, but also all the commit histories associated with that branch. 
 For more details, let's look at the official [Git docs](https://git-scm.com/docs/git-pull).
