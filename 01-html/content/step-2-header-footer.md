@@ -12,7 +12,7 @@ We will be introduced to both new HTML elements and **Cascading Style Sheets**, 
 
 ## Add content to our `<header>`
 
-![header html](assets/step-2/100-header-html.png)
+![header html](assets/step-2/100-header-html.jpg)
 
 We'll begin by adding some information that most modern web pages have: branding and navigation. These two pieces of a **user interface** (also known as "UI" for the hip) usually find their way into the `header` of an HTML document.
 
@@ -70,7 +70,7 @@ browser to interpret any nested "list item" **`<li>`** in numeric order (1, 2,
 marking each nested list item with a symbol (such as a bullet point or square).
 
 ![Ordered lists with numbers vs. unordered list with
-bullets](assets/step-2/100.5-ordered-unordered.png)
+bullets](assets/step-2/100.5-ordered-unordered.jpg)
 
 The relationship between `ul` and `ol` with an `li` is a direct parent/child relationship, meaning that `li` or child should be nested or contained within the parent element's opening and closing tags, in this case the `ol` or `ul` tags.
 
@@ -196,7 +196,7 @@ Using CSS we can control any HTML element's typography (font family, size, color
 
 This is a mock-up of the page we are currently building without any user-defined styles (the browser includes some by default, more on that later):
 
-![Page - no css](assets/step-2/101-page-nocss.png)
+![Page - no css](assets/step-2/101-page-nocss.jpg)
 
 As we can see, it's a very long page that reads well enough in order, but there's a lot of unused space and some of the images are simply way too large. Now let's look at how this same exact page will look after our styling is complete:
 
@@ -206,7 +206,7 @@ This looks much better with CSS, as we get to change how our content looks and i
 
 CSS's syntax is fairly simple looking, but can be used in many different ways to achieve an intended presentation or design for a page. Developers use it by listing an HTML element they want to style, then listing a predefined style characteristic (known as a "property") and providing them a value. Let's take a look and study the following syntax:
 
-![CSS Syntax](assets/step-2/300-css-syntax.jpeg)
+![CSS Syntax](assets/step-2/300-css-syntax.jpg)
 
 - **SELECTOR**: This is the part that actually says "let's find this matching HTML element (in this case it's the `body` tag) so we can tell it what it should look like". This is the most basic of selectors, where we select by HTML element name. We can use a CSS selector to be very vague (apply styles to all `<a>` elements) or very specific (apply styles to any `<a>` element that is inside of a `<header>` element and ignore any of the others that are not). We'll get into more specific selectors as we proceed.
 
@@ -406,7 +406,7 @@ Before we move on to the rest of these styles, let's take a moment to learn and 
 
 All HTML elements can be represented by a rectangular box which we will call the CSS box. The CSS box model is a visual display of the properties in the CSS box that includes the content, padding, border, and margin that are all built around each other like layers in an onion. Some of the styles of each layer like the thickness, style, and/or color can be manipulated using CSS.
 
-![Box Model](assets/step-2/103-box-model.png)
+![Box Model](assets/step-2/103-box-model.jpg)
 
 1. **Content** is the innermost box inside our CSS box that will contain text as well as any nested elements. The content box size is determined by the height and width.
 
@@ -449,7 +449,7 @@ Here, we are implementing a more specific selector pattern. This one ensures we 
 >
 > 3. **Source Order**: There is nothing that will stop us from accidentally selecting and defining styles to the same element more than once, but CSS is read top-down. This means that if we select `h1` and give it a color of red on line 1, then select it again and give it a color of blue on line 4, our `h1` is going to be blue because it was defined later.
 >
-> CSS styles are also applied through something known as "Inheritance", meaning if a style isn't explicity defined for a child element, it will try and use the style being applied to the parent element.
+> CSS styles are also applied through something known as "Inheritance", meaning if a style isn't explicitly defined for a child element, it will try and use the style being applied to the parent element.
 >
 > ### [Read more about Cascade and Inheritance here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance)
 
@@ -463,7 +463,7 @@ Now turning our attention to the actual property declarations happening here:
 
 It should now look like this:
 
-![Header Styles - 1](assets/step-2/400-header-style-1.png)
+![Header Styles - 1](assets/step-2/400-header-style-1.jpg)
 
 If it does, great! Let's start moving that navigation bar over to the right. These next steps are going to introduce some more specific selectors, so keep in mind that this is just one of many ways to properly select and apply styles, and is intended to get us acclimated to some of those many flavors. Over time, we'll hone our skills and become more efficient with applying styles, but for now we'll stick with the more easy to understand selectors.
 
@@ -549,7 +549,7 @@ header nav ul li a {
 
 Now we aren't quite there yet, there are still a few tweaks we need to add to our CSS to get it aligned with perfectly. This is going to involve overriding a couple of browser _quirks_, so we'll get a little more detailed with that. But for now, our `header` should look something like this:
 
-![Header styles - 2](assets/step-2/500-header-style-2.png)
+![Header styles - 2](assets/step-2/500-header-style-2.jpg)
 
 > PAUSE\
 > Considering the above, what do these other selectors say?
@@ -600,7 +600,7 @@ The asterisk `*` we used here is a symbol used quite often in programming. It is
 
 Okay so now we're looking good, right? The header is flush up against the top left corner of the page so there's no weird white gap. The navigation is nice and directly to the right of the `h1`. We can safely say at this point that we have finished our `header`! Let's double check and make sure that the page currently looks like this:
 
-![completed header](assets/step-2/600-header-complete.png)
+![completed header](assets/step-2/600-header-complete.jpg)
 
 If it does, great! It's time to move onto styling the `footer` next. But rest assured, we went through so much in this one section that a lot of the work we do next won't be as long or difficult. We covered a lot, so let's do a pulse check:
 
@@ -650,7 +650,7 @@ If it does, great! It's time to move onto styling the `footer` next. But rest as
 
 By the end of this section, our `footer` will look like this:
 
-![Footer HTML](assets/step-2/700-footer-html.png)
+![Footer HTML](assets/step-2/700-footer-html.jpg)
 
 So this first part is easy, we don't even have to concern ourselves with the fancy `Made with love` section on the left hand side since it's already done. So let's worry about making the other part of our `footer`.
 
@@ -683,7 +683,7 @@ So now our `footer` has all the right bones to start designing!
 
 Now let's make our `footer` look like this:
 
-![Footer with CSS](assets/step-2/800-footer-css.png)
+![Footer with CSS](assets/step-2/800-footer-css.jpg)
 
 As we kick off this section by applying styles to just the `footer` itself, we should keep in mind the styles we applied to the `header` elements earlier and see how many of these concepts are repeated.
 
@@ -740,7 +740,7 @@ Well that wasn't so bad, was it? Notice how we've repeated the same layout as th
 
 Okay so now we've officially completed all of our styles for the header and footer, leaving us with something like this:
 
-![Step 2 Complete](assets/step-2/900-finished-step-2.png)
+![Step 2 Complete](assets/step-2/900-step-2-complete.jpg)
 
 ## Reflection
 
