@@ -16,11 +16,11 @@ This is best learned through doing, so let's get started!
 
 ![header html](assets/step-2/100-header-html.png)
 
-@@@ ADD WHAT IS A HEADER? We'll begin by adding some information that most modern webpages have: branding and navigation. These two pieces of a **user interface** (also known as **UI** to those who are hip) usually find their way into the `<header>` of an HTML document. @@@ SHOULD WE MAKE SURE LEARNER KNOWS THAT "HTML DOC" AND "WEBPAGE" ARE USED SYNONOMOUSLY HERE?
+We'll begin by adding some information that most modern webpages have: branding and navigation. These two pieces of a **user interface** (also known as **UI** to those who are hip) usually find their way into the `<header>` of an HTML document.
 
 ### Branding and Navigation
 
-Branding is something most webpages have on them in a prominent position so users know where they are. We took care of this already in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. @@@ ALT DEF OF BRANDING
+Branding is something most webpages have on them in a prominent position so users know where they are. We took care of this already in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. 
 
 So branding is taken care of, but what about navigation? Let's start by adding `<nav>` and `</nav>` immediately below `<h1>` but above the closing `</header>` tag. It should look something like this: 
 
@@ -43,7 +43,7 @@ The `<nav>` HTML element is a newer "semantic" element designed to help with acc
 >
 > We'll explore more of these tools in this project and in upcoming projects, but if you'd like to learn more now, take a few minutes to check out all the [resources available on MDN on web accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility). 
 
-There are a number of ways to organize navigation links. We will use a popular method by creating a list and giving each navigation link its own spot on that list. Right after the opening `<nav>` you just created, type the following: @@@ ARE WE STILL TELLING THEM TO TYPE EVERYTHING OUT?
+There are a number of ways to organize navigation links. We will use a popular method by creating a list and giving each navigation link its own spot on that list. Right after the opening `<nav>` you just created, type the following: 
 
 ```html
 <!-- Unordered list element -->
@@ -78,7 +78,7 @@ The relationship between `<ul>` and `<ol>` with an `<li>` is a direct parent/chi
 
 Within reason, anything can be nested inside an `<li>` element. In our case for creating a navigation, we used an "anchor" **`<a>`** element. Anchor elements are crucial tools for us as they give us the ability to create links in our HTML that take us to other destinations when clicked. These destinations can be within the same page, another page within our site, or another website entirely.
 
-> **Connect the Dots:** The `<a>` element is a prime example of the "hypertext" in Hypertext Markup Language (HTML). Hypertext is defined as text that links to other text. Since this term was coined in the early 1960s, its definition has expanded to include not just text but other types of media. @@@ ADD EXAMPLE
+> **Connect the Dots:** The `<a>` element is a prime example of the "hypertext" in Hypertext Markup Language (HTML). Hypertext is defined as text that links to other text. Since this term was coined in the early 1960s, its definition has expanded to include not just text but other types of media. 
 
 Take a look below to see a few examples:
 
@@ -93,7 +93,7 @@ Take a look below to see a few examples:
 <a>This does nothing</a>
 ```
 
-Did you notice that the first two have an `href=` inside their opening tags? This is what is known as an **HTML attribute**. In this case, in order for the `<a>` element to work as intended, it must include an associated value. @@@ INCLUDE EXAMPLE
+Did you notice that the first two have an `href=` inside their opening tags? This is what is known as an **HTML attribute**. In this case, in order for the `<a>` element to work as intended, it must include an associated value.
 
 **Attributes** help us provide functionality, meaning, and context for our HTML elements. They are not necessary for every element (as we can see, we've written a lot of HTML so far without them) but can be added to any element. There are some elements that do in fact require them to work as intended, such as `<a>`. If we were to omit the `href` attribute, then the `<a>` element would not be clickable.
 
@@ -148,7 +148,6 @@ If your code now looks something like the following, then you're ready to move o
   </nav>
 </header>
 ```
-@@@ AVOID STACKING LEARNING BLOCKS ONE ON TOP OF ANOTHER
 
 > **Deep Dive:** Learn more about the HTML elements we just used.\
 > [Anchor Element `<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)\
@@ -171,13 +170,13 @@ Here's a refresher of the Git commands you should use to commit your code locall
 
 - `git push origin master`: Use this command to take all of the code and file edits from your recent `commit` and push it all up to GitHub. 
 
-Now your code is saved locally on your machine and on your GitHub profile. If you visit your [GitHub Pages link](https://username.github.io/run-buddy), you'll be able to see the new HTML! @@@ WHAT EXACTLY SHOULD THEY EXPECT TO SEE? CONSIDER SHOWING A SCREENSHOT OF IT. 
+Now your code is saved locally on your machine and on your GitHub profile. If you visit your [GitHub Pages link](https://username.github.io/run-buddy), you'll be able to see the new HTML! 
 
-> **Urkel Says:** We've seen the `#` syntax in action with `href` values, but you will use it in many more places throughout your career as a programmer. It is what's known as an "octothorpe." [Learn more about the many uses of the # on Wikipedia.](https://en.wikipedia.org/wiki/Number_sign#In_computing) @@@ EXPLAIN WHAT OCTOTHORPE MEANS. 
+> **Urkel Says:** We've seen the `#` syntax in action with `href` values, but you will use it in many more places throughout your career as a programmer. It is what's known as an "octothorpe." [Learn more about the many uses of the # on Wikipedia.](https://en.wikipedia.org/wiki/Number_sign#In_computing)
 
 As we've seen, the HTML elements we have implemented so far do a great job at two things:
  
-- Organizing content (i.e., the content between `<h1>RUN BUDDY</h1>`) @@@  IS SOMETHING MISSING HERE? BETWEEN H1 AND WHAT?
+- Organizing content (i.e., the content between `<h1>RUN BUDDY</h1>`) 
 
 - Providing interactivity (i.e., the `<a>` element's `href` attribute taking the user somewhere else when they click on the link)
 
@@ -215,7 +214,7 @@ This looks much better with CSS, as we get to change how our content looks and i
 
 CSS's syntax is fairly simple but can be used in many different ways to achieve an intended presentation or design. Developers use it by listing an HTML element they want to style, then listing a predefined style characteristic (known as a **property**) and giving it a value. 
 
-Let's take a look at the following CSS syntax: @@@ CAN THE IMAGE BE CHANGED SO ALL CAPS ISN'T USED?
+Let's take a look at the following CSS syntax: 
 
 ![CSS Syntax](assets/step-2/300-css-syntax.jpeg)
 
@@ -420,7 +419,7 @@ Before we move on to the rest of these styles, let's take a moment to learn and 
 
 ### The CSS Box Model
 
-All HTML elements can be represented by a rectangular box, which we can call the CSS box. The CSS box model is a visual display of the properties in the CSS box that includes the content, padding, border, and margin that are all built around each other like layers in an onion. Some of the styles of each layer—like border thickness, style, and color—can be manipulated using CSS. @@@ BORDER THICKNESS OKAY?
+All HTML elements can be represented by a rectangular box, which we can call the CSS box. The CSS box model is a visual display of the properties in the CSS box that includes the content, padding, border, and margin that are all built around each other like layers in an onion. Some of the styles of each layer—like border thickness, style, and color—can be manipulated using CSS. 
 
 ![Box Model](assets/step-2/103-box-model.png)
 
@@ -723,7 +722,7 @@ Effectively, we use the same property declarations for the `<footer>` as we did 
 
 Now let's go ahead and tackle the rest of the content in the `<footer>` step by step:
 
-> LINEAR STEPS @@@ IS THIS A LEARNING BLOCK OR SOME SPECIAL CONTENT SECTION?
+> LINEAR STEPS 
 >
 > 1. Apply style to the left `<h2>`.
 >
