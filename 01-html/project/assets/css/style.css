@@ -13,22 +13,13 @@ body {
 /* HEADER / NAV BAR STYLES START */
 
 header {
-<<<<<<< HEAD
-    padding: 20px 35px;
-    background-color: #39a6b2;
-=======
   padding: 20px 35px;
   background-color: #39a6b2;
->>>>>>> 00f5ff69e7d0dffd78be2a4352697a23aca1669f
 }
 
 header h1 {
   font-weight: bold;
-<<<<<<< HEAD
-  display: inline-block;
-=======
   display: inline;
->>>>>>> 00f5ff69e7d0dffd78be2a4352697a23aca1669f
   margin: 0;
   font-size: 36px;
   color: #fce138;
@@ -219,14 +210,7 @@ section {
 
 .trainer img {
   width: 35%;
-}
-
-.trainer .img-left {
   float: left;
-}
-
-.trainer .img-right {
-  float: right;
 }
 
 .trainer-bio {
