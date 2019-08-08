@@ -671,7 +671,7 @@ While all three of these now run a little bit longer, they still aren't as tall 
 
 For the sake of repetition, let's take the above mock-up and think about it in terms of a flexbox parent/children relationship and wireframe it. It should look something like this:
 
-![Trainer wireframe](assets/lesson-2/2000-trainer-outlines.jpeg)
+![Trainer wireframe](assets/lesson-2/2000-trainer-outlines.jpg)
 
 We'll start easy this time and update how our text content looks first:
 
