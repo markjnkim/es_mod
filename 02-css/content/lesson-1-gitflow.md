@@ -99,35 +99,40 @@ Now that we have learned an important use of Git's branches to create an isolate
 
 ## Now Featuring. . . Branches
 
-A feature is an enhancement to the codebase. Examples of possible features include much of the work we did in Module 1. For instance adding a header or footer can be considered a new feature. Adding a new section or a contact form could also be considered a new feature. Features are significant additions or changes to the codebase.
+Features are significant additions or changes to the codebase. For instance adding a header, footer, or section could be considered a feature. In Gitflow, a feature is developed in its own branch called a `feature` branch.
 
-Previously we used a `develop` branch to create a development environment to protect and isolate our production environment from our code changes. In this step, we will fork from the `develop` branch to create a new feature branch where the feature development work will be done. 
+Previously we used a `develop` branch to create a development environment to protect and isolate our production environment from our code changes. In this step, we will fork from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
 ![Feature Branch](assets/lesson-1/60-feature-branch.png)
 As can be seen in the diagram, several feature branches can be forked off the `develop` branch. Once the feature is complete, it is merged back into the `develop` branch.
 There are several important reasons to work on the codebase in a separate branch and not in the `develop` branch.
-* Developing code on a separate branch preserves a version, in our case the `develop` branch, which allows other team members to fork from a branch that is in working condition.
+* Developing code on a separate branch preserves a version, in our case the `develop` branch, which allows other team members to fork from a branch that is in a stable and working state.
 * Working on separate branches allows team members to work in parallel, developing features simultaneously which increases productivity and accountability.
-* Features can be added independently, meaning a finished `feature` branch can be merged to the `develop` branch without needing to wait for other team members to finish their work.
+* Features can be added independently, meaning a `feature` branch can not only start separately, but also added or merged back into the `develop` branch when it is finished, without needing to wait for other team members to finish their work.
 * Testing the feature branch in isolation will help find errors or bugs more quickly since the changes in the codebase will be unique to the feature.
 
 > **Preservable Walk Through**: Why working in isolation is important <br />
 Possible video, example on [Youtube](https://www.youtube.com/watch?v=9GKpbI1siow)
 Example here. Let's say two people are working on the same page, how overwriting might occur. 
 
-It's time to switch gears now that we have our development environment set up. Let's go to our repo in GitHub and create a `README.md` file.
+It's time to switch gears now that we have our development environment set up. Let's go to our repo in GitHub and create some documentation for the new version of the Run Buddy project by creating a `README.md` file after a quick checkpoint.
+> **Checkpoint**<br />
+production vs development environment questions ( which can I test on etc)<br />
+How do I make a feature branch?<br />
+Gitflow: What is a release branch for?<br />
+
 
 ## README please?
 
-So what is a README?
-
-This is a text file associated with your repo that documents the project's purpose, instructions on how to use your project, and how to contribute whether that's fixing bugs, adding features, or updating documentation. Good documentation enables people to learn about the project in a brief summary and offers a high level introduction.
+A README is a text file associated with your repo that documents the project's purpose, instructions on how to use your project, and how to contribute whether that's fixing bugs, adding features, or updating documentation. Good documentation enables people to learn about the project in a brief summary and offers a high level introduction.
+> **Career Advice**: Potential employers may scan your Github account to review your projects and coding skills. Great documentation saves the employer's time by giving a quick and easy project description. 
+<!-- Projects take a lot of time and energy to produce, the `README.md` file acts as a label demonstrating what work was done and instructions for making it work.  -->
 
 Let's take a look at the official documentation on [GitHub Guides](https://guides.github.com/features/wikis/).
-You can find many `README.md` templates online, here is a [sample](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2).
+
 
 The `README.md` is a Markdown file which is a text file that offers some light weight markup or styling. It is located in the top level or root directory of the repo which allows GitHub to render it on the landing page of your repo. README files do not have to be in Markdown, and can be regular text files, however we will continue using Markdown due to its simplicity as well its ease of use in Github and VS Code.
 > **Rewind**: Similar to HTML, Markdown uses syntax and tags for styling. See this [Markdown guide](https://www.markdownguide.org/basic-syntax) that will give a nice comparison with HTML. Here is some background on Markdown on [Wikipedia](https://en.wikipedia.org/wiki/Markdown).
-
+<!-- You can also find many `README.md` templates online, here is a [sample](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2). -->
 Now our next step is to create a `README.md` in GitHub.
 
 > Screenshot of repo. . . Recreate student repo simulation <br />(Will Be Added)<br />
@@ -137,29 +142,52 @@ Now our next step is to create a `README.md` in GitHub.
 > 1. Navigate to our project repo.
 > 2. Click on the Create new File.
 > 3. Type `README.md` into the input field.
-> 4. Copy/paste our [sample template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) by copying the RAW code into our text editor.
-> 5. Commit Changes directly to the `master` branch
+> 4. For the body of the README let's us the Markdown tags to create a rich text with a few headings regarding the title and purpose of this project, the coding languages used, other technologies used, and your name. Later we can add more and even further embellish this `README.md` screenshots and gifs. There are plenty of advanced [templates online](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) however for a first project, it will be best to keep the documentation simple for now.
+Here's an example of what your raw Markdown file should look like.
+![Markdown Raw Text](./assets/lesson-1/160-markdown-github.png) 
+Click the preview tab to view the stylized version.
+![Markdown Preview](./assets/lesson-1/170-markdown-preview.png)
+<!-- Should I -->
+> 5. Add a message in the text field, "Create README.md" the click the "Commit new file" button
+![Commit to Master](./assets/lesson-1/180-markdown-commit.png)
+
+To check to see if this `README.md` file was created properly, see if the `README.md` file is visible in your repo.
+
+> **Screenshot** needs a sample github account, scrub personal account
+![Github Repo](./assets/lesson-1/195-github-repo.png)
 
 While in our GitHub repo let's take a look at our branches by selecting the branches tab. 
 > **Screenshot** of student's simulated GitHub repo highlighting branches tab _(Will Be Added)_
+![Github Branches](./assets/lesson-1/190-branches-github.png)
+> **Pause**: Although we see our `master` branch, we don't see the`develop` branch we just created. Can you explain why?
 
-> **Pause**: Although we see our `master` branch, we don't see the`develop`branch we just created. Can you explain this discrepancy?
+> **Answer**: The`develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on Github.com. This is considered the "remote" repo. As we did in the past module, we will need to "push" our local changes to GitHub.
 
-> **Answer**: The`develop`branch was created locally on your computer, but this change hasn't been updated yet in our repo on `github.com`. As we did in the past module, we will need to "push" our local changes to GitHub.
+Let's continue to learn this important step of how to communicate updates between our remote repo(Github.com) and our local repo (on our computer).
 
-Let's continue to learn this important step of how to communicate updates between GitHub and our computer.
+> **Checkpoint**<br />
+What is a README.md for?<br />
+What is Markdown? What is it used for?<br />
+How to preview Markdown?<br />
+## Interacting with Github
+Regarding the work flow process of software development, it is important to keep in mind our local repo(on our computer) is different than the remote repo(stored on GitHub.com). Remember that GitHub is a service that stores our repo online which facilitates collaboration and adds security by backing up our files. 
 
-## Pulling Down Our Data
-Regarding the work flow process of software development, it is important to keep in mind our local code is different than the code housed in GitHub. Remember that GitHub is a service that houses or backs up our repo which allows for collaboration, security, and sharing. 
+Since we made a change to the `README.md` on the remote `master` branch, let's take a look in the `master` branch by doing a `git checkout master` in the terminal. As we can see, the `README.md` file we just created in GitHub isn't in our local folder. This is because our remote repo(GitHub.com) and local repo are currently not in sync.
 
-Since we just made a change to the `README.md` on the `master` branch, let's take a quick look there by doing a `git checkout master` in the terminal. As we can see, the `README.md` file we just created in GitHub isn't in our local folder. This is because our remote repo(GitHub) and local repo are currently not in sync.
-Let's update our local repo with our remote repo in GitHub by introducing a new git command that is similar to one we have used previously.
-> **Possible Video Walk Through**: Short `gif` for step through of process.
-Before we can update our local repo, it is always a good practice to see if local changes need to be staged and/or committed. Let's first make sure we are in our `develop` branch. Now let's run our ```git status``` command to verify if our working tree is clean, which means our files are `added` and there is nothing new to `commit`, otherwise please `stage` and `commit`. 
+![Git Pull](assets/lesson-1/240-branch-github.png) 
+<!-- Image doesn't illustrate the pull direction into local -->
+Let's update our local repo with our remote repo in GitHub by introducing a new git command `git pull` that is opposite operation of `git push` which we used previously to upload our codebase to the remote server, Github.  `git pull` pulls down or downloads the code from the remote server whereas `git push` pushes or uploads the local codebase into the remote server at Github.
+> **Possible Video Animation** Showing data flowing back and forth b/n remote and local repos.
+![Git Pull](assets/lesson-1/250-pull-git.png)<br />
+Before we can update our local repo, it is always a good practice to see if local changes need to be staged and committed. Let's first make sure we are in our `develop` branch. Now let's run our `git status` command to verify if our working tree is clean, which means our files are `added` and there is nothing new to `commit`, otherwise please `stage` and `commit`. 
 Now once we have a clean branch, we are ready to "pull" or update our local repo with the remote thereby downloading any new changes. Let's examine a new Git command.
 ```
 $ git pull origin master
 ```
+> **Possible Video Animation** Showing data flowing back and forth b/n remote and local repos.
+![Git Pull](assets/lesson-1/250-pull-git.png) 
+<!-- Image doesn't illustrate the pull direction into local -->
+<br />
 The `pull` command directs the download process to occur. The `origin` and `master` designate the source of the download or `pull`. The `origin` describes the remote in other words, the GitHub repo, and `master` designates the branch or version in the remote repo we would like to `pull` from or download. Please note if the `<branch-name>` does not exist on the remote repo, the `pull` process will error and not complete.
 > **Pause**: Wait, but how does the `pull` command know where the download will to go to?
 any thoughts? answers? guesses?<br />
@@ -184,11 +212,15 @@ You should see the following screen after a successful `pull`.
 
 ![vim](assets/lesson-1/200-vim-cli.png)
 
-This is a text editor called Vim. In order to exit out of this screen type the following into the editor
-```
-SHIFT+Z+Z
-```
-So what is Vim? To learn more, check out this link to [Wikipedia](https://en.wikipedia.org/wiki/Vim_(text_editor)).
+This is a text editor called Vim. In order to exit out of this screen type the following into the editor for Mac
+`SHIFT`+`Z`+`Z`
+
+or alternatively
+
+`ESC` `:`  `q`
+<!-- Proper Way to Display Sequential Key Binding? -->
+
+To learn more about this powerful text editor, check out [Wikipedia](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history and [Vim](https://www.vim.org/) for recent updates.
 This will bring you back to your terminal window which should look like this.
 
 ![pull-success](assets/lesson-1/300-pull-success-cli.png)
