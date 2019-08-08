@@ -161,43 +161,43 @@ While in our GitHub repo let's take a look at our branches by selecting the bran
 ![Github Branches](./assets/lesson-1/190-branches-github.png)
 > **Pause**: Although we see our `master` branch, we don't see the`develop` branch we just created. Can you explain why?
 
-> **Answer**: The`develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on Github.com. This is considered the "remote" repo. As we did in the past module, we will need to "push" our local changes to GitHub.
+> **Answer**: The`develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on Github.com. This is considered the "remote" repo. As we did in the past module, we will need to `git push` our local changes to GitHub.
 
-Let's continue to learn this important step of how to communicate updates between our remote repo(Github.com) and our local repo (on our computer).
+Let's continue to the next step where we will learn how to communicate updates between our remote repo (Github.com) and our local repo (on our computer).
 
 > **Checkpoint**<br />
 What is a README.md for?<br />
 What is Markdown? What is it used for?<br />
 How to preview Markdown?<br />
-## Interacting with Github
-Regarding the work flow process of software development, it is important to keep in mind our local repo(on our computer) is different than the remote repo(stored on GitHub.com). Remember that GitHub is a service that stores our repo online which facilitates collaboration and adds security by backing up our files. 
 
-Since we made a change to the `README.md` on the remote `master` branch, let's take a look in the `master` branch by doing a `git checkout master` in the terminal. As we can see, the `README.md` file we just created in GitHub isn't in our local folder. This is because our remote repo(GitHub.com) and local repo are currently not in sync.
+## Interacting with Github
+It is important to keep in mind our local repo (on our computer) is different than the remote repo (stored on GitHub.com) even though the code seems relatively the same, they are in fact different versions of the codebase. 
+> **Rewind**: GitHub is a service that stores our repo online which facilitates collaboration, backups our code, and links to servers that can deploy our project. 
+
+Since we made a change to the `README.md` on the `master` branch in Github, let's take a look in the local `master` branch by doing a `git checkout master` in the terminal. As we can see, the `README.md` file we just created in GitHub isn't in our local folder. This is because our remote repo (GitHub.com) and local repo are currently out of sync.
 
 ![Git Pull](assets/lesson-1/240-branch-github.png) 
 <!-- Image doesn't illustrate the pull direction into local -->
-Let's update our local repo with our remote repo in GitHub by introducing a new git command `git pull` that is opposite operation of `git push` which we used previously to upload our codebase to the remote server, Github.  `git pull` pulls down or downloads the code from the remote server whereas `git push` pushes or uploads the local codebase into the remote server at Github.
+Let's update our local repo with our remote repo in GitHub by introducing a Git command `git pull` that is opposite operation of `git push` which we used previously to upload our codebase to the remote server on Github.  `git pull` pulls down or downloads the code from the remote server whereas `git push` pushes or uploads the local codebase into the remote server.
 > **Possible Video Animation** Showing data flowing back and forth b/n remote and local repos.
 ![Git Pull](assets/lesson-1/250-pull-git.png)<br />
 Before we can update our local repo, it is always a good practice to see if local changes need to be staged and committed. Let's first make sure we are in our `develop` branch. Now let's run our `git status` command to verify if our working tree is clean, which means our files are `added` and there is nothing new to `commit`, otherwise please `stage` and `commit`. 
-Now once we have a clean branch, we are ready to "pull" or update our local repo with the remote thereby downloading any new changes. Let's examine a new Git command.
+Now once we have a "clean" branch, we are ready to "pull" or update our local repo with the remote thereby downloading any new changes. Let's examine a new Git command.
 ```
 $ git pull origin master
 ```
-> **Possible Video Animation** Showing data flowing back and forth b/n remote and local repos.
-![Git Pull](assets/lesson-1/250-pull-git.png) 
-<!-- Image doesn't illustrate the pull direction into local -->
-<br />
 The `pull` command directs the download process to occur. The `origin` and `master` designate the source of the download or `pull`. The `origin` describes the remote in other words, the GitHub repo, and `master` designates the branch or version in the remote repo we would like to `pull` from or download. Please note if the `<branch-name>` does not exist on the remote repo, the `pull` process will error and not complete.
 > **Pause**: Wait, but how does the `pull` command know where the download will to go to?
-any thoughts? answers? guesses?<br />
+any thoughts? guesses?<br />
 > **Answer**: `git pull` will download to the current active branch or whatever branch you are currently checked out on.
 
 > **Potential Video Walkthrough** difference b/n fetch and pull, See [Youtube video](https://www.youtube.com/watch?v=q6rYglziOjM) or diagram showing 
 
 So a little more on the `pull` process. The `pull` command is actually a combination of two different commands, `git fetch` and `git merge`.
-`git fetch` is a command that fetches or gets branches from the remote repo and allows local access to them. This operation will not overwrite any files but will only add any branches in the remote repo that is not present in your local computer. However `git merge` will combine or merge the branch into your current active branch, which means some code management may need to occur due to the potential addition of new code into your current branch which may lead to merge conflicts. We will address more on conflicts at a later time. After the merge, we will receive not only one version of the project designated by the branch name, but also all the commit histories associated with that branch. 
-For more details, let's look at the official [Git docs](https://git-scm.com/docs/git-fetch).
+The git command `git fetch` gets branches from the remote repo and allows local access to them. This operation will not overwrite any files but will only add any branches in the remote repo that is not present in your local computer. However `git merge` will combine or merge the branch into your current active branch, which means some code management may need to occur due to the potential addition of new code into your current branch. Merge conflicts and their resolution will be covered in great detail later in this course. 
+
+After the merge, the current active branch, in this case `develop`, we not only receive the new updates from the remote `master` branch, but also all the commit histories associated with that branch. 
+For more details, let's look at the official [Git docs](https://git-scm.com/docs/git-pull).
 
 > **Graphics Team Request** _Possible Jira Issue_
 ![git work flow](https://res.cloudinary.com/practicaldev/image/fetch/s--M_fHUEqA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/128hsgntnsu9bww0y8sz.png)
@@ -224,7 +224,7 @@ To learn more about this powerful text editor, check out [Wikipedia](https://en.
 This will bring you back to your terminal window which should look like this.
 
 ![pull-success](assets/lesson-1/300-pull-success-cli.png)
->**Graphics Team Request**: Modifications needed to scrub name from terminal?
+>**Graphics Team Request**: Modifications needed to scrub name from terminal
 
 Now let's verify if our `README.md` file was successfully downloaded. Open the `develop` branch in VS Code and open the `README.md` file.
 Congrats! We have successfully accomplished our first `pull`! 
