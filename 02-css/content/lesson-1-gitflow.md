@@ -191,8 +191,13 @@ The `pull` command directs the download process to occur. The `origin` and `mast
 any thoughts? guesses?<br />
 > **Answer**: `git pull` will download to the current active branch or whatever branch you are currently checked-out on. That's why it's always a good idea to use a `git branch` to verify the active branch before doing a `git pull`.
 
-So a little more on the `pull` process. The `pull` command is actually a combination of two different commands, `git fetch` and `git merge`.
-The git command `git fetch` can get one or more branches from the remote repo and allows local access to them through `git checkout` process. This operation will not overwrite any files but will only add any branches in the remote repo that is not present in your local computer. A use case for `git fetch` would be to look at a team member's feature branch to check However `git merge` will combine or merge the branch into your current active branch, which means some code management may need to occur due to the potential addition of new code into your current branch. Merge conflicts and their resolution will be covered in great detail later in this course. 
+Let's dive deeper on the `pull` process. The `pull` command is actually a combination of two different operations, `git fetch` and `git merge`.
+The git command `git fetch` can get one or more branches from the remote repo and allows local access to them through `git checkout` process. This operation will not change any local files but will only add branches in the remote repo. A use case for `git fetch` would be to look at a team member's feature branch for a review process or to help in finding a bug. This branch is downloaded through the `git fetch` operation and then needs to to opened through the `git checkout` operation. Then the code can be rendered in the browser, tested, code reviewed, or developed as needed. These changes can then be staged, committed, and pushed back to the remote feature branch.
+![Git Fetch](assets/lesson-1/)
+
+
+
+ However `git merge` will combine or merge the branch into your current active branch, which means some code management may need to occur due to the potential addition of new code into your current branch. Merge conflicts and their resolution will be covered in great detail later in this course. 
 
 After the merge, the current active branch, in this case `develop`, we not only receive the new updates from the remote `master` branch, but also all the commit histories associated with that branch. 
 For more details, let's look at the official [Git docs](https://git-scm.com/docs/git-pull).
