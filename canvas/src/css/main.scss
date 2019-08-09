@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:700,800|Roboto:400,400i,700&display=swap');
+
+:root {
+  --trilogy-blue: #28c8e5;
+  --trilogy-teal: #3393a3;
+  --trilogy-dark-gray: #333333;
+  --trilogy-light-gray: #f2f2f2;
+  --trilogy-light-teal: #eef7f8;
+  --black: #000000;
+  --white: #ffffff;
+}
+
+// wrapper for all of our custom styles in canvas
+#bootcamp {
+  width: 85ch;
+  padding: 20px 30px 75px 30px;
+  background: rgba(255,255,255,0.8);
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--trilogy-dark-gray);
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+    color: var(--trilogy-blue);
+    font-weight: 800;
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 2.25em;
+  }
+
+  h3 {
+    font-size: 2em;
+  }
+
+  h4 {
+    font-size: 1.75em;
+  }
+
+  h5 {
+    font-size: 1.5em;
+  }
+
+  h6 {
+    font-size: 1.25em;
+  }
+  
+  p {
+    font-size: inherit;
+    font-weight: 400;
+    line-height: inherit;
+    margin: 12px 0;
+  }
+  
+  a {
+    color: var(--trilogy-teal);
+  }
+  
+  a[href*=".png"],
+  a[href*=".gif"],
+  a[href*=".jpg"],
+  a[href*=".jpeg"],
+  a[href*=".pdf"] {
+    display: block;
+    width: 100%;
+    text-align:center;
+  }
+  
+  img {
+    max-width: 90% !important;
+    margin: 20px 0;
+    box-shadow: 0 0 15px #333333;
+
+    &.image-large {
+      margin: 20px auto;
+      display: block;
+      max-width: 80%;
+      text-align: center;
+    }
+
+    &.image-small {
+      margin: 20px auto;
+      display: block;
+      max-width: 45%;
+      text-align: center;
+    }
+
+    &.image-left {
+      max-width: 50%;
+      float: left;
+      margin: 20px 25px 20px 0;
+    }
+
+    &.image-right {
+      max-width: 50%;
+      float: right;
+      margin: 20px 0 20px 25px;
+    }
+  }
+  
+  ol, ul {
+    padding-left: 0;
+
+    li:not(:last-child) {
+      margin-bottom: .3em;
+    }
+  }
+
+  .inline {
+    display: inline;
+  }
+  
+  .code-large {
+    margin: 20px auto;
+    box-shadow: 0 0 10px #333333;
+    width: 80%;
+  }
+
+  .code-small {
+    margin: 20px auto;
+    box-shadow: 0 0 10px #333333;
+    width: 80%;
+  }
+  
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    margin: 20px 0;
+
+    iframe, img {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 0 10px #333333; 
+    }
+  }
+  
+  
+  // import secondary style sheets within markdown body context
+  @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
+  @import "_learning-blocks.scss";
+}
+
+.pages.show .page-title {
+  background-color: rgba(33,33,33, 0.8);
+  background-image: url('https://bootcampspot.instructure.com/courses/87/files/402/preview');
+  padding: 10px;
+  min-height: 16vh;
+  border-bottom: 5px solid var(--trilogy-blue);
+  font-family: 'Raleway', sans-serif;
+  color: #ffffff !important;
+  font-weight: 200 !important;
+  font-size: 3em !important;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  display: flex;
+  align-items: flex-end;
+}
