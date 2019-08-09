@@ -25,16 +25,6 @@ In this lesson we will introduce three main concepts.
 ## Introducing Gitflow
 Git allows developers to create copies of the codebase to develop new features or fix bugs. These copies are referred to as branches. In our case we would like to have one version that is deployed which will continue to serve our visitors and another version of the same exact code so we can work in isolation that will allow us to edit and develop without worrying about disrupting the website for visitors. We will call this branch `develop`. This will become our development environment. We will work on the code in our `develop` branch while our deployed site will remain in the production environment. Development environments are not exposed to the public whereas production is.
 
-<!-- 
-|         | Production | Development |
-|------------------|------------| ----------- |
-|exposed to public | true    | false    |
-|testing phase   | false   | true    |
-|branch name    | master   | develop   |
-|deployed     | true    | false    |
-|located in repo  | true    | true    |
-|contains test data| false   | true    | -->
-
 Please note the branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, however in our situation this will be the case. 
 
 The `develop` branch will be where we collect the new features or enhancements and test them. Once we are satisfied with the final result and we have a stable working version, we can then "merge" our new work into the `release` branch. From there we will make a `pull request` which is a formal request to merge the new changes into the `master` which will allow team members to review and test the code as well as offer comments.  The `release` branch will be where we perform our final tests before updating or releasing our new version into the `master` branch. 
@@ -85,16 +75,15 @@ Now let's type in our command to list the branches to verify our work.
 $ git branch
 ```
 Your terminal should now look like this.<br />
-```
+![Develop Branch Active](assets/lesson-1/004-active-branch-terminal.png)
+<!-- ```
 $ git branch
    master
  * develop
-```
-<!--How do I make the develop line GREEN! -->
-The  asterisk indicates the current active branch.
-<!-- ![git-branch](assets/lesson-1/100-git-branch-cli.png)<br /> -->
-<!-- >> ## Will fix terminal prompt to be anonymous -->
-## NEW SCREENSHOT - Green font color active branch
+``` -->
+
+The green font color and asterisk indicate the active branch or "working directory". This command may be one of the most used since knowing which branch or version you are currently on is important to know for all the following Git workflow operations.
+
 Now that we have learned an important use of Git's branches to create an isolated development environment to work and edit without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. 
 
 ## Now Featuring. . . Branches
@@ -253,9 +242,9 @@ Now that we have our `develop` branch updated, our development environment is re
 ## Git Issues Create Feature Branches
 
 The design team has requested we insert a text block into the hero section to add some visual balance and use this prime website real estate for Run Buddy marketing material. 
-<!-- ? Lesson flow question ?, I could make the students create the 2nd issue after the first one is finished (Contact Form) -->
 
-Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. Git issues is a task management tool that is used with teams to track, organize, and communicate ideas, tasks, bugs, or enhancements. This tool can prevent team members from forgetting to do important tasks, identify bottle necks or blockers, and prevent duplicated work. Let's go to our GitHub repo and select on the Issues tab.
+Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. Git issues is a task management tool that is used with teams to track, organize, and communicate ideas, tasks, bugs, or enhancements. This tool can prevent team members from forgetting to do important tasks, identify bottle necks or blockers, and prevent duplicated work. 
+Let's go to our GitHub repo and select on the Issues tab.
 
 > **Possible Video Walkthrough** creating git issue
 > Create issue, compose content/labels, submit issue, verify issue, edit
@@ -266,7 +255,9 @@ From there we can create a new issue by clicking on the green New Issue button.
 >1) Click on Issues tab
 <!-- red outline of Issues tab-->
 >![Git Issue Tab](assets/lesson-1/800-git-issues-github.png)
->2) Type "feature/hero-text" into the text field
+>2) Since we are using the Gitflow model to manage our workflow, we need to use a strict naming convention when creating our Git issues. These will later define our feature branches which are derived from our Git issues. 
+In Gitflow, typically the naming convention for feature branches would be feature/[feature-name] or a if you have an issue tracking number, [issue-number]/[feature-name].
+In this case we will use `feature/hero-text` to name our Git issue, which will name the corresponding feature branch as well.
 
 >![new-git-issue](assets/lesson-1/801-edit-git-issue.png)
 <!-- red outline of "Submit new issue -->
@@ -276,7 +267,7 @@ Here is a simple example for our case:
 # Text Block for Hero Section
 
 ## Content Requirements
-* Heading
+* Heading = "Start Building Habits."
 * Lorem ipsum text placeholder
 * Div container
 * Class for styling
@@ -288,23 +279,53 @@ Here is a simple example for our case:
 >5) Click on the "Submit new issue" button.
 
 We should see the following screen following a successful issue creation.
-![Git Issue Success](assets/lesson-1/802-git-issue-success) 
-<!-- red outline of Edit Button, Close Issue Button -->
+## New Screenshot - Scrub Info - Add red outline to Edit and Close Issue Buttons
+![Git Issue Success](assets/lesson-1/801-edit-git-issue.png) 
+
 Congratulations on completing your first Git issue. Please note this screen is the edit screen that allows changing the text as well as closing the issue once the enhancement or work has been finished. This edit screen can be found on the Issues tab which now notes there is one outstanding issue at the repo's landing page.
 Take a look at [GitHub help](https://help.github.com/en/articles/managing-your-work-with-issues) for an expansive view of how Git issues can further assist in project management.
 
 Now that we understand how to make a Git issue, let's create another one for another HTML additional we have been requested to make from the sales department. They would like a form that is able to submit questions directly to the sales staff to go in the Reach Out section.
 > **Activity**: Please continue with creating a new Git issue for this new feature.
-> **Solution**: The finished issue should look something like this.
+> **Solution**: The finished issue should look something like this:
+```markdown
+# Contact Form
 
-Let's continue progressing through our project requirements to add some HTML content in our next step. 
+## Location 
+   Reach Out section
 
-## Add New Content with HTML
-According to our mock-up we will need to add a bit of content to our landing page. Let's take a look at the new text block we will need to add.
-![hero-section-mock-up](assets/lesson-1/500-hero-mock-up.png)
+## Content Requirements
+* Heading = "Contact Us"
+* Name
+* Question area - <textarea>
+```
+![Git Issue Success](assets/lesson-1/820-contact-git-issue.png) <br />
+Let's continue progressing through our project requirements to add some HTML content in our next step and transition this issue into a feature branch.
 
-Please proceed with adding just the HTML content needed here.
+## Setting up our Feature Development Environment
+Our first step will to create a new feature development environment that will have a stable copy of the current codebase which we can work on independently. So let's use our Gitflow model and create our first feature branch now that we have our Git issue set up with the feature's requirements.
+> **Video Step through** Using integrated terminal in VS Code: make feature branch from `develop`, add HTML, check out back to `develop`, merge.
+> **Linear Steps**
+According to our Gitflow model, our first step when creating a feature branch will be to `checkout` into the `develop` branch, our stable codebase, then create a new branch, then use this branch as our "working directory" or active branch. We can accomplish these two git operations with the following command in the terminal:
+```
+$ git checkout -b feature/hero-text
+```
+Please take notice that this made an exact copy of the `develop` branch including the newly created `README.md` file. As soon as we starting to work and commit in the feature branch these versions will begin to diverge.
+## NEW SCREENSHOT - SCRUB INFO - Red Outline for Active Branch and Success Message.
+![Git Feature Branch](assets/lesson-1/910-integrated-terminal-vs-code.png)
 
+> **Checkpoint**
+> What is the Git operation to create a new branch?
+> What is the Git operation to create a delete a branch?
+> What is the Git operation to download data from a remote repo?
+> What is the Git operation to move into a new branch?
+> What is the Git operation to review a remote branch without making any changes to the working directory?
+## Adding HTML to our Hero Section
+Let's take a quick look at our requirements from the Git issue and the mock-up from the design team to see what content we need to add for the hero text block.
+![Hero Text Block Mock-up](assets/lesson-1/500-hero-mock-up.png)<br />
+![Git Issue Text Block Requirements](assets/lesson-1/1000-text-block-issue.png)<br />
+> **Activity**: Practice your HTML skills by fulfilling the Git issue requirements and following the mock-up for guidance.
+> **Solution**: The markup should look like this:
 
 ```html
 <!-- 2.1 - Added call to action (CTA) -->
@@ -319,19 +340,40 @@ Please proceed with adding just the HTML content needed here.
     </p>
    </div>
 ```
-
-> **Will Add Screenshot**:
+Please save and render so your browser should look like this:
+![Hero Text Display](assets/lesson-1/1100-hero-text-markup-html.png)
 
 > **Pause**: Notice how there is an overlap. Why does this occur?
 
-> **Answer**: Absolute position removed the `form` from the document flow which allows the text block to overlap. We will fix this in the next section when implementing the CSS. 
+> **Answer**: Absolute position removed the `form` from the document flow which allows the text block to overlap. We will fix this in the next section when adding the CSS styling. 
 
-One more thing, let's flip our hero image to improve the legibility of our text block by updating our background hero image the the css with the following image.
+One more thing, let's change our hero image to improve the legibility of our text block by updating our background hero image the the css with the following image.
 > **Image download** from Canvas/AWS [flipped-hero-image](assets/lesson-1/400-hero-flip-css.jpg)
+Please save and render into the browser to get the following:
+![Hero Image](assets/lesson-1/1200-hero-image.png)
+As was the case, it doesn't look pretty now, but this will be addressed later in the styling lesson. For now, our issue is complete so let's add and commit our work in this branch.
 
-Great! Now that this is done, let's add the markup for our contact form for our Reach Out Section. Let's review the Reach Out section on our mock-up
-![contact-form](assets/lesson-1/600-Reach-Out-mock-up.png)
-Notice the large text input field for Message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters like the size of the rendered input field, maximum character length, and if it is a required input in order to submit. This and many more attributes can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) for a more detailed look.
+Let's perform the Git operation make `develop` the working directory.
+```
+$ git checkout develop
+```
+Now let's open in VS Code and look at the hero section in the `index.html` file. Note that the new markup we just added is not visible here. The new markup only exists on the feature branch, `feature/hero-text`. In order to add the new code into the `develop` branch we will need to perform a `merge` operation. Let's continue with that step now.
+> **Pro Tip**: It must be reiterated that branch awareness is often overlooked by new developers so keep track by using the `git branch` command prior to merge, pull, or developing tasks. Using the integrated terminal in VS Code is highly recommended due to the status bar notification of the active branch.
+```
+git checkout develop
+git merge feature/hero-text
+```
+Upon successful merging, the terminal should look like this:
+![Merge Success Terminal](assets/lesson-1/1300-merge-success-terminal.png)
+This should look familiar to our `git pull` operation we executed earlier in the lesson since we also performed a `git merge` operation then as well.
+Excellent, now the `develop` is updated with our new markup and has remained a stable codebase throughout. 
+Now let's move onto the second issue and tackle the `feature/contact-us` feature.
+> **Activity**: Let's follow the same procedure as we did for the `feature/hero-text` issue. First set up the feature development environment, add the HTML according to the requirements, verify changes were successful in the browser, then merge the `feature/contact-us` into `develop` branch. Here is the design team's mock-up and requirements:
+![contact-form](assets/lesson-1/1400-Reach-Out-mock-up.png)
+![contact-form-issue](assets/lesson-1/1500-contact-us-requirement-issue.png)<br />
+> **Hint**: Notice the large text input field for Message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters like the size of the rendered input field, maximum character length, and if it is a required input in order to submit. This and many more attributes can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) for a more detailed look at the attributes.<br />
+> ## Not sure if I should be adding the class for `visuallyhidden` here? Should I add this requirement to the Git issue then? Accessibility consideration now or later?
+> **Hint**: markup
 ```html
 <!-- 2.1 - Added contact form -->
     <div class="contact-form">
@@ -347,21 +389,38 @@ Notice the large text input field for Message. This is a new HTML element that w
      </form>
     </div>
 ```
-Now that we have created our development environment and added some HTML content, we can start adding our features to make our landing page mobile responsive.
+> **Hint**: Follow the same steps for the `hero-text` feature above.<br />
+> **Hint**: Don't forget to merge back into the develop branch.
 
+Now let's check to see if our contact form has been correctly added to the `develop` branch.
+First `git checkout` into the `develop` branch and then render in the browser.
+We should see the following:
+> ## Red outline bottom right corner of `<textarea>` to highlight input text field resizing.
+![Contact Form Render](assets/lesson-1/1600-contact-us-render-html.png)<br />
+Congrats, the markup has been successfully added. 
 
+> **Pause**: Now that our two feature branches have been completed and merged back into the `develop` branch what is left to do with our issues?<br />
+> **Hint**: Since the issues have been resolved, how do we change their status?<br />
+> **Solution**: Let's go to the Issues tab in our Github repo and mark the issues as closed by clicking on the Close Issue button. This will remove the issue from our list of todos.
+## Red Outline for Close Issue Button
+![Git Issue Success](assets/lesson-1/801-edit-git-issue.png) 
 
-
-
-In the next lesson we will learn how our issue will turn into a feature branch.
 > **Checkpoint**: Possible stopping place
+> Gitflow process: how to make a feature development environment
+> How do I exit out of Vim?
+> What is the connection b/n issues and feature branches?
+> Why is good documentation for a project important?
+> Why use Markdown?
+> What is the syntax to make a large heading in Markdown?
+> Why can't I just work on the `develop` branch?
 
 ## Reflection
-Let's take a moment to review some of the big takeaways from this lesson.
-* **Development vs Production**: Creating a development environment to allow users to browse the website in the production environment is an important use of Git's version control tool.
-* **Branches**: Allow versions of the codebase to coexist, letting people to work in isolation and ship features more quickly.
-* **README.md**: A high level introduction to your project repo.
-* **Git Pull**: Is the process of merging the remote repo into the local repo by branch.
-* **Git Issues**: A tool that facilitates project management, promotes communication, and facilitates productivity.
+This was a dense lesson of concepts many of which were challenging to understand. Git is a wonderful tool that most developers use on a daily basis and is the industry standard. Working in programming often means using Git and the Git workflow to collaborate on projects. Before we proceed to the next lesson and work on another Git issue to make our website mobile responsive  let's go over some of the key concepts and big ideas we introduced in this lesson.
+* We learned the difference between the **development** and **production** environments and how creating a isolated version of the codebase can allow users to use the website and allow updates and fixes to develop simultaneously.
+* We created **feature branches** to allow versions of the codebase to coexist, letting team members to work in isolation and ship features more quickly. This allows for parallel development that increase the team's productivity and accountability, essential metrics for any company.
+* We introduced the **README.md** file which is a high level introduction to your project repo facilitating quick reads by potential employers of your project's technical skill.
+* We used Git operations to update the remote repo and local repos with `pull`, `push`, `fetch`, `branch`, `checkout`, and `merge`. A solid understanding of these operations to perform a proper Git workflow is crucial to collaborating on projects and is a key metric for employer-ready students.
+* We introduced the **Gitflow** model which emphasizes isolation of the production environment except for specific version updates of features from the `release` branch. This is a widely used and real world example of Git workflow that demonstrates the effective uses of Git to management a software development team.
 
-Now let's use our Git issue to create our first feature branch and continue onto Lesson 2: Flexbox.
+## I believe I was originally supposed to create the feature/flexbox issue, but didnt' do so because I created two issues for the HTML content. Now not sure if this makes sense for the learning flow of this lesson.
+Now let's use this workflow process and apply it to the rest of this project and build a mobile responsive website in the next lesson.
