@@ -94,7 +94,7 @@ $ git branch
 The  asterisk indicates the current active branch.
 <!-- ![git-branch](assets/lesson-1/100-git-branch-cli.png)<br /> -->
 <!-- >> ## Will fix terminal prompt to be anonymous -->
-
+## NEW SCREENSHOT - SCRUB INFO
 Now that we have learned an important use of Git's branches to create an isolated development environment to work and edit without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. 
 
 ## Now Featuring. . . Branches
@@ -147,7 +147,7 @@ Here's an example of what your raw Markdown file should look like.
 ![Markdown Raw Text](./assets/lesson-1/160-markdown-github.png) 
 Click the preview tab to view the stylized version.
 ![Markdown Preview](./assets/lesson-1/170-markdown-preview.png)
-<!-- Should I -->
+## NEW SCREENSHOT - SCRUB INFO
 > 5. Add a message in the text field, "Create README.md" the click the "Commit new file" button
 ![Commit to Master](./assets/lesson-1/180-markdown-commit.png)
 
@@ -192,14 +192,11 @@ any thoughts? guesses?<br />
 > **Answer**: `git pull` will download to the current active branch or whatever branch you are currently checked-out on. That's why it's always a good idea to use a `git branch` to verify the active branch before doing a `git pull`.
 
 Let's dive deeper on the `pull` process. The `pull` command is actually a combination of two different operations, `git fetch` and `git merge`.
-The git command `git fetch` can get one or more branches from the remote repo and allows local access to them through `git checkout` process. This operation will not change any local files but will only add branches in the remote repo. A use case for `git fetch` would be to look at a team member's feature branch for a review process or to help in finding a bug. This branch is downloaded through the `git fetch` operation and then needs to to opened through the `git checkout` operation. Then the code can be rendered in the browser, tested, code reviewed, or developed as needed. These changes can then be staged, committed, and pushed back to the remote feature branch.
-![Git Fetch](assets/lesson-1/)
+The git command `git fetch` can get one or more branches from the remote repo and allows local access to them through `git checkout` process. This operation will not change any local files but will only add branches in the remote repo. A use case for `git fetch` would be to look at a team member's feature branch for a review process or to help in finding a bug. This branch is downloaded through the `git fetch` operation and then needs to to opened through the `git checkout` operation. Then the code can be rendered in the browser, tested, code reviewed, or changed as needed. These changes can then be staged, committed, and pushed back to the remote feature branch.
 
-
-
- However `git merge` will combine or merge the branch into your current active branch, which means some code management may need to occur due to the potential addition of new code into your current branch. Merge conflicts and their resolution will be covered in great detail later in this course. 
-
-After the merge, the current active branch, in this case `develop`, we not only receive the new updates from the remote `master` branch, but also all the commit histories associated with that branch. 
+The `git merge` operation, on the other hand, will merge the designated branch into your active branch. This will update the active branch with any differences in code. At times, conflicts may occur when the same line of code contains different code versions. This is called a merge conflict and will require a close look to see which version is more up to date or necessary. Merge conflicts and their resolution will be covered in great detail later in this course. 
+![Git Pull](assets/lesson-1/260-git-fetch-merge-pull.png)
+After the merge, the current active branch, in this case `develop`, we not only receive the new file updates from the remote `master` branch, but also all the commit histories associated with that branch. 
 For more details, let's look at the official [Git docs](https://git-scm.com/docs/git-pull).
 
 > **Graphics Team Request** _Possible Jira Issue_
@@ -214,20 +211,22 @@ $ git pull origin master
 You should see the following screen after a successful `pull`.
 
 ![vim](assets/lesson-1/200-vim-cli.png)
-
-This is a text editor called Vim. In order to exit out of this screen type the following into the editor for Mac
+## NEW SCREENSHOT - SCRUB INFO
+Git has opened a text editor called Vim to request a commit message for the `merge` operation. To exit out of this screen type the following into the editor:
 `SHIFT`+`Z`+`Z`
-
 or alternatively
-
 `ESC` `:`  `q`
 <!-- Proper Way to Display Sequential Key Binding? -->
 
-To learn more about this powerful text editor, check out [Wikipedia](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history and [Vim](https://www.vim.org/) for recent updates.
+> **Deep Dive**: To learn more about this powerful text editor, check out [Wikipedia](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
 This will bring you back to your terminal window which should look like this.
 
 ![pull-success](assets/lesson-1/300-pull-success-cli.png)
->**Graphics Team Request**: Modifications needed to scrub name from terminal
+## NEW SCREENSHOT - SCRUB INFO
+Let's review the Git report from the `merge`.
+Below the original Git command is the remote repo's url. Then Git's `fetch` operation is performed on the remote `master` branch. Once this is downloaded, it immediately in merged into the active branch by the ['recursive'](https://www.atlassian.com/git/tutorials/using-branches/merge-strategy) strategy. 
+> **Graphics Team Animation**: [Nice example of animation of merge](https://www.atlassian.com/git/tutorials/using-branches/merge-strategy)
+The next lines display what files were changed and how many lines were added in green "+" or removed in red"-". We only have additions hence no red "-".
 
 Now let's verify if our `README.md` file was successfully downloaded. Open the `develop` branch in VS Code and open the `README.md` file.
 Congrats! We have successfully accomplished our first `pull`! 
