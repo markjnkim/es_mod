@@ -4,9 +4,9 @@
 
 Before we go any further, take a moment to give yourself a pat on the back. The hardest part of building any new HTML document is getting started, and you've done that beautifully. Even though the Run Buddy landing page doesn't look like much in a browser, you've already done a lot to pave the way for building out entire website! 
 
-In the previous step, you built a series of "containers" (aka divs) in your webpage to hold different types of content. At first glance, this may seem like a lot of extra work, but as you continue to add content and apply styles to each section one at a time, you won't have to worry about that affecting the other sections.
+In the previous lesson, you built a series of "containers" (aka divs) in your webpage to hold different types of content. At first glance, this may seem like a lot of extra work, but as you continue to add content and apply styles to each section one at a time, you won't have to worry about that affecting the other sections.
 
-This step focuses on building out the content and applying styles to the header and footer of our page. Why focus the top and bottom and leave everything in the middle untouched? Because the header and footer typically share similar patterns when it comes to adding HTML content and applying styles. If this doesn't make sense, don't worry about it. You'll see what we mean in a few minutes. 
+This lesson focuses on building out the content and applying styles to the header and footer of our page. Why focus the top and bottom and leave everything in the middle untouched? Because the header and footer typically share similar patterns when it comes to adding HTML content and applying styles. If this doesn't make sense, don't worry about it. You'll see what we mean in a few minutes. 
 
 Because this is our introduction to these concepts, we'll keep it a little bit on the plain side. In this lesson, we'll learn about new HTML elements and **Cascading Style Sheets**, which will be referred to throughout the rest of this unit (and your career) as **CSS**. The nice thing about what we'll be working on here is that a lot of it will be repeated in future lessons. 
 
@@ -14,7 +14,7 @@ This is best learned through doing, so let's get started!
 
 ## Add Content to the Header
 
-![header html](assets/step-2/100-header-html.png)
+![header html](assets/lesson-2/100-header-html.png)
 
 We'll begin by adding some information that most modern webpages have: branding and navigation. These two pieces of a **user interface** (also known as **UI** to those who are hip) usually find their way into the `<header>` of an HTML document.
 
