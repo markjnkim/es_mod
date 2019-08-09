@@ -94,7 +94,7 @@ $ git branch
 The  asterisk indicates the current active branch.
 <!-- ![git-branch](assets/lesson-1/100-git-branch-cli.png)<br /> -->
 <!-- >> ## Will fix terminal prompt to be anonymous -->
-## NEW SCREENSHOT - SCRUB INFO
+## NEW SCREENSHOT - Green font color active branch
 Now that we have learned an important use of Git's branches to create an isolated development environment to work and edit without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. 
 
 ## Now Featuring. . . Branches
@@ -147,14 +147,14 @@ Here's an example of what your raw Markdown file should look like.
 ![Markdown Raw Text](./assets/lesson-1/160-markdown-github.png) 
 Click the preview tab to view the stylized version.
 ![Markdown Preview](./assets/lesson-1/170-markdown-preview.png)
-## NEW SCREENSHOT - SCRUB INFO
+
 > 5. Add a message in the text field, "Create README.md" the click the "Commit new file" button
 ![Commit to Master](./assets/lesson-1/180-markdown-commit.png)
 
 To check to see if this `README.md` file was created properly, see if the `README.md` file is visible in your repo.
-
-> **Screenshot** needs a sample github account, scrub personal account
+## NEW SCREENSHOT - SCRUB INFO
 ![Github Repo](./assets/lesson-1/195-github-repo.png)
+## Red Outline README.md
 
 While in our GitHub repo let's take a look at our branches by selecting the branches tab. 
 > **Screenshot** of student's simulated GitHub repo highlighting branches tab _(Will Be Added)_
@@ -196,43 +196,70 @@ The git command `git fetch` can get one or more branches from the remote repo an
 
 The `git merge` operation, on the other hand, will merge the designated branch into your active branch. This will update the active branch with any differences in code. At times, conflicts may occur when the same line of code contains different code versions. This is called a merge conflict and will require a close look to see which version is more up to date or necessary. Merge conflicts and their resolution will be covered in great detail later in this course. 
 ![Git Pull](assets/lesson-1/260-git-fetch-merge-pull.png)
-After the merge, the current active branch, in this case `develop`, we not only receive the new file updates from the remote `master` branch, but also all the commit histories associated with that branch. 
+After the merge, the current active branch, in this case `develop`, will not only receive the new file updates from the remote `master` branch, but also all the commit histories associated with that branch. 
 For more details, let's look at the official [Git docs](https://git-scm.com/docs/git-pull).
 
-> **Graphics Team Request** _Possible Jira Issue_
-![git work flow](https://res.cloudinary.com/practicaldev/image/fetch/s--M_fHUEqA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/128hsgntnsu9bww0y8sz.png)
-(**To Graphics Team** - _I'd like to see the `git pull` and `push` arrow positions swapped for actual workflow process._)
-
-Let's `pull` our updated `master` into our `develop` branch.
+Let's `pull` our remote `master` branch that contains our `README.md` file into our `develop` branch.
 Simply type in the following command into the terminal:
 ```
 $ git pull origin master
 ```
 You should see the following screen after a successful `pull`.
-
-![vim](assets/lesson-1/200-vim-cli.png)
 ## NEW SCREENSHOT - SCRUB INFO
+![vim](assets/lesson-1/200-vim-cli.png)
+
 Git has opened a text editor called Vim to request a commit message for the `merge` operation. To exit out of this screen type the following into the editor:
 `SHIFT`+`Z`+`Z`
 or alternatively
 `ESC` `:`  `q`
-<!-- Proper Way to Display Sequential Key Binding? -->
+<!--? Proper Way to Display Sequential Key Binding ? -->
 
 > **Deep Dive**: To learn more about this powerful text editor, check out [Wikipedia](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
 This will bring you back to your terminal window which should look like this.
-
-![pull-success](assets/lesson-1/300-pull-success-cli.png)
 ## NEW SCREENSHOT - SCRUB INFO
+![pull-success](assets/lesson-1/300-pull-success-cli.png)
+
 Let's review the Git report from the `merge`.
 Below the original Git command is the remote repo's url. Then Git's `fetch` operation is performed on the remote `master` branch. Once this is downloaded, it immediately in merged into the active branch by the ['recursive'](https://www.atlassian.com/git/tutorials/using-branches/merge-strategy) strategy. 
 > **Graphics Team Animation**: [Nice example of animation of merge](https://www.atlassian.com/git/tutorials/using-branches/merge-strategy)
 The next lines display what files were changed and how many lines were added in green "+" or removed in red"-". We only have additions hence no red "-".
 
-Now let's verify if our `README.md` file was successfully downloaded. Open the `develop` branch in VS Code and open the `README.md` file.
-Congrats! We have successfully accomplished our first `pull`! 
-> **On The Job**: Normally, when working on a team, we would use the command `git pull` to update our development environment. Team members could have potentially `pushed` their enhancements up to our development environment so it is good practice to keep our version up to date. If our branch is already up to date, Git will check and let us know a `pull` is not necessary so it is harmless to check.
 
-Now that we have our `develop` branch updated, we can continue with our project requirements to add some HTML content in our next section. 
+> **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, the Explorer side panel will update with the new branch's folder hierarchy. Also note that on the bottom left on the status bar in VS Code under the Explorer side panel, the active branch will be displayed to help keep track of the version being edited or copied. This helps ensure we are not working on the `master` branch since management will not be very happy if the production environment gets corrupted.<br />
+> ### (ADD SCREENSHOT OF STUDENT'S INTEGRATED TERMINAL WINDOW w/ red outline of active branch in status bar)
+> **Video**: Screencast of VS code switching between branches and/or a pull request with?
+
+If you see the `README.md` file in VS Code, congrats for successfully accomplishing our first `pull`! 
+
+<!-- > **On The Job**: Normally, when working on a team, we would use the command `git pull` to update our development environment. Team members could have potentially `pushed` their enhancements up to our development environment so it is good practice to keep our version up to date. If our branch is already up to date, Git will check and let us know a `pull` is not necessary so it is harmless to check. -->
+
+Now that we have our `develop` branch updated, our development environment is ready to go! Let's start building our website with a few basic steps to practice our Git workflow and practice some of the skills we have learned so far in this lesson.
+## Git Issues Create Feature Branches
+
+Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. Git issues is a process development tool that is used with teams to organize and communicate what needs to be done, when it needs to be done, and who is responsible for its completion. This tool can prevent team members from forgetting to do important tasks, identify bottle necks, and prevent anyone from duplicating work. How it works is straight forward. Let's go to our GitHub repo and select on the Issues tab.
+
+> **Possible Video Walkthrough** creating git issue
+> Create issue, compose content/labels, submit issue, verify issue, edit
+issue, comment on issue, close issue
+From there we can create a new issue by clicking on the green New Issue button.
+## NEW SCREENSHOT - SCRUB INFO - Change to Feature/hero-text
+![new-git-issue](assets/lesson-1/800-new-git-issue.png)
+
+The design team has requested we insert a text block into the hero section to add some balance and use this prime website real estate for some marketing material.
+
+
+We will be creating a new git issue named hero-text to add a text block in our hero section.
+Git issues are useful because they create a project to-do list that can be labelled or categorized under issue type, assigned to a person, and much more. Take a look at [GitHub help](https://help.github.com/en/articles/managing-your-work-with-issues)
+
+(assets/lesson-1/700-git-issue-sdlc.png) for a detailed explanation regarding how git issues can improve your project's workflow.
+Let's leave a quick comment "Use flexbox to create a more mobile responsive website" and click on the "Submit new issue" button.
+
+To verify our issue was completed correctly, let's click on the Issues tab. Here we will see our list of issues that need resolution. Let's click on our flexbox issue. From here we can add comments, reassign the issue to someone else, add more descriptions including project requirements, and add a label. Let's add a label to our flexbox issue now.
+> **Pause**: Which label should we choose?
+> **Answer**: enhancement because this will be a new feature.
+
+
+we can continue with our project requirements to add some HTML content in our next section. 
 
 ## Add New Content with HTML
 According to our mock-up we will need to add a bit of content to our landing page. Let's take a look at the new text block we will need to add.
@@ -284,29 +311,8 @@ Notice the large text input field for Message. This is a new HTML element that w
 ```
 Now that we have created our development environment and added some HTML content, we can start adding our features to make our landing page mobile responsive.
 
-## Git Issues Create Feature Branches
 
-Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called git issues. Git issues are a workflow process development tool that is often used with teams that will help organize and communicate what needs to be done, when it needs to be done by, and who is responsible for its completion. This tool can prevent team members from forgetting to do important tasks, identify bottle necks, and prevent anyone from duplicating work. Now how it works is very simple. Let's go to our GitHub repo and select on the Issues tab.
-> ### Need to Recreate Student Repo for screen shot
 
-> **Possible Video Walkthrough** gif git
-> Create issue, compose content/labels, submit issue, verify issue, edit
-issue, comment on issue, close issue
-From there we can create a new issue by clicking on the green New Issue button.
-
-![new-git-issue](assets/lesson-1/800-new-git-issue.png)
-
-As the text input field suggests, we will be creating a new git issue named after the new CSS tool we will be using to implement a mobile responsive website called CSS flexbox. We will cover much more on this in the next lesson.
-Git issues are useful because they create a project to-do list that can be labelled or categorized under issue type, assigned to a person, and much more. Take a look at ![GitHub Help](assets/lesson-1/700-git-issue-sdlc.png) for a detailed explanation regarding how git issues can improve your project's workflow.
-Let's leave a quick comment "Use flexbox to create a more mobile responsive website" and click on the "Submit new issue" button.
-
-To verify our issue was completed correctly, let's click on the Issues tab. Here we will see our list of issues that need resolution. Let's click on our flexbox issue. From here we can add comments, reassign the issue to someone else, add more descriptions including project requirements, and add a label. Let's add a label to our flexbox issue now.
-> **Pause**: Which label should we choose?
-> **Answer**: enhancement because this will be a new feature.
-
-<!-- > **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` a different branch, the Explorer side panel will update with the new branch's folder hierarchy. Also note that on the bottom left on the status bar in VS Code under the Explorer side panel, the current active branch will be displayed to help keep track of the version being edited or copied. This helps ensure we are not working on the `master` branch since management will not be very happy if the production environment gets corrupted.<BR />
-> ### (ADD SCREENSHOT OF INTEGRATED TERMINAL WINDOW) -->
-<!-- > **Video**: Screencast of switch between branches -->
 
 
 In the next lesson we will learn how our issue will turn into a feature branch.
