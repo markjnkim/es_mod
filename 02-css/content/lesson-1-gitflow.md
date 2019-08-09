@@ -144,7 +144,24 @@ Now our next step is to create a `README.md` in GitHub.
 > 3. Type `README.md` into the input field.
 > 4. For the body of the README let's us the Markdown tags to create a rich text with a few headings regarding the title and purpose of this project, the coding languages used, other technologies used, and your name. Later we can add more and even further embellish this `README.md` screenshots and gifs. There are plenty of advanced [templates online](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) however for a first project, it will be best to keep the documentation simple for now.
 Here's an example of what your raw Markdown file should look like.
-![Markdown Raw Text](./assets/lesson-1/160-markdown-github.png) 
+<!-- ![Markdown Raw Text](./assets/lesson-1/160-markdown-github.png)  -->
+```markdown
+# Run Buddy
+
+## Purpose
+A website that offers fitness training services.
+
+## Build With
+* HTML
+* CSS
+
+## Installation
+Download and Enjoy!
+
+## Contribution
+Made with ❤️ by [your name]
+
+```
 Click the preview tab to view the stylized version.
 ![Markdown Preview](./assets/lesson-1/170-markdown-preview.png)
 
@@ -152,16 +169,15 @@ Click the preview tab to view the stylized version.
 ![Commit to Master](./assets/lesson-1/180-markdown-commit.png)
 
 To check to see if this `README.md` file was created properly, see if the `README.md` file is visible in your repo.
-## NEW SCREENSHOT - SCRUB INFO
+## NEW SCREENSHOT - SCRUB INFO - Add Red Outline around new README.md
 ![Github Repo](./assets/lesson-1/195-github-repo.png)
-## Red Outline README.md
 
 While in our GitHub repo let's take a look at our branches by selecting the branches tab. 
 > **Screenshot** of student's simulated GitHub repo highlighting branches tab _(Will Be Added)_
 ![Github Branches](./assets/lesson-1/190-branches-github.png)
 > **Pause**: Although we see our `master` branch, we don't see the`develop` branch we just created. Can you explain why?
 
-> **Answer**: The`develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on Github.com. This is considered the "remote" repo. As we did in the past module, we will need to `git push` our local changes to GitHub.
+> **Answer**: The `develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on Github.com. This is considered the "remote" repo. As we did in the past module, we will need to `git push` our local changes to GitHub.
 
 Let's continue to the next step where we will learn how to communicate updates between our remote repo (Github.com) and our local repo (on our computer).
 
@@ -236,30 +252,52 @@ If you see the `README.md` file in VS Code, congrats for successfully accomplish
 Now that we have our `develop` branch updated, our development environment is ready to go! Let's start building our website with a few basic steps to practice our Git workflow and practice some of the skills we have learned so far in this lesson.
 ## Git Issues Create Feature Branches
 
-Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. Git issues is a process development tool that is used with teams to organize and communicate what needs to be done, when it needs to be done, and who is responsible for its completion. This tool can prevent team members from forgetting to do important tasks, identify bottle necks, and prevent anyone from duplicating work. How it works is straight forward. Let's go to our GitHub repo and select on the Issues tab.
+The design team has requested we insert a text block into the hero section to add some visual balance and use this prime website real estate for Run Buddy marketing material. 
+<!-- ? Lesson flow question ?, I could make the students create the 2nd issue after the first one is finished (Contact Form) -->
+
+Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. Git issues is a task management tool that is used with teams to track, organize, and communicate ideas, tasks, bugs, or enhancements. This tool can prevent team members from forgetting to do important tasks, identify bottle necks or blockers, and prevent duplicated work. Let's go to our GitHub repo and select on the Issues tab.
 
 > **Possible Video Walkthrough** creating git issue
 > Create issue, compose content/labels, submit issue, verify issue, edit
 issue, comment on issue, close issue
 From there we can create a new issue by clicking on the green New Issue button.
-## NEW SCREENSHOT - SCRUB INFO - Change to Feature/hero-text
-![new-git-issue](assets/lesson-1/800-new-git-issue.png)
+>  ## Storyboard for Video Team using Screen shots (or no video)<br />
+> **Linear Steps**
+>1) Click on Issues tab
+<!-- red outline of Issues tab-->
+>![Git Issue Tab](assets/lesson-1/800-git-issues-github.png)
+>2) Type "feature/hero-text" into the text field
 
-The design team has requested we insert a text block into the hero section to add some balance and use this prime website real estate for some marketing material.
+>![new-git-issue](assets/lesson-1/801-edit-git-issue.png)
+<!-- red outline of "Submit new issue -->
+>3) Type a comment using Markdown typically outlining what this feature's requirements are as well as other information related to  this task. Sometimes they could be notes on the build, from the design team, questions/suggestions, or potential blockers.
+Here is a simple example for our case: 
+```markdown
+# Text Block for Hero Section
 
+## Content Requirements
+* Heading
+* Lorem ipsum text placeholder
+* Div container
+* Class for styling
 
-We will be creating a new git issue named hero-text to add a text block in our hero section.
-Git issues are useful because they create a project to-do list that can be labelled or categorized under issue type, assigned to a person, and much more. Take a look at [GitHub help](https://help.github.com/en/articles/managing-your-work-with-issues)
+## Questions/suggestions for Design Team
+* What will be the marketing text?
+```
+>4) Optional information to add include organizing this task by a label or assigning this task to a team member. Let's add the enhancement label to our `hero-text` issue now and assign it to ourselves.
+>5) Click on the "Submit new issue" button.
 
-(assets/lesson-1/700-git-issue-sdlc.png) for a detailed explanation regarding how git issues can improve your project's workflow.
-Let's leave a quick comment "Use flexbox to create a more mobile responsive website" and click on the "Submit new issue" button.
+We should see the following screen following a successful issue creation.
+![Git Issue Success](assets/lesson-1/802-git-issue-success) 
+<!-- red outline of Edit Button, Close Issue Button -->
+Congratulations on completing your first Git issue. Please note this screen is the edit screen that allows changing the text as well as closing the issue once the enhancement or work has been finished. This edit screen can be found on the Issues tab which now notes there is one outstanding issue at the repo's landing page.
+Take a look at [GitHub help](https://help.github.com/en/articles/managing-your-work-with-issues) for an expansive view of how Git issues can further assist in project management.
 
-To verify our issue was completed correctly, let's click on the Issues tab. Here we will see our list of issues that need resolution. Let's click on our flexbox issue. From here we can add comments, reassign the issue to someone else, add more descriptions including project requirements, and add a label. Let's add a label to our flexbox issue now.
-> **Pause**: Which label should we choose?
-> **Answer**: enhancement because this will be a new feature.
+Now that we understand how to make a Git issue, let's create another one for another HTML additional we have been requested to make from the sales department. They would like a form that is able to submit questions directly to the sales staff to go in the Reach Out section.
+> **Activity**: Please continue with creating a new Git issue for this new feature.
+> **Solution**: The finished issue should look something like this.
 
-
-we can continue with our project requirements to add some HTML content in our next section. 
+Let's continue progressing through our project requirements to add some HTML content in our next step. 
 
 ## Add New Content with HTML
 According to our mock-up we will need to add a bit of content to our landing page. Let's take a look at the new text block we will need to add.
@@ -299,10 +337,10 @@ Notice the large text input field for Message. This is a new HTML element that w
     <div class="contact-form">
      <h3>Contact Us</h3>
      <form>
-      <label for="contact-name">Your Name</label>
+      <label class="visuallyhidden" for="contact-name">Your Name</label>
       <input type="text" id="contact-name" placeholder="Your Name" />
 
-      <label for="contact-message">Message</label>
+      <label class="visuallyhidden" for="contact-message">Message</label>
       <textarea id="contact-message" placeholder="Message"></textarea>
 
       <button type="submit">Submit</button>
