@@ -371,7 +371,7 @@ This syntax is slightly different from HTML's comment syntax, but it behaves the
 > **Deep Dive:** We'll get into more detail about web fonts and typography in the upcoming weeks, but in the meantime it might be worthwhile to learn how [CSS color values](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) work, as we'll be diving deeper into some other values next week. For now we'll be sticking to using hexadecimal values and maybe a directly named one (i.e., white, black, aquamarine, etc.).
 
 
-Let's start to beautify our `<header>` with the following style:
+Let's start to add design to our `<header>` with the following CSS:
 
 ```css
 /* apply styles to <header> */
@@ -381,9 +381,9 @@ header {
 }
 ```
 
-We just told the `<header>` element to apply `padding`, meaning we wanted to add space between where the `<header>` starts and where the content of it starts. We also applied a `background-color` of a light blue / teal.
+We just told the `<header>` element to apply `padding`, meaning to add space between where the `<header>` starts and where the content inside it starts. We also applied a `background-color` of a light blue / teal.
 
-> **Important:** The `padding` syntax can be done in multiple ways. How you do it is up to you and there is no "wrong" way. This methodology will also to apply to some other style properties such as `margin` and `border`.
+> **Important:** The `padding` syntax can be done in multiple ways. How you do it is up to you—there is no wrong way. This methodology will also to apply to some other style properties such as `margin` and `border`.
 > 
 > Here are a few ways that padding can be applied:
 >
@@ -393,7 +393,7 @@ We just told the `<header>` element to apply `padding`, meaning we wanted to add
 >   padding: 20px;
 > }
 >
-> /* Applies 20px to the top AND bottom, then 35px to the left AND right */
+> /* Applies 20px to the top and bottom, then 35px to the left and right */
 > header {
 >   padding: 20px 35px;
 > }
@@ -413,7 +413,7 @@ We just told the `<header>` element to apply `padding`, meaning we wanted to add
 > ```
 
 
-> **Deep Dive:** CSS properties that allow listing multiple values at once are what's known as [shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties), and can save a ton of time and cut out a lot of repetitive code.
+> **Deep Dive:** CSS properties that allow listing multiple values at once are known as **shorthand properties**. These can save a ton of time and cut out a lot of repetitive code. To learn more, see [MDN's docs on shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties).
 
 Before we move on to the rest of these styles, let's take a moment to learn and understand how an HTML element's height and width dimensions are calculated for placement on a page. This is called the **CSS Box Model** and can be a little tricky at first, because we are dealing with some things that aren't visible, but it is an important concept for any web developer to know.
 
@@ -466,35 +466,39 @@ Here, we are implementing a more specific selector pattern. This one ensures we 
 >
 > 3. **Source Order**: There is nothing that will stop us from accidentally selecting and defining styles to the same element more than once, but CSS is read top-down. This means that if we select `<h1>` and give it a color of red on line 1, then select it again and give it a color of blue on line 4, our `<h1>` is going to be blue because it was defined later.
 >
-> CSS styles are also applied through something known as "Inheritance", meaning if a style isn't explicity defined for a child element, it will try and use the style being applied to the parent element.
+> CSS styles are also applied through something known as **inheritance**, meaning if a style isn't explicity defined for a child element, it will use the style being applied to the parent element.
 >
-> ### [Read more about Cascade and Inheritance here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance)
 
-Now let's turn our attention to the actual property declarations happening here:
+  
+  To learn more,see [MDN's docs on cascade and inheritance](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance)
 
-- **font-size**: We can assume that `font-size` means quite literally the size of the font in the `<h1>` element.
+Now let's turn our attention to the property declarations here:
 
-- **font-weight**: The `font-weight` property is looking to set the font to `lighter`, `normal`, or `bold` font display. There are other values associated with this property, but for now there's no need to dive into them as we won't really see a difference in the outcome.
+- **`font-size`**: The size of the font in the `<h1>` element.
 
-- **color**: The `color` is simply setting the color for this particular `<h1>` element (notice how it's overriding the `color` we set for the `<body>`, this is because the style is declared directly to the element).
+- **`font-weight`**: Sets the font to `lighter`, `normal`, or `bold`. There are other values associated with this property, but there's no need to dive into them now.
 
-It should now look like this:
+- **`color`**: Sets the color for this particular `<h1>` element (notice how it overrides the `color` we set for `<body>`; this is because it is applied directly to the element).
+
+The header should now look like this:
 
 ![Header Styles - 1](assets/step-2/400-header-style-1.png)
 
-If it does, great! Let's start moving that navigation bar over to the right. These next steps are going to introduce some more specific selectors, so keep in mind that this is just one of many ways to properly select and apply styles, and is intended to get us acclimated to some of those many flavors. Over time, we'll hone our skills and become more efficient with applying styles, but for now we'll stick with the more easy to understand selectors.
+If it does, great! Let's start moving that navigation bar over to the right. These next steps are going to introduce some more selectors, so keep in mind that this is just one of many ways to properly select and apply styles, and is intended to get us acclimated to some of those many flavors. Over time, we'll hone our skills and become more efficient with applying styles, but for now we'll stick with the more easy to understand selectors.
 
-We'll explain these new properties when we're all done here, so don't worry if it's confusing in the moment. In between applying these following styles, make sure to save and refresh the page in the browser to see the changes happening!
+We'll explain these new properties when we're all done here, so don't worry if it's confusing right now. In between applying these following styles, make sure to save and refresh the page in the browser to see the changes happening!
 
-> LINEAR STEPS
->
-> 1. Apply styles to every `<a>` element in the header.
-> 2. Apply styles to the `<nav>` element.
-> 3. Apply styles to the `<nav>` element's `<li>` elements.
-> 4. Apply styles to the `<a>` elements inside of the `<li>` elements
-> 5. Marvel at the progress we've made.
+1. Apply styles to every `<a>` element in the header.
 
-Let's start with applying styles to every `<a>` element in the header.
+2. Apply styles to the `<nav>` element.
+
+3. Apply styles to the `<nav>` element's `<li>` elements.
+
+4. Apply styles to the `<a>` elements inside of the `<li>` elements
+
+5. Marvel at the progress we've made.
+
+Let's start with applying styles to every `<a>` element in the header. To begin, add the following CSS:
 
 ```css
 header a {
@@ -594,13 +598,17 @@ header h1 {
 }
 ```
 
-So just by adding that one property declaration and setting the `<h1>` to `inline` instead of `block`, we allowed the `<nav>` on the righthand side move up, but not as far as we thought it would. So what gives? If we took the `<h1>` element out of `block` styling, shouldn't that allow whatever is coming to the right of it be on the same line?
+So just by adding that one property declaration and setting the `<h1>` to `inline` instead of `block`, we moved the `<nav>` on the righthand side up, but not as far as we thought it would. What gives? If we took the `<h1>` element out of `block` styling, shouldn't that allow whatever is coming to the right of it to be on the same line?
 
-This is happening for the same reason the teal background of our `<header>` doesn't come flush up against the top-left of our page, which is what we want. So let's fix both of these problems at once, which will also prevent many future problems as well.
 
-It has been mentioned a few times now that the browser has some thoughts of its own about certain styles for elements. Without any CSS present, `<h1>`–`<h6>` elements get special styles from the browser like making it bold and giving it more space than regular text. As a matter of fact, the browser provides built-in margin and padding on a lot of different elements by default. This is a remnant of a previous world, one where CSS wasn't so prevalent, meaning the browser used to have to do a lot of the heavy lifting as far as styles go.
 
-These styles remain in the browser, but now that CSS is so ubiquitous it is something we actually have to go out of our way to remove before we can successfully design a page. Now we can't necessarily go into the browser and tell them to cut it out, but we CAN apply some default values for EVERY element in our page and level the playing field for us. That way we don't have to spend so much time undoing browser styles one by one and rather select ALL elements at once. So let's go head and do that by adding this to the very top of our style sheet:
+This is happening for the same reason that the teal background of the `<header>` doesn't come flush up against the top-left of the page, which is what we were hoping for. The good news is that we can fix both of these problems at once, while also preventing similar future problems as well.
+
+As we've mentioned, the browser has some thoughts of its own about styling some elements. Without CSS, browsers give heading elements (`<h1>`–`<h6>`) some default styling, such as making them bold and adding padding around them to, well, make them look like headings! As a matter of fact, the browser provides built-in margins and padding to a lot of elements by default. This is a remnant of a world before CSS, when the browser did more of the heavy lifting when it came to styling text.
+
+Before we can start styling a page using CSS, we need to remove these default browser-enforced styles. To do this, we apply some default CSS values for every element in the page to level the playing field all at once.  
+
+Let's go head and do that by adding this to the very top of our style sheet:
 
 ```css
 * {
@@ -609,11 +617,11 @@ These styles remain in the browser, but now that CSS is so ubiquitous it is some
 }
 ```
 
-We just told every element on the page to not have any margin or border unless we explicitly tell it to. Now we don't have to concern ourselves with hacking our way through undoing built-in browser styles one by one.
+We just told every element on the page to not have any margin or border unless we explicitly tell it to. Now we don't have to concern ourselves with undoing built-in browser styles one by one.
 
 The asterisk `*` we used here is used quite often in programming. It is typically called a wildcard, but in CSS it is known as a **universal selector**. This is essentially a catch-all selector that says, "I won't match one thing—I'll match everything!"
 
-> **Deep Dive:** [Click here to learn more about the `*` selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors). It's a powerful selector and doesn't need to be used for much more than this. 
+> **Deep Dive:** The `*` selector is powerful. To learn more, see [MDN's docs on universal selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors).  
 
 Okay, so now we're looking good, right? The header is flush up against the top left corner of the page so there's no weird white gap. The navigation is nice and directly to the right of the `<h1>`. We can safely say at this point that we have finished our `<header>`! 
 
@@ -651,7 +659,7 @@ If it does, great! It's time to move on to styling the `<footer>` next. But rest
 >
 > ---
 >
-> **The `*` selector in CSS selects all HTML elements and applies a style to them.**
+> **True or False: the `*` selector in CSS selects all HTML elements and applies a style to them.**
 >
 > a. True\
 > b. False
@@ -671,11 +679,11 @@ By the end of this section, the `<footer>` will look like this:
 
 ![Footer HTML](assets/step-2/700-footer-html.png)
 
-So this first part is easy, we don't even have to concern ourselves with the fancy `Made with love` section on the left hand side since it's already done. So let's worry about making the other part of our `<footer>`.
+This first part is easy. We don't even have to concern ourselves with the fancy `Made with love` section because it's already done. So let's focus on the other content in our `<footer>`: the privacy policy link and the copyright.
 
 The Run Buddy legal department is also drafting a privacy policy for the site, but it won't be ready until later in the project. For now, we'll add a placeholder link to it in the footer. We can update the link with the actual URL when the page is ready.
 
-Go ahead and add this to the `<footer>`, right after the `<h2>`:
+Go ahead and add the following HTML to the `<footer>`, right after the `<h2>`:
 
 ```html
 <div>
@@ -684,21 +692,25 @@ Go ahead and add this to the `<footer>`, right after the `<h2>`:
 </div>
 ```
 
-When we apply styles to the `<footer>`, we want both of those new items to be on the righthand side of the page. So we could try and position them individually to the right, or we could wrap both of them in a container (in this case, a `<div>`) and then move the whole container over when we're ready. The latter sounds easier, because it is.
+When we apply styles to the `<footer>` in the next step, we want the link to the privacy policy and the copyright to be on the righthand side of the page. We could position them individually on the right, or we could wrap both of them in a container (in this case, a `<div>`) and then move the whole container over when we're ready. The latter sounds easier, because it is—and that's just what we did!
 
-Let's review the two new pieces of HTML we used here:
+Let's review the new HTML we used in the above code:
 
-- **Break tags**: `<br/>` is an HTML element that creates a line break, this way whatever comes after is going to be on the next line. Since `<a>` elements are inline elements, we need to create that space manually. These are great for situations like this, ones that don't require a ton of CSS tweaking, but just a simple line break.
+- **`<br />`**: We used the break element (`<br/>`) to create a line break between the Privacy Policy link and the copyright. When you use `<br/>`, whatever comes after it will be on the next line. Because `<a>` elements are inline elements, we needed to create that space manually. 
 
-  > LEGACY LEM: Before CSS became popular, developers would create top and bottom margins and spacing by adding `<br>` elements until the desired space was met. This is not a good practice anymore, as `margin` and `padding` have made controlling space much easier.
+  Break elements are great for design situations like this that don't require a ton of CSS tweaking, but just a simple line break.
 
-- **HTML entities (`&copy;`)**: If you haven't noticed yet, every HTML element includes with a greater than `>` and less than `<` symbol, so what happens if we need to actually use one of those symbols in our content and not as HTML syntax? How does the browser know the difference? The short answer is it can't, so HTML's solution is to have special character codes known as **HTML entities**. These are special codes that start with an ampersand `&` and can be used to create symbols (i.e. `&gt;` creates a `>`). For more information and a more extensive list, [go here](https://developer.mozilla.org/en-US/docs/Glossary/Entity).
+  > LEGACY LEM: Before CSS became popular, developers would create top and bottom margins and spacing by adding `<br>` elements until the desired space was met. This is something to avoid doing now, as `margin` and `padding` have made controlling space much easier.
 
-One more thing to mention is the use of a `#` as the value of the `href`. Considering what we saw earlier with the `href="#what-we-do` syntax, and how it is used to navigate towards another section of the same page with an `id` attribute looking like `id="what-we-do"`, what happens when there is no name after the `#`? 
+- **`&copy;`**: In the code above, `&copy;` precedes the Run Buddy copyright notice; it creates the little copyright symbol. This is called an **HTML entity**, a special code that starts with an ampersand (`&`) and can be used to create symbols. 
 
-This is used when we don't exactly know where we want our link to go yet. Yes, the text says `Privacy Policy` but we currently don't have that page created. For now, we'll use the `#` as a placeholder and we'll circle back to it later when we create that second page.
+  In case you haven't noticed, every HTML element is surrounded by a less than (`<`) and greater than (`>`) symbol. So what happens if we need to use a greater than sign as content and not as HTML syntax? The solution is to use the HTML entity `&gt;` which creates a `>`.
 
-So now our `<footer>` has all the right bones to start designing!
+    To learn more, see [MDN's docs on HTML entities](https://developer.mozilla.org/en-US/docs/Glossary/Entity).
+
+- One more thing to mention is the use of a `#` as the value of the `href`. Remember how we used `href="#what-we-do` to navigate to another section of the same page with an `id` attribute that looks like `id="what-we-do"`? Here, we are using the `#` as a placeholder for a privacy policy page that doesn't exist yet. It's a way to show that there will be a link here eventually—we can circle back after we create the page to update it. 
+
+Now our `<footer>` has all the right bones to start designing!
 
 ## Design the Footer
 
@@ -706,9 +718,9 @@ Now let's make the `<footer>` look like this:
 
 ![Footer with CSS](assets/step-2/800-footer-css.png)
 
-As you kick off this section by applying styles to just the `<footer>` itself, keep in mind the styles you applied to the `<header>` elements earlier and see how many of these concepts are repeated.
+As you kick off this section, think back to the styles you applied to the `<header>` and notice how many of these concepts are repeated.
 
-We'll start by adding this to the `<footer>`:
+Start by adding the following CSS to the `<footer>`:
 
 ```css
 footer {
@@ -718,46 +730,44 @@ footer {
 }
 ```
 
-Effectively, we use the same property declarations for the `<footer>` as we did in the `<header>`, with just a few value tweaks to give it a different background color and padding values.
+Did you notice that we used the same property declarations for the `<footer>` as we did in the `<header>` with just a few value tweaks to give it a different background color and padding values?
 
 Now let's go ahead and tackle the rest of the content in the `<footer>` step by step:
 
-> LINEAR STEPS 
->
-> 1. Apply style to the left `<h2>`.
->
-> ```css
-> footer h2 {
->   display: inline;
->   color: #024e76;
->   font-size: 30px;
->   margin: 0;
-> }
-> ```
->
-> 2. Apply style to the right `<div>` container holding the rest of the content.
->
-> ```css
-> footer div {
->   float: right;
->   line-height: 1.5;
->   text-align: right;
-> }
-> ```
->
-> 3. Apply style to the `<a>`.
->
-> ```css
-> footer a {
->   color: #024e76;
-> }
-> ```
+1. Apply style to the left `<h2>` element.
 
-That wasn't so bad, was it? Notice how we've repeated the same layout as the header by making the `<h2>` an inline element and the `<div>` float to the right? And only two new properties have been introduced:
+```css
+footer h2 {
+  display: inline;
+  color: #024e76;
+  font-size: 30px;
+  margin: 0;
+}
+```
 
-- `line-height`: Line height is the CSS property associated with telling text content how much vertical space there should be between lines. The value associated with it (1.5) means we want the spacing to be 1.5 times the size of the font itself. This value will vary depending on what font we're using, but 1.5 is a good baseline. The idea behind this is we don't want our lines of text too close to one another, but we don't want them floating apart from one another either, so this lets us finesse the spacing and make it more readable.
+2. Apply style to the right `<div>` container that holds the rest of the content.
 
-- `text-align`: Just like any word processor we've used in the past, we get the ability in CSS to align our text to the left, right, center, or justified. By default it is left-aligned but can be changed with this property declaration.
+```css
+footer div {
+  float: right;
+  line-height: 1.5;
+  text-align: right;
+}
+```
+
+3. Apply style to the `<a>` element.
+
+```css
+footer a {
+  color: #024e76;
+}
+```
+
+That wasn't so bad, was it? Did you notice that we repeated the same layout that was in the header by making the `<h2>` an inline element and the `<div>` float to the right? And only two new properties have been introduced:
+
+- **`line-height`**: `line-height` assigns how much vertical space should be between lines of text content. The value associated with it (1.5) means we want the spacing to be 1.5 times the size of the font itself. This value varies depending on what font we're using, but 1.5 is a good baseline. The idea behind this is we don't want our lines of text too close to one another, but we don't want them floating apart from one another either, so this lets us finesse the spacing and make it more readable.
+
+- **`text-align`**: `text-align` lets us align our text to the left, right, center, or justified. By default it is left-aligned.
 
 Great work! You've officially completed all of the styles for the header and footer, with the following result:
 
@@ -765,21 +775,21 @@ Great work! You've officially completed all of the styles for the header and foo
 
 ## Reflection
 
-We covered a lot in this section. There's no "soft" way to be introduced to some of these concepts, CSS in particular, so it required us to get our hands dirty. To recap what we did:
+We covered a lot in this lesson. There's no "soft" way to be introduced to some of these concepts, CSS in particular, so we just jumped right in and started coding. To recap what we did:
 
-- We built two major components that typically go on every webpage. By doing them one-by-one, we were able to learn about new HTML elements and structure without getting overwhelmed. This is a good workflow to practice, especially as beginners.
+- We built two major components that typically go on every webpage: the header and footer. By doing them one by one, we were able to learn about new HTML elements and structure without getting overwhelmed. This is a good workflow to practice, especially as beginners.
 
 - We introduced quite a few new HTML elements that we will be using not only a lot throughout the rest of this project, but throughout the rest of our careers.
 
-- We learned about HTML attributes, which provide more context, meaning, and even functionality to our HTML elements. The next section will introduce more attributes, but this was a nice introduction to them.
+- We learned about HTML attributes, which provide more context, meaning, and functionality to our HTML elements. The next section will introduce more attributes, but this was a nice introduction to them.
 
-- We introduced ourselves to CSS, what it does, what it looks like, and how to implement it using the `link` element in our HTML using relative paths.
+- We became familiar with CSS, what it does, what it looks like, and how to implement it using the `link` element in our HTML using relative paths.
 
-- CSS element selectors and properties were used to style elements (and nested elements).
+- We used CSS element selectors and properties to style elements (and nested elements).
 
-- Lastly, we learned that the browser conducts its styling of HTML elements a certain way (inline vs. block, the box model, margins/padding, etc.), and that way may not always work for us. So we can use CSS to override these default settings and make our lives easier.
+- Lastly, we learned that the browser conducts its styling of HTML elements a certain way (inline vs. block, the CSS Box Model, margins/padding, etc.), and that way may not always work for us. We can use CSS to override these default settings and make our lives easier.
 
-The best part about hitting all of these new topics at once is that the upcoming steps will be less introduction and much more doing! The concepts picked up here will carry with us through our entire careers as developers. Now it's just a matter of knowing when to apply the right styles, and that just comes with practice and repetition.
+The best part about hitting all of these new topics at once is that the upcoming steps will be less introduction and much more doing! The basic concepts you learned in Lesson 2 will carry through your entire career as a developer. Now it's just a matter of knowing when to apply the right styles, and that will come with practice and repetition.
 
 > **Pro Tip:** Don't forget to save and push your work up to GitHub!
 
