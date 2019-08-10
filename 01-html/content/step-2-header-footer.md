@@ -16,13 +16,15 @@ This is best learned through doing, so let's get started!
 
 ![header html](assets/lesson-2/100-header-html.png)
 
-We'll begin by adding some information that most modern webpages have: branding and navigation. These two pieces of a **user interface** (also known as **UI** to those who are hip) usually find their way into the `<header>` of an HTML document.
+We'll begin by adding some information that most modern webpages have: branding and navigation. These two important components are typically contained in the `<header>` of an HTML document so that they appear on every page of the website in a uniform way. Think about a website you're familiar with: does the top and bottom of the site looks the same on every page you visit? Most likely, the answer is yes! And where do you look on a website when you want to navigate to antoher page? Usually, you look for a menu on the top and/or bottom of any page.
 
 ### Branding and Navigation
 
-Branding is something most webpages have on them in a prominent position so users know where they are. We took care of this already in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. 
+Branding refers to the logo, colors, and general style (aka "brand") of a company or organization. Think about Target's red bullseye or Amazon's orange arrow; if you visit these websites, you will always see their brand loud and clear in the top (and usually bottom) of the page. 
 
-So branding is taken care of, but what about navigation? Let's start by adding `<nav>` and `</nav>` immediately below `<h1>` but above the closing `</header>` tag. It should look something like this: 
+We started branding for Run Buddy in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. This put the Run Buddy name in the header (top) of the page.
+
+So branding is taken care of, but what about navigation? Let's add `<nav>` and `</nav>` immediately below `<h1>` but above the closing `</header>` tag. It should look something like this: 
 
 ```html
 <header>
@@ -31,7 +33,7 @@ So branding is taken care of, but what about navigation? Let's start by adding `
 </header>
 ```
 
-The `<nav>` HTML element is a newer "semantic" element designed to help with accessibility and SEO. The browser can now read these elements and get an idea about the information that's inside.
+The `<nav>` element is a newer **semantic element** designed to help with accessibility and SEO. 
 
 > **Important:** Web Accessibility
 >
@@ -480,13 +482,17 @@ Now let's turn our attention to the property declarations here:
 
 - **`color`**: Sets the color for this particular `<h1>` element (notice how it overrides the `color` we set for `<body>`; this is because it is applied directly to the element).
 
-The header should now look like this:
+Reload your page in the browser. The header should now look like this:
 
 ![Header Styles - 1](assets/step-2/400-header-style-1.png)
 
-If it does, great! Let's start moving that navigation bar over to the right. These next steps are going to introduce some more selectors, so keep in mind that this is just one of many ways to properly select and apply styles, and is intended to get us acclimated to some of those many flavors. Over time, we'll hone our skills and become more efficient with applying styles, but for now we'll stick with the more easy to understand selectors.
+If your header doesn't look like this, go back and review the CSS and see where things went awry. If it does, great job! Let's start moving that navigation bar over to the right. 
 
-We'll explain these new properties when we're all done here, so don't worry if it's confusing right now. In between applying these following styles, make sure to save and refresh the page in the browser to see the changes happening!
+These next steps introduce more selectors. Keep in mind that this is just one of many ways to select and apply styles. Over time as you hone your skills, you can move on to more complex selectors, but for now we'll stick with the simpler ones. 
+
+We'll explain these properties when we're all done, so don't worry if it's confusing at first. In between applying these styles, make sure to save and refresh the page in the browser to see the changes happening!
+
+Here's a rundown of what we'll be doing: 
 
 1. Apply styles to every `<a>` element in the header.
 
@@ -496,7 +502,7 @@ We'll explain these new properties when we're all done here, so don't worry if i
 
 4. Apply styles to the `<a>` elements inside of the `<li>` elements
 
-5. Marvel at the progress we've made.
+5. Marvel at the progress we've made!
 
 Let's start with applying styles to every `<a>` element in the header. To begin, add the following CSS:
 
@@ -507,11 +513,11 @@ header a {
 }
 ```
 
-What we've done here is select all `<a>` elements inside of `<header>`, including the one in the `<h1>` and the ones in the `<nav>`. We used a new property here as well:
+In the above code, we are styling all `<a>` elements inside `<header>`, including those in `<h1>` and `<nav>`. We used a new property here as well:
 
-- `text-decoration`: This is a style to apply `underline`, `strikethrough`, or `overline` styles to the text. By default, the value is `none`, so it's usually not something we have to explicitely tell it NOT to do. With `<a>` elements, however, the browser applies both a blue color and an underline, so we need to go and override those styles and make them our own.
+- **`text-decoration`**: Applies `underline`, `strikethrough`, or `overline` styles to the text. By default, the value is `none`, so this is usually not something we have to explicitely tell it not to do. With `<a>` elements, however, the browser automatically applies a blue color and an underline, and we don't want our links to look like that. 
 
-Now we'll move onto styling the `<nav>` element.
+Now we'll move on to styling the `<nav>` element.
 
 ```css
 header nav {
@@ -520,9 +526,9 @@ header nav {
 }
 ```
 
-So we've done something fairly drastic. We've taken the `<nav>` element and moved it to the right side. As we've seen so far, most HTML elements position themselves along the left side of the page with one coming below the other. Now we've taken one totally out of the normal "flow" of the page. The property used here is called `float`:
+Here, we've done something fairly drastic. We took the `<nav>` element and moved it to the right side. As we've seen so far, most HTML elements position themselves along the left side of the page with one following the other. We've taken one totally out of the normal "flow" of the page. The property used here is called `float`:
 
-- `float`: Think of this as the "text-wrap" property from Microsoft Word, which takes elements that want to take up 100% of its parent's width by default (known as **block elements**) and push everything after it below it&mdash;even if it physically isn't 100% of its parents width&mdash;and allows other elements to come along side of it or wrap around it (known as **inline elements**). This property is used when we have HTML elements that would look better side-by-side and use our horizontal space in a more meaningful way. There are other CSS properties that allow us to turn block elements into inline elements, but using `float` in this case made more sense because we needed to turn this element into an `<inline>` element and also move it to the right. `float` let's us do both at once.
+- **`float`**: Think of this as the text wrapping property in Microsoft Word, which takes elements that want to take up 100% of its parent's width by default (known as **block elements**) and pushes everything after it below it&mdash;even if it physically isn't 100% of its parents width&mdash;and allows other elements to come along side of it or wrap around it (known as **inline elements**). This property is used when we have HTML elements that would look better side-by-side and use our horizontal space in a more meaningful way. There are other CSS properties that allow us to turn block elements into inline elements, but using `float` in this case made more sense because we needed to turn this element into an `<inline>` element and also move it to the right. `float` let's us do both at once.
 
 > **Important:** Block vs. Inline HTML
 >
