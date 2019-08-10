@@ -559,27 +559,27 @@ Here, we've done something fairly drastic. We took the `<nav>` element and moved
 
 > **Important:** Block vs. Inline HTML
 >
-> The browser has a specific way it wants to interpret and position certain HTML elements. This concept is called "flow". Normal flow in HTML is what a page is with no CSS overriding default layout styles. This flow follows two directions: BLOCK (top to bottom) and INLINE (left to right)
+> The browser has a specific way it wants to interpret and position certain HTML elements. This concept is called **flow**. Normal flow in HTML is a page with no CSS overriding default layout styles. This flow follows two directions: Block (top to bottom) and inline (left to right)
 >
-> In HTML, there are certain elements that are designed by default to take up 100% of the width of whatever it's parent element is. If the parent element is 800px wide, then the child is 800px wide and won't allow anything to the left or right of it. This is what's known as a `BLOCK` level element. Popular elements that have a default block styling are all `<h1>`–`<h6>` elements, `<div>`, `section`, `<nav>`, `<header>`, `<footer>`, and `<li>`.
+> In HTML, certain elements are designed by default to take up 100% of the width of whatever the parent element is. If the parent element is 800px wide, then the child is 800px wide and won't allow anything to the left or right of it. This is what's known as a block-level element. Popular elements that have a default block styling are all `<h1>`–`<h6>` elements, `<div>`, `section`, `<nav>`, `<header>`, `<footer>`, and `<li>`.
 >
-> The other type of element default is an `INLINE` element. This means that the element will only take up the space it needs to take up and not demand 100% width. These are used to allow elements to the left or right of them. The most popular element that is an inline element is the `<a>` element, but there will be more that we get into later.
+> The other type of element default is an inline element. This means that the element will only take up the space it needs to take up and not demand 100% width. These are used to allow elements to the left or right of them. The most popular element that is an inline element is the `<a>` element, but there will be more that we get into later.
 >
-> CSS allows us to override these elements default layout definitions through a few different ways, but the most on-the-nose on is to apply a `display` property to that element. Here are some of the more popular values we can provide:
+> CSS allows us to override these elements default layout definitions through a few different ways, but the most on-the-nose one is to apply a `display` property to that element. Here are some of the more popular values we can provide:
 >
-> - **display: block**: this is used to take an element and force it to take up 100% of the width its parent is by default, which will put it on its own horizontal line.
+> - **`display: block`**: this is used to take an element and force it to take up 100% of the width its parent is by default, which will put it on its own horizontal line.
 >
-> - **display: inline**: make an element only take up the space it needs and allow other elements to flow "in-line" with it horizontally. Any width or height properties associated with an inline element is ignored.
+> - **`display: inline`**: make an element only take up the space it needs and allow other elements to flow "in-line" with it horizontally. Any width or height properties associated with an inline element is ignored.
 >
-> - **display: inline-block**: the same as `<inline>`, but this allows width and height property definitions to be heard and applied.
+> - **`display: inline-block`**: the same as `<inline>`, but this allows width and height property definitions to be heard and applied.
 >
-> - **display: none**: simply remove the element from the view of the browser and let the next elements come up and take it's space. This won't delete the HTML associated with it, but will hide it completely and removes the element from the "flow" of the HTML document.
+> - **`display: none`**: simply remove the element from the view of the browser and let the next elements come up and take it's space. This won't delete the HTML associated with it, but will hide it completely and removes the element from the "flow" of the HTML document.
 >
 > In next week's unit, we'll get into some new, more advanced display values that are going to really step up our layout game.
 
 We've also added in a little bit of a top and bottom `margin` here too:
 
-- **margin**: We've discussed `margin` before, but just to reiterate, this one has a value of `7px 0`, which means it has `7px` of space added to the top AND bottom but `0px` to the left AND right.
+- **`margin`**: We've discussed `margin` before, but just to reiterate, this one has a value of `7px 0`, which means it has `7px` of space added to the top AND bottom but `0px` to the left AND right.
 
 Now that we have our two main pieces (`<h1>` and `<nav>`) in position, let's move into the `<nav>` elements.
 
@@ -589,7 +589,7 @@ header nav ul li {
 }
 ```
 
-Notice how before we added `display: inline`, the list looked like, well, a list? This is because each `<li>` is a block element, meaning the browser lets it take up 100% of the width of whatever parent element it's in. As mentioned above, block elements will always force the next element to be on the next line, so we had to make it a different type of element known as **inline**. This is another case of us overriding a default style that the browser provides `<li>` elements.
+Notice how before we added `display: inline`, the list looked like, well, a list? This is because each `<li>` is a block element, meaning the browser lets it take up 100% of the width of whatever parent element it's in. As mentioned above, block elements will always force the next element to be on the next line, so we had to make it an inline element. This is another case of us overriding a default style that the browser provides `<li>` elements.
 
 The last one we need to hit is the `<nav>`'s `<a>` elements. Notice how we've already applied styles to the `<a>` elements in the `<header>`, but now we need to be more specific and give only these particular `<a>` elements styles that the other `<a>` element doesn't need. So now these `<a>` elements will receive not only the styles we added earlier, but these styles as well.
 
@@ -601,11 +601,11 @@ header nav ul li a {
 }
 ```
 
-Now we aren't quite there yet, there are still a few tweaks we need to add to our CSS to get it aligned with perfectly. This is going to involve overriding a couple of browser _quirks_, so we'll get a little more detailed with that. But for now, our `<header>` should look something like this:
+There are still a few tweaks we need to add to our CSS to get it aligned perfectly. This will require us to  override some browser quirks. For now, our `<header>` should look something like this:
 
 ![Header styles - 2](assets/step-2/500-header-style-2.png)
 
-> PAUSE\
+> **Pause:**\
 > Considering the above, what do these other selectors say?
 >
 > ANSWERS\
@@ -615,7 +615,7 @@ Now we aren't quite there yet, there are still a few tweaks we need to add to ou
 
 Okay, this has been a lot to take in, but hopefully it has given you enough basic understanding of how things want to behave and how you can undo it. With that said, let's head back and take a look at fixing the little issue in the `<header>`.
 
-Think about that list of block level elements that are listed above and see if there's any element in the `<header>` that is taking up more width than it needs to.
+Think about that list of block level elements above and see if there's any element in the `<header>` that is taking up more width than it needs to.
 
 > **Hint:** It's on the lefthand side and it's not the `<nav>` element!
 
@@ -631,7 +631,7 @@ header h1 {
 }
 ```
 
-So just by adding that one property declaration and setting the `<h1>` to `inline` instead of `block`, we moved the `<nav>` on the righthand side up, but not as far as we thought it would. What gives? If we took the `<h1>` element out of `block` styling, shouldn't that allow whatever is coming to the right of it to be on the same line?
+So just by adding that one property declaration and setting the `<h1>` to `inline` instead of `block`, we moved the `<nav>` on the righthand side up ... but not as far as we thought it would. What gives? If we took the `<h1>` element out of `block` styling, shouldn't that allow whatever is coming to the right of it to be on the same line?
 
 
 
