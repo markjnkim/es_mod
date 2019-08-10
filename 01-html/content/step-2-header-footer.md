@@ -2,29 +2,31 @@
 
 ## Introduction
 
-Before we go any further, take a moment to give yourself a pat on the back. The hardest part of building any new HTML document is getting started, and you've done that beautifully. Even though the Run Buddy landing page doesn't look like much in a browser, you've already done a lot to pave the way for building out entire website! 
+Before we go any further, take a moment to give yourself a pat on the back. Even though the Run Buddy landing page doesn't look like much yet, you've already done a lot to pave the way for building the entire website. 
 
-In the previous lesson, you built a series of "containers" (aka divs) in your webpage to hold different types of content. At first glance, this may seem like a lot of extra work, but as you continue to add content and apply styles to each section one at a time, you won't have to worry about that affecting the other sections.
+In this lesson, you'll add some new HTML elements and CSS to your tool belt as you add content and style to the header and footer of the Run Buddy webpage. Why focus on the top and bottom and leave the middle untouched? Because the header and footer typically share similar patterns, so it makes sense to do them both at the same time. If this doesn't make sense, don't worry about it. You'll see what we mean in a few minutes. 
 
-This lesson focuses on building out the content and applying styles to the header and footer of our page. Why focus the top and bottom and leave everything in the middle untouched? Because the header and footer typically share similar patterns when it comes to adding HTML content and applying styles. If this doesn't make sense, don't worry about it. You'll see what we mean in a few minutes. 
+In the previous lesson, you built a series of "containers" (aka divs) to hold different types of content in the HTML document. At first glance, this may seem like a lot of extra work, but as you continue to add content and apply styles to each section, you'll see that it allows you to not worry about how each one affects the others. 
 
-Because this is our introduction to these concepts, we'll keep it a little bit on the plain side. In this lesson, we'll learn about new HTML elements and **Cascading Style Sheets**, which will be referred to throughout the rest of this unit (and your career) as **CSS**. The nice thing about what we'll be working on here is that a lot of it will be repeated in future lessons. 
-
-This is best learned through doing, so let's get started!
+This is all best learned by doing, so let's get started!
 
 ## Add Content to the Header
 
 ![header html](assets/lesson-2/100-header-html.png)
 
-We'll begin by adding some information that most modern webpages have: branding and navigation. These two important components are typically contained in the `<header>` of an HTML document so that they appear on every page of the website in a uniform way. Think about a website you're familiar with: does the top and bottom of the site looks the same on every page you visit? Most likely, the answer is yes! And where do you look on a website when you want to navigate to antoher page? Usually, you look for a menu on the top and/or bottom of any page.
+We'll begin by adding two things most modern webpages have: branding and navigation. These two important components are typically contained in the `<header>` so that they appear on every page in the website in a uniform way. Think about a website you're familiar with: does the top and bottom of the site looks the same on every page you visit? You betcha! And where do you look on a website when you want to navigate to another page? Usually, you look for a menu on the top and/or bottom of any page.
 
-### Branding and Navigation
+### Add Branding 
 
 Branding refers to the logo, colors, and general style (aka "brand") of a company or organization. Think about Target's red bullseye or Amazon's orange arrow; if you visit these websites, you will always see their brand loud and clear in the top (and usually bottom) of the page. 
 
-We started branding for Run Buddy in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. This put the Run Buddy name in the header (top) of the page.
+We started branding for Run Buddy in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. This put the Run Buddy name in the header (top) of the page. We will style it later in this lesson. 
 
-So branding is taken care of, but what about navigation? Let's add `<nav>` and `</nav>` immediately below `<h1>` but above the closing `</header>` tag. It should look something like this: 
+### Add Navigation 
+
+So branding content is taken care of, but what about navigation? In VS Code, add `<nav>` and `</nav>` immediately below `<h1>` but above the closing `</header>` tag. 
+
+It should look something like this: 
 
 ```html
 <header>
@@ -33,7 +35,7 @@ So branding is taken care of, but what about navigation? Let's add `<nav>` and `
 </header>
 ```
 
-The `<nav>` element is a newer **semantic element** designed to help with accessibility and SEO. 
+The `<nav>` element is a **semantic element** designed to help with accessibility and SEO. 
 
 > **Important:** Web Accessibility
 >
