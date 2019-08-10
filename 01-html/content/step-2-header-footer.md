@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Before we go any further, take a moment to give yourself a pat on the back. Even though the Run Buddy landing page doesn't look like much yet, you've already done a lot to pave the way for building the entire website. 
+Before we go any further, take a moment to give yourself a pat on the back. Even though the Run Buddy landing page doesn't look like much yet, you've done a lot to pave the way for building the entire website. 
 
-In this lesson, you'll add some new HTML elements and CSS to your tool belt as you add content and style to the header and footer of the Run Buddy webpage. Why focus on the top and bottom and leave the middle untouched? Because the header and footer typically share similar patterns, so it makes sense to do them both at the same time. If this doesn't make sense, don't worry about it. You'll see what we mean in a few minutes. 
+In this lesson, you'll add some new HTML elements and CSS to your tool belt as you add content and style to the header and footer of the Run Buddy webpage. Why focus on the top and bottom and leave the middle untouched? Because the header and footer typically share similar patterns, so it makes sense to do them both at the same time.  
 
-In the previous lesson, you built a series of "containers" (aka divs) to hold different types of content in the HTML document. At first glance, this may seem like a lot of extra work, but as you continue to add content and apply styles to each section, you'll see that it allows you to not worry about how each one affects the others. 
+In the previous lesson, you built a series of "containers" (aka divs) to hold different types of content in the HTML document. At first glance, this may seem like a lot of extra work, but as you add content and apply styles to each section, you'll see that it allows you not to worry about how each one affects the others. 
 
 This is all best learned by doing, so let's get started!
 
@@ -14,13 +14,15 @@ This is all best learned by doing, so let's get started!
 
 ![header html](assets/lesson-2/100-header-html.png)
 
-We'll begin by adding two things most modern webpages have: branding and navigation. These two important components are typically contained in the `<header>` so that they appear on every page in the website in a uniform way. Think about a website you're familiar with: does the top and bottom of the site looks the same on every page you visit? You betcha! And where do you look on a website when you want to navigate to another page? Usually, you look for a menu on the top and/or bottom of any page.
+We'll begin by adding two things most modern webpages have: branding and navigation. These two important components are typically contained in the `<header>` so that they appear on every page in the website in a uniform way. 
+
+Think about a website you're familiar with: does the top and bottom of the site looks the same on every page you visit? You betcha! And where do you look on a website when you want to navigate to another page? Usually, you look for a menu on the top and/or bottom of any page. 
 
 ### Add Branding 
 
 Branding refers to the logo, colors, and general style (aka "brand") of a company or organization. Think about Target's red bullseye or Amazon's orange arrow; if you visit these websites, you will always see their brand loud and clear in the top (and usually bottom) of the page. 
 
-We started branding for Run Buddy in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. This put the Run Buddy name in the header (top) of the page. We will style it later in this lesson. 
+We started to add branding for Run Buddy in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. This put the Run Buddy name in the header (top) of the page. We will style it later in this lesson. 
 
 ### Add Navigation 
 
@@ -39,15 +41,17 @@ The `<nav>` element is a **semantic element** designed to help with accessibilit
 
 > **Important:** Web Accessibility
 >
-> As the web has grown, so has the need to make it available to as many people as possible. As a developer, our main role is to create products that can provide a similar&mdash;if not identical&mdash;experience to every user, including those with disabilities. 
+> As the web has grown, so has the need to make it available to as many people as possible. Your role as a developer will be to create products that can provide a similar&mdash;if not identical&mdash;experience to every user, including those with disabilities. 
 >
-> Software now exists to make content accessible to people with visual and hearing impairment, cognitive and hearing disabilities, and more. Perhaps the most well-known example is a screen reader, where the browser will interpret an HTML element and its content, then read it to the user as they move along the site and select/hover over elements with their mouse or by using the tab key on a keyboard. However, the browser can only infer so much on its own, so it's up to developers to provide information in a way the browser can interpret.
+> Software now exists to make content accessible to people with visual and hearing impairments, cognitive disabilities, and more. For example, screen readers allow browsers to interpret website content and read it aloud as a user moves through a website. But it's up to developers to provide information in a way the browser can interpret.
 >
-> There are a number of tools developers can use to add accessibility to webpages, the most prominent and easy to implement being HTML5 semantic elements. Up until the late 2000s the `<div>` element was used anytime a block of content was needed. This led to developers having to work extra hard to properly identify sections of content so screen readers could interpret the page better. Now we have elements that work like a `<div>` element structurally, but that have more meaningful names like `<header>`, `<footer>`, and `<nav>`. This means the browser can start by reading the HTML element itself and inferring what content is inside of it and how important it must be on the page.
+> There are a number of tools for adding accessibility to webpages, the most prominent and easy to implement being HTML5 semantic elements. Before HTML5, the `<div>` element was used for all blocks of content on a webpage. This forced developers to work extra hard to identify content for screen readers. Now, semantic elements like `<header>`, `<footer>`, and `<nav>` work just like a `<div>` element, but they have more meaningful names that tell the browser about the content inside of them. This makes it much easier to create accessible content.
 >
-> We'll explore more of these tools in this project and in upcoming projects, but if you'd like to learn more now, take a few minutes to check out all the [resources available on MDN on web accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility). 
+> For more information, see the [resources available on MDN on web accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility). 
 
-There are a number of ways to organize navigation links. We will use a popular method by creating a list and giving each navigation link its own spot on that list. Right after the opening `<nav>` you just created, type the following: 
+There are a number of ways to organize navigation. We'll use the popular method of creating a list of navigation links. 
+
+In VS Code, type the following right after the opening `<nav>` you just created: 
 
 ```html
 <!-- Unordered list element -->
@@ -69,22 +73,30 @@ There are a number of ways to organize navigation links. We will use a popular m
 </ul>
 ```
 
-Let's unpack what we just created, starting with lists. In HTML, there are two
-types of lists: ordered and unordered. Ordered lists or **`<ol>`** tell the
-browser to interpret any nested "list item" **`<li>`** in numeric order (1, 2,
-3, etc.). Unordered lists **`<ul>`** allow for a more loosely formatted list by
+Let's unpack what we just created, starting with describing what a list is. 
+
+#### Lists 
+
+In HTML, there are two
+types of lists: ordered and unordered. 
+
+- **Ordered lists**, denoted with the `<ol>` element, tell the
+browser to interpret any nested list item (denoted with the `<li>` element) in numeric order (1, 2,
+3, etc.). 
+
+- **Unordered lists** (`<ul>`) allow for a more loosely formatted list by
 marking each nested list item with a symbol (such as a bullet point or square).
 
 ![Ordered lists with numbers vs. unordered list with
 bullets](assets/step-2/100.5-ordered-unordered.png)
 
-The relationship between `<ul>` and `<ol>` with an `<li>` is a direct parent/child relationship, meaning that an `<li>` or child should be nested or contained within the parent element's opening and closing tags—in this case, the `<ol>` or `<ul>` elements.
+The relationship between a `<ul>` or `<ol>` element to an `<li>` is a direct parent/child relationship, meaning that an `<li>` (or child) should be nested or contained within the parent element's opening and closing tags—in this case, the `<ol>` or `<ul>` elements.
 
-Within reason, anything can be nested inside an `<li>` element. In our case for creating a navigation, we used an "anchor" **`<a>`** element. Anchor elements are crucial tools for us as they give us the ability to create links in our HTML that take us to other destinations when clicked. These destinations can be within the same page, another page within our site, or another website entirely.
+Within reason, anything can be nested in an `<li>` element. In our case, we created a link in each list item using an anchor element (`<a>`). Anchor elements are used to create links that take us to other destinations when clicked. These destinations can be within the same page, on another page in our website, or on another website entirely.
 
-> **Connect the Dots:** The `<a>` element is a prime example of the "hypertext" in Hypertext Markup Language (HTML). Hypertext is defined as text that links to other text. Since this term was coined in the early 1960s, its definition has expanded to include not just text but other types of media. 
+> **Connect the Dots:** The `<a>` element is a prime example of the "hypertext" in Hypertext Markup Language (HTML). Hypertext is defined as text that links to other text. Since this term was coined in the early 1960s, its definition has expanded to include other types of media as well. 
 
-Take a look below to see a few examples:
+Here are a few examples of the `<a>` element being used to create links:
 
 ```html
 <!-- When we click "Go to Google," it will take you to Google -->
@@ -97,25 +109,28 @@ Take a look below to see a few examples:
 <a>This does nothing</a>
 ```
 
-Did you notice that the first two have an `href=` inside their opening tags? This is what is known as an **HTML attribute**. In this case, in order for the `<a>` element to work as intended, it must include an associated value.
 
-**Attributes** help us provide functionality, meaning, and context for our HTML elements. They are not necessary for every element (as we can see, we've written a lot of HTML so far without them) but can be added to any element. There are some elements that do in fact require them to work as intended, such as `<a>`. If we were to omit the `href` attribute, then the `<a>` element would not be clickable.
+#### Attributes
 
-Throughout this lesson and in the future, you will be introduced to some other important attributes. These attributes will help you give an HTML element a unique identity, create relationships with other elements, and provide design changes using CSS.
+Did you notice that the first two examples above have an `href=` inside their opening tags? This is an HTML **attribute**. 
+
+Attributes give functionality, meaning, and context to our HTML elements. They are not necessary for every element (we've written a lot of HTML so far without them!) but can be added to any element. However, some elements require them to work, such as `<a>`; if we were to omit the `href` attribute in the examples above, the `<a>` element would not be clickable and the link would not work.
+
+Throughout this lesson and in future ones, you will be introduced to other important attributes. Attributes can be used to give an HTML element a unique identity, create relationships with other elements, and provide design changes using CSS.
 
 Here are some popular attributes:
 
-- `id`: A unique identifier for an HTML element, the value of this can only be used once per HTML document
+- **`id`**: This is a unique identifier for an HTML element. The value of this can only be used once per HTML document.
 
-- `class`: Another way of identifying an HTML element, but its value is expected to be more general and can be reused across multiple HTML elements on a page
+- **`class`**: This is another way of identifying an HTML element, but its value is expected to be more general and can be reused across multiple HTML elements on a page.
 
-- `title`: Not to be mistaken for the `<title>` element, the `title` HTML attribute holds a value that appears as a small pop-up (known as a "tool-tip") when the mouse is hovered over an element for a period of time.
+- **`title`**: Not to be mistaken for the `<title>` element, the `title` HTML attribute holds a value that appears as a small pop-up (known as a tool-tip) when the mouse is hovered over an element for a period of time.
 
-> **Deep Dive:** Having a reference to [all attributes and their uses and limitations](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes) will come in handy. Bookmark this in your browser for future reference. 
+> **Deep Dive:** Having a reference to all the HTML attributes and their uses and limitations will come in handy. For more information, see [MDN's docs on HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes) and consider bookmarking the page for future reference. 
 
-The values associated with the `href` attributes in the navigation we just added give us the ability to jump right to a certain spot on our current page. The syntax `href="#what-we-do` is actually telling the browser that when that `<a>` element is clicked, go find another HTML element on the page with the attribute `id="what-we-do"`. We don't have that attribute added just yet, but we will soon.
+The values associated with the `href` attributes in the navigation we just added give us the ability to jump to a certain spot on our current page. The syntax `href="#what-we-do` tells the browser that when that `<a>` element is clicked, go find another HTML element on the page with the attribute `id="what-we-do"`. We don't have that attribute added just yet, but we will soon.
 
-Now that we know what `<a>` elements are and how they are used, let's implement a best practice and make the branding in the `<header>` of our page clickable to take the user back to the home page. We can do this by wrapping the content between the `<h1>` tags with its own `<a>` having an `href` value of "/" like this:
+Now that we know what `<a>` elements are and how they are used, let's implement a best practice and make the branding in the `<header>` of our page clickable to take the user back to the homepage. We can do this by wrapping the content between the `<h1>` tags with its own `<a>` having an `href` value of "/" like this:
 
 ```html
 <h1>
@@ -123,11 +138,11 @@ Now that we know what `<a>` elements are and how they are used, let's implement 
 </h1>
 ```
 
-The value of the `href` used here, a forward slash ("/"), will always represent the path to the topmost directory of an application or project. So in this case when a user clicks on the `<a>` element, they will be taken to the topmost directory, and because there is no file specified, the `index.html` file will be loaded.
+The value of the `href` used here—a forward slash ("/")—will always represent the path to the topmost directory of an application or project. In this case, when a user clicks on the `<a>` element, they will be taken to the topmost directory. And because there is no file specified, the `index.html` file will be loaded.
 
-> **Rewind:** Think back to Lesson 1 when you learned that if no file is being specifically looked for, a computer will try to provide an "index" page. In web development, this is why the homepage has a filename of `index.html`.
+> **Rewind:** Think back to Lesson 1 when you learned that if no specific file is being looked for, a computer will try to provide an "index" page. In web development, this is why the homepage has a filename of `index.html`.
 
-If your code now looks something like the following, then you're ready to move on and make the landing page look good!
+If the code inside the `<header>`element now looks like the following, you're ready to move on and make the landing page look good!
 
 ```html
 <header>
@@ -153,52 +168,54 @@ If your code now looks something like the following, then you're ready to move o
 </header>
 ```
 
-> **Deep Dive:** Learn more about the HTML elements we just used.\
-> [Anchor Element `<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)\
-> [Heading Elements `<h1> - <h6>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)\
-> [Navigation Element `<nav>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)\
-> [Unordered List `<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)\
-> [List Item `<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
+> **Deep Dive:** Learn more about the HTML elements we just used:
+> - [MDN's docs on the anchor element `<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
+> - [MDN's docs on heading elements `<h1>–<h6>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)
+> - [MDN's docs on navigation `<nav>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
+> - [MDN's docs on unordered list `<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
+> - [MDN's docs on list item `<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
 
 ### Commit to Git and Push to GitHub
 
-You just did a decent amount of work, so you should save it and push it up to GitHub for safekeeping. Using the commands you learned in the last lesson, go ahead and do this now. You don't need to save after every single line of code is written, but it is a good habit to get into saving after any significant add.
+You just did a decent amount of work, so you should save it and push it up to GitHub for safekeeping. Using the commands you learned in the last lesson, go ahead and do this now. 
 
 Here's a refresher of the Git commands you should use to commit your code locally:
 
-- `git add -A`: Use this to tell Git to pick up (also known as "track") any new, edited, or removed files in your project.
+1. `git add -A`: Use this to tell Git to pick up (also known as "track") any new, edited, or removed files in your project.
 
-- `git commit -m "commit message"`: Now that the files are being tracked by Git (by using `git add -A`), tell Git what you added or changed. That goes into the `"commit message"` portion in the command.
+2. `git commit -m "commit message"`: Then tell Git what you added or changed (replace `"commit message"` with a short note about what changed).
 
-    > **Note**: These two commands are responsible for telling Git what we're saving and why we're saving it. Think of it as a local save point for our project. What hasn't happened yet is getting GitHub to see these new changes, but these two have to be done first (in this order) before you can get this code up to GitHub.
+    > **Note**: These two commands tell Git locally what you're saving and why you're saving it. These two must be done first (in this order) before you can push the code up to GitHub.
 
-- `git push origin master`: Use this command to take all of the code and file edits from your recent `commit` and push it all up to GitHub. 
+3. `git push origin master`: Use this command to take all of the code and file edits from your recent `commit` and push it all up to GitHub. 
 
-Now your code is saved locally on your machine and on your GitHub profile. If you visit your [GitHub Pages link](https://username.github.io/run-buddy), you'll be able to see the new HTML! 
+Now your code is saved locally on your machine and on your GitHub profile. If you visit your [GitHub Pages link](https://username.github.io/run-buddy), you'll be able to see how the new HTML looks when viewed in a browser! 
 
-> **Urkel Says:** We've seen the `#` syntax in action with `href` values, but you will use it in many more places throughout your career as a programmer. It is what's known as an "octothorpe." [Learn more about the many uses of the # on Wikipedia.](https://en.wikipedia.org/wiki/Number_sign#In_computing)
+> **Urkel Says:** We've seen the `#` syntax in action with `href` values, but you will use it in many more places throughout your career as a programmer. It is what's known as an **octothorpe**. For more information, see [Wikipedia's page on the many uses of the #](https://en.wikipedia.org/wiki/Number_sign#In_computing).
 
 As we've seen, the HTML elements we have implemented so far do a great job at two things:
  
-- Organizing content (i.e., the content between `<h1>RUN BUDDY</h1>`) 
+- Organizing content (e.g., the content between `<h1>RUN BUDDY</h1>`) 
 
-- Providing interactivity (i.e., the `<a>` element's `href` attribute taking the user somewhere else when they click on the link)
+- Providing interactivity (e.g., the `<a>` element's `href` attribute taking the user somewhere else when they click on the link)
+
+But there is more we need to do: make our content and interactivity look good! 
 
 ### Looks Matter
 
-One question that HTML used to know how to answer was "How do I look?". Before CSS, HTML handled all of the design aspects of a website in addition to the content and structure. Developers had a very limited set of options for design—they could change the color of text, add a background color, give images height and width dimensions, but not a heck of a lot else. 
+One question that HTML used to be able to answer was "How do I look?". Before CSS, HTML handled all of the design aspects of a website in addition to the content and structure. Developers had a very limited set of options—they could change the color of text, add a background color, give images height and width dimensions, but not a heck of a lot else. 
 
 Most advanced (for the time) designs were achieved by taking a mock-up of the design and slicing it into a bunch of small images, then laying them all into an HTML table element to build the image on the webpage. Think about how difficult it would be to create a complex design by chopping up an image and placing the pieces into Microsoft Excel cells. As you can imagine, this wasn't very much fun. 
 
 > **Legacy Lem Says:** Most older website designs have been removed from the internet, but we do know of one that remains. If you want to see an example of how developers used to design sites, look no further than the [website for the 1996 movie "Space Jam"](https://www.spacejam.com/archive/spacejam/movie/jam.htm).
 
-As developers wanted more control over their webpage designs, it was realized that HTML may not be capable of supporting so many more options on its own since it is already in charge of handling a page's content. At this time, a new language was created and released to take some responsibility off of HTML when it came to the actual presentation of its content.
+As developers wanted more control over their page designs, they realized that HTML might not be capable of doing the job. Thus, a new language was created to take some of the burden off of HTML when it came to presentation and design.
 
 ## Enter CSS
 
-**Cascading Style Sheets** (aka **CSS**) was first released to the public in 1996 as a new style sheet language to handle describing the presentation of an HTML document. It is one of the top three web technologies, alongside HTML and JavaScript. CSS allows the developer to describe how elements should be rendered in different media formats such as screen (web browser, mobile phone, even smart watches), paper (printing an article), and speech (accessibility and screen reader dictation).
+**Cascading Style Sheets** (aka **CSS**) was first released to the public in 1996 as a new style sheet language to describe the presentation of an HTML document. CSS is one of the top three web technologies, along with HTML and JavaScript. CSS allows developers to describe how elements are rendered in different media formats such as screen (web browser, mobile phones, smart watches), paper (printing an article), and speech (accessibility and screen reader dictation).
 
-Using CSS, we can control any HTML element's typography (font family, size, color, weight, etc)., how much space it should take up on the page, where it should be on the page in relation to other HTML elements, what type of background it should have, and so much more. This is an exciting time for CSS developers as well, a lot of new tools are being added to the language that allow us to really push the boundaries of web design and blur the lines between web and print layouts.
+Using CSS, we can control any HTML element's typography (font family, size, color, weight, etc)., how much space it takes up on the page, where it is on the page in relation to other HTML elements, what type of background it has, and so much more. This is an exciting time for CSS developers, as a lot of new tools are being added to the language that allow us to really push the boundaries of web design and blur the lines between web and print layouts.
 
 > **Urkel Says:** Check out these examples of how CSS is being used in creative ways:
 >
@@ -206,53 +223,61 @@ Using CSS, we can control any HTML element's typography (font family, size, colo
 > [Hello Monday](https://www.hellomonday.com)\
 > [Stupid Studio](https://stupid-studio.com)
 
-The following image is a mock-up of the page we are currently building without any user-defined styles (the browser includes some by default—more on that later):
+The following image is a mock-up of the page we are currently building without any user-defined CSS styles (the browser includes some by default—more on that later):
 
 ![Page - no css](assets/step-2/101-page-nocss.png)
 
-As we can see, it's a very long page that reads well enough in order, but there's a lot of unused space and some of the images are simply way too large. Now let's look at how this same exact page will look after our styling is complete:
+As we can see, it's a very long page that reads well enough in order, but there's a lot of unused space and some of the images are simply way too large. 
+
+Now let's look at the same page with the CSS we will be adding: 
 
 ![Page - with CSS](assets/step-2/102-page-css.jpg)
 
 This looks much better with CSS, as we get to change how our content looks and is laid out on the page. It takes very plain content and presents it in a meaningful way so a user can understand the product the webpage is trying to sell.
 
-CSS's syntax is fairly simple but can be used in many different ways to achieve an intended presentation or design. Developers use it by listing an HTML element they want to style, then listing a predefined style characteristic (known as a **property**) and giving it a value. 
+### CSS Syntax 
 
-Let's take a look at the following CSS syntax: 
+CSS's syntax is fairly simple and can be used in many different ways to achieve an intended presentation or design. Developers use it by listing the HTML element they want to style, then listing a predefined style characteristic (known as a **property**) and giving it a value. 
+
+Let's take a look at some CSS syntax: 
 
 ![CSS Syntax](assets/step-2/300-css-syntax.jpeg)
 
-- **Selector**: This is the part that actually says "let's find this matching HTML element (in this case it's the `<body>` element) so we can tell it what it should look like." This is the most basic of selectors, where we select by HTML element name. We can use a CSS selector to be very vague (apply styles to all `<a>` elements) or very specific (apply styles to any `<a>` element that is inside of a `<header>` element and ignore any of the others that are not). We'll get into more specific selectors as we proceed.
+- **Selector**: This is the part that actually says "let's find this matching HTML element (in this case,  the `<body>` element) so we can tell it what it should look like." This is the most basic of selectors, where we select by HTML element name. We can use a CSS selector to be very vague (apply styles to all `<a>` elements) or very specific (apply styles to any `<a>` element that is inside of a `<header>` element and ignore any of the others that are not). We'll get into more specific selectors later.
 
-- **Property**: CSS has an extensive list of possible style properties that it recognizes. All we need to do is list one in between the selector's `{}` brackets and we can now change how that element looks. Examples of popular CSS properties are "color" (to control the text color), "background-image" (to apply a background image to that section), and "font-family" (to change the default font). If we use one that isn't predefined, then the browser will ignore the style. [Here's a great list of all possible CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index)
+- **Property**: CSS has an extensive list of possible style properties that it recognizes. All we need to do is list one in between the selector's `{}` brackets and we can now change how that element looks. Examples of popular CSS properties are `color` (to control the text color), `background-image` (to apply a background image to that section), and `font-family` (to change the default font). If we use one that isn't predefined, then the browser will ignore the style. To learn more, see [MDN's list of all possible CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index).
 
-- **Property Value**: This is where we get to provide the desired look to the element. Like properties, CSS has a specific set of possible variations for values that it will understand. In the image above we provide a value of `#39a6b2` to the `color` property (more on this value's meaning soon), which is a value that represents a color and is a valid value for any CSS property that deals with colors. Another example of this is is if we were to say `font-size: 3meters` it wouldn't be understood and not apply. But if we were to say `font-size: 24px`, the font's size will be set to 24 pixels because that is a value CSS can understand. [Here is a full list of CSS values and units of measurement](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units)
+- **Property value**: This is where we get to provide the desired look to the element. Like properties, CSS has a specific set of possible variations for values that it will understand. In the image above we provide a value of `#39a6b2` to the `color` property (more on this value's meaning soon), which is a value that represents a color and is a valid value for any CSS property that deals with colors. Another example of this is is if we were to say `font-size: 3meters`, it wouldn't be understood and not apply. But if we were to say `font-size: 24px`, the font's size will be set to 24 pixels because that is a value CSS can understand. To learn more, see [MDN's list of CSS values and units of measurement](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units).
 
 - **Declaration**: A `property: property-value` pairing like we see with `font-family: Helvetica` is what's known as a "declaration".
 
-- **Declaration Terminator**: In order for us to apply multiple styles to an element (known as a "declaration block"), we need some way to tell the language "this declaration is finished, make a new one". The way that CSS determines that a declaration is complete is when it sees a semicolon `;` at the end. Accidental omission of the terminator will result in CSS thinking everything after is still part of that first declaration, so it is very important to terminate our declarations.
+- **Declaration terminator**: In order for us to apply multiple styles to an element (known as a "declaration block"), we need some way to tell the language "this declaration is finished, make a new one." CSS knows
 
-- **CSS Rule**: The entire block shown above is what's known as a "CSS Rule". It is the combination of the selector and all of the declarations.
+ a declaration is complete is when it sees a semicolon (`;`) at the end. Accidental omission of the terminator will result in CSS thinking everything after is still part of that first declaration, so it is very important to terminate our declarations.
 
-> **Deep Dive:** Learn more about [CSS syntax and vocabulary](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Syntax)
+- **CSS rule**: The entire block shown above is what's known as a **CSS rule**. It is the combination of the selector and all of the declarations.
+
+> **Deep Dive:** To learn more, see [MDN's docs on CSS syntax and vocabulary](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Syntax).
 
 While these pieces of the syntax may not seem like a lot to work with in CSS, it allows for a lot of variation and control of our HTML element styling.
 
+### Set Up Our CSS
+
 Now that we know some terminology and rules about CSS, it's time to put it to use and integrate it into our page. Setting up a project with CSS can be done in a few different ways:
 
-- Create a file specific to writing CSS with the file extension `.css` (i.e. `style.css`) and write all style definitions there, then connect it to the HTML file using a specific HTML element `<link>`. It goes in between the opening and closing `<head>` tags and looks something like this (depending on your file name):
+- Create a file specific to writing CSS with the file extension `.css` (e.g., `style.css`) and write all style definitions in it. Then connect it to the HTML file using a specific HTML element `<link>`, which goes in between the opening and closing `<head>` tags and looks something like this (depending on your filename):
 
 ```html
 <link rel="stylesheet" href="./assets/css/style.css" />
 ```
 
-- Use a `style` attribute with the styles you want to apply directly to the HTML tag element. This is known as "inline styling", as it is directly included in the element it's styling like this:
+- Use a `style` attribute with the styles you want to apply directly to the HTML tag element. This is known as **inline styling** because it is directly included in the element it's styling, like this:
 
 ```html
 <h1 style="color: blue; font-size: 100px;">RUN BUDDY</h1>
 ```
 
-- Apply all styles in between the HTML document's `head` tags using `<style>` HTML tags to surround all style definitions. Take a look at the below code snippet, then copy and paste the code from the opening `<style>` tag to the closing `</style>` tag into your page. After refreshing the page, you'll see the page's background turn a tomato-red color and the `<h1>RUN BUDDY</h1>` will become much bigger.
+- Apply all styles in between the HTML document's `head` tags using `<style>` HTML tags to surround all style definitions. To see how this works, copy the following code snippet from the opening `<style>` tag to the closing `</style>` tag into the `<head>` element on your page. Refresh the page and you'll see the that the background turns a tomato-red color and `<h1>RUN BUDDY</h1>` becomes much bigger.
 
 ```html
 <head>
@@ -276,29 +301,29 @@ The last two options sound enticing. Why wouldn't we want to keep our styles tig
 
 We'll actually be going with the first one, and here's why:
 
-- Currently our HTML file is small, but what will it look like when it gets larger and there's also style definitions? The file will become impossible to read and get very messy looking.
+- Currently our HTML file is small, but what will it look like when it gets larger and there's also style definitions? The file will become impossible to read and get very messy-looking.
 
-- Having an external CSS file gives us the flexibility to select multiple HTML elements at once and apply the same styles, allowing us to effectively write less code. Less code to write = less code to maintain. (This is a very important concept in all programming)
+- Having an external CSS file gives us the flexibility to select multiple HTML elements at once and apply the same styles, effectively allowing us to write less code. Less code to write = less code to maintain. (This is a very important concept in all programming!)
 
-- We can share styles across multiple HTML files since it's in a third-party file as opposed to being directly coupled to the single HTML document.
+- We can share styles across multiple HTML files because it's in a third-party file as opposed to being directly coupled to the single HTML document.
 
 Before we move on, let's go ahead and remove the `<style>` element and all of its content from the HTML document. We'll be adding different styles in their own file so we don't want to have these in place when we do.
 
-> **Important:** This reinforces a concept called "Separation of Concerns", meaning that it's better to keep code that serves different purposes away from each other so it's easier to read and write
+> **Important:** This reinforces a concept called **separation of concerns**, which means that it's better to keep code that serves different purposes in different places so it's easier to read and write.
 
-## Set Up Our First Style Sheet
+## Set Up the Style Sheet
 
 So now we know which route we're taking to include CSS into our webpage, let's do it!
 
-> LINEAR STEPS
->
-> 1. Using our newfound knowledge in command line tools, create a folder called `assets` (HINT: use `mkdir` to create a folder, then use `ls` to print out the contents and see if it worked!)
->
-> 2. Move into the newly created `assets` folder using `cd` and then create another folder inside of `assets` called `css`
->
-> 3. Move into the newly created `css` folder and now let's create a file called `style.css`. Don't worry about putting anything inside of it just yet.
+Here's a rundown of the steps you'll be taking: 
 
-Now that our file is created, we need to tell our HTML document to read any applicable styles that `style.css` may have for it. We can achieve this by placing `<link rel="stylesheet" href="./assets/css/style.css" />` in between the `head` tags in our HTML document.
+1. Using our newfound knowledge in command line tools, create a folder called `assets` (HINT: use `mkdir` to create a folder, then use `ls` to print out the contents and see if it worked!).
+
+2. Move into the newly created `assets` folder using `cd` and then create another folder inside `assets` called `css`.
+
+3. Move into the newly created `css` folder and create a file called `style.css`. Don't worry about putting anything in it just yet.
+
+Now that our file is created, we need to tell our HTML document to read any applicable styles that `style.css` may have for it. We can do this by placing `<link rel="stylesheet" href="./assets/css/style.css" />` in between the `head` tags in our HTML document.
 
 > **Pause:** What do you think `href="./assets/css/style.css` is telling our HTML document to do?
 
@@ -358,7 +383,7 @@ body {
 }
 ```
 
-By adding this, we are setting the color of the font for the entire page to a light blue / teal color with what's known as a [hexadecimal number](https://en.wikipedia.org/wiki/Web_colors#Hex_triplet) (which a six-character number that represents red, green, and blue color values) and setting the font to "Helvetica". The other two values for the `font-family` definition are included just in case the user's computer does not have Helvetica installed, that way they can fall-back to those other font choices. These are both applied to the `<body>` element on the page because the `<body>` is the parent to all of our other HTML content elements, so we can now control all of them by applying a style to the parent.
+By adding this, we are setting the color of the font for the entire page to a light blue / teal color with what's known as a [hexadecimal number](https://en.wikipedia.org/wiki/Web_colors#Hex_triplet) (a six-character number that represents red, green, and blue color values) and setting the font to "Helvetica". The other two values for the `font-family` definition are included just in case the user's computer does not have Helvetica installed, that way they can fall-back to those other font choices. These are both applied to the `<body>` element on the page because the `<body>` is the parent to all of our other HTML content elements, so we can now control all of them by applying a style to the parent.
 
 > **Deep Dive:** Helvetica is not a font that typically comes installed on computers running any Windows operating system. The reason for this is that most fonts, including Helvetica, belong to companies that own and license out the fonts for a great deal of money. Think of it like a designer's version of Coke vs. Pepsi, where it's rare to see both companies' products offered at the same place.
 >
@@ -423,7 +448,7 @@ Before we move on to the rest of these styles, let's take a moment to learn and 
 
 ### The CSS Box Model
 
-All HTML elements can be represented by a rectangular box, which we can call the CSS box. The CSS box model is a visual display of the properties in the CSS box that includes the content, padding, border, and margin that are all built around each other like layers in an onion. Some of the styles of each layer—like border thickness, style, and color—can be manipulated using CSS. 
+All HTML elements can be represented by a rectangular box, which we can call the **CSS box**. The CSS Box Model is a visual display of the properties in the CSS box that includes the content, padding, border, and margin that are all built around each other like layers in an onion. Some of the styles of each layer—like border thickness, style, and color—can be manipulated using CSS. 
 
 ![Box Model](assets/step-2/103-box-model.png)
 
