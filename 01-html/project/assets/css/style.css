@@ -13,16 +13,16 @@ body {
 /* HEADER / NAV BAR STYLES START */
 
 header {
-    width: 100%;
-    padding: 20px 35px;
-    background-color: #39a6b2;
+  padding: 20px 35px;
+  background-color: #39a6b2;
 }
 
 header h1 {
-  font-weight: 900;
-  display: inline-block;
+  font-weight: bold;
+  display: inline;
   margin: 0;
   font-size: 36px;
+  color: #fce138;
 }
 
 header a {
@@ -41,7 +41,7 @@ header nav ul li {
 
 header nav ul li a {
   margin: 0 30px;
-  font-weight: 200;
+  font-weight: lighter;
   font-size: 22px;
 }
 
@@ -52,7 +52,6 @@ header nav ul li a {
 /* FOOTER STYLES START */
 footer {
   background: #fce138;
-  width: 100%;
   padding: 40px 35px;
 }
 
@@ -63,9 +62,10 @@ footer h2 {
   margin: 0;
 }
 
-footer span {
+footer div {
   float: right;
   line-height: 1.5;
+  text-align: right;
 }
 
 footer a {
@@ -76,10 +76,7 @@ footer a {
 /* STYLE ALL SECTION TAGS */
 section {
   padding: 60px;
-  width: 100%;
 }
-
-
 
 /* HERO STYLES START */
 .hero {
@@ -98,7 +95,7 @@ section {
   color: #024e76;
   position: absolute;
   bottom: 120px;
-  right: 10%;
+  right: 140px;
 }
 
 .hero-form h3 {
@@ -129,7 +126,7 @@ section {
   border: none;
   padding: 10px 20px;
   font-size: 16px;
-}
+} 
 /* HERO STYLES END */
 
 
@@ -213,14 +210,7 @@ section {
 
 .trainer img {
   width: 35%;
-}
-
-.trainer .img-left {
   float: left;
-}
-
-.trainer .img-right {
-  float: right;
 }
 
 .trainer-bio {
@@ -235,7 +225,7 @@ section {
 }
 
 .trainer-bio h4 {
-  font-weight: 200;
+  font-weight: lighter;
   font-size: 26px;
   margin-bottom: 25px;
 }
@@ -288,7 +278,6 @@ height: 400px;
 
 
 /* REACH OUT STYLES END */
-
 
 /* UTILITIES */
 .text-left {
