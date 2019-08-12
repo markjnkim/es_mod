@@ -9,7 +9,6 @@ blockquote {
   left: 64px;
   width: calc(90% - 64px);
   padding: 20px;
-  transition: border-width .2s;
 
   // title
   .title {
@@ -56,7 +55,7 @@ blockquote {
   
   // specific background styles per learning block type
 
-  &.important, &.caution {
+  &.important, &.caution, &.hint, &.note, &.rewind, &.shortcut, &.pro-tip {
     border-color: #721c24;
     background-color: #F8D7DA;
 
@@ -65,12 +64,24 @@ blockquote {
     }
   }
 
-  &.pro-tip {
+  &.legacy-lem {
     border-color: #067742;
     background-color: rgba(5, 255, 151, 0.705);
 
     &::before {
       background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg");
+    }
+  }
+
+  &.finding {
+    &::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/801/preview");
+    }
+  }
+
+  &.pause {
+    &::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/802/preview");
     }
   }
 
