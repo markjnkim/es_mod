@@ -1,5 +1,15 @@
 # Lesson 2 - Flexing Our Muscles
 
+Run Buddy 2.0 is now in full swing. In the previous lesson we took a peek at what the client wants to see in this new version of the site, but we primarily focused on establishing a workflow for us to responsibly make these updates without affecting the current site. Something else we learned is how to use `feature` branches, which not only reinforces this concept of working in abstraction, but it also takes a load off our minds by allowing us to work on a new feature at a time. In this lesson we are going to tackle one of the biggest features Run Buddy has asked for&mdash;changing our layouts so they use a new CSS property called **flexbox**.
+
+
+
+
+
+
+
+
+
 As evidenced by the issues we created in our GitHub repository, there's a fair amount to be done to get this site to a point that matches Run Buddy's specifications. What they are asking us to do for them is fairly common in the world of web development and it can be very overwhelming at times, but luckily we already have our work sectioned off into these different GitHub issues so we can worry about tackling one at a time.
 
 The first issue we are going to tackle is converting the site's overall flow and layout to enhance its design and make it more flexible. To do that we're going to use a new layout feature in CSS called **flexbox** (clever name, right?), which allows us to create layouts that used to only be achieved with heavy usage of floats and positioning. Flexbox is going to allow us to make these layout changes without having to _too_ much manipulation to what we currently have in our code. We'll be updating every section of our page in some way, take a look at some of these changes:
@@ -10,21 +20,21 @@ The first issue we are going to tackle is converting the site's overall flow and
 
 Comparing these to what we currently have, you can see that we'll be working to make better use of the horizontal space on the page to provide a cleaner layout.
 
-We're ready to get started, but as we know, our current `staging` branch is probably not the best place to mess around. So let's get started by creating our first git feature branch.
+We're ready to get started, but as we know, our current `development` branch is probably not the best place to mess around. So let's get started by creating our first git feature branch.
 
 ## Make a feature branch
 
-Since we're about to embark on fairly large round of updates to our Run Buddy page's layout, it is a good idea for us to not work in the same git branch our code currently sits in (`staging`). Think about the overall scope of this project and why created a `staging` branch in the first place. We did this so we can work on our updates without disrupting the code in our `master` branch because the code there is what is running on the Internet for visitors to see.
+Since we're about to embark on fairly large round of updates to our Run Buddy page's layout, it is a good idea for us to not work in the same git branch our code currently sits in (`development`). Think about the overall scope of this project and why created a `development` branch in the first place. We did this so we can work on our updates without disrupting the code in our `master` branch because the code there is what is running on the Internet for visitors to see.
 
 > URKEL SAYS: This is what's known as having code "in production".
 
 ![Current git branches](assets/lesson-2/300-git-branches.jpg)
 
-Now that we have `staging` set up to hold our updated code as we progress through these site updates, we can take it one step further by creating a branch for each GitHub issue we've created as we tackle them. Same as the relationship between `master` and `staging`, our new branches are going to serve as a means for us to not mess with the code in `staging` until we know that an issue is ready to be marked "complete".
+Now that we have `development` set up to hold our updated code as we progress through these site updates, we can take it one step further by creating a branch for each GitHub issue we've created as we tackle them. Same as the relationship between `master` and `development`, our new branches are going to serve as a means for us to not mess with the code in `development` until we know that an issue is ready to be marked "complete".
 
-This and every following lesson is going to begin with us creating what's known as a "feature" branch that makes a copy of what's currently in `staging`. This way we can make updates to our code and when we are done fulfilling the issue's needs, we will merge this code into our `staging` branch. Then we will repeat that cycle for the next issue or feature we are working on.
+This and every following lesson is going to begin with us creating what's known as a "feature" branch that makes a copy of what's currently in `development`. This way we can make updates to our code and when we are done fulfilling the issue's needs, we will merge this code into our `development` branch. Then we will repeat that cycle for the next issue or feature we are working on.
 
-This process may seem tedious and unnecessary, if we are already in `staging` then we why would we need to create more branches instead of working in there?
+This process may seem tedious and unnecessary, if we are already in `development` then we why would we need to create more branches instead of working in there?
 
 The answer may seem hard to grasp at first, but the overall idea is that when we start working on anything new we want to set a baseline. A place that can store the most up-to-date _working_ code. This way if we end up doing something that doesn't work we can always come back to that spot and start over again. Git gives us a few options to work like that, but creating a new branch every time we start something new is a good practice to get into.
 
@@ -34,7 +44,7 @@ The answer may seem hard to grasp at first, but the overall idea is that when we
 >
 > If each developer created their own branch to make updates and edits to the code, they would not step on each other's toes and GitHub would have a much easier time figuring out which code belonged where when it came to getting that code live.
 
-Let's go ahead and create a new branch for the issue pertaining to setting up Flexbox. What we want to do here is make a new branch with the code that is currently in `staging`. To do that, we should double check that we are in fact in the `staging` branch. There are two ways to do this from the command line:
+Let's go ahead and create a new branch for the issue pertaining to setting up Flexbox. What we want to do here is make a new branch with the code that is currently in `development`. To do that, we should double check that we are in fact in the `development` branch. There are two ways to do this from the command line:
 
 - **`git branch`**: Print out all branches on the local machine. Use the `Q` key to quit that menu.
 
@@ -42,13 +52,13 @@ Let's go ahead and create a new branch for the issue pertaining to setting up Fl
 
 If you use the `git branch` command, you should see something similar to this:
 
-![Current Git Branch - Staging](assets/lesson-2/400-current-branch.jpeg)
+![Current Git Branch - development](assets/lesson-2/400-current-branch.jpeg)
 
 > PRO-TIP: If you are using Visual Studio Code and only have your repository open, the current branch should be displayed in the lower left corner of the window.
 >
 > Visual Studio Code has a lot of great features for working with Git and GitHub, but it is best to learn the inner workings with the command line first before relying on any of those tools.
 
-If you are not in the `staging` branch, you can always move into it by using the `git checkout staging` command.
+If you are not in the `development` branch, you can always move into it by using the `git checkout development` command.
 
 What we'll do now is create this new feature branch for adding Flexbox to our site. We can do so by typing in the following command:
 
@@ -64,7 +74,7 @@ The result should look something like this (keep in mind not everyone's command 
 
 ![New feature branch](assets/lesson-2/500-new-branch.jpeg)
 
-If the result does not say something along the lines of the above "Switched to a new branch...", there may be some updated work in the `staging` branch that wasn't committed first. In order for the `checkout` command to work, all of the work in the current branch needs to be committed or discarded so Git doesn't move when things are in flux.
+If the result does not say something along the lines of the above "Switched to a new branch...", there may be some updated work in the `development` branch that wasn't committed first. In order for the `checkout` command to work, all of the work in the current branch needs to be committed or discarded so Git doesn't move when things are in flux.
 
 > ## GOOD PLACE FOR A VIDEO DEMONSTRATING HOW THIS CAN GO WRONG
 
@@ -921,11 +931,11 @@ The `opacity` property accepts a value between 0 and 1 and it allows for HTML el
 
 Learning this much about layouts in CSS is exhausting, but it is very rewarding when you realize how much control you can exercise over your HTML elements. There is nothing more important for a CSS developer than the ability to visualize a page as a series of containers and sub-containers/children, and it is a very exciting time for CSS because of tools like flexbox are allowing layouts to be created that used to only be reserved for magazines.
 
-We've officially completed our first GitHub feature request and are ready to take the code from this branch and merge it into our `staging` branch. Then we'll be ready to tackle the next feature request on our list!
+We've officially completed our first GitHub feature request and are ready to take the code from this branch and merge it into our `development` branch. Then we'll be ready to tackle the next feature request on our list!
 
-## Staging Features
+## Merging Features
 
-All of the work we just completed needs to make its way into our `staging` branch that we created in the first lesson. Remember that with this workflow we are doing all of our work in different branches specific to the feature or issue we're working on.
+All of the work we just completed needs to make its way into our `development` branch that we created in the first lesson. Remember that with this workflow we are doing all of our work in different branches specific to the feature or issue we're working on.
 
 > REWIND: In the beginning of this lesson we went over why a "feature" branch workflow is a good practice. Think back and try to list a few reasons why.
 >
@@ -937,49 +947,49 @@ All of the work we just completed needs to make its way into our `staging` branc
 >
 > 3. It helps keep us organized so we can focus on one task at a time
 
-To keep the current Run Buddy web site up and running on the `master` branch while we work on our list of features to add, we created the `staging` branch. We won't touch the `master` branch until every GitHub issue is marked "complete", so in the meantime we'll be using `staging` to receive our updates as we progress.
+To keep the current Run Buddy web site up and running on the `master` branch while we work on our list of features to add, we created the `development` branch. We won't touch the `master` branch until every GitHub issue is marked "complete", so in the meantime we'll be using `development` to receive our updates as we progress.
 
 ### NEED: video or graphic explaining this workflow
 
 Breaking this down into steps, this is going to be what our flow looks like:
 
-1. Create a branch based off the `master` branch and call it `staging` using `git checkout`
+1. Create a branch based off the `master` branch and call it `development` using `git checkout`
 
-2. From `staging` create a new branch for a feature we're working on, like `flexbox`
+2. From `development` create a new branch for a feature we're working on, like `flexbox`
 
 3. We do all of our work for that feature in that new branch
 
-4. When it's complete, we take the code from that branch and **merge** it into `staging`, so `staging` now has all of the updates from that branch
+4. When it's complete, we take the code from that branch and **merge** it into `development`, so `development` now has all of the updates from that branch
 
-5. Make a new branch based off `staging` for the next feature or issue we're tackling
+5. Make a new branch based off `development` for the next feature or issue we're tackling
 
 6. Repeat step 4
 
-7. When all features are complete and all of the updated code is in `staging`, we test our `staging` branch one more time to make 100% sure it is ready to go into "production"
+7. When all features are complete and all of the updated code is in `development`, we test our `development` branch one more time to make 100% sure it is ready to go into "production"
 
-8. We push the local `staging` branch to a `staging` branch in our GitHub repository and we request client "review" before merging it into `master` and going live with our new code
+8. We push the local `development` branch to a `development` branch in our GitHub repository and we request client "review" before merging it into `master` and going live with our new code
 
 Steps 2-4 will be repeated as long as there are GitHub issues, so we'll get a lot of practice over the next few lessons. The last step is going to be saved until the very end, as it is a different process since it needs to go into "review" before it is deemed ready to go.
 
 The nice thing about this workflow for us is that we are going to stay very organized and we can rest assured that even if we mess something up, it won't affect the current live site and we can fix it without anyone ever noticing!
 
-So what we'll work on now is getting our updated page with all of our flexbox layouts into the `staging` branch:
+So what we'll work on now is getting our updated page with all of our flexbox layouts into the `development` branch:
 
 ### NEED: Video walkthrough or gif of each step
 
 1. Make sure your code is committed. You can use `git status` to check if there's anything you need to do.
 
-2. Use `git checkout staging` to move back into the `staging` branch. If you have uncommitted work, you will not be allowed to perform this command.
+2. Use `git checkout development` to move back into the `development` branch. If you have uncommitted work, you will not be allowed to perform this command.
 
-3. Double-check that you in fact are in `staging` by typing in `git branch` or `git status`. Remember with `git branch` you have to type `q` to quit that list that is displayed.
+3. Double-check that you in fact are in `development` by typing in `git branch` or `git status`. Remember with `git branch` you have to type `q` to quit that list that is displayed.
 
-4. Now we want to tell the `staging` branch to go and look at the `flexbox` branch and copy the code from `flexbox` into `staging`. To do this we need to use a `git merge` command like this:
+4. Now we want to tell the `development` branch to go and look at the `flexbox` branch and copy the code from `flexbox` into `development`. To do this we need to use a `git merge` command like this:
 
 ```bash
 git merge flexbox
 ```
 
-5. If there are no conflicts, the updated code from `flexbox` will now be reflected in `staging`. Open the page in a browser and test it!
+5. If there are no conflicts, the updated code from `flexbox` will now be reflected in `development`. Open the page in a browser and test it!
 
 The next step is up to you or your team, and that is deciding what to do with the `flexbox` branch. A lot of times, for cleanliness, a branch will be deleted after it's merged since it isn't necessarily needed anymore. This is more for large projects where there is a team of people working in a ton of different branches for a repository and it could be confusing.
 
