@@ -173,7 +173,7 @@ Let's add a smaller rounded corner to all of the form elements on the page. Upda
 
 We've managed to spruce up the page a little bit, but the Run Buddy execs are getting antsy about the header. It still doesn't look like the new mock-up. The design team also requested that the header be "sticky," meaning it follows the page as it scrolls. Here's a demo of the behavior they would like to see:
 
-> ## NEED VIDEO TO DEMO BEHAVIOR
+> ## NEED VIDEO: <https://trilogyed.atlassian.net/browse/FSFO-77>
 
 Let's start with the stickiness aspect. In the previous module, we talked about different types of positioning: relative, absolute, fixed, etc. There's a new position in CSS called **sticky** that's kind of like a hybrid position. An element that's sticky will behave relatively until the viewport scrolls past it. Then the element will switch to fixed and remain visible even as the user scrolls further down. Add these declarations to the `header`, then scroll up/down in the browser and see what happens:
 
@@ -248,7 +248,7 @@ While it's hard to see this from a still mock-up, Run Buddy has requested that t
 
 Complex interactivity would require JavaScript to pull off. However, we can still attain what Run Buddy is currently requesting with CSS and **pseudo-classes**. These pseudo-classes let us tap into and style the different states that an HTML element can be in. Take a button, for instance. You can **hover** over a button. You can be **actively** clicking on a button. And once clicked, the button is now the HTML element that's in **focus**. Let's see that in action:
 
-> ## NEED VIDEO TO DEMO BEHAVIOR
+> ## NEED VIDEO: <https://trilogyed.atlassian.net/browse/FSFO-78>
 
 Pseudo-classes can be added to any CSS selector using a colon and then the name of the state:
 
@@ -296,9 +296,9 @@ header nav a:hover {
 
 > **Pro Tip:** The Chrome DevTools allow you to toggle these states on and off, making it easier to style and debug them:
 >
-> ![The styles tab in the DevTools has checkboxes to force element state](./assets/lesson-5/800-devtools.png)
+> ![The styles tab in the DevTools has checkboxes to force element state](./assets/lesson-5/700-devtools.png)
 >
-> ## NEED VIDEO TO REPLACE IMAGE
+> ## NEED VIDEO: <https://trilogyed.atlassian.net/browse/FSFO-79>
 
 Using the `:focus` state, we can also visually highlight the form input that the user is currently typing in. Let's try this:
 
@@ -316,7 +316,7 @@ Using the `:focus` state, we can also visually highlight the form input that the
 
 This changes the form input's default state to be slightly transparent, then switches to full opaqueness when the input is in focus:
 
-![The focused input has different styles applied than the unfocused input below it](./assets/lesson-5/700-input-focus.png)
+![The focused input has different styles applied than the unfocused input below it](./assets/lesson-5/800-input-focus.png)
 
 But wait... when the input is in focus, there's an extra blue border around it, which looks terrible when paired with our rounded corners! This is the browser's default styling at play. We can override it, though, by including a second declaration:
 
@@ -327,7 +327,11 @@ But wait... when the input is in focus, there's an extra blue border around it, 
 }
 ```
 
-Much better! Let's do something similar with the form inputs and textarea in the Reach Out section. Remember to add a transparent default state and a separate `:focus` rule.
+Much better! Let's do something similar with the form input and textarea in the Reach Out section:
+
+![Contact Us form elements have different styling based on state](./assets/lesson-5/850-contact-us.png)
+
+Remember to add a transparent default state and a separate `:focus` rule.
 
 > **Hint:** You can consolidate your `:focus` rules with comma-separated selectors: `.contact-form input:focus, .contact-form textarea:focus`.
 
