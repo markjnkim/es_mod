@@ -12,7 +12,7 @@ After receiving the mandate from management for the next update for Run Buddy 2.
 
 ![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
-Since the website is currently deployed on the `master` branch, if we try to make changes on the `master` like we did back in Module 1, this will result in a broken website that will block our visitors from using Run Buddy's services. The management team would not be very happy about turning away potential customers.
+Since the website is currently deployed on the `master` branch, if we try to make changes on the `master` branch as we did back in Module 1, this will result in a broken website that will block our visitors from using Run Buddy's services. The management team would not be very happy about turning away potential customers.
 
 This is where our friend Git comes back into play.
 In this lesson we will introduce three main concepts.
