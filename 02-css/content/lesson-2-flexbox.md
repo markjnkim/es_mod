@@ -216,7 +216,6 @@ By setting the value to `1.55vw`, we are telling the browser that the font's siz
 Now we have a `nav` element where the links grow and shrink with the screen size, but as we can see, they get a little too small when the screen narrows. This is something we'll circle back on and fix in a later lesson.
 
 
-
 We're done with the entire `header` for now, so now is a good time to save our work in our `flexbox` branch using Git and we'll move onto the rest of our site's layout, starting with the `footer`!
 
 > **Pause:** To reinforce some knowledge in how to use flexbox, check out a game called [Flexbox Froggy!](https://flexboxfroggy.com/)
@@ -261,30 +260,11 @@ Let's finish up our `footer` by copying what we did to the `header`:
 
 When you save the page and refresh, try moving the screen size in and out to make sure it looks like this:
 
-![Footer finished](assets/lesson-2/1200-flex-footer-finished.png)
+![Finished footer on a small screen with content stacked on top of one another](assets/lesson-2/1200-flex-footer-finished.png)
 
-If it doesn't, double check to make sure the CSS rules match this:
+If it doesn't match the above mockup, remember that we can always use Chrome DevTools to debug and inspect our CSS! This video will show us how to use DevTools to cross-reference our code with the code introduced in the instructions above:
 
-```css
-footer {
-  background: #fce138;
-  padding: 40px 35px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-footer h2 {
-  color: #024e76;
-  font-size: 30px;
-  margin: 0;
-}
-
-footer div {
-  line-height: 1.5;
-  text-align: right;
-}
-```
+### [NEED VIDEO - Using Devtools to debug this CSS]
 
 Now that we've gotten used to the basics of flexbox, let's move onto the `hero` section of our page and create a nice two-column layout.
 
