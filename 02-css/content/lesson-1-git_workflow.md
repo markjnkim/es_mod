@@ -1,52 +1,48 @@
-> _Overview_ - Module Preface
+<!-- > _Overview_ - Module Preface
 Company was thrilled with success of our landing page! 
 Website needs to go mobile ASAP. reason? CEO was out on a jog and stopped in her tracks when she saw the website on her mobile device. <br />
 The website layout has been thrown into disarray when viewed on a mobile device.
 ![Broken Mobile Site](assets/lesson-1/003-broken-mock-up.png)
 Management teams relays this message: 
-Currently the site is not mobile responsive. The marketing team pitches that mobile devices generate nearly half of global website traffic and is expected to increase yearly. We need access to those potential customers especially since our service is for people on the run. 
+Currently the site is not mobile responsive. The marketing team pitches that mobile devices generate nearly half of global website traffic and is expected to increase yearly. We need access to those potential customers especially since our service is for people on the run.  -->
 
 # Lesson 1 - Set Up the Git Workflow
 ## Introduction
-After receiving the mandate from management for the next update for Run Buddy 2.0, we will need to make the website mobile friendly as well as improve the UX or user experience by adding some advanced CSS properties. Here is the mock-up we will need to follow for our update which we will build over the course of this module.
+After receiving the mandate from management for the next update for Run Buddy 2.0, we will need to make the website mobile friendly as well as improve the user experience by adding some advanced CSS properties to make the website easier to use. Here is the mock-up we will need to follow for our update which we will build over the course of this module.
 
 ![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
-Since the website is currently deployed on the `master` branch, if we try to make changes on the `master` like we did back in Module 1, this will result in a broken website that will block our visitors from using Run Buddy's services. The management team would not be very happy about turning away potential customers.
-
+<!-- Since the website is currently deployed on the `master` branch, if we try to make changes on the `master` like we did back in Module 1, this will result in a broken website that will block our visitors from using Run Buddy's services. The management team would not be very happy about turning away potential customers. -->
+Due to the fact that the current codebase is live, we wouldn't want to disturb our visitors' browsing experience by breaking the website. Changing the current codebase would cause the browser to become unable to render properly. Not an option the management staff would be very happy with. We need to find a different process or workflow that would allow us to work on a duplicate copy while the original copy is still maintaining the website.
 This is where our friend Git comes back into play.
 In this lesson we will introduce three main concepts.
 * Using Git to create branches to make versions of our codebase.
 * Interacting with Github which will house the project's codebase.
-* Learning Gitflow, a branching model made for team collaboration and releasing updates.
+* Learning Git workflow to manage development work and update the production environment.
 
-> **Career Path**: Git is the industry standard for developers. Employer-ready students must demonstrate a solid familiarity with Git version control.
+> **Career Prep**: Git is the industry standard for developers. Employer-ready students must demonstrate a solid familiarity with Git version control.
 
-## Introducing Gitflow
-Git allows developers to create copies of the codebase to develop new features or fix bugs. These copies are referred to as branches. In our case we would like to have one version that is deployed which will continue to serve our visitors and another version of the same exact code so we can work in isolation that will allow us to edit and develop without worrying about disrupting the website for visitors. We will call this branch `develop`. This will become our development environment. We will work on the code in our `develop` branch while our deployed site will remain in the production environment. Development environments are not exposed to the public whereas production is.
+## Development vs Production
+Git allows developers to create versions of the codebase to create new features or fix bugs. These versions are referred to as branches in Git. In our case we would like to have one version that is deployed which will continue to serve our visitors and another version of the codebase to work on in isolation that will allow us to edit and change the code without worrying about disrupting the website for users. This is created by making a branch or "fork" from the `master` branch. This new branch will become our development environment which we will call the `develop` branch. We will work on the code in our `develop` branch while our `master` branch will become the production environment which is the public live version of our project. Development environments are not exposed to the public whereas production is. As a rule, live version or the production environment should never be worked on directly since any bugs or errors will be apparent to all the users. Git offers a technique to isolate versions of the code for development and testing with branching. 
 
-Please note the branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, however in our situation this will be the case. 
+> **Pro Tip**: Please note the branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, however in our situation this will be the case. 
 
-The `develop` branch will be where we collect the new features or enhancements and test them. Once we are satisfied with the final result and we have a stable working version, we can then "merge" our new work into the `release` branch. From there we will make a `pull request` which is a formal request to merge the new changes into the `master` which will allow team members to review and test the code as well as offer comments.  The `release` branch will be where we perform our final tests before updating or releasing our new version into the `master` branch. 
-
-This type of Git workflow or methodology that emphasizes the release cycle for updates to production is known as Gitflow.
-![Gitflow Diagram](assets/lesson-1/40-gitflow-release-diagram.png)
-Gitflow a Git branching model devised by Vincent Driessen that was created for team collaboration on projects based on a release cycle. Much of the Gitflow process includes a strict naming convention for branches as well as keeping the production environment completely isolated from development except for timed releases or updates which would include batches of tested website enhancements or features. For a closer look at the different rules for Gitflow take a look at [Vincent's post.](https://nvie.com/posts/a-successful-git-branching-model/)
+The `develop` branch will be where we collect the new features or enhancements and test them. Once we are satisfied with the final result and we have a stable working version, we can then "merge" the `develop` branch back into our `master` branch which will then add the new features and enhancements into the live production environment and update the website for our users.
 
 Before we can create our development environment, let's first learn some new Git commands for the terminal. 
 ```
 $ git branch
 ```
-Displays a list of all the current branches currently in our repo. This also highlights which branch you are currently on. This is called the **active** branch.
+Displays a list of all the current branches currently in our repo. This also highlights which branch you are currently on. This is called the **active** branch or working directory.
 ```
 $ git branch <branch-name>
 
 ```
-This command creates a new branch with your `<branch-name>`. This branch will be the exact copy of the current active branch. Once changes are committed onto the new branch, the branches will no longer be in sync with each other since their commit histories will diverge. This is how we make a new version of the active branch. We can only make version or "fork" the active branch so it is a good practice to use the `git branch` command before making a new branch.
+This Git command creates a new branch with your `<branch-name>` which creates a version of the current active branch. Once changes are committed onto the new branch, the branches will no longer be in sync with each other since their commit histories will diverge. This is how we make a new version of the active branch. We can only make a version or "fork" from the active branch so it is a good practice to use the `git branch` command to verify the active branch before creating a new version.
 ```
 $ git checkout <branch-name>
 ```
-The `checkout` command enables a user to move into a different branch which will become the new active branch. This is how to navigate between different version of the codebase.
+The `checkout` command enables a user to move into a different branch which will become the new active branch. This is how to navigate between different versions of the codebase.
 ```
 $ git checkout -b <branch-name>
 ```
@@ -76,11 +72,6 @@ $ git branch
 ```
 Your terminal should now look like this.<br />
 ![Develop Branch Active](assets/lesson-1/004-active-branch-terminal.png)
-<!-- ```
-$ git branch
-   master
- * develop
-``` -->
 
 The green font color and asterisk indicate the active branch or "working directory". This command may be one of the most used since knowing which branch or version you are currently on is important to know for all the following Git workflow operations.
 
@@ -88,31 +79,39 @@ Now that we have learned an important use of Git's branches to create an isolate
 
 ## Now Featuring. . . Branches
 
-Features are significant additions or changes to the codebase. For instance adding a header, footer, or section could be considered a feature. In Gitflow, a feature is developed in its own branch called a `feature` branch.
+Features are significant additions or changes to the codebase. For instance adding a header, footer, or section could be considered a feature. A feature is normally developed in its own branch called a `feature` branch.
+
+> **Video**: [Why working in isolation is important](jiraissue) <br />
+Possible video, example on [Youtube](https://www.youtube.com/watch?v=9GKpbI1siow)
+Example here. Let's say two people are working on the same page, how overwriting or "stomping" might occur. 
 
 Previously we used a `develop` branch to create a development environment to protect and isolate our production environment from our code changes. In this step, we will fork from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
+
 ![Feature Branch](assets/lesson-1/60-feature-branch.png)
 As can be seen in the diagram, several feature branches can be forked off the `develop` branch. Once the feature is complete, it is merged back into the `develop` branch.
-There are several important reasons to work on the codebase in a separate branch and not in the `develop` branch.
+There are several important reasons to work on the codebase in a separate `feature` branch and not in the `develop` branch.
 * Developing code on a separate branch preserves a version, in our case the `develop` branch, which allows other team members to fork from a branch that is in a stable and working state.
 * Working on separate branches allows team members to work in parallel, developing features simultaneously which increases productivity and accountability.
-* Features can be added independently, meaning a `feature` branch can not only start separately, but also added or merged back into the `develop` branch when it is finished, without needing to wait for other team members to finish their work.
+* Features can be added independently, meaning a `feature` branch can not only start separately, but also added or merged back into the `develop` branch when it is finished, without needing to wait for other team members to finish their work on other branches.
 * Testing the feature branch in isolation will help find errors or bugs more quickly since the changes in the codebase will be unique to the feature.
 
-> **Preservable Walk Through**: Why working in isolation is important <br />
-Possible video, example on [Youtube](https://www.youtube.com/watch?v=9GKpbI1siow)
-Example here. Let's say two people are working on the same page, how overwriting might occur. 
+> **Video**: [Animation of Git workflow](jira issue). Start with  `master` then fork to `develop`. The branching from `develop` into a feature, then another feature, [actual code development] then merging back into the `develop` branch, then into `master` branch.
 
 It's time to switch gears now that we have our development environment set up. Let's go to our repo in GitHub and create some documentation for the new version of the Run Buddy project by creating a `README.md` file after a quick checkpoint.
 > **Checkpoint**<br />
 production vs development environment questions ( which can I test on etc)<br />
 How do I make a feature branch?<br />
-Gitflow: What is a release branch for?<br />
-
+What is the purpose of the `develop` branch?<br />
+What is the Git command to view another version of the codebase?
+How do you check what the active branch is?
 
 ## README please?
 
-A README is a text file associated with your repo that documents the project's purpose, instructions on how to use your project, and how to contribute whether that's fixing bugs, adding features, or updating documentation. Good documentation enables people to learn about the project in a brief summary and offers a high level introduction.
+Now that we have our development environment set up, let's add some documentation to help give people a quick overview of the Run Buddy project. In Github, this task is handled by a text file located in the repo called a `README.md`. This is a markdown file, that is widely used on Github and 
+
+
+
+what our project A README is a text file associated with your repo that documents the project's purpose, instructions on how to use your project, and how to contribute whether that's fixing bugs, adding features, or updating documentation. Good documentation enables people to learn about the project in a brief summary and offers a high level introduction.
 > **Career Advice**: Potential employers may scan your Github account to review your projects and coding skills. Great documentation saves the employer's time by giving a quick and easy project description. 
 <!-- Projects take a lot of time and energy to produce, the `README.md` file acts as a label demonstrating what work was done and instructions for making it work.  -->
 
@@ -393,7 +392,7 @@ Now let's move onto the second issue and tackle the `feature/contact-us` feature
 > **Hint**: Don't forget to merge back into the develop branch.
 
 Now let's check to see if our contact form has been correctly added to the `develop` branch.
-First `git checkout` into the `develop` branch and then render in the browser.
+First `checkout` into the `develop` branch and then render in the browser.
 We should see the following:
 > ## Red outline bottom right corner of `<textarea>` to highlight input text field resizing.
 ![Contact Form Render](assets/lesson-1/1600-contact-us-render-html.png)<br />
@@ -420,7 +419,7 @@ This was a dense lesson of concepts many of which were challenging to understand
 * We created **feature branches** to allow versions of the codebase to coexist, letting team members to work in isolation and ship features more quickly. This allows for parallel development that increases the team's productivity and accountability, essential metrics for any enterprise.
 * We introduced the **README.md** file which is a high level introduction to your project repo facilitating quick reads by potential employers of your project's technical skill.
 * We used Git operations to update the remote repo and local repos with `pull`, `push`, `fetch`, `branch`, `checkout`, and `merge`. A solid understanding of these operations to perform a proper Git workflow is crucial to collaborating on projects and is a key metric for employer-ready students.
-* We introduced the **Gitflow** model which emphasizes isolation of the production environment except for specific version updates of features from the `release` branch. This is a widely used and real world example of Git workflow that demonstrates the effective uses of Git to managea software development team.
+* We introduced the **Gitflow** model which emphasizes isolation of the production environment except for specific version updates of features from the `release` branch. This is a widely used and real world example of Git workflow that demonstrates the effective uses of Git to manage a software development team.
 
-## I believe I was originally supposed to create the feature/flexbox issue, but didnt' do so because I created two issues for the HTML content. Now not sure if this makes sense for the learning flow of this lesson.
+## I believe I was originally supposed to create the feature/flexbox issue, but didn't do so because I created two issues for the HTML content. Now not sure if this makes sense for the learning flow of this lesson.
 Now let's use this workflow process and apply it to the rest of this project and build a mobile responsive website in the next lesson.
