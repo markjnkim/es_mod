@@ -91,14 +91,14 @@ function bootCampMagic() {
     title.prependTo($(this));
 
     // add additional class for special types
-    if (type === "hint" || type === "pause") {
-      $(this).addClass("collapse");
+    // if (type === "hint" || type === "pause") {
+    //   $(this).addClass("collapse");
 
-      // remove class once clicked
-      $(this).one("click", () => {
-        $(this).removeClass("collapse");
-      });
-    }
+    //   // remove class once clicked
+    //   $(this).one("click", () => {
+    //     $(this).removeClass("collapse");
+    //   });
+    // }
   });
 
   // remove any google docs errors
