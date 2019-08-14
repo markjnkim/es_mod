@@ -1,108 +1,69 @@
 # Lesson 2 - Flexing Our Muscles
 
-Run Buddy 2.0 is now in full swing. In the previous lesson we took a peek at what the client wants to see in this new version of the site, but we primarily focused on establishing a workflow for us to responsibly make these updates without affecting the current site. Something else we learned is how to use `feature` branches, which not only reinforces this concept of working in abstraction, but it also takes a load off our minds by allowing us to work on a new feature at a time. In this lesson we are going to tackle one of the biggest features Run Buddy has asked for&mdash;changing our layouts so they use a new CSS property called **flexbox**.
+## Introduction
 
+Run Buddy 2.0 is now in full swing. In the previous lesson we took a peek at what the client wants to see in this new version of the site, but we primarily focused on establishing a Git workflow so we can responsibly make these updates without affecting the current site. We learned how to create and use feature branches, which not only reinforces this concept of working in abstraction, but it also takes a load off our minds by allowing us to work on one new feature at a time.
 
+In this lesson we are going to tackle one of the biggest features Run Buddy has asked for&mdash;changing our layouts so they use a new CSS property called **flexbox**.
 
+We'll start off by putting our new workflow to use by reviewing our GitHub issue and then create a local Git feature branch to perform our work. This will help us reinforce the steps this workflow calls for before we begin something new.
 
+After that we will update the site one section at a time and convert it to use flexbox, a new CSS property that allows us to create more advanced layouts for our HTML content. This property will make our page look better across multiple screen sizes by allowing content to naturally stack on top of one another when the screen becomes more narrow. We'll also explore the advantages flexbox offers when compared to other layout techniques such as `position` and `float` by using it to create different styles of layouts without writing tedious amounts of code.
 
+Here are some mockups of the layout changes we'll be making throughout this lesson:
 
+![Hero banner with side by side content](assets/lesson-2/100-hero.jpg)
 
+![The Run Buddy trainers laid out in three columns](assets/lesson-2/200-trainers.jpg)
 
+Throughout this lesson, we're also going to reinforce a key concept in HTML layouts we introduced in Run Buddy 1.0, which is to always think of layouts a series of containers or boxes that hold the content. So before starting this lesson, study the mockups above and try to visualize how they can be outlined into boxes on the page.
 
-As evidenced by the issues we created in our GitHub repository, there's a fair amount to be done to get this site to a point that matches Run Buddy's specifications. What they are asking us to do for them is fairly common in the world of web development and it can be very overwhelming at times, but luckily we already have our work sectioned off into these different GitHub issues so we can worry about tackling one at a time.
+We're ready to get started but as we've learned, our current `develop` branch is probably not the best place to mess around. Let's review our GitHub issue, make a feature branch to work in, and get coding!
 
-The first issue we are going to tackle is converting the site's overall flow and layout to enhance its design and make it more flexible. To do that we're going to use a new layout feature in CSS called **flexbox** (clever name, right?), which allows us to create layouts that used to only be achieved with heavy usage of floats and positioning. Flexbox is going to allow us to make these layout changes without having to _too_ much manipulation to what we currently have in our code. We'll be updating every section of our page in some way, take a look at some of these changes:
+## Create a Feature Branch
 
-![Hero banner mockup](assets/lesson-2/100-hero.jpg)
+The GitHub issue we're working on in this lesson is titled "Advanced layouts using Flexbox", and it is about implementing a new CSS tool called flexbox to position our HTML content. It is going to involve us updating every single section of the Run Buddy web site, so it is best we create another feature branch for us to work in. We'll name it off of the feature we're implementing and call it `feature/flexbox`.
 
-![Trainers mockup](assets/lesson-2/200-trainers.jpg)
+Let's follow the steps we established in the first lesson for creating a new feature branch from the command line:
 
-Comparing these to what we currently have, you can see that we'll be working to make better use of the horizontal space on the page to provide a cleaner layout.
+- Use the `git branch` command from to verify that you are in the `develop` branch. If not, use `git checkout develop` to move into the `develop` branch.
 
-We're ready to get started, but as we know, our current `development` branch is probably not the best place to mess around. So let's get started by creating our first git feature branch.
+- Use the command `git checkout -b feature/flexbox` to create and switch to the new branch.
 
-## Make a feature branch
+Run `git branch` again to make sure it worked. If it says the active branch is `feature/flexbox` then it worked! Let's start updating the site.
 
-Since we're about to embark on fairly large round of updates to our Run Buddy page's layout, it is a good idea for us to not work in the same git branch our code currently sits in (`development`). Think about the overall scope of this project and why created a `development` branch in the first place. We did this so we can work on our updates without disrupting the code in our `master` branch because the code there is what is running on the Internet for visitors to see.
+### [NEED VIDEO - video troubleshooting git problems at this point]
 
-> URKEL SAYS: This is what's known as having code "in production".
+## Adding Flexbox to the Header
 
-![Current git branches](assets/lesson-2/300-git-branches.jpg)
+You may compare the header in the current live site (Run Buddy 1.0) to the mockup provided by the design team and think "why would this need to be updated? It looks exactly the same!", and while they may look the same, the one we're working towards is going to use new CSS properties that make the HTML more responsive and flexible for different screen sizes. This core layout concept is called **flexbox**, and it is a tool we'll not only use for the header, but for almost every section on the Run Buddy site.
 
-Now that we have `development` set up to hold our updated code as we progress through these site updates, we can take it one step further by creating a branch for each GitHub issue we've created as we tackle them. Same as the relationship between `master` and `development`, our new branches are going to serve as a means for us to not mess with the code in `development` until we know that an issue is ready to be marked "complete".
+The term "flexbox" is short hand for "flexible box module" and it is used as a one-dimensional layout model, meaning it can be applied to an HTML element to control the distribution, alignment, and spacing of the HTML elements inside of it on either the x-axis (horizontal axis, often called a "row") or the y-axis (vertical axis, often called a "column"). This video will demonstrate some of the different features flexbox has to offer:
 
-This and every following lesson is going to begin with us creating what's known as a "feature" branch that makes a copy of what's currently in `development`. This way we can make updates to our code and when we are done fulfilling the issue's needs, we will merge this code into our `development` branch. Then we will repeat that cycle for the next issue or feature we are working on.
+### [NEED VIDEO - demonstrating flexbox layouts like this site](https://tobiasahlin.com/blog/common-flexbox-patterns/)
 
-This process may seem tedious and unnecessary, if we are already in `development` then we why would we need to create more branches instead of working in there?
+This new CSS tool was created out of a necessity to address some layout issues that other properties such as `float` fall short in fulfilling. After smart devices become ubiquitous in everyday life, web sites started to see issues arise in their layouts when they would open on these smaller screens. Everything would either break and overlap one another or the user would have to scroll horizontally to see everything, which led to very poor usability of these sites. HTML layouts that were once achieved using floats and positioning needed to be revamped so they could simply adapt to the page size rendering them.
 
-The answer may seem hard to grasp at first, but the overall idea is that when we start working on anything new we want to set a baseline. A place that can store the most up-to-date _working_ code. This way if we end up doing something that doesn't work we can always come back to that spot and start over again. Git gives us a few options to work like that, but creating a new branch every time we start something new is a good practice to get into.
-
-> ON THE JOB: Creating a new branch for every new feature, edit, or bug fix not only gives the developer peace-of-mind knowing that any work won't affect the live site until they know it is going to work, but it also makes working on a team an easier process.
+> **Legacy Lem**: The CSS property `float` was not originally intended to create the advanced layouts you see on web sites today. It was supposed to be used to for pulling content left or right and allowing its sibling content to flow around it. Since there was no other CSS property to support the building of layouts that utilized the horizontal space better, `float` was the only real option and developers appropriated it.
 >
-> Imagine two developers were working on the same project in the same branch. They would both have different edits to push to GitHub and GitHub isn't smart enough to know what code is considered "correct". It would create what's known as "merge conflicts", meaning that code from two different sources will fight for attention and the developers would have to decide which code is correct.
->
-> If each developer created their own branch to make updates and edits to the code, they would not step on each other's toes and GitHub would have a much easier time figuring out which code belonged where when it came to getting that code live.
+> While developers were able to use floats to achieve their layout goals, it did not come without headache when it came to making them work with mobile devices. It involved a lot of CSS rules to maintain at different screen sizes where one mistake could break the whole design.
 
-Let's go ahead and create a new branch for the issue pertaining to setting up Flexbox. What we want to do here is make a new branch with the code that is currently in `development`. To do that, we should double check that we are in fact in the `development` branch. There are two ways to do this from the command line:
+In 2009 the first iteration of flexbox was introduced as just `display: box;`, then it was updated and reintroduced as `display: flexbox`. During this time, some web browsers were struggling to keep up with this type of technology; meaning that if a developer wanted to use it, they'd have to also include fallback CSS styles using floats just in case the browser didn't support it. Because of this, developers patiently waited until 2017 when all major web browsers began to support it under the value `flex` to feel confident implementing it into projects.
 
-- **`git branch`**: Print out all branches on the local machine. Use the `Q` key to quit that menu.
+Flexbox's introduction to the developer community was welcomed with open arms. We finally have a tool that lets us achieve more modern layouts that can work on any screen size. To use Run Buddy as an example, currently our `header` cannot resize well using floats, but with flexbox (and some other cool tricks we'll add later), our header will grow and shrink very well:
 
-- **`git status`**: Not necessarily used for just seeing what branch you're in, but it will print out what the active branch is and what's currently going on in there (file additions, edits, etc)
-
-If you use the `git branch` command, you should see something similar to this:
-
-![Current Git Branch - development](assets/lesson-2/400-current-branch.jpeg)
-
-> PRO-TIP: If you are using Visual Studio Code and only have your repository open, the current branch should be displayed in the lower left corner of the window.
->
-> Visual Studio Code has a lot of great features for working with Git and GitHub, but it is best to learn the inner workings with the command line first before relying on any of those tools.
-
-If you are not in the `development` branch, you can always move into it by using the `git checkout development` command.
-
-What we'll do now is create this new feature branch for adding Flexbox to our site. We can do so by typing in the following command:
-
-```bash
-git checkout -b flexbox
-```
-
-> PAUSE: When we use `git checkout -b <name>`, what does this do and where do we end up?
->
-> ANSWER: It takes whatever branch we're currently in and clones it into a new branch with the name of whatever is put in place of `<name>` and we are now in that new branch.
-
-The result should look something like this (keep in mind not everyone's command line environment looks the same, but there should be similarities):
-
-![New feature branch](assets/lesson-2/500-new-branch.jpeg)
-
-If the result does not say something along the lines of the above "Switched to a new branch...", there may be some updated work in the `development` branch that wasn't committed first. In order for the `checkout` command to work, all of the work in the current branch needs to be committed or discarded so Git doesn't move when things are in flux.
-
-> ## GOOD PLACE FOR A VIDEO DEMONSTRATING HOW THIS CAN GO WRONG
-
-If you are now in your `flexbox` branch, great! Let's start actually coding!
-
-## Flexing the Header
-
-Based on the title of this section, we're going to begin updating our page's layout with the `header`. You may be comparing the current page to the mock-up in the previous lesson and thinking "why would this need to be updated? It looks exactly the same!", and while they may look the same, the one we're working towards is going to use new CSS properties that make the HTML more responsive and flexible for different screen sizes. This core layout concept is called **Flexbox**.
-
-Flexbox is the name given to an HTML element with a CSS property declaration of `display: flex`. We've seen `inline` and `block` before, but this one has a whole different meaning. It literally means a "flexible box" and it is a newcomer to our set of CSS tools, as it was finally adopted by all browsers in late 2017.
-
-Think about what we have previously to create different types of layouts. They usually involved using floats, absolute positioning, and a lot of tweaking to other CSS properties. The main issue with the tools we've used so far is that they involve us explicitly telling HTML elements how they should be positioned and placed around one another, otherwise they wouldn't be aware of each other and the page would end up having a broken design. It works, but it requires a lot of rules, especially when mobile devices and tablets are introduced into the picture, and can become very frustrating to work with.
-
-Currently our `header` cannot resize well:
+### [NEED VIDEO FOR SHOWING THESE TWO OFF]
 
 ![Resize with floats](assets/lesson-2/600-bad-resize.gif)
-
-But with flexbox (and some other cool tricks we'll add later), our header will grow and shrink very well:
-
 ![Resize with flex](assets/lesson-2/700-good-resize.gif)
 
-Flexbox eases these pains by creating HTML parent/child (or container/container-item) relationships where the parent keeps track of how much space each child is taking up and repositions the other children accordingly. This way, the child elements don't have to worry about each other, as the HTML parent/container they live in is doing all of the hard work for them. They just need to worry about their own content and can grow or shrink depending on the size of the screen.
+Flexbox eases these pains by creating HTML parent/child (or container/container-item) relationships where the parent keeps track of how much space each child is taking up and repositions the other children accordingly. This way, the child elements don't have to worry about each other, as the HTML parent/container they live in is telling them how they should be positioned in relation their sibling elements. Now the child elements just need to worry about their own content and can grow or shrink depending on the size of the screen.
 
 > IMPORTANT: The Magic of Flexbox
 >
-> When a container is given a `display` value of `flex`, that element is now able to create what's known as a one-dimensional layout. This means that it can now control its content along either the horizontal X-Axis (known as a "row") or the vertical Y-Axis (known as a "column"). By default, a flexbox is set to be a row, meaning that it will try and fit all of it's child elements on one horizontal line until it hits the right edge of the parent. At that point it has to decide whether to:
+> When a container is given a `display` value of `flex`, that element is now able to create what's known as a one-dimensional layout. This means that it can now control the distribution of its content along either the horizontal X-Axis (known as a "row") or the vertical Y-Axis (known as a "column"). By default, a flexbox is set to be a row, meaning that it will try and fit all of it's child elements on one horizontal line until it hits the right edge of the parent. At that point it has to decide whether to:
 >
-> - Make all of the child elements more narrow to accommodate a new sibling on that horizontal line. This usually results in child elements having a "squished" look.
+> - Make all of the child elements more narrow to accommodate a new sibling on that horizontal line. This usually results in child elements having a "squished" look or...
 >
 > - Tell the flexbox parent that it's okay to overflow its content onto the next line. This is what's known as "wrapping" and is commonly used in conjunction with flexbox containers to handle the screen growing and shrinking.
 >
@@ -110,19 +71,28 @@ Flexbox eases these pains by creating HTML parent/child (or container/container-
 >
 > All of these ideas are easily carried into making a flexbox column as well, just apply those rules to height instead of width and it's the same idea. Typically flexbox is used more for rows than columns, but there are some really cool use cases for both and flexbox is quickly becoming an industry standard.
 >
-> [Learn more about flexbox and how it can be used.](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
-
-In our case we can tell not only our entire `header` element but also our `nav` element to keep track of what's inside of it and how much space can get taken up before overflowing onto the next line. So enough talking about flexbox, let's learn by doing!
+> To learn more about flexbox, the concepts it introduces, and how it can be used, read the [MDN documentation for it.](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
 
 We'll start by making the `header` element a flexbox, but first let's remove a few pieces from our CSS file (a lot of this lesson will involve removing CSS properties and adding flexbox properties in their place):
 
-- Remove the `display: inline-block` declaration from `header h1`
+- Remove the `display: inline-block` declaration from `header h1` so it now looks like this code snippet:
 
-![Remove h1 property](assets/lesson-2/800-rm-inline.jpeg)
+```css
+header h1 {
+  font-weight: bold;
+  margin: 0;
+  font-size: 36px;
+  color: #fce138;
+}
+```
 
-- Then remove the `float:right` declaration from `header nav`
+- Then remove the `float:right` declaration from `header nav` so it now looks like this code snippet
 
-![Remove float from nav](assets/lesson-2/900-rm-header-float.jpeg)
+```css
+header nav {
+  margin: 7px 0;
+}
+```
 
 Now you can go save and refresh the page if you want to see it broken, or you can go ahead and apply the fix immediately by adding the following CSS property declaration to the `header` rule in `style.css`:
 
@@ -132,9 +102,9 @@ display: flex;
 
 That's all that needs to be added to get our elements back on the same horizontal line! It should now look like this:
 
-![Header with flex](assets/lesson-2/1000-flex-header.png)
+![Header with flexbox added, creating a row with 2 HTML elements](assets/lesson-2/1000-flex-header.png)
 
-By just adding `display: flex` to our `header`, we are telling the header to keep tabs on how much space its direct children (`h1` and `nav`) need and places them on the same line. What makes this more interesting is that both of those children by default are block-level elements and adding the context of flexbox overrides that default behavior. The simple `display: flex` declaration also automatically makes that `header` a "row" by default, so there's no need to explicitly tell it so.
+By just adding `display: flex` to our `header`, we are allowing the `header` keep tabs on how much space its direct children (`h1` and `nav`) need and places them on the same line. What makes this more interesting is that both of those children by default are block-level elements and adding the context of flexbox overrides that default behavior. The simple `display: flex` declaration also automatically makes that `header` a "row" by default, so there's no need to explicitly tell it so.
 
 > URKEL SAYS: To change a flexbox from a row layout to a column layout, you can use the property called `flex-direction` and give it a value of `column` and the box will lay out all of it's children vertically rather than horizontally.
 
@@ -142,19 +112,24 @@ There are just a few more things we want to do at this point. Notice how the nav
 
 > DEEP DIVE: The `justify-content` property is one that only applies to elements with a `display` property value of `flex` or `grid`. It allows you to control spacing between child elements with different values:
 >
-> - **`flex-start`**: This is the default value if nothing is provided and is the most "normal" value. It has all elements come up against one another and try to be as far left as possible in the container
+> - **`flex-start`**: This is the default value if nothing is provided and is the most "normal" value. It left justifies all of the elements in the container.
+> ![Flexbox with flex-start justification](assets/lesson-2/300-justify-flex-start.jpeg)
 >
-> - **`flex-end`**: Opposite of `flex-start`, placing all elements at the end (or right hand side) of the container.
+> - **`flex-end`**: Opposite of `flex-start`, placing all elements at the end (or right justifies) of the container.
+> ![Flexbox with flex-end justification](assets/lesson-2/400-justify-flex-end.jpeg)
 >
-> - **`center`**: Keep all elements as close to the center of the container as possible.
+> - **`center`**: Position all elements as close to the center of the container as possible.
+> ![Flexbox with center justification](assets/lesson-2/500-justify-center.jpeg)
 >
-> - **`space-between`**: Take all of the unused space in the container and put it between every child element evenly so they are spaced apart.
+> - **`space-between`**: Distribute all empty space evenly between child elements so they are spaced apart.
+> ![Flexbox with space-between justification](assets/lesson-2/502-justify-space-between.jpeg)
 >
 > - **`space-around`**: Like `space-between` but it also includes adding space between the elements and the edges of the container, so the left-most and right-most elements are not flush against those edges.
+> ![Flexbox with space-around justification](assets/lesson-2/501-justify-space-around.jpeg)
 >
 > These are the most used values, but there are a few more. [Learn more about `justify-content` and demo some of its values.](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
 
-What we currently have are two child elements and we want them to be spaced apart from one another as much as possible with the `h1` being up against the left and the `nav` being up against the right, so let's add the following declaration to the `header` CSS rule:
+What we currently have are two child elements and we want them to be spaced apart from one another as much as possible with the `h1` being positioned to the left and the `nav` being positioned to the right, so let's add the following declaration to the `header` CSS rule:
 
 ```css
 justify-content: space-between;
@@ -166,7 +141,7 @@ What this property declaration just did for us is it took all of unused space in
 >
 > ANSWER: The "box-model"
 
-The next thing we need to do is tell the `header` how to handle content that's too wide for the container when the screen is smaller. We can leave it be&mdash;which will either let the content just try and become as small and tight as possible or burst out the right side of the container&mdash;but that would not be the best choice in most use cases. Instead, we are going to tell the container that when its child elements can't fit on one line, let them break onto the next line so they can take up as much width as they need.
+So our `header` content looks great, but what happens when the screen gets smaller and the content becomes too wide for the container? We can leave it be&mdash;which will either let the content just try and become as small and tight as possible or burst out the right side of the container&mdash;but that would not be the best choice in most use cases. Instead, we are going to tell the container that when its child elements can't fit on one line, let them break onto the next line so they can take up as much width as they need.
 
 This is achieved by adding a property called `flex-wrap`, and it allows the flexbox container to let its children wrap onto the next line. By default the value of `flex-wrap` for a flexbox is set to `none`, so we need to explicitly tell it to be `wrap` instead by adding the following to our `header` like this:
 
@@ -174,66 +149,53 @@ This is achieved by adding a property called `flex-wrap`, and it allows the flex
 flex-wrap: wrap;
 ```
 
-Now when we resize our window, the `header` will collapse onto a second line when it runs out of room to fit both the `h1` and `nav` elements on the same line.
+Now when we resize our browser window, the `header` will collapse onto a second line when it runs out of room to fit both the `h1` and `nav` elements on the same line. This video will explain `flex-wrap` and some of it's other uses:
 
-The properties we used here (`display: flex`, `justify-content`, and `flex-wrap`) are usually the three most used flexbox properties, and as we can see&mdash;all three of them are added to `header`. This is the crux of using flexbox for web layouts, let the parent elements tell the child elements how to look instead of having to worry about each child's needs one at a time.
+### [NEED VIDEO - explaining flex-wrap]
+
+The properties we used here (`display: flex`, `justify-content`, and `flex-wrap`) are usually the three most used flexbox properties, and as we can see&mdash;all three of them are added to `header`. This is the crux of using flexbox for web layouts, let the child elements inherit CSS properties from the parent elements instead of having to worry about each child's needs one at a time.
 
 With these minor edits to the `header` we were able to achieve the same layout with easier to understand concepts, which will allow us to make more complex layouts as time goes on. There are still a few changes we want to make to the `nav` element, though, to make it more responsive to screen size changes.
 
 If you are guessing that those changes will involve converting the `nav` element to a flexbox as well, then you'd be correct, so let's keep moving!
 
-> IMPORTANT: Don't forget to use your git commands to `add` and `commit` your work to this `flexbox` feature branch!
+> **Important:** Don't forget to use your git commands to `add` and `commit` your work to this `feature/flexbox` feature branch!
+
+> **Hint:** If you forget which branch you're in, type `git branch` in the command line!
 
 ## Flexing the Navigation
 
-As we learned with the `header`, setting up elements as a flexbox solves a lot of the headaches we come across in common CSS layouts. It also reinforces the concept of having a parent/child relationship, which is a common theme across the entire programming landscape. The idea behind that is to provide the parent with all of the rules so the children can simply inherit them rather than tell each child specifically what they need to be doing, making the code more understandable and flexible.
+As we learned with the `header`, setting up elements as a flexbox solves a lot of the headaches we come across in common CSS layouts. It also reinforces the concept of having a parent/child relationship. The idea behind that is to provide the parent with all of the rules so the children can simply inherit them rather than tell each child specifically what they need to be doing, making the code more understandable and flexible.
 
-If you look at the current `nav` and resize the browser window, you can see that the `nav` element itself breaks onto the next line just fine, but all of the actual links in the `nav` break in weird place and start stacking. What we'll be doing next is reworking our `nav` to make it more responsive by converting it from an inline list to flexbox. So our finished `header` will be a flexbox with two elements, one of them being a `nav` element that is also going to be a flexbox. So the `nav` element will be simultaneously a "flex child" (to the `header`) and a "flex parent" (to the actual links).
+If you look at the current `nav` and resize the browser window, you can see that the `nav` element itself breaks onto the next line just fine, but all of the actual links in the `nav` break in weird place and start stacking. What we'll be doing next is reworking our `nav` to make it more responsive by converting it from an inline list to flexbox. So our finished `header` will be a flexbox with two elements, one of them being a `nav` element that has a child `ul` element we'll be converting to be a flexbox as well
 
 > IMPORTANT: You can create as many flexbox elements as you need on a page, just remember what type of layout you're trying to achieve before applying it everywhere as it is a not "cure all" for layouts.
-
-Let's start by removing some pieces from our current HTML and CSS, starting with the HTML. Go ahead and remove the `<ul>` element and the `<li>` elements BUT keep the `<a>` elements. The resulting `nav` should look like this:
-
-```html
-<nav>
-  <a href="#what-we-do">What We Do</a>
-
-  <a href="#what-you-do">What You Do</a>
-
-  <a href="#your-trainers">Your Trainers</a>
-
-  <a href="#reach-out">Reach Out</a>
-</nav>
-```
-
-The funny thing is removing that list may not cause _too_ much of a difference in the current design, but having the HTML set up like it is now will make the CSS much simpler.
 
 Let's turn our attention to removing some CSS before applying our flexbox styles:
 
 - Completely remove the CSS rule for `header nav ul li`
 
-- Rename `header nav ul li a` to `header nav a` so it looks like this:
+- Add a new CSS rule for `header nav ul` that looks like this:
 
 ```css
-header nav a {
-  margin: 0 30px;
-  font-weight: lighter;
-  font-size: 22px;
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
 }
 ```
 
-Once those are removed, we can now turn our attention to the `nav` element's flexbox styles. Add these property declarations to `header nav`:
+We've already seen these first three property declarations so no need to stop and explain those, but what about those last two? The property `align-items` works similar to `justify-content`, but on the opposite axis. To justify information means to position it on the horizontal axis, but align means to position it along the vertical axis. In this case we are ensuring that our content is vertically centered in the `nav` element.
 
-- `display: flex;`
-- `justify-content: space-between;`
-- `flex-wrap: wrap;`
-- `align-items: center;`
+The other one we've added has nothing to do with flexbox, but rather with HTML lists. `list-style` is a shorthand CSS property that allows you pick how the list items look (bullet points, dashes, etc.) and how it's positioned in the list&mdash;indented or outdented.
 
-We've already seen these three so no need to stop and explain those, but what about that last one? The property `align-items` works similar to `justify-content`, but on the opposite axis. To justify information means to position it on the horizontal axis, but align means to position it along the vertical axis. In this case we are ensuring that our content is vertically centered in the `nav` element.
-
-> DEEP DIVE: The `align-items` property is another one that is specifically used with flexbox or grid layouts. Not only does it keep child elements along a row matched up with another, but it can also be used to vertically center an element on a page. This may sound like a simple task, but it wasn't until this property that it was possible to achieve this type of vertical alignment without using JavaScript.
+> DEEP DIVE: The `align-items` property is another property that is specifically used with flexbox or grid layouts. Not only does it keep child elements along a row matched up with another, but it can also be used to vertically center an element on a page. This may sound like a simple task, but it wasn't until this property that it was possible to achieve this type of vertical alignment without using JavaScript.
 >
 > [Read more about `align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)
+
+### [NEED VIDEO - Demonstration of align]
 
 Let's finish by making a few adjustments to our `nav` element's link styles so it looks like this:
 
@@ -253,7 +215,13 @@ By setting the value to `1.55vw`, we are telling the browser that the font's siz
 
 Now we have a `nav` element where the links grow and shrink with the screen size, but as we can see, they get a little too small when the screen narrows. This is something we'll circle back on and fix in a later lesson.
 
-> IMPORTANT: Absolute vs. Relative CSS Values
+
+
+We're done with the entire `header` for now, so now is a good time to save our work in our `flexbox` branch using Git and we'll move onto the rest of our site's layout, starting with the `footer`!
+
+> **Pause:** To reinforce some knowledge in how to use flexbox, check out a game called [Flexbox Froggy!](https://flexboxfroggy.com/)
+
+> **Deep Dive:** Absolute vs. Relative CSS Values
 >
 > The CSS language has a built in understanding of different units of measurement so it can interpret and display proper length values on the page. In the early days of CSS, these units of measurement closely resembled real life units of measurement like centimeter, millimeter, and even inch.
 >
@@ -265,19 +233,15 @@ Now we have a `nav` element where the links grow and shrink with the screen size
 >
 > [Here is a list of all units of measurement in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
 
-We're done with the entire `header` for now, so now is a good time to save our work in our `flexbox` branch using Git and we'll move onto the rest of our site's layout, starting with the `footer`!
-
-> PAUSE: To reinforce some knowledge in how to use flexbox, check out a game called [Flexbox Froggy!](https://flexboxfroggy.com/)
-
 ## Flexing the Footer
 
-Before moving onto the real "meat" of the page, let's take our newfound knowledge in flexbox and apply it the `footer`. Try and answer the following questions:
+Before moving onto the bigger sections of the page, let's take our newfound knowledge in flexbox and apply it the `footer`. Try and answer the following questions:
 
 - How is the `footer` element similar to the `header`?
 
 - If we considered the `footer` a parent element, how many children does it have?
 
-The `header` may have more going on in it overall, but when compared to the `footer`, they are roughly the same when it comes to the layout. The `header` has two direct children, the `h1` and `nav` elements, and `footer` has two as well with `h2` and `div` elements.
+The `header` may have more going on in it overall since it holds the navigation items, but when compared to the `footer`, they are roughly the same when it comes to the layout. The `header` contains two direct children, the `h1` and `nav` elements, and `footer` contains two as well with `h2` and `div` elements.
 
 Keep in mind how we can think of all web site layouts as a series of boxes or containers:
 
@@ -931,11 +895,11 @@ The `opacity` property accepts a value between 0 and 1 and it allows for HTML el
 
 Learning this much about layouts in CSS is exhausting, but it is very rewarding when you realize how much control you can exercise over your HTML elements. There is nothing more important for a CSS developer than the ability to visualize a page as a series of containers and sub-containers/children, and it is a very exciting time for CSS because of tools like flexbox are allowing layouts to be created that used to only be reserved for magazines.
 
-We've officially completed our first GitHub feature request and are ready to take the code from this branch and merge it into our `development` branch. Then we'll be ready to tackle the next feature request on our list!
+We've officially completed our first GitHub feature request and are ready to take the code from this branch and merge it into our `develop` branch. Then we'll be ready to tackle the next feature request on our list!
 
 ## Merging Features
 
-All of the work we just completed needs to make its way into our `development` branch that we created in the first lesson. Remember that with this workflow we are doing all of our work in different branches specific to the feature or issue we're working on.
+All of the work we just completed needs to make its way into our `develop` branch that we created in the first lesson. Remember that with this workflow we are doing all of our work in different branches specific to the feature or issue we're working on.
 
 > REWIND: In the beginning of this lesson we went over why a "feature" branch workflow is a good practice. Think back and try to list a few reasons why.
 >
@@ -947,49 +911,49 @@ All of the work we just completed needs to make its way into our `development` b
 >
 > 3. It helps keep us organized so we can focus on one task at a time
 
-To keep the current Run Buddy web site up and running on the `master` branch while we work on our list of features to add, we created the `development` branch. We won't touch the `master` branch until every GitHub issue is marked "complete", so in the meantime we'll be using `development` to receive our updates as we progress.
+To keep the current Run Buddy web site up and running on the `master` branch while we work on our list of features to add, we created the `develop` branch. We won't touch the `master` branch until every GitHub issue is marked "complete", so in the meantime we'll be using `develop` to receive our updates as we progress.
 
 ### NEED: video or graphic explaining this workflow
 
 Breaking this down into steps, this is going to be what our flow looks like:
 
-1. Create a branch based off the `master` branch and call it `development` using `git checkout`
+1. Create a branch based off the `master` branch and call it `develop` using `git checkout`
 
-2. From `development` create a new branch for a feature we're working on, like `flexbox`
+2. From `develop` create a new branch for a feature we're working on, like `flexbox`
 
 3. We do all of our work for that feature in that new branch
 
-4. When it's complete, we take the code from that branch and **merge** it into `development`, so `development` now has all of the updates from that branch
+4. When it's complete, we take the code from that branch and **merge** it into `develop`, so `develop` now has all of the updates from that branch
 
-5. Make a new branch based off `development` for the next feature or issue we're tackling
+5. Make a new branch based off `develop` for the next feature or issue we're tackling
 
 6. Repeat step 4
 
-7. When all features are complete and all of the updated code is in `development`, we test our `development` branch one more time to make 100% sure it is ready to go into "production"
+7. When all features are complete and all of the updated code is in `develop`, we test our `develop` branch one more time to make 100% sure it is ready to go into "production"
 
-8. We push the local `development` branch to a `development` branch in our GitHub repository and we request client "review" before merging it into `master` and going live with our new code
+8. We push the local `develop` branch to a `develop` branch in our GitHub repository and we request client "review" before merging it into `master` and going live with our new code
 
 Steps 2-4 will be repeated as long as there are GitHub issues, so we'll get a lot of practice over the next few lessons. The last step is going to be saved until the very end, as it is a different process since it needs to go into "review" before it is deemed ready to go.
 
 The nice thing about this workflow for us is that we are going to stay very organized and we can rest assured that even if we mess something up, it won't affect the current live site and we can fix it without anyone ever noticing!
 
-So what we'll work on now is getting our updated page with all of our flexbox layouts into the `development` branch:
+So what we'll work on now is getting our updated page with all of our flexbox layouts into the `develop` branch:
 
 ### NEED: Video walkthrough or gif of each step
 
 1. Make sure your code is committed. You can use `git status` to check if there's anything you need to do.
 
-2. Use `git checkout development` to move back into the `development` branch. If you have uncommitted work, you will not be allowed to perform this command.
+2. Use `git checkout develop` to move back into the `develop` branch. If you have uncommitted work, you will not be allowed to perform this command.
 
-3. Double-check that you in fact are in `development` by typing in `git branch` or `git status`. Remember with `git branch` you have to type `q` to quit that list that is displayed.
+3. Double-check that you in fact are in `develop` by typing in `git branch` or `git status`. Remember with `git branch` you have to type `q` to quit that list that is displayed.
 
-4. Now we want to tell the `development` branch to go and look at the `flexbox` branch and copy the code from `flexbox` into `development`. To do this we need to use a `git merge` command like this:
+4. Now we want to tell the `develop` branch to go and look at the `flexbox` branch and copy the code from `flexbox` into `develop`. To do this we need to use a `git merge` command like this:
 
 ```bash
 git merge flexbox
 ```
 
-5. If there are no conflicts, the updated code from `flexbox` will now be reflected in `development`. Open the page in a browser and test it!
+5. If there are no conflicts, the updated code from `flexbox` will now be reflected in `develop`. Open the page in a browser and test it!
 
 The next step is up to you or your team, and that is deciding what to do with the `flexbox` branch. A lot of times, for cleanliness, a branch will be deleted after it's merged since it isn't necessarily needed anymore. This is more for large projects where there is a team of people working in a ton of different branches for a repository and it could be confusing.
 
