@@ -14,7 +14,7 @@ Media queries allow us to instruct some of our CSS styles to be applied at a con
 
 Before we get started, let's use our Git skills and create a new feature branch.
 
-## Creating a branch and minor edits
+## Create a Branch
 
 Just like the previous two lessons, we want to make all of our updates in it's own branch so we don't disrupt the finished working code we've already written. We'll begin by creating that new branch:
 
@@ -24,6 +24,8 @@ Just like the previous two lessons, we want to make all of our updates in it's o
 
 3. Make sure you are now in that branch using the `git branch` command.
 
+## A Pixel is Not a Pixel
+
 Right now, our overall site looks solid when it comes to font sizes and margins/padding how it's displayed on a laptop or desktop screen. As we make the screen a little smaller, however, it starts to feel a little crowded.
 
 We'll get to adjusting these sizes in a few minutes, but first let's ask ourselves something: How can we see what our code looks like on a mobile phone or tablet right now? The code we're working on is only on our computers, so we can't possibly send the HTML page to be viewed in a mobile device's browser. Even if we did, how could we use something as useful as Chrome DevTools to inspect our styles from a mobile device?
@@ -31,6 +33,36 @@ We'll get to adjusting these sizes in a few minutes, but first let's ask ourselv
 Luckily, we don't have to worry about that because DevTools has built-in features that allow us to emulate these different devices so we can still use all of the debugging tools DevTools has to offer. Here's a video demonstrating how to use these tools, they will come in very handy not only throughout this lesson, but throughout our careers as developers:
 
 ### [NEED VIDEO - Emulating devices and screen sizes in DevTools]
+
+When using this tool, you may have noticed the site is breaking out of the boundaries of the emulated screen size like this image shows:
+
+![Tablet rendering of the site with overflowing content](assets/lesson-4/101-nometa.jpeg)
+
+The reason for this is because of how devices such as an iPhone or iPad render a web page. The software renders a web page in a virtual viewport and attempts to view it as if it were a normal browser, but then it scales it down. The result is usually something like the above image.
+
+Since Apple pretty much invented this problem for developers, they were kind enough to create a new HTML `<meta>` tag that can be used to fix it:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+This tag is to be used in between the `<head>` tags to fix the problem. By using the `name` attribute we are telling the browser what this `<meta>` tag pertains to, and the `content` attribute has two values:
+
+- **`width=device-width`**: This is setting the virtual viewport's width to match the width of the device itself
+
+- **`initial-scale=1.0`**: This is used to set the initial zoom level to "normal"
+
+With this HTML tag in place, the iPad emulation of the site in DevTools should now look like this:
+
+![Tablet rendering of the website with meta tag](assets/lesson-4/102-meta.jpeg)
+
+There still needs to be work done to make this look cleaner, obviously, but it at least has fixed a breaking bug in how these devices render our page. What's great about that tag is that it won't have to change, so you can feel safe copying and pasting it in all of your projects.
+
+Now that we have this in place, let's start making the site fully responsive!
+
+> DEEP DIVE: [Learn more about the viewport meta tag.](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag)
+
+## Make Initial Site Edits
 
 When it comes to making a site look good across all devices and screen sizes, there are usually two routes to take:
 
@@ -198,13 +230,13 @@ Do we see an overall theme at this width? Instead of making our layouts run more
     text-align: center;
   }
 
-  header nav {
+  header nav ul {
     margin-top: 20px;
     width: 100%;
     justify-content: center;
   }
 
-  header nav a {
+  header nav ul li a {
     font-size: 20px;
   }
 
@@ -429,36 +461,6 @@ If we look at the page and resize the window to a phone's width, the contact for
 The `order` property can be used to rearrange how these child elements appear on a page without actually moving the HTML code around and can be extremely useful in cases like this. A lot of times, a certain layout will look great on a bigger screen because there's more space, but as that space shrinks and the elements get closer to one another they end up looking like they're running into one another. The `order` property can be used to switch elements around and fix how they end up looking on different devices.
 
 > DEEP DIVE: [Learn more about the order property and how it's used.](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
-
-## A pixel is not a pixel
-
-The page is now looking great as the browser size gets wider and narrower. By setting up these three media query breakpoints, the page is now responsive and will adjust its "flow" as the screen size changes. There is a slight bug on actual tablet and mobile device browsers, however, and it has nothing to do with our code. Our code is great, it's the devices that are the problem.
-
-We set our breakpoints at very specific pixel width values, and our devices are actually respecting those breakpoints by applying the correct CSS styles that media query is asking for. The problem is that they seem to be magnifying everything and showing only a portion of the page at a time:
-
-![Safari on iPhone Xr without meta tag](assets/lesson-4/700-safari-nometa.png)
-
-The reason for this is because of how these devices render a page. The software renders a web page in a virtual viewport and attempts to view it as if it were a normal browser, but then it scales it down. The result is usually something like the above image.
-
-Since Apple pretty much invented this problem for developers, they were kind enough to create a new HTML `<meta>` tag that can be used to fix it:
-
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-```
-
-This tag is to be used in between the `<head>` tags to fix the problem. By using the `name` attribute we are telling the browser what this `<meta>` tag pertains to, and the `content` attribute has two values:
-
-- **`width=device-width`**: This is setting the virtual viewport's width to match the width of the device itself
-
-- **`initial-scale=1.0`**: This is used to set the initial zoom level to "normal"
-
-Once this tag is in place and we look again in Safari on iOS, it should look the way our 575 pixel media query said it should:
-
-![Safari on iPhone Xr with meta tag](assets/lesson-4/800-safari-meta.png)
-
-That one little tag fixed everything! What's great about that tag is that it won't have to change, so you can feel safe copying and pasting it in all of your projects.
-
-> DEEP DIVE: [Learn more about the viewport meta tag.](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag)
 
 The page is now not only responsive, but it is completely mobile-friendly! We've completed what the team at Run Buddy asked us to complete for this feature, so let's cross this issue off our list and merge our working branch's finished code into `develop`!
 
