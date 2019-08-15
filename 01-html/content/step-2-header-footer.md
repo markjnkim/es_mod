@@ -33,7 +33,7 @@ So branding is taken care of, but what about navigation? Let's start by adding `
 </header>
 ```
 
-The `<nav>` HTML element is a newer "semantic" element designed to help with accessibility and SEO. The browser can now read these elements and get an idea about the information that's inside.
+The `<nav>` HTML element is a newer **semantic element** designed to help with accessibility and SEO. **Accessibility** is the practice of describing and detailing HTML elements in a way that allows tools such as screen readers explain the page's content in a meaningful way to those that may have an impairment such as vision or hearing loss. **SEO** stands for "search engine optimization" and it is the process of maximizing the number of visits a web site can receive and how well it shows up in a search engine's results. The browser can now read these elements and get an idea about the information that's inside, this increases both search engine optimization and accessibility.
 
 > **Important:** Web Accessibility
 >
@@ -67,11 +67,9 @@ There are a number of ways to organize navigation links. We will use a popular m
 </ul>
 ```
 
-Let's unpack what we just created, starting with lists. In HTML, there are two
-types of lists: ordered and unordered. Ordered lists or **`<ol>`** tell the
-browser to interpret any nested "list item" **`<li>`** in numeric order (1, 2,
-3, etc.). Unordered lists **`<ul>`** allow for a more loosely formatted list by
-marking each nested list item with a symbol (such as a bullet point or square).
+Let's unpack what we just created, starting with lists. In HTML, there are two types of lists: ordered and unordered. Ordered lists or **`<ol>`** tell the browser to interpret any nested "list item" **`<li>`** in numeric order (1, 2, 3, etc.). Unordered lists **`<ul>`** allow for a more loosely formatted list by marking each nested list item with a symbol (such as a bullet point or square).
+
+Here are a few examples of how lists can be used, with both ordered and unordered lists, different list item styles, and even a list with indented sub-items:
 
 ![Ordered lists with numbers vs. unordered list with
 bullets](assets/step-2/100.5-ordered-unordered.jpg)
@@ -196,13 +194,13 @@ As developers wanted more control over their webpage designs, it was realized th
 
 **Cascading Style Sheets** (aka **CSS**) was first released to the public in 1996 as a new style sheet language to handle describing the presentation of an HTML document. It is one of the top three web technologies, alongside HTML and JavaScript. CSS allows the developer to describe how elements should be rendered in different media formats such as screen (web browser, mobile phone, even smart watches), paper (printing an article), and speech (accessibility and screen reader dictation).
 
-Using CSS, we can control any HTML element's typography (font family, size, color, weight, etc)., how much space it should take up on the page, where it should be on the page in relation to other HTML elements, what type of background it should have, and so much more. This is an exciting time for CSS developers as well, a lot of new tools are being added to the language that allow us to really push the boundaries of web design and blur the lines between web and print layouts.
+Using CSS, we can control any HTML element's typography (font family, size, color, weight, etc.), how much space it should take up on the page, where it should be on the page in relation to other HTML elements, what type of background it should have, and so much more. This is an exciting time for CSS developers as well, a lot of new tools are being added to the language that allow us to really push the boundaries of web design and blur the lines between web and print layouts.
 
 > **Urkel Says:** Check out these examples of how CSS is being used in creative ways:
 >
 > [Public Library - a design studio based out of Los Angeles](http://public-library.org)\
 > [Hello Monday - a digital design studio based out of Denmark](https://www.hellomonday.com)\
-> [The Verge - A technology based news web site](https://www.theverge.com/)
+> [The Verge - A technology news web site](https://www.theverge.com/)
 
 The following image is a mock-up of the page we are currently building without any user-defined styles (the browser includes some by default—more on that later):
 
@@ -250,7 +248,7 @@ Now that we know some terminology and rules about CSS, it's time to put it to us
 <h1 style="color: blue; font-size: 100px;">RUN BUDDY</h1>
 ```
 
-- Apply all styles in between the HTML document's `head` tags using `<style>` HTML tags to surround all style definitions. Take a look at the below code snippet, then copy and paste the code from the opening `<style>` tag to the closing `</style>` tag into your page. After refreshing the page, you'll see the page's background turn a tomato-red color and the `<h1>RUN BUDDY</h1>` will become much bigger.
+- Apply all styles in between the HTML document's `head` tags using `<style>` HTML tags to surround all style definitions. Take a look at the below code snippet, then copy and paste the code from the opening `<style>` tag to the closing `</style>` tag into your page. After saving the HTML file in VSCode and refreshing the page in your web browser, you'll see the page's background turn a tomato-red color and the `<h1>RUN BUDDY</h1>` will become much bigger.
 
 ```html
 <head>
@@ -520,7 +518,7 @@ header nav {
 
 So we've done something fairly drastic. We've taken the `<nav>` element and moved it to the right side. As we've seen so far, most HTML elements position themselves along the left side of the page with one coming below the other. Now we've taken one totally out of the normal "flow" of the page. The property used here is called `float`:
 
-- `float`: Think of this as the "text-wrap" property from Microsoft Word, which takes elements that want to take up 100% of its parent's width by default (known as **block elements**) and push everything after it below it&mdash;even if it physically isn't 100% of its parents width&mdash;and allows other elements to come along side of it or wrap around it (known as **inline elements**). This property is used when we have HTML elements that would look better side-by-side and use our horizontal space in a more meaningful way. There are other CSS properties that allow us to turn block elements into inline elements, but using `float` in this case made more sense because we needed to turn this element into an `<inline>` element and also move it to the right. `float` let's us do both at once.
+- `float`: This property takes elements that want to take up 100% of its parent's width by default (known as **block elements**) and push everything after it below it&mdash;even if it physically isn't 100% of its parents width&mdash;and allows other elements to come along side of it or wrap around it (known as **inline elements**). This property is used when we have HTML elements that would look better side-by-side and use our horizontal space in a more meaningful way. There are other CSS properties that allow us to turn block elements into inline elements, but using `float` in this case made more sense because we needed to turn this element into an `<inline>` element and also move it to the right. `float` let's us do both at once.
 
 > **Important:** Block vs. Inline HTML
 >
