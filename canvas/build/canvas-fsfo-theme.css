@@ -204,6 +204,16 @@ pre[class*="language-"] {
     margin-left: 2em; }
     #bootcamp ol li:not(:last-child), #bootcamp ul li:not(:last-child) {
       margin-bottom: .3em; }
+  #bootcamp iframe {
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 0 10px #333333; }
+    #bootcamp iframe.video-left {
+      float: left;
+      margin: 20px 20px 20px 0; }
+    #bootcamp iframe.video-right {
+      float: right;
+      margin: 20px 0 20px 20px; }
   #bootcamp .inline {
     display: inline; }
   #bootcamp .code-large {
