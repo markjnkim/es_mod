@@ -13,7 +13,7 @@ After receiving the mandate from management for the next update for Run Buddy 2.
 ![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
 <!-- Since the website is currently deployed on the `master` branch, if we try to make changes on the `master` like we did back in Module 1, this will result in a broken website that will block our visitors from using Run Buddy's services. The management team would not be very happy about turning away potential customers. -->
-Due to the fact that the current codebase is live, we wouldn't want to disturb our visitors' browsing experience by breaking the website. Changing the current codebase would cause the browser to become unable to render properly. Not an option the management staff would be very happy with. We need to find a different process or workflow that would allow us to work on a duplicate copy while the original copy is still maintaining the website.
+Due to the fact that the current codebase is live, if we were to make changes on the code, we would break the website thereby disturbing our users' browsing experience. Not an option the management staff would be very happy with. We need to find a different process or workflow that would allow us to work on a duplicate copy while the original copy is still maintaining the website.
 This is where our friend Git comes back into play.
 In this lesson we will introduce three main concepts.
 * Using Git to create branches to make versions of our codebase.
@@ -51,7 +51,7 @@ This Git command performs the following two Git operations at once.
 git branch <branch-name>
 git checkout <branch-name>
 ```
-Using the **-b** flag, which is short for *branch*, we can create a new branch **AND** `checkout` into the new branch we just created. So essentially the new branch becomes the new active branch.
+Using the **-b** option flag, which is short for *branch*, we can create a new branch **AND** `checkout` into the new branch we just created. So essentially the new branch becomes the active branch.
 
 Now let's practice using these commands to create our development environment by making a `develop` branch. Remember we must go to the terminal and `cd` into our working directory. 
 
@@ -99,7 +99,7 @@ There are several important reasons to work on the codebase in a separate `featu
 
 It's time to switch gears now that we have our development environment set up. Let's go to our repo in GitHub and create some documentation for the new version of the Run Buddy project by creating a `README.md` file after a quick checkpoint.
 > **Checkpoint**<br />
-production vs development environment questions ( which can I test on etc)<br />
+Where can I test the code production or development environment?<br />
 How do I make a feature branch?<br />
 What is the purpose of the `develop` branch?<br />
 What is the Git command to view another version of the codebase?
@@ -107,15 +107,15 @@ How do you check what the active branch is?
 
 ## README please?
 
-Now that we have our development environment set up, let's add some documentation to help give people a quick overview of the Run Buddy project. In Github, this task is handled by a text file located in the repo called a `README.md`. This is a markdown file, that is widely used on Github and 
+Now that we have our development environment set up, let's add some documentation to help give people a quick overview of the Run Buddy project. In Github, this task is handled by a text file located in the repo called a `README.md`. This is a Markdown file, which is widely used on Github and provides some light weight markup. We will go further into Markdown and `README.md` files as their use becomes more evident later in the course. 
 
 
-
+<!-- 
 what our project A README is a text file associated with your repo that documents the project's purpose, instructions on how to use your project, and how to contribute whether that's fixing bugs, adding features, or updating documentation. Good documentation enables people to learn about the project in a brief summary and offers a high level introduction.
-> **Career Advice**: Potential employers may scan your Github account to review your projects and coding skills. Great documentation saves the employer's time by giving a quick and easy project description. 
+> **Career Advice**: Potential employers may scan your Github account to review your projects and coding skills. Great documentation saves the employer's time by giving a quick and easy project description.  -->
 <!-- Projects take a lot of time and energy to produce, the `README.md` file acts as a label demonstrating what work was done and instructions for making it work.  -->
 
-Let's take a look at the official documentation on [GitHub Guides](https://guides.github.com/features/wikis/).
+> **Deep Dive:** For a closer look let's take a look at the official documentation on [GitHub Guides](https://guides.github.com/features/wikis/) and [Markdown](https://www.markdownguide.org/basic-syntax)
 
 
 The `README.md` is a Markdown file which is a text file that offers some light weight markup or styling. It is located in the top level or root directory of the repo which allows GitHub to render it on the landing page of your repo. README files do not have to be in Markdown, and can be regular text files, however we will continue using Markdown due to its simplicity as well its ease of use in Github and VS Code.
