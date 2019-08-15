@@ -14,13 +14,15 @@ This is best learned through doing, so let's get started!
 
 ## Add Content to the Header
 
+This image shows what we'll be working towards by adding content to our `<header>` element: 
+
 ![header html](assets/step-2/100-header-html.jpg)
 
 We'll begin by adding some information that most modern webpages have: branding and navigation. These two pieces of a **user interface** (also known as **UI** to those who are hip) usually find their way into the `<header>` of an HTML document.
 
 ### Branding and Navigation
 
-Branding is something most webpages have on them in a prominent position so users know where they are. We took care of this already in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. 
+Branding is something most webpages have on them in a prominent position so users know where they are. We took care of this already in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`.
 
 So branding is taken care of, but what about navigation? Let's start by adding `<nav>` and `</nav>` immediately below `<h1>` but above the closing `</header>` tag. It should look something like this: 
 
@@ -170,13 +172,13 @@ Here's a refresher of the Git commands you should use to commit your code locall
 
 - `git push origin master`: Use this command to take all of the code and file edits from your recent `commit` and push it all up to GitHub. 
 
-Now your code is saved locally on your machine and on your GitHub profile. If you visit your [GitHub Pages link](https://username.github.io/run-buddy), you'll be able to see the new HTML! 
+Now your code is saved locally on your machine and on your GitHub profile. If you visit your GitHub Pages link at `username.github.io/run-buddy` (replace `username` with your GitHub username), you'll be able to see the new HTML!
 
 > **Urkel Says:** We've seen the `#` syntax in action with `href` values, but you will use it in many more places throughout your career as a programmer. It is what's known as an "octothorpe." [Learn more about the many uses of the # on Wikipedia.](https://en.wikipedia.org/wiki/Number_sign#In_computing)
 
-As we've seen, the HTML elements we have implemented so far do a great job at two things:
+The HTML elements we have implemented so far do a great job at two things:
  
-- Organizing content (i.e., the content between `<h1>RUN BUDDY</h1>`) 
+- Organizing content (i.e., the content between the `<h1>` tags in `<h1>RUN BUDDY</h1>`) 
 
 - Providing interactivity (i.e., the `<a>` element's `href` attribute taking the user somewhere else when they click on the link)
 
@@ -198,9 +200,9 @@ Using CSS, we can control any HTML element's typography (font family, size, colo
 
 > **Urkel Says:** Check out these examples of how CSS is being used in creative ways:
 >
-> [Public Library](http://public-library.org)\
-> [Hello Monday](https://www.hellomonday.com)\
-> [Stupid Studio](https://stupid-studio.com)
+> [Public Library - a design studio based out of Los Angeles](http://public-library.org)\
+> [Hello Monday - a digital design studio based out of Denmark](https://www.hellomonday.com)\
+> [The Verge - A technology based news web site](https://www.theverge.com/)
 
 The following image is a mock-up of the page we are currently building without any user-defined styles (the browser includes some by default—more on that later):
 
