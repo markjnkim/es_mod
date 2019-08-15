@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Before we go any further, take a moment to give yourself a pat on the back. Even though the Run Buddy landing page doesn't look like much yet, you've done a lot to pave the way for building the entire website. 
+Before we go any further, take a moment to give yourself a pat on the back. Even though the Run Buddy landing page doesn't look like much yet, you've already done a lot to pave the way for building the entire website. 
 
-In this lesson, you'll add some new HTML elements and CSS to your tool belt as you add content and style to the header and footer of the Run Buddy webpage. Why focus on the top and bottom and leave the middle untouched? Because the header and footer typically share similar patterns, so it makes sense to do them both at the same time.  
+One really important step you completed in Lesson 1 was to build a series of "containers" (aka divs) to hold different types of content in the HTML document. At first glance, this may seem like a lot of extra work, but as you add content and apply styles to each section, you'll see that it allows you not to worry about how each one affects the others. You'll get a chance to see this in action in this lesson. 
 
-In the previous lesson, you built a series of "containers" (aka divs) to hold different types of content in the HTML document. At first glance, this may seem like a lot of extra work, but as you add content and apply styles to each section, you'll see that it allows you not to worry about how each one affects the others. 
+In Lesson 2, you'll add some new HTML elements and CSS to your skillset as we add content and style to the header and footer of the Run Buddy webpage. Why focus on the top and bottom of the page and leave the middle untouched? The header and footer typically share similar content and style patterns, so it makes sense to do them both at the same time. They're also the "anchors" of most websites—meaning they appear on every page and hold two very important parts of any website: branding and navigation. 
 
 This is all best learned by doing, so let's get started!
 
@@ -14,19 +14,21 @@ This is all best learned by doing, so let's get started!
 
 ![header html](assets/lesson-2/100-header-html.png)
 
-We'll begin by adding two things most modern webpages have: branding and navigation. These two important components are typically contained in the `<header>` so that they appear on every page in the website in a uniform way. 
+We'll begin by adding two things to our `<header>` that most modern webpages have: branding and navigation. 
 
-Think about a website you're familiar with: does the top and bottom of the site looks the same on every page you visit? You betcha! And where do you look on a website when you want to navigate to another page? Usually, you look for a menu on the top and/or bottom of any page. 
+These two important components are typically contained in the `<header>` so that they appear on every page in the website in a uniform way. Think about a website you're familiar with: does the top of the site looks the same on every page you visit? You betcha! And where do you look on a website when you want to navigate to another page? Usually, you look for a menu on the top and/or bottom of any page. 
 
 ### Add Branding 
 
-Branding refers to the logo, colors, and general style (aka "brand") of a company or organization. Think about Target's red bullseye or Amazon's orange arrow; if you visit these websites, you will always see their brand loud and clear in the top (and usually bottom) of the page. 
+Branding refers to the logo, colors, and general style (aka "brand") of a company or organization. Think about Target's red bullseye or Amazon's orange arrow; if you visit these websites, you will always see their brand loud and clear at the top (and usually bottom) of the page. 
 
-We started to add branding for Run Buddy in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. This put the Run Buddy name in the header (top) of the page. We will style it later in this lesson. 
+We started to add branding content for Run Buddy in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. This put the Run Buddy name in the header (top) of the page. We will style it later in this lesson. 
 
 ### Add Navigation 
 
-So branding content is taken care of, but what about navigation? In VS Code, add `<nav>` and `</nav>` immediately below `<h1>` but above the closing `</header>` tag. 
+Okay, so branding content is taken care of, but what about navigation? Let's add some HTML elements to hold our navigation content. 
+
+In VS Code, add `<nav>` and `</nav>` immediately below `<h1>` but above the closing `</header>` tag. 
 
 It should look something like this: 
 
@@ -251,9 +253,8 @@ Let's take a look at some CSS syntax:
 
 - **Declaration**: A `property: property-value` pairing like we see with `font-family: Helvetica` is what's known as a "declaration".
 
-- **Declaration terminator**: In order for us to apply multiple styles to an element (known as a "declaration block"), we need some way to tell the language "this declaration is finished, make a new one." CSS knows
-
- a declaration is complete is when it sees a semicolon (`;`) at the end. Accidental omission of the terminator will result in CSS thinking everything after is still part of that first declaration, so it is very important to terminate our declarations.
+- **Declaration terminator**: In order to apply multiple styles to an element (known as a **declaration block**), we need some way to tell the language "this declaration is finished, make a new one." CSS knows
+a declaration is complete when it sees a semicolon (`;`) at the end. Accidental omission of the terminator will result in CSS thinking everything after is still part of that first declaration, so it is very important to terminate our declarations.
 
 - **CSS rule**: The entire block shown above is what's known as a **CSS rule**. It is the combination of the selector and all of the declarations.
 
