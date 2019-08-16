@@ -6,6 +6,8 @@ import  "prismjs/components/prism-visual-basic";
 import  "prismjs/components/prism-sql";
 import  "prismjs/components/prism-r";
 
+import featherlight from "featherlight";
+
 // style sheets
 import "../css/main.scss";
 
@@ -118,6 +120,23 @@ function bootCampMagic() {
 
     $(this).wrapInner(`<code class="${className}">`);
   });
+
+  // create lightboxes
+  $("#bootcamp img").each(function() {
+    const imgSrc = $(this).attr("src");
+    const link = $("<a>").attr({
+      "data-featherlight": imgSrc,
+      "href": "#",
+      "class": "featherlight-link"
+    });
+
+    $(this).wrap(link);
+
+  });
+
+  // bind lightbox events
+  $('.featherlight-link').featherlight();
+
 
   Prism.highlightAll();
 }
