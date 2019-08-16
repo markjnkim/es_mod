@@ -32,7 +32,7 @@ Let's follow the steps we established in the first lesson for creating a new fea
 
 Run `git branch` again to make sure it worked. If it says the active branch is `feature/flexbox` then it worked! Let's start updating the site.
 
-### [NEED VIDEO - video troubleshooting git problems at this point]
+### [NEED VIDEO: FSFO-83 - Video for creating a git feature branch](https://trilogyed.atlassian.net/browse/FSFO-83?atlOrigin=eyJpIjoiODFiM2Q0NDJiNjdhNDQ4YzhkNzA2Y2VkMmZhNzU2NTEiLCJwIjoiaiJ9)
 
 ## Adding Flexbox to the Header
 
@@ -40,7 +40,7 @@ You may compare the header in the current live site (Run Buddy 1.0) to the mocku
 
 The term "flexbox" is short hand for "flexible box module" and it is used as a one-dimensional layout model, meaning it can be applied to an HTML element to control the distribution, alignment, and spacing of the HTML elements inside of it on either the x-axis (horizontal axis, often called a "row") or the y-axis (vertical axis, often called a "column"). This video will demonstrate some of the different features flexbox has to offer:
 
-### [NEED VIDEO - demonstrating flexbox layouts like this site](https://tobiasahlin.com/blog/common-flexbox-patterns/)
+### [NEED VIDEO: FSFO-84 - Flexbox introduction and demo layouts](https://trilogyed.atlassian.net/browse/FSFO-84?atlOrigin=eyJpIjoiM2FmYzU1NjQ5NWQ1NDA5Nzg3ZDYyZWFhODM3Y2ZmMmEiLCJwIjoiaiJ9)
 
 This new CSS tool was created out of a necessity to address some layout issues that other properties such as `float` fall short in fulfilling. After smart devices become ubiquitous in everyday life, web sites started to see issues arise in their layouts when they would open on these smaller screens. Everything would either break and overlap one another or the user would have to scroll horizontally to see everything, which led to very poor usability of these sites. HTML layouts that were once achieved using floats and positioning needed to be revamped so they could simply adapt to the page size rendering them.
 
@@ -52,7 +52,7 @@ In 2009 the first iteration of flexbox was introduced as just `display: box;`, t
 
 Flexbox's introduction to the developer community was welcomed with open arms. We finally have a tool that lets us achieve more modern layouts that can work on any screen size. To use Run Buddy as an example, currently our `header` cannot resize well using floats, but with flexbox (and some other cool tricks we'll add later), our header will grow and shrink very well:
 
-### [NEED VIDEO FOR SHOWING THESE TWO OFF]
+### [NEED VIDEO: FSFO-85 - Demonstrate header resize with and without flexbox](https://trilogyed.atlassian.net/browse/FSFO-85?atlOrigin=eyJpIjoiMzBlNGU0N2UxYzJhNDQ0YWE1YzJiYWIwMjI2NzQwYjUiLCJwIjoiaiJ9)
 
 ![Resize with floats](assets/lesson-2/600-bad-resize.gif)
 ![Resize with flex](assets/lesson-2/700-good-resize.gif)
@@ -151,7 +151,7 @@ flex-wrap: wrap;
 
 Now when we resize our browser window, the `header` will collapse onto a second line when it runs out of room to fit both the `h1` and `nav` elements on the same line. This video will explain `flex-wrap` and some of it's other uses:
 
-### [NEED VIDEO - explaining flex-wrap]
+### [NEED VIDEO: FSFO-86 - flex-wrap demo](https://trilogyed.atlassian.net/browse/FSFO-86?atlOrigin=eyJpIjoiNzBhZjljMmNiZjMzNGQyNGI2Mzk3ZmNjZDI0NGIxYTAiLCJwIjoiaiJ9)
 
 The properties we used here (`display: flex`, `justify-content`, and `flex-wrap`) are usually the three most used flexbox properties, and as we can see&mdash;all three of them are added to `header`. This is the crux of using flexbox for web layouts, let the child elements inherit CSS properties from the parent elements instead of having to worry about each child's needs one at a time.
 
@@ -195,7 +195,7 @@ The other one we've added has nothing to do with flexbox, but rather with HTML l
 >
 > [Read more about `align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)
 
-### [NEED VIDEO - Demonstration of align]
+### [NEED VIDEO: FSFO-87 - Demo of align-items](https://trilogyed.atlassian.net/browse/FSFO-87?atlOrigin=eyJpIjoiYTg5MTNjZmE3MDQ1NDM1OGE5ZjE2YTBlMjRkMzc3MTciLCJwIjoiaiJ9)
 
 Let's finish by making a few adjustments to our `nav` element's link styles so it looks like this:
 
@@ -264,7 +264,7 @@ When you save the page and refresh, try moving the screen size in and out to mak
 
 If it doesn't match the above mockup, remember that we can always use Chrome DevTools to debug and inspect our CSS! This video will show us how to use DevTools to cross-reference our code with the code introduced in the instructions above:
 
-### [NEED VIDEO - Using Devtools to debug this CSS]
+### [NEED VIDEO: FSFO-88 - Using DevTools to debug footer](https://trilogyed.atlassian.net/browse/FSFO-88?atlOrigin=eyJpIjoiMGYxOTVlZTZhMGYxNGRlYjgwMzIyODhmMTc2MWRmMmUiLCJwIjoiaiJ9)
 
 Now that we've gotten used to the basics of flexbox, let's move onto the `hero` section of our page and create a nice two-column layout.
 
@@ -518,7 +518,7 @@ The property we just added to our flexbox children is probably the most difficul
 
 - **`flex-basis`**: This works similar to setting a `width` value to a child element, but it is used more as a baseline value that at the very least will let the child be that size no matter what and grow or shrink accordingly.[The flex-basis property is explained here](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)
 
-### [NEED VIDEO: demonstration of the `flex` property]
+### [NEED VIDEO: FSFO-89 - Demonstration of flex property](https://trilogyed.atlassian.net/browse/FSFO-89?atlOrigin=eyJpIjoiYzBhOTI0OWE4YzZmNGQxYmI2YzJhYzdmOWI0NjlmY2UiLCJwIjoiaiJ9)
 
 These three properties are usually used in conjunction with one another, especially `flex-grow` and `flex-basis`, and are more commonly provided values rolled into one `flex` property. The `flex` property can read values in a few different ways:
 
@@ -607,7 +607,7 @@ We covered a lot of ground by updating these steps, and though it may have seem 
 
 > **Pro Tip:** If you haven't started bookmarking good resources on web development just yet, it is a good time to start doing so! Most developers, beginners and veterans alike, keep resources handy at all times.
 >
-> [Here is a great guide on Flexbox for your collection!](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+> For a great resource, check out [CSS Tricks' guide on flexbox!](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 The rest of the page's conversion to flexbox won't be as involved as this section was, but it is cool to know that we can use this one tool to handle both very simple and complex layouts!
 
