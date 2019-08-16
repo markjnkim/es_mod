@@ -123,6 +123,22 @@
     }
   }
 
+  iframe {
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 0 10px #333333;
+
+    &.video-left {
+      float: left;
+      margin: 20px 20px 20px 0;
+    }
+
+    &.video-right {
+      float: right;
+      margin: 20px 0 20px 20px;
+    }
+  }
+
   .inline {
     display: inline;
   }
