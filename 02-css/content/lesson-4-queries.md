@@ -32,7 +32,7 @@ We'll get to adjusting these sizes in a few minutes, but first let's ask ourselv
 
 Luckily, we don't have to worry about that because DevTools has built-in features that allow us to emulate these different devices so we can still use all of the debugging tools DevTools has to offer. Here's a video demonstrating how to use these tools, they will come in very handy not only throughout this lesson, but throughout our careers as developers:
 
-### [NEED VIDEO - Emulating devices and screen sizes in DevTools]
+### [NEED VIDEO: FSFO-90 - Emulating devices and screen sizes in DevTools](https://trilogyed.atlassian.net/browse/FSFO-90?atlOrigin=eyJpIjoiYTk1YmFlNmVkMTMxNDY3NzgwYTY4Y2ViNDNjODU1ZDgiLCJwIjoiaiJ9)
 
 When using this tool, you may have noticed the site is breaking out of the boundaries of the emulated screen size like this image shows:
 
@@ -185,7 +185,7 @@ As you adjust the screen size and see the different styles taking place for our 
 
 > PRO-TIP: Keep DevTools open during this and watch the style rules get stricken out as new ones come in to take over.
 >
-> ### NEED: Video of styles being overridden in DevTools
+> ### [NEED VIDEO: FSFO-91 - Overriding styles with media queries](https://trilogyed.atlassian.net/browse/FSFO-91?atlOrigin=eyJpIjoiZTE1NjU1Mjg3ZTE1NDRlNzhiY2U5MjdhMmNhZDljOTUiLCJwIjoiaiJ9)
 
 The order of how we write our media queries matters. In our case we put the biggest screen size first and worked our way down, using `max-width` as our way of determining if a media query should run or not. What would happen if we were to reverse that order by putting `575px` first and `980px` last? The result will show that the `font-size` will stay at 80px even when the screen gets smaller than 575px wide.
 
