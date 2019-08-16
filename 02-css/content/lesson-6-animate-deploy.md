@@ -2,9 +2,9 @@
 
 ## Introduction
 
-The folks at Run Buddy looked at the latest version of the landing page and love what we've done with it. They can't wait to show it off to the world, but there's one last thing they would like implemented. The CEO in particular was really looking forward to the animated hover effect as seen here:
+In the previous lesson, we spruced up the visuals of our landing page using a number of CSS tricks like shadows, rounded corners, pseudo-classes, and pseudo-elements. The folks at Run Buddy looked at this polished version of the site and love what we've done with it. They can't wait to show it off to the world, but there's one last thing they would like implemented. The CEO in particular was really looking forward to the animated hover effect as seen here:
 
-> ## INSERT VIDEO DEMO OF BEHAVIOR
+> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-92
 
 We could push back and claim it's not possible. Who knows... maybe it isn't? We'll need time to play around with different options, but at least those are billable hours! Assuming the animation can be done, here's what we'll tackle in this lesson:
 
@@ -26,7 +26,9 @@ In the old days of the web, animation would have required a bit of JavaScript co
 
 > **Pro Tip:** When experimenting with new features, you can use an online code editor like [JSFiddle](https://jsfiddle.net/) or [CodePen](https://codepen.io/pen/) instead of messing with your current project or creating extra HTML and CSS files on your computer.
 
-Let's look at `animation` first, which involves setting up a series of keyframes in your style sheet:
+Let's look at `animation` first, which involves setting up a series of **keyframes**. In animation in general, keyframes define the more important moments in a character's or object's movement. For instance, a falling ball would have two pretty important keyframes: the ball at the top of its descent and when it hits the ground. The frames in between can then be filled in later by an artist or computer software to make a complete animation.
+
+In CSS, the browser will be the one to fill in those in between frames. We just need to define the major keyframes, or starting/stopping points. Keyframes can be added to a style sheet using the `@keyframes` at-rule:
 
 ```css
 @keyframes fade {
@@ -40,7 +42,9 @@ Let's look at `animation` first, which involves setting up a series of keyframes
 }
 ```
 
-These keyframes change the opacity from 0 to 1 over a set period of time, thereby causing the element to fade in. Hence, we named the keyframe group `fade`. Another example might be:
+These keyframes specify that the `opacity` should change from 0 to 1 over a set period of time. If we set this animation to run for four seconds, that means at two seconds, the browser will automatically calculate the `opacity` to be 0.5. Hence, the element will fade in, which is why we named the keyframe group `fade`.
+
+Another example might be:
 
 ```css
 @keyframes color-shift {
@@ -150,13 +154,21 @@ Now that we've determined which tools we should use, let's dive in. We'll be a l
 
 ## Prepare the HTML and CSS
 
-The first thing we need to do is create a new branch. Make sure you're on the staging branch, then create and checkout a branch named after the animation GitHub issue.
+The first thing we need to do is create a new Git branch:
+
+1. Make sure you're on the `develop` branch to begin.
+
+2. Create and checkout a new branch called `feature/animation`.
+
+3. Use the commands `git branch` and `git status` to verify things are behaving as expected.
+
+> **Important:** If you were experimenting with animation in one of your project files, those changes will have still followed you when checking out a new branch. If you'd like to discard those changes, run the command `git checkout -- path/to/file` to reset the file.
 
 Next, let's think about how we would restructure the HTML. When building animations, it's often easier to define the final position of everything first. The final position for these elements is to have the trainer name and role sit in the bottom-left corner with a yellow gradient overlayed on top:
 
 ![final card](./assets/lesson-6/100-final-card.png)
 
-To pull this off, it may be easier to turn the trainer image into the background image of a `<div>` that holds the other elements.
+To pull this off, it may be easier to turn the trainer image into the background image of a `<div>` that holds the other elements. This way, we can use flexbox to position the inner content instead of absolutely positioning things on top of each other.
 
 Restructure each of your trainer cards to look like this:
 
@@ -203,7 +215,7 @@ Check the webpage in the browser to make sure things are coming together:
 
 Welcome back, Tony! Now size him and his fellow trainers down using the `background-size` property.
 
-We still need to do something about the text, though. At the end of the hover animation, the text will sit in the bottom-left corner. We could use absolute positioning to accomplish this, or we could use our new friend flexbox. Let's try flexbox. Add the following declarations to your `.trainer-img` CSS rule:
+We still need to do something about the text, though. At the end of the hover animation, the text will be positioned in the bottom-left corner. We could use absolute positioning to accomplish this, or we could use our new friend flexbox. Let's try flexbox. Add the following declarations to your `.trainer-img` CSS rule:
 
 ```css
 display: flex;
@@ -211,9 +223,9 @@ padding: 15px;
 align-items: ???;
 ```
 
-Which `align-items` value would move the inner content to the bottom of the `<div>`?
+Which `align-items` value would position the inner content at the bottom of the `<div>`?
 
-> **Hint:** It's not `flex-start`.
+> **Hint:** It's `flex-end`.
 
 If correct, the trainer card should now look like this:
 
@@ -275,13 +287,21 @@ While you're at it, adjust the `font-size` and `margin` to better match the desi
 
 ![stacking order](./assets/lesson-6/100-final-card.png)
 
-That's it! That's what the final animated position looks like. We realize this is getting tough, so if you've made it this far, that's really great work and something to be proud of.
+That's it! We've established what the final animated position looks like. We realize this is getting tough, so if you've made it this far, that's really great work and something to be proud of.
+
+If your website doesn't look quite the same, open the Chrome DevTools and inspect your HTML elements. This will help you see where elements are actually sitting, and you can verify if CSS declarations are being applied or not. Some common CSS issues include:
+
+* Misspelled property names
+
+* Invalid values (e.g. `z-index: 1px`)
+
+* Missing dots or spaces in selectors (e.g. `trainer-imgh3` vs `.trainer-img h3`)
 
 > ## SKILL DRILL OR CHALLENGE HERE?
 
 ## Animate the Hover
 
-Now that we know what the end result looks like, we can define the starting point and bridge the gap between them with a `transition`. Let's start with the gradient, since it's more straightforward. The starting point is an `opacity` of 0, so add that `opacity` to the pseudo-element rule.
+Now that we know what the end result looks like, we can define the starting point and bridge the gap between them with a `transition`. Let's start with the gradient, since it involves fewer pieces. The starting point is an `opacity` of 0, so add that `opacity` to the pseudo-element rule.
 
 Next, we want to change the `opacity` to 1 when the mouse hovers over any part of the trainer `<article>`, not just the background image. Hold on, though. How can a parent's hover state affect a child? Consider for a moment the following CSS rule:
 
@@ -303,9 +323,9 @@ This means any `<span>` element that's inside of a `<div>` element _that's in a 
 
 You'll know it's working if you can hover over the image or the bio underneath:
 
-> ## INSERT VIDEO OF BEHAVIOR
+> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-93
 
-Of course, it's still not animated, but now that the default state and hover state are set, it's only a matter of adding a 1/2 second `transition` to the default state. Reference the documentation for [transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) again if you get stuck.
+Of course, the gradient still isn't animated, but now that the default state and hover state are set, it's only a matter of adding a 1/2 second `transition` to the default state. Reference the [documentation for transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) again if you get stuck.
 
 Finally, we need to do something about the text. This is a somewhat misleading problem. It may seem like the text "comes out of nowhere," but the secret is that the text is always there. It just slides into view when we're ready for it.
 
@@ -319,13 +339,15 @@ Hmmm. These elements are not very good at hide-and-seek. We can still see them! 
 
 Like the pseudo-element's opacity, we can set `top` back to `0px` when the trainer `<article>` is being hovered over. This is the behavior we should see:
 
-> ## INSERT VIDEO OF BEHAVIOR
+> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-93
 
-Because it's not animated yet, it almost looks like we just changed the opacity/visibility instead of its position. Add a 0.6 second `transition` to the `.trainer-img h3` and `.trainer-img h4` rules so you can better see them slide in from `200px` to `0px`.
+Because the text isn't animated yet, it almost looks like we just changed the opacity/visibility instead of its position. Add a 0.6 second `transition` to the `.trainer-img h3` and `.trainer-img h4` rules so you can better see them slide in from `200px` to `0px`.
 
-> **Pro Tip:** Rather than setting `top` to `0px` on the hover state, you could use a different declaration: `transform: translate(-200px)`. It's probably hard to see in this example, but `translate()` can lend to smoother animations. Read more about [translate](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate) from MDN.
+> **Pro Tip:** Rather than setting `top` to `0px` on the hover state, you could use a different declaration: `transform: translate(-200px)`. It's probably hard to see in this example, but `translate()` can lend to smoother animations. [Read more about translate from MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate).
 
 Also keep in mind that the `<h4>` trails behind the `<h3>` for a fraction of a second. What additional [transition](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions) property would help us set a delay?
+
+Once you've got it, reference your work against the demo video provided earlier. If things don't match up, double-check your `transition` values and CSS selectors. Above all else, leverage the Chrome DevTools!
 
 > ## SKILL DRILL OR CHALLENGE HERE?
 
@@ -333,7 +355,7 @@ Also keep in mind that the `<h4>` trails behind the `<h3>` for a fraction of a s
 
 The hover animation looks great, but this only applies to desktop users. Hover effects don't really work that well on touchscreen devices. How would mobile users be able to see the trainers' names, then? The best user experience may be to always display the trainer information on small screens, which we can do with media queries.
 
-> ## INSERT REWIND AFTER LESSON 4 IS COMPLETE
+> **Rewind:** Media queries allow us to write conditional CSS rules. The line `@media screen and (max-width: 980px)` means that the CSS rules contained within will only get applied if the width of the screen is less than 980 pixels.
 
 First, let's re-add the trainer name and role to the `trainer-bio` container:
 
@@ -378,7 +400,7 @@ display: none;
 >
 > Answer: `visibility: hidden` turned the element invisible but didn't remove it from the flow. `display: none` made it seem like the element didn't exist at all.
 
-Next, we'll need to add the same `display: none` declaration to our gradient pseudo-element and `trainer-img` name and role elements. Of course, we only want to hide these elements on smaller touchscreen devices. Back in Lesson 4, we declared a set of media query rules for tablets:
+Next, we'll need to add the same `display: none` declaration to our gradient pseudo-element and `trainer-img` name and role elements. Of course, we only want to hide these elements on smaller touchscreen devices. In an earlier lesson, we declared a set of media query rules for tablets:
 
 ```css
 @media screen and (max-width: 768px) {
@@ -386,27 +408,45 @@ Next, we'll need to add the same `display: none` declaration to our gradient pse
 }
 ```
 
-Inside of this media query, add additional rules that will hide/remove the gradient, name, and role. To verify that we did everything correctly, the hover animation should only work in fullscreen, and smaller screens shouldn't see any name/role information.
+Inside of this media query, add additional rules that will hide/remove the gradient, name, and role.
 
-> ## VIDEO DEMO OF SCREEN SIZE DIFFERENCES?
+> **Hint:** Add `display: none;` to a CSS rule that encompasses `.trainer-img h3`, `.trainer-img h4`, and `.trainer-img::after`.
 
-Well, that's something we still need to fix. In the same media query where we hid the hover elements, we'll need to show the `.trainer-bio h3` and `.trainer-bio h4`. If `display: none` removes an element entirely from the flow of the webpage, what [display value](https://developer.mozilla.org/en-US/docs/Web/CSS/display) would bring it back?
+ To verify that we did everything correctly, the hover animation should only work in fullscreen, and smaller screens shouldn't see any name/role information:
+
+> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-94
+
+We're not done yet; we still need to show the trainer information on smaller screens. In the same media query where we hid the hover elements, let's reveal `.trainer-bio h3` and `.trainer-bio h4`. If `display: none` removes an element entirely from the flow of the webpage, what [display value](https://developer.mozilla.org/en-US/docs/Web/CSS/display) would bring it back?
 
 > **Hint:** Think about what type of element an `<h3>` is and how it normally flows.
 
-Once you have the mobile version working, take a moment to celebrate. This was a challenging piece to build! Animation is definitely tricky, but it made the client happy. Now that we're done with this task, commit and push the branch, then merge the branch into staging.
+Once you have the mobile version working, take a moment to celebrate. This was a challenging piece to build! Animation is definitely tricky, but it made the client happy. Now that we're done with this task, let's go through our Git routine:
 
-> ## INSERT LEARNING BLOCK
+1. `git status` to verify the correct files were modified
+
+2. `git add -A` or `git add .` to stage any changed files
+
+3. `git commit -m "trainer hover animation"`
+
+4. `git push origin feature/animation` to push the branch to GitHub
+
+5. `git checkout develop` to switch branches
+
+6. `git merge feature/animation` to merge the new feature/changes into the develop branch
+
+7. `git push origin develop` to push the updated develop branch to GitHub
 
 ## Deploy
 
-Run Buddy is ready for this new version of the landing page to go live. At this point, we could merge the staging branch directly into the master branch, but one of Run Buddy's internal developers would like to do a code comparison/review first.
+Run Buddy is ready for this new version of the landing page to go live. At this point, we could merge the develop branch directly into the master branch, but one of Run Buddy's internal developers would like to do a code comparison/review first.
 
 > **On the Job:** Code reviews are an important part of the development process. No code should go into production before it's been reviewed by other members of the team. This is a great way to enforce best practices amongst developers, fix overlooked syntax errors, and catch potential conflicts like a developer renaming a CSS class that another developer was using.
 
-Fortunately, GitHub provides an easy mechanism for code reviews. Branches can be merged through GitHub's interface via a process called **pull requests**, and every pull request can be reviewed by other team members before the merge actually happens.
+Fortunately, GitHub provides an easy mechanism for code reviews. Branches can be merged through GitHub's interface via a process called **pull requests**, and every pull request can be reviewed by other team members before the merge actually happens. A more appropriate term may be "merge request," but "pull request" has become standard language to essentially mean a request for someone else to _pull_ your branch into their repository.
 
-Navigate to your GitHub repository in the browser and click on the "Pull requests" tab. This should route you to the following page:
+> **Rewind:** Think back to when we made a README file on GitHub and used the command `git pull` to download that commit into our local repository.
+
+Let's go through the pull request process for Run Buddy. Navigate to your GitHub repository in the browser and click on the "Pull requests" tab. This should route you to the following page:
 
 ![PR tab](./assets/lesson-6/1000-pr-tab.png)
 
@@ -414,7 +454,7 @@ Click on the green "New pull request" button on the right. This will route you t
 
 ![PR compare](./assets/lesson-6/1100-pr-compare.png)
 
-The "base" dropdown defaults to master, which is fine. That's what we want. The second dropdown (compare) is where we can choose the branch that will be merged into master. Click on the dropdown and select staging. Selecting a branch (staging) will immediately route you to a new page:
+The "base" dropdown defaults to master, which is fine. That's what we want. The second dropdown (compare) is where we can choose the branch that will be merged into master. Click on the dropdown and select develop. Selecting a branch (develop) will immediately route you to a new page:
 
 ![finalize PR](./assets/lesson-6/1200-pr-finalize.png)
 
@@ -424,7 +464,7 @@ The next page is the actual pull request page that includes an overview of what 
 
 ![PR overview](./assets/lesson-6/1300-pr-overview.png)
 
-Click on the "Files changed" tab to see a great breakdown of every file and every line of code that is different between master and staging:
+Click on the "Files changed" tab to see a great breakdown of every file and every line of code that is different between master and develop:
 
 ![code review](./assets/lesson-6/1400-code-review.png)
 
@@ -432,9 +472,13 @@ This is where the actual code review would take place. The Run Buddy developer c
 
 ![merge PR](./assets/lesson-6/1500-merge-pr.png)
 
-This will complete the merge and apply all of the commits from staging onto master. In our case, the Run Buddy developer gave us their blessing but never merged the PR. Let's go ahead and click the button to accept it ourselves. Because we set up the GitHub Page ahead of time, our live webpage should now reflect Version 2. Visit https://username.github.io/run-buddy/ (replacing username with your GitHub username) to see if it worked!
+This will complete the merge and apply all of the commits from develop onto master. In our case, the Run Buddy developer gave us their blessing but never merged the PR. Let's go ahead and click the button to accept it ourselves. Because we set up the GitHub Page ahead of time, our live webpage should now reflect Version 2. Visit https://username.github.io/run-buddy/ (replacing username with your GitHub username) to see if it worked!
 
 > **Important:** Sometimes, a webpage still shows an older version of itself even after pushing new changes. This is because the browser has **cached**, or saved, the older versions of the HTML and CSS files to make the page load faster on subsequent visits. Every browser has a way to clear its cache, or with Chrome, you can open an incognito window that will never cache files. The shortcut for an incognito window is CTRL+Shift+N on Windows or Command+Shift+N on macOS.
+
+For an example of a slightly more complicated pull request, watch this video:
+
+> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-95
 
 ## Reflection
 
@@ -446,22 +490,12 @@ Reflecting on this module as a whole, the Run Buddy redesign gave us a chance to
 
 Before we move ahead, let's recap some of the new CSS skills we learned:
 
-* In Lesson 2, we replaced our CSS floats with flexbox to create a much more fluid layout.
+* We replaced our CSS floats with flexbox to create a much more fluid layout.
 
-* In Lesson 3, we used a CSS grid to build a complex chart.
+* We used a CSS grid to build a complex chart.
 
-* In Lesson 4, we applied media queries to accommodate multiple screen sizes and devices.
+* We applied media queries to accommodate multiple screen sizes and devices.
 
-* In Lesson 5, we used many advanced CSS properties to add some much-needed flair.
+* We enhanced the visuals of our webpage with advanced CSS tricks like pseudo-classes.
 
-  * Pseudo-classes allows us to style the different states of an element.
-
-  * Pseudo-elements let us add content to the page purely with CSS.
-
-* In Lesson 6, we implemented hover animations to make the page feel more interactive.
-
-  * The `transition` property can animate an element from one state to another.
-
-  * The `animation` property is useful for setting multiple keyframes.
-
-> ## NEED TO INSERT TAKEAWAYS FROM OTHER LESSONS
+* We implemented hover animations to make the page feel more interactive.
