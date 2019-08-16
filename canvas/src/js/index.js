@@ -124,6 +124,7 @@ function bootCampMagic() {
   // create lightboxes
   $("#bootcamp img").each(function() {
     const imgSrc = $(this).attr("src");
+
     const link = $("<a>").attr({
       "data-featherlight": imgSrc,
       "href": "#",
