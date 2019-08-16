@@ -276,23 +276,37 @@ pre[class*="language-"] {
       background-color: #F8D7DA; }
       #bootcamp blockquote.important::before, #bootcamp blockquote.caution::before, #bootcamp blockquote.hint::before, #bootcamp blockquote.note::before, #bootcamp blockquote.rewind::before, #bootcamp blockquote.shortcut::before, #bootcamp blockquote.pro-tip::before {
         background-image: url("https://bootcampspot.instructure.com/courses/87/files/381/preview"); }
+    #bootcamp blockquote.important::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1292/preview"); }
+    #bootcamp blockquote.caution::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1299/preview"); }
+    #bootcamp blockquote.hint::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1293/preview"); }
+    #bootcamp blockquote.note::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1291/preview"); }
+    #bootcamp blockquote.rewind::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1290/preview"); }
+    #bootcamp blockquote.shortcut::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1289/preview"); }
+    #bootcamp blockquote.finding::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1297/preview"); }
+    #bootcamp blockquote.pause::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/802/preview"); }
+    #bootcamp blockquote.checkpoint::before, #bootcamp blockquote.check-point::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1298/preview"); }
+    #bootcamp blockquote.narrative::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1296/preview"); }
+    #bootcamp blockquote.skill-drill::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1295/preview"); }
+    #bootcamp blockquote.video::before, #bootcamp blockquote.technical-overview-video::before, #bootcamp blockquote.context-overview-video::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/385/preview"); }
+    #bootcamp blockquote.github::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1294/preview"); }
     #bootcamp blockquote.legacy-lem {
       border-color: #067742;
       background-color: rgba(5, 255, 151, 0.705); }
       #bootcamp blockquote.legacy-lem::before {
         background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg"); }
-    #bootcamp blockquote.finding::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/89/files/801/preview"); }
-    #bootcamp blockquote.pause::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/89/files/802/preview"); }
-    #bootcamp blockquote.checkpoint::before, #bootcamp blockquote.check-point::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/382/preview"); }
-    #bootcamp blockquote.narrative::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/383/preview"); }
-    #bootcamp blockquote.skill-drill::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/384/preview"); }
-    #bootcamp blockquote.video::before, #bootcamp blockquote.technical-overview-video::before, #bootcamp blockquote.context-overview-video::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/385/preview"); }
 
 .pages.show .page-title {
   background-color: rgba(33, 33, 33, 0.8);
