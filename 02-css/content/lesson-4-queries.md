@@ -1,16 +1,16 @@
 # Going Mobile
 
-We've added some really nice features and updates to the Run Buddy site so far, namely in terms of creating great web layouts using flexbox and grid. Between that and learning how to tackle issues one at a time using Git feature branches, we've really picked up a lot of skills that are used by web developers on a daily basis.
+We've added some really nice features to the Run Buddy site so far, namely in terms of creating great web layouts using flexbox. Between that and learning how to tackle issues one at a time using Git feature branches, we've really picked up a lot of skills that are used by web developers on a daily basis.
 
-We're about halfway through our list of GitHub issues, but the issue we're about to tackle is possibly the most important one&mdash;making the site completely **responsive**. The team at Run Buddy has caught wind that we're at this point and they've provided us with some mockups of what they expect the site to look like on mobile phones, tablets, and other smaller screen devices.
+We're almost halfway through our list of GitHub issues, but the issue we're about to tackle is possibly the most important one&mdash;making the site completely **mobile responsive**. The team at Run Buddy has caught wind that we're at this point and they've provided us with some mockups of what they expect the site to look like on mobile phones, tablets, and other smaller screen devices.
 
-**Responsive Web Design** (RWD) is a web development concept that focuses on making sure a web site looks and behaves optimally across all devices and screen sizes. It is a concept that has taken over frontend web development over the past ten years, stemming from increased web site consumption coming from devices like mobile devices and tablets rather than laptop and desktop computers.
+**Responsive Web Design** (RWD) is a web development concept that focuses on making sure a web site looks and behaves optimally across all devices and screen sizes. It is a concept that has taken over frontend web development over the past ten years, stemming from increased web site consumption coming from devices like mobile phones and tablets rather than laptop and desktop computers.
 
 This need for for an optimal experience across these devices drove the invention and adoption of new tools for developers to use in CSS. The one we will be focusing on in this lesson is called a **media query**, and it'll allow us to take our Run Buddy site and allow it to look like this mockup on a smaller screen:
 
 ![Run Buddy Mobile](assets/lesson-4/100-runbuddy-mobile.jpeg)
 
-Media queries allow us to instruct some of our CSS styles to be applied at a condition we specify. In our case, we'll be instructing these CSS styles to change when the web page is being viewed on different screen sizes. For example, the three trainers for Run Buddy look good side-by-side across the screen when the screen is wide enough to accommodate, but on a more narrow screen (like an iPhone) we want them to stack on top of one another instead.
+Media queries allow us to instruct some of our CSS styles to be applied at a condition we specify. In our case, we'll be instructing these CSS styles to change when the web page is being viewed on different screen sizes. For example, the three trainers for Run Buddy look good side-by-side across the screen when the screen is wide enough to accommodate them, but on a more narrow screen (like an iPhone) we want them to stack on top of one another instead so they don't become too squished.
 
 Before we get started, let's use our Git skills and create a new feature branch.
 
@@ -94,15 +94,15 @@ Before we move onto the first method listed above, let's save ourselves from doi
 
 Making these changes may have seemed tedious and unnecessary, but now that our goal is to make our site look good on any device we need to start thinking about how we can achieve that with as little code as possible.
 
-Of the two methods described above, we just used the second one by updating styles that apply to all screen sizes, but we also have a lot of pieces of our UI that simply cannot look good at different sizes without some major changes. For example, if we attempt to make the page smaller the newly created "Service Plans" section will get very tight looking. We'll be fixing it so it takes on a slightly different layout for mobile:
+Of the two methods described above, we just used the second one by updating styles that apply to all screen sizes, but we also have a lot of pieces of our UI that simply cannot look good at different sizes without some major changes. For example, if we attempt to make the page smaller, the newly laid out "What You Do" steps will have a hard time sharing the horizontal space and will get very tight looking. We'll be fixing it so it takes on a slightly different layout for mobile by stacking the content vertically, as shown in this image:
 
-![Service Plans mobile](assets/lesson-4/200-serviceplans-fixed.jpeg)
+![What You Do steps from desktop to mobile layout](assets/lesson-4/201-steps-mobile.jpg)
 
 The above image's shift in layout cannot be achieved by simply adjusting our current CSS so we're going to have to add more to our stylesheet. Specifically, we're going to be adding in a set of conditions for our CSS styles to change based on screen width using the first method listed above, media queries.
 
 ## Introducing: Media Queries
 
-As we've seen overall in CSS, there is no shortage of tools to get the job done. We've used specific tools to build grids and flexible layouts, provide different amounts of spacing using margin and padding, and at some point we'll even be able to animate elements on the page.
+As we've seen overall in CSS, there is no shortage of tools to get the job done. We've used specific tools to flexible layouts, provide different amounts of spacing using margin and padding, and at some point we'll even be able to animate elements on the page.
 
 The CSS tool we're going to use now is what's known as a **Media Query**. A media query is a special CSS rule that gates off certain styles until a condition is met. The condition that needs to be met can vary, but it typically revolves around the current width of the viewport. We'll get deeper into the syntax next, but first let's look at an example:
 
@@ -215,9 +215,9 @@ As we saw earlier, all we really need to do when writing our media queries is id
 
 Lucky for us, however, the team at Run Buddy has told us exactly how they envision the page looking at these three sizes. We'll start by taking care of how the page looks at 980 pixels, so take a look at this mock-up at 980 pixels and study it section-by-section:
 
-![Media Query 980 pixels](assets/lesson-4/400-980-mockup.jpg)
+![Mockup of small screen media query at 980 pixels](assets/lesson-4/400-980-query.jpg)
 
-Do we see an overall theme at this width? Instead of making our layouts run more narrow side-by-side, we make each flex child get its own row, which is going to be easier now that much of our layout is using flexbox properties. The other properties that we're going to change for this viewport width are a little harder to see, but they involve some minor edits to font sizes and margin/padding in certain areas. Let's update our media query for 980 pixels to look like this: 
+Do we see an overall theme at this width? Instead of making our layouts run more narrow side-by-side, we make each flex child get its own row, which is going to be easier now that much of our layout is using flexbox properties. The other properties that we're going to change for this viewport width are a little harder to see, but they involve some minor edits to font sizes and margin/padding in certain areas. Let's update our media query for 980 pixels to look like this:
 
 ```css
 @media screen and (max-width: 980px) {
@@ -256,10 +256,6 @@ Do we see an overall theme at this width? Instead of making our layouts run more
     flex: 0 70%;
   }
 
-  .service-grid {
-    width: 100%;
-  }
-
   .contact-info iframe{
     flex: 1 100%;
   }
@@ -283,17 +279,15 @@ Let's go through these changes section-by-section:
 
 > PAUSE: What flex properties are being declared in the `flex: 0 70%` shorthand property? Will it grow to take up the unused space?
 
-- **Service Plans**: Here we didn't need to adjust the grid at all, but instead just make the grid container itself wider so the grid has more space to breathe.
-
 - **Reach Out**: This section actually didn't need much except to allow the Google Map to get its own row. We achieved that by using `flex: 1 100%` so the first two can share a row with more space and the map gets pushed down, creating a more unique layout than the others.
 
-Now that we have the site looking good for smaller screens and regular sized browser screens, we should turn our attention to what it looks like when it gets down to the tablet range. Open up Chrome DevTools and use the device emulator to see how it looks on an iPad or Galaxy Tablet. You'll notice that our "What You Do" and "Service Plans" sections are getting a little tight. Everything else looks good still because of what we just did for the 980 pixel breakpoint, but we now need to make some adjustments two these two sections that went untouched previously.
+Now that we have the site looking good for smaller screens and regular sized browser screens, we should turn our attention to what it looks like when it gets down to the tablet range. Open up Chrome DevTools and use the device emulator to see how it looks on an iPad or Galaxy Tablet. You'll notice that our "What You Do" section is getting a little tight. Everything else looks good because of what we just did for the 980 pixel breakpoint, but we now need to make some adjustments two these two sections that went untouched previously.
 
 We're going to adjust those two sections so the site will look like this on an iPad or any device up to 768 pixels wide:
 
-![Tablet Mock-up](assets/lesson-4/500-768-mockup.jpg)
+![Mockup of tablet media query at 768 pixels](assets/lesson-4/500-768-query.jpg)
 
-The big changes here are that we're giving the "What You Do" section a similar treatment of stacking flex children instead of keeping them side-by-side, and we're adjusting the grid for "Service Plans" so they get more space. Again, these are both going to be fairly straightforward edits since flexbox and grid properties are easy to adjust for these situations.
+The big change here is that we're giving the "What You Do" section a similar treatment of stacking flex children instead of keeping them side-by-side. Again, these are both going to be fairly straightforward edits since flexbox properties are easy to adjust for these situations.
 
 The first thing we're going to want to do is give each `section` element a little more breathing room. We currently have the `padding` for those elements set to 30px on all sides, which is great for larger screens because 30px isn't much space in that context; but as our screen shrinks, we realize we're going to want some of that space back on the left and right sides.
 
@@ -343,80 +337,13 @@ We want to keep the vertical padding, as it creates some nice breathing room for
 
 This follows some of the same beats as the 980px breakpoint where we take flex children and make them run full width of the page instead of sharing the horizontal row with other elements. We didn't want the icon to become full-width of the page, however, because it would get to large; so we capped it at 32% width using `flex-basis` and told it not to take up any extra unused space by setting `flex-grow` to 0 (these are done in the `flex` declaration).
 
-Last thing we need to do is adjust our CSS grid for "Service Plans":
-
-```css
-@media screen and (max-width: 768px) {
-  
-  section {
-    padding: 30px 15px;
-  }
-  
-  .step h3 {
-    flex: 1 100%;
-    text-align: center
-  }
-
-  .step-info {
-    flex: 2 100%;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .step-info img {
-    flex: 0 32%;
-    margin-right: 0;
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-
-  .step-text {
-    flex: 100%;  
-  }
-
-  .service-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .service-grid-item.basic {
-    grid-column: 1;
-  }
-
-  .service-grid-item.both {
-    grid-column: 1 / -1;
-  }
-
-  .service-grid-item.cancel {
-    transform: none;
-    writing-mode: unset;
-    grid-column: 1 / -1;
-    grid-row: -1;
-  }
-
-}
-```
-
-There's a few cool things going on here. Let's start off by looking at `.service-grid` and notice that we've now turned our grid from having three columns to having two! With CSS Grid and media queries, we can adjust how many rows or columns our grid needs on the fly. By setting the value of `grid-template-columns` to "1fr 1fr", we are creating two equal columns for this grid.
-
-> **Pause:** What is another way to write `grid-template-columns: 1fr 1fr`?
->
-> Answer: `repeat(2, 1fr)`
-
-Next we set the "basic" plan grid items to simply have `grid-column: 1`, meaning that we just want them to all start in the first column now instead of the second column. Since we moved all of the "basic" grid items to all start at column one and in the HTML the "premium" items come after their "basic" counterpart, they automatically assume that they should start at the second column without use explicitly telling them to.
-
-For the one row that spans both columns, which is the width of the whole grid, we told it to run from the beginning to the end by giving it `grid-column: 1 / -1`. This means that we want it to start at the first column but end at the last column.
-
-> **Pause:** What do negative values in a CSS Grid mean?
->
-> Answer: Using a negative value means to start counting from the end of the grid row or column. For example, if a grid had ten columns defined, -1 would be the last (tenth) column, -2 would be the second to the last (ninth) column, and so on.
-
-Lastly, since we removed the first column completely at this screen size, we need to move the entire "Cancel" grid item over so it wasn't lost. This was easily accomplished by telling it to span both columns and end up on the bottom row now matter what.
-
-A couple of other things we had to do to it was to remove some of the interesting styles we applied to it earlier by setting `transform` to none and `writing-mode` to unset, both of which negate the styles that apply to them at larger screen sizes.
-
 At this point, the page is almost totally mobile responsive! There are a few pain points we need to address as the screen gets down to mobile phone size, but overall it is a very clean and readable site across most screens now. The big takeaway here is that using media queries, it is not as much work as one would expect to achieve a nice looking site on varying device screen sizes.
 
-For our 575 pixel width breakpoint, we really only need to tackle a few aesthetic updates and fix up the "Reach Out" section to read a little bit better, so let's go ahead and make our media query look like this:
+For our 575 pixel width breakpoint, we really only need to tackle a few aesthetic updates and fix up the "Reach Out" section to read a little bit better, so let's go ahead and make our media query look like this image:
+
+![Mockup of mobile phone media query at 575 pixels](assets/lesson-4/600-575-query.jpg)
+
+Here's the code to achieve the mockup above:
 
 ```css
 @media screen and (max-width: 575px) {
@@ -456,7 +383,7 @@ Most of these are purely aesthetic. We didn't _need_ to make the button in the f
 
 Other items we changed gave them more horizontal space, like how the trainer cards and making sure all three flex children in `.contact-info` became full width. There is also a new CSS property here, something we haven't seen before. Can you spot it?
 
-If we look at the page and resize the window to a phone's width, the contact form switches places with the map! This is being moved by using the `order` CSS property, another property that only adheres to child elements of a flexbox or CSS grid.
+If we look at the page and resize the window to a phone's width, the contact form switches places with the map! This is being moved by using the `order` CSS property, another property that only adheres to child elements of a flexbox or CSS grid (which we'll get to next!).
 
 The `order` property can be used to rearrange how these child elements appear on a page without actually moving the HTML code around and can be extremely useful in cases like this. A lot of times, a certain layout will look great on a bigger screen because there's more space, but as that space shrinks and the elements get closer to one another they end up looking like they're running into one another. The `order` property can be used to switch elements around and fix how they end up looking on different devices.
 
@@ -466,7 +393,7 @@ The page is now not only responsive, but it is completely mobile-friendly! We've
 
 ## Reflection
 
-The team at Run Buddy is going to be thrilled to see we were able to match the specifications their mock-ups had. By using CSS media queries, we were able to control our page's layout and style at various  viewport breakpoints. The combination of modern tools like flexbox and grid and media queries make creating these layouts a lot easier than they used to be, as we can set styles that can adapt to different screen sizes better and write less overriding styles in our media queries.
+The team at Run Buddy is going to be thrilled to see we were able to match the specifications their mock-ups had. By using CSS media queries, we were able to control our page's layout and style at various viewport breakpoints. The combination of modern tools like flexbox and media queries make creating these layouts a lot easier than they used to be, as we can set styles that can adapt to different screen sizes better and write less overriding styles in our media queries.
 
 Visualizing a web page that looks good across multiple screen sizes is not always an easy task, and we were fortunate that the team at Run Buddy already had an idea in mind of what they wanted, because that is not always the case. Lucky for us, even if we had to come up with the layout changes ourselves, we can use Chrome DevTools to help with the task. At first it may seem like cheating to use such a powerful tool, but in reality that tool was built specifically for us to become better, more efficient developers.
 
@@ -474,8 +401,8 @@ Let's recap some key concepts:
 
 - A media query is a special CSS tool used to change the style or layout of the site when a condition is met, such as the browser being under or over a specified width.
 
-- It is easier to change a layout that is using flexbox or grid as opposed to `float` and `position` since all of the elements getting moved are controlled by those flex/grid containers.
+- It is easier to change a layout that is using flexbox as opposed to `float` and `position` since all of the elements getting moved are controlled by those flex containers.
 
 - When dealing with complex styles and responsive design, Chrome DevTools can be used to debug and test possible solutions.
 
-At this point, the site _could_ be ready to go into production since it has all of its new content and is mobile-friendly, but it still feels a little too box-y and it doesn't have many modern design features like transparent colors or rounded corners. We've taken care of all the heavy lifting by making the page responsive, now let's make it pop!
+At this point, the site _could_ be ready to go into production since it is mobile-friendly and responsive, but the Run Buddy team has sent us an entire new section to add to the site that we'll have to use yet another new CSS layout tool for called **CSS Grid**. This tool introduces layout control that flexbox doesn't support, as it allows us to control both horizontal and vertical axes rather than just one at a time. Let's get to it! 
