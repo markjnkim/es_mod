@@ -3,7 +3,7 @@ const fs = require("fs");
 const canvas = require("./tools/canvas.js");
 const converter = require("./tools/converter.js");
 
-converter.transformMarkdown("../01-html/content/step-1-html-cmd-git.md");
+// converter.transformMarkdown("../01-html/content/step-1-html-cmd-git.md");
 
 // check for key
 if (!process.env.CANVAS_TOKEN) {
@@ -39,11 +39,18 @@ if (!folder.match(/-[0-9]+\/$/m)) {
   process.exit();
 }
 
-// get all images from folder
-const images = fs.readdirSync(folder);
-  
-for (let image of images) {
-  canvas.uploadImage(folder + image);
+async function uploadImages() {
+  // get ID of folder to dump images in
+  let folderID = await canvas.getFolderId(`/images/module-${mod}/lesson-${lesson}`);
 
-  console.log(image + " uploaded");
+  // get all images from folder
+  const images = fs.readdirSync(folder);
+
+  for (let image of images) {
+    await canvas.uploadImage(folderID, folder + image);
+  
+    console.log(image + " uploaded");
+  }
 }
+
+uploadImages();
