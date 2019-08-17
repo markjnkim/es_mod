@@ -121,22 +121,10 @@ function bootCampMagic() {
     $(this).wrapInner(`<code class="${className}">`);
   });
 
-  // create lightboxes
-  $("#bootcamp img").each(function() {
-    const imgSrc = $(this).attr("src");
-
-    const link = $("<a>").attr({
-      "data-featherlight": imgSrc,
-      "href": "#",
-      "class": "featherlight-link"
-    });
-
-    $(this).wrap(link);
-
+  // create lightboxes on all images
+  $("#bootcamp img").click(function() {
+    $.featherlight($(this).attr("src"), { type: "image"});
   });
-
-  // bind lightbox events
-  $('.featherlight-link').featherlight();
 
 
   Prism.highlightAll();
