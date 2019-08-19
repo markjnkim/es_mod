@@ -56,8 +56,6 @@ blockquote {
   // specific background styles per learning block type
 
   &.important, &.caution, &.hint, &.note, &.rewind, &.shortcut, &.pro-tip {
-    border-color: #721c24;
-    background-color: #F8D7DA;
 
      &::before {
       background-image: url("https://bootcampspot.instructure.com/courses/87/files/381/preview");
@@ -120,13 +118,13 @@ blockquote {
 
   &.narrative {
     &::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1296/preview");
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1296/preview");
     }
   }
 
-  &.skill-drill {
+  &.skill-drill, &.skills {
     &::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1295/preview");
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1295/preview");
     }
   }
   

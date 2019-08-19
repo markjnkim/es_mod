@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:700,800|Roboto:400,400i,700&display=swap');
 
 :root {
-  --trilogy-blue: #28c8e5;
-  --trilogy-teal: #3393a3;
+  --primary: #003262;
+  --secondary: #3B7EA1;
+  --tertiary: #FDB515;
+  --quaternary: #C4820E;
   --trilogy-dark-gray: #333333;
   --trilogy-light-gray: #f2f2f2;
   --trilogy-light-teal: #eef7f8;
@@ -22,10 +24,10 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', sans-serif;
-    color: var(--trilogy-blue);
+    color: var(--primary);
     font-weight: 800;
-    margin: 20px 0 0 0;
-    line-height: normal;
+    margin: 20px 0 15px 0;
+    line-height: 1;
   }
 
   h1 {
@@ -33,7 +35,7 @@
   }
 
   h2 {
-    font-size: 2.25em;
+    font-size: 2em;
 
     &:first-of-type {
       margin-top: 0;
@@ -46,19 +48,19 @@
   }
 
   h3 {
-    font-size: 2em;
+    font-size: 1.7em;
   }
 
   h4 {
-    font-size: 1.75em;
-  }
-
-  h5 {
     font-size: 1.5em;
   }
 
+  h5 {
+    font-size: 1.3em;
+  }
+
   h6 {
-    font-size: 1.25em;
+    font-size: 1.1em;
   }
   
   p {
@@ -67,9 +69,13 @@
     line-height: inherit;
     margin: 18px 0;
   }
+
+  h2 + p {
+    margin-top: 10px;
+  }
   
   a {
-    color: var(--trilogy-teal);
+    color: var(--secondary);
   }
   
   a[href*=".png"],
@@ -139,6 +145,11 @@
     }
   }
 
+  svg {
+    fill: var(--secondary);
+    stroke: var(--primary);
+  }
+
   .inline {
     display: inline;
   }
@@ -186,7 +197,7 @@
   background-image: url('https://bootcampspot.instructure.com/courses/87/files/402/preview');
   padding: 10px;
   min-height: 16vh;
-  border-bottom: 5px solid var(--trilogy-blue);
+  border-bottom: 5px solid var(--tertiary);
   font-family: 'Raleway', sans-serif;
   color: #ffffff !important;
   font-weight: 200 !important;
