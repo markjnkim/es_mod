@@ -94,7 +94,7 @@ header nav {
 }
 ```
 
-Now you can go save and refresh the page if you want to see it broken, or you can go ahead and apply the fix immediately by adding the following CSS property declaration to the `header` rule in `style.css`:
+Now apply flexbox by adding the following CSS property declaration to the `header` rule in `style.css`:
 
 ```css
 display: flex;
