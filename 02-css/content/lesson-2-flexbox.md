@@ -75,7 +75,7 @@ Flexbox eases these pains by creating HTML parent/child (or container/container-
 
 We'll start by making the `header` element a flexbox, but first let's remove a few pieces from our CSS file (a lot of this lesson will involve removing CSS properties and adding flexbox properties in their place):
 
-- Remove the `display: inline-block` declaration from `header h1` so it now looks like this code snippet:
+- Remove the `display: inline-block` declaration from `header h1` because we will be using flexbox to make the `h1` inline,  so it now looks like this code snippet:
 
 ```css
 header h1 {
