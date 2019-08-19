@@ -499,8 +499,7 @@ Before we add the custom buttons, we'll need to prep our `<label>` elements so o
 Now here's the crazy part. We're not going to add our new buttons in the HTML code. We're going to use CSS and **pseudo-elements** to do this. Add the following CSS rule to your style sheet:
 
 ```css
-.checkbox-wrapper label::before,
-.radio-wrapper label::before {
+.checkbox-wrapper label::before, .radio-wrapper label::before {
     content: "";
     height: 20px;
     width: 20px;
@@ -591,7 +590,8 @@ In the browser, click on our custom checkbox and notice how the visibility of th
 Obviously, this behavior isn't desirable. We want the state of this input to either show or hide the `::after` pseudo-element. Fortunately, CSS has [sibling selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator) where we can target an element that sits directly after another element. Let's rewrite the previous rule:
 
 ```css
-.checkbox-wrapper input:checked + label, .radio-wrapper input:checked + label {
+.checkbox-wrapper input:checked + label,
+.radio-wrapper input:checked + label {
   font-weight: bold;
 }
 ```
