@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Run Buddy 2.0 is now in full swing. In the previous lesson we took a peek at what the client wants to see in this new version of the site, but we primarily focused on establishing a Git workflow so we can responsibly make these updates without affecting the current site. We learned how to create and use feature branches, which not only reinforces this concept of working in abstraction, but it also takes a load off our minds by allowing us to work on one new feature at a time.
+Run Buddy 2.0 is now in full swing. In the previous lesson we took a peek at what the client wants to see in this new version of the site, but we primarily focused on establishing a Git workflow so we can responsibly make these updates without affecting the current site. We learned how to create and use feature branches, which not only reinforces this concept of working in isolation, but it also takes a load off our minds by allowing us to work on one new feature at a time.
 
 In this lesson we are going to tackle one of the biggest features Run Buddy has asked for&mdash;changing our layouts so they use a new CSS property called **flexbox**.
 
