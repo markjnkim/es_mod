@@ -177,6 +177,7 @@
   
   // import secondary style sheets within markdown body context
   @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
+  @import "../../node_modules/featherlight/release/featherlight.min.css";
   @import "_learning-blocks.scss";
 }
 

@@ -6,6 +6,8 @@ import  "prismjs/components/prism-visual-basic";
 import  "prismjs/components/prism-sql";
 import  "prismjs/components/prism-r";
 
+import featherlight from "featherlight";
+
 // style sheets
 import "../css/main.scss";
 
@@ -118,6 +120,12 @@ function bootCampMagic() {
 
     $(this).wrapInner(`<code class="${className}">`);
   });
+
+  // create lightboxes on all images
+  $("#bootcamp img").click(function() {
+    $.featherlight($(this).attr("src"), { type: "image"});
+  });
+
 
   Prism.highlightAll();
 }
