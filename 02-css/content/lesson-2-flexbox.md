@@ -8,7 +8,7 @@ In this lesson we are going to tackle one of the biggest features Run Buddy has 
 
 We'll start off by putting our new workflow to use by reviewing our GitHub issue and then create a local Git feature branch to perform our work. This will reinforce the workflow process as we begin something new.
 
-After that we will update the site one section at a time and convert it to use flexbox, a new CSS property that allows us to create more advanced layouts for our HTML content. This property will make our page look better across multiple screen sizes by allowing content to naturally stack on top of one another when the screen becomes more narrow. We'll also explore the advantages flexbox offers when compared to other layout techniques such as `position` and `float` by using it to create different styles of layouts without writing tedious amounts of code.
+After that we will update the site one section at a time and convert it to use flexbox, a new CSS property that allows us to create more advanced layouts for our HTML content. This property will make our page look better across multiple screen sizes by allowing content to naturally stack on top of one another when the screen becomes more narrow. We'll also explore the advantages flexbox offers when compared to other layout techniques such as `position` and `float` by using it to create different styles of layouts in a much more concise and efficient manner.
 
 Here are some mockups of the layout changes we'll be making throughout this lesson:
 
