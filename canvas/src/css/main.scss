@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:700,800|Roboto:400,400i,700&display=swap');
 
 :root {
-  --trilogy-blue: #28c8e5;
-  --trilogy-teal: #3393a3;
-  --trilogy-dark-gray: #333333;
-  --trilogy-light-gray: #f2f2f2;
-  --trilogy-light-teal: #eef7f8;
+  --primary: #003262;
+  --secondary: #3B7EA1;
+  --tertiary: #FDB515;
+  --quaternary: #C4820E;
+  --dark-gray: #333333;
+  --light-gray: #f2f2f2;
+  --light-teal: #eef7f8;
   --black: #000000;
   --white: #ffffff;
 }
@@ -18,14 +20,14 @@
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   line-height: 1.6;
-  color: var(--trilogy-dark-gray);
+  color: var(--dark-gray);
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', sans-serif;
-    color: var(--trilogy-blue);
+    color: var(--primary);
     font-weight: 800;
-    margin: 20px 0 0 0;
-    line-height: normal;
+    margin: 20px 0 15px 0;
+    line-height: 1;
   }
 
   h1 {
@@ -33,7 +35,7 @@
   }
 
   h2 {
-    font-size: 2.25em;
+    font-size: 2em;
 
     &:first-of-type {
       margin-top: 0;
@@ -46,19 +48,19 @@
   }
 
   h3 {
-    font-size: 2em;
+    font-size: 1.7em;
   }
 
   h4 {
-    font-size: 1.75em;
-  }
-
-  h5 {
     font-size: 1.5em;
   }
 
+  h5 {
+    font-size: 1.3em;
+  }
+
   h6 {
-    font-size: 1.25em;
+    font-size: 1.1em;
   }
   
   p {
@@ -67,9 +69,13 @@
     line-height: inherit;
     margin: 18px 0;
   }
+
+  h2 + p {
+    margin-top: 10px;
+  }
   
   a {
-    color: var(--trilogy-teal);
+    color: var(--secondary);
   }
   
   a[href*=".png"],
@@ -139,6 +145,15 @@
     }
   }
 
+  svg {
+    fill: var(--secondary);
+    stroke: var(--primary);
+  }
+
+  code, pre {
+    font-size: 1rem;
+  }
+
   .inline {
     display: inline;
   }
@@ -177,6 +192,7 @@
   
   // import secondary style sheets within markdown body context
   @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
+  @import "../../node_modules/featherlight/release/featherlight.min.css";
   @import "_learning-blocks.scss";
 }
 
@@ -185,7 +201,7 @@
   background-image: url('https://bootcampspot.instructure.com/courses/87/files/402/preview');
   padding: 10px;
   min-height: 16vh;
-  border-bottom: 5px solid var(--trilogy-blue);
+  border-bottom: 5px solid var(--tertiary);
   font-family: 'Raleway', sans-serif;
   color: #ffffff !important;
   font-weight: 200 !important;
@@ -195,4 +211,15 @@
   background-blend-mode: multiply;
   display: flex;
   align-items: flex-end;
+  margin-bottom: 0;
+}
+
+#narrative-block {
+  border: none;
+  font-size: 1.35em;
+  line-height: 1.7;
+  color: var(--black);
+  padding: 15px;
+  border: 1px solid var(--tertiary);
+  border-top: none;
 }
