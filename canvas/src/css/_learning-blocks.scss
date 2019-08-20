@@ -1,10 +1,10 @@
 // learning blocks are any blockquote elements inside the markdown body
 
 blockquote {
-  border-left: 10px solid var(--trilogy-blue);
-  color: #6a737d;
+  border-left: 10px solid #858585;
+  color: var(--dark-gray);
   border-radius: 13px;
-  background: rgb(238, 247, 248);
+  background-color: #ececec;
   position: relative;
   left: 64px;
   width: calc(90% - 64px);
@@ -118,6 +118,7 @@ blockquote {
 
   &.narrative {
     &::before {
+
       background-image: url("https://bootcampspot.instructure.com/courses/89/files/1296/preview");
     }
   }

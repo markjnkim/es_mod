@@ -5,9 +5,9 @@
   --secondary: #3B7EA1;
   --tertiary: #FDB515;
   --quaternary: #C4820E;
-  --trilogy-dark-gray: #333333;
-  --trilogy-light-gray: #f2f2f2;
-  --trilogy-light-teal: #eef7f8;
+  --dark-gray: #333333;
+  --light-gray: #f2f2f2;
+  --light-teal: #eef7f8;
   --black: #000000;
   --white: #ffffff;
 }
@@ -20,7 +20,7 @@
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   line-height: 1.6;
-  color: var(--trilogy-dark-gray);
+  color: var(--dark-gray);
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', sans-serif;
@@ -150,6 +150,10 @@
     stroke: var(--primary);
   }
 
+  code, pre {
+    font-size: 1rem;
+  }
+
   .inline {
     display: inline;
   }
@@ -207,4 +211,11 @@
   background-blend-mode: multiply;
   display: flex;
   align-items: flex-end;
+}
+
+#narrative-block {
+  border: none;
+  font-size: 1.35em;
+  line-height: 1.7;
+  color: var(--black);
 }

@@ -135,9 +135,9 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
   --secondary: #3B7EA1;
   --tertiary: #FDB515;
   --quaternary: #C4820E;
-  --trilogy-dark-gray: #333333;
-  --trilogy-light-gray: #f2f2f2;
-  --trilogy-light-teal: #eef7f8;
+  --dark-gray: #333333;
+  --light-gray: #f2f2f2;
+  --light-teal: #eef7f8;
   --black: #000000;
   --white: #ffffff; }
 
@@ -148,7 +148,7 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   line-height: 1.6;
-  color: var(--trilogy-dark-gray); }
+  color: var(--dark-gray); }
   #bootcamp h1, #bootcamp h2, #bootcamp h3, #bootcamp h4, #bootcamp h5, #bootcamp h6 {
     font-family: 'Raleway', sans-serif;
     color: var(--primary);
@@ -229,6 +229,8 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
   #bootcamp svg {
     fill: var(--secondary);
     stroke: var(--primary); }
+  #bootcamp code, #bootcamp pre {
+    font-size: 1rem; }
   #bootcamp .inline {
     display: inline; }
   #bootcamp .code-large {
@@ -256,10 +258,10 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
       box-shadow: 0 0 10px #333333;
       margin: 0; }
   #bootcamp blockquote {
-    border-left: 10px solid var(--trilogy-blue);
-    color: #6a737d;
+    border-left: 10px solid #858585;
+    color: var(--dark-gray);
     border-radius: 13px;
-    background: #eef7f8;
+    background-color: #ececec;
     position: relative;
     left: 64px;
     width: calc(90% - 64px);
@@ -335,4 +337,10 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
   background-blend-mode: multiply;
   display: flex;
   align-items: flex-end; }
+
+#narrative-block {
+  border: none;
+  font-size: 1.35em;
+  line-height: 1.7;
+  color: var(--black); }
 

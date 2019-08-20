@@ -101,6 +101,12 @@ function bootCampMagic() {
     //     $(this).removeClass("collapse");
     //   });
     // }
+
+    console.log(type);
+    if ($(this).hasClass("narrative")) {
+      $(this).attr("id", "narrative-block").insertBefore($(this).parent());
+      $(this).find(".title").remove();
+    }
   });
 
   // remove any google docs errors
