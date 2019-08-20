@@ -63,12 +63,16 @@ blockquote {
   }
 
   &.important {
+    border-color: #ca0b0b;
+    background-color: #ffaeae;
     &::before {
       background-image: url("https://bootcampspot.instructure.com/courses/89/files/1292/preview");
     }
   }
 
-  &.caution {
+  &.caution, &.warning {
+    border-color: #ca0b0b;
+    background-color: #ffaeae;
     &::before {
       background-image: url("https://bootcampspot.instructure.com/courses/89/files/1299/preview");
     }

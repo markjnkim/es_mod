@@ -290,10 +290,16 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
       top: 28px; }
     #bootcamp blockquote.important::before, #bootcamp blockquote.caution::before, #bootcamp blockquote.hint::before, #bootcamp blockquote.note::before, #bootcamp blockquote.rewind::before, #bootcamp blockquote.shortcut::before, #bootcamp blockquote.pro-tip::before {
       background-image: url("https://bootcampspot.instructure.com/courses/87/files/381/preview"); }
-    #bootcamp blockquote.important::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1292/preview"); }
-    #bootcamp blockquote.caution::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1299/preview"); }
+    #bootcamp blockquote.important {
+      border-color: #ca0b0b;
+      background-color: #ffaeae; }
+      #bootcamp blockquote.important::before {
+        background-image: url("https://bootcampspot.instructure.com/courses/89/files/1292/preview"); }
+    #bootcamp blockquote.caution, #bootcamp blockquote.warning {
+      border-color: #ca0b0b;
+      background-color: #ffaeae; }
+      #bootcamp blockquote.caution::before, #bootcamp blockquote.warning::before {
+        background-image: url("https://bootcampspot.instructure.com/courses/89/files/1299/preview"); }
     #bootcamp blockquote.hint::before {
       background-image: url("https://bootcampspot.instructure.com/courses/89/files/1293/preview"); }
     #bootcamp blockquote.note::before {
@@ -336,11 +342,15 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
   background-size: cover;
   background-blend-mode: multiply;
   display: flex;
-  align-items: flex-end; }
+  align-items: flex-end;
+  margin-bottom: 0; }
 
 #narrative-block {
   border: none;
   font-size: 1.35em;
   line-height: 1.7;
-  color: var(--black); }
+  color: var(--black);
+  padding: 15px;
+  border: 1px solid var(--tertiary);
+  border-top: none; }
 
