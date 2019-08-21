@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Canvas Overrides",
+  "version": "0.1",
+  "browser_action": {
+    "default_title": "Canvas Overrides"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.instructure.com/courses/*/pages/*"
+      ],
+      "js": ["extension-files/content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["extension-files/background.js"]
+  },
+  "web_accessible_resources": ["canvas-fsfo-script.js", "canvas-fsfo-theme.css"],
+  "permissions": ["management", "webRequest", "webRequestBlocking", "*://*.amazonaws.com/*", "*://*.instructure.com/*"]
+}
