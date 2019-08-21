@@ -13,7 +13,7 @@ After receiving the mandate from management for the next update for Run Buddy 2.
 ![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
 <!-- Since the website is currently deployed on the `master` branch, if we try to make changes on the `master` like we did back in Module 1, this will result in a broken website that will block our visitors from using Run Buddy's services. The management team would not be very happy about turning away potential customers. -->
-Due to the fact that the current codebase is live, if we were to make changes on the code, we would break the website thereby disturbing our users' browsing experience. Not an option the management staff would be very happy with. We need to find a different process or workflow that would allow us to work on a duplicate copy while the original copy is still maintaining the website.
+Due to the fact that the current codebase is live, if we were to make changes to the code, we would break the website thereby disturbing our users' browsing experience. Not an option the management staff would be very happy with. We need to find a different process or workflow that would allow us to work on a duplicate copy while the original copy is still maintaining the website.
 This is where our friend Git comes back into play.
 In this lesson we will introduce three main concepts.
 * Using Git to create branches to make versions of our codebase.
@@ -23,7 +23,7 @@ In this lesson we will introduce three main concepts.
 > **Career Prep**: Git is the industry standard for developers. Employer-ready students must demonstrate a solid familiarity with Git version control.
 
 ## Development vs Production
-Git allows developers to create versions of the codebase to create new features or fix bugs. These versions are referred to as branches in Git. In our case we would like to have one version that is deployed which will continue to serve our visitors and another version of the codebase to work on in isolation that will allow us to edit and change the code without worrying about disrupting the website for users. This is created by making a branch or "fork" from the `master` branch. This new branch will become our development environment which we will call the `develop` branch. We will work on the code in our `develop` branch while our `master` branch will become the production environment which is the public live version of our project. Development environments are not exposed to the public whereas production is. As a rule, live version or the production environment should never be worked on directly since any bugs or errors will be apparent to all the users. Git offers a technique to isolate versions of the code for development and testing with branching. 
+Git allows developers to create versions of the codebase to create new features or fix bugs. These versions are referred to as branches in Git. In our case we would like to have one version that is deployed which will continue to serve our website visitors and another version of the codebase to work on in isolation that will allow us to edit and change the code without worrying about disrupting the website for users. This is done by making a branch or "fork" from the `master` branch. This new branch will become our development environment which we will call the `develop` branch. We will work on the code in our `develop` branch while our `master` branch will become the production environment which is the public live version of our project. Development environments are not exposed to the public whereas production environments are. As a rule, a live version or the production environment should never be worked on directly since any bugs or errors will be apparent to the users. Git offers a technique to isolate versions of the code for development and testing with branching. 
 
 > **Pro Tip**: Please note the branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, however in our situation this will be the case. 
 
@@ -38,7 +38,7 @@ Displays a list of all the current branches currently in our repo. This also hig
 $ git branch <branch-name>
 
 ```
-This Git command creates a new branch with your `<branch-name>` which creates a version of the current active branch. Once changes are committed onto the new branch, the branches will no longer be in sync with each other since their commit histories will diverge. This is how we make a new version of the active branch. We can only make a version or "fork" from the active branch so it is a good practice to use the `git branch` command to verify the active branch before creating a new version.
+This Git command creates a new branch with your `<branch-name>` which creates a version of the current active branch. Once changes are committed onto the new branch, the branches will no longer be in sync with each other since their commit histories will diverge. This is how we make a new version of the active branch. We can only make a version or "fork" from the active branch so it is a good practice to use the `git branch` command to verify the active branch before creating a new branch.
 ```
 $ git checkout <branch-name>
 ```
@@ -55,7 +55,7 @@ Using the **-b** option flag, which is short for *branch*, we can create a new b
 
 Now let's practice using these commands to create our development environment by making a `develop` branch. Remember we must go to the terminal and `cd` into our working directory. 
 
-Let's go to the root directory of our project so we can make a new branch from our `master` branch. 
+Let's go to the root directory of our project so we can make a new branch from our `master` branch, our production environment. 
 
 ```
 $ git branch develop
@@ -81,7 +81,7 @@ Now that we have learned an important use of Git's branches to create an isolate
 
 Features are significant additions or changes to the codebase. For instance adding a header, footer, or section could be considered a feature. A feature is normally developed in its own branch called a `feature` branch.
 
-> **Video**: [Why working in isolation is important](jiraissue) <br />
+> **Video**: [Why working in isolation is important- Jira FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) <br />
 Possible video, example on [Youtube](https://www.youtube.com/watch?v=9GKpbI1siow)
 Example here. Let's say two people are working on the same page, how overwriting or "stomping" might occur. 
 
@@ -95,7 +95,7 @@ There are several important reasons to work on the codebase in a separate `featu
 * Features can be added independently, meaning a `feature` branch can not only start separately, but also added or merged back into the `develop` branch when it is finished, without needing to wait for other team members to finish their work on other branches.
 * Testing the feature branch in isolation will help find errors or bugs more quickly since the changes in the codebase will be unique to the feature.
 
-> **Video**: [Animation of Git workflow](jira issue). Start with  `master` then fork to `develop`. The branching from `develop` into a feature, then another feature, [actual code development] then merging back into the `develop` branch, then into `master` branch.
+> **Video**: [Animation of Git workflow-Jira FSFO-106](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-106). Start with  `master` then fork to `develop`. The branching from `develop` into a feature, then another feature, [actual code development] then merging back into the `develop` branch, then into `master` branch.
 
 It's time to switch gears now that we have our development environment set up. Let's go to our repo in GitHub and create some documentation for the new version of the Run Buddy project by creating a `README.md` file after a quick checkpoint.
 > **Checkpoint**<br />
@@ -118,19 +118,18 @@ what our project A README is a text file associated with your repo that document
 > **Deep Dive:** For a closer look let's take a look at the official documentation on [GitHub Guides](https://guides.github.com/features/wikis/) and [Markdown](https://www.markdownguide.org/basic-syntax)
 
 
-The `README.md` is a Markdown file which is a text file that offers some light weight markup or styling. It is located in the top level or root directory of the repo which allows GitHub to render it on the landing page of your repo. README files do not have to be in Markdown, and can be regular text files, however we will continue using Markdown due to its simplicity as well its ease of use in Github and VS Code.
-> **Rewind**: Similar to HTML, Markdown uses syntax and tags for styling. See this [Markdown guide](https://www.markdownguide.org/basic-syntax) that will give a nice comparison with HTML. Here is some background on Markdown on [Wikipedia](https://en.wikipedia.org/wiki/Markdown).
+The `README.md` is a Markdown file which is a text file that offers some light weight markup or styling. It is located in the top level or root directory of the repo which allows GitHub to render it on the landing page of your repo. README files do not have to be in Markdown, and can be regular text files, however we will continue using Markdown due to its simplicity and ease of use in Github and VS Code.
+> **Rewind**: Similar to HTML, Markdown uses syntax and markup notation for styling. See this [Markdown guide](https://www.markdownguide.org/basic-syntax) that will give a nice comparison with HTML. Here is some background on the [Markdown markup on Wikipedia](https://en.wikipedia.org/wiki/Markdown).
 <!-- You can also find many `README.md` templates online, here is a [sample](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2). -->
 Now our next step is to create a `README.md` in GitHub.
 
-> Screenshot of repo. . . Recreate student repo simulation <br />(Will Be Added)<br />
->Highlight Create new file button on the screenshot<br />
-> **Possible Video Walk through**
-> **Linear Steps** <br />
+
+> **Video:** [Creating a `README.md` file in Github - Jira FSFO-107](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-107)
+> 
 > 1. Navigate to our project repo.
-> 2. Click on the Create new File.
+> 2. Click on the "Create new File" button.
 > 3. Type `README.md` into the input field.
-> 4. For the body of the README let's us the Markdown tags to create a rich text with a few headings regarding the title and purpose of this project, the coding languages used, other technologies used, and your name. Later we can add more and even further embellish this `README.md` screenshots and gifs. There are plenty of advanced [templates online](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) however for a first project, it will be best to keep the documentation simple for now.
+> 4. For the body of the README let's use the Markdown tags to create a rich text with a few headings regarding the title and purpose of this project, the coding languages used, other technologies used, and your name. Later we can add more and even further enhance this `README.md` screenshots and gifs. There are plenty of advanced [templates online](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) however for a first project, it will be best to keep the documentation simple for now.
 Here's an example of what your raw Markdown file should look like.
 <!-- ![Markdown Raw Text](./assets/lesson-1/160-markdown-github.png)  -->
 ```markdown
@@ -139,7 +138,7 @@ Here's an example of what your raw Markdown file should look like.
 ## Purpose
 A website that offers fitness training services.
 
-## Build With
+## Built With
 * HTML
 * CSS
 
@@ -163,29 +162,40 @@ To check to see if this `README.md` file was created properly, see if the `READM
 While in our GitHub repo let's take a look at our branches by selecting the branches tab. 
 > **Screenshot** of student's simulated GitHub repo highlighting branches tab _(Will Be Added)_
 ![Github Branches](./assets/lesson-1/190-branches-github.png)
-> **Pause**: Although we see our `master` branch, we don't see the`develop` branch we just created. Can you explain why?
+> **Pause**: Although we see our `master` branch, we don't see the `develop` branch we just created. Can you explain why?
 
-> **Answer**: The `develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on Github.com. This is considered the "remote" repo. As we did in the past module, we will need to `git push` our local changes to GitHub.
+> **Answer**: The `develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on Github.com. This is considered the "remote" repo. As we did in the past module, we will need to `git push` our local changes up to the remote repo in GitHub.
 
 Let's continue to the next step where we will learn how to communicate updates between our remote repo (Github.com) and our local repo (on our computer).
-
+<!-- 
 > **Checkpoint**<br />
 What is a README.md for?<br />
 What is Markdown? What is it used for?<br />
-How to preview Markdown?<br />
+How to preview Markdown in Github?<br /> -->
 
 ## Interacting with Github
 It is important to keep in mind our local repo (on our computer) is different than the remote repo (stored on GitHub.com) even though the code seems relatively the same, they are in fact different versions of the codebase. 
 > **Rewind**: GitHub is a service that stores our repo online which facilitates collaboration, backups our code, and links to servers that can deploy our project. 
 
-Since we made a change to the `README.md` on the `master` branch in Github, let's take a look in the local `master` branch by doing a `git checkout master` in the terminal. As we can see, the `README.md` file we just created in GitHub isn't in our local folder. This is because our remote repo (GitHub.com) and local repo are currently out of sync.
+Since we made a change to the `README.md` on the `master` branch in Github, let's take a look in the local `master` branch by doing a `git checkout master` in the terminal. As we can see, the `README.md` file we just created in GitHub isn't in our local folder. This is because our remote repo (GitHub.com) and local repo are currently out of sync. In the next step we will learn how to communicate and sync with the remote and our local repos.
 
-![Git Pull](assets/lesson-1/240-branch-github.png) 
-<!-- Image doesn't illustrate the pull direction into local -->
-Let's update our local repo with our remote repo in GitHub by introducing a Git command `git pull` that is opposite operation of `git push` which we used previously to upload our codebase to the remote server on Github.  `git pull` pulls down or downloads the code from the remote server whereas `git push` pushes or uploads the local codebase into the remote server.
-> **Possible Video Animation** Showing data flowing back and forth b/n remote and local repos.
-![Git Pull](assets/lesson-1/250-pull-git.png)<br />
-Before we can update our local repo, it is always a good practice to see if local changes need to be staged and committed. Let's first make sure we are in our `develop` branch. Now let's run our `git status` command to verify if our working tree is clean, which means our files are `added` and there is nothing new to `commit`, otherwise please `stage` and `commit`. 
+![Local vs Remote](assets/lesson-1/240-branch-github.png) <br>
+[URL](https://www.atlassian.com/git/tutorials/syncing/git-pull)
+<!-- Illustrate the problem -->
+As can be seen in the illustration, the `master` branch on the remote is not in sync with the `master` branch on the local repo. The circles represent commits and the letters indicate a different commit or save point. Since the commits are different on the two repos, this makes the versions different and out of sync. In this step we will learn how to sync our local repo with the remote repo.
+### Update the Local Repo with Git Pull
+In order to do this we must first introduce a Git command `git pull` that is opposite operation of `git push` which we used previously to upload our codebase to the remote server on Github, or update the remote.  The `git pull` command pulls down or downloads the code from the remote server to our local repo on our computer whereas `git push` pushes up or uploads the local codebase to the remote server on Github.
+
+Before we can update our local repo, it is always a good practice to see if local changes need to be staged and committed. Let's first make sure we are in our `develop` branch with the following command:
+```
+git checkout develop
+```
+Now let's run our status check command:
+```
+git status
+``` 
+This command verifies if our working tree is clean, which means our files are `added` and there is nothing new to `commit`, otherwise please `stage` and `commit` and changes that were made.
+
 Now once we have a "clean" branch, we are ready to "pull" or update our local repo with the remote thereby downloading any new changes. Let's examine the Git command.
 ```
 $ git pull origin master
@@ -194,6 +204,12 @@ The `pull` command directs the download process to occur. The `origin` and `mast
 > **Pause**: Wait, but how does the `pull` command know where the download will to go to?
 any thoughts? guesses?<br />
 > **Answer**: `git pull` will download to the current active branch or whatever branch you are currently checked-out on. That's why it's always a good idea to use a `git branch` to verify the active branch before doing a `git pull`.
+
+> **Video -** Animation: Showing Data Flow [Git Pull & Git Push-Jira FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)<br>
+![Git Pull](assets/lesson-1/250-pull-git.png)<!-- Illustration lacks direction-->
+<br /> 
+As can be seen in this illustration, the remote repo has converged with the local repo in the "H" merge commit. Now our two repos are synced up and have duplicate code.
+
 
 Let's dive deeper on the `pull` process. The `pull` command is actually a combination of two different operations, `git fetch` and `git merge`.
 The git command `git fetch` can get one or more branches from the remote repo and allows local access to them through `git checkout` process. This operation will not change any local files but will only add branches in the remote repo. A use case for `git fetch` would be to look at a team member's feature branch for a review process or to help in finding a bug. This branch is downloaded through the `git fetch` operation and then needs to to opened through the `git checkout` operation. Then the code can be rendered in the browser, tested, code reviewed, or changed as needed. These changes can then be staged, committed, and pushed back to the remote feature branch.
