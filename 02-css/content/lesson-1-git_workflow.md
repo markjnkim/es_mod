@@ -243,9 +243,9 @@ You should see the following screen after a successful `pull`.
 ![vim](assets/lesson-1/200-vim-cli.png)
 
 Git has opened a text editor called Vim to request a commit message for the `merge` operation. To exit out of this screen type the following into the editor:
-`SHIFT`+`Z`+`Z`
-or alternatively
-`ESC` + `:` + `q`
+Enter ESC to enter normal mode, and then : to initiate a Vim command. You will see a colon at the bottom-left of the Vim window. Then type q to quit.
+or alternatively type
+SHIFT + Z + Z
 <!--? Proper Way to Display Sequential Key Binding ? -->
 
 > **Deep Dive**: To learn more about this powerful text editor, check out [Wikipedia](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
@@ -260,8 +260,10 @@ The next lines display what files were changed and how many lines were added in 
 
 
 > **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, VS Code has an Explorer side panel that will display an updated folder directory of the active branch. Also note that on the bottom left on the status bar in VS Code the active branch will always be displayed to help keep track of the version being edited or copied. This helps ensure we are not working on the `master` branch since management will not be very happy if the production environment gets corrupted.<br />
-> ### (ADD SCREENSHOT OF STUDENT'S INTEGRATED TERMINAL WINDOW w/ red outline of active branch in status bar)
-> **Video**: Screencast of VS code switching between branches and/or a pull request with?
+![VS Code-Integrated Terminal](./assets/lesson-1/350-VS-Code-integrated-terminal.png)<br>
+<!--Highlight active branch and preview for Markdown -->
+
+> **Video**-Gif: Show how the Explorer changes on branch checkout
 
 If you see the `README.md` file in VS Code, congrats for successfully accomplishing our first `pull`! 
 
