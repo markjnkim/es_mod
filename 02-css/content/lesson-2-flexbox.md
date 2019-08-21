@@ -4,19 +4,19 @@
 
 Run Buddy 2.0 is now in full swing. In the previous lesson we took a peek at what the client wants to see in this new version of the site, but we primarily focused on establishing a Git workflow so we can responsibly make these updates without affecting the current site. We learned how to create and use feature branches, which not only reinforces this concept of working in isolation, but it also takes a load off our minds by allowing us to work on one new feature at a time.
 
-In this lesson we are going to tackle one of the biggest features Run Buddy has asked for&mdash;changing our layouts so they use a new CSS property called **flexbox**.
+In this lesson we are going to tackle one of the more important requests Run Buddy has for us&mdash;modifying and updating each section's layout so we can display the page's content in a more impactful way. We'll be taking our current content and laying them out to make better use of the page's horizontal space and alignment. By making these adjustments, we'll also be preparing our site for another feature&mdash;mobile responsiveness. While some of these layout requests coming from Run Buddy will seem challenging at first, we're going to use a new CSS technology called **flexbox** to help us achieve them.
 
 We'll start off by putting our new workflow to use by reviewing our GitHub issue and then create a local Git feature branch to perform our work. This will reinforce the workflow process as we begin something new.
 
 After that we will update the site one section at a time and convert it to use flexbox, a new CSS property that allows us to create more advanced layouts for our HTML content. This property will make our page look better across multiple screen sizes by allowing content to naturally stack on top of one another when the screen becomes more narrow. We'll also explore the advantages flexbox offers when compared to other layout techniques such as `position` and `float` by using it to create different styles of layouts in a much more concise and efficient manner.
 
-Here are some mockups of the layout changes we'll be making throughout this lesson:
+Here are some mock-ups of the layout changes we'll be making throughout this lesson:
 
 ![Hero banner with side by side content](assets/lesson-2/100-hero.jpg)
 
 ![The Run Buddy trainers laid out in three columns](assets/lesson-2/200-trainers.jpg)
 
-Throughout this lesson, we're also going to reinforce a key concept in HTML layouts we introduced in Run Buddy 1.0, which is to always think of layouts as a series of containers or boxes that hold the content. So before starting this lesson, study the mockups above and try to visualize how they can be outlined into boxes on the page.
+Throughout this lesson, we're also going to reinforce a key concept in HTML layouts we introduced in Run Buddy 1.0, which is to always think of layouts as a series of containers or boxes that hold the content. So before starting this lesson, study the mock-ups above and try to visualize how they can be outlined into boxes on the page.
 
 We're ready to get started but as we've learned, our current `develop` branch is probably not the best place to mess around. Let's review our GitHub issue, make a feature branch to work in, and get coding!
 
@@ -36,7 +36,7 @@ Run `git branch` again to make sure it worked. If it says the active branch is `
 
 ## Adding Flexbox to the Header
 
-You may compare the header in the current live site (Run Buddy 1.0) to the mockup provided by the design team and think "why would this need to be updated? It looks exactly the same!", and while they may look the same, the one we're working towards is going to use new CSS properties that make the HTML more responsive and flexible for different screen sizes. This core layout concept is called **flexbox**, and it is a tool we'll not only use for the header, but for almost every section on the Run Buddy site.
+You may compare the header in the current live site (Run Buddy 1.0) to the mock-up provided by the design team and think "why would this need to be updated? It looks exactly the same!", and while they may look the same, the one we're working towards is going to use new CSS properties that make the HTML more responsive and flexible for different screen sizes. This core layout concept is called **flexbox**, and it is a tool we'll not only use for the header, but for almost every section on the Run Buddy site.
 
 The term "flexbox" is short hand for "flexible box module" and it is used as a one-dimensional layout model, meaning it can be applied to an HTML element to control the distribution, alignment, and spacing of the HTML elements inside of it on either the x-axis (horizontal axis, often called a "row") or the y-axis (vertical axis, often called a "column"). This video will demonstrate some of the different features flexbox has to offer:
 
@@ -262,7 +262,7 @@ When you save the page and refresh, try moving the screen size in and out to mak
 
 ![Finished footer on a small screen with content stacked on top of one another](assets/lesson-2/1200-flex-footer-finished.png)
 
-If it doesn't match the above mockup, remember that we can always use Chrome DevTools to debug and inspect our CSS! This video will show us how to use DevTools to cross-reference our code with the code introduced in the instructions above:
+If it doesn't match the above mock-up, remember that we can always use Chrome DevTools to debug and inspect our CSS! This video will show us how to use DevTools to cross-reference our code with the code introduced in the instructions above:
 
 ### [NEED VIDEO: FSFO-88 - Using DevTools to debug footer](https://trilogyed.atlassian.net/browse/FSFO-88?atlOrigin=eyJpIjoiMGYxOTVlZTZhMGYxNGRlYjgwMzIyODhmMTc2MWRmMmUiLCJwIjoiaiJ9)
 
@@ -278,9 +278,9 @@ Thinking about it in terms of a flexbox layout, we would have a "row" with two "
 
 ![Run Buddy hero section outlined](assets/lesson-2/1400-hero-outlined.jpeg)
 
-When building layouts using HTML and CSS, it is important to understand what the content of the layout is going to be, but it is a more important skill to understand how to take the mockup of the layout and understand how all of this content can be placed in containers and laid out to match it.
+When building layouts using HTML and CSS, it is important to understand what the content of the layout is going to be, but it is a more important skill to understand how to take the mock-up of the layout and understand how all of this content can be placed in containers and laid out to match it.
 
-In the outlined mockup above, we can see a rough example of how the hero section of our site can be laid out on the overall page. We don't even need to worry about what is happening in each of those boxes with white outlines, all we need to do is worry about the boxes themselves. Think of it as us creating a game plan for what we want to do before we do it so we can visualize our problem and stay on track.
+In the outlined mock-up above, we can see a rough example of how the hero section of our site can be laid out on the overall page. We don't even need to worry about what is happening in each of those boxes with white outlines, all we need to do is worry about the boxes themselves. Think of it as us creating a game plan for what we want to do before we do it so we can visualize our problem and stay on track.
 
 > URKEL SAYS: The practice of sketching the outline of a page's layout is called "wireframing" and it is used throughout all of web development.
 
@@ -432,7 +432,7 @@ While it reads well, it's also not making great use of that space to the left an
 
 As we can see, each step will take up less vertical space and have a little more interesting layout for the user to experience while also keeping the content together in a meaningful way.
 
-Before we begin coding, let's take a minute and look at the above mockup and consider how many "containers" we'd want to make for this content to be easily laid out using flexbox properties. The answer may be a little trickier than you would think just by glancing at it, but think of how we made containers around the `header` and `footer` elements' children to position them properly.
+Before we begin coding, let's take a minute and look at the above mock-up and consider how many "containers" we'd want to make for this content to be easily laid out using flexbox properties. The answer may be a little trickier than you would think just by glancing at it, but think of how we made containers around the `header` and `footer` elements' children to position them properly.
 
 > HINT: When in doubt, grab a piece of paper and physically recreate the layout using by just drawing the boxes that contain the content. You don't have to be an artist, but drawing the layout helps visualize it so it is easier to transfer to CSS!
 
@@ -440,7 +440,7 @@ Just like our `header` element being a flexbox parent container having two child
 
 ![New step layout outlined with boxes](assets/lesson-2/1700-step-outlines.jpeg)
 
-Looking at the above mockup of this layout, we can see that we can make the entire step itself a flexbox with two children&mdash;the step's number on the left and information on the right. Then we are going to make the step information's `div` its own flexbox with two children for the icon and the text.
+Looking at the above mock-up of this layout, we can see that we can make the entire step itself a flexbox with two children&mdash;the step's number on the left and information on the right. Then we are going to make the step information's `div` its own flexbox with two children for the icon and the text.
 
 Like previous sections, we'll have to start by restructuring our HTML a bit and removing some CSS styles before we can think about what new styles are going to be used.
 
