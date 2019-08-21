@@ -16,7 +16,7 @@ Here are some mockups of the layout changes we'll be making throughout this less
 
 ![The Run Buddy trainers laid out in three columns](assets/lesson-2/200-trainers.jpg)
 
-Throughout this lesson, we're also going to reinforce a key concept in HTML layouts we introduced in Run Buddy 1.0, which is to always think of layouts a series of containers or boxes that hold the content. So before starting this lesson, study the mockups above and try to visualize how they can be outlined into boxes on the page.
+Throughout this lesson, we're also going to reinforce a key concept in HTML layouts we introduced in Run Buddy 1.0, which is to always think of layouts as a series of containers or boxes that hold the content. So before starting this lesson, study the mockups above and try to visualize how they can be outlined into boxes on the page.
 
 We're ready to get started but as we've learned, our current `develop` branch is probably not the best place to mess around. Let's review our GitHub issue, make a feature branch to work in, and get coding!
 
