@@ -27,6 +27,11 @@ fs.readdirSync(folder).forEach((file) => {
   }
 });
 
+if (folder.indexOf("/contents/assets") === -1) {
+  console.error(`module ${mod} folder doesn't exist`);
+  process.exit();
+}
+
 // find folder that matches lesson number
 fs.readdirSync(folder).forEach((file) => {
   if (file.match(new RegExp(`-${lesson}$`))) {
@@ -39,18 +44,34 @@ if (!folder.match(/-[0-9]+\/$/m)) {
   process.exit();
 }
 
-async function uploadImages() {
-  // get ID of folder to dump images in
-  let folderID = await canvas.getFolderId(`/images/module-${mod}/lesson-${lesson}`);
+async function uploadPages() {
+  // get or make module
+  let moduleID = await canvas.getModuleId(mod);
 
+  let page = await canvas.updatePage("API Test Page", "<h2>hello world 2</h2>");
+
+  // page is brand new
+  if (page.created_at === page.updated_at) {
+    console.log(page.url + " page created");
+
+    // append page to module
+    canvas.addToModule(moduleID, page.url);
+  }
+  else {
+    console.log(page.url + " page updated");
+  }
+}
+
+async function uploadImages() {
   // get all images from folder
   const images = fs.readdirSync(folder);
 
   for (let image of images) {
-    await canvas.uploadImage(folderID, folder + image);
+    await canvas.uploadImage(`images/module-${mod}/lesson-${lesson}`, folder + image);
   
     console.log(image + " uploaded");
   }
 }
 
+uploadPages();
 uploadImages();

@@ -16,41 +16,60 @@ class Canvas {
   async updatePage(title, body) {
     let page = title.toLowerCase().replace(/ /g, '-');
 
-    return await axios.put(
+    const {data} = await axios.put(
       `${apiURL}/courses/${courseID}/pages/${page}`, 
       { wiki_page: {title, body} }, 
       authHeader
-    )
-    .then((res) => {
-      
-    })
-    .catch((err) => {
-      console.log(err.response.statusText);
-    });
+    );
+
+    return data;
   }
 
   // put a page inside an existing module
-  async updateModule() {
-    // TODO: make dynamic
-    axios.post(
-      `${apiURL}/courses/${courseID}/modules/115/items`, 
+  async addToModule(mod, page) {
+    return await axios.post(
+      `${apiURL}/courses/${courseID}/modules/${mod}/items`, 
       {
         module_item: {
           type: "Page",
-          page_url: "api-page-test"
+          page_url: page
         }
       },
       authHeader
-    )
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => {
-      console.log(err.response.statusText);
-    });
+    );
+  }
+
+  // check for existing module in canvas or create new if it doesn't exist
+  async getModuleId(mod) {
+    let {data: modules} = await axios.get(
+      `${apiURL}/courses/${courseID}/modules`,
+      authHeader
+    );
+
+    for (let module of modules) {
+      // look for match
+      if (module.name.match(new RegExp(`Module ${mod}[^0-9]`))) {
+        return module.id;
+      }
+    }
+
+    // never found module, so make a new one
+    let {data: newModule} = await axios.post(
+      `${apiURL}/courses/${courseID}/modules`,
+      {
+        module: {
+          name: `Module ${mod}: [Insert Name]`,
+          position: mod
+        }
+      },
+      authHeader
+    );
+
+    return newModule.id;
   }
 
   // check for existing folder on canvas or create new if it doesn't exist
+  // probably not needed anymore, though
   async getFolderId(path) {
     // get existing folders
     let {data: folders} = await axios.get(
@@ -79,7 +98,7 @@ class Canvas {
   }
 
   // upload single image to canvas
-  async uploadImage(folderID, image) {
+  async uploadImage(folder, image) {
     let stats = fs.statSync(image);
 
     // initial request preps canvas for file upload
@@ -89,7 +108,7 @@ class Canvas {
         name: image.split("/").pop(),
         size: stats.size,
         content_type: "image/jpeg",
-        parent_folder_id: folderID,
+        parent_folder_path: folder,
         on_duplicate: "overwrite"
       }, 
       authHeader
