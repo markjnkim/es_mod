@@ -194,9 +194,9 @@ Now let's run our status check command:
 ```
 git status
 ``` 
-This command verifies if our working tree is clean, which means our files are `added` and there is nothing new to `commit`, otherwise please `stage` and `commit` and changes that were made.
+Remember this command verifies if our working tree is clean, which means our files have been staged and committed so there is no changes to save. If the changes are not "clean" then please `add` and `commit` the file changes. Git does a great job at constantly checking we are saving our file changes before we are able to checkout to another branch or pull from the remote repo.
 
-Now once we have a "clean" branch, we are ready to "pull" or update our local repo with the remote thereby downloading any new changes. Let's examine the Git command.
+Now that we have a "clean" branch, we are ready to "pull" or update our local repo with the remote thereby downloading any new changes. Let's examine the following Git command.
 ```
 $ git pull origin master
 ```
@@ -210,20 +210,34 @@ any thoughts? guesses?<br />
 <br /> 
 As can be seen in this illustration, the remote repo has converged with the local repo in the "H" merge commit. Now our two repos are synced up and have duplicate code.
 
-
+### Git Fetch
 Let's dive deeper on the `pull` process. The `pull` command is actually a combination of two different operations, `git fetch` and `git merge`.
-The git command `git fetch` can get one or more branches from the remote repo and allows local access to them through `git checkout` process. This operation will not change any local files but will only add branches in the remote repo. A use case for `git fetch` would be to look at a team member's feature branch for a review process or to help in finding a bug. This branch is downloaded through the `git fetch` operation and then needs to to opened through the `git checkout` operation. Then the code can be rendered in the browser, tested, code reviewed, or changed as needed. These changes can then be staged, committed, and pushed back to the remote feature branch.
-
-The `git merge` operation, on the other hand, will merge the designated branch into your active branch. This will update the active branch with any differences in code. At times, conflicts may occur when the same line of code contains different code versions. This is called a merge conflict and will require a close look to see which version is more up to date or necessary. Merge conflicts and their resolution will be covered in great detail later in this course. 
-![Git Pull](assets/lesson-1/260-git-fetch-merge-pull.png)
-After the merge, the current active branch, in this case `develop`, will not only receive the new file updates from the remote `master` branch, but also all the commit histories associated with that branch. 
-For more details, let's look at the official [Git docs](https://git-scm.com/docs/git-pull).
-
-Let's `pull` our remote `master` branch that contains our `README.md` file into our `develop` branch.
-Simply type in the following command into the terminal:
+The git command `git fetch` can get one or more branches from the remote repo and allows local access to them through `git checkout` process. This operation will not change any local files but will only add the branch from the remote to the local repo. A use case for `git fetch` would be to look at a team member's feature branch for a review process or to help in finding a bug. This branch is downloaded through the Git command:
 ```
-$ git pull origin master
+git fetch <remote branch name>
+``` 
+Next step is for the following Git command:
 ```
+git checkout <remote branch name>
+```
+With these operations, the remote branch whether it be the remote `master` or any other branch currently occupied on the remote repo, a separate isolated version was created locally so no updates or merges occurred.
+This code can be rendered in the browser, tested, code reviewed, or changed as needed separate from any other local branch. These changes can then be staged, committed, and pushed back to the remote repo.
+### Git Merge
+The `git merge` operation, on the other hand, will merge the target branch into the active branch. This will update the active branch with code differences in the target branch.
+```
+git merge <target branch>
+```
+In this operation Git will determine any differences in the code between the active branch and the target branch, and update the active branch with those changes whether they be added files or changes in the code. Conversely the target branch will remain the same and **not** undergo any changes.
+
+![Git Pull](assets/lesson-1/260-git-fetch-merge-pull.png)<br>
+After the merge, the active branch, in our case the `develop` branch, will not only receive the new file updates from the remote `master` branch, but also all the commit histories associated with that branch. 
+For more details about different options and other useful commands, let's look at the official [Git docs](https://git-scm.com/docs/git-pull) (a great site to bookmark).
+
+Enough explanations, let's get our hands dirty since there is more learning in doing. Let's `pull` our remote `master` branch that contains our `README.md` file into our `develop` branch. 
+* Checkout into the `develop` branch. 
+* Check branch status
+* `git pull origin master`
+
 You should see the following screen after a successful `pull`.
 ## NEW SCREENSHOT - SCRUB INFO
 ![vim](assets/lesson-1/200-vim-cli.png)
@@ -231,13 +245,13 @@ You should see the following screen after a successful `pull`.
 Git has opened a text editor called Vim to request a commit message for the `merge` operation. To exit out of this screen type the following into the editor:
 `SHIFT`+`Z`+`Z`
 or alternatively
-`ESC` `:`  `q`
+`ESC` + `:` + `q`
 <!--? Proper Way to Display Sequential Key Binding ? -->
 
 > **Deep Dive**: To learn more about this powerful text editor, check out [Wikipedia](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
 This will bring you back to your terminal window which should look like this.
 ## NEW SCREENSHOT - SCRUB INFO
-![pull-success](assets/lesson-1/300-pull-success-cli.png)
+![pull-success](assets/lesson-1/300-pull-success-git.png)
 
 Let's review the Git report from the `merge`.
 Below the original Git command is the remote repo's url. Then Git's `fetch` operation is performed on the remote `master` branch. Once this is downloaded, it immediately in merged into the active branch by the ['recursive'](https://www.atlassian.com/git/tutorials/using-branches/merge-strategy) strategy. 
@@ -245,7 +259,7 @@ Below the original Git command is the remote repo's url. Then Git's `fetch` oper
 The next lines display what files were changed and how many lines were added in green "+" or removed in red"-". We only have additions hence no red "-".
 
 
-> **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, the Explorer side panel will update with the new branch's folder hierarchy. Also note that on the bottom left on the status bar in VS Code under the Explorer side panel, the active branch will be displayed to help keep track of the version being edited or copied. This helps ensure we are not working on the `master` branch since management will not be very happy if the production environment gets corrupted.<br />
+> **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, VS Code has an Explorer side panel that will display an updated folder directory of the active branch. Also note that on the bottom left on the status bar in VS Code the active branch will always be displayed to help keep track of the version being edited or copied. This helps ensure we are not working on the `master` branch since management will not be very happy if the production environment gets corrupted.<br />
 > ### (ADD SCREENSHOT OF STUDENT'S INTEGRATED TERMINAL WINDOW w/ red outline of active branch in status bar)
 > **Video**: Screencast of VS code switching between branches and/or a pull request with?
 
