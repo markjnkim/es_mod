@@ -14,10 +14,10 @@ const authHeader = {
 class Canvas {
   // update page content or create new page if it doesn't exist
   async updatePage(title, body) {
-    let page = title.toLowerCase().replace(/ /g, '-');
+    let url = title.toLowerCase().replace(/[^\w]/g, '-').replace('-', '-dot-');
 
     const {data} = await axios.put(
-      `${apiURL}/courses/${courseID}/pages/${page}`, 
+      `${apiURL}/courses/${courseID}/pages/${url}`, 
       { wiki_page: {title, body} }, 
       authHeader
     );
@@ -68,41 +68,12 @@ class Canvas {
     return newModule.id;
   }
 
-  // check for existing folder on canvas or create new if it doesn't exist
-  // probably not needed anymore, though
-  async getFolderId(path) {
-    // get existing folders
-    let {data: folders} = await axios.get(
-      `${apiURL}/courses/${courseID}/folders`,
-      authHeader
-    );
-
-    for (let folder of folders) {
-      // look for match
-      if (folder.full_name.indexOf(path) !== -1) {
-        return folder.id;
-      }
-    }
-
-    // never found folder, so make a new one
-    let {data: newFolder} = await axios.post(
-      `${apiURL}/courses/${courseID}/folders`,
-      {
-        name: path.split("/").pop(),
-        parent_folder_path: path.split("/").slice(0, -1).join("/")
-      },
-      authHeader
-    );
-
-    return newFolder.id;
-  }
-
   // upload single image to canvas
   async uploadImage(folder, image) {
     let stats = fs.statSync(image);
 
     // initial request preps canvas for file upload
-    const {data} = await axios.post(
+    const {data: prep} = await axios.post(
       `${apiURL}/courses/${courseID}/files`, 
       {
         name: image.split("/").pop(),
@@ -116,16 +87,18 @@ class Canvas {
 
     // format post data
     let fData = new FormData();
-    fData.append("filename", data.upload_params.filename);
-    fData.append("content_type", data.upload_params.content_type);
+    fData.append("filename", prep.upload_params.filename);
+    fData.append("content_type", prep.upload_params.content_type);
     fData.append("file", fs.createReadStream(image));
   
     // use returned url to send actual file to canvas
-    return await axios.post(
-      data.upload_url, 
+    let {data: newFile} = await axios.post(
+      prep.upload_url, 
       fData, 
       { headers: { ...fData.getHeaders() } }
     );
+
+    return newFile;
   }
 }
 

@@ -3,7 +3,7 @@ const showdown = require('showdown');
 showdown.setFlavor('github');
 
 class Converter {
-  transformMarkdown(path) {
+  getMarkup(path) {
     let mdFilePath = fs.readFileSync(path, 'utf-8');
 
     // convert videos first
@@ -12,8 +12,22 @@ class Converter {
     });
   
     // then let showdown convert everything else
-    const converter = new showdown.Converter();
-    console.log(converter.makeHtml(dataWithVideos));
+    return new showdown.Converter().makeHtml(dataWithVideos);
+  }
+
+  insertImage(markup, localFile, remoteFile) {
+    return markup.replace(new RegExp(`(?<=<img src=").*?${localFile}(?=")`), remoteFile);
+  }
+
+  chunkPages(markup) {
+    // split on <h2> tags
+    return markup.match(/<h2.*?(?=<h2|$)/gs).map((page) => {
+      // separate title and content
+      return {
+        title: page.match(/(?<=<h2.*?>).*?(?=<\/h2>)/)[0],
+        body: page.replace(/^.*?\n/, '')
+      }
+    });
   }
 }
 
