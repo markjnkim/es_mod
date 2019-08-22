@@ -1,7 +1,7 @@
 require('dotenv').config();
 const fs = require("fs");
 const canvas = require("./tools/canvas.js");
-const converter = require("./tools/converter.js");
+const Markup = require("./tools/markup.js");
 
 // check for key
 if (!process.env.CANVAS_TOKEN) {
@@ -40,7 +40,7 @@ async function uploadLesson() {
   fs.readdirSync(folder).forEach((file) => {
     if (file.match(new RegExp(`-${lesson}-`))) {
       // run through markdown converter
-      markup = converter.getMarkup(folder + file);
+      markup = new Markup(folder + file);
     }
   });
   
@@ -69,7 +69,7 @@ async function uploadLesson() {
       console.log(image + " uploaded");
   
       // replace local file in converted markdown
-      markup = converter.insertImage(markup, newFile.display_name, newFile.preview_url);
+      markup.insertImage(newFile.display_name, newFile.preview_url);
     }
   }
 
@@ -77,7 +77,7 @@ async function uploadLesson() {
   await canvas.addHeaderToModule(moduleID, lesson);
 
   // split up into sub-lessons to become separate pages
-  let chunks = converter.chunkPages(markup);
+  let chunks = markup.getPageChunks();
 
   for (let i = 0; i < chunks.length; i++) {
     // format for canvas
