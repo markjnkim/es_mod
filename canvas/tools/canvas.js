@@ -14,7 +14,7 @@ const authHeader = {
 class Canvas {
   // update page content or create new page if it doesn't exist
   async updatePage(title, body) {
-    let url = title.toLowerCase().replace(/[^\w]/g, '-').replace('-', '-dot-');
+    let url = title.toLowerCase().replace(/:|'|"/g, '').replace(/[^\w]/g, '-').replace('-', '-dot-');
 
     const {data} = await axios.put(
       `${apiURL}/courses/${courseID}/pages/${url}`, 
@@ -26,23 +26,55 @@ class Canvas {
   }
 
   // put a page inside an existing module
-  async addToModule(mod, page) {
+  async addPageToModule(mod, page) {
     return await axios.post(
       `${apiURL}/courses/${courseID}/modules/${mod}/items`, 
       {
         module_item: {
           type: "Page",
-          page_url: page
+          page_url: page,
+          indent: 1
         }
       },
       authHeader
     );
   }
 
+  // add a lesson header to module, if not already there
+  async addHeaderToModule(mod, lesson) {
+    let title = "Lesson " + lesson;
+
+    const {data: items} = await axios.get(
+      `${apiURL}/courses/${courseID}/modules/${mod}/items?per_page=100`, 
+      authHeader
+    );
+
+    for (let item of items) {
+      // look for match
+      if (item.title.indexOf(title) === 0) {
+        return item;
+      }
+    }
+
+    // create new header
+    const {data: newItem} = await axios.post(
+      `${apiURL}/courses/${courseID}/modules/${mod}/items`, 
+      {
+        module_item: {
+          type: "SubHeader",
+          title
+        }
+      },
+      authHeader
+    );
+
+    return newItem;
+  }
+
   // check for existing module in canvas or create new if it doesn't exist
   async getModuleId(mod) {
     let {data: modules} = await axios.get(
-      `${apiURL}/courses/${courseID}/modules`,
+      `${apiURL}/courses/${courseID}/modules?per_page=100`,
       authHeader
     );
 

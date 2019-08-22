@@ -73,13 +73,16 @@ async function uploadLesson() {
     }
   }
 
+  // create lesson header/label in module navigation
+  await canvas.addHeaderToModule(moduleID, lesson);
+
   // split up into sub-lessons to become separate pages
   let chunks = converter.chunkPages(markup);
 
   for (let i = 0; i < chunks.length; i++) {
     // format for canvas
     let title = `${process.argv[2]}.${i+1}: ${chunks[i].title}`;
-    let body = chunks[i].body + `<!-- timestamp: ${Date.now()} -->`;
+    let body = `${chunks[i].body} <!-- timestamp: ${Date.now()} -->`;
 
     let page = await canvas.updatePage(title, body);
   
@@ -88,7 +91,7 @@ async function uploadLesson() {
       console.log(page.url + " page created");
   
       // append page to module navigation
-      await canvas.addToModule(moduleID, page.url);
+      await canvas.addPageToModule(moduleID, page.url);
     }
     else {
       console.log(page.url + " page updated");
