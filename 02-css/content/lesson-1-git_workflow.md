@@ -234,13 +234,12 @@ After the merge, the active branch, in our case the `develop` branch, will not o
 For more details about different options and other useful commands, let's look at the official [Git docs](https://git-scm.com/docs/git-pull) (a great site to bookmark).
 
 Enough explanations, let's get our hands dirty since there is more learning in doing. Let's `pull` our remote `master` branch that contains our `README.md` file into our `develop` branch. 
-* Checkout into the `develop` branch. 
-* Check branch status
-* `git pull origin master`
+1) Checkout into the `develop` branch. 
+2) Check branch status - if clean proceed, otherwise stage and commit file changes
+3) Pull remote into active branch. `git pull origin master`
 
 You should see the following screen after a successful `pull`.
-## NEW SCREENSHOT - SCRUB INFO
-![vim](assets/lesson-1/200-vim-cli.png)
+![Vim](assets/lesson-1/200-vim-cli.png)
 
 Git has opened a text editor called Vim to request a commit message for the `merge` operation. To exit out of this screen type the following into the editor:
 Enter ESC to enter normal mode, and then : to initiate a Vim command. You will see a colon at the bottom-left of the Vim window. Then type q to quit.
@@ -250,16 +249,19 @@ SHIFT + Z + Z
 
 > **Deep Dive**: To learn more about this powerful text editor, check out [Wikipedia](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
 This will bring you back to your terminal window which should look like this.
-## NEW SCREENSHOT - SCRUB INFO
+
 ![pull-success](assets/lesson-1/300-pull-success-git.png)
 
 Let's review the Git report from the `merge`.
 Below the original Git command is the remote repo's url. Then Git's `fetch` operation is performed on the remote `master` branch. Once this is downloaded, it immediately in merged into the active branch by the ['recursive'](https://www.atlassian.com/git/tutorials/using-branches/merge-strategy) strategy. 
-> **Graphics Team Animation**: [Nice example of animation of merge](https://www.atlassian.com/git/tutorials/using-branches/merge-strategy)
+> **Video**: Animation - [Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
 The next lines display what files were changed and how many lines were added in green "+" or removed in red"-". We only have additions hence no red "-".
 
 
-> **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, VS Code has an Explorer side panel that will display an updated folder directory of the active branch. Also note that on the bottom left on the status bar in VS Code the active branch will always be displayed to help keep track of the version being edited or copied. This helps ensure we are not working on the `master` branch since management will not be very happy if the production environment gets corrupted.<br />
+> **Pro Tip**: One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, VS Code has an Explorer side panel that will display an updated folder tree that shows the folder hierarchy including the subdirectories and files contained in each folder. If you do not see this side panel, open it by going to the menu bar under View > Explorer<br>
+![Folder Tree](./assets/lesson-1/360-folder-tree.png)<br>
+This folder tree is interactive, allowing us to expand or close folders and open or add files. A file can also be dragged and dropped into a split screen to view multiple files simultaneously. 
+>Also note that on the bottom left on the status bar in VS Code the active branch will always be displayed to help keep track of the version being edited or copied. A good use case would be to ensure we are not working on the `master` branch since management will not be very happy if the production environment gets corrupted.<br />
 ![VS Code-Integrated Terminal](./assets/lesson-1/350-VS-Code-integrated-terminal.png)<br>
 <!--Highlight active branch and preview for Markdown -->
 
@@ -267,17 +269,69 @@ The next lines display what files were changed and how many lines were added in 
 
 If you see the `README.md` file in VS Code, congrats for successfully accomplishing our first `pull`! 
 
-<!-- > **On The Job**: Normally, when working on a team, we would use the command `git pull` to update our development environment. Team members could have potentially `pushed` their enhancements up to our development environment so it is good practice to keep our version up to date. If our branch is already up to date, Git will check and let us know a `pull` is not necessary so it is harmless to check. -->
+Normally, when working on a team, we would use the command `git pull` to update our local development environment. Team members could have potentially "pushed" their enhancements or bug fixes up to the remote development environment so it is good practice to keep our version up to date. If our branch is already up to date, Git will check and let us know a `pull` is not necessary so it is harmless to check. Normally the Git workflow has a `pull` done prior to a `push` so that your local development environment is updated first. This ensures that if any potential conflicts in the code arises, they can be resolved locally in VS Code, which has very nice features that allow efficiency in conflict resolution. So what is a conflict you ask, well the best way to find out is to manufacture one and use VS Code to resolve it. 
+### Create a Merge Conflict
+1) Let's do a bit of role playing and pretend we are part of the legal team. Upon seeing the `README.md` file in the Github repo for Run Buddy, we decide to do a quick edit just to tighten up our liability. Let's go to the Github and make the following changes to the `README.md` and add our copyright info and include the legal entity Run Buddy, Inc.
+Click on the edit button
+![Edit README](./assets/lesson-1/380-Github-edit-README.png)
+Now that we are in the text editor in Github let's add the following Markdown
+```markdown
+# Run Buddy, Inc
+
+## Purpose
+A website that offers fitness training services. 
+
+## Built With
+* HTML
+* CSS
+
+## Installation
+Download and enjoy!
+
+## Contribution
+Made with ❤️ by [your name]
+
+### ©️2019 Run Buddy, Inc 
+```
+We will commit those changes directly to the remote `master` branch by clicking on the green button shown here:
+![Commit README.md changes](./assets/lesson-1/390-commit-changes.png)<br>
+2) Now that we have changes to our remote master, let's make a      quick change to our local `README.md` file. First open the `README.md` file in VS Code.
+Then tweak the title of the `README.md` as follows:
+```markdown
+Run Buddy Inc.
+```
+Make sure to note the period at the end of Inc must be included.<br>
+3) Let's add and commit these changes locally.<br>
+4) Now let's run the Git command to update the local branch with the remote `master` branch.<br>
+> **Pause:** Is the git command a pull or push to update the local active branch?<br>
+>**Answer:** pull
+```
+git pull origin master
+```
+If this command was done in the command prompt, it should look something like this:
+![Command Prompt Conflict](./assets/lesson-1/391-command-prompt-conflict.png)
+The most interesting lines are the last two that say there is a merge conflict therefore the merge failed.
+Let's go to VS Code and see the following when we open the  `README.md` file.
+
+> **Pause:** Can you think of why this conflict occurred?<br>
+> **Answer:** Since Git is able to track all the changes in the files of both the remote and local repos, when Git sees the same line has been modified in the same file in both versions, Git is unable to identify which modification is correct. That is when a merge conflict occurs and Git requests additional input from the user to determine which modification to keep, the remote or local change.<br>
+
+Let's look at the following image to see how to resolve this conflict.
+![VS Code Merge Conflict](./assets/lesson-1/392-merge-conflict-vs-code.png)<br>
+The highlighted areas represent the two versions of the same line. The green highlight is labelled as the "Current Change". This represents the active branch modification.
+The blue highlight indicates the second version of the same conflicting line that is labelled "Incoming Change" noting it is coming from the target branch, in this case the remote branch. Also notice on top of the green highlight there are several options to resolve this conflict. The first option is to "Accept Current Change". "Current Change" is labelled in the green highlight and represents the active branch modification, in this case the local change. The second option is to "Accept Incoming Change". This is the blue highlight labelled as the "Incoming Change" or the target branch, in this case the remote branch. There are a few more branches that are possible as well including "Accepting Both Changes". This is when both lines may have correct parts that must be manually put together. 
+
+
 
 Now that we have our `develop` branch updated, our development environment is ready to go! Let's start building our website with a few basic steps to practice our Git workflow and practice some of the skills we have learned so far in this lesson.
 ## Git Issues Create Feature Branches
 
 The design team has requested we insert a text block into the hero section to add some visual balance and use this prime website real estate for Run Buddy marketing material. 
 
-Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. Git issues is a task management tool that is used with teams to track, organize, and communicate ideas, tasks, bugs, or enhancements. This tool can prevent team members from forgetting to do important tasks, identify bottle necks or blockers, and prevent duplicated work. 
+Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. Git issues is a task management tool that is used with teams to track, organize, and communicate ideas, tasks, bugs, or enhancements. This tool can prevent team members from forgetting to do important tasks, identify bottle necks or blockers, and prevent duplicating work. 
 Let's go to our GitHub repo and select on the Issues tab.
 
-> **Possible Video Walkthrough** creating git issue
+> **Video:** Create Git Issue
 > Create issue, compose content/labels, submit issue, verify issue, edit
 issue, comment on issue, close issue
 From there we can create a new issue by clicking on the green New Issue button.
@@ -286,12 +340,7 @@ From there we can create a new issue by clicking on the green New Issue button.
 >1) Click on Issues tab
 <!-- red outline of Issues tab-->
 >![Git Issue Tab](assets/lesson-1/800-git-issues-github.png)
->2) Since we are using the Gitflow model to manage our workflow, we need to use a strict naming convention when creating our Git issues. These will later define our feature branches which are derived from our Git issues. 
-In Gitflow, typically the naming convention for feature branches would be feature/[feature-name] or a if you have an issue tracking number, [issue-number]/[feature-name].
-In this case we will use `feature/hero-text` to name our Git issue, which will name the corresponding feature branch as well.
-
->![new-git-issue](assets/lesson-1/801-edit-git-issue.png)
-<!-- red outline of "Submit new issue -->
+>2) The naming convention for feature branches is something normally agreed upon by consensus by your development or management team. Choices are abundant but normally are simplified to state the type of branch and what the branch's purpose is like "feature/[feature-name]" or if you have an issue tracking number, "[issue-number]/[feature-name]". In this case we will use `feature/hero-text` to name our Git issue, which will name the corresponding feature branch as well.  >![new-git-issue](assets/lesson-1/801-edit-git-issue.png) <!-- red outline of "Submit new issue --> 
 >3) Type a comment using Markdown typically outlining what this feature's requirements are as well as other information related to  this task. Sometimes they could be notes on the build, from the design team, questions/suggestions, or potential blockers.
 Here is a simple example for our case: 
 ```markdown
