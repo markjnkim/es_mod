@@ -2,11 +2,11 @@
 
 ## Introduction
 
-In the previous lesson, we spruced up the visuals of our landing page using a number of CSS tricks like shadows, rounded corners, pseudo-classes, and pseudo-elements. The folks at Run Buddy looked at this polished version of the site and love what we've done with it. They can't wait to show it off to the world, but there's one last thing they would like implemented. The CEO in particular was really looking forward to the animated hover effect as seen here:
+In the previous lesson, we spruced up the visuals of our landing page using a number of CSS tricks like shadows, rounded corners, pseudo-classes, and pseudo-elements. The folks at Run Buddy looked at this polished version of the site and love what we've done with it. They can't wait to show it off to the world, but there's one last feature they would like implemented. The CEO in particular was really looking forward to the animated hover effect as seen here:
 
 > ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-92
 
-We could push back and claim it's not possible. Who knows... maybe it isn't? We'll need time to play around with different options, but at least those are billable hours! Assuming the animation can be done, here's what we'll tackle in this lesson:
+We could push back on this issue and claim it's not possible. Who knows... maybe it isn't? We'll need time to play around with different options, but at least those are billable hours! Assuming the animation can be done, here's what we'll tackle in this lesson:
 
 1. Experiment with different animation techniques.
 
@@ -72,7 +72,7 @@ This time, we have three keyframes/steps. There's no `halfway` keyword in CSS, b
 
 > ## NEED GRAPHIC: https://trilogyed.atlassian.net/browse/FSFO-113
 
-Of course, these keyframes don't do anything on their own. We still have to apply them to an element. For example, if we wanted every `<div>` to fade in using our `fade-in` keyframes group, we would write:
+Of course, these keyframes don't do anything on their own. We still have to apply them to an element. For example, if we wanted every `<div>` to fade in, we would reference the name of that keyframes group in conjunction with the `animation-name` property:
 
 ```css
 div {
@@ -81,7 +81,7 @@ div {
 }
 ```
 
-By default, the animation will only play once, unless we specify with another property how often it should repeat. Why not forever?
+Using a second declaration, `animation-duration: 1s`, we can specify how long the animation takes to play. By default, the animation will only play once, unless we add another declaration to define how often it should repeat. Why not forever?
 
 ```css
 div {
@@ -200,7 +200,7 @@ Restructure each of your trainer cards to look like this:
 </article>
 ```
 
-That kind of broke things for the time being:
+That kind of broke things for the time being. Our trainer images and text padding disappeared:
 
 ![broken card](./assets/lesson-6/200-broken-card.png)
 
@@ -227,9 +227,11 @@ Check the webpage in the browser to make sure things are coming together:
 
 ![big background](./assets/lesson-6/300-big-background.png)
 
-Welcome back, Aaron! Now size him and his fellow trainers down using the `background-size` property.
+Welcome back, Aaron! Now size him and his fellow trainers down using the the same `background-size` property that we used on the `header` rule.
 
-We still need to do something about the text, though. At the end of the hover animation, the text will be positioned in the bottom-left corner. We could use absolute positioning to accomplish this, or we could use our new friend flexbox. Let's try flexbox. Add the following declarations to your `.trainer-img` CSS rule:
+We still need to do something about the text, though. At the end of the hover animation, the text will be positioned in the bottom-left corner. We could use absolute positioning to accomplish this or we could use our new friend flexbox. It would probably take the same number of declarations either way, but flexbox is easier to make adjustments to, so we'll go with that.
+
+Add the following declarations to your `.trainer-img` CSS rule:
 
 ```css
 display: flex;
@@ -263,13 +265,13 @@ In fact, we could apply one of the takeaways from the previous lesson and do thi
 
 > **Pause:** What do the numbers in `rgba()` represent again?
 >
-> Answer: Red, Green, Blue, and Alpha (opacity)
+> **Answer:** Red, Green, Blue, and Alpha (opacity)
 
 This pseudo-element is absolutely positioned in the top-left corner, and its `width` and `height` are set to stretch across the entire containing element (`<div class="trainer-img">`). If you check the webpage in the browser, however, you'll notice this didn't work as expected. Scroll to the top of the page, and things look much worse than we feared:
 
 ![yellow element](./assets/lesson-6/500-yellow-hero.png)
 
-Eek, what happened?! Why did our pseudo-element get kicked all the way to the top of the page? Think back to previous areas of the Run Buddy webpage where we were using `position: absolute`. What's the caveat with absolute positioning? What does the parent element need to have for absolute positions to be respected?
+Eek, what happened?! Why did our pseudo-element get kicked all the way to the top of the page? Think back to previous areas of the Run Buddy webpage where we were using `position: absolute`. What's the caveat with absolute positioning? What declaration does the parent element need in order to contain its child elements?
 
 > **Hint:** The `.trainer-img` elements would need a `position` added to them, similar to our `.checkbox-wrapper` elements.
 
@@ -283,19 +285,21 @@ Once the background gradient is correct, you'll notice we have a new problem. It
 
 ![gradient coverup](./assets/lesson-6/700-gradient-coverup.png)
 
-What declarations can we add to these two rules to make the name and role appear on top of the pseudo-element:
+To fix this overlap, we'll need to add two new declarations to both of these rules:
 
 ```css
 .trainer-img h3 {
-  
+  position: relative;
+  z-index: ???;
 }
 
 .trainer-img h4 {
-  
+  position: relative;
+  z-index: ???;
 }
 ```
 
-> **Hint:** Think about the "stacking order" and what properties affect it.
+> **Rewind:** The `z-index` property can affect the [stacking order](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Adding_z-index) of elements but only if they have a defined position.
 
 While you're at it, adjust the `font-size` and `margin` to better match the desired results:
 
@@ -315,7 +319,7 @@ If your website doesn't look quite the same, open the Chrome DevTools and inspec
 
 ## Animate the Hover
 
-Now that we know what the end result looks like, we can define the starting point and bridge the gap between them with a `transition`. Let's start with the gradient, since it involves editing fewer elements. The starting point is an `opacity` of 0, so add that `opacity` to the pseudo-element rule.
+Now that we know what the end result looks like, we can define the starting point and bridge the gap between them with a `transition`. Let's start with the gradient, since it involves editing fewer elements. The starting point is an `opacity` of 0, so add that `opacity` to the pseudo-element rule (`.trainer-img::after`).
 
 Next, we want to change the `opacity` to 1 when the mouse hovers over any part of the trainer `<article>`, not just the background image. Hold on, though. How can a parent's hover state affect a child? Consider for a moment the following CSS rule:
 
@@ -333,7 +337,7 @@ div:hover span {
 }
 ```
 
-This means any `<span>` element that's inside of a `<div>` element _that's in a hover state_ will have red text. With that in mind, add a new CSS rule to your style sheet that will set the `opacity` of the pseudo-element to 1 when the parent (`.trainer`) is being hovered over.
+This means any `<span>` element that's inside of a `<div>` element _that's in a hover state_ will have red text. With that in mind, add a new CSS rule to your style sheet that will set the `opacity` of the pseudo-element (`.trainer-img::after`) to 1 when the parent (`.trainer`) is being hovered over.
 
 You'll know it's working if you can hover over the image or the bio underneath:
 
@@ -341,9 +345,18 @@ You'll know it's working if you can hover over the image or the bio underneath:
 
 Of course, the gradient still isn't animated, but now that the default state and hover state are set, it's only a matter of adding a 1/2 second `transition` to the default state. Reference the [documentation for transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) again if you get stuck.
 
+> **Hint:** You'll only need to update the following CSS rule:
+>
+>```css
+>.trainer-img::after {
+>  opacity: 0;
+>  transition: ???;
+>}
+>```
+
 Finally, we need to do something about the text. This is a somewhat misleading problem. It may seem like the text "comes out of nowhere," but the secret is that the text is always there. It just slides into view when we're ready for it.
 
-By now, your `<h3>` and `<h4>` elements should already have `position: relative` applied to them. Relative positioning will allow us to bump these elements down and out of view using the `top` property. Try setting `top` to `200px` for both of them. That should result in this:
+By now, your `<h3>` and `<h4>` elements should have `position: relative` applied to them. Relative positioning will allow us to bump these elements down and out of view using the `top` property. Try setting `top` to `200px` for both of them. That should result in this:
 
 ![top position](./assets/lesson-6/800-top-position.png)
 
@@ -355,7 +368,17 @@ Like the pseudo-element's opacity, we can set `top` back to `0px` when the train
 
 > ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-93
 
-Because the text isn't animated yet, it almost looks like we just changed the opacity/visibility instead of its position. Add a 0.6 second `transition` to the `.trainer-img h3` and `.trainer-img h4` rules so you can better see them slide in from `200px` to `0px`.
+Because the text isn't animated yet, it almost looks like we just changed the opacity/visibility instead of its position. Add a 0.6 second `transition` to the following CSS rules so you can better see the elements slide in from `200px` to `0px`:
+
+```css
+.trainer-img h3 {
+
+}
+
+.trainer-img h4 {
+  
+}
+```
 
 > **Pro Tip:** Rather than setting `top` to `0px` on the hover state, you could use a different declaration: `transform: translate(-200px)`. It's probably hard to see in this example, but `translate()` can lend to smoother animations. [Read more about translate from MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate).
 
@@ -370,6 +393,8 @@ Once you've got it, reference your work against the demo video provided earlier.
 The hover animation looks great, but this only applies to desktop users. Hover effects don't really work that well on touchscreen devices. How would mobile users be able to see the trainers' names, then? The best user experience may be to always display the trainer information on small screens, which we can do with media queries.
 
 > **Rewind:** Media queries allow us to write conditional CSS rules. The line `@media screen and (max-width: 980px)` means that the CSS rules contained within will only get applied if the width of the screen is less than 980 pixels.
+>
+> You can use the "Toggle device toolbar" button in the Chrome DevTools to easily test your breakpoints on different mobile device screen sizes.
 
 First, let's re-add the trainer name and role to the `trainer-bio` container:
 
@@ -486,9 +511,11 @@ This is where the actual code review would take place. The Run Buddy developer c
 
 ![merge PR](./assets/lesson-6/1500-merge-pr.png)
 
-This will complete the merge and apply all of the commits from develop onto master. In our case, the Run Buddy developer gave us their blessing but never merged the PR. Let's go ahead and click the button to accept it ourselves. Because we set up the GitHub Page ahead of time, our live webpage should now reflect Version 2. Visit https://username.github.io/run-buddy/ (replacing username with your GitHub username) to see if it worked!
+This will complete the merge and apply all of the commits from develop onto master. In our case, the Run Buddy developer gave us their blessing but never merged the PR. Let's go ahead and click the button to merge it ourselves. Because we set up the GitHub Page ahead of time, our live webpage should now reflect Version 2. Visit https://username.github.io/run-buddy/ (replacing username with your GitHub username) to see if it worked!
 
-> **Important:** Sometimes, a webpage still shows an older version of itself even after pushing new changes. This is because the browser has **cached**, or saved, the older versions of the HTML and CSS files to make the page load faster on subsequent visits. Every browser has a way to clear its cache, or with Chrome, you can open an incognito window that will never cache files. The shortcut for an incognito window is CTRL+Shift+N on Windows or Command+Shift+N on macOS.
+> **Important:** Sometimes, a webpage still shows an older version of itself even after pushing new changes. This is because the browser has **cached**, or saved, the older versions of the HTML and CSS files to make the page load faster on subsequent visits. You can perform a **hard refresh** to clear the browser's cache for a specific page by holding down Ctrl on Windows or Shift on Mac and clicking the reload button.
+>
+> Whether that was the problem or not, know that many developers run into similar problems all the time. A quick [Google search for GitHub Pages issues](https://www.google.com/search?q=github+pages+not+updating) reveals that just as many developers are willing to answer/troubleshoot these questions!
 
 For an example of a slightly more complicated pull request, watch this video:
 
@@ -498,9 +525,9 @@ For an example of a slightly more complicated pull request, watch this video:
 
 Great job getting this new version of Run Buddy out the door! Iterating on a project is very common in development. Whether it's users discovering hidden bugs, browser updates breaking certain parts of the app, or clients deciding they want new features added or old features removed, a project is never truly done.
 
-That's why it was so important for us to establish a proper workflow. We defined issues in GitHub to help us track our progress. We worked on Git branches independent of master to avoid messing up the live webpage. In this lesson, we also looked at GitHub pull requests and code reviews, which will become a valuable tool once we start collaborating with other developers.
+That's why it was so important for us to establish a proper workflow. We defined issues in GitHub to help us track our progress. We worked on Git branches independent of `master` to avoid messing up the live webpage. In this lesson, we also looked at GitHub pull requests and code reviews, which will become a valuable tool once we start collaborating with other developers.
 
-Reflecting on this module as a whole, the Run Buddy redesign gave us a chance to further improve our CSS skills and learn some cutting edge techniques. Believe it or not, there are jobs that do exactly this! UI design is its own career path. Of course, the more skills you have, the more marketable you'll be, and pairing HTML and CSS with JavaScript opens up a lot more possibilities. We'll get our hands on some JavaScript soon enough.
+Reflecting on this module as a whole, the Run Buddy redesign gave us a chance to learn some cutting edge techniques and keep our skills relevant in a "mobile first" world. Believe it or not, there are jobs that do exactly this! UI design is its own career path. Of course, the more skills you have, the more marketable you'll be, and pairing HTML and CSS with JavaScript opens up a lot more possibilities. We'll get our hands on some JavaScript soon enough.
 
 Before we move ahead, let's recap some of the new CSS skills we learned:
 
