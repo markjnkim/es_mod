@@ -295,67 +295,125 @@ Made with ❤️ by [your name]
 ```
 We will commit those changes directly to the remote `master` branch by clicking on the green button shown here:
 ![Commit README.md changes](./assets/lesson-1/390-commit-changes.png)<br>
-2) Now that we have changes to our remote master, let's make a      quick change to our local `README.md` file. First open the `README.md` file in VS Code.
+2) Now that we have changes to our remote master, let's make a quick change to our local `README.md` file. First open the `README.md` file in VS Code. Make sure to checkout into the `develop` branch first!
 Then tweak the title of the `README.md` as follows:
 ```markdown
-Run Buddy Inc.
+# Run Buddy Inc.
 ```
 Make sure to note the period at the end of Inc must be included.<br>
 3) Let's add and commit these changes locally.<br>
-4) Now let's run the Git command to update the local branch with the remote `master` branch.<br>
+4) Run the Git command to update the local branch with the remote `master` branch.<br>
 > **Pause:** Is the git command a pull or push to update the local active branch?<br>
 >**Answer:** pull
 ```
 git pull origin master
 ```
-If this command was done in the command prompt, it should look something like this:
+The returning message in the command prompt should look something like this:
 ![Command Prompt Conflict](./assets/lesson-1/391-command-prompt-conflict.png)
-The most interesting lines are the last two that say there is a merge conflict therefore the merge failed.
-Let's go to VS Code and see the following when we open the  `README.md` file.
+The most interesting lines in this corresponding message are the last two that say there is a merge conflict therefore the merge failed.
+Let's go to VS Code and see the following when we open the `README.md` file.
 
 > **Pause:** Can you think of why this conflict occurred?<br>
-> **Answer:** Since Git is able to track all the changes in the files of both the remote and local repos, when Git sees the same line has been modified in the same file in both versions, Git is unable to identify which modification is correct. That is when a merge conflict occurs and Git requests additional input from the user to determine which modification to keep, the remote or local change.<br>
+> **Answer:** Since Git is able to track all the changes in the files of both the remote and local repos, when Git sees the same line has been modified in the same file in both versions, Git is unable to identify which modification is correct. All Git can do is update to the most recent change based on the commit history, but if both lines in the file were changed, Git offers the developer an opportunity to make the decision on how to proceed. This is called a merge conflict. In order to proceed with the merge process Git requires additional input from the user to determine which modification to keep either the change on the active branch, our local change, or the incoming change from the target branch, in our case the remote branch.<br>
+
+> **On the Job:** In the real world, merge conflicts normally occur when collaborating on a project and different team members will need to work on the same file. As our example showed, even if the work is done on separate branches, if the same file has modifications in the same areas, conflicts can occur. There are some preventative measures that reduce merge conflicts such as making sure team members keep their work in isolation by strictly sticking to separate files when possible.
 
 Let's look at the following image to see how to resolve this conflict.
 ![VS Code Merge Conflict](./assets/lesson-1/392-merge-conflict-vs-code.png)<br>
-The highlighted areas represent the two versions of the same line. The green highlight is labelled as the "Current Change". This represents the active branch modification.
-The blue highlight indicates the second version of the same conflicting line that is labelled "Incoming Change" noting it is coming from the target branch, in this case the remote branch. Also notice on top of the green highlight there are several options to resolve this conflict. The first option is to "Accept Current Change". "Current Change" is labelled in the green highlight and represents the active branch modification, in this case the local change. The second option is to "Accept Incoming Change". This is the blue highlight labelled as the "Incoming Change" or the target branch, in this case the remote branch. There are a few more branches that are possible as well including "Accepting Both Changes". This is when both lines may have correct parts that must be manually put together. 
+<!-- labels for Options and folder tree -->
+Let's go over the three major areas of interest. <br>
+1) The highlighted areas represent the two versions of the same code or text. The green highlight is labelled as the "Current Change". This represents the active branch modification.
+The blue highlight indicates the second version of the same conflicting code or text that is labelled "Incoming Change" noting it is coming from the target branch, in this case the remote branch. Notice the series of "=" signs indicate the separation between versions and will disappear just as will the "<<<<<" and the ">>>>>" notation that indicates the versions. To learn more about the notation for the HEAD and commit reference please take a look at the [Atlassian Docs about resolving merge conflicts.](https://confluence.atlassian.com/bitbucket/resolve-merge-conflicts-704414003.html)
 
+2) Notice on above the green highlight there are several options to resolve this conflict. The first option is to "Accept Current Change" which refers to the green highlight and represents the active branch modification, in this case the local change. The second option is to "Accept Incoming Change" which refers to the blue highlight or the target branch, in our case the remote branch from Github. There are a few more options that are available including "Accept Both Changes", "Compare Changes", and "Start Live Share Session". "Accept Both Changes" is chosen when both options may have correct parts that must be manually merged. The last two options are to compare differences and share the screen with another developer that made the changes to collaborate on large conflicts that need both authors of the code to parse effectively.
 
+3) Note that in the Explorer side panel, the `README.md` font color is now purple. VS Code is able to locate the merge conflicts and highlight the files and containing folders. The example we created was simplified, but in a large project with an extensive folder tree, many different files could be potentially impacted by conflicts that must be resolved in order for the merge process to complete. VS Code offers this nice feature that finds the merge conflicts for you.
 
-Now that we have our `develop` branch updated, our development environment is ready to go! Let's start building our website with a few basic steps to practice our Git workflow and practice some of the skills we have learned so far in this lesson.
+In the next step, let's resolve this conflict and decide which version we will keep. In our case, we will be keeping the "Incoming Change" from Github. Let's click the "Accept Incoming Change" option. VS Code will now resolve two versions into one, eliminating the local change. Be sure to make this decision thoughtfully. If a wrong decision was made, it is possible to revert prior to the merge with the following command:
+```
+git merge --abort
+```
+then proceed with the merge again with the `pull` command, however any previous merge conflicts that were resolved will not be saved.
+
+> **Pause:** Notice that the last line of the text was added without any conflict issue. Can you explain why?
+>
+> **Answer:** Since Git tracked only one change between the two branches for this line of text, the incoming change was accepted by Git since there was no conflict with the local version.
+
+Notice how the purple highlight of the `README.md` file remained although the merge conflict was resolved. Not until we add and commit the file changes will the merge conflict truly be resolved so let's do that now.
+```
+git add .
+git commit -m"resolved merge conflict in title of README.md file"
+```
+Congratulations, we just navigated through our first merge conflict. This is a normal process of software development so understanding how to avoid and resolve them is an important skill to have that employers will seek.
+
+Now that we have our `develop` branch updated, our development environment is ready to go! Please note that it is not normal to make commits directly to the `develop` branch, but we did here just to create our merge conflict in the `README.md` so not altering the codebase in any way. Let's start building our website with a few basic steps to practice our Git workflow and use some of the skills we have learned so far in this lesson.
 ## Git Issues Create Feature Branches
+<!-- Git Issues
+2.1-51) Git workflow
+2.2-56)  Advanced layouts using Flexbox
+      feature/flexbox
+2.3-57) Pricing table using Grid
+      feature/grid
+2.4-64) Mobile responsiveness with Media Queries
+       feature/mediaqueries
+2.5-58) CSS enhancements and optimizations
+       feature/aesthetics
+2.6-62) Adding animation
+       feature/animation   -->
 
-The design team has requested we insert a text block into the hero section to add some visual balance and use this prime website real estate for Run Buddy marketing material. 
+The design team has requested we insert a text block into the hero section to add some visual balance and add Run Buddy marketing material. 
 
-Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. Git issues is a task management tool that is used with teams to track, organize, and communicate ideas, tasks, bugs, or enhancements. This tool can prevent team members from forgetting to do important tasks, identify bottle necks or blockers, and prevent duplicating work. 
-Let's go to our GitHub repo and select on the Issues tab.
+Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. Git issues is a task management tool that is used with teams to track, organize, and communicate ideas, tasks, bugs, or enhancements. This tool can prevent team members from forgetting to do important tasks, identify bottle necks or blockers, indicate what files they need to change to reduce merge conflicts, and prevent duplicating work. 
+Let's go to our GitHub repo and select the Issues tab.
 
-> **Video:** Create Git Issue
+> **Video:** [Create Git Issue - Jira FSFO - 111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
 > Create issue, compose content/labels, submit issue, verify issue, edit
 issue, comment on issue, close issue
 From there we can create a new issue by clicking on the green New Issue button.
->  ## Storyboard for Video Team using Screen shots (or no video)<br />
+>  ## Storyboard for Video Team using Screen shots<br />
 > **Linear Steps**
->1) Click on Issues tab
-<!-- red outline of Issues tab-->
+> 1) Click on Issues tab
+> 2) Click on New Issue button
 >![Git Issue Tab](assets/lesson-1/800-git-issues-github.png)
->2) The naming convention for feature branches is something normally agreed upon by consensus by your development or management team. Choices are abundant but normally are simplified to state the type of branch and what the branch's purpose is like "feature/[feature-name]" or if you have an issue tracking number, "[issue-number]/[feature-name]". In this case we will use `feature/hero-text` to name our Git issue, which will name the corresponding feature branch as well.  >![new-git-issue](assets/lesson-1/801-edit-git-issue.png) <!-- red outline of "Submit new issue --> 
->3) Type a comment using Markdown typically outlining what this feature's requirements are as well as other information related to  this task. Sometimes they could be notes on the build, from the design team, questions/suggestions, or potential blockers.
-Here is a simple example for our case: 
+> 3) Git Issue Title - Normally descriptive naming the enhancement or fix. In our case we will type Hero Section Text Block
+> 4) Git Issue Comment - Can contain requirements of the feature or issue that is being fixed. Even adding mock-ups or design requirements are common. 
+Here is an example using Markdown to add formatting blocks to organize the requirements.
+
+```markdown
+# Hero Section Text Block 
+
+## Content Requirements
+* Heading: "Start Building Habits."
+* Text Body: `<p>` Lorem ipsum text placeholder
+
+## Branch Name
+* `feature/hero-text`
+
+## Questions/suggestions for Design Team
+* What will be the marketing text?
+```
+The naming convention for feature branches is something normally agreed upon by consensus by your development or management team. Choices are abundant but normally simplified to the type of branch and branch's purpose like "feature/[feature-name]" or "[issue-number]/[feature-name]". We will choose the former for our branch name convention.
+
+ >![new-git-issue](assets/lesson-1/801-edit-git-issue.png) <!-- red outline of "Submit new issue --> 
+>3) Type a comment using Markdown to outline the feature's requirements and other information related to this task.
+Here is a simple example: 
 ```markdown
 # Text Block for Hero Section
 
 ## Content Requirements
 * Heading = "Start Building Habits."
 * Lorem ipsum text placeholder
-* Div container
-* Class for styling
 
+## Branch
+* `feature/hero-text`
+ 
 ## Questions/suggestions for Design Team
 * What will be the marketing text?
 ```
->4) Optional information to add include organizing this task by a label or assigning this task to a team member. Let's add the enhancement label to our `hero-text` issue now and assign it to ourselves.
+Other formatting options are include checkboxes, code blocks, and the ability to mention a team member using their Github handle with the "@" notation.
+>4) Notice on the right side panel, there are options to add labels or team member assignments. Let's add the enhancement label to our `hero-text` issue now and assign it to ourselves.
+Click on the Assignees option
+Click on the Labels option
 >5) Click on the "Submit new issue" button.
 
 We should see the following screen following a successful issue creation.
@@ -363,21 +421,20 @@ We should see the following screen following a successful issue creation.
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue.png) 
 
 Congratulations on completing your first Git issue. Please note this screen is the edit screen that allows changing the text as well as closing the issue once the enhancement or work has been finished. This edit screen can be found on the Issues tab which now notes there is one outstanding issue at the repo's landing page.
-Take a look at [GitHub help](https://help.github.com/en/articles/managing-your-work-with-issues) for an expansive view of how Git issues can further assist in project management.
+Take a look at [GitHub's help documents for an expansive view of how Git issues can further assist in project management.](https://help.github.com/en/articles/managing-your-work-with-issues)
 
-Now that we understand how to make a Git issue, let's create another one for another HTML additional we have been requested to make from the sales department. They would like a form that is able to submit questions directly to the sales staff to go in the Reach Out section.
-> **Activity**: Please continue with creating a new Git issue for this new feature.
+Now that we understand how to make a Git issue, let's create another one for another HTML addition we have been assigned from the sales department. They would like a form for users to submit questions directly to the sales staff in the Reach Out section.
+> **Activity**: Please create a new Git issue for this new feature.
 > **Solution**: The finished issue should look something like this:
 ```markdown
-# Contact Form
-
-## Location 
-   Reach Out section
+# Contact Form for Reach Out Section
 
 ## Content Requirements
-* Heading = "Contact Us"
-* Name
-* Question area - <textarea>
+* Heading:  "Contact Us"
+* Name: Input Text field
+* Message: Large message area
+
+##
 ```
 ![Git Issue Success](assets/lesson-1/820-contact-git-issue.png) <br />
 Let's continue progressing through our project requirements to add some HTML content in our next step and transition this issue into a feature branch.
@@ -424,7 +481,7 @@ Please save and render so your browser should look like this:
 ![Hero Text Display](assets/lesson-1/1100-hero-text-markup-html.png)
 
 > **Pause**: Notice how there is an overlap. Why does this occur?
-
+>
 > **Answer**: Absolute position removed the `form` from the document flow which allows the text block to overlap. We will fix this in the next section when adding the CSS styling. 
 
 One more thing, let's change our hero image to improve the legibility of our text block by updating our background hero image the the css with the following image.
