@@ -8,9 +8,9 @@ In the previous lesson, we spruced up the visuals of our landing page using a nu
 
 We could push back and claim it's not possible. Who knows... maybe it isn't? We'll need time to play around with different options, but at least those are billable hours! Assuming the animation can be done, here's what we'll tackle in this lesson:
 
-1. Experiment with CSS animation.
+1. Experiment with different animation techniques.
 
-2. Choose the best option and prep the HTML and CSS.
+2. Choose the best approach and prep the HTML and CSS.
 
 3. Animate the trainers' hover states.
 
@@ -18,37 +18,43 @@ We could push back and claim it's not possible. Who knows... maybe it isn't? We'
 
 5. Deploy the webpage to production.
 
-Even though this is a last-minute request, we should still respect our established workflow. Add a new issue in GitHub for animation so we can track our progress.
-
 ## Experiment with Animation
 
-In the old days of the web, animation would have required a bit of JavaScript coding. Modern CSS, however, has basic animation built in. There are two CSS properties that can help with this: `transition` and `animation`. We'll experiment with both before deciding which one best fits our needs.
+In the old days of the web, animation would have required a bit of coding with JavaScript or Adobe Flash. However, Flash is now **deprecated**, meaning browsers have stopped or will soon stop supporting it. While JavaScript is here to stay, modern CSS has evolved a lot, too, and has basic animation built in.
+
+There are two CSS properties that can help with animation: `transition` and `animation`. We'll experiment with both before deciding which one best fits our needs.
 
 > **Pro Tip:** When experimenting with new features, you can use an online code editor like [JSFiddle](https://jsfiddle.net/) or [CodePen](https://codepen.io/pen/) instead of messing with your current project or creating extra HTML and CSS files on your computer.
 
 Let's look at `animation` first, which involves setting up a series of **keyframes**. In animation in general, keyframes define the more important moments in a character's or object's movement. For instance, a falling ball would have two pretty important keyframes: the ball at the top of its descent and when it hits the ground. The frames in between can then be filled in later by an artist or computer software to make a complete animation.
 
-In CSS, the browser will be the one to fill in those in between frames. We just need to define the major keyframes, or starting/stopping points. Keyframes can be added to a style sheet using the `@keyframes` at-rule:
+In CSS, the browser will be the one to fill in those in between frames. We just need to define the major keyframes, or starting/stopping points. Keyframes can be added to a style sheet using the `@keyframes` at-rule.
+
+> **Rewind:** `@media` is another at-rule we've used before. An at-rule is how we can instruct CSS to behave. `@media`, for instance, defines conditional CSS rules based on things like the viewport size. Only `@media` and a few [other CSS at-rules](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule#Conditional_group_rules) are considered conditional.
+
+Here's an example of the `@keyframes` at-rule at work:
 
 ```css
-@keyframes fade {
+@keyframes fade-in {
   from {
-    opacity: 0;
+    opacity: 0; /* fully transparent */
   }
 
   to {
-    opacity: 1;
+    opacity: 1; /* fully opaque */
   }
 }
 ```
 
-These keyframes specify that the `opacity` should change from 0 to 1 over a set period of time. If we set this animation to run for four seconds, that means at two seconds, the browser will automatically calculate the `opacity` to be 0.5. Hence, the element will fade in, which is why we named the keyframe group `fade`.
+We named the keyframes group `fade-in`, because that's the intention of our animation, but the name can be whatever we want. Within the curly brackets, we define the actual keyframes and what properties should change at each of these steps. We only have two steps specified&mdash;a starting and stopping point&mdash;represented by the keywords `from` and `to`.
+
+To clarify, we want the `opacity` to start at 0 and then animate _from_ 0 _to_ 1 over a certain period of time. If we set this animation to run for four seconds, the browser will automatically calculate the in between values. At two seconds, the animation is halfway through, so the `opacity` should be half of the `to` value (0.5).
 
 Another example might be:
 
 ```css
 @keyframes color-shift {
-  0% {
+  from {
     background-color: red;
   }
   
@@ -56,19 +62,21 @@ Another example might be:
     background-color: blue;
   }
   
-  100% {
+  to {
     background-color: green;
   }
 }
 ```
 
-This time, we have three keyframes, so we're using percentages to specify at what point the `background-color` should change. This will animate the color from red to blue first, then from blue to green.
+This time, we have three keyframes/steps. There's no `halfway` keyword in CSS, but we're allowed to use percentages instead. We could expand this even more and define keyframes at 25%, 30%, 40%, etc. In this example, we're animating the `background-color` property to change from red to blue first, then from blue to green.
 
-Of course, these keyframes don't do anything on their own. We still have to apply them to an element. For example, if we wanted every `<div>` to fade in, we would write:
+> ## NEED GRAPHIC: https://trilogyed.atlassian.net/browse/FSFO-113
+
+Of course, these keyframes don't do anything on their own. We still have to apply them to an element. For example, if we wanted every `<div>` to fade in using our `fade-in` keyframes group, we would write:
 
 ```css
 div {
-  animation-name: fade;
+  animation-name: fade-in;
   animation-duration: 1s; /* animation lasts 1 second */
 }
 ```
@@ -77,7 +85,7 @@ By default, the animation will only play once, unless we specify with another pr
 
 ```css
 div {
-  animation: fade 1s; /* shorthand version */
+  animation: fade-in 1s; /* shorthand version */
   animation-iteration-count: infinite;
 }
 ```
@@ -86,7 +94,7 @@ Combined with pseudo-classes, we could even withhold the animation until the ele
 
 ```css
 div:hover {
-  animation: fade 1s infinite; /* more shorthand version */
+  animation: fade-in 1s infinite; /* more shorthand version */
 }
 ```
 
@@ -140,7 +148,11 @@ div:hover {
 
 > **Deep Dive:** Look over some of the other [transition properties available in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions).
 
-These were fairly high-level examples of CSS animation, though, and what Run Buddy wants us to accomplish still seems a little daunting. Watch the demo video again. Notice how the background image has an animated gradient, and the trainer's name and role slide in at different times. Which technique, `animation` or `transition`, would be most applicable?
+Now that we've looked at `transition`, let's recap both animation techniques:
+
+> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-114
+
+These were fairly high-level examples of CSS animation, though, and what Run Buddy wants us to accomplish still seems a little daunting. Watch the demo video from the introduction again. Notice how the background image has an animated [color gradient](https://en.wikipedia.org/wiki/Color_gradient), and the trainer's name and role slide in at different times. Which technique, `animation` or `transition`, would be most applicable?
 
 To best match the behavior in the video, we'll actually need to go with `transition`. A great exercise would be to try both, but `transition` makes the most sense for a few reasons:
 
@@ -168,7 +180,7 @@ Next, let's think about how we would restructure the HTML. When building animati
 
 ![final card](./assets/lesson-6/100-final-card.png)
 
-To pull this off, it may be easier to turn the trainer image into the background image of a `<div>` that holds the other elements. This way, we can use flexbox to position the inner content instead of absolutely positioning things on top of each other.
+To pull this off, it may be easier to turn the trainer image into the background image of a `<div>` that holds the other elements. This way, we can use flexbox to more easily position the inner text content. Otherwise, the image's placement would interfere with how we want flexbox to flow.
 
 Restructure each of your trainer cards to look like this:
 
@@ -176,7 +188,7 @@ Restructure each of your trainer cards to look like this:
 <article class="trainer">
   <div class="trainer-img">
     <div>
-      <h3>Tony Horton</h3>
+      <h3>Arron Stephens</h3>
       <h4>Speed / Strength</h4>
     </div>
   </div>
@@ -200,6 +212,8 @@ But that's okay. We'll fix it soon enough. On each `<div class="trainer-img">` e
 }
 ```
 
+> **Hint:** Remember that a relative path to a background image would start from the CSS file's location, not the HTML file.
+
 You won't be able to fully see the background image yet until we stretch out the containing `<div>`. In your style sheet, add the following rule:
 
 ```css
@@ -213,7 +227,7 @@ Check the webpage in the browser to make sure things are coming together:
 
 ![big background](./assets/lesson-6/300-big-background.png)
 
-Welcome back, Tony! Now size him and his fellow trainers down using the `background-size` property.
+Welcome back, Aaron! Now size him and his fellow trainers down using the `background-size` property.
 
 We still need to do something about the text, though. At the end of the hover animation, the text will be positioned in the bottom-left corner. We could use absolute positioning to accomplish this, or we could use our new friend flexbox. Let's try flexbox. Add the following declarations to your `.trainer-img` CSS rule:
 
@@ -225,7 +239,7 @@ align-items: ???;
 
 Which `align-items` value would position the inner content at the bottom of the `<div>`?
 
-> **Hint:** It's `flex-end`.
+> **Hint:** It's the opposite of `flex-start`.
 
 If correct, the trainer card should now look like this:
 
@@ -249,7 +263,7 @@ In fact, we could apply one of the takeaways from the previous lesson and do thi
 
 > **Pause:** What do the numbers in `rgba()` represent again?
 >
-> Answer: Red, Green, Blue, and Alpha (transparency)
+> Answer: Red, Green, Blue, and Alpha (opacity)
 
 This pseudo-element is absolutely positioned in the top-left corner, and its `width` and `height` are set to stretch across the entire containing element (`<div class="trainer-img">`). If you check the webpage in the browser, however, you'll notice this didn't work as expected. Scroll to the top of the page, and things look much worse than we feared:
 
@@ -257,7 +271,7 @@ This pseudo-element is absolutely positioned in the top-left corner, and its `wi
 
 Eek, what happened?! Why did our pseudo-element get kicked all the way to the top of the page? Think back to previous areas of the Run Buddy webpage where we were using `position: absolute`. What's the caveat with absolute positioning? What does the parent element need to have for absolute positions to be respected?
 
-> **Hint:** There's an extra CSS property that needs to be added to `.trainer-img`.
+> **Hint:** The `.trainer-img` elements would need a `position` added to them, similar to our `.checkbox-wrapper` elements.
 
 Once you've figured it out, the trainer cards should now look like this:
 
@@ -301,7 +315,7 @@ If your website doesn't look quite the same, open the Chrome DevTools and inspec
 
 ## Animate the Hover
 
-Now that we know what the end result looks like, we can define the starting point and bridge the gap between them with a `transition`. Let's start with the gradient, since it involves fewer pieces. The starting point is an `opacity` of 0, so add that `opacity` to the pseudo-element rule.
+Now that we know what the end result looks like, we can define the starting point and bridge the gap between them with a `transition`. Let's start with the gradient, since it involves editing fewer elements. The starting point is an `opacity` of 0, so add that `opacity` to the pseudo-element rule.
 
 Next, we want to change the `opacity` to 1 when the mouse hovers over any part of the trainer `<article>`, not just the background image. Hold on, though. How can a parent's hover state affect a child? Consider for a moment the following CSS rule:
 
@@ -362,7 +376,7 @@ First, let's re-add the trainer name and role to the `trainer-bio` container:
 ```html
 <div class="trainer-bio">
   <!-- re-add name and role here -->
-  <h3>Tony Horton</h3>
+  <h3>Arron Stephens</h3>
   <h4>Speed / Strength</h4>
   <p>
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi neque animi quo cupiditate commodi saepe culpa sed itaque velit maiores optio dolorem excepturi aperiam dolores, voluptatibus suscipit amet quis repellat!
