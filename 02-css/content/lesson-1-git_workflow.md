@@ -270,6 +270,7 @@ This folder tree is interactive, allowing us to expand or close folders and open
 If you see the `README.md` file in VS Code, congrats for successfully accomplishing our first `pull`! 
 
 Normally, when working on a team, we would use the command `git pull` to update our local development environment. Team members could have potentially "pushed" their enhancements or bug fixes up to the remote development environment so it is good practice to keep our version up to date. If our branch is already up to date, Git will check and let us know a `pull` is not necessary so it is harmless to check. Normally the Git workflow has a `pull` done prior to a `push` so that your local development environment is updated first. This ensures that if any potential conflicts in the code arises, they can be resolved locally in VS Code, which has very nice features that allow efficiency in conflict resolution. So what is a conflict you ask, well the best way to find out is to manufacture one and use VS Code to resolve it. 
+
 ### Create a Merge Conflict
 1) Let's do a bit of role playing and pretend we are part of the legal team. Upon seeing the `README.md` file in the Github repo for Run Buddy, we decide to do a quick edit just to tighten up our liability. Let's go to the Github and make the following changes to the `README.md` and add our copyright info and include the legal entity Run Buddy, Inc.
 Click on the edit button
@@ -434,31 +435,36 @@ Now that we understand how to make a Git issue, let's create another one for ano
 * Name: Input Text field
 * Message: Large message area
 
-##
+## Branch
+* `feature/contact-form`
 ```
-![Git Issue Success](assets/lesson-1/820-contact-git-issue.png) <br />
+![Git Issue Contact-Form Success](assets/lesson-1/820-contact-git-issue.png) <br />
+Notice that this issue was also assigned and labelled.
 Let's continue progressing through our project requirements to add some HTML content in our next step and transition this issue into a feature branch.
 
 ## Setting up our Feature Development Environment
 Our first step will to create a new feature development environment that will have a stable copy of the current codebase which we can work on independently. So let's use our Gitflow model and create our first feature branch now that we have our Git issue set up with the feature's requirements.
-> **Video Step through** Using integrated terminal in VS Code: make feature branch from `develop`, add HTML, check out back to `develop`, merge.
+> **Video:** [Create feature branch and merge - Jira FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-115)
+Using integrated terminal in VS Code: make feature branch from `develop`, add HTML, check out back to `develop`, merge.
+
 > **Linear Steps**
-According to our Gitflow model, our first step when creating a feature branch will be to `checkout` into the `develop` branch, our stable codebase, then create a new branch, then use this branch as our "working directory" or active branch. We can accomplish these two git operations with the following command in the terminal:
+According to our Git workflow, our first step when creating a feature branch will be to `checkout` into the `develop` branch, our stable codebase, then create a new branch, then use this branch as our "working directory" or active branch. We can accomplish these two git operations with the following command in the terminal:
 ```
 $ git checkout -b feature/hero-text
 ```
 Please take notice that this made an exact copy of the `develop` branch including the newly created `README.md` file. As soon as we starting to work and commit in the feature branch these versions will begin to diverge.
-## NEW SCREENSHOT - SCRUB INFO - Red Outline for Active Branch and Success Message.
+
 ![Git Feature Branch](assets/lesson-1/910-integrated-terminal-vs-code.png)
 
-> **Checkpoint**
-> What is the Git operation to create a new branch?
-> What is the Git operation to create a delete a branch?
-> What is the Git operation to download data from a remote repo?
-> What is the Git operation to move into a new branch?
-> What is the Git operation to review a remote branch without making any changes to the working directory?
+> **Checkpoint:** Know Git?<br>
+> What is the Git operation to create a new branch?<br>
+> What is the Git operation to create a delete a branch?<br>
+> What is the Git operation to download data from a remote repo?<br>
+> What is the Git operation to move into a new branch?<br>
+> What is the Git operation to review a remote branch without making any changes to the working directory?<br>
+
 ## Adding HTML to our Hero Section
-Let's take a quick look at our requirements from the Git issue and the mock-up from the design team to see what content we need to add for the hero text block.
+Let's take a quick look at the Git issue and the mock-up from the design team to see what content we need to add for the hero text block.
 ![Hero Text Block Mock-up](assets/lesson-1/500-hero-mock-up.png)<br />
 ![Git Issue Text Block Requirements](assets/lesson-1/1000-text-block-issue.png)<br />
 > **Activity**: Practice your HTML skills by fulfilling the Git issue requirements and following the mock-up for guidance.
@@ -482,15 +488,23 @@ Please save and render so your browser should look like this:
 
 > **Pause**: Notice how there is an overlap. Why does this occur?
 >
-> **Answer**: Absolute position removed the `form` from the document flow which allows the text block to overlap. We will fix this in the next section when adding the CSS styling. 
+> **Answer**: The sign-up form was declared with absolute position so it is removed from the document flow. This allows the text block to overlap with the sign-up form. We will fix this in the next section when adding the CSS styling. 
 
 One more thing, let's change our hero image to improve the legibility of our text block by updating our background hero image the the css with the following image.
 > **Image download** from Canvas/AWS [flipped-hero-image](assets/lesson-1/400-hero-flip-css.jpg)
 Please save and render into the browser to get the following:
 ![Hero Image](assets/lesson-1/1200-hero-image.png)
-As was the case, it doesn't look pretty now, but this will be addressed later in the styling lesson. For now, our issue is complete so let's add and commit our work in this branch.
+It doesn't look pretty now, but this will be addressed later in the styling lesson. For now, our issue is complete so let's add and commit our work in this branch. We will make a slight change to our practiced Git workflow in this instance by pushing our local feature branch up to a remote feature branch. A good reason for this is to create a backup of our work just in case something accidentally happens to our local computer, ie lightning bolt or spilled coffee cup, we will have a secure backup of our work! 
+```
+git push origin feature/hero-text
+```
+The slight variation in our push command illustrates we are no longer pushing to our remote `master` branch but to a new remote feature branch we name `feature/hero-text`. Hypothetically we could've have named this anything, but consistency of naming conventions means one less branch name needed to commit to memory. We will add this step to our Git workflow specifically for every add and commit of our feature branch.
 
-Let's perform the Git operation make `develop` the working directory.
+We can look at our Github repo and see after a successful push, our backup branch is now safely secured in Github.
+![New Remote Feature Branch]()
+
+## Merge feature into development environment
+Let's perform the Git operation to make `develop` the active branch.
 ```
 $ git checkout develop
 ```
