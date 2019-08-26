@@ -313,7 +313,7 @@ Notice how `justify-content` is set to `center` now? It's because we want these 
 
 We aren't quite there yet, however, as we now have to deal with the "call to action" (often seen as "CTA") we added in Lesson 1 running the full width of the hero flexbox like this image shows:
 
-![Hero section with full width and unstyled call to action](assets/lesson-2/1401-hero-broken.jpg)
+![Hero section with full width and un-styled call to action](assets/lesson-2/1401-hero-broken.jpg)
 
 Let's add some styles to :
 
@@ -346,7 +346,7 @@ Next we want to adjust our `.hero-form` CSS rule to have these two declarations:
 
 - `margin: 3.5%;`
 
-Notice how we used percentage values for the margins and widths this time around? Since margins and padding are usually done in very small amounts like 10 pixels, it's usually okay to not make their lengths relative to the size of the parent container or page. We used it here in this case more just to show how it can work in the overall flow of this section.
+Notice how we used percentage values for the margins and widths this time around? Since margins and padding are usually done in very small amounts like 10 pixels, it's usually okay to not make their lengths relative to the size of the parent container or page. We used it here in this case more just to show how it can work in the overall flow of this section. You'll find throughout your career that picking values for most sizing and spacing properties is going to involve a good amount of trial and error, this is why we use Chrome DevTools to adjust values until we think they will work!
 
 > **Pro Tip:** Picking a unit of measurement to use in CSS can sometimes be a daunting task that causes us to constantly second guess our choice. All of these units of measurement exist for a reason and while some may work better than others in certain cases, there really is no such thing as a "wrong" decision, as we can achieve similar&mdash;if not the same&mdash;results with any mix of these units.
 >
@@ -380,14 +380,14 @@ When you are done wrapping those `section-title` elements, go and wrap the `p` e
 ```html
 <div class="flex-row">
   <p>
-    text goes here
+    butcher selfies chambray shabby chic gentrify readymade yr Echo Park XOXO Tumblr normcore Banksy direct trade Blue Bottle chillwave you probably haven't heard of them single-origin coffee Vice fanny pack fixie Odd Future Austin fingerstache pickled twee synth Wes Anderson Thundercats viral bitters flannel meggings narwhal Marfa Schlitz sustainable Intelligentsia umami deep v craft
   </p>
 </div>
 ```
 
 Notice how we added a class of `flex-row` to each one of these wrapping `div` elements. Why do you think we would give it a name like that?
 
-The answer is simply because we are applying the same style to a number of different sections and it is a good use-case for having a class that we can reuse as many times as possible&mdash;just like we already have done with the `section-title` and `primary-border` classes!
+We chose the class name `flex-row` because it will represent a CSS rule that sets up a flexbox row. If we were to make a flexbox column, we could say `flex-column` instead. Remember, naming CSS classes can be as specific or generic as you want, but think about the bigger picture and how they can be reused throughout your page designs&mdash;just like we already have done with the `section-title` and `primary-border` classes!
 
 Now that the HTML is in place, we can turn our attention to the CSS. Just like we did earlier, we'll start by removing styles:
 
@@ -411,7 +411,7 @@ We'll start rebuilding this by adding a style rule for anything with a class of 
 
 > **Pause:** If we are creating a flexbox row, why didn't we need to use the `flex-direction: row;` declaration?
 >
-> **Answer:** The default `flex-direction` value for a flexbox is `row`, so we do not need to explicitely declare it.  
+> **Answer:** The default `flex-direction` value for a flexbox is `row`, so we do not need to explicitly declare it.  
 
 We just created a CSS rule that can be applied anytime we need a flexbox row container. This may not seem too useful now, but as you progress as a developer you will find that it is sometimes more efficient to create classes that can be used universally throughout a project as opposed to applying identical CSS property declarations to multiple items.
 
@@ -427,7 +427,7 @@ Now that we have our flex row created, let's turn our attention to the `.section
 
 > **Pause:** How much margin does each side get if the declaration reads `margin: 0 auto 35px auto`?
 >
-> ANSWER: top: 0, right: auto, bottom: 35px, and left: auto
+> Answer: top: 0, right: auto, bottom: 35px, and left: auto
 
 Lastly, we need to center the text in our "What We Do" paragraph, so we'll finish by adding a `text-align: center` to the `.intro p` CSS rule.
 
@@ -445,7 +445,7 @@ We are going to try and strike a nice balance of having better use of our horizo
 
 While it reads well, it's also not making great use of that space to the left and right of the content. We're going to set it up so each step is still on its own horizontal row, but will have a left to right layout as opposed to a top to bottom one like this image:
 
-![New step layout that runs horizontally](assets/lesson-2/1600-step-new.jpeg)
+![New step layout that runs horizontally](assets/lesson-2/1600-step-new.jpg)
 
 As we can see, each step will take up less vertical space and have a little more interesting layout for the user to experience while also keeping the content together in a meaningful way.
 
@@ -515,9 +515,17 @@ We've seen and used all of these properties a fair amount at this point, but thi
 
 ![step layout that is top aligned](assets/lesson-2/1800-step-noalign.jpeg)
 
-By centering them, it creates a better use of vertical space on the left side.
+By centering them, it will create a better use of vertical space on the left side, like this image:
 
-As we can see, we aren't quite there yet for the `.step` flexbox. Right now both of them share a horizontal line, but the widths of the children are varied based on the actual length of the content inside of them. Since we cannot rely on the content being uniform enough to provide a consistent layout, we need to tell the containers they live inside of to have some rules for how big they can be.
+![Step layout with vertically centered alignment](assets/lesson-2/1801-step-align.jpg)
+
+Now we aren't quite there yet for the `.step` flexbox, as our current layout doesn't match the above mock-up. Right now both of children of the `.step` flexbox (`<h3>` and `<div class="step-info">`) share a horizontal line, but the widths of these children are varied based on the actual length of the content inside of them. As we can see in this image, the content for Step 1 is less than Step 2, so the box holding that content is less wide:
+
+![Step layout without flex property in place](assets/lesson-2/1802-steps-noflex.jpg)
+
+Since we cannot rely on the content being uniform enough to provide a consistent layout we need to tell the containers they live inside of to have some rules for how big they can be.
+
+### Using the Flex Property for Widths
 
 In previous sections, we used the `width` property to give those flexbox child elements some dimensions and rules to follow. Setting the width is fine and would work exactly how we expect it to, but there is a new property specific to flexbox that we can provide the flexbox child elements to help them scale with the page.
 
@@ -531,7 +539,7 @@ The property we just added to our flexbox children is probably the most challeng
 
 - **`flex-grow`**: A numeric value that is used to determine how much of the flexbox's unused space can be spread out to its children. The number provided is used as a ratio compared to the other child's `flex-grow` value. The higher the number, the more unused space that child will be given. Learn more about [the flex-grow property on MDN.](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow)
 
-- **`flex-shrink`**: Same idea as `flex-grow`, but it is used to determine how to size the flexbox's children when the flexbox container shrinks. Learn more about [the flex-shrink property on MDN.](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)
+- **`flex-shrink`**: Same idea as `flex-grow`, but it is used to determine how to size the flexbox's children when the flexbox container shrinks. While this property is cool, it isn't used as much as `flex-grow`, but you can learn more about [the flex-shrink property on MDN.](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)
 
 - **`flex-basis`**: This works similar to setting a `width` value to a child element, but it is used more as a baseline value that at the very least will let the child be that size no matter what and grow or shrink accordingly. Learn more about [he flex-basis property on MDN.](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)
 
@@ -553,13 +561,13 @@ The value we provided to our step's flexbox children uses the `<flex-grow value>
 
 - `.step h3` will be at the very least 30% wide, but will receive any extra space in the container
 
-- `.step-info` will be at the very least 70% wide, but will receive any extra space in the container at a 12 to 1 ratio, meaning it'll receive 12x more unused space than it's sibling with a `flex-grow` value of 1
+- `.step-info` will be at the very least 70% wide, but will receive any extra space in the container at a 2 to 1 ratio, meaning it'll receive 2 more unused space than it's sibling with a `flex-grow` value of 1
 
 These properties are difficult to understand at first, but they allow the developer to create a much more scalable layout when they become more complex. Could we have used the `width` property for these instead, of course, but this is a good opportunity for us to use something we haven't seen before (and will definitely see again).
 
-Now we should have a step layout that looks like this:
+Now we should have a step layout that looks like this image:
 
-![Step without nested flexbox](assets/lesson-2/1900-step-no-inner.png)
+![Step without nested flexbox](assets/lesson-2/1900-step-no-inner.jpg)
 
 We're almost there, all we need to do now is take what we just learned and apply it again for `.step-info`. Start by adding these declarations to the `.step-info` rule:
 
@@ -571,7 +579,9 @@ We're almost there, all we need to do now is take what we just learned and apply
 
 Where did our icon go?! It has been totally removed from the screen for some reason. Think about how a flexbox container works if its children does not have any set `width` or `flex-basis` values. It _tries_ to create space for both of them as evenly as possible based on the content of each child element, but what happens when one of the child element's content doesn't have a set dimension?
 
-As we can see here our `img` icon has no HTML `width` attribute nor any CSS rules giving it a width value, so the flex parent looks at each of it's children and sees an image with no hard set width in one child, but then sees text in another. So the one with text is accommodated by the flex parent first and will leave space for the other child if it ever needs to take up space, which as of now it doesn't know if it does or not because its content (the `img` element) isn't indicating that it does.
+![Step with icon missing](assets/lesson-2/1901-step-noicon.jpg)
+
+As we can see here our `<img>` icon has no CSS rules giving it a width value. So when the flexbox parent (`<div class="step-info">`) attempts to calculate how much space each one of its children (`<div class="step-img">` and `<div class="step-text">`) needs, it'll see that one of them has actual text content and the other one has an image with no width explicitly set. Because of this, the flexbox parent cannot infer how big that image should be and ends up ignoring it, giving all of space to the child element that has content.
 
 To fix this, we just need to give both children some type of value to give them their own space. So let's do that by first creating a new CSS rule for `.step-img` like this:
 
@@ -591,6 +601,10 @@ Now we're on our way, but it's creating some weird movement where steps with les
 ```
 
 Now both child elements have a `flex-grow` property of 1 and 12, respectively. This means that `.step-text` will be alloted 12 times more unused space than `.step-img`, but `.step-img` at the very least _has_ to be 12 percent of the width of `.step-info`.
+
+Why were these values chosen? A twelve to one seems like a wide gap to provide these two flexbox children. As we've seen before, these values can be settled on in a number of different ways, but it usually involves some form of trial and error using Chrome DevTools until the desired layout is achieved. This video will demonstrate how you can do just that:
+
+### [NEED VIDEO - FSFO-121](https://trilogyed.atlassian.net/browse/FSFO-121?atlOrigin=eyJpIjoiMTRhNTNkNzlkMWRiNDBhOTkxM2M2NzJkODM0YzkwOWQiLCJwIjoiaiJ9)
 
 Notice how we don't even need to worry about setting a `flex-basis` value for `.step-text`. When that value is omitted, the browser gives it a value of `auto`, which allows it to be whatever width is left over.
 
@@ -628,9 +642,11 @@ We covered a lot of ground by updating these steps, and though it may have seem 
 
 The rest of the page's conversion to flexbox won't be as involved as this section was, but it is cool to know that we can use this one tool to handle both very simple and complex layouts!
 
+Don't forget to add, commit, and push your work!
+
 ## Trainer Trading Cards
 
-Our contact at Run Buddy must really love this idea of tightening up sections to take up less vertical space, because we're about to give our trainers a treatment similar to the "What We Do" section we just finished up. Lucky for us, it doesn't seem to necessitate the same granular control that the previous section did, so we can get this up and running pretty quick.
+The design team at Run Buddy must really love this idea of tightening up sections to take up less vertical space, because we're about to give our trainers a treatment similar to the "What We Do" section we just finished up. Lucky for us, it doesn't seem to necessitate the same granular control that the previous section did, so we can get this up and running pretty quick.
 
 Our current section for the trainers has all three of them stacked on top of one another, but now we want to flip each trainer's `article` on its side to make it run slightly longer, but narrow enough to allow all three to sit on one horizontal row:
 
@@ -660,7 +676,7 @@ We'll start on the easier side this time and update how our text content looks f
 
 - Find the CSS rule for `.trainer-bio p` and move its `line-height` declaration to the `.trainer-bio` rule
 
-Next thing we want to do is go into the `index.html` document using VSCode and move the second trainer's `img` element above the `div` with a class of `trainer-bio`, so it matches the other two trainers.
+Next thing we want to do is go into the `index.html` document using VSCode and move the second trainer's `img` element above the `div` with a class of `trainer-bio`, so it matches the other two trainers. In Run Buddy 1.0, our three trainers alternated when it came to their image placement. For Run Buddy 2.0, they will all have the same "image then text" layout.
 
 Once that is complete, look through all three trainer `article` elements and remove any classes that mention `text-left`, `text-right`, `img-left`, or `img-right`, as we do not need those anymore. They should now all have this HTML structure (with varying content, of course):
 
@@ -703,7 +719,11 @@ Now all that needs to be done is turn these trainer cards into a row, so turn yo
 }
 ```
 
-It doesn't look great just yet, but that's because we have some styles in our newly created flexbox children (the `article` elements) that we need to adjust or remove, starting with `.trainer`:
+The result should look like this image: 
+
+![Trainers layout broken](assets/lesson-2/2001-trainers-broken.jpg)
+
+It doesn't look great just yet, as is shown in the above image, but that's because we have some styles in our newly created flexbox children (the `article` elements) that we need to adjust or remove, starting with `.trainer`:
 
 - Find the CSS rule for `.trainer`:
 
@@ -830,7 +850,7 @@ Last thing we need to do for the flexbox layout is have all three child elements
 Well we could go back to the HTML and give them all a class, or we could skip that and select all of them with a familiar selector used in a different context:
 
 ```css
-.contact-info > * {
+.contact-info > *div* {
   flex: 1;
   margin: 15px;
 }
@@ -838,9 +858,11 @@ Well we could go back to the HTML and give them all a class, or we could skip th
 
 Do you remember what the `*` selector did? What about the `>` syntax?
 
-> HINT: We're still using it at the very top of `style.css`
+> **Hint:** We're still using it at the very top of the `style.css` file
 
 That is the symbol we use to select all HTML elements, so how is it being used in this context? This is saying "select all elements that are direct children of anything with a class of `contact-info`." The `>` symbol means it is looking specifically for direct children of the element listed first, in this case it is selecting all children of the element with `contact-info` as its class.
+
+Remember, however, CSS reads right to left. This means that if the first selector it reads is `*`, it will try and find _every_ element on the page first, then look at the `.contact-info`, and then filter out the elements that aren't a direct child of it. In a bigger site this wouldn't be a good idea, as it is not as performant as it could be, but for a site this size with not as many elements and nested elements, the performance drop is negligible.
 
 In this case, it will apply the above styles to the three flexbox child elements in our `contact-info` flexbox container, so we are now all set with this section's flexbox layout.
 
@@ -889,6 +911,8 @@ Now for the contact form elements:
 Learning this much about layouts in CSS is challenging, but it is very rewarding when you realize how much control you can exercise over your HTML elements. There is nothing more important for a CSS developer than the ability to visualize a page as a series of containers, and it is a very exciting time for CSS because of tools like flexbox are creating highly customizable layouts similar to magazines and other print media.
 
 We've finished this feature request and are ready to take the code from this branch and merge it into our `develop` branch. Then we'll be ready to tackle the next feature request on our list!
+
+## [NEED CHECKPOINT - Flexbox quiz FSFO-122](https://trilogyed.atlassian.net/browse/FSFO-122?atlOrigin=eyJpIjoiZGU3ZWFiZjFmOWE5NGFlZmE0NzdkNDlmYzAyNWE3NjkiLCJwIjoiaiJ9)
 
 ## Merging Features
 
