@@ -42,7 +42,7 @@ This Git command creates a new branch with your `<branch-name>` which creates a 
 ```
 git checkout <branch-name>
 ```
-The `checkout` command enables a user to move into a different branch which will become the new active branch. This is how to navigate between different versions of the codebase.
+The `checkout` command enables a user to switch into a different branch which will become the new active branch. This is how to navigate between different versions of the codebase.
 ```
 git checkout -b <branch-name>
 ```
@@ -53,7 +53,9 @@ git checkout <branch-name>
 ```
 Using the **-b** option flag, which is short for *branch*, we can create a new branch **AND** `checkout` into the new branch we just created. So essentially the new branch becomes the active branch.
 
-Now let's practice using these commands to create our development environment by making a `develop` branch. Remember we must go to the terminal and `cd` into our working directory. 
+Now let's practice using these commands to create our development environment by making a `develop` branch. Remember we must go to the command prompt and `cd` into our working directory. 
+
+> **Important:** In most workplaces, these branches will have already been configured by the IT department or Development Operations ("DevOps") team. What you are about to do is uncommon in everyday web development. However, it's important to know how to create a Git workflow branching strategy so that you know how to work with it.
 
 Let's go to the root directory of our project so we can make a new branch from our `master` branch, our production environment. 
 
@@ -98,12 +100,8 @@ There are several important reasons to work on the codebase in a separate `featu
 > **Video**: [Animation of Git workflow-Jira FSFO-106](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-106). Start with  `master` then fork to `develop`. The branching from `develop` into a feature, then another feature, [actual code development] then merging back into the `develop` branch, then into `master` branch.
 
 It's time to switch gears now that we have our development environment set up. Let's go to our repo in GitHub and create some documentation for the new version of the Run Buddy project by creating a `README.md` file after a quick checkpoint.
-> **Checkpoint**<br />
-Where can I test the code production or development environment?<br />
-How do I make a feature branch?<br />
-What is the purpose of the `develop` branch?<br />
-What is the Git command to view another version of the codebase?
-How do you check what the active branch is?
+> **Checkpoint** [Learnosity Asset-Jira 117](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-117)<br />
+
 
 ## README please?
 
@@ -181,11 +179,6 @@ This remote version serves as the communal or collaborative branch where we will
 This way a team member can simply pull down an updated version of the development environment by pulling down the `develop` branch from Github in order to get up to speed with the rest of the development team with the latest version of the development environment.
 
 Let's continue to the next step where we will learn how to communicate updates between our remote repo (Github.com) and our local repo (on our computer).
-<!-- 
-> **Checkpoint**<br />
-What is a README.md for?<br />
-What is Markdown? What is it used for?<br />
-How to preview Markdown in Github?<br /> -->
 
 ## Interacting with Github
 It is important to keep in mind our local repo (on our computer) is different than the remote repo (stored on GitHub.com) even though the code seems relatively the same, they are in fact different versions of the codebase. 
@@ -225,7 +218,7 @@ Enter ESC to enter normal mode, and then : to initiate a Vim command. You will s
 or alternatively type
 SHIFT + Z + Z
 
-> **Deep Dive**: To learn more about this powerful text editor, check out [Wikipedia](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
+> **Deep Dive**: To learn more about this powerful text editor, check out [this Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
 This will bring you back to your terminal window which should look like this.
 
 ![pull-success](assets/lesson-1/300-pull-success-git.png)
@@ -283,7 +276,7 @@ git merge <target branch>
 In this operation Git will determine any differences in the code between the active branch and the target branch, and update the active branch with those changes whether they be added files or changes in the code. Conversely the target branch will remain the same and **not** undergo any changes.
 
 ![Git Pull](assets/lesson-1/260-git-fetch-merge-pull.png)<br>
-After the merge, the active branch, in our case the `master` branch, will not only receive the new file updates from the remote `master` branch, but also all the commit histories associated with that branch. 
+After the merge, the active branch, in our case the `master` branch, will not only receive the new file updates from the remote `master` branch, but also all the commits associated with that branch. 
 For more details about different options and other useful commands, let's look at the official [Git docs](https://git-scm.com/docs/git-pull) (a great site to bookmark).
 
 
@@ -301,7 +294,7 @@ Since the last option is far too manual, let's go with choice 2. This is so we c
 > 2) `git merge master`
 
 To verify the merge was successful, look for the `README.md` file in the `develop` branch.
-If you were able to accomplish this task congrats! Dealing with different branches and trying to update them locally and remotely can be challenging. Some common errors often occur due to mis-pelling as well as losing sight of the active branch or what branch is needing the update. At times a pull request or a merge will not be performed if Git's comparision of the two versions reveal no changes to update.
+If you were able to accomplish this task congrats! Dealing with different branches and trying to update them locally and remotely can be challenging. Some common errors often occur due to misspelling as well as losing sight of the active branch or what branch is needing the update. At times a pull request or a merge will not be performed if Git's comparison of the two versions reveal no changes to update.
 
 ### Create a Merge Conflict
 1) Let's do a bit of role playing and pretend we are part of the legal team. Upon seeing the `README.md` file in the Github repo for Run Buddy, we decide to do a quick edit just to tighten up our liability. Let's go to the Github and make the following changes to the `README.md` and add our copyright info and include the legal entity Run Buddy, Inc.
@@ -389,7 +382,7 @@ Now let's hands dirty by practicing our Git workflow and learning a service prov
 
 The design team has requested we insert a text block into the hero section to add some visual balance and add Run Buddy marketing material. 
 
-Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. Git issues is a task management tool that is used with teams to track, organize, and communicate ideas, tasks, bugs, or enhancements. This tool can help team members remember key tasks, identify bottle necks or blockers that could prevent work progress, indicate file changes to reduce merge conflicts, and prevent duplicating work through assigning tasks or issues. 
+Now we could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. Git issues is a task management tool that is used with teams to track, organize, and communicate ideas, tasks, bugs, or enhancements. This tool can help team members remember key tasks, identify bottle necks or blockers that could prevent work progress, indicate file changes to reduce merge conflicts, and prevent duplicating work through assigning tasks or issues. Normally in the workplace, the design team would be making these issues and assigning them to us, but we will make them on the design teams behalf to simulate the workflow.
 Let's go to our GitHub repo and select the Issues tab.
 
 > **Video:** [Create Git Issue - Jira FSFO - 111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
@@ -478,7 +471,7 @@ Branch: `feature/aesthetics`
 5) Title: Adding animation<br>
 Branch: `feature/animation`
 
-Let's continue progressing through our project requirements to add some HTML content in our next step and transition this issue into a feature branch. Normally we would assign each of these features to different team members so we can work in parallel, but in our case we will work through each of these issues ourselves to get better practice in CSS and Git workflow.
+Let's continue progressing through our project requirements and revisit our old friend HTML again to add some markup in our next step. We will now transform this issue into a feature branch. Normally we would assign each of these features to different team members so we can work in parallel, but in our case we will work through each of these issues ourselves to get better practice in CSS and Git workflow.
 
 ## Git workflow for a new feature
 In the following steps we will be going through the workflow of creating a feature branch, completing the work then adding our work into the remote codebase in Github which is our remote `develop` branch. Here's quick overview of the steps in this Git workflow process:
@@ -504,18 +497,8 @@ Please take notice that this made an exact copy of the `develop` branch includin
 ![Git Feature Branch](assets/lesson-1/910-integrated-terminal-vs-code.png)
 Notice how the `git branch` is used to verify the active branch.
 
-> **Checkpoint:** Know Git?<br>
-> What is the Git operation to create a new branch?<br>
-`git branch <branch-name>`<br>
-> What is the Git operation to create a delete a branch?<br>
-`git branch -d <branch-name>`<br>
-> What is the Git operation to download data from a remote repo?<br>
-`git pull origin <remote-branch -name>`<br>
-> What is the Git operation to move into a new branch?<br>
-`git checkout <branch-name>`<br>
-> What is the Git operation to review a remote branch without making any changes to the working directory?<br>
-`git fetch <remote-branch-name>`<br>
-`git checkout <remote-branch-name>`<br>
+> **Checkpoint:** [Know Git?-Jira 118](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-118)<br>
+
 ### Changes to our Hero Section
 Let's take a quick look at the Git issue and the mock-up from the design team to see what content we need to add for the hero text block.
 ![Hero Text Block Mock-up](assets/lesson-1/500-hero-mock-up.png)<br />
@@ -614,17 +597,11 @@ git push origin feature/contact
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
 
 
-> **Checkpoint**: Possible stopping place
-> Git workflow process: how to make a feature development environment
-> How do I exit out of Vim?
-> What is the connection b/n issues and feature branches?
-> Why is good documentation for a project important?
-> Why use Markdown?
-> What is the syntax to make a large heading in Markdown?
-> Why can't I just work on the `develop` branch?
+> **Checkpoint**: [Learnosity - Jira 119](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-119)
+
 
 ## Reflection
-This was a dense lesson of concepts many of which were challenging to understand. Git is a wonderful tool that most developers use on a daily basis and is the industry standard. Working in programming often means using Git and the Git workflow to collaborate on projects. Before we proceed to the next lesson and work on another Git issue to make our website mobile responsive let's go over some of the key concepts and big ideas we introduced in this lesson.
+This was a dense lesson of concepts many of which were challenging to understand. We are currently working in isolation on a straightforward code base, so all this work of creating branches and Git issues may seem like overkill. But using Git correctly will prepare you for collaborating with many developers on much larger projects. Before we proceed to the next lesson and work on another Git issue to make our website mobile responsive let's go over some of the key concepts and big ideas we introduced in this lesson.
 * We learned the difference between the **development** and **production** environments and how creating a isolated version of the codebase allows visitors to use the website and team members to update and/or fix the code simultaneously.
 * We created **feature branches** to allow versions of the development environment to coexist, letting team members work in isolation and ship features more quickly. This allows for parallel development that increases the team's productivity and accountability, essential metrics for any enterprise.
 * We introduced the **README.md** file which is a high level introduction to your project repo facilitating quick reads by potential employers of your project's technical skill.
