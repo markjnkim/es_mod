@@ -224,7 +224,7 @@ section {
 }
 
 .radio-wrapper label::before {
-  border-radius: 15px;
+  border-radius: 50%;
 }
 
 .radio-wrapper label::after {
@@ -234,7 +234,7 @@ section {
   position:absolute;
   left: -29px;
   top: -3px;
-  border-radius: 15px;
+  border-radius: 50%;
   background-image: radial-gradient(circle, var(--tertiary-color), var(--secondary-color));
 }
 

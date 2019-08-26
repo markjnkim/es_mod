@@ -504,9 +504,9 @@ It would be helpful if we could save this repository in a remote location (i.e.,
 
 > **Important:** A common misconception is that Git and GitHub are the same thing. Git is the version control software that we've installed on our computer. GitHub is a service that lets us create Git repositories on the internet. There are [other websites](https://opensource.com/article/18/8/github-alternatives) that perform the same service as GitHub, but the software on your computer (Git) wouldn't change.
 
-What we'll do is create a new, remote repository on GitHub, then link our local Run Buddy project with it. After logging in to GitHub, find and click the green New button:
+What we'll do is create a new, remote repository on GitHub, then link our local Run Buddy project with it. After logging in to GitHub, click the Start a Project button:
 
-![new repo](./assets/step-1/1000-github-new.png)
+![The Start a Project button is next to the Read the Guide button](./assets/step-1/1000-github-new.png)
 
 This will route you to a page where you'll be able to create a new repository. Give the repository a name (run-buddy) but don't change any other options. Then click the "Create repository" button.
 
