@@ -413,7 +413,7 @@ Here is an example using Markdown to add formatting blocks to organize the requi
 ```
 The naming convention for feature branches is something normally agreed upon by consensus by your development or management team. Choices are abundant but normally simplified to the type of branch and branch's purpose like "feature/[feature-name]" or "[issue-number]/[feature-name]". We will choose the former for our branch name convention.
 
- >![new-git-issue](assets/lesson-1/801-edit-git-issue.png) <!-- red outline of "Submit new issue --> 
+ <!-- ![new-git-issue](./assets/lesson-1/801-edit-git-issue-hero.png) <!-- red outline of "Submit new issue --> 
 >3) Type a comment using Markdown to outline the feature's requirements and other information related to this task.
 Here is a simple example: 
 ```markdown
@@ -430,15 +430,15 @@ Here is a simple example:
 ## Questions/suggestions for Design Team
 * What will be the marketing text?
 ```
-Other formatting options are include checkboxes, code blocks, and the ability to mention a team member using their Github handle with the "@" notation.
->4) Notice on the right side panel, there are options to add labels or team member assignments. Let's add the enhancement label to our `hero-text` issue now and assign it to ourselves.
-Click on the Assignees option
-Click on the Labels option
+Other formatting options include checkboxes, code blocks, and the ability to mention a team member(s) using their Github handle with the "@" notation.
+>4) Notice on the right side panel, there are options to add labels or team member assignments. Let's add the *enhancement* label to our `hero-text` issue now and assign it to ourselves.
+Click on the *Assignees* option
+Click on the *Labels* option
 >5) Click on the "Submit new issue" button.
 
 We should see the following screen following a successful issue creation.
 <!--  Add red outline to Edit and Close Issue Buttons -->
-![Git Issue Success](assets/lesson-1/801-edit-git-issue.png) 
+![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
 
 Congratulations on completing your first Git issue. Please note this screen is the edit screen that allows changing the text as well as closing the issue once the enhancement or work has been finished. This edit screen can be found on the Issues tab which now notes there is one outstanding issue at the repo's landing page.
 Take a look at [GitHub's help documents for an expansive view of how Git issues](https://help.github.com/en/articles/managing-your-work-with-issues) can further assist in project management.
