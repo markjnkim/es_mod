@@ -424,15 +424,16 @@ The naming convention for feature branches is something normally agreed upon by 
 >3) Type a comment using Markdown to outline the feature's requirements and other information related to this task.
 Here is a simple example: 
 ```markdown
-# Text Block for Hero Section
+# Updates for Hero Section
 
 ## Content Requirements
-* Heading = "Start Building Habits."
-* Lorem ipsum text placeholder
+* Heading: "Start Building Habits."
+* Text Body: Lorem ipsum text placeholder
+* Download new hero image for hero section
 
 ## Branch
 * `feature/hero-text`
- 
+
 ## Questions/suggestions for Design Team
 * What will be the marketing text?
 ```
@@ -443,11 +444,11 @@ Click on the Labels option
 >5) Click on the "Submit new issue" button.
 
 We should see the following screen following a successful issue creation.
-## Add red outline to Edit and Close Issue Buttons
+<!--  Add red outline to Edit and Close Issue Buttons -->
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue.png) 
 
 Congratulations on completing your first Git issue. Please note this screen is the edit screen that allows changing the text as well as closing the issue once the enhancement or work has been finished. This edit screen can be found on the Issues tab which now notes there is one outstanding issue at the repo's landing page.
-Take a look at [GitHub's help documents for an expansive view of how Git issues can further assist in project management.](https://help.github.com/en/articles/managing-your-work-with-issues)
+Take a look at [GitHub's help documents for an expansive view of how Git issues](https://help.github.com/en/articles/managing-your-work-with-issues) can further assist in project management.
 
 Now that we understand how to make a Git issue, let's create another one for another HTML addition we have been assigned from the sales department. They would like a form for users to submit questions directly to the sales staff in the Reach Out section.
 > **Activity**: Please create a new Git issue for this new feature.
@@ -465,7 +466,7 @@ Now that we understand how to make a Git issue, let's create another one for ano
 ```
 ![Git Issue Contact-Form Success](assets/lesson-1/820-contact-git-issue.png) <br />
 Notice from the image that this issue was also assigned and labelled to provide more detail to the development team.
-Here is a list of the issues we must create for our development team we have received from the management team. Let's make the rest of the issues needed to complete version 2.0 of Run Buddy.
+Here is a list of the issues we must create for our development team we have received from the management team. Let's make the following five separate issues needed to complete version 2.0 of Run Buddy.
 1) Title: Advanced layouts using Flexbox<br>
 Branch: `feature/flexbox`
 2) Title: Mobile responsiveness with Media Queries<br>
@@ -476,7 +477,6 @@ Branch: `feature/grid`
 Branch: `feature/aesthetics`
 5) Title: Adding animation<br>
 Branch: `feature/animation`
-
 
 Let's continue progressing through our project requirements to add some HTML content in our next step and transition this issue into a feature branch. Normally we would assign each of these features to different team members so we can work in parallel, but in our case we will work through each of these issues ourselves to get better practice in CSS and Git workflow.
 
@@ -523,7 +523,6 @@ Let's take a quick look at the Git issue and the mock-up from the design team to
 > **Activity**: Practice your HTML skills by fulfilling the Git issue requirements and following the mock-up for guidance.
 > **Solution**: The markup should look like this:
 ```html
-<!-- 2.1 - Added call to action (CTA) -->
    <div class="hero-cta">
     <h2>Start Building Habits.</h2>
     <p>
