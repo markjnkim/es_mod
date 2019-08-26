@@ -75,7 +75,7 @@ Your terminal should now look like this.<br />
 
 The green font color and asterisk indicate the active branch or "working directory". This command may be one of the most used since knowing which branch or version you are currently on is important to know for all the following Git workflow operations.
 
-Now that we have learned an important use of Git's branches to create an isolated development environment to work, edit, and collaborate without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. 
+Now that we have learned an important use of Git's branches to create an isolated development environment to work, edit, and collaborate without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. Don't worry if you are having a hard time trying to memorize all these Git commands. Simply use a cheatsheet to free up some memory by [bookmarking Atlassian's Git cheatsheet.](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
 
 ## Now Featuring. . . Branches
 
