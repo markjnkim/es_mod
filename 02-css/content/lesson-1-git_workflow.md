@@ -496,16 +496,17 @@ git checkout -b feature/hero-text
 ```
 Please take notice that this made an exact copy of the `develop` branch including the newly created `README.md` file. As soon as we start to work and commit in the feature branch these versions will begin to diverge.
 
-![Git Feature Branch](assets/lesson-1/910-integrated-terminal-vs-code.png)
+![Git Feature Branch](assets/lesson-1/910-integrated-terminal-vs-code.png)<br>
 Notice how the `git branch` is used to verify the active branch.
 
 > **Checkpoint:** [Know Git?-Jira 118](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-118)<br>
 
-### Changes to our Hero Section
-Let's take a quick look at the Git issue and the mock-up from the design team to see what content we need to add for the hero text block.
+### Updates to the Hero Section
+Let's take a quick look at the Git Issue and the mock-up from the design team to see what content we need to add for the hero text block.
 ![Hero Text Block Mock-up](assets/lesson-1/500-hero-mock-up.png)<br />
 ![Git Issue Text Block Requirements](assets/lesson-1/1000-text-block-issue.png)<br />
-> **Activity**: Practice your HTML skills by fulfilling the Git issue requirements and following the mock-up for guidance.
+> **Activity**: Practice your HTML skills by fulfilling the Git issue requirements and following the mock-up for guidance.<br>
+>
 > **Solution**: The markup should look like this:
 ```html
    <div class="hero-cta">
@@ -522,7 +523,7 @@ Let's take a quick look at the Git issue and the mock-up from the design team to
 Please save and render so your browser should look like this:
 ![Hero Text Display](assets/lesson-1/1100-hero-text-markup-html.png)
 
-> **Pause**: Notice how there is an overlap. Why does this occur?
+> **Pause**: Notice how the text over runs into the sign up form. Why does this occur?
 >
 > **Answer**: The sign-up form was declared with absolute position so it is removed from the document flow. This allows the text block to overlap with the sign-up form. We will fix this in the next section when adding the CSS styling. 
 
