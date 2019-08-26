@@ -1,46 +1,50 @@
-# It's time to meet our trainers
+# Lesson 5: Meet the Trainers 
 
-At this point, we're over 50% complete with our Run Buddy product page! We've given users information on what the product is all about and how they can get started, but now we need to add a little more of a personal touch to the page by adding some information about the "faces" of the product.
+At this point, we're more than halfway done with our Run Buddy landing page! We've let visitors know what product Run Buddy offers and how they can get started with a trainer. Now we will add a little more of a personal touch to the page by adding some information about the "faces" of the product.
 
-This next lesson involves building out another `<section>` of our page with three similar pieces of content, so expect a fair amount of repetition. Because of that repetition, the lesson is a good opportunity for us to continue practicing what we've learned so far while also picking up a few new tricks along the way.
+In this lesson, you'll build another `<section>` of the page: the "Meet the Trainers" section. This one contains three similar pieces of content, so expect a fair amount of repetition. Because of that repetition, the lesson is a good opportunity to continue practicing what you've learned so far while also picking up some new skills along the way.
 
-The Run Buddy design team has an idea of how they want this section to look:
+The Run Buddy design team knows what they want this section to look like and has provided a mock-up as a guide: 
 
 ![trainers complete](assets/step-5/100-trainers-complete.jpg)
 
-This may seem like a lot, but we are going to break it down into smaller steps by:
+At first glance, this can look like a daunting amount of content and style, so let's break it down into steps. Here's what we'll do: 
 
-1. Making both HTML and CSS edits to the overall `<section>` element that will hold this content
+1. Make both HTML and CSS edits to the overall `<section>` element that will hold this content.
 
-2. Build out one trainer's HTML content first
+2. Build one trainer's HTML content first.
 
-3. Add CSS to that trainer's HTML content
+3. Add CSS to that trainer's HTML content.
 
-4. Take what we learned in steps 2 and 3 and use that knowledge to create our other two trainers' HTML content
+4. Take what we learned in steps 2 and 3 and create the other two trainers' HTML content and CSS style.
 
-## Setting up the HTML
+## Set Up the HTML
 
-Just like the previous steps in this project, we'll start on the outermost tag and work our way in. We already have a `<section>` tag in place to hold all of our content for our trainers' information, but we want to be able to quickly navigate to it if we were to click on its respective link in the navigation bar. Giving a user the ability to jump right to the section they want to read on a web page is a good practice, when applicable, since it'll remove the guess work of knowing where to stop when scrolling for that content.
+Just like in previous lessons, we'll start on the outermost element for this chunk of content and work our way in. The outermost element for this section is, well, a `<section>` element. We already have one in place to hold all of the content for the trainers' information, but we need to give it an identifying id. The reason for this is to allow visitors to jump to this section by clicking its associated link in the navigation bar. This is a web design best practice; it lets users avoid having to scroll through a webpage looking for the content they need. 
 
-Think about how that was achieved when we built out the "What We Do" and "What You Do" sections. What was added to their respective `<section>` tags that _identified_ them? We used the `id` attribute, of course! Let's update this tag with its own unique `id` attribute:
+Think about how this type of navigation was achieved when you built out the "What We Do" and "What You Do" sections. What did you add to their respective `<section>` elements to identify them? You used the `id` attribute, of course! 
+
+Let's add an `id` attribute to this `<section>` element now. We'll call it `"your-trainers"`, which corresponds to that link in the navigation bar that we set up in Lesson 3. 
+
+In `index.html`, add the following code:
 
 ```html
 <section id="your-trainers">
-  <h1>Meet The Trainers</h1>
+  <h1>Meet the Trainers</h1>
 </section>
 ```
 
-Just like the previous lesson, we can test to see if this works by:
+Now let's check and see if this worked. Like in all previous lessons, you can test any HTML or CSS you add by doing the following:
 
-1. Saving the file
+1. Save the file you made changes to.
 
-2. Refreshing the page
+2. Refresh the webpage.
 
-3. Clicking the "Your Trainers" link in the top navigation.
+3. Click the area on the webpage that you changed; in this case, the "Your Trainers" link in the top navigation.
 
-If you were taken down the page to this section and the URL address in the browser says `/run-buddy/index.html#your-trainers` then we're all set!
+If you were taken down the page to the "Meet the Trainers" section and the URL address in the browser changed to `/run-buddy/index.html#your-trainers`, then you're all set!
 
-The last thing we want to do with our `<section>` element is give it a class name, so let's go ahead and add `class="trainers"` to the tag. This way when we start adding CSS to it we can get to it by its class name, "trainers".
+The next and last thing we want to do with our `<section>` element is give it a class name, so let's go ahead and add `class="trainers"` to the tag. This way when we start adding CSS to it we can get to it by its class name, "trainers".
 
 Now that we have given the whole section its `id` and `class` attributes, let's move into the section's `<h2>` element to give it some proper styling. The best part about updating this section's `<h2>` element is that we can reuse the styles we created in Lesson 4, we just need to provide the correct `class` attribute value and all of the associated CSS styles for that class will be applied.
 
@@ -240,7 +244,7 @@ And there we go! Our trainer's styles are now set up and everything should be lo
 
 ![finished trainer](assets/step-5/500-finished-trainer.jpg)
 
-> HEADS UP: For some users&mdash;especially Windows&mdash;the font we are using here, Helvetica, may not be loaded on the computer and this page will use the fall-back font, Arial. There are differences between the two, namely the variations of the `font-weight` property. It does not have a weight for the value `lighter`, so it ends up using the closest weight. In this case, it is `normal`.
+> **HEADS UP:** For some users&mdash;especially Windows&mdash;the font we are using here, Helvetica, may not be loaded on the computer and this page will use the fall-back font, Arial. There are differences between the two, namely the variations of the `font-weight` property. It does not have a weight for the value `lighter`, so it ends up using the closest weight. In this case, it is `normal`.
 >
 > This is something we as developers may deal with on a regular basis, but the nice thing is that the fall-back weight that is provided doesn't break the page. It just may look a little different than MacOS users.
 >
@@ -294,7 +298,7 @@ Don't forget to do a `git add -A`, `git commit -m "commit message"`, and `git pu
 
 ## Reflection
 
-We're almost there! There are two more important pieces left to build, but at this point we've learned so much about various HTML and CSS properties that they should not feel as heavy. Let's recap what we did in this lesson:
+We're almost there! There are two more important pieces left to build, but at this point we've learned so much about various HTML and CSS properties that they shouldn't feel as heavy. Let's recap what we did in this lesson:
 
 - We learned how to fix some bugs float-based layouts create by implementing `block element context` to the parents of floated elements.
 
@@ -304,4 +308,8 @@ We're almost there! There are two more important pieces left to build, but at th
 
 - Lastly, we utilized a lot of what we've learned previously in this project and reinforce our knowledge in both HTML and CSS.
 
-The next lesson will introduce us to a couple of new HTML tags, as we will be building the "Reach Out" section of our page.
+The next lesson will introduce us to a couple of new HTML tags as we build the "Reach Out" section of our page.
+
+- - -
+
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
