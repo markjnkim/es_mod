@@ -610,8 +610,8 @@ git push origin feature/contact
 > **Pause**: Now that our two feature branches have been completed and merged back into the `develop` branch what is left to do with our issues?<br />
 > **Hint**: Since the issues have been resolved, how do we change their status?<br />
 > **Solution**: Let's go to the Issues tab in our Github repo and mark the issues as closed by clicking on the Close Issue button. This will remove the issue from our list of todos.
-## Red Outline for Close Issue Button
-![Git Issue Success](assets/lesson-1/801-edit-git-issue.png) 
+<!-- ## Red Outline for Close Issue Button -->
+![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
 
 > **Checkpoint**: Possible stopping place
 > Git workflow process: how to make a feature development environment
