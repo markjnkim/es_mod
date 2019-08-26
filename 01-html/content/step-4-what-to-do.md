@@ -22,7 +22,7 @@ High-level, here's our outline:
 
 4. Style the "What You Do" section.
 
-# Fill in the HTML
+# Fill In the HTML
 
 In Lesson 1, we left placeholders for these sections:
 
@@ -56,12 +56,12 @@ In `index.html`, add the following code:
   <h2>What You Do</h2> 
 
   <div>
-    <h3>Step 1: Fill Out The Form Above.</h3>
+    <h3>Step 1: Fill Out the Form Above.</h3>
     <p>You're already here, so why not?</p>
   </div>
 
   <div>
-    <h3>Step 2: Consult With One Of Our Trainers.</h3>
+    <h3>Step 2: Consult with One of Our Trainers.</h3>
     <p>Are you here to build muscle, lose weight, or just feel good?</p>
   </div>
 
