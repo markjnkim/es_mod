@@ -556,7 +556,7 @@ git push origin feature/hero-text
 The slight variation in our push command illustrates we are no longer pushing to our remote `master` branch but to a new remote feature branch we name `feature/hero-text`. Hypothetically we could've have named this anything, but consistency of naming conventions means one less branch name needed to commit to memory. We will add the `push` to remote branch in Github step to our Git workflow specifically after every add and commit of our feature branch to add extra security to our hard work.
 
 We can look at our Github repo and see after a successful push, our backup branch is now safely secured in Github.
-![New Remote Feature Branch]()
+![New Remote Feature Branch](./assets/lesson-1/1250-remote-branch.png)
 This is a look at the branch tab where we can see the addition of our `develop` and `feature/hero-text` branches.
 
 ### Merge feature into development environment
@@ -573,15 +573,14 @@ Upon successful merging, the terminal should look like this:
 ![Merge Success Terminal](assets/lesson-1/1300-merge-success-terminal.png)
 This should look familiar to our `git pull` operation we executed earlier in the lesson since we also performed a `git merge` operation then as well.
 Excellent, now the `develop` is updated with our new markup and has remained a stable codebase throughout. 
-Now let's move onto the second issue and tackle the `feature/contact-us` feature.
+Now let's move onto the second issue and tackle the contact form feature.
 > **Activity**: Let's follow the same procedure as we did for the `feature/hero-text` issue. First set up the feature development environment, add the HTML according to the requirements, verify changes were successful in the browser, then merge the `feature/contact-us` into `develop` branch. Here is the design team's mock-up and requirements:
 ![contact-form](assets/lesson-1/1400-Reach-Out-mock-up.png)
 ![contact-form-issue](assets/lesson-1/1500-contact-us-requirement-issue.png)<br />
 > **Hint**: Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters like the size of the rendered input field, maximum character length, and if it is a required input in order to submit. This and many more attributes can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) for a more detailed look at the attributes.<br />
-> ## Not sure if I should be adding the class for `visuallyhidden` here? Should I add this requirement to the Git issue then? Accessibility consideration now or later?
+<!-- >> ## Not sure if I should be adding the class for `visuallyhidden` here? Should I add this requirement to the Git issue then? Accessibility consideration now or later? -->
 > **Hint**: markup
 ```html
-<!-- 2.1 - Added contact form -->
     <div class="contact-form">
      <h3>Contact Us</h3>
      <form>
@@ -603,7 +602,10 @@ First `checkout` into the `develop` branch and then render in the browser.
 We should see the following:
 > ## Red outline bottom right corner of `<textarea>` to highlight input text field resizing.
 ![Contact Form Render](assets/lesson-1/1600-contact-us-render-html.png)<br />
-Congrats, the markup has been successfully added. 
+Congrats, the markup has been successfully added. We will format later in the CSS lesson. For now let's finish our Git workflow for a finished feature by first pushing up this feature branch up as a backup.
+```
+git push origin feature/contact
+```
 
 > **Pause**: Now that our two feature branches have been completed and merged back into the `develop` branch what is left to do with our issues?<br />
 > **Hint**: Since the issues have been resolved, how do we change their status?<br />
