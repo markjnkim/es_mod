@@ -375,7 +375,6 @@ Now let's move onto the second issue and tackle the `feature/contact-us` feature
 > ## Not sure if I should be adding the class for `visuallyhidden` here? Should I add this requirement to the Git issue then? Accessibility consideration now or later?
 > **Hint**: markup
 ```html
-<!-- 2.1 - Added contact form -->
     <div class="contact-form">
      <h3>Contact Us</h3>
      <form>
