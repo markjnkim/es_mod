@@ -225,7 +225,7 @@ This will bring you back to your terminal window which should look like this.
 ![pull-success](assets/lesson-1/300-pull-success-cli.png)
 
 Let's review the Git report from the `merge`.
-Below the original Git command is the remote repo's url. Then Git's `fetch` operation is performed on the remote `master` branch. Once this is downloaded, it immediately in merged into the active branch by the ['recursive'](https://www.atlassian.com/git/tutorials/using-branches/merge-strategy) strategy. 
+Below the original Git command is the remote repo's url. Then Git's `fetch` operation is performed on the remote `master` branch. Once this is downloaded, it immediately merged into the active branch by the ['recursive strategy.'](https://www.atlassian.com/git/tutorials/using-branches/merge-strategy) 
 > **Graphics Team Animation**: [Nice example of animation of merge](https://www.atlassian.com/git/tutorials/using-branches/merge-strategy)
 The next lines display what files were changed and how many lines were added in green "+" or removed in red"-". We only have additions hence no red "-".
 
