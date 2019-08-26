@@ -75,7 +75,7 @@ Your terminal should now look like this.<br />
 
 The green font color and asterisk indicate the active branch or "working directory". This command may be one of the most used since knowing which branch or version you are currently on is important to know for all the following Git workflow operations.
 
-Now that we have learned an important use of Git's branches to create an isolated development environment to work, edit, and collaborate without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. 
+Now that we have learned an important use of Git's branches to create an isolated development environment to work, edit, and collaborate without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. Don't worry if you are having a hard time trying to memorize all these Git commands. Simply use a cheatsheet to free up some memory by [bookmarking Atlassian's Git cheatsheet.](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
 
 ## Now Featuring. . . Branches
 
@@ -162,9 +162,12 @@ While in our GitHub repo let's take a look at our branches by selecting the bran
 
 In order to provide backup security as well as create a collaborative and communal development branch that team members can use to work, let's backup our local `develop` branch by creating a copy in our Github repo by typing the following command in the command prompt:
 ```
+git push origin <remote-branch-name>
+```
+Previously we did the Git operation to push file changes into the remote `master` branch in Module 1. The difference here is instead of pushing to the remote `master` branch, we are creating and pushing into a new `develop` branch. We identify the target of the push to the remote branch. This command does two operations: creates a new remote branch and pushes the code from the local active branch into this new remote branch. The word `origin` simply refers the source repository where the cloning originally occurred. Hence the Git command to to create a remote `develop` branch will be:
+```
 git push origin develop
 ```
-Previously we did the Git operation to push file changes into the remote `master` branch in Module 1. The difference here is instead of pushing to the remote `master` branch, we are creating and pushing into a new `develop` branch. We identify the target of the push to the remote branch with the last word in this Git command. This command does two operations: creates a new remote branch named `develop` and pushes the code from the local active branch into this new remote branch, `develop`.
 Let's see if this command was successful by looking at the branch tab in the run-buddy repo in Github.
 
 ![Develop Branch in Github](./assets/lesson-1/006-github-develop.png)
