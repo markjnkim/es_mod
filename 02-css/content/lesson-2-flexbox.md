@@ -18,7 +18,7 @@ Let's take a second to look at what the current page looks like and compare it t
 
 Throughout this lesson, we're also going to reinforce a key concept in HTML layouts we introduced in Run Buddy 1.0, which is to always think of layouts as a series of containers or boxes that hold the content. So before starting this lesson, study the mock-ups above and try to visualize how they can be outlined into boxes on the page.
 
-We're ready to get started but as we've learned, our current `develop` branch is probably not the best place to mess around. Let's review our GitHub issue, make a feature branch to work in, and get coding!
+We're ready to get started but as we learned in the previous lesson, our current `develop` branch is probably not the best place to mess around. Let's review our GitHub issue, create a feature branch to work in, and get coding!
 
 ## Create a Feature Branch
 
@@ -30,7 +30,9 @@ Let's follow the steps we established in the first lesson for creating a new fea
 
 - Use the command `git checkout -b feature/flexbox` to create and switch to the new branch.
 
-Run `git branch` again to make sure it worked. If it says the active branch is `feature/flexbox` then it worked! Let's start updating the site.
+Run `git branch` again to make sure it worked. If it says the active branch is `feature/flexbox` then it worked! Let's start updating the site. 
+
+If for the active branch is not `feature/flexbox` or you received an error, it's not a problem! You can always revisit the steps we took in the last lesson to make sure you used the right commands or you can watch this video to gain insight:
 
 ### [NEED VIDEO: FSFO-83 - Video for creating a git feature branch](https://trilogyed.atlassian.net/browse/FSFO-83?atlOrigin=eyJpIjoiODFiM2Q0NDJiNjdhNDQ4YzhkNzA2Y2VkMmZhNzU2NTEiLCJwIjoiaiJ9)
 
@@ -54,10 +56,12 @@ Flexbox's introduction to the developer community was welcomed with open arms. W
 
 ### [NEED VIDEO: FSFO-85 - Demonstrate header resize with and without flexbox](https://trilogyed.atlassian.net/browse/FSFO-85?atlOrigin=eyJpIjoiMzBlNGU0N2UxYzJhNDQ0YWE1YzJiYWIwMjI2NzQwYjUiLCJwIjoiaiJ9)
 
-![Resize with floats](assets/lesson-2/600-bad-resize.gif)
-![Resize with flex](assets/lesson-2/700-good-resize.gif)
+![Resize with floats](assets/lesson-2/601-bad-resize.gif)
+![Resize with flex](assets/lesson-2/701-good-resize.gif)
 
 Flexbox eases these pains by creating HTML parent/child (or container/container-item) relationships where the parent keeps track of how much space each child is taking up and repositions the other children accordingly. This way, developers don't need to be concerned with child element positioning since flexbox does some slick calculations for spacing and alignment. Now the child elements just need to worry about their own content and can grow or shrink depending on the size of the screen.
+
+### The Magic of Flexbox
 
 When a container is given a `display` value of `flex`, that element is now able to create what's known as a one-dimensional layout. This means that it can now control the distribution of its content along either the horizontal X-Axis (known as a "row") or the vertical Y-Axis (known as a "column"). By default, a flexbox is set to be a row, meaning that it will try and fit all of it's child elements on one horizontal line until it hits the right edge of the parent. At that point it has to decide whether to:
 
@@ -68,6 +72,8 @@ When a container is given a `display` value of `flex`, that element is now able 
 Another thing that Flexbox provides that used to be incredibly difficult is horizontal/vertical alignment of child elements, meaning we can use flexbox to vertically center HTML elements in a container (which used to be near impossible with CSS) and we can evenly space elements without having to set a lot of CSS rules to them.
 
 All of these ideas are easily carried into making a flexbox column as well, just apply those rules to height instead of width and it's the same idea. Typically flexbox is used more for rows than columns, but there are some really cool use cases for both and flexbox is quickly becoming an industry standard. Read the [MDN documentation for flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) to learn more about the concepts behind it and how it can be used.
+
+### Prepare Our Header for Flexbox
 
 We'll start by making the `header` element a flexbox, but first let's remove a few pieces from our CSS file (a lot of this lesson will involve removing CSS properties and adding flexbox properties in their place):
 
@@ -96,7 +102,7 @@ Now apply flexbox by adding the following CSS property declaration to the `heade
 display: flex;
 ```
 
-That's all that needs to be added to get our elements back on the same horizontal line! It should now look like this:
+That's all that needs to be added to get our elements back on the same horizontal line! It should now look like this image:
 
 ![Header with flexbox added, creating a row with 2 HTML elements](assets/lesson-2/1000-flex-header.png)
 
@@ -106,7 +112,7 @@ Flexbox is able to evenly distribute the space of the parent element, the `heade
 
 There are just a few more things we want to do at this point. Notice how the navigation items seem to be up against the left-hand side, closer to the `h1`? Well we can adjust that easily using a property that works in flexbox containers called `justify-content`.
 
-> DEEP DIVE: The `justify-content` property is one that only applies to elements with a `display` property value of `flex` or `grid` (more on that later). It allows you to control spacing between child elements with these values:
+> DEEP DIVE: The `justify-content` property is one that only applies to elements with a `display` property value of `flex` or `grid` (more on that later). It allows you to control spacing between child elements with the following values:
 >
 > - **`flex-start`**: This is the default value if nothing is provided and is the most "normal" value. It left justifies all of the elements in the container.
 > ![Flexbox with flex-start justification](assets/lesson-2/300-justify-flex-start.jpeg)
@@ -189,17 +195,21 @@ header nav ul {
 }
 ```
 
-We've already seen these first three property declarations so no need to stop and explain those, but what about those last two? The property `align-items` works similar to `justify-content`, but on the opposite axis. To justify information means to position it on the main axis, but align means to position it along the cross axis. In this case we are ensuring that our content is vertically centered in the `nav` element.
+We've already seen these first three property declarations so no need to stop and explain those, but what about those last two? The property `align-items` works similar to `justify-content`, but on the opposite axis. To justify information means to position it on the main axis, but align means to position it along the cross axis. In this case we are ensuring that our content is vertically centered in the `<nav>` element.
 
-The other one we've added has nothing to do with flexbox, but rather with HTML lists. `list-style` is a shorthand CSS property that allows you pick how the list items look (bullet points, dashes, etc.) and how it's positioned in the list&mdash;indented or outdented.
-
-> DEEP DIVE: The `align-items` property is another property that is specifically used with flexbox or grid layouts. Not only does it keep child elements along a row matched up with another, but it can also be used to vertically center an element on a page. This may sound like a simple task, but it wasn't until this property that it was possible to achieve this type of vertical alignment without using JavaScript.
+> **Important**: When using a flexbox as a row, the horizontal (x) axis is what's known as the "main axis". This is the direction we can control when it comes to laying out the flexbox children. The vertical (y) axis is what's known as the "cross axis". However, if we were to use the `flex-direction` property and set the value to be `column` instead of `row` (which is the default value), those axes get switched where the vertical axis becomes the "main axis" and the horizontal axis becomes the "cross axis".
 >
-> Read [MDN's documentation on `align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) to learn more.
+> When switching a flexbox container from row to column, the values used for `justify-content` and `align-items` will be applied differently, as `justify` always follows along the "main axis" and `align` always follows along the "cross axis".
+
+The other one we've added has nothing to do with flexbox, but rather with HTML lists. `list-style` is a shorthand CSS property that allows you pick how the list items look (bullet points, dashes, etc.) and how it's positioned in the list&mdash;indented or outdented. Since we gave it a property value of `none`, it won't show the bullet points at all!
+
+By default, the color of the bullet points used in a list is the same color set for the text of the list. Since our `body` CSS rule has set the color to be the same teal as the background, we couldn't tell that the bullet points were even there! Now that we are changing some of the styles to our `<header>`, however, that color would've shown up in our navigation bar, so we needed to tell those bullet points to be hidden.
+
+The `align-items` property is another property that is specifically used with flexbox or grid layouts. Not only does it keep child elements along a row matched up with another, but it can also be used to vertically center an element on a page. This may sound like a simple task, but it wasn't until this property that it was possible to achieve this type of vertical alignment without using JavaScript. Read [MDN's documentation on `align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) to learn more.
 
 ### [NEED VIDEO: FSFO-87 - Demo of align-items](https://trilogyed.atlassian.net/browse/FSFO-87?atlOrigin=eyJpIjoiYTg5MTNjZmE3MDQ1NDM1OGE5ZjE2YTBlMjRkMzc3MTciLCJwIjoiaiJ9)
 
-Let's finish updating the navigation by making a few adjustments to our `nav` element's link styles so it looks like this:
+Let's finish updating the navigation by making a few adjustments to our `<nav>` element's link styles so it looks like this:
 
 ```css
 header nav a {
@@ -215,24 +225,19 @@ Can you spot the difference here? We're using the same properties as before, but
 
 By setting the value to `1.55vw`, we are telling the browser that the font's size should be roughly 1.55 percent of the window's overall width. This means that if the browser grows or shrinks, that size will change relative to the new overall width. This unit of measurement is one of a few new methods we can use for flexible length values in CSS, but can be tricky to nail down compared to absolute units of measurement like "pixel".
 
-Now we have a `nav` element where the links grow and shrink with the screen size, but as we can see, they get a little too small when the screen narrows. This is something we'll circle back on and fix in a later lesson.
+Now we have a `<nav>` element where the links grow and shrink with the screen size, but as we can see in the following image, they get a little too small when the screen is smaller. This is something we'll circle back on and fix in a later lesson.
 
+![Responsive navigation text shrinking too small](assets/lesson-2/800-header-small.jpg)
 
-We're done with the entire `header` for now, so now is a good time to save our work in our `flexbox` branch using Git and we'll move onto the rest of our site's layout, starting with the `footer`!
-
-> **Pause:** To reinforce some knowledge in how to use flexbox, check out a game called [Flexbox Froggy!](https://flexboxfroggy.com/)
+We're done with the entire `<header>` for now, so now is a good time to save our work in our `flexbox` branch using Git and we'll move onto the rest of our site's layout, starting with the `footer`! But first, if you'd liked o reinforce some knowledge in how to use flexbox, check out a game called [Flexbox Froggy!](https://flexboxfroggy.com/)
 
 > **Deep Dive:** Absolute vs. Relative CSS Values
->
-> The CSS language has a built in understanding of different units of measurement so it can interpret and display proper length values on the page. In the early days of CSS, these units of measurement closely resembled real life units of measurement like centimeter, millimeter, and even inch.
->
-> Now those units of measurement are somewhat difficult to translate to a computer screen, so a base unit was used primarily instead. This unit is called a "pixel" and it represents one of the million little dots that come together and form a digital screen. Pixels were also used in a lot of print and graphic design programs at the time too such as Photoshop, so early developers had some familiarity and understanding of its size and scale.
 >
 > A problem emerged when screens went from being a predictable standard computer screen size to being used on devices as small as your watch and as large as sport stadium's jumbotron. The screen sizes varied, but a pixel is a pixel no matter what, and it would create a lot of broken designs and layouts. A new unit of measurement was needed.
 >
 > A series of new units of measurement made it into CSS to combat these issues. These units were not based on a set dimension but based on the dimensions of the screens displaying the information instead. These units of measurement are what's known as "relative" because they are based off of the something else's size.
 >
-> Here is a list of [all units of measurement in CSS on MDN.](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
+> Here is a list of [all units of measurement in CSS on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/length) and a deeper [explanation of pixels.](https://www.pixelmator.com/tutorials/resources/pixels-explained/)
 
 ## Flexing the Footer
 
@@ -246,19 +251,23 @@ The `header` may have more going on in it overall since it holds the navigation 
 
 Keep in mind how we can think of all web site layouts as a series of boxes or containers:
 
-![Footer boxes](assets/lesson-2/1100-flex-footer.jpeg)
-
-> IMPORTANT: Remember that the parent/child relationship is a direct relationship. Any elements nested an element deeper (i.e. `header > nav > a`) are children of the direct element they are inside of.
+![Footer elements outlined with boxes](assets/lesson-2/1100-flex-footer.jpeg)
 
 Let's finish up our `footer` by copying what we did to the `header`:
 
-1. Remove the `display: inline` declaration from the footer's `h2` element's CSS rule.
+- Remove the `display: inline` declaration from the footer's `h2` element's CSS rule.
 
-2. Remove the `float: right` declaration from the footer's `div` element's CSS rule.
+- Remove the `float: right` declaration from the footer's `div` element's CSS rule.
 
-3. Add a `display` property with a value of `flex` to the `footer` element's CSS rule.
+- Add a `display` property with a value of `flex` to the `footer` element's CSS rule.
 
-4. Add `justify-content` and `flex-wrap` declarations to the `footer` as well.
+- Add `justify-content` and `flex-wrap` declarations to the `footer` as well that look like this:
+
+```css
+justify-content: space-between;
+
+flex-wrap: wrap;
+```
 
 When you save the page and refresh, try moving the screen size in and out to make sure it looks like this:
 
@@ -302,7 +311,11 @@ Once those are removed let's add in our flexbox properties. In the `.hero` CSS r
 
 Notice how `justify-content` is set to `center` now? It's because we want these two boxes as close to the middle of the screen as possible instead of far apart from one another like in the `header` and `footer`.
 
-We aren't quite there yet, however, as we now have to deal with the "call to action" (often seen as "CTA") we added in Lesson 1 running the full width of the hero flexbox. Let's add some styles it:
+We aren't quite there yet, however, as we now have to deal with the "call to action" (often seen as "CTA") we added in Lesson 1 running the full width of the hero flexbox like this image shows:
+
+![Hero section with full width and unstyled call to action](assets/lesson-2/1401-hero-broken.jpg)
+
+Let's add some styles to :
 
 - Create a CSS rule for the element with a class of `hero-cta` and make it look like this:
 
@@ -728,7 +741,7 @@ Only one more flexbox to go, and this one is going to be a breeze. We have most 
 
 If we recall, we left our current "Reach Out" section in disarray last lesson when we added a contact form and didn't style it. This is a common thing to do when you know you'll be reworking the CSS anyway, why bother doing the work twice? Just throw it into the HTML and get it ready for styling but you'll get to it when you get to it. Well now we've gotten to it, so we'll be changing the above layout to this:
 
-![Fixed Reach Out area](assets/lesson-2/2200-good-contact.jpeg)
+![Fixed Reach Out area](assets/lesson-2/2200-good-contact.jpg)
 
 One more time, think about this layout and create a visual wireframe of what it would look like as a flexbox parent / children relationship.
 
@@ -887,7 +900,7 @@ So what we'll work on now is getting our updated page with all of our flexbox la
 
 1. Make sure your code is committed and pushed using `git add`, `git commit`, and `git push origin feature/flexbox`. You can use `git status` to check if there's anything you need to do.
 
-2. Use `git checkout develop` to move back into the `develop` branch. If you have uncommitted work, you will not be allowed to perform this command.
+2. Use `git checkout develop` to move back into the `develop` branch. If you have uncommitted work, your changed files and code from `feature/flexbox` will carry over to `develop` but will not save it in the `feature/flexbox` branch. So make sure your work is saved in your feature branch using `git add` and `git commit`.
 
 3. Double-check that you in fact are in `develop` by typing in `git branch` or `git status`.
 
