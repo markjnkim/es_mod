@@ -303,7 +303,7 @@ Now that we understand how to make a Git issue, let's create another one for ano
 Let's continue progressing through our project requirements to add some HTML content in our next step and transition this issue into a feature branch.
 
 ## Setting up our Feature Development Environment
-Our first step will to create a new feature development environment that will have a stable copy of the current codebase which we can work on independently. So let's use our Gitflow model and create our first feature branch now that we have our Git issue set up with the feature's requirements.
+Our first step will be to create a new feature development environment that will have a stable copy of the current codebase which we can work on independently. So let's use our Gitflow model and create our first feature branch now that we have our Git issue set up with the feature's requirements.
 > **Video Step through** Using integrated terminal in VS Code: make feature branch from `develop`, add HTML, check out back to `develop`, merge.
 > **Linear Steps**
 According to our Gitflow model, our first step when creating a feature branch will be to `checkout` into the `develop` branch, our stable codebase, then create a new branch, then use this branch as our "working directory" or active branch. We can accomplish these two git operations with the following command in the terminal:
