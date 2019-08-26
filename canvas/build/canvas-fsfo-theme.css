@@ -122,6 +122,14 @@ pre[class*="language-"] {
 	color: green;
 }
 
+/**
+ * Featherlight - ultra slim jQuery lightbox
+ * Version 1.7.13 - http://noelboss.github.io/featherlight/
+ *
+ * Copyright 2018, Noël Raoul Bossart (http://www.noelboss.com)
+ * MIT Licensed.
+**/
+html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483647;text-align:center;white-space:nowrap;cursor:pointer;background:#333;background:rgba(0,0,0,0)}.featherlight:last-of-type{background:rgba(0,0,0,.8)}.featherlight:before{content:'';display:inline-block;height:100%;vertical-align:middle}.featherlight .featherlight-content{position:relative;text-align:left;vertical-align:middle;display:inline-block;overflow:auto;padding:25px 25px 0;border-bottom:25px solid transparent;margin-left:5%;margin-right:5%;max-height:95%;background:#fff;cursor:auto;white-space:normal}.featherlight .featherlight-inner{display:block}.featherlight link.featherlight-inner,.featherlight script.featherlight-inner,.featherlight style.featherlight-inner{display:none}.featherlight .featherlight-close-icon{position:absolute;z-index:9999;top:0;right:0;line-height:25px;width:25px;cursor:pointer;text-align:center;font-family:Arial,sans-serif;background:#fff;background:rgba(255,255,255,.3);color:#000;border:0;padding:0}.featherlight .featherlight-close-icon::-moz-focus-inner{border:0;padding:0}.featherlight .featherlight-image{width:100%}.featherlight-iframe .featherlight-content{border-bottom:0;padding:0;-webkit-overflow-scrolling:touch}.featherlight iframe{border:0}.featherlight *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}@media only screen and (max-width:1024px){.featherlight .featherlight-content{margin-left:0;margin-right:0;max-height:98%;padding:10px 10px 0;border-bottom:10px solid transparent}}@media print{html.with-featherlight>*>:not(.featherlight){display:none}}
 :root {
   --trilogy-blue: #28c8e5;
   --trilogy-teal: #3393a3;
@@ -204,6 +212,16 @@ pre[class*="language-"] {
     margin-left: 2em; }
     #bootcamp ol li:not(:last-child), #bootcamp ul li:not(:last-child) {
       margin-bottom: .3em; }
+  #bootcamp iframe {
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 0 10px #333333; }
+    #bootcamp iframe.video-left {
+      float: left;
+      margin: 20px 20px 20px 0; }
+    #bootcamp iframe.video-right {
+      float: right;
+      margin: 20px 0 20px 20px; }
   #bootcamp .inline {
     display: inline; }
   #bootcamp .code-large {
@@ -266,23 +284,37 @@ pre[class*="language-"] {
       background-color: #F8D7DA; }
       #bootcamp blockquote.important::before, #bootcamp blockquote.caution::before, #bootcamp blockquote.hint::before, #bootcamp blockquote.note::before, #bootcamp blockquote.rewind::before, #bootcamp blockquote.shortcut::before, #bootcamp blockquote.pro-tip::before {
         background-image: url("https://bootcampspot.instructure.com/courses/87/files/381/preview"); }
+    #bootcamp blockquote.important::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1292/preview"); }
+    #bootcamp blockquote.caution::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1299/preview"); }
+    #bootcamp blockquote.hint::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1293/preview"); }
+    #bootcamp blockquote.note::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1291/preview"); }
+    #bootcamp blockquote.rewind::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1290/preview"); }
+    #bootcamp blockquote.shortcut::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1289/preview"); }
+    #bootcamp blockquote.finding::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1297/preview"); }
+    #bootcamp blockquote.pause::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/802/preview"); }
+    #bootcamp blockquote.checkpoint::before, #bootcamp blockquote.check-point::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1298/preview"); }
+    #bootcamp blockquote.narrative::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1296/preview"); }
+    #bootcamp blockquote.skill-drill::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1295/preview"); }
+    #bootcamp blockquote.video::before, #bootcamp blockquote.technical-overview-video::before, #bootcamp blockquote.context-overview-video::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/385/preview"); }
+    #bootcamp blockquote.github::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1294/preview"); }
     #bootcamp blockquote.legacy-lem {
       border-color: #067742;
       background-color: rgba(5, 255, 151, 0.705); }
       #bootcamp blockquote.legacy-lem::before {
         background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg"); }
-    #bootcamp blockquote.finding::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/89/files/801/preview"); }
-    #bootcamp blockquote.pause::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/89/files/802/preview"); }
-    #bootcamp blockquote.checkpoint::before, #bootcamp blockquote.check-point::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/382/preview"); }
-    #bootcamp blockquote.narrative::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/383/preview"); }
-    #bootcamp blockquote.skill-drill::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/384/preview"); }
-    #bootcamp blockquote.video::before, #bootcamp blockquote.technical-overview-video::before, #bootcamp blockquote.context-overview-video::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/385/preview"); }
 
 .pages.show .page-title {
   background-color: rgba(33, 33, 33, 0.8);
