@@ -1,0 +1,302 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:700,800|Roboto:400,400i,700&display=swap);
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #ccc;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #2d2d2d;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #999;
+}
+
+.token.punctuation {
+	color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+	color: #e2777a;
+}
+
+.token.function-name {
+	color: #6196cc;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+	color: #f08d49;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+	color: #f8c555;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+	color: #cc99cd;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #7ec699;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.inserted {
+	color: green;
+}
+
+:root {
+  --trilogy-blue: #28c8e5;
+  --trilogy-teal: #3393a3;
+  --trilogy-dark-gray: #333333;
+  --trilogy-light-gray: #f2f2f2;
+  --trilogy-light-teal: #eef7f8;
+  --black: #000000;
+  --white: #ffffff; }
+
+#bootcamp {
+  max-width: 85ch;
+  padding: 20px 30px 75px 30px;
+  background: rgba(255, 255, 255, 0.8);
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--trilogy-dark-gray); }
+  #bootcamp h1, #bootcamp h2, #bootcamp h3, #bootcamp h4, #bootcamp h5, #bootcamp h6 {
+    font-family: 'Raleway', sans-serif;
+    color: var(--trilogy-blue);
+    font-weight: 800;
+    margin: 20px 0 0 0;
+    line-height: normal; }
+  #bootcamp h1 {
+    font-size: 2.5em; }
+  #bootcamp h2 {
+    font-size: 2.25em; }
+    #bootcamp h2:first-of-type {
+      margin-top: 0; }
+    #bootcamp h2:not(:first-of-type) {
+      border-top: 1px solid #EAEDF0;
+      padding-top: 20px; }
+  #bootcamp h3 {
+    font-size: 2em; }
+  #bootcamp h4 {
+    font-size: 1.75em; }
+  #bootcamp h5 {
+    font-size: 1.5em; }
+  #bootcamp h6 {
+    font-size: 1.25em; }
+  #bootcamp p {
+    font-size: inherit;
+    font-weight: 400;
+    line-height: inherit;
+    margin: 18px 0; }
+  #bootcamp a {
+    color: var(--trilogy-teal); }
+  #bootcamp a[href*=".png"],
+  #bootcamp a[href*=".gif"],
+  #bootcamp a[href*=".jpg"],
+  #bootcamp a[href*=".jpeg"],
+  #bootcamp a[href*=".pdf"] {
+    display: block;
+    width: 100%;
+    text-align: center; }
+  #bootcamp img {
+    max-width: 90% !important;
+    margin: 20px 0;
+    box-shadow: 0 0 15px #333333; }
+    #bootcamp img.image-large {
+      margin: 20px auto;
+      display: block;
+      max-width: 80%;
+      text-align: center; }
+    #bootcamp img.image-small {
+      margin: 20px auto;
+      display: block;
+      max-width: 45%;
+      text-align: center; }
+    #bootcamp img.image-left {
+      max-width: 45% !important;
+      float: left;
+      margin: 20px 25px 20px 0; }
+    #bootcamp img.image-right {
+      max-width: 45% !important;
+      float: right;
+      margin: 20px 0 20px 25px; }
+  #bootcamp ol, #bootcamp ul {
+    padding-left: 0;
+    margin-left: 2em; }
+    #bootcamp ol li:not(:last-child), #bootcamp ul li:not(:last-child) {
+      margin-bottom: .3em; }
+  #bootcamp .inline {
+    display: inline; }
+  #bootcamp .code-large {
+    margin: 20px auto;
+    box-shadow: 0 0 10px #333333;
+    width: 80%; }
+  #bootcamp .code-small {
+    margin: 20px auto;
+    box-shadow: 0 0 10px #333333;
+    width: 80%; }
+  #bootcamp .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    margin: 20px 0; }
+    #bootcamp .video-wrapper iframe, #bootcamp .video-wrapper img {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 0 10px #333333;
+      margin: 0; }
+  #bootcamp blockquote {
+    border-left: 10px solid var(--trilogy-blue);
+    color: #6a737d;
+    border-radius: 13px;
+    background: #eef7f8;
+    position: relative;
+    left: 64px;
+    width: calc(90% - 64px);
+    padding: 20px; }
+    #bootcamp blockquote .title {
+      font-size: 22px;
+      font-variant: small-caps;
+      display: block; }
+    #bootcamp blockquote.collapse {
+      cursor: pointer; }
+      #bootcamp blockquote.collapse:hover {
+        border-width: 15px; }
+      #bootcamp blockquote.collapse.hint .title::after {
+        content: "?"; }
+      #bootcamp blockquote.collapse.hint p {
+        display: none; }
+      #bootcamp blockquote.collapse.pause p:not(:first-of-type) {
+        display: none; }
+    #bootcamp blockquote::before {
+      content: "";
+      background-size: cover;
+      position: absolute;
+      height: 50px;
+      left: -75px;
+      width: 50px;
+      top: 28px; }
+    #bootcamp blockquote.important, #bootcamp blockquote.caution, #bootcamp blockquote.hint, #bootcamp blockquote.note, #bootcamp blockquote.rewind, #bootcamp blockquote.shortcut, #bootcamp blockquote.pro-tip {
+      border-color: #721c24;
+      background-color: #F8D7DA; }
+      #bootcamp blockquote.important::before, #bootcamp blockquote.caution::before, #bootcamp blockquote.hint::before, #bootcamp blockquote.note::before, #bootcamp blockquote.rewind::before, #bootcamp blockquote.shortcut::before, #bootcamp blockquote.pro-tip::before {
+        background-image: url("https://bootcampspot.instructure.com/courses/87/files/381/preview"); }
+    #bootcamp blockquote.legacy-lem {
+      border-color: #067742;
+      background-color: rgba(5, 255, 151, 0.705); }
+      #bootcamp blockquote.legacy-lem::before {
+        background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg"); }
+    #bootcamp blockquote.finding::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/801/preview"); }
+    #bootcamp blockquote.pause::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/802/preview"); }
+    #bootcamp blockquote.checkpoint::before, #bootcamp blockquote.check-point::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/382/preview"); }
+    #bootcamp blockquote.narrative::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/383/preview"); }
+    #bootcamp blockquote.skill-drill::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/384/preview"); }
+    #bootcamp blockquote.video::before, #bootcamp blockquote.technical-overview-video::before, #bootcamp blockquote.context-overview-video::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/385/preview"); }
+
+.pages.show .page-title {
+  background-color: rgba(33, 33, 33, 0.8);
+  background-image: url("https://bootcampspot.instructure.com/courses/87/files/402/preview");
+  padding: 10px;
+  min-height: 16vh;
+  border-bottom: 5px solid var(--trilogy-blue);
+  font-family: 'Raleway', sans-serif;
+  color: #ffffff !important;
+  font-weight: 200 !important;
+  font-size: 3em !important;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  display: flex;
+  align-items: flex-end; }
+
