@@ -613,6 +613,7 @@ git push origin feature/contact
 <!-- ## Red Outline for Close Issue Button -->
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
 
+
 > **Checkpoint**: Possible stopping place
 > Git workflow process: how to make a feature development environment
 > How do I exit out of Vim?
