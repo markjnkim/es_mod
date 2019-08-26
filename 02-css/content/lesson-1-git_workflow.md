@@ -469,22 +469,24 @@ Branch: `feature/grid`
 4) Title: CSS enhancements and optimizations<br>
 Branch: `feature/aesthetics`
 5) Title: Adding animation<br>
-Branch: `feature/animation`
+Branch: `feature/animation`<br>
 
+The Git Issues page should now look like this:
+![Git Issues](./assets/lesson-1/830-git-issues.png)<br>
 Let's continue progressing through our project requirements and revisit our old friend HTML again to add some markup in our next step. We will now transform this issue into a feature branch. Normally we would assign each of these features to different team members so we can work in parallel, but in our case we will work through each of these issues ourselves to get better practice in CSS and Git workflow.
 
 ## Git workflow for a new feature
 In the following steps we will be going through the workflow of creating a feature branch, completing the work then adding our work into the remote codebase in Github which is our remote `develop` branch. Here's quick overview of the steps in this Git workflow process:
 In the command prompt: 
 1) Create a feature branch from `develop` branch
-2) Add HTML
+2) Add HTML for contact form
 3) Git add, commit, and push to our remote feature branch
 3) Check out back to `develop`
 4) Locally merge feature branch into `develop` branch.
 5) Pull the remote `devlop` branch into our local `develop` branch to check for updates.
 5) Push `develop` branch into remote `develop` branch.
 Don't worry if all this seems like a lot, it is. We will go over every step in detail so let's start.
-> **Video:** [Create feature branch and merge - Jira FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-115)
+> **Video:** [Create feature branch and merge Gif - Jira FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-115)
 ### Setting up our Feature Development Environment
 Our first step is to create a new feature development environment from a stable copy of the current codebase, the `develop` branch, so we can work in isolation. Let's create our first feature branch from the first Git issue.
 
@@ -540,24 +542,33 @@ The slight variation in our push command illustrates we are no longer pushing to
 
 We can look at our Github repo and see after a successful push, our backup branch is now safely secured in Github.
 ![New Remote Feature Branch](./assets/lesson-1/1250-remote-branch.png)
-This is a look at the branch tab where we can see the addition of our `develop` and `feature/hero-text` branches.
+This is a look at the branch tab where we can see the  the `develop` and `feature/hero-text` branches.
 
 ### Merge feature into development environment
-Let's perform the Git operation to make `develop` the active branch.
+In this final step we will be integrating the new feature into the `develop` branch.
+First, let's perform the Git operation to make `develop` the active branch.
 ```
 git checkout develop
 ```
-Now let's open in VS Code and look at the hero section in the `index.html` file. Note that the new markup we just added is not visible here. The new markup only exists on the feature branch, `feature/hero-text`. In order to add the new code into the `develop` branch we will need to perform a `merge` operation. Let's continue with that step now.
-> **Pro Tip**: It must be reiterated that branch awareness is often overlooked by new developers so keep track by using the `git branch` command prior to merge, pull, or developing tasks. Using the integrated terminal in VS Code is highly recommended due to the status bar notification of the active branch.
+In VS Code, let's look at the hero section in the `index.html` file. Note that the new markup we just added is not visible here. The new markup only exists on the feature branch, `feature/hero-text`. In order to add the new code into the `develop` branch we will need to perform a `merge` operation. Let's continue with that step now.
+> **Pro Tip**: It must be reiterated that branch awareness is often overlooked by new developers so keep track by using the `git branch` command prior to merge, pull, or developing features. Using the integrated terminal in VS Code is highly recommended due to the status bar notification of the active branch.
 ```
 git merge feature/hero-text
 ```
 Upon successful merging, the terminal should look like this:
 ![Merge Success Terminal](assets/lesson-1/1300-merge-success-terminal.png)
 This should look familiar to our `git pull` operation we executed earlier in the lesson since we also performed a `git merge` operation then as well.
-Excellent, now the `develop` is updated with our new markup and has remained a stable codebase throughout. 
+Excellent, now `develop` is updated with our new markup and has remained a stable codebase throughout. 
 Now let's move onto the second issue and tackle the contact form feature.
-> **Activity**: Let's follow the same procedure as we did for the `feature/hero-text` issue. First set up the feature development environment, add the HTML according to the requirements, verify changes were successful in the browser, then merge the `feature/contact-us` into `develop` branch. Here is the design team's mock-up and requirements:
+> **Activity**: Let's follow the same procedure as we did for the `feature/hero-text` issue. 
+>* Set up the feature development environment
+>* Add the HTML according to the requirements
+>* Verify changes were successful in the browser
+>* Push up the feature branch to the remote repo
+>* Merge the `feature/contact-us` into `develop` branch<br>
+>* Push the `develop` branch to the repo to update the shared version with your new feature
+>
+Here is the design team's mock-up and requirements:
 ![contact-form](assets/lesson-1/1400-Reach-Out-mock-up.png)
 ![contact-form-issue](assets/lesson-1/1500-contact-us-requirement-issue.png)<br />
 > **Hint**: Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters like the size of the rendered input field, maximum character length, and if it is a required input in order to submit. This and many more attributes can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) for a more detailed look at the attributes.<br />
@@ -567,10 +578,10 @@ Now let's move onto the second issue and tackle the contact form feature.
     <div class="contact-form">
      <h3>Contact Us</h3>
      <form>
-      <label class="visuallyhidden" for="contact-name">Your Name</label>
+      <label for="contact-name">Your Name</label>
       <input type="text" id="contact-name" placeholder="Your Name" />
 
-      <label class="visuallyhidden" for="contact-message">Message</label>
+      <label for="contact-message">Message</label>
       <textarea id="contact-message" placeholder="Message"></textarea>
 
       <button type="submit">Submit</button>
@@ -578,16 +589,21 @@ Now let's move onto the second issue and tackle the contact form feature.
     </div>
 ```
 > **Hint**: Follow the same steps for the `hero-text` feature above.<br />
-> **Hint**: Don't forget to merge back into the develop branch.
+> **Hint**: Once the markup has been inserted into the Reach Out section, add, commit and push the `feature/contact-form` into the remote repo.
+`git push origin feature/contact-form`<br> 
+> **Hint**: Don't forget to check your active branch before the merging the feature into the develop branch.<br>
+
+
 
 Now let's check to see if our contact form has been correctly added to the `develop` branch.
 First `checkout` into the `develop` branch and then render in the browser.
 We should see the following:
-> ## Red outline bottom right corner of `<textarea>` to highlight input text field resizing.
+<!-- >> ## Red outline bottom right corner of `<textarea>` to highlight input text field resizing. -->
 ![Contact Form Render](assets/lesson-1/1600-contact-us-render-html.png)<br />
-Congrats, the markup has been successfully added. We will format later in the CSS lesson. For now let's finish our Git workflow for a finished feature by first pushing up this feature branch up as a backup.
+Congrats, the markup has been successfully added. We will format later in the CSS lesson. For now let's finish our Git workflow for a finished feature by first pushing up this feature branch up as a backup and update the remote `develop` branch with our new feature.
 ```
 git push origin feature/contact
+git push origin 
 ```
 
 > **Pause**: Now that our two feature branches have been completed and merged back into the `develop` branch what is left to do with our issues?<br />
@@ -595,7 +611,6 @@ git push origin feature/contact
 > **Solution**: Let's go to the Issues tab in our Github repo and mark the issues as closed by clicking on the Close Issue button. This will remove the issue from our list of todos.
 <!-- ## Red Outline for Close Issue Button -->
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
-
 
 > **Checkpoint**: [Learnosity - Jira 119](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-119)
 
