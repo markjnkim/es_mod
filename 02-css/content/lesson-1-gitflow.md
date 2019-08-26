@@ -140,7 +140,7 @@ Here's an example of what your raw Markdown file should look like.
 ## Purpose
 A website that offers fitness training services.
 
-## Build With
+## Built With
 * HTML
 * CSS
 
