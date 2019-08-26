@@ -162,9 +162,12 @@ While in our GitHub repo let's take a look at our branches by selecting the bran
 
 In order to provide backup security as well as create a collaborative and communal development branch that team members can use to work, let's backup our local `develop` branch by creating a copy in our Github repo by typing the following command in the command prompt:
 ```
+git push origin <remote-branch-name>
+```
+Previously we did the Git operation to push file changes into the remote `master` branch in Module 1. The difference here is instead of pushing to the remote `master` branch, we are creating and pushing into a new `develop` branch. We identify the target of the push to the remote branch. This command does two operations: creates a new remote branch and pushes the code from the local active branch into this new remote branch. The word `origin` simply refers the source repository where the cloning originally occurred. Hence the Git command to to create a remote `develop` branch will be:
+```
 git push origin develop
 ```
-Previously we did the Git operation to push file changes into the remote `master` branch in Module 1. The difference here is instead of pushing to the remote `master` branch, we are creating and pushing into a new `develop` branch. We identify the target of the push to the remote branch with the last word in this Git command. This command does two operations: creates a new remote branch named `develop` and pushes the code from the local active branch into this new remote branch, `develop`.
 Let's see if this command was successful by looking at the branch tab in the run-buddy repo in Github.
 
 ![Develop Branch in Github](./assets/lesson-1/006-github-develop.png)
@@ -421,15 +424,16 @@ The naming convention for feature branches is something normally agreed upon by 
 >3) Type a comment using Markdown to outline the feature's requirements and other information related to this task.
 Here is a simple example: 
 ```markdown
-# Text Block for Hero Section
+# Updates for Hero Section
 
 ## Content Requirements
-* Heading = "Start Building Habits."
-* Lorem ipsum text placeholder
+* Heading: "Start Building Habits."
+* Text Body: Lorem ipsum text placeholder
+* Download new hero image for hero section
 
 ## Branch
 * `feature/hero-text`
- 
+
 ## Questions/suggestions for Design Team
 * What will be the marketing text?
 ```
@@ -440,11 +444,11 @@ Click on the Labels option
 >5) Click on the "Submit new issue" button.
 
 We should see the following screen following a successful issue creation.
-## Add red outline to Edit and Close Issue Buttons
+<!--  Add red outline to Edit and Close Issue Buttons -->
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue.png) 
 
 Congratulations on completing your first Git issue. Please note this screen is the edit screen that allows changing the text as well as closing the issue once the enhancement or work has been finished. This edit screen can be found on the Issues tab which now notes there is one outstanding issue at the repo's landing page.
-Take a look at [GitHub's help documents for an expansive view of how Git issues can further assist in project management.](https://help.github.com/en/articles/managing-your-work-with-issues)
+Take a look at [GitHub's help documents for an expansive view of how Git issues](https://help.github.com/en/articles/managing-your-work-with-issues) can further assist in project management.
 
 Now that we understand how to make a Git issue, let's create another one for another HTML addition we have been assigned from the sales department. They would like a form for users to submit questions directly to the sales staff in the Reach Out section.
 > **Activity**: Please create a new Git issue for this new feature.
@@ -462,7 +466,7 @@ Now that we understand how to make a Git issue, let's create another one for ano
 ```
 ![Git Issue Contact-Form Success](assets/lesson-1/820-contact-git-issue.png) <br />
 Notice from the image that this issue was also assigned and labelled to provide more detail to the development team.
-Here is a list of the issues we must create for our development team we have received from the management team. Let's make the rest of the issues needed to complete version 2.0 of Run Buddy.
+Here is a list of the issues we must create for our development team we have received from the management team. Let's make the following five separate issues needed to complete version 2.0 of Run Buddy.
 1) Title: Advanced layouts using Flexbox<br>
 Branch: `feature/flexbox`
 2) Title: Mobile responsiveness with Media Queries<br>
@@ -473,7 +477,6 @@ Branch: `feature/grid`
 Branch: `feature/aesthetics`
 5) Title: Adding animation<br>
 Branch: `feature/animation`
-
 
 Let's continue progressing through our project requirements to add some HTML content in our next step and transition this issue into a feature branch. Normally we would assign each of these features to different team members so we can work in parallel, but in our case we will work through each of these issues ourselves to get better practice in CSS and Git workflow.
 
@@ -520,7 +523,6 @@ Let's take a quick look at the Git issue and the mock-up from the design team to
 > **Activity**: Practice your HTML skills by fulfilling the Git issue requirements and following the mock-up for guidance.
 > **Solution**: The markup should look like this:
 ```html
-<!-- 2.1 - Added call to action (CTA) -->
    <div class="hero-cta">
     <h2>Start Building Habits.</h2>
     <p>
@@ -554,7 +556,7 @@ git push origin feature/hero-text
 The slight variation in our push command illustrates we are no longer pushing to our remote `master` branch but to a new remote feature branch we name `feature/hero-text`. Hypothetically we could've have named this anything, but consistency of naming conventions means one less branch name needed to commit to memory. We will add the `push` to remote branch in Github step to our Git workflow specifically after every add and commit of our feature branch to add extra security to our hard work.
 
 We can look at our Github repo and see after a successful push, our backup branch is now safely secured in Github.
-![New Remote Feature Branch]()
+![New Remote Feature Branch](./assets/lesson-1/1250-remote-branch.png)
 This is a look at the branch tab where we can see the addition of our `develop` and `feature/hero-text` branches.
 
 ### Merge feature into development environment
@@ -571,15 +573,14 @@ Upon successful merging, the terminal should look like this:
 ![Merge Success Terminal](assets/lesson-1/1300-merge-success-terminal.png)
 This should look familiar to our `git pull` operation we executed earlier in the lesson since we also performed a `git merge` operation then as well.
 Excellent, now the `develop` is updated with our new markup and has remained a stable codebase throughout. 
-Now let's move onto the second issue and tackle the `feature/contact-us` feature.
+Now let's move onto the second issue and tackle the contact form feature.
 > **Activity**: Let's follow the same procedure as we did for the `feature/hero-text` issue. First set up the feature development environment, add the HTML according to the requirements, verify changes were successful in the browser, then merge the `feature/contact-us` into `develop` branch. Here is the design team's mock-up and requirements:
 ![contact-form](assets/lesson-1/1400-Reach-Out-mock-up.png)
 ![contact-form-issue](assets/lesson-1/1500-contact-us-requirement-issue.png)<br />
 > **Hint**: Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters like the size of the rendered input field, maximum character length, and if it is a required input in order to submit. This and many more attributes can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) for a more detailed look at the attributes.<br />
-> ## Not sure if I should be adding the class for `visuallyhidden` here? Should I add this requirement to the Git issue then? Accessibility consideration now or later?
+<!-- >> ## Not sure if I should be adding the class for `visuallyhidden` here? Should I add this requirement to the Git issue then? Accessibility consideration now or later? -->
 > **Hint**: markup
 ```html
-<!-- 2.1 - Added contact form -->
     <div class="contact-form">
      <h3>Contact Us</h3>
      <form>
@@ -601,13 +602,17 @@ First `checkout` into the `develop` branch and then render in the browser.
 We should see the following:
 > ## Red outline bottom right corner of `<textarea>` to highlight input text field resizing.
 ![Contact Form Render](assets/lesson-1/1600-contact-us-render-html.png)<br />
-Congrats, the markup has been successfully added. 
+Congrats, the markup has been successfully added. We will format later in the CSS lesson. For now let's finish our Git workflow for a finished feature by first pushing up this feature branch up as a backup.
+```
+git push origin feature/contact
+```
 
 > **Pause**: Now that our two feature branches have been completed and merged back into the `develop` branch what is left to do with our issues?<br />
 > **Hint**: Since the issues have been resolved, how do we change their status?<br />
 > **Solution**: Let's go to the Issues tab in our Github repo and mark the issues as closed by clicking on the Close Issue button. This will remove the issue from our list of todos.
-## Red Outline for Close Issue Button
-![Git Issue Success](assets/lesson-1/801-edit-git-issue.png) 
+<!-- ## Red Outline for Close Issue Button -->
+![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
+
 
 > **Checkpoint**: Possible stopping place
 > Git workflow process: how to make a feature development environment
