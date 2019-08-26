@@ -459,7 +459,7 @@ Now that we understand how to make a Git issue, let's create another one for ano
 ```
 ![Git Issue Contact-Form Success](assets/lesson-1/820-contact-git-issue.png) <br />
 Notice from the image that this issue was also assigned and labelled to provide more detail to the development team.
-Here is a list of the issues we must create for our development team we have received from the management team. Let's make the following five separate issues needed to complete version 2.0 of Run Buddy.
+Here is a list of the issues we must create for our development team we have received from the management team. Let's make the following five separate issues needed to complete version 2.0 of Run Buddy. For simplicity and speed, let's keep these simple. You are able to add detail and rich formatting features if you like.
 1) Title: Advanced layouts using Flexbox<br>
 Branch: `feature/flexbox`
 2) Title: Mobile responsiveness with Media Queries<br>
@@ -481,11 +481,11 @@ In the command prompt:
 1) Create a feature branch from `develop` branch
 2) Add HTML for contact form
 3) Git add, commit, and push to our remote feature branch
-3) Check out back to `develop`
-4) Locally merge feature branch into `develop` branch.
-5) Pull the remote `devlop` branch into our local `develop` branch to check for updates.
-5) Push `develop` branch into remote `develop` branch.
-Don't worry if all this seems like a lot, it is. We will go over every step in detail so let's start.
+4) Check out back to `develop`
+5) Locally merge feature branch into `develop` branch.
+6) Pull the remote `devlop` branch into our local `develop` branch to check for updates.
+7) Push `develop` branch into remote `develop` branch.
+Don't worry if all this seems like a lot of steps. We will go over every step in detail so let's start.
 > **Video:** [Create feature branch and merge Gif - Jira FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-115)
 ### Setting up our Feature Development Environment
 Our first step is to create a new feature development environment from a stable copy of the current codebase, the `develop` branch, so we can work in isolation. Let's create our first feature branch from the first Git issue.
