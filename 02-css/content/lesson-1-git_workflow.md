@@ -494,7 +494,7 @@ According to our Git workflow, our first step when creating a feature branch wil
 ```
 git checkout -b feature/hero-text
 ```
-Please take notice that this made an exact copy of the `develop` branch including the newly created `README.md` file. As soon as we starting to work and commit in the feature branch these versions will begin to diverge.
+Please take notice that this made an exact copy of the `develop` branch including the newly created `README.md` file. As soon as we start to work and commit in the feature branch these versions will begin to diverge.
 
 ![Git Feature Branch](assets/lesson-1/910-integrated-terminal-vs-code.png)
 Notice how the `git branch` is used to verify the active branch.
