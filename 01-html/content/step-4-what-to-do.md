@@ -125,7 +125,7 @@ In the first `<div>` under the `<h2>What You Do</h2>` heading, add the following
 <div>
   <!-- insert this img element -->
   <img src="./assets/images/step-1.svg" alt="" />
-  <h3>Step 1: Fill Out The Form Above.</h3>
+  <h3>Step 1: Fill Out the Form Above.</h3>
   <p>You're already here, so why not?</p>
 </div>
 ```
@@ -149,7 +149,7 @@ Our image is enormous! Remember, SVGs are scalable. There's no built-in, hard-se
 ```html
 <div>
   <img src="./assets/images/step-2.svg" alt="" />
-  <h3>Step 2: Consult With One Of Our Trainers.</h3>
+  <h3>Step 2: Consult with One of Our Trainers.</h3>
   <p>Are you here to build muscle, lose weight, or just feel good?</p>
 </div>
 
