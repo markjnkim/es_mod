@@ -147,7 +147,7 @@ Here's an example:
 
 > **Activity:** Use your powers of Google to find some information about the function and syntax of a radio button.
 
-> **Hint:** Google will surely offer many search results, but the [MDN docs article on radio buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) should be a favorite because MDN is more likely to update when technologies change. For this reason, keep in mind that the best online documents to learn from should come from official sources like this one. 
+> **ANSWER:** Google will surely offer many search results, but the [MDN docs article on radio buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) should be a favorite because MDN is more likely to update when technologies change. For this reason, keep in mind that the best online documents to learn from should come from official sources like this one. 
 
 So a `radio` type input element, commonly referred to as a radio button, is typically used in groups using the `name` attribute as the group reference, and each radio button must have the same `name` value to be considered in the same group. 
 
@@ -171,9 +171,12 @@ Let's type some code and then explain the attributes afterwards. Add the followi
 </form>
 ```
 
-Save the file and then see how it looks in the browser. An easy way to do this in VS Code is to choose the "Open in Default Browser" command, which you can access by right-clicking on the `index.html` page.
-
-The page should look like this now:
+Save the file and then see how it looks in the browser. An easy way to do this in VS Code is to choose the "Open in Default Browser" command, which you can access by right-clicking on the `index.html` page.<br>
+On Mac<br>
+![Open In Default Browser on Mac](./assets/step-3/1050-open-in-default-browser-mac.png)<br>
+On Windows<br>
+<!-- ![Open in Default Browser on Windows](./assets/step-3/1051-open-in-default-browser-windows.png)<br>
+The page should look like this now: -->
 
 ![radio-html](./assets/step-3/200-radio-html.png)
 
@@ -284,11 +287,11 @@ The HTML for these two inputs should now look like this:
 <input type="tel" placeholder="Phone Number" name="phone" />
 ```
 
-Save your work and refresh the page in your browser. Try typing some wacky
+> **Activity:** Save your work and refresh the page in your browser. Try typing some wacky
 stuff into the email field and clicking the submit button. Can you get the
 validation warning to appear?
-
-Testing the phone field is a little more complicated. First, you need to add,
+>
+>Testing the phone field is a little more complicated. First, you need to add,
 commit, and push your work to GitHub. Then you can grab a mobile device and load
 the project's GitHub Page in its browser. You should see a numeric keypad appear
 when you tap on the phone number field.
@@ -304,7 +307,7 @@ when you tap on the phone number field.
 > Get into the habit of researching how well browsers support new HTML and CSS
 > before you use them.
 
-> **Activity:** HTML nesting game. Place your boilerplate HTML code with finished CSS in parallel. Ask the student to place certain items here or there by nesting them properly.
+<!-- > **Activity:** HTML nesting game. Place your boilerplate HTML code with finished CSS in parallel. Ask the student to place certain items here or there by nesting them properly. -->
 
 Our foundation work is now complete, so we can proceed to the design phase of this lesson after a quick checkpoint.
 > **Checkpoint:** <br />
@@ -390,7 +393,7 @@ Now save and refresh the page to see your changes. The page should look like thi
 
 ![repeated-images](./assets/step-3/502-bg-img-css.png)
 
-Wait a minute! What happened here? If we use the `<section>` element as our CSS selector, we would apply the same background image to all our subsequent `<section>` elements, which is not something we want. So let's remove our `background-image` declaration from our `<section>` CSS rule. 
+Wait a minute! What happened here? If we use the `<section>` element as our CSS selector, we would apply the same background image to all our subsequent `<section>` elements, which is not something we want. 
 
 We need a way to target the hero section specifically and not create a global `<section>` rule. Luckily for us, we can use the `class` attribute to target one or many HTML elements. The neat trick about a `class` is that this attribute can be added to any one HTML element or many elements that need the same styling or CSS declarations, therefore saving the time of needing to write duplicate code. 
 
@@ -400,7 +403,7 @@ Your markup should look like this (notice that `class` is an attribute, so it is
 
 `<section class="hero">`
 
-Let's add the following CSS rule in our `style.css` file and make the height an appropriate size to match the mock-up knowing we will need some space for our sign-up form. Let's give our height 600px.
+Let's add the following CSS rule in our `style.css` file and make the height an appropriate size to match the mock-up knowing we will need some space for our sign-up form. Let's give our height 600px. Also let's not forget to remove our `background-image` declaration from our `<section>` CSS rule. 
 
 ```css
 /* Hero Style Start */
@@ -517,7 +520,8 @@ Here are a few of the property's values and how they change the relationship of 
 
 > **Pause:** Can you figure out which of these possibilities would serve our cause? 
  
-> **Hint:** Use the process of elimination. `static` and `fixed` are eliminated since `static` is where the form container currently sits, which is incorrect. `fixed` would mean that the form container would stay in the same part of the viewport, even after scrolling down. This is not within the scope of our requirements and therefore not in our interest.
+> **Hint:** Use the process of elimination. `static` and `fixed` are eliminated since `static` is where the form container currently sits, which is incorrect. `fixed` would mean that the form container would stay in the same part of the viewport, even after scrolling down. This is not within the scope of our requirements and therefore not in our interest.<br>
+> **ANSWER:** Let's explain how we decide on absolute positioning as opposed to relative positioning.
 
 Let's play around with the position property and use [the MDN docs on the position property](https://developer.mozilla.org/en-US/docs/Web/CSS/position) to find a visual representation of the position property's options.
 
@@ -676,7 +680,7 @@ Have you ever thought that it's kind of a pain to hop back and forth between the
 
 The DevTools can be found by clicking on the small button located on the top-right of your browser that looks like three dots vertically aligned:
 
-![hamburger button](./assets/step-3/700-hamburger-btn.png)
+![Hamburger button](./assets/step-3/700-hamburger-btn.png)
 
 This will open a browser menu. Open the `More Tools` option to open a submenu containing the `Developer Tools` option.
 
@@ -707,7 +711,7 @@ This tool is a tremendous asset to front-end developers because it allows them t
 >
 > Notice the changes in the Element and Style panels. Feel free to play around at will. Are these changes permanent? How can we tell?
 
-> **Answer:** Page refresh can determine persistence or permanence of a change.
+> **ANSWER:** Page refresh can determine persistence or permanence of a change.
 
 These changes are not permanent and do not change the actual code, but merely offer a sandbox to try out different styles and sizes and immediately see the effect on the element and webpage. Once you're satisfied with the desired styling affect, the changes must be made to the style sheet in order to make the style change permanent.
 
