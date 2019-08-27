@@ -1,6 +1,8 @@
-# Adding a Privacy Policy and Wrap-up
+# Lesson 7: Add a Privacy Policy
 
-Throughout this project we have learned how to create and organize content for a web page, create custom styles and layouts for that content, and utilize the proper tools to protect, backup, and publish our work. This is a lot to take in, so we're going to use this last lesson to reinforce these concepts and "take the training wheels off" by building a second (simpler) page for our Run Buddy product site.
+## Introduction
+
+Throughout this project we have learned how to create and organize content for a webpage, create custom styles and layouts for that content, and utilize the proper tools to protect, backup, and publish our work. This is a lot to take in, so we're going to use this last lesson to reinforce these concepts and "take the training wheels off" by building a second (simpler) page for our Run Buddy product site.
 
 The Run Buddy legal department has finalized the privacy policy and it's ready to code, so that's what we'll be taking on next.
 
@@ -12,13 +14,13 @@ The main three points that will be introduced in this lesson are:
 
 3. Reusing CSS styles across two HTML documents, but also implement a second style sheet for styles more specific to the second page. The second style sheet will override some styles we defined in the first one.
 
-For reference, this is a mockup of the page we will be building:
+For reference, this is a mock-up of the page we will be building:
 
 ![Privacy Policy completed](assets/step-7/100-privacy-complete.jpg)
 
 As we can see, this is a very text-heavy page with some similar components and styles, so we'll get to recycle a good amount of code we wrote earlier. Don't worry, you won't need to type out all the content; we'll provide that for you. Let's get started!
 
-## Creating our next HTML file
+## Create the HTML File
 
 In our first lesson, what steps did we take to get to a point where we could start writing HTML? We had to create the HTML file we were going to build, so let's do this again.
 
@@ -28,7 +30,7 @@ Using the command line, create a file in the root of our project folder called `
 
 So now, in the root of our project's folder, there should be two HTML files: `index.html` and `privacy-policy.html`.
 
-## Adding content to our Privacy Policy
+## Add Content to the Privacy Policy
 
 Before we add the actual content, we need to create the skeleton of our HTML document. This means we need to get our starting HTML tags in place. Again, think back to the first lesson in this project before any Run Buddy-specific content was added. The page had the following:
 
@@ -48,13 +50,13 @@ Before we add the actual content, we need to create the skeleton of our HTML doc
 >
 > What is the main purpose of the `<head>` element?
 >
-> A: The `<head>` element holds specific HTML tags that provide information that isn't necessary for the user to see, but to help the browser understand what the page is about, what it should look like, and any other behind-the-scenes data. None of this content is displayed physically on the page.
+> **Answer:** The `<head>` element holds specific HTML tags that provide information that isn't necessary for the user to see, but to help the browser understand what the page is about, what it should look like, and any other behind-the-scenes data. None of this content is displayed physically on the page.
 >
 > What is the main purpose of the `<body>` tag?
 >
-> A: The `<body>` holds all of the document's actual content that is meant to be seen or interacted with by the page's visitor. Anything that is between the opening and closing `<body>` tags is visible to the user by default.
+> **Answer:** The `<body>` holds all of the document's actual content that is meant to be seen or interacted with by the page's visitor. Anything that is between the opening and closing `<body>` tags is visible to the user by default.
 
-> URKEL SAYS: Creating the skeleton of an HTML document is also known as "scaffolding."
+> **Urkel Says:** Creating the skeleton of an HTML document is also known as **scaffolding**.
 
 Now that we have our document scaffolded, let's make a couple of edits. Since we're creating a new page, we should update the `<title>` to reflect that. While the information between the `<title>` tags isn't necessarily incorrect, it simply isn't as descriptive as it could be. Not only does having a descriptive title help inform the user where they are on the site, it is also useful for accessibility and search engine optimization. Let's edit the `<title>` to say this:
 
@@ -62,22 +64,22 @@ Now that we have our document scaffolded, let's make a couple of edits. Since we
 <title>Privacy Policy - Run Buddy</title>
 ```
 
-> PRO-TIP: The `<title>` element's content is what appears in the browser's tab, so it is a good practice to structure the content as `[page title] - [site title]`. 
+> **Pro Tip:** The `<title>` element's content is what appears in the browser's tab, so it is a good practice to structure the content as `[page title] - [site title]`. 
 >
 > While a descriptive page title is important, it should also be concise and to the point. Google cuts off search result titles at around 60 characters, so anything under that is optimal.
 >
-> [Learn more about creating an SEO-friendly page title.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title#Page_titles_and_SEO)
+> To learn more, check out the [MDN web docs on creating SEO-friendly page titles](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title#Page_titles_and_SEO).
 
-Take another look at the mockup of the finished product we're working towards and compare it to the main Run Buddy page we just finished. Notice any similar pieces that we can reuse here? It would be confusing for visitors to experience different styles throughout a single web site, so most sites have similar&mdash;if not identical&mdash;components to them.
+Take another look at the mock-up of the finished product we're working towards and compare it to the main Run Buddy page we just finished. Notice any similar pieces that we can reuse here? It would be confusing for visitors to experience different styles throughout a single web site, so most sites have similar&mdash;if not identical&mdash;components to them.
 
-> URKEL SAYS: A set of HTML code that builds out a part of the overall page's UI is commonly referred to as a "component". The idea behind a component is that it can be reused in multiple places throughout a site.
+> **Urkel Says:** A set of HTML code that builds out a part of the overall page's UI is commonly referred to as a **component**. The idea behind a component is that it can be reused in multiple places throughout a site.
 
 Let's identify these components in the HTML and we'll copy and paste them into our new document:
 
-- **`<header>`** - This entire `<header>` element can be copied over to the new page, as it's design and layout will be the same on both pages. What does need to be edited, however, are the navigation's `<a>` elements' `href` values. They all need to be changed to have the same `#what-we-do` values, but with `./index.html` in front of them. So the finished product for one of them should look like this:
+- **`<header>`**: This entire `<header>` element can be copied over to the new page, as its design and layout will be the same on both pages. What does need to be edited, however, are the navigation's `<a>` elements' `href` values. They all need to be changed to have the same `#what-we-do` values, but with `./index.html` in front of them. So the finished product for one of them should look like this:
 
 ```html
-<!-- Do this to all of them in privacy-policy.html -->
+<!-- Do this to all of the <a> elements in privacy-policy.html -->
 <a href="./index.html#what-we-do">What We Do</a>
 ```
 
@@ -85,19 +87,19 @@ Before we move on, let's think about that new value for the `href`. In `index.ht
 
 We still want this functionality, but now that `<a>` element is on a different page. So how do we get the user from `privacy-policy.html` to `index.html`, specifically to that section with a corresponding `id`? Well as we can see by this edit in the code above, we have to just tell them both at once. The value `./index.html#what-we-do` can almost be read in two parts:
 
-1. Go to the index.html file at this location `./`, which means "in this current directory"
+1. Go to the `index.html` file at this location `./`, which means "in this current directory."
 
-2. Once at that file, navigate within it to the element with an `id` of `what-we-do`
+2. Once at that file, navigate within it to the element with an `id` of `what-we-do`.
 
 Now that we know how to make these new `href` values work, go ahead and make sure the other three navigation `<a>` elements follow the same pattern.
 
-> REWIND: The `<a>` element routing you to a different location is an example of the "hypertext" in HTML.
+> **Rewind:** The `<a>` element routing you to a different location is an example of the "hypertext" in HTML.
 
-Let's move on to the next section. The other content from our home page that can be copied over to our privacy policy:
+Let's move on to the next section. The other content from our homepage that can be copied over to our privacy policy:
 
-- **`<footer>`** - This can be copied directly into our new document. Nothing needs to be edited here.
+- **`<footer>`**: This can be copied directly into our new document. Nothing needs to be edited here.
 
-- **`<section class="hero">`** - We will also reuse this, but then edit the  content so it includes Run Buddy's privacy policy verbiage, so for now it is easier to go into `privacy-policy.html` and add right after the closing `</header>` tag:
+- **`<section class="hero">`**: We will also reuse this, but then edit the  content so it includes Run Buddy's privacy policy verbiage, so for now it is easier to go into `privacy-policy.html` and add right after the closing `</header>` tag:
 
 ```html
 <section class="hero">
@@ -107,25 +109,25 @@ Let's move on to the next section. The other content from our home page that can
 
 We'll get to adding content to this section next, but first let's save our work and open up this file in the browser.
 
-> HINT: Using the "Open in Browser" extension, right-click anywhere in the HTML document and select the option that says "Open In Default Browser". This is the quickest way to open up an HTML document direct from Visual Studio Code.
+> **Hint:** Using the "Open in Browser" extension, right-click anywhere in the HTML document and select the option that says "Open In Default Browser". This is the quickest way to open up an HTML document direct from Visual Studio Code.
 >
 > Keep in mind, this will only work for HTML files.
 
-If your page does not look like the below image, review the previous steps to troubleshoot. It is often something very simple but easy to overlook. Even the pros make mistakes.
+If your page does not look like the below image, review the previous steps to troubleshoot. It is often something very simple but easy to overlook. Even the pros make mistakes!
 
 ![Privacy Policy - html started](assets/step-7/200-html-starter.jpg)
 
-Now that we have a second page for our site's privacy policy, how can a user get to it from the home page? In `index.html`, change the `<a>` tag's `href` value in the `<footer>` tag to have a value of `./privacy-policy.html`. We can remove the `href` attribute from this element in `privacy-policy.html` entirely since we are already on this page and don't want users accidentally clicking the link and reloading the page for no reason.
+Now that we have a second page for our site's privacy policy, how can a user get to it from the homepage? In `index.html`, change the `<a>` tag's `href` value in the `<footer>` tag to have a value of `./privacy-policy.html`. We can remove the `href` attribute from this element in `privacy-policy.html` entirely since we are already on this page and don't want users accidentally clicking the link and reloading the page for no reason.
 
 > **PRO-TIP**: When you have an `<a>` element with an `href` value set to take a user to the same page they are already on, it has potential to decrease the site's performance because it has to download and display all of the page's data again. Due to this, it is a good practice when possible to disable `<a>` elements that bring you to the page you are currently on when clicked.
 >
-> It won't always be possible depending on the project, but it is something to keep an eye out for when it comes to optimizing a web page's performance.
+> It won't always be possible depending on the project, but it is something to keep an eye out for when it comes to optimizing a webpage's performance.
 
 We've used relative pathing in our `<img>` and `<link>` tags to target other files in our project's folder structure, and now we're doing the same thing here to target our `privacy-policy.html` file that we created in the same directory as `index.html`. The biggest difference is how these HTML elements interact with the other file.
 
 When we use `<img>` and `<link>` elements, we are telling another file to join this HTML file in some fashion. Those elements don't bring us anywhere, but they bring resources to us. When we use `<a>` elements, however we are doing the opposite by saying "when I'm clicked, I'll bring you somewhere else in your browser and leave this location." Again, all of these HTML elements exemplify the concept of hypertext in HTML.
 
-> DEEP DIVE: We can use `<a>` elements to bring a user to a variety of resources and locations. They could bring us to a page in our site or another web site entirely, which is the most popular use case, but they can also be used to open photos, PDFs, audio files, pretty much anything that can be opened in a browser can be used as an `href` value.
+> **Deep Dive:** We can use `<a>` elements to bring a user to a variety of resources and locations. They could bring us to a page in our site or another web site entirely, which is the most popular use case, but they can also be used to open photos, PDFs, audio files, pretty much anything that can be opened in a browser can be used as an `href` value.
 >
 > Test it for yourself sometime and set up an `<a>` that takes you to the path of a style sheet, when you click on it, you'll just be given the contents of the CSS file you pointed it to.
 
@@ -141,7 +143,7 @@ Before we add our style sheet's `<link>` tag, we'll go ahead and fill out the re
 
 Even though we aren't building more HTML pages, this section has now been repurposed for any new pages that may need to be created in the future.
 
-> ON THE JOB: It is not uncommon for a web-based project to be considered "complete", only for a boss or client to come back and add more. These additions could come in the form of simple edits/additions to the existing project files&mdash;which is typically an easy change&mdash;or it can involve creating more pages, features, or even functionality.
+> **On the Job:** It is not uncommon for a web-based project to be considered complete, only for a boss or client to come back and add more. These additions could come in the form of simple edits/additions to the existing project files&mdash;which is typically an easy change&mdash;or it can involve creating more pages, features, or even functionality.
 >
 > That is why when building new projects, it is a good practice to set up more general styles and HTML content layouts that can easily be reused across new sections rather than having to start each new piece from scratch.
 
@@ -149,7 +151,7 @@ Now that the page's title is being displayed, we'll go and add the actual privac
 
 Before we add this content, let's create the container that will hold it. Add an `<article>` tag after the closing `</section>` of the hero with a class of `secondary-content`.
 
-Now let's go ahead and add this content inside the `<article>` tag that was just created (be warned, this is long):
+Now let's go ahead and add this content inside the `<article>` tag that was just created (you're forewarned: this is long):
 
 THIS SHOULD BE DOWNLOADABLE
 
@@ -261,7 +263,7 @@ THIS SHOULD BE DOWNLOADABLE
 <p>
   Cookies and Web Beacons. Like any other website, Run Buddy uses ‘cookies’. These cookies are used to store
   information including visitors’ preferences, and the pages on the website that the visitor accessed or visited.
-  The information is used to optimize the users’ experience by customizing our web page content based on visitors’
+  The information is used to optimize the users’ experience by customizing our webpage content based on visitors’
   browser type and/or other information.
 </p>
 
@@ -576,15 +578,15 @@ THIS SHOULD BE DOWNLOADABLE
 
 This is a lot of content, but that is why copy and paste exists!
 
-Now that we are done adding content it is a good time for us to start including the styles for the page, but first let's take one more look at how the browser displays all of this HTML without any custom CSS included:
+Now that we are done adding content, it is a good time for us to start including the styles for the page. But first let's take one more look at how the browser displays all of this HTML without any custom CSS included:
 
 ![privacy policy html](assets/step-7/300-html-complete.jpg)
 
-It's not as pretty as it will be once we've added in our CSS, but the browser still prints the content to the page in a very organized and readable fashion. To reiterate concepts we've discussed earlier in this project, this is what's known as the "normal flow" of a web page. All of the content comes onto the page in the order it was placed in the HTML document and all content gets its own space based on what HTML tag wraps it. While the result isn't the most visually appealing, it serves its core purpose very well, which is to get HTML content to the visitor.
+It's not as pretty as it will be once we've added in our CSS, but the browser still prints the content to the page in a very organized and readable fashion. To reiterate a concept we've discussed earlier in this project, this is what's known as the **normal flow** of a webpage. All of the content comes onto the page in the order it was placed in the HTML document and all content gets its own space based on what HTML tag wraps it. While the result isn't the most visually appealing, it serves its core purpose very well, which is to get HTML content to the visitor.
 
 Well that's enough praise for the browser and its default styling, let's add our own!
 
-> PRO-TIP: Don't forget to save and publish your work!
+> **Pro Tip:** Don't forget to save and publish your work!
 
 ## Adding our styles
 
@@ -592,7 +594,7 @@ Let's jump right out the gate and add our `style.css` file to this HTML document
 
 Remember what HTML tag we used in `index.html` to bring in our style sheet? Go ahead and add that to our document's `<head>`.
 
-> PAUSE: Which one of these uses "relative pathing" and which one uses "absolute pathing"? Which one is preferred? Why?
+> **Pause:** Which one of these uses **relative pathing** and which one uses **absolute pathing**? Which one is preferred? Why?
 >
 > ```html
 > <link rel="stylesheet" href="./assets/css/style.css" />
@@ -600,7 +602,7 @@ Remember what HTML tag we used in `index.html` to bring in our style sheet? Go a
 > <link rel="stylesheet" href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css" />
 > ```
 >
-> ANSWER: The first is "relative pathing" and the second is "absolute pathing". Relative is preferred because no matter where the project folder ends up the files will stay related to one another. Absolute pathing means it only works at that exact path and if the project folder is relocated, the path will have to change.
+> **ANSWER:** The first is "relative pathing" and the second is "absolute pathing". Relative is preferred because no matter where the project folder ends up the files will stay related to one another. Absolute pathing means it only works at that exact path and if the project folder is relocated, the path will have to change.
 >
 > Note that the relative path starts with `./`, meaning the path will start at that the current directory and move from there. The second one starts with `/` and means it will be used to start at the very beginning of the computer itself, also known as the "root" of the entire file system.
 
@@ -610,11 +612,11 @@ So now the `<head>` tag of our HTML document should have the exact same `<link>`
 
 This is great news, as we now don't have to repeat our style definitions and can reuse them wherever we need to. This is also one of the main reasons why in Lesson 2 we created the CSS file to add our style definitions as opposed to writing them in `index.html` itself.
 
-There are some styles that are a little out of sorts, however. The `<header>` and `<footer>` styles look great, but the hero section needs to be fixed and the actual page's content in the `<article>` tag doesn't have any styling at all:
+There are some styles that are a little out of sorts, however. The `<header>` and `<footer>` styles look great, but the hero section needs to be fixed and the page's content in the `<article>` tag doesn't have any styling at all:
 
 ![Privacy Policy CSS start](assets/step-7/400-css-start.jpg)
 
-Both of these issues are fine because all we need to do now is add just a _little_ bit more to get it how we want it. Referring to the finished mockup at the top of this lesson, we can see there are only a few additions and changes we need to make when it comes to styling what a non-Homepage should look like.
+Both of these issues are fine because all we need to do now is add just a _little_ bit more to get it how we want it. Referring to the finished mock-up at the top of this lesson, we can see there are only a few additions and changes we need to make when it comes to styling what a non-Homepage should look like.
 
 This is going to entail two things:
 
@@ -626,12 +628,12 @@ Let's discuss the first point. If you compare the finished product of `index.htm
 
 ![Hero section comparison](assets/step-7/401-hero-comparison.jpg)
 
-What we'll do is edit some styles and have them _only_ apply to our privacy policy's hero. There are a couple of ways we can do this:
+What we'll do is edit some styles and have them only apply to our privacy policy's hero. There are a couple of ways we can do this:
 
-1. **Change the class names**: Reuse most of the current CSS rule blocks with only a few edits to the style declarations and giving the CSS selector  a new class name. This way we can target different sections, but still have a similar look. An example of this would be if we wanted both paths to have the same margins and font sizes, but different colors:
+1. **Change the class names**: Reuse most of the current CSS rule blocks with only a few edits to the style declarations and giving the CSS selector  a new class name. This way, we can target different sections but still have a similar look. An example of this would be if we wanted both paths to have the same margins and font sizes, but different colors:
 
 ```css
-/* home page hero */
+/* homepage hero */
 .hero {
   margin: 20px;
   background-color: white;
@@ -683,7 +685,7 @@ As with most problems we'll face in programming, there will usually be a number 
 
 For the sake of seeing how it works we'll go with the second option. The first one is a more than acceptable solution, but the second is going to let us see two style sheets in action, so let's get to it.
 
-## Adding the second style sheet and overriding styles
+## Adding Second Style Sheet and Overriding Styles
 
 We'll start by using the command line to create another CSS file:
 
@@ -732,7 +734,7 @@ In `privacy-policy.html`, we have the `<link>` tag for `secondary-styles.css` co
 
 A useful feature of CSS is that it overrides at the declaration level, not the rule level. Any property declarations in the overridden rule will remain intact if the overriding rule does not redeclare them. We didn't define new values for `background-image`, `background-size`, or `position` because we want to use the same styles, so they get to carry over from the other style definition.
 
-### NEED: Video demonstrating Rule-level vs Declaration-level
+### NEED: Video demonstrating rule-level vs. declaration-level
 
 >
 > **Declaration Level**
@@ -751,11 +753,11 @@ A useful feature of CSS is that it overrides at the declaration level, not the r
 > }
 > ```
 
-Again, we can see these CSS rules and overrides working together to create this updated hero section in DevTools:
+Again, we can see these CSS rules and overrides working together to create this updated hero section in Chrome's DevTools:
 
 ![DevTools CSS Overrides](assets/step-7/500-devtools.jpg)
 
-As far as the hero section in `privacy-policy.html` is concerned, it sees two sets of CSS rules from the two stylesheets and combines them, then prioritizes the values that come later in conflicting declarations. The result is this:
+As far as the hero section in `privacy-policy.html` is concerned, it sees two sets of CSS rules from the two style sheets and combines them, then prioritizes the values that come later in conflicting declarations. The result is this:
 
 ```css
 .hero {
@@ -771,21 +773,21 @@ As far as the hero section in `privacy-policy.html` is concerned, it sees two se
 
 Now all of the style overriding is done, so we can turn our attention to creating the new style definitions for this page.
 
-## Creating new styles
+## Create New Styles
 
-We're now nearing the finish line! We just need to add a few more new styles to our privacy policy page to get it looking like the screenshot at the top of this Lesson.
+We're now nearing the finish line! We just need to add a few more new styles to our privacy policy page to get it looking like the screenshot at the top of this lesson.
 
-Using everything we've learned about CSS, let's tackle the page's title styling first. Start by defining what selector will be used. The quickest way to do that would be to select the element by its class, `page-title`.
+Using everything we've learned about CSS, let's tackle the page's title styling first. Let's start by defining what selector will be used. The quickest way to do this is to select the element by its class, `page-title`.
 
 Here are some specifications for how we want it to look:
 
-- Its font `color` should be #fce138
+- Its font `color` should be `#fce138`.
 
 - We need to tell the `<h2>` tag to not go full-width, so change its `display` property to make it an `inline-block` element.
   
 - Give its `border-bottom` a value with a `4px` width, a `solid` style, and the same color as the `color` property above.
 
-- Now let's make the border run wider than the text and give it some space by applying some `padding` to each of its sides:
+- Now let's make the border run wider than the text and give it some space by applying some `padding` to its sides:
   
   - top: 0
 
@@ -797,13 +799,13 @@ Here are some specifications for how we want it to look:
 
 - Lastly, let's adjust the font styles:
 
-  - Set the `font-weight` to `normal`, this will make the default bold `<h2>` not bold anymore
+  - Set the `font-weight` to `normal`; this will make the default bold `<h2>` not bold anymore.
 
-  - Change the `font-size` to be 42px
+  - Change the `font-size` to be 42px.
 
-  - Here's a new one, set it's `font-style` property value to `italic`. As we can assume, `font-style` is another CSS property that can add a slant (italicize) text.
+  - Here's a new one—set its `font-style` property value to `italic`. As we can assume, `font-style` is another CSS property that can add a slanted (italicized) text.
 
-If any of the spacing seems off, remember you can always use Chrome DevTools to adjust and see how certain styles will look before actually applying them. This saves a lot of trial and error time.
+If any of the spacing seems off, remember that you can always use Chrome DevTools to adjust and see how certain styles will look before actually applying them. This saves a lot of trial-and-error time.
 
 The result should look like this:
 
@@ -843,7 +845,7 @@ Now let's do the same thing and add styles to our `secondary-content` class and 
 
   - Give them some space by adding a `margin` of 10px to the top and bottom and 0 for left and right
 
-> HINT: Make sure you save and refresh the page often to see progress! If any styles being applied here accidentally break styles used in `index.html`, adjust how specific the selector needs to be to target only the HTML in question.
+> **Hint:** Make sure you save and refresh the page often to see progress! If any styles being applied here accidentally break styles used in `index.html`, adjust how specific the selector needs to be to target only the HTML in question.
 >
 > Also don't forget to keep Chrome DevTools open while making these style additions in case there is something that doesn't look right. It's also a good tool to have open to confirm the styles you defined are being applied correctly.
 
@@ -853,13 +855,13 @@ Last thing we need to do is get this finished product onto the Internet for the 
 
 ## Reflection
 
-We made it! At this point, we've learned enough about HTML and CSS that we can actually hold our own a bit and create simple pages for the web. You'll learn more advanced HTML and CSS techniques in the next module. Up until about 3 or 4 years ago, this is about 75% of what a lot of developers used on a regular basis.
+You made it! At this point, you've learned enough about HTML and CSS that you could definitely hold your own if asked to create simple pages for the web. You'll learn more advanced HTML and CSS techniques in the next module. Up until about 3 or 4 years ago, what you've learned so far is about 75% of what a lot of developers used on a regular basis.
 
-In the next Module, we'll be taking the skills we learned throughout this project and expand upon them greatly with advanced CSS techniques such as responsive design layouts, animation, and interactivity. These concepts are going to be taking our capabilities to the next level, but first let's look back and consider the hard skills and soft skills we've acquired:
+In the next module, we'll be taking the skills we learned throughout this project and expand upon them greatly with advanced CSS techniques such as responsive design layouts, animation, and interactivity. These concepts are going to be taking our capabilities to the next level, but first let's look back and consider the hard and soft skills we've acquired:
 
 - We learned how to use the command line to interact with our filesystem, without having to use a mouse or track pad. This is a skill that developers use almost daily.
 
-- We learned about HTML and how to create an HTML document in Visual Studio Code.
+- We learned about HTML and how to create an HTML document in VS Code.
 
 - We learned HTML syntax and a variety of HTML tags. We learned how to apply meaning, context, and functionality to tags using attributes.
 
