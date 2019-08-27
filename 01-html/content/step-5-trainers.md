@@ -84,9 +84,9 @@ Let's create one trainer so can get the hang of it. In `index.html`, go ahead an
 
 ```html
 <article class="trainer">
-  <img src="./assets/images/trainer-1.jpg" alt="Tony Horton in his workout clothes, ready to pump iron" />
+  <img src="./assets/images/trainer-1.jpg" alt="Arron Stephens in his workout clothes, ready to pump iron" />
   <div class="trainer-bio">
-    <h3>Tony Horton</h3>
+    <h3>Arron Stephens</h3>
     <h4>Speed / Strength</h4>
     <p>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi neque animi quo cupiditate commodi saepe culpa sed
@@ -242,7 +242,7 @@ Let's revisit our HTML and add the class `text-left` to the `<div class="trainer
 
 ```HTML
 <div class="trainer-bio text-left">
-  <h3>Tony Horton</h3>
+  <h3>Arron Stephens</h3>
   <h4>Speed / Strength</h4>
   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi neque animi quo cupiditate commodi saepe culpa sed itaque velit maiores optio dolorem excepturi aperiam dolores, voluptatibus suscipit amet quis repellat!</p>
 </div>
