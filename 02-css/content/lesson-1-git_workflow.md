@@ -23,7 +23,7 @@ In this lesson we will introduce three main concepts.
 > **Career Prep**: Git is the industry standard for developers. Employer-ready students must demonstrate a solid familiarity with Git version control.
 
 ## Development vs Production
-Git allows developers to create versions of the codebase to create new features or fix bugs. These versions are referred to as branches in Git. In our case we would like to have one version that is deployed which will continue to serve our website visitors and another version of the codebase to work on in isolation that will allow us to edit and change the code without worrying about disrupting the website for users. This is done by making a branch or "fork" from the `master` branch. This new branch will become our development environment which we will call the `develop` branch. We will work on the code in our `develop` branch while our `master` branch will become the production environment which is the public live version of our project. Development environments are not exposed to the public whereas production environments are. As a rule, a live version or the production environment should never be worked on directly since any bugs or errors will be apparent to the users. Git offers a technique to isolate versions of the code for development and testing with branching. 
+Git allows developers to create versions of the codebase to create new features or fix bugs. These versions are referred to as branches in Git. In our case we would like to have one version that is deployed which will continue to serve our website visitors and another version of the codebase to work on in isolation that will allow us to edit and change the code without worrying about disrupting the website for users. This is done by making a branch from the `master` branch. This new branch will become our development environment which we will call the `develop` branch. We will work on the code in our `develop` branch while our `master` branch will become the production environment which is the public live version of our project. Development environments are not exposed to the public whereas production environments are. As a rule, a live version or the production environment should never be worked on directly since any bugs or errors will be apparent to the users. Git offers a technique to isolate versions of the code for development and testing with branching. 
 
 > **Pro Tip**: Please note the branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, however in our situation this will be the case. 
 
@@ -38,7 +38,7 @@ Displays a list of all the current branches currently in our repo. This also hig
 git branch <branch-name>
 
 ```
-This Git command creates a new branch with your `<branch-name>` which creates a version of the current active branch. Once changes are committed onto the new branch, the branches will no longer be in sync with each other since their commit histories will diverge. This is how we make a new version of the active branch. We can only make a version or "fork" from the active branch so it is a good practice to use the `git branch` command to verify the active branch before creating a new branch.
+This Git command creates a new branch with your `<branch-name>` which creates a version of the current active branch. Once changes are committed onto the new branch, the branches will no longer be in sync with each other since their commit histories will diverge. This is how we make a new version of the active branch. We can only make a version from the active branch so it is a good practice to use the `git branch` command to verify the active branch before creating a new branch.
 ```
 git checkout <branch-name>
 ```
@@ -87,17 +87,17 @@ Features are significant additions or changes to the codebase. For instance addi
 Possible video, example on [Youtube](https://www.youtube.com/watch?v=9GKpbI1siow)
 Example here. Let's say two people are working on the same page, how overwriting or "stomping" might occur. 
 
-Previously we used a `develop` branch to create a local development environment to protect and isolate our production environment from our code changes. In this step, we will fork from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
+Previously we used a `develop` branch to create a local development environment to protect and isolate our production environment from our code changes. In this step, we will branch from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
 
 ![Feature Branch](assets/lesson-1/60-feature-branch.png)
-As can be seen in the diagram, several feature branches can be forked off the `develop` branch. Once the feature is complete, it is merged back into the `develop` branch.
+As can be seen in the diagram, several feature branches can be branched off the `develop` branch. Once the feature is complete, it is merged back into the `develop` branch.
 There are several important reasons to work on the codebase in a separate `feature` branch and not in the `develop` branch.
-* Developing code on a separate branch preserves a version, in our case the `develop` branch, which allows other team members to fork from a branch that is in a stable and working state.
+* Developing code on a separate branch preserves a version, in our case the `develop` branch, which allows other team members to branch from a version that is in a stable and working state.
 * Working on separate branches allows team members to work in parallel, developing features simultaneously which increases productivity and accountability.
 * Features can be added independently, meaning a `feature` branch can not only start separately, but also added or merged back into the `develop` branch when it is finished, without needing to wait for other team members to finish their work on other branches.
 * Testing the feature branch in isolation will help find errors or bugs more quickly since the changes in the codebase will be unique to the feature.
 
-> **Video**: [Animation of Git workflow-Jira FSFO-106](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-106). Start with  `master` then fork to `develop`. The branching from `develop` into a feature, then another feature, [actual code development] then merging back into the `develop` branch, then into `master` branch.
+> **Video**: [Animation of Git workflow-Jira FSFO-106](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-106). Start with  `master` then branch to `develop`. The branching from `develop` into a feature, then another feature, [actual code development] then merging back into the `develop` branch, then into `master` branch.
 
 It's time to switch gears now that we have our development environment set up. Let's go to our repo in GitHub and create some documentation for the new version of the Run Buddy project by creating a `README.md` file after a quick checkpoint.
 > **Checkpoint** [Learnosity Asset-Jira 117](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-117)<br />
