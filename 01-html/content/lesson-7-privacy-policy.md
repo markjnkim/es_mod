@@ -685,7 +685,7 @@ As with most problems we'll face in programming, there will usually be a number 
 
 For the sake of seeing how it works we'll go with the second option. The first one is a more than acceptable solution, but the second is going to let us see two style sheets in action, so let's get to it.
 
-## Adding Second Style Sheet and Overriding Styles
+## Add Second Style Sheet and Overriding Styles
 
 We'll start by using the command line to create another CSS file:
 
@@ -724,7 +724,7 @@ That should've fixed our spacing issues in that section. We overrode the `backgr
 
 As we can see, there are two sets of styles being applied to our class of `hero`. One is in `secondary-styles.css` at line 2 (in this screenshot), and the other is in `style.css` at line 75. To explain how the browser chose which styles to apply and which ones to discard, just look at how the `secondary-styles` one is listed on top of the other one, as if it's taking precedence. That's because it is.
 
-> REWIND: This is an example of the CSS "cascade" in effect. Think back to Lesson 2 when CSS was introduced. There are the three factors in CSS determining what styles get applied&mdash;Importance, Specificity, and Source order&mdash;this is an example of "source order" affecting what style definitions win.
+> **Rewind:** This is an example of the CSS "cascade" in effect. Think back to Lesson 2 when CSS was introduced. There are the three factors in CSS determining what styles get applied&mdash;Importance, Specificity, and Source order&mdash;this is an example of "source order" affecting what style definitions win.
 >
 > Switch the order of the `<link>` elements in the `<head>` element to see how the applied styles will be different due to our source order change.
 >
@@ -789,13 +789,13 @@ Here are some specifications for how we want it to look:
 
 - Now let's make the border run wider than the text and give it some space by applying some `padding` to its sides:
   
-  - top: 0
+  - `top: 0`
 
-  - right: 80px
+  - `right: 80px`
 
-  - bottom: 15px
+  - `bottom: 15px`
 
-  - left: 80px
+  - `left: 80px`
 
 - Lastly, let's adjust the font styles:
 
@@ -863,7 +863,7 @@ In the next module, we'll be taking the skills we learned throughout this projec
 
 - We learned about HTML and how to create an HTML document in VS Code.
 
-- We learned HTML syntax and a variety of HTML tags. We learned how to apply meaning, context, and functionality to tags using attributes.
+- We learned HTML syntax and a variety of HTML tags. We learned how to apply meaning, context, and functionality to elements using attributes.
 
 - We learned how to take a design and break it into different sections or containers so we can create well thought-out and organized HTML content.
 
@@ -875,4 +875,8 @@ In the next module, we'll be taking the skills we learned throughout this projec
 
 - Finally, we used the knowledge we gained from building the Run Buddy landing page to create a privacy policy page.
 
-This may seem like a lot, that's because it is a lot. We covered a lot of ground in this project, but the good thing is that we aren't leaving this behind. The concepts and tools we picked up here are going to be applied and reinforced throughout everything else we do as developers, so there will be plenty of time to practice and hone our skills!
+If this seems like a lot, that's because it is a lot! You covered a lot of ground in this project, and the good thing is that you aren't leaving this behind. The concepts and tools you picked up here will be applied and reinforced throughout everything you do as a developer, so there will be plenty of time to practice and hone your skills!
+
+
+---
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
