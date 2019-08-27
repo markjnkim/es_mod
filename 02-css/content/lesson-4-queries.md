@@ -117,9 +117,9 @@ Before we move onto the second method listed above, let's save ourselves from do
 
   - Change the `font-size` property from 55px to 48px, which is still plenty big for all screens but the current value of 55px on a mobile device may seem a little crammed
 
-> PAUSE: If there is no `align-items` property set for a flexbox, what is the default value and how does that affect the two flex children? Hint: Don't be afraid to look on MDN's documentation for the answer and a demonstration!
+> **Pause:** If there is no `align-items` property set for a flexbox, what is the default value and how does that affect the two flex children? Hint: Don't be afraid to look on MDN's documentation for the answer and a demonstration!
 >
-> ANSWER: The default is `stretch` and it means all flex children will grow to the size of the tallest one.
+> **Answer:** The default is `stretch` and it means all flex children will grow to the size of the tallest one.
 
 These changes may seem minor at the moment, but keep in mind that we're trying to find a nice balance for these styles so they look good on any device. Sometimes what seems negligable on one screen makes a world of difference on another.
 
@@ -436,7 +436,9 @@ Once you save the style sheet and refresh the browser, you can now see our page'
 
 > DEEP DIVE: To learn more, [check out the MDN docs for the order property and see how it can be used.](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
 
-The page is now not only responsive, but it is completely mobile-friendly! We've completed what the team at Run Buddy asked us to complete for this feature, so let's cross this issue off our list and merge our working branch's finished code into `develop`!
+The page is now not only responsive, but it is completely mobile-friendly! We've completed what the team at Run Buddy asked us to complete for this feature, so let's cross this issue off our list and merge our working branch's finished code into `develop`! 
+
+Don't forget to add, commit, and push your code up to the `feature/mediaqueries` branch on GitHub as well. It's always good to have backups! 
 
 ## Reflection
 
