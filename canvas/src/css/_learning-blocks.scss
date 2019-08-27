@@ -1,10 +1,10 @@
 // learning blocks are any blockquote elements inside the markdown body
 
 blockquote {
-  border-left: 10px solid var(--trilogy-blue);
-  color: #6a737d;
+  border-left: 10px solid #858585;
+  color: var(--dark-gray);
   border-radius: 13px;
-  background: rgb(238, 247, 248);
+  background-color: #ececec;
   position: relative;
   left: 64px;
   width: calc(90% - 64px);
@@ -56,26 +56,55 @@ blockquote {
   // specific background styles per learning block type
 
   &.important, &.caution, &.hint, &.note, &.rewind, &.shortcut, &.pro-tip {
-    border-color: #721c24;
-    background-color: #F8D7DA;
 
      &::before {
       background-image: url("https://bootcampspot.instructure.com/courses/87/files/381/preview");
     }
   }
 
-  &.legacy-lem {
-    border-color: #067742;
-    background-color: rgba(5, 255, 151, 0.705);
-
+  &.important {
+    border-color: #ca0b0b;
+    background-color: #ffaeae;
     &::before {
-      background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg");
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1292/preview");
+    }
+  }
+
+  &.caution, &.warning {
+    border-color: #ca0b0b;
+    background-color: #ffaeae;
+    &::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1299/preview");
+    }
+  }
+
+  &.hint {
+    &::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1293/preview");
+    }
+  }
+
+  &.note {
+    &::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1291/preview");
+    }
+  }
+
+  &.rewind {
+    &::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1290/preview");
+    }
+  }
+
+  &.shortcut {
+    &::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1289/preview");
     }
   }
 
   &.finding {
     &::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/89/files/801/preview");
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1297/preview");
     }
   }
 
@@ -87,19 +116,20 @@ blockquote {
 
   &.checkpoint, &.check-point {
     &::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/382/preview");
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1298/preview");
     }
   }
 
   &.narrative {
     &::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/383/preview");
+
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1296/preview");
     }
   }
 
-  &.skill-drill {
+  &.skill-drill, &.skills {
     &::before {
-      background-image: url("https://bootcampspot.instructure.com/courses/87/files/384/preview");
+      background-image: url("https://bootcampspot.instructure.com/courses/89/files/1295/preview");
     }
   }
   
@@ -108,5 +138,23 @@ blockquote {
       background-image: url("https://bootcampspot.instructure.com/courses/87/files/385/preview");
     }
   }
+
+  &.github {
+    &::before {
+      background-image: url("https://bootcampspot.instructure.com/courses/87/files/1294/preview");
+    }
+  }
+
+  // Fullstack Specific
+
+  &.legacy-lem {
+    border-color: #067742;
+    background-color: rgba(5, 255, 151, 0.705);
+
+    &::before {
+      background-image: url("https://illegalsystems.s3.us-east-2.amazonaws.com/legacy_lem.svg");
+    }
+  }
+
 
 }
