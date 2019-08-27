@@ -36,7 +36,7 @@ In `index.html`, add the following code:
 
 ```html
 <section id="your-trainers">
-  <h1>Meet the Trainers</h1>
+  <h2>Meet the Trainers</h2>
 </section>
 ```
 
@@ -50,15 +50,21 @@ Let's check and see if this worked. Like in previous lessons, you can test any H
 
 If you were taken down the page to the "Meet the Trainers" section and the URL address in the browser changed to `/run-buddy/index.html#your-trainers`, then you're all set!
 
-The next and last thing we want to do with our `<section>` element is give it a class name, so let's add `class="trainers"` to the tag. This way, when we start adding CSS to it, we can get to it by its class name, `"trainers"`.
+The next and last thing we want to do with our `<section>` element is give it a class name, so let's add `class="trainers"` to the tag. This way, when we start adding CSS to it, we can get to it by its class name, `"trainers"`. The result should look like this:
 
-### Set Up the Header
+```html
+<section id="your-trainers" class="trainers">
+  <h2>Meet the Trainers</h2>
+</section>
+```
+
+### Set Up the Section's Header
 
 Now that we 've given the whole section its `id` and `class` attributes, let's move into the section's `<h2>` element to set it up for some proper styling. The best part about updating this section's `<h2>` element is that we can reuse the styles we created in Lesson 4; we just need to provide the correct `class` attribute value and then all of the associated CSS styles for that class will be applied.
 
 In the previous lesson, we created a few classes to provide different style options for our section titles. All of our section titles will get the class attribute labeled `section-title`, but we need to add another one to change the color of the bottom border to yellow. So let's also add `primary-border` as well. 
 
-In `index.html`, add the following class attributes to `<h2>`:
+In `index.html`, add the following class attributes to this section's `<h2>`:
 
 ```html
 <h2 class="section-title primary-border">
@@ -70,11 +76,11 @@ In `index.html`, add the following class attributes to `<h2>`:
 
 Great! Now we can move onto the content for each of our trainers. We'll start by adding the images of the trainers to our project (no one likes to see a broken picture tag!). Go ahead and [download the images of our trainers](https://github.com/coding-boot-camp/FullStack-Online/blob/FSFO-27-step-4/01-html/content/link-needed 'we need a link'), and then add them to the `images` folder inside the `assets` folder that we created in Lesson 3.
 
-In the previous lesson, when we wanted to create a new step, we put all of the information for that step in its own `<div>` element so we could keep it all together. We'll do the same for our trainers by taking all of the information for a trainer&mdash;name, role, bio, and image&mdash;and putting it inside a single HTML element as well.
+In the previous lesson, when we wanted to create a new "step", we put all of the information for that step in its own `<div>` element so we could keep it all together. We'll do the same for our trainers by taking all of the information for a trainer&mdash;name, role, bio, and image&mdash;and putting it inside a single HTML element as well.
 
 ### Add a Trainer
 
-Let's create one trainer so can get the hang of it. In `index.html`, go ahead and add the following code on the line after the closing tag of the `<h2>` element:
+Let's create one trainer so can get the hang of it. In `index.html`, go ahead and add the following code on the line after the closing tag of the `<h2>` element that says "Meet the Trainers":
 
 ```html
 <article class="trainer">
