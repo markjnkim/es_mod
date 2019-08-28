@@ -39,7 +39,7 @@ Let's take a look at the sign-up form in the mock-up:
 
 > **Hint:** Look for content like text, heading, and boxes.
 
-> **ANSWER:** Initially, we will need a box that contains a heading, text, input fields, and a button.
+> **ANSWER:** Initially, we'll need a box (`<div>`) that contains a heading (`<h2>`), paragraph text (`<p>`), input fields (`<input>`), and a button (`<button>`).
 
 The first thing you need to do is add a `<div>` element inside the `<section>` element. Make sure it's nested inside the `<section>` element.
 
@@ -64,7 +64,7 @@ Go ahead and add a `<div>` element to `index.html`. That section of the file sho
 </section>
 ```
 
-> **Heads Up:** The browser doesn't care if lines are indented or if every element is on the same line.  Nonetheless, indentation is an organizational practice that helps you and other developers read and understand the code, and is a great habit to get into. 
+> **Heads Up:** The browser will execute the code regardless of whether it is neatly indented or shoved together in a giant run-on sentence. Nonetheless, indentation is an organizational practice that helps you and other developers read and understand the code, and is a great habit to get into.  
 
 Now that we have a `<div>` element, let's insert its child elements, including a heading for this section and some text. 
 
@@ -505,32 +505,33 @@ To learn more, see the [MDN web docs on the border property](https://developer.m
 
 Once the styling of our sign-up container is done, the next step is to position it to the right side of our hero section as shown in the mock-up. But first, we need to dive a bit deeper into the `position` property.
 
-### Position Is a Theory of Relativity
+### Positioning: It's All Relative!
 
 `position` is an important CSS property that defines how an element is positioned on the webpage.
-Here are a few of the property's values and how they change the relationship of the element to the surrounding elements by changing the source of relative positioning, meaning what the element's position is in reference to:
 
-- **`static`** is the default position value and maintains the order of the natural flow of the elements on the page as in the order created in HTML. `static` positioning is not affected by `top`, `bottom`, `left`, and `right` properties. Currently the sign-up container is in the natural flow of the document in the default position so it is currently `static`.
 
-- **`relative`** positioning compares the natural, or `static`, position and is able to adjust from this position by using the `top` and `bottom` properties to vertically offset the element as well as the `left` and `right` properties for horizontal offsetting. 
+Here are some of the property's values and how they affect the relationship of the element to the surrounding elements:
 
-- **`absolute`** positioning removes the element from the natural flow of the page elements and uses the `top`, `bottom`, `left`, and `right` properties to offset relative to the element's parent or containing element's margins.
+- **`static`** is the default position value and maintains the order of the natural flow of the elements on the page (i.e., the order created in the HTML). `static` positioning is not affected by the `top`, `bottom`, `left`, and `right` properties. Currently, the sign-up container is in this position.
 
-- **`fixed`** positioning removes the element from the natural flow of the page elements and is positioned relative to the viewport or browser window, therefore is not affected by scrolling. The`fixed` position value uses the `top`, `bottom`, `left` and `right` properties to offset from the viewport's margins.
+- **`relative`** positioning uses the `top` and `bottom` properties to vertically offset and the `left` and `right` properties to horizontally offset the element from the `static` position. 
 
-> **Pause:** Can you figure out which of these possibilities would serve our cause? 
- 
-> **Hint:** Use the process of elimination. `static` and `fixed` are eliminated since `static` is where the form container currently sits, which is incorrect. `fixed` would mean that the form container would stay in the same part of the viewport, even after scrolling down. This is not within the scope of our requirements and therefore not in our interest.<br>
-> **ANSWER:** Let's explain how we decide on absolute positioning as opposed to relative positioning.
+- **`absolute`** positioning removes the element from the natural flow of the page elements and uses the `top`, `bottom`, `left`, and `right` properties to offset relative to the element's parent, or containing, element's margins.
 
-Let's play around with the position property and use [the MDN docs on the position property](https://developer.mozilla.org/en-US/docs/Web/CSS/position) to find a visual representation of the position property's options.
+- **`fixed`** positioning removes the element from the natural flow of the page elements and positions it relative to the viewport or browser window so that it is not affected by scrolling. The `fixed` position value uses the `top`, `bottom`, `left` and `right` properties to offset the element from the viewport's margins.
 
-Of our two remaining options, let's break down the differences in these choices.
+To see visual representations of the `position` property's options, check out the [MDN web docs on the `position` property](https://developer.mozilla.org/en-US/docs/Web/CSS/position).
 
-If we choose **relative positioning**, we would need to move the form container from its current position and offset it from the left and top positions until we found the correct spot according to the mock-up.
-We also have the option to use **absolute positioning**, which uses the parent container's margins to offset horizontally or vertically. We will choose this option because the position of the form container is in relation to the hero container. Absolute positioning might be the easiest to understand because it is simply offsetting from the margin of the parent element. 
+> **Pause:** Can you figure out which of these positins would serve our cause? 
+>
+> **Hint:** Let's use the process of elimination. `static` and `fixed` can be eliminated. `static` is where the form container currently sits, which is incorrect. `fixed` would mean that the form container would stay in the same part of the viewport, even after scrolling down. This is not within the scope of our requirements and therefore not in our interest.
+>
+> **ANSWER:** The correct answer is `absolute`. 
 
-Let's start by assuming we would like to offset the form container from the bottom and right margins of the hero section since the form container will reside in the bottom right quadrant of the hero section.
+Let's investigate why `absolute` is the right choice. If we choose `relative`, we would need to move the form container from its current position and offset it from the left and top positions until we found the correct spot according to the mock-up. But if we choose `absolute`, we can use the parent container's margins to offset horizontally or vertically. We'll go with this option because the position of the form container is in relation to the hero container.  
+
+Let's start by assuming we'd like to offset the form container from the bottom and right margins of the hero section (because the form container will reside in the bottom right quadrant of the hero section). Add this to your style sheet:
+
 ```css
 .hero-form {
   border: 3px solid #024e76;
@@ -548,9 +549,9 @@ Now save and render to view the following:
 ![absolute-position](./assets/step-3/602-form-absolute-css.png)
 
 As you can see, the absolute position property with zero offset from the bottom and right puts this element in the bottom right corner. Do you notice how it overflows out of our section?
-This is because currently the child element, our form container is setting its position relative to the `body` element and not our hero section. 
+This is because the child element, the form container, is setting its position relative to the `body` element and not our hero section. 
 
-In order to enable the absolute positioning of the form container to be taken relative to the hero section, we need to make the hero section's position relative. Let's go to the CSS rule for the hero and add a declaration that sets the position to relative. Your CSS should now look like this:
+To enable the absolute positioning of the form container to be taken relative to the hero section, we need to make the hero section's position relative. To do this, go to the CSS rule for the hero and add a declaration that sets the position to relative (`position: relative;`). Your CSS should now look like this:
 
 ```css
 /* Hero Style Start */
@@ -588,25 +589,25 @@ As you can see, the form is now nestled in the corner, just as we positioned it.
 }
 ```
 
-> **Deep Dive:** Another great resource for more insight on absolute vs relative positioning is [StackOverflow](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute).
+> **Deep Dive:** To learn more, check out [the discussion on StackOverflow about absolute vs. relative positioning](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute).
 
-> **Heads Up:** Another possible value to use instead of pixels are percentages. For the declaration that assigns the `right` position property, let's use a percentage and see what the difference is. About 10% covered around 140px. Mathematically speaking, this means that the full screen value of 1400px at 10% will be 140px. This is why the form position remains the same. The true value of having a relative size instead of a static size, is that on different screen sizes, the position will remain relative to the element's size, and not fixed regardless of the screen size. We will go into further depth on relative sizes and screen responsiveness in the next module so we will save some of our discussion until then.
+> **Heads Up:** Another possible value to use instead of pixels is percentages. Let's see how this might work. For the declaration that assigns the `right` position property, let's use a percentage and see what the difference is. About 10% covered around 140px. Mathematically speaking, this means that the full screen value of 1400px at 10% will be 140px. This is why the form's position remains the same. The true value of having a relative size instead of a static size is that on different screen sizes, the position will remain relative to the element's size and not fixed. We'll go into more depth on relative sizes and screen responsiveness in the next module.
 
 The `width` property has been saved for last because calculating the width of the form container actually begins a discussion on another property called `box-sizing`.
 
-### Box-sizing: Calculating the Width and Height of Elements
+### Box-Sizing: Calculating the Width and Height of Elements
 
-The `box-sizing` property determines how to calculate the `width` and `height` of each element. So the discussion here is actually about what should be included in this property. There are two possible values for the `box-sizing` property: `content-size` and `border-box`.
+The `box-sizing` property determines how to calculate the `width` and `height` of each element. There are two possible values for the `box-sizing` property: `content-size` and `border-box`.
 
-- **`content-size`** is the default value and calculates the height and width of the element by only counting the `content` box of the CSS Box Model. This means that the `border` and `padding` must be calculated separately and added to our width and height to determine the size of the element.
+- **`content-size`** is the default value and calculates the height and width of the element by only counting the `content` box of the CSS Box Model. This means that the `border` and `padding` must be calculated separately and added to the width and height to determine the size of the element.
 
 - **`border-box`** calculates the height and width of the element by including the `border` and `padding` additions to the `content` box.
 
-To see an illustration of how the `box-sizing` property affects an element's dimensions, check out this [`box-sizing` property demo from MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)
+> **Deep Dive:** To learn more, check out the [MDN web docs on the `box-sizing` property](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing).
 
 In our case, when we declare the width of the `<div>` to be 500px and keep the default value for the `box-sizing` property at `content-size`, we need to add the `border` and `padding` into this calculation to get the true width of 546px. However, if we change the `box-sizing` property to `border-box`, the width takes into account the `padding` and `border` and yields an actual width of 500px.
 
-> **Pause:** Let's add this property to every element on our page and override the browser's default assignment. How would we go about this without needing to add this declaration to every CSS rule?
+> **Pause:** Let's add this property to every element on the page and override the browser's default assignment. How can we do this without needing to add this declaration to every CSS rule?
 
 > **ANSWER:** We can use the wildcard selector, `*`, to match every element on the page. This is a great idea for every CSS style sheet because calculating width is made much easier.
 
@@ -616,14 +617,14 @@ In our case, when we declare the width of the `<div>` to be 500px and keep the d
 }
 ```
 
-Go ahead and add the above code to your CSS style sheet and take a look at the changes on your page in the browser. Don't forget to save your file.
+Go ahead and add the above code to your CSS style sheet and take a look at the changes on your page in the browser. Don't forget to save your file!
 
 > **Pro Tips:** 
 >* Learn keyboard shortcuts to greatly increase your speed and efficiency. For MacOS users, see [this list of VS Code keyboard shortcuts for Mac users](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf). If you use Windows, see [this list of VS Code keyboard shortcuts for Windows users](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf). They're also labeled in your menu options.
 
-> * Use an iterative process as you code, meaning save your work and then check the browser after each step, to ensure the page is progressing in the right direction. Give yourself the chance to fix any issues before writing more code and adding any additional errors.  
+> * Use an iterative process as you code, meaning save your work and then check the browser after each step to ensure the page is progressing in the right direction. Give yourself the chance to fix any issues before writing more code and adding additional errors.  
 
->* Select the `Auto Save` option in the `File` menu to automatically save your work periodically.
+>* Select the `Auto Save` option in the VS Code `File` menu to automatically save your work periodically.
 
 Let's look at how the page would render if we used the `box-sizing` property with `content-size` assignment:
 
@@ -633,12 +634,12 @@ And now with the `box-sizing` property with `border-box` assignment:
 
 ![form-box](./assets/step-3/600-form-css.png)
 
-As you can see, the `border-box` constrains the elements by includes the padding and border with the width, making calculating and formatting easier.
+As you can see, the `border-box` constrains the elements by including the padding and border with the width, making calculating and formatting easier.
 
-Success. Nice job! After this checkpoint, we'll preview a new way to make changes to your styling.
+Nice job! After the checkpoint, we'll look at a new way to make changes to your styling.
 
 > **Checkpoint:** <br />
->  Box-sizing is a property that changes the calculation of which value of the element?<br />
+>  Box-sizing is a property that changes the calculation of which values of the element (select two or more from the list)?<br />
 >  <input type="checkbox" name="checkpoint-1" id="checkpoint-11" /><label for="checkpoint-11"> Width</label> <br />
 >  <input type="checkbox" name="checkpoint-1" id="checkpoint-12" /><label for="checkpoint-12"> Height</label> <br />
 >  <input type="checkbox" name="checkpoint-1" id="checkpoint-12" /><label for="checkpoint-12"> Margin</label> <br />
@@ -647,7 +648,7 @@ Success. Nice job! After this checkpoint, we'll preview a new way to make change
 
 >**ANSWER:** Width and Height
 
-> If you need to position a child element in relation to its parent element, which value will you set the `position` property to? <br />
+> If you need to position a child element in relation to its parent element, which value should you set the `position` property to? <br />
 >  <input type="checkbox" name="checkpoint-2" id="checkpoint-21" /><label for="checkpoint-21"> Display</label> <br />
 >  <input type="checkbox" name="checkpoint-2" id="checkpoint-22" /><label for="checkpoint-22"> Static</label> <br />
 >  <input type="checkbox" name="checkpoint-2" id="checkpoint-32" /><label for="checkpoint-32"> Absolute</label> <br />
@@ -676,34 +677,34 @@ Success. Nice job! After this checkpoint, we'll preview a new way to make change
 
 ### Use Chrome's DevTools
 
-Have you ever thought that it's kind of a pain to hop back and forth between the CSS file and the browser to see how the changes look even for little tweaks? There's a Chrome tool that can eliminate the need for this: Chrome DevTools.
+Have you ever thought that it's kind of a pain to hop back and forth between the CSS file and the browser to see how the changes look, especially for little tweaks? Luckily for us, there's a tool that can eliminate the need for this: Chrome DevTools.
 
-The DevTools can be found by clicking on the small button located on the top-right of your browser that looks like three dots vertically aligned:
+The DevTools can be found by clicking the small menu button at the top-right of your browser that looks like three dots vertically aligned:
 
 ![Menu button](./assets/step-3/700-hamburger-btn.png)
 
-This will open a browser menu. Open the `More Tools` option to open a submenu containing the `Developer Tools` option.
+This opens a browser menu. Choose `More Tools` to open a submenu containing the `Developer Tools` option.
 
-> **Pro Tip:** Keyboard shortcuts improve speed and efficiency. To access the DevTools on a Mac, use Option+Command+I. To access them on Windows, type Ctrl+Shift+I.
+> **Pro Tip:** To access the DevTools on a Mac using the keyboard, use Option+Command+I. To access them on Windows, type Ctrl+Shift+I.
 
-Depending on your version of Chrome, your screen should look something like this:
+Depending on your version of Chrome, you should see something like this:
 
 ![Developer Tools](./assets/step-3/800-dev-tools.png)
 
-You can see the DevTools beneath your webpage. Click the `Elements` tab to reveal your HTML code. On a full screen, you will also see the Styles panel displaying your CSS code. By clicking on the various fields in the webpage, you can change or delete properties, attributes, content, and values.
+The Chrome DevTools appear beneath your webpage. Click the `Elements` tab to reveal your HTML code. On a full screen, you will also see the Styles panel displaying your CSS code. If you click on various elements in the webpage, you can change or delete properties, attributes, content, and values.
 
-This tool is a tremendous asset to front-end developers because it allows them to:
+This tool is a tremendous asset to front-end developers because it allows you to:
 
 - Change HTML elements and attributes.
 - Manipulate CSS style properties.
 - Change the text content.
-- And much more which we will continuously learn throughout this class.
+- And much more, which we will continuously learn throughout this class!
 
-> **Deep Dive:** To learn more, see [Google's documentation on Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/). If it seems like too much for now, it's because this tool has a large array of uses, many of which are outside our current knowledge base. Don't worry, we will learn more about these tools as we learn more web development throughout the course.
+> **Deep Dive:** To learn more, see [Google's documentation on Chrome's DevTools](https://developers.google.com/web/tools/chrome-devtools/). If this seems overwhelming, it's because this tool has a large array of uses, many of which are outside our current knowledge base. Don't worry—we'll learn more about these tools as we learn more web development throughout the course.
 
 > **Preservable Walk-Through:** Watch this [quick GIF demonstration that shows how to use Chrome DevTools to change the background color of Google](https://youtu.be/G_P6rpRSr4g).
 
-> **Activity/Pause:** Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`. Try out the element inspector, which is the arrow icon in the top-left corner of the DevTools window.:
+> **Activity/Pause:** Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`. Try out the element inspector, which is the arrow icon in the top-left corner of the DevTools window:
 >
 > ![arrow-inspector](./assets/step-3/701-arrow-devtools.png) 
 >
@@ -711,9 +712,9 @@ This tool is a tremendous asset to front-end developers because it allows them t
 >
 > Notice the changes in the Element and Style panels. Feel free to play around at will. Are these changes permanent? How can we tell?
 
-> **ANSWER:** Page refresh can determine persistence or permanence of a change.
+> **ANSWER:** The changes are not permanent, which you can determine by refreshing the page after you make changes. 
 
-These changes are not permanent and do not change the actual code, but merely offer a sandbox to try out different styles and sizes and immediately see the effect on the element and webpage. Once you're satisfied with the desired styling affect, the changes must be made to the style sheet in order to make the style change permanent.
+These changes are not permanent and do not change the actual code, but merely offer a sandbox to try out different styles and sizes and immediately see the effect on the element and webpage. Once you're satisfied with the desired styling affect, the changes must be made to the actual style sheet (in our case, `style.css`) in order to make the style change permanent.
 
 > **Pro Tip:** To further develop skills with these types of tools, it is important to use them as much as possible. Try to use new tools as much as possible in the beginning since it easy to forget they are there. It is a good habit keeping this window open so it stays at the top of your mind. Remember that it can be shrunk, stretched, or docked on any side by selecting the hamburger button in the top-right corner.
 
