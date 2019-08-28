@@ -680,7 +680,7 @@ Have you ever thought that it's kind of a pain to hop back and forth between the
 
 The DevTools can be found by clicking on the small button located on the top-right of your browser that looks like three dots vertically aligned:
 
-![Hamburger button](./assets/step-3/700-hamburger-btn.png)
+![Menu button](./assets/step-3/700-hamburger-btn.png)
 
 This will open a browser menu. Open the `More Tools` option to open a submenu containing the `Developer Tools` option.
 
