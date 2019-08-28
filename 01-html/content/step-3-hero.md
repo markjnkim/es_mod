@@ -349,7 +349,7 @@ For the sake of consistency, there should be a few styles that will keep all the
 
 > **Rewind:** As we did in the previous lesson when we assigned a default font color or font type to every HTML element or set the margin to zero, we'll give all our `<section>` elements a consistent look using the `padding` property.
 
-Type the following into your `style.css` file:
+Add the following into the bottom of your `style.css` file:
 
 ```css
 section {
