@@ -327,8 +327,6 @@ when you tap on the phone number field.
 > Get into the habit of researching how well browsers support new HTML and CSS
 > before you use them.
 
-<!-- > **Activity:** HTML nesting game. Place your boilerplate HTML code with finished CSS in parallel. Ask the student to place certain items here or there by nesting them properly. -->
-
 Our foundation work is now complete so we can proceed to the design phase of this lesson after a quick checkpoint.
 > **Checkpoint:** <br />
 >  Block elements are displayed on a new line.<br />
