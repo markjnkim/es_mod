@@ -4,7 +4,7 @@
 
 We've added some really nice features to the Run Buddy site so far, namely in terms of creating great web layouts using flexbox. Between that and learning how to tackle issues one at a time using Git feature branches, we've really picked up a lot of skills that are used by web developers on a daily basis.
 
-We're almost halfway through our list of GitHub issues, but the issue we're about to tackle is possibly the most important one&mdash;making the site completely **mobile responsive**. The team at Run Buddy has caught wind that we're at this point and they've provided us with some mockups of what they expect the site to look like on mobile phones, tablets, and other smaller screen devices.
+We're almost halfway through our list of GitHub issues, but the issue we're about to tackle is possibly the most important one&mdash;making the site completely **mobile responsive**. The team at Run Buddy has caught wind that we're at this point and they've provided us with some mock-ups of what they expect the site to look like on mobile phones, tablets, and other smaller screen devices.
 
 This request is a very common one in modern web development. As a matter of fact, making a site responsive is something most developers do at the outset of a project. This mentality is what's known as having a **mobile first** approach, meaning we should think about how the site looks on smaller devices first and work our way up to larger devices such as laptop and desktop computers. 
 
@@ -247,9 +247,9 @@ As we saw earlier, all we really need to do when writing our media queries is id
 
 Lucky for us, however, the team at Run Buddy has told us exactly how they envision the page looking at these three sizes. We'll start by taking care of how the page looks at 980 pixels, so take a look at this mock-up at 980 pixels and study it section-by-section:
 
-![Mockup of small screen media query at 980 pixels](assets/lesson-4/400-980-query.jpg)
+![Mock-up of small screen media query at 980 pixels](assets/lesson-4/400-980-query.jpg)
 
-Do we see an overall theme at this width? Instead of making our layouts run more narrow side-by-side, we make each flex child get its own row, which is going to be easier now that much of our layout is using flexbox properties. The other properties that we're going to change for this viewport width are a little harder to see, but they involve some minor edits to font sizes and margin/padding in certain areas. Let's update our media query for 980 pixels a little bit at a time so you can save and refresh the browser as we go, this way you can see the each style override happen section-by-section. Edit the 980px media query to look like this:
+Do we see an overall theme at this width? Instead of making our layouts run more narrow side-by-side, we make each flex child get its own row, which is going to be easier now that much of our layout is using flexbox properties. The other properties that we're going to change for this viewport width are a little harder to see, but they involve some minor edits to font sizes and margin/padding in certain areas. Let's update our media query for 980 pixels a little bit at a time so you can save and refresh the browser as we go, this way you can see each style override happen section-by-section. Edit the 980px media query to look like this:
 
 ```css
 @media screen and (max-width: 980px) {
@@ -331,7 +331,7 @@ Now that we have the site looking good for smaller screens and regular sized bro
 
 We're going to adjust those two sections so the site will look like this on an iPad or any device up to 768 pixels wide:
 
-![Mockup of tablet media query at 768 pixels](assets/lesson-4/500-768-query.jpg)
+![Mock-up of tablet media query at 768 pixels](assets/lesson-4/500-768-query.jpg)
 
 The big change here is that we're giving the "What You Do" section a similar treatment of stacking flex children instead of keeping them side-by-side. Again, these are both going to be fairly straightforward edits since flexbox properties are easy to adjust for these situations.
 
@@ -381,7 +381,7 @@ We want to keep the vertical padding, as it creates some nice breathing room for
 }
 ```
 
-This follows some of the same beats as the 980px breakpoint where we take flex children and make them run full width of the page instead of sharing the horizontal row with other elements. We didn't want the icon to become full-width of the page, however, because it would get to large; so we capped it at 32% width using `flex-basis` and told it not to take up any extra unused space by setting `flex-grow` to 0 (these are done in the `flex: 0 32%;` declaration).
+This follows some of the same beats as the 980px breakpoint where we take flex children and make them run full width of the page instead of sharing the horizontal row with other elements. We didn't want the icon to become full-width of the page, however, because it would get too large; so we capped it at 32% width using `flex-basis` and told it not to take up any extra unused space by setting `flex-grow` to 0 (these are done in the `flex: 0 32%;` declaration).
 
 At this point, the page is almost totally mobile responsive! There are a few pain points we need to address as the screen gets down to mobile phone size, but overall it is a very clean and readable site across most screens now. The big takeaway here is that using media queries, it is not as much work as one would expect to achieve a nice looking site on varying device screen sizes.
 
@@ -389,7 +389,7 @@ For our 575 pixel width breakpoint, we really only need to tackle a few aestheti
 
 ![Mockup of mobile phone media query at 575 pixels](assets/lesson-4/600-575-query.jpg)
 
-Here's the code to achieve the mockup above:
+Here's the code to achieve the mock-up above:
 
 ```css
 @media screen and (max-width: 575px) {
