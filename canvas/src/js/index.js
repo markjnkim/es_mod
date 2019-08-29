@@ -10,7 +10,7 @@ import  "prismjs/components/prism-r";
 import "../css/main.scss";
 
 // only run on course content pages
-if (window.location.href.match(/\/courses\/[0-9]+\/pages\/.+/)) {
+if (window.location.href.match(/\/courses\/[0-9]+\/pages\/((?!\/edit).)+$/)) {
   // if content exists, run immediately
   if (document.querySelector("#wiki_page_show .user_content")) {
     bootCampMagic();
@@ -91,14 +91,14 @@ function bootCampMagic() {
     title.prependTo($(this));
 
     // add additional class for special types
-    if (type === "hint" || type === "pause") {
-      $(this).addClass("collapse");
+    // if (type === "hint" || type === "pause") {
+    //   $(this).addClass("collapse");
 
-      // remove class once clicked
-      $(this).one("click", () => {
-        $(this).removeClass("collapse");
-      });
-    }
+    //   // remove class once clicked
+    //   $(this).one("click", () => {
+    //     $(this).removeClass("collapse");
+    //   });
+    // }
   });
 
   // remove any google docs errors
@@ -114,7 +114,7 @@ function bootCampMagic() {
   // make sure code snippets are formatted for prism
   $("pre:not(:has(>code))").each(function() {
     // default to bash if no class is set
-    var className = this.className.indexOf("language-") !== -1 ? $(this).attr("class") : "language-bash";
+    var className = this.className.match(/lang(uage)?-[a-z]+/) ? this.className : "language-bash";
 
     $(this).wrapInner(`<code class="${className}">`);
   });
