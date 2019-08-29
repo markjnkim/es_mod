@@ -1,17 +1,17 @@
 # Lesson 3: Create the Hero
 
 ## Introduction
-Now that we've set up the `header` and `footer` for our page, let's get started with the body, or content, of the website.  
-
-The design team has asked us to create a flashy section at the top of the site to grab visitors' attention. They've also given us a design mock-up for the section and an image to be used as the background. 
+Now that we've set up the header and footer for our website, let's move on to the body. The design team has asked us to create a flashy section at the top of the landing page to grab visitors' attention and capture their contact information. They've given us a design mock-up for the section and an image to be used as the background. 
 
 Here's the mock-up:
 
 ![Hero Mock-up](./assets/step-3/50-hero-section-mock-up.png)
 
-In this lesson, you'll build on your knowledge of HTML and CSS, and learn about some new concepts that are essential to web development. Here's a high-level overview of how we'll approach this:
+In this lesson, you'll build on your knowledge of HTML and CSS, and learn some new concepts that are essential to web development. 
+
+Here's a high-level overview of how we'll approach this:
 1) Add the HTML element to create the form.
-2) Add CSS selectors to style specific elements.
+2) Add CSS selectors to style elements.
 3) Add the background image.
 4) Position the elements.
 5) Style the sign-up form.
@@ -19,15 +19,17 @@ In this lesson, you'll build on your knowledge of HTML and CSS, and learn about 
 
 ## Our Hero's Purpose
 
-The section we are about to build is often thought of as the most important one in any website because it will be seen by every visitor, even those who visit for just a few seconds or get there by accident. In this section, we have what is called a "hero" image. In web terms, it means a large banner image placed prominently on the page. The placement is considered to be "above the fold" and has a specific task: pique the visitor's curiosity enough to keep reading, scrolling, clicking, and engaging with the website.
+The section we're about to build is sometimes considered the most important one in any website because it will be seen by every visitor, even those who visit for only a few seconds or who arrive by accident. 
 
-> **Urkel Says:** Did you ever wonder where the phrase "above the fold" originated? Many readers fold a newspaper in half when they read it because of the large size of the paper their printed on. The newspaper industry thus coined the phrase "above the fold" for the upper half of the front page, which contains the most important news story, headline, and/or picture. In fact, many newspaper terms have been adopted by the web, including "section," "aside," "header," "footer," and "article." For more information, take a look at the [Wikipedia article about "Above the Fold"](https://en.wikipedia.org/wiki/Above_the_fold).
+This section contains something called a **hero image**. In web terms, this refers to a large banner image placed prominently on the page. The placement is considered to be "above the fold" and has a specific task: to pique the visitor's curiosity enough to get them reading, scrolling, clicking, and engaging with the website. Think of the hero section as the banner, headline, or billboard for a website.
 
-Think of the hero section as the banner, headline, or billboard for our site. As usual, before we can add the styling pizzazz, we need to create the HTML that provides the structure and content.
+> **Urkel Says:** The phrase "above the fold" originated in the newspaper industry. Because of the large size of most newspapers, many readers fold the paper in half when they read it. The newspaper industry thus coined the phrase "above the fold" for the top half of the front page, which contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted by the web, including "section," "aside," "header," "footer," and "article." For more information, take a look at the [Wikipedia article about "Above the Fold"](https://en.wikipedia.org/wiki/Above_the_fold).
+
+As usual, before we can add the styling pizzazz, we need to create the HTML that provides the structure and content.
 
 ## Build a Hero
 
-Let's build on the `<section>` element we created in Lesson 1. This will act as the parent element that contains children elements like the heading and sign-up form. Let's start with the form. 
+Let's build on the `<section>` element that we created in Lesson 1. This will act as the parent element that contains the children elements, the heading and sign-up form. Let's start with the form. 
 
 ### Add the Sign-Up Form Container
 
@@ -35,15 +37,15 @@ Let's take a look at the sign-up form in the mock-up:
 
 ![Sign-up Mock-up](./assets/step-3/70-sign-up-mock-up.png)
 
-> **Pause:** From the mock-up, can you identify any HTML elements that are needed to create the sign-up form?
+> **Pause:** From the mock-up, can you identify some HTML elements that are needed to create the sign-up form?
 
 > **Hint:** Look for content like text, heading, and boxes.
 
 > **ANSWER:** Initially, we'll need a box (`<div>`) that contains a heading (`<h2>`), paragraph text (`<p>`), input fields (`<input>`), and a button (`<button>`).
 
-The first thing you need to do is add a `<div>` element inside the `<section>` element. Make sure it's nested inside the `<section>` element.
+The first thing we need to do is add a `<div>` element nested entirely inside the `<section>` element. 
 
-HTML works on a relatively simple set of rules. One important rule is that both the opening and closing tags of an element must be completely contained inside the parent element. This means that if an opening tag is contained within an element, the closing tag must be as well. 
+One important HTML rule is that both the opening and closing tags of an element must be completely contained inside the parent element. In other words, if an opening tag is contained within an element, the closing tag must be as well. 
 
 This is the wrong way to nest elements:
 
@@ -56,7 +58,7 @@ This is the wrong way to nest elements:
 
 Notice that only an opening tag for the `<div>` element is inside the `<section>` element; the closing tag should be there too. The browser will attempt to fix invalid markup before it displays the page, but the results will be unpredictable.
 
-Go ahead and add a `<div>` element to `index.html`. That section of the file should look something like this:
+In `index.html`, go ahead and add the `<div>` element for the form. It's good practice to indent the child element; that section should look like this when you're done:
 
 ```html
 <section>
@@ -64,11 +66,11 @@ Go ahead and add a `<div>` element to `index.html`. That section of the file sho
 </section>
 ```
 
-> **Heads Up:** The browser will execute the code regardless of whether it is neatly indented or shoved together in a giant run-on sentence. Nonetheless, indentation is an organizational practice that helps you and other developers read and understand the code, and is a great habit to get into.  
+> **Heads Up:** The browser will execute the HTML regardless of whether it is neatly indented or shoved together in a giant run-on sentence. Nonetheless, indentation is an organizational practice that helps you and other developers read and understand the code, and is an important habit to get into.  
 
 Now that we have a `<div>` element, let's insert its child elements, including a heading for this section and some text. 
 
-In `index.html`, type the following HTML in the `<div>` section:
+Add elements and content for the heading and paragraph text inside the `<div>` element:
 
 ```html
 <section>
@@ -78,9 +80,11 @@ In `index.html`, type the following HTML in the `<div>` section:
   </div>
 </section>
 ```
-We chose an `<h3>` element for the heading. But why not an `<h1>` or `<h4>`? The reason lies behind the fact that the header number represents the scope and significance of the heading. The main header of your page should be an `<h1>` while section headers are designated as `<h2>`. Because this heading is less significant, the `<h3>` is the right choice. To aid accessibility, headings should fall in sequential order; this helps screen readers organize and interpret the importance of content on the page.
+You'll notice that we chose an `<h3>` element for the heading. But why not an `<h1>` or `<h4>`? Heading numbers represent the scope and significance of the heading. The browser makes an `<h1>` element the largest and boldest heading on the page, followed by the `<h2>`, then the `<h3>`, and so on. 
 
-The `<p>` element means "paragraph" and is used to render the text in the page's body. The browser will not add font-size or font-weight to the content of this element, but will make the `display` property, mentioned in the last lesson, a `<block>` element.
+The main heading of our page is an `<h1>`, and section headers are `<h2>`. Because this heading is less significant than an `<h2>`, `<h3>` is the right choice. To aid accessibility, headings should fall in sequential order; this helps screen readers interpret the relative importance of content on the page.
+
+The `<p>` element means "paragraph" and is used to render the text in the page's body. By default, the browser declares a `<p>` to be a block-level element, but—unlike a heading element— won't assign any changes to font size or weight.
 
 > **Deep Dive:** For a visual representation of the `display` property, check out ... [Jira issue 46](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197?selectedIssue=FSFO-46).
 
@@ -88,29 +92,31 @@ Your page should now look something like this:
 
 ![hero-heading](./assets/step-3/100-heading-html.png)
 
-This isn't quite what we're looking for stylistically, but the structure and content is set up properly. Just like building a house, the foundation and frame must go up before the rest can be built. The decorating (and CSS styling!) always comes last.
+This isn't quite what we're looking for stylistically, but the structure and content is set up properly. Just like when building a house, the foundation and frame must go up before the rest can be built. The decorating (and CSS styling!) always comes last.
 
 ### Create the Sign-Up Form
 
-The sales team has requested that we include a form in the hero section. Forms are a major point of interaction between a user and a website or web application, allowing users to send data to the website, typically directly to the server. The importance of our sign-up form is emphasized by its position at the top of the website. The form's ultimate goal is to generate sales leads and convert visitors into customers. Are you ready to learn how to create it? Let's do it! 
+It's time to add the sign-up form. Forms are a major point of interaction between users and websites. They invite and enable users to send data to the website, typically directly to the server. 
 
-First let's create the sign-up form container by using the `<form>` element. Within this `<form>` will be elements such as `<input>` and their associated `<label>` elements. There are many different types of `<input>` elements that are based on the type of input desired from the user, such as open-ended (a text field for the user to enter freeform text) and closed-ended (a radio button or checkbox for the user to select or check).
+The importance of our sign-up form is emphasized by its position at the top of the page. The form's ultimate goal is to generate sales leads and convert visitors into customers. Are you ready to learn how to create it? Let's do it! 
 
-> **On the Job:** A sign-up form is a **call to action**, or **CTA**. The main purpose of a CTA is to encourage the users through a story, advertisement, or piece of content to do something. In our case, we want our visitor to share their contact info, which we hope will lead to a future engagement with them. CTAs play a vital role in converting a visitor into a sales lead. Placing the CTA in the hero section reinforces the strategic importance of retaining user info.
+First let's create the sign-up form container by using the `<form>` element. Within this `<form>` will be child elements such as `<input>` and `<label>`. `<input>` elements come in many flavors, such as open-ended (a text field that lets the user enter freeform text) and closed-ended (a radio button or checkbox for the user to select or check).
+
+> **On the Job:** A sign-up form is a **call to action**, or **CTA**. The main purpose of a CTA is to encourage users via a story, advertisement, or piece of content to do something. In our case, we want our visitor to share their contact info, which we hope will lead to a future engagement with them. CTAs play a vital role in converting a visitor into a sales lead—that's why we want it at the top of the page!
 
 ### Add Text Input Fields
 
-Let's work on adding the text fields in the form. These are where the user will enter their name and contact information. 
+Let's add the text fields to the form. These are where the user will enter their name and contact information. 
 
 > **Pause:** How many text fields are needed in the sign-up form? 
 
 > **Answer:** We need three text fields: name, email address, and phone number.  
 
-Let's take a look at these text fields in our mock-up:
+Let's take a look at these fields in the mock-up:
 
 ![Text Fields](./assets/step-3/150-text-input-html.png)
 
-Let's start by adding the following HTML to the `<form>` element. Look closely at how we pair the `<input>` and corresponding `<label>` elements and their different attributes:
+We'll start by adding the following HTML to the `<form>` element. Look closely at how we pair the `<input>` and corresponding `<label>` elements and their attributes:
 
 ```html
 <form>
@@ -119,7 +125,7 @@ Let's start by adding the following HTML to the `<form>` element. Look closely a
 </form>
 ```
 
-The `<label>` text not only offers a visual directive of what to enter, but also programmatically links to the associated `<input>`.  So when a user with a disability uses a screen reader, the label will be read out when they focus on the input field. This makes it easier for an assistive technology user to understand what data should be entered. Labels also enhance any user's experience on a mobile device because clicking on the label will target the focus in the associated input field, which is especially helpful when using a touch screen.
+The `<label>` text not only offers a visual directive of what to enter but also programmatically links to the associated `<input>`. When a user with a disability uses a screen reader, the label will be read out when they focus on the input field. Labels also make it easier to fill out forms on mobile devices: clicking on the label will target the focus to the associated input field, which can be hard to do manually on a small screen.
 
 Let's break down the attributes in the `<input>` element:
 
