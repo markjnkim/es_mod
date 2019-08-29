@@ -123,7 +123,7 @@ Now our next step is to create a `README.md` in GitHub.
 > 3. `README.md` is the default file name in the input field. We will keep this.
 > 4. For the body of the README let's use the Markdown tags to create a rich text with a few headings regarding the title and purpose of this project, the coding languages used, other technologies used, and your name. Later we can add more and even further enhance this `README.md` with screenshots and gifs. There are plenty of advanced [templates online](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) however for a first project, it will be best to keep the documentation simple for now.
 Here's an example of what your raw Markdown file should look like.
-<!-- ![Markdown Raw Text](./assets/lesson-1/160-markdown-github.png)  -->
+
 ```markdown
 # Run Buddy
 
@@ -222,12 +222,11 @@ SHIFT + Z + Z
 > **Deep Dive**: To learn more about this powerful text editor, check out [this Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
 This will bring you back to your terminal window which should look like this.
 
-![pull-success](assets/lesson-1/300-pull-success-git.png)
+![pull-success](assets/lesson-1/300-pull-success-git.png)<br>
 
 As can be seen from our success response in the terminal, the `README.md` file has added 14 new lines.
 > **Video**: Animation - [Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
 The next lines display what files were changed and how many lines were added in green "+" or removed in red"-". We only have additions hence no red "-".
-
 
 One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, VS Code has an Explorer side panel that will display an updated folder tree that shows the folder hierarchy including the subdirectories and files contained in each folder. If you do not see this side panel, open it by going to the menu bar under View > Explorer<br>
 ![Folder Tree](./assets/lesson-1/360-folder-tree.png)<br>
