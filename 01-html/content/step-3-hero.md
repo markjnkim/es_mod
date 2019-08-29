@@ -208,9 +208,9 @@ Understanding what you do now about `<input>` element syntax and using Google if
 
 A button is an essential component of a user interface and can have a variety of different functions and uses. A button can link to another area on the webpage or to an external site, submit data to a server, or be programmed for any activity. 
 
-Our button has a special function: to submit the user data gathered inside the `<form>`. Once again, we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element, "Get running", will be written within the `<button>` tags to render a label on the button itself.  
+Our button has a special function: to submit the user data gathered inside the `<form>`. Once again, we will configure our element with attributes to make it function according to our needs. In our case, we need a `submit` type to perform the needed action. The content of this element, "Get running", will be written inside the `<button>` element to render a label on the button itself.  
 
-Currently, our requirements in the mock-up don't have an action to assign to the button, but normally we would assign a URL path in the `<form>` element in the `action` attribute. To learn more, see the [MDN docs on the form element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form).  
+Currently, our requirements in the mock-up don't have an action to assign to the button, but typically we would assign a URL path in the `<form>` element in the `action` attribute. To learn more, see the [MDN docs on the form element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form).  
 
 Let's take a look at our hero section's HTML code:
 
@@ -249,7 +249,7 @@ Let's take a look at our hero section's HTML code:
 <!-- end hero -->
 ```
 
-> **Pro Tip:** Notice that there are no empty lines within the `<section>` element. Being concise with language and syntax also pertains to extraneous lines and white space. Making sure there are no empty lines or missing indentation will not affect what is rendered in the browser, but these best practices enhance legibility and communicate parent/child relationships to other developers and even a future you, which can greatly improve development speed.
+> **Pro Tip:** Notice that there are no empty lines within the `<section>` element. Being concise with language and syntax also pertains to extraneous lines and white space. Making sure there are no empty lines or missing indentation won't affect what's rendered in the browser, but these best practices enhance legibility and communicate parent/child relationships to other developers and even a future you, which can greatly improve development speed.
 
 That was a lot of code we just entered! It's time to save and render to see the current progress of our landing page. Make sure your file is saved, and then view it in the browser. 
 
@@ -264,7 +264,7 @@ couple of input types that were introduced in HTML5: `email` and `tel`. Browsers
 these input types differently than classic `text` input types. 
 
 When a user inputs a value into an `email` input type and clicks the submit
-button, the browser will automatically validate that value. If the value doesn't
+button, the browser automatically validates that value. If the value doesn't
 look like an email address, the browser will not submit the form. Instead, the
 browser will display a helpful validation warning next to the `email` input
 field.
@@ -481,12 +481,12 @@ Save and render to view this:
 
 ![form-position](./assets/step-3/595-form-no-border-css.png)
 
-Now just need to add the border, so let's dive in a little deeper to the `border` property:
+Now we just need to add the border, so let's dive in a little deeper to the `border` property:
 
-- **`border`:** Similar to how`padding` values are assigned in the last lesson, the `border` property can be declared with a single value, which represents one value for all four sides. The border property can also be designated for each side: `border-top`, `border-bottom`,`border-left`, `border-right`.
-Unlike `padding`, in addition to width, `border` can also have style and color values declared. 
+- **`border`:** Similar to how`padding` values were assigned in the last lesson, the `border` property can be declared with a single value that represents one value for all four sides. The border property can also be designated for each side: `border-top`, `border-bottom`,`border-left`, `border-right`.
+Unlike `padding`, `border` can also have style and color values declared in addition to width. 
 
-Here is an example of our border declaration block:
+Here's an example of our border declaration block:
 ```css
 .hero-form {
   ...
@@ -505,7 +505,7 @@ Alternatively, there is a shorthand property to include all three values on one 
 ```
 To learn more, see the [MDN web docs on the border property](https://developer.mozilla.org/en-US/docs/Web/CSS/border).
 
-Once the styling of our sign-up container is done, the next step is to position it to the right side of our hero section as shown in the mock-up. But first, we need to dive a bit deeper into the `position` property.
+Once the styling of our sign-up container is done, the next step is to position it to the right side of the hero section as shown in the mock-up. But first, we need to dive a bit deeper into the `position` property.
 
 ### Positioning: It's All Relative!
 
@@ -514,7 +514,7 @@ Once the styling of our sign-up container is done, the next step is to position 
 
 Here are some of the property's values and how they affect the relationship of the element to the surrounding elements:
 
-- **`static`** is the default position value and maintains the order of the natural flow of the elements on the page (i.e., the order created in the HTML). `static` positioning is not affected by the `top`, `bottom`, `left`, and `right` properties. Currently, the sign-up container is in this position.
+- **`static`** is the default value and maintains the order of the natural flow of the elements on the page (i.e., the order created in the HTML). `static` positioning is not affected by the `top`, `bottom`, `left`, and `right` properties. Currently, the sign-up container is in this position.
 
 - **`relative`** positioning uses the `top` and `bottom` properties to vertically offset and the `left` and `right` properties to horizontally offset the element from the `static` position. 
 
@@ -619,7 +619,7 @@ In our case, when we declare the width of the `<div>` to be 500px and keep the d
 }
 ```
 
-Go ahead and add the above code to your CSS style sheet and take a look at the changes on your page in the browser. Don't forget to save your file!
+Go ahead and add the above code to your CSS style sheet and take a look at the changes in the browser. Don't forget to save your file!
 
 > **Pro Tips:** 
 >* Learn keyboard shortcuts to greatly increase your speed and efficiency. For MacOS users, see [this list of VS Code keyboard shortcuts for Mac users](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf). If you use Windows, see [this list of VS Code keyboard shortcuts for Windows users](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf). They're also labeled in your menu options.
