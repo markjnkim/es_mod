@@ -110,7 +110,7 @@ Now that we have our development environment set up, let's add some documentatio
 > **Deep Dive:** For a closer look let's take a look at the official documentation on [GitHub Guides](https://guides.github.com/features/wikis/) and [Markdown](https://www.markdownguide.org/basic-syntax)
 
 The `README.md` is a Markdown file which is a text file that offers some light weight markup or styling. It is located in the top level or root directory of the repo which allows GitHub to render it on the landing page of your repo. README files do not have to be in Markdown, and can be regular text files, however we will continue using Markdown due to its simplicity and ease of use in Github and VS Code.
-> **Rewind**: Similar to HTML, Markdown uses syntax and markup notation for styling. See this [Markdown guide](https://www.markdownguide.org/basic-syntax) that will give a nice comparison with HTML. Here is some background on the [Markdown markup on Wikipedia](https://en.wikipedia.org/wiki/Markdown).
+> **Rewind**: Similar to HTML, Markdown uses syntax and markup notation for styling. See this [Markdown guide](https://www.markdownguide.org/basic-syntax) that will give a nice comparison with HTML. Here is some background on the [Markdown language on Wikipedia](https://en.wikipedia.org/wiki/Markdown).
 <!-- You can also find many `README.md` templates online, here is a [sample](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2). -->
 Now our next step is to create a `README.md` in GitHub.
 
@@ -158,7 +158,7 @@ While in our GitHub repo let's take a look at our branches by selecting the bran
 
 > **Answer**: The `develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on Github.com. This is considered the "remote" repo. As we did in the past module, we will need to `git push` our local changes up to the remote repo in GitHub.
 
-In order to provide backup security as well as create a collaborative and communal development branch that team members can use to work, let's backup our local `develop` branch by creating a copy in our Github repo by typing the following command in the command prompt:
+In order to create a secure backup as well as provide a collaborative and communal development branch that team members can use to branch off of, let's backup our local `develop` branch by creating a copy in our Github repo by using the following command example:
 ```
 git push origin <remote-branch-name>
 ```
@@ -182,9 +182,8 @@ Let's continue to the next step where we will learn how to communicate updates b
 
 ## Interacting with Github
 It is important to keep in mind our local repo (on our computer) is different than the remote repo (stored on GitHub.com) even though the code seems relatively the same, they are in fact different versions of the codebase. 
-> **Rewind**: GitHub is a service that stores our repo online which facilitates collaboration, backups our code, and links to servers that can deploy our project. 
 
-Since we made a change to the `README.md` on the `master` branch in Github, let's take a look in the local `master` branch by doing a `git checkout master` in the command prompt. As we can see, the `README.md` file we just created in GitHub isn't in our local folder. This is because our remote repo (GitHub.com) and local repo are currently out of sync. In the next steps we will learn how to communicate and sync the remote and local repos.
+Since we made a change to the `README.md` on the `master` branch in Github, let's take a look in the local `master` branch by doing a `git checkout master` in the command prompt. As we can see, the `README.md` file we just created in GitHub isn't in our local folder. This is because our remote repo (GitHub.com) and local repo are currently out of sync. In the next steps we will learn how these repos got out of sync and then how to sync the remote and local repos back again.
 
 ![Local vs Remote](assets/lesson-1/240-branch-github.png) <br>
 [URL](https://www.atlassian.com/git/tutorials/syncing/git-pull)
@@ -201,7 +200,7 @@ Now let's run our status check command:
 ```
 git status
 ``` 
-Remember this command verifies if our working tree is clean, which means checks to see if our files have been staged and committed. If the changes are not "clean" then please `add` and `commit` the file changes. Git does a great job at checking the save status of our files before allowing a checkout to another branch or pull from the remote repo.
+Remember this command verifies if our working tree or working directory is clean, which means checks to see if our files have been staged and committed. If the changes are not "clean" then please `add` and `commit` the file changes. Git does a great job at checking the save status of our files before allowing a checkout to another branch or pull from the remote repo.
 
 Now that we have a "clean" branch, we are ready to "pull" or update our local repo branch with the remote thereby downloading any new changes. 
 
@@ -212,6 +211,8 @@ Enough explanations, let's get our hands dirty since there is more learning in d
 
 You should see the following screen after a successful `pull`.
 ![Vim](assets/lesson-1/200-vim-cli.png)
+
+
 
 Git has opened a text editor called Vim to request a commit message for the `merge` operation. To exit out of this screen type the following into the editor:
 Enter ESC to enter normal mode, and then : to initiate a Vim command. You will see a colon at the bottom-left of the Vim window. Then type q to quit.
