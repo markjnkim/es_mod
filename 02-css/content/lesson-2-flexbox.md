@@ -32,7 +32,7 @@ Let's follow the steps we established in the first lesson for creating a new fea
 
 Run `git branch` again to make sure it worked. If it says the active branch is `feature/flexbox` then it worked! Let's start updating the site. 
 
-If for the active branch is not `feature/flexbox` or you received an error, it's not a problem! You can always revisit the steps we took in the last lesson to make sure you used the right commands or you can watch this video to gain insight:
+If the active branch is not `feature/flexbox` or you received an error, it's not a problem! You can always revisit the steps we took in the last lesson to make sure you used the right commands or you can watch this video to gain insight:
 
 ### [NEED VIDEO: FSFO-83 - Video for creating a git feature branch](https://trilogyed.atlassian.net/browse/FSFO-83?atlOrigin=eyJpIjoiODFiM2Q0NDJiNjdhNDQ4YzhkNzA2Y2VkMmZhNzU2NTEiLCJwIjoiaiJ9)
 
@@ -44,9 +44,9 @@ The term "flexbox" is short hand for "flexible box module" and it is used as a o
 
 ### [NEED VIDEO: FSFO-84 - Flexbox introduction and demo layouts](https://trilogyed.atlassian.net/browse/FSFO-84?atlOrigin=eyJpIjoiM2FmYzU1NjQ5NWQ1NDA5Nzg3ZDYyZWFhODM3Y2ZmMmEiLCJwIjoiaiJ9)
 
-This new CSS tool was created out of a necessity to address some layout issues that other properties such as `float` fall short in fulfilling. After smart devices become ubiquitous in everyday life, web sites started to see issues arise in their layouts when they would open on these smaller screens. Everything would either break and overlap one another or the user would have to scroll horizontally to see everything, which led to very poor usability of these sites. HTML layouts that were once achieved using floats and positioning needed to be revamped so they could simply adapt to the page size rendering them.
+With the rise in popularity of mobile devices, CSS properties used for layout design such as `float` were ill equipped to handle smaller screens and would often would break, overlap, and overflow off to the right of the screen.  Flexbox was created to adapt to the viewport rendering the webpage.
 
-> **Legacy Lem**: The CSS property `float` was not originally intended to create the advanced layouts you see on web sites today. It was supposed to be used to for pulling content left or right and allowing its sibling content to flow around it. Since there was no other CSS property to support the building of layouts that utilized the horizontal space better, `float` was the only real option and developers appropriated it.
+> **Legacy Lem**: The CSS property `float` was not originally intended to create the advanced layouts you see on web sites today. It was supposed to be used to for pulling content left or right and allowing its sibling's content to flow around it. Since there was no other CSS property to support the building of layouts that utilized the horizontal space better, `float` was the only real option and developers appropriated it.
 >
 > While developers were able to use floats to achieve their layout goals, it did not come without headache when it came to making them work with mobile devices. It involved a lot of CSS rules to maintain at different screen sizes where one mistake could break the whole design.
 
@@ -63,19 +63,19 @@ Flexbox eases these pains by creating HTML parent/child (or container/container-
 
 ### The Magic of Flexbox
 
-When a container is given a `display` value of `flex`, that element is now able to create what's known as a one-dimensional layout. This means that it can now control the distribution of its content along either the horizontal X-Axis (known as a "row") or the vertical Y-Axis (known as a "column"). By default, a flexbox is set to be a row, meaning that it will try and fit all of it's child elements on one horizontal line until it hits the right edge of the parent. At that point it has to decide whether to:
+When a container is given a `display` value of `flex`, that element is now able to create what's known as a one-dimensional layout. This means that it can now control the distribution of its content along either the horizontal x-axis (known as a "row") or the vertical y-axis (known as a "column"). By default, a flexbox is set to be a row, meaning that it will try and fit all of it's child elements on one horizontal line until it hits the right edge of the parent. At that point it has to decide whether to:
 
 - Make all of the child elements more narrow to accommodate a new sibling on that horizontal line. This usually results in child elements having a "squished" look or...
 
 - Tell the flexbox parent that it's okay to overflow its content onto the next line. This is what's known as "wrapping" and is commonly used in conjunction with flexbox containers to calculate smart layouts for screens at various sizes such as a mobile phone or tablet.
 
-Another thing that Flexbox provides that used to be incredibly difficult is horizontal/vertical alignment of child elements, meaning we can use flexbox to vertically center HTML elements in a container (which used to be near impossible with CSS) and we can evenly space elements without having to set a lot of CSS rules to them.
+Another thing that flexbox provides that used to be incredibly difficult is horizontal/vertical alignment of child elements, meaning we can use flexbox to vertically center HTML elements in a container (which used to be near impossible with CSS). Flexbox is also great at evenly spacing elements by calculating the free space available and distributing this space between each child element.
 
-All of these ideas are easily carried into making a flexbox column as well, just apply those rules to height instead of width and it's the same idea. Typically flexbox is used more for rows than columns, but there are some really cool use cases for both and flexbox is quickly becoming an industry standard. Read the [MDN documentation for flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) to learn more about the concepts behind it and how it can be used.
+All of these ideas are easily carried into making a flexbox column as well, just apply those rules to height instead of width and it's the same idea. Typically flexbox is used more for rows than columns, but there are some really cool use cases for both. Due to its ability automatically adjust alignment and spacing of elements within a container of varying size, flexbox is quickly becoming an industry standard. Read the [MDN documentation for flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) to learn more about the concepts behind it and how it can be used.
 
 ### Prepare Our Header for Flexbox
 
-We'll start by making the `header` element a flexbox, but first let's remove a few pieces from our CSS file (a lot of this lesson will involve removing CSS properties and adding flexbox properties in their place):
+We'll start making the `header` element a flexbox by first removing a few pieces from our CSS file (a lot of this lesson will involve removing CSS properties and adding flexbox properties in their place):
 
 - Remove the `display: inline-block` declaration from `header h1` because we will be using flexbox to make the `h1` inline,  so it now looks like this code snippet:
 
@@ -114,7 +114,7 @@ There are just a few more things we want to do at this point. Notice how the nav
 
 > DEEP DIVE: The `justify-content` property is one that only applies to elements with a `display` property value of `flex` or `grid` (more on that later). It allows you to control spacing between child elements with the following values:
 >
-> - **`flex-start`**: This is the default value if nothing is provided and is the most "normal" value. It left justifies all of the elements in the container.
+> - **`flex-start`**: This is the default value. It left justifies all of the elements in the container.
 > ![Flexbox with flex-start justification](assets/lesson-2/300-justify-flex-start.jpeg)
 >
 > - **`flex-end`**: Opposite of `flex-start`, placing all elements at the end (or right justifies) of the container.
@@ -165,7 +165,7 @@ The properties we used here (`display: flex`, `justify-content`, and `flex-wrap`
 
 With these minor edits to the `<header>` we were able to achieve the same layout with easier to understand concepts, which will allow us to make more complex layouts as time goes on. There are still a few changes we want to make to the `nav` element, though, to make it more adaptive to different screen sizes.
 
-If you are guessing that those changes will involve converting the `nav` element to a flexbox as well, then you'd be correct, so let's keep moving!
+If you are guessing that those changes will involve converting the `<nav>` element to a flexbox as well, then you'd be correct, so let's keep moving!
 
 > **Important:** Don't forget to use your git commands to `add` and `commit`, and `push` your work to this `feature/flexbox` feature branch!
 
@@ -205,7 +205,7 @@ The other one we've added has nothing to do with flexbox, but rather with HTML l
 
 By default, the color of the bullet points used in a list is the same color set for the text of the list. Since our `body` CSS rule has set the color to be the same teal as the background, we couldn't tell that the bullet points were even there! Now that we are changing some of the styles to our `<header>`, however, that color would've shown up in our navigation bar, so we needed to tell those bullet points to be hidden.
 
-The `align-items` property is another property that is specifically used with flexbox or grid layouts. Not only does it keep child elements along a row matched up with another, but it can also be used to vertically center an element on a page. This may sound like a simple task, but it wasn't until this property that it was possible to achieve this type of vertical alignment without using JavaScript. Read [MDN's documentation on `align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) to learn more.
+The `align-items` property is another property that is specifically used with flexbox or grid layouts. Not only does it keep child elements along a row matched up with another, but it can also be used to vertically center an element on a page. This may sound like a simple task, but it wasn't until this property that it was possible to achieve this type of vertical alignment without using JavaScript. Read [MDN's docs on `align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) to learn more.
 
 ### [NEED VIDEO: FSFO-87 - Demo of align-items](https://trilogyed.atlassian.net/browse/FSFO-87?atlOrigin=eyJpIjoiYTg5MTNjZmE3MDQ1NDM1OGE5ZjE2YTBlMjRkMzc3MTciLCJwIjoiaiJ9)
 
@@ -229,7 +229,7 @@ Now we have a `<nav>` element where the links grow and shrink with the screen si
 
 ![Responsive navigation text shrinking too small](assets/lesson-2/800-header-small.jpg)
 
-We're done with the entire `<header>` for now, so now is a good time to save our work in our `flexbox` branch using Git and we'll move onto the rest of our site's layout, starting with the `footer`! But first, if you'd liked o reinforce some knowledge in how to use flexbox, check out a game called [Flexbox Froggy!](https://flexboxfroggy.com/)
+We're done with the entire `<header>` for now, so now is a good time to save our work in our `flexbox` branch using Git and we'll move onto the rest of our site's layout, starting with the `<footer>`! But first, if you'd liked to reinforce some knowledge in how to use flexbox, check out a game called [Flexbox Froggy!](https://flexboxfroggy.com/)
 
 > **Deep Dive:** Absolute vs. Relative CSS Values
 >
@@ -241,9 +241,9 @@ We're done with the entire `<header>` for now, so now is a good time to save our
 
 ## Flexing the Footer
 
-Before moving onto the bigger sections of the page, let's take our newfound knowledge in flexbox and apply it the `footer`. Try and answer the following questions:
+Before moving onto the bigger sections of the page, let's take our newfound knowledge in flexbox and apply it the `<footer>`. Try and answer the following questions:
 
-- How is the `footer` element similar to the `header`?
+- How is the `<footer>` element similar to the `<header>`?
 
 - If we considered the `footer` a parent element, how many children does it have?
 
