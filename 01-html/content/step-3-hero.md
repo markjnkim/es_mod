@@ -195,7 +195,7 @@ On a Mac:
 
 On Windows:
 
-[Open in Default Browser on Windows](./assets/step-3/1051-open-in-default-browser-windows.png)
+### Add Screen shot [Open in Default Browser on Windows - Jira 127](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-127)
 
 The page should look like this now:
 
