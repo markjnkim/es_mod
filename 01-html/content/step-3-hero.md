@@ -709,7 +709,7 @@ Depending on your version of Chrome, you should see something like this:
 
 The Chrome DevTools will appear beneath your webpage. Click the `Elements` tab to reveal the HTML code. On a full screen, you will also see the Styles panel displaying your CSS code. If you click on various elements in the webpage, you can change or delete properties, attributes, content, and values.
 
-This tool is a tremendous asset to front-end developers because it allows you to:
+DevTools is a tremendous asset to front-end developers because it allows you to:
 
 - Change HTML elements and attributes.
 - Manipulate CSS style properties.
@@ -749,26 +749,26 @@ Finding a solution to a layout problem using CSS is not always straightforward o
 Let's make our design team happy by following their mock-up to give the `<form>` some needed layout and styling.
 
 #### Heading 
-Let's jazz up our heading! This form needs to bring some excitement and enthusiasm, and the current `<h3>` element leaves a bit to be desired. 
+Let's start by jazzing up the heading. This form needs to exude excitement and enthusiasm, and the current `<h3>` element leaves a bit to be desired. 
 
 There are several ways to select this element using CSS:
 
 - We could give this `<h3>` element a class and select it as we did for the form container and the `<section>`.
-- We could select the parent element and then the child element that's contained within the parent, as we did in the previous lesson in the `header` and `footer`.
+- We could select the parent element and then the child element that's contained within it, as we did in the previous lesson in the `header` and `footer`.
 
-We've chosen the second option for one reason: class attributes are used to distinguish or select one or more set of elements from other elements. Since there is only one `<h3>`, creating a new class is a bit of an overkill. Simplicity is a great rule of thumb to go by when possible.
+We'll go with the second option for one reason: class attributes are used to distinguish or select one or more set of elements from other elements. Since there is only one `<h3>`, creating a new class is a bit of an overkill. Simplicity is a great rule of thumb to go by when possible.
 
-In `style.css`, adjust this `<h3>` element to make it a bit larger, and set the `margin` to 0 to reduce any possible word wrapping.
+In `style.css`, adjust this `<h3>` element to make it a bit larger, and set the `margin` to 0 to reduce any possible word wrapping. The CSS is listed below, but try it on your own before you peek! 
 
 #### Text Spacing
-Next, we'll add some space to the `<p>` element to make it more pleasant to read, specifically on the top and bottom margins.
+Next, add some space to the `<p>` element to make it more pleasant to read, specifically on the top and bottom margins.
 
 #### Input Fields
-It's time to give our input fields some style and panache. First let's get each one to exist on its own line while making the `font-size` bigger with a nice `border`. 
+Now we will give our input fields some style and panache. First let's get each one to exist on its own line by making the `font-size` bigger with a nice `border`. 
 
 Part of having a good website is making it easy for a visitor to navigate. When it comes to user interaction, it's really important to make it as simple and straightforward as possible. This means having clear demarcations on each line and to address what each input field is for.
 
-> **Pause:** If we selected `<input>` as our CSS selector, we would style the radio button and checkbox as well as the input fields, which isn't our goal. So how would we select just the input fields for this styling?
+> **Pause:** If we selected `<input>` as our CSS selector, we would style the radio button and checkbox as well as the input fields, which isn't our goal. So how could we select just the input fields for this styling?
 
 > **Answer:** Let's use a class as our CSS selector to target a group of input fields while ignoring the rest. Let's add the class `form-input` to our `<input>` opening tags for just the first three inputs to target our input fields.
 
@@ -834,7 +834,7 @@ Add the following code to `style.css`:
 }
 ```
 
-> **Heads Up:** It is important to try and implement these styles yourself and give it a try. Getting syntax errors or red squiggly lines are helpful reminders that you may be missing or misplacing a syntax character. In time, the syntax will become second nature and your speed will increase. Remember, you can always experiment in the Chrome DevTools until you get it just right.
+> **Heads Up:** It is important to try and implement these styles yourself and give it a try. Syntax errors and red squiggly lines are helpful reminders that you might be missing or misplacing a syntax character. In time, the syntax will become second nature and your speed will increase. Remember, you can always experiment in the Chrome DevTools until you get it just right.
 
 Save your work and take a look at the browser to see what you've completed so far: 
 
