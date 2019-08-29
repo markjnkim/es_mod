@@ -147,11 +147,11 @@ Here's an example:
 
 > **Activity:** Use your powers of Google to find some information about the function and syntax of a radio button.
 
-> **ANSWER:** Google will surely offer many search results, but the [MDN docs article on radio buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) should be a favorite because MDN is more likely to update when technologies change. For this reason, keep in mind that the best online documents to learn from should come from official sources like this one. 
+> **ANSWER:** Google will surely offer many search results, but the [MDN web docs article on radio buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) should be a favorite because MDN is more likely to update when technologies change. For this reason, keep in mind that the best online documents to learn from should come from official sources like this one. 
 
 So a `radio` type input element, commonly referred to as a radio button, is typically used in groups using the `name` attribute as the group reference, and each radio button must have the same `name` value to be considered in the same group. 
 
-Let's type some code and then explain the attributes afterwards. Add the following HTML to the `index.html` file (remember to place this `<form>` inside the `<div>`):
+Let's type some code and then explain the attributes afterwards. Add the following HTML to `index.html` (remember to place this `<form>` inside the `<div>`):
 
 ```html
 <form>
@@ -171,18 +171,23 @@ Let's type some code and then explain the attributes afterwards. Add the followi
 </form>
 ```
 
-Save the file and then see how it looks in the browser. An easy way to do this in VS Code is to choose the "Open in Default Browser" command, which you can access by right-clicking on the `index.html` page.<br>
-On Mac<br>
+Save the file and then see how it looks in the browser. An easy way to do this in VS Code is to choose the "Open in Default Browser" command, which you can access by right-clicking on the `index.html` page.
+
+On a Mac:
+
 ![Open In Default Browser on Mac](./assets/step-3/1050-open-in-default-browser-mac.png)<br>
-On Windows<br>
-<!-- ![Open in Default Browser on Windows](./assets/step-3/1051-open-in-default-browser-windows.png)<br>
-The page should look like this now: -->
+
+On Windows:
+
+[Open in Default Browser on Windows](./assets/step-3/1051-open-in-default-browser-windows.png)
+
+The page should look like this now:
 
 ![radio-html](./assets/step-3/200-radio-html.png)
 
 #### Add Radio Button Layout
 
-We've wrapped both of our answers, including both radio buttons, in a `<p>` element which also includes the question. Because the radio buttons are inline elements, the answer selections will render from left to right on the same line as our question, just like it does in the mock-up.
+We've wrapped both of the answers, including both radio buttons, in a `<p>` element that also includes the question. Because the radio buttons are inline elements, the answer selections will render from left to right on the same line as our question, just like it does in the mock-up.
 
 Next, the `<label>` links the displayed values, Yes and No, to their
 respective radio inputs. This link enhances accessibility by allowing users to
@@ -190,20 +195,20 @@ click on the label's text as well as the radio buttons, which provides more
 clickable surface area. 
 
 > **Pause:** There is an attribute on the `<label>` element called `for`. Explain the purpose of this attribute.
-
+>
 > **Answer:** This is used to reference which radio button this label belongs to. The value for the `for` attribute must match the value of the `id` attribute of the `<input>` element.
 
 > **Heads Up:** The radio button elements must have the same `name` attribute in order to be associated with the same radio group. This is how the browser identifies that a group of choices can have an exclusive singular answer. In this case, the value of our radio group in `name` is `trainer-confirm`.
 
 ### Add the Checkbox Input
 
-> **Activity:** Understanding what you do now about `<input>` element syntax and using Google if you need to, try to code the next checkbox on your own. For accessibility purposes, make sure to should wrap the content of the `<p>` in the checkbox in a `<label>` thereby enabling the checkbox to toggle when anywhere in the content is clicked. This simple fix can greatly assist anyone with a motor-skills disability when trying to check a very small box.
+Understanding what you do now about `<input>` element syntax and using Google if you need to, try to code the next checkbox on your own. For accessibility purposes, make sure to wrap the content of the `<p>` in the checkbox in a `<label>` thereby enabling the checkbox to toggle when anywhere in the content is clicked. This simple fix can greatly assist anyone with a motor-skills disability when trying to check a very small box.
 
 ### Add the Submit Button
 
-A button is an essential component of a user interface and can have a variety of different functions and uses. A button can link to another area on a the same webpage or to an external site, submit data to a server, or be programmed for any activity. 
+A button is an essential component of a user interface and can have a variety of different functions and uses. A button can link to another area on the webpage or to an external site, submit data to a server, or be programmed for any activity. 
 
-Our button has a special function: to submit the user data gathered inside the `<form>`. Once again, we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element, "Get running", will be written within the `<button>` tags to render a label onto the button itself.  
+Our button has a special function: to submit the user data gathered inside the `<form>`. Once again, we will configure our element with attributes to make it function according to our needs. In our case, we will need a `submit` type to perform the needed action. The content of this element, "Get running", will be written within the `<button>` tags to render a label on the button itself.  
 
 Currently, our requirements in the mock-up don't have an action to assign to the button, but normally we would assign a URL path in the `<form>` element in the `action` attribute. To learn more, see the [MDN docs on the form element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form).  
 
@@ -244,12 +249,9 @@ Let's take a look at our hero section's HTML code:
 <!-- end hero -->
 ```
 
-> **Pro Tip:** Notice that there are no empty lines within the `<section>` element, meaning
-> each line has either an opening or a closing element. Being concise with language and
-> syntax also pertains to extraneous lines and white space. Making sure there are no empty lines
-> or missing indentation will not affect what is rendered in the browser, but these best practices do enhance legibility and communicate parent/child relationships to other developers and even a future you, which can greatly improve development speed.
+> **Pro Tip:** Notice that there are no empty lines within the `<section>` element. Being concise with language and syntax also pertains to extraneous lines and white space. Making sure there are no empty lines or missing indentation will not affect what is rendered in the browser, but these best practices enhance legibility and communicate parent/child relationships to other developers and even a future you, which can greatly improve development speed.
 
-That was a lot of code we just entered. It's time to save and render to see the current progress of our landing page. Make sure your file is saved, and then view it in the browser. 
+That was a lot of code we just entered! It's time to save and render to see the current progress of our landing page. Make sure your file is saved, and then view it in the browser. 
 
 If your webpage resembles the following image, great job! If not, go back and audit your HTML until you get this result:
 
@@ -675,23 +677,23 @@ Nice job! After the checkpoint, we'll look at a new way to make changes to your 
 
 >**ANSWER:** `.para` 
 
-### Use Chrome's DevTools
+### Introducing Chrome's DevTools
 
-Have you ever thought that it's kind of a pain to hop back and forth between the CSS file and the browser to see how the changes look, especially for little tweaks? Luckily for us, there's a tool that can eliminate the need for this: Chrome DevTools.
+Have you ever thought that it's kind of a pain to hop back and forth between the CSS file and the browser to see how style changes look, especially for little tweaks? Luckily for us, there's a tool that can eliminate the need for this: Chrome DevTools.
 
-The DevTools can be found by clicking the small menu button at the top-right of your browser that looks like three dots vertically aligned:
+To access the DevTools, click the small menu button at the top-right of Chrome:
 
 ![Menu button](./assets/step-3/700-hamburger-btn.png)
 
-This opens a browser menu. Choose `More Tools` to open a submenu containing the `Developer Tools` option.
+This opens a browser menu. Choose `More Tools`, and then `Developer Tools`.
 
-> **Pro Tip:** To access the DevTools on a Mac using the keyboard, use Option+Command+I. To access them on Windows, type Ctrl+Shift+I.
+> **Pro Tip:** To access the DevTools on a Mac using the keyboard, use Option+Command+I. To access them on Windows, press Ctrl+Shift+I.
 
 Depending on your version of Chrome, you should see something like this:
 
 ![Developer Tools](./assets/step-3/800-dev-tools.png)
 
-The Chrome DevTools appear beneath your webpage. Click the `Elements` tab to reveal your HTML code. On a full screen, you will also see the Styles panel displaying your CSS code. If you click on various elements in the webpage, you can change or delete properties, attributes, content, and values.
+The Chrome DevTools will appear beneath your webpage. Click the `Elements` tab to reveal the HTML code. On a full screen, you will also see the Styles panel displaying your CSS code. If you click on various elements in the webpage, you can change or delete properties, attributes, content, and values.
 
 This tool is a tremendous asset to front-end developers because it allows you to:
 
@@ -714,17 +716,19 @@ This tool is a tremendous asset to front-end developers because it allows you to
 
 > **ANSWER:** The changes are not permanent, which you can determine by refreshing the page after you make changes. 
 
-These changes are not permanent and do not change the actual code, but merely offer a sandbox to try out different styles and sizes and immediately see the effect on the element and webpage. Once you're satisfied with the desired styling affect, the changes must be made to the actual style sheet (in our case, `style.css`) in order to make the style change permanent.
+The changes you make to HTMl and CSS in Chrome's DevTools are not permanent and do not change the actual code. Instead, they offer a sandbox to try out different styles and immediately see the effect on the webpage. Once you're satisfied, you need to adjust the actual style sheet (in our case, `style.css`) accordingly to make the style change permanent.
 
-> **Pro Tip:** To further develop skills with these types of tools, it is important to use them as much as possible. Try to use new tools as much as possible in the beginning since it easy to forget they are there. It is a good habit keeping this window open so it stays at the top of your mind. Remember that it can be shrunk, stretched, or docked on any side by selecting the hamburger button in the top-right corner.
+> **Pro Tip:** To become skilled at using tools like Chrome's DevTools, you should use them as much as possible. Try to use new tools as much as possible in the beginning since it easy to forget they are there. It's a good habit keeping this window open so it stays at the top of your mind. Remember that it can be shrunk, stretched, or docked on any side by selecting the menu button in the top-right corner.
 
-Now head back to the browser tab that has the landing page open. We'll examine our code in the DevTools window. The CSS style sheet appears to be the same one we've been working on. However, there are actually quite a lot more properties for each selector than we have written. These are the default CSS property settings that are assigned by the browser. We've overwritten these defaults in a few places, which is why they're crossed out.
+Now head back to the browser tab that has the landing page open and examine the code in the DevTools window. The CSS style sheet appears to be the same one we've been working on. However, do you notice that there are quite a few more properties for each selector than we have written? These are the default CSS property settings that are assigned by the browser. We've overwritten these in a few places, which is why they're crossed out.
 
-The fact of the matter is finding a solution to a layout problem in CSS may not be very straightforward or simple. At times, it will be useful to tinker and try out different properties to see their effects (or lack thereof) on the page. Chrome's DevTools offers the ability to toggle properties on and off to see their cumulative affects on the page. Let's toggle the `box-sixing` property we just created to manipulate the widths of our elements. You can see that having a set `width` property can save some headache and need for extra calculations. It is suggested to set this property to `border-box` whenever possible.
+Let's toggle the `box-sixing` property we just created to manipulate the width of our elements. You can see that having a set `width` property can save some headaches and need for extra calculations. It is suggested to set this property to `border-box` whenever possible.
 
 Scrolling down to the bottom of the Styles panel offers an interactive CSS Box Model that allows the different layers of the CSS box to be manipulated by value. This is a very useful tool that can save a lot of time and energy when designing a page layout:
 
 ![box-model](./assets/step-3/1100-box-model-dt.png)
+
+Finding a solution to a layout problem using CSS is not always straightforward or simple. It can be very useful to tinker and try out different properties to see their effect (or lack thereof) on the page. Chrome's DevTools lets you do just that!
 
 ### Style the Form
 
@@ -740,13 +744,15 @@ There are several ways to select this element using CSS:
 
 We've chosen the second option for one reason: class attributes are used to distinguish or select one or more set of elements from other elements. Since there is only one `<h3>`, creating a new class is a bit of an overkill. Simplicity is a great rule of thumb to go by when possible.
 
-> **Activity:** In `style.css`, adjust this `<h3>` element to make it a bit larger, and set the `margin` to 0 to reduce any possible word wrapping.
+In `style.css`, adjust this `<h3>` element to make it a bit larger, and set the `margin` to 0 to reduce any possible word wrapping.
 
 #### Text Spacing
 Next, we'll add some space to the `<p>` element to make it more pleasant to read, specifically on the top and bottom margins.
 
 #### Input Fields
-It's time to give our input fields some style and panache. First let's get each one to exist on its own line while making the `font-size` bigger with a nice `border`. Part of having a good website is making it easy for a visitor to navigate. When it comes to user interaction, it's really important to make it as simple and straightforward as possible. This means having clear demarcations on each line and to address what each input field is for.
+It's time to give our input fields some style and panache. First let's get each one to exist on its own line while making the `font-size` bigger with a nice `border`. 
+
+Part of having a good website is making it easy for a visitor to navigate. When it comes to user interaction, it's really important to make it as simple and straightforward as possible. This means having clear demarcations on each line and to address what each input field is for.
 
 > **Pause:** If we selected `<input>` as our CSS selector, we would style the radio button and checkbox as well as the input fields, which isn't our goal. So how would we select just the input fields for this styling?
 
@@ -762,7 +768,7 @@ The `<input>` elements in your HTML code should now look like this:
 
 Now let's add a border, display each line separately, make the font larger, extend each input field box the length of the form container, and use the navy font color we used for the `footer` font color.
 
-> **Activity:** Let's type in some code and use the Chrome DevTools to manipulate some sizes for our `padding`, `margin`, and sizing.
+> **Activity:** Let's type in some code and use the Chrome DevTools to manipulate some sizes for `padding`, `margin`, and sizing.
 
 Your CSS code should now look like this:
 
@@ -804,7 +810,7 @@ Remember to save these changes and take a look at the new page's styles in the b
 
 #### Radio Buttons 
 
-Adding some horizontal spacing for the `<label>` element in the radio button elements helps the user not misinterpret which selection is for which answer. Let's go ahead and add that in now.
+Adding some horizontal spacing for the `<label>` element in the radio button elements helps the user not misinterpret which selection is for which answer. Let's go ahead and do that now.
 
 Add the following code to `style.css`:
 
@@ -820,16 +826,19 @@ Save your work and take a look at the browser to see what you've completed so fa
 
 ![cta-sign-up](./assets/step-3/1200-cta-sign-up.png)
 
-Awesome! The `<section>` element content looks almost finished. Time to nip this `<section>` in the `button`! The design team wouldn't be very pleased with "Get running," so let's style it according to the mock-up.
+Awesome! The `<section>` element content looks almost finished. 
 
 #### Button
  
-The design team wants the `button` to be navy(#024e76) and the font color yellow(#fce138), like so: <br />
+Time to nip this `<section>` in the `button`! The design team wouldn't be very pleased with "Get running," so let's style it according to the mock-up. 
+
+The design team wants the `button` to be navy (`#024e76`) and the font color yellow (`#fce138`), like so: <br />
+
 ![Button Mock-up](./assets/step-3/1250-button-mock-up.png) <br />
 
-Let's style the `button` as requested and also add some size to the font and `padding`.
+Let's style the `button` as requested and add sizes to the font and `padding`. Open Chrome's DevTools in the browser and select the `button` using the element selector or arrow icon. Then go to the Styles panel to experiment with some of the `button` element's properties. By clicking the declaration, the property or value can be changed. By clicking to the right of the declaration, a new line is added for a new declaration. 
 
-> **Activity:** Let's flex our new CSS skills and style this `button` to match the mock-up. Open Chrome DevTools in the browser and select the `button` using the element selector or arrow icon, then go to the Styles panel to experiment with some of the `button` element's properties. By clicking on the declaration, the property or value can be changed. By clicking to the right of the declaration, a new line is added for a new declaration. Once you have the look that matches the mock-up, the CSS rule for the button should look something like this:
+When you have the look that matches the mock-up, the CSS rule for the button should look something like this:
 
 ```css
 .hero-form button {
@@ -842,31 +851,33 @@ Let's style the `button` as requested and also add some size to the font and `pa
 /* HERO STYLES END */
 ```
 
-It's time for our moment of truth. Let's save the file (or just auto save it like a pro) and refresh our browser to look at our finished hero!
+Make sure to make those changes to `style.css` and save the file. 
 
-Excellent work—our section is now done and looking just like the mock-up. You just completed a large section of the page, so it's a great time to add and commit your work using Git.
+It's time for the moment of truth. Let's save the file (or auto save it like a pro) and refresh the browser to look at our finished hero!
 
-> **Heads Up:** Don't worry if you haven't nailed down all the concepts yet. This is a lot of information that will take patience to master. In programming, practice doesn't make perfect, it makes developers. Programming isn't something you can watch in a YouTube video or read in a book to make yourself proficient. The one and only way to become a developer is to practice, practice, practice, which means a lot of playing around in sand boxes and DevTools to see what does what. If you get stuck, become a Google-fu master as this is a vital developer skill that can often get you unstuck. Your answer is out there; you just have to go find it.
+Excellent work—our section is done and looks just like the mock-up. You just completed a large section of the page, so it's a great time to add and commit your work using Git.
+
+> **Heads Up:** Don't worry if you haven't nailed down all the concepts yet. In programming, practice doesn't make perfect—it makes developers. Programming isn't something you can learn from watching a YouTube video or reading a book. The one and only way to become a developer is to practice, practice, practice. If you get stuck, become a Google-fu master. Your answer is out there; you just have to go find it.
 
 ## Reflection
 
-Great job making it through a dense lesson of concepts and syntax. In this lesson, you created the hero section and learned how to make a sign-up form with a flashy background image. These concepts will form the foundation on which you will build your advancing skills in HTML and CSS. 
+Great job making it through a dense lesson of concepts and syntax! In this lesson, you created the hero section and learned how to make a sign-up form with a flashy background image. These concepts are the foundation on which you will build your advancing skills in HTML and CSS. 
 
-In the next lesson, we will continue building the Run Buddy website and learn some key concepts about web icons and image sizing. But before we go ahead, let's take a look back at the major highlights from this lesson:
+In the next lesson, we will continue building the Run Buddy website and learn some key concepts about web icons and image sizing. But first, let's take a look back at the major highlights from this lesson:
 
 * We used a `<form>` element to create a sign-up form that allows interaction between the visitor and our website.
 
 * We then used `<input>` elements to define the type of input the user could give.
 
-* We used **CSS class selectors** to target specific HTML elements to apply styles when using the global element selectors was not selective enough. This lets you set a style to a single element or a group of elements that need the same one.
+* We used CSS class selectors to target specific HTML elements to apply styles when using the global element selectors was not selective enough. This let us set a style to a single element or a group of elements.
 
-* We used the **`display`** property for block-level or inline-level values to control the document flow and decide how elements would sit in a row or column.
+* We used the `display` property for block-level or inline-level values to control the document flow and decide how elements sit in a row or column.
 
-* We used **relative** and **absolute** positioning to layout HTML elements in the document or in a container depending on the element's location. This provided a mechanism that allowed precise placement in relation to either the parent or document.
+* We used relative and absolute positioning to layout HTML elements in the document or in a container depending on the element's location. This provided a mechanism that allowed precise placement in relation to the parent or document.
 
-* We used **Chrome's DevTools** to make temporary changes to our view in the browser by selecting an element of interest and then changing the CSS and/or HTML in the DevTools window by changing the CSS rules or markup. We will become well acquainted with its various tools as the course progresses.
+* We used Chrome's DevTools to make temporary changes to our view in the browser by selecting an element of interest and changing the CSS and/or HTML. 
 
-Now let's continue on to our next lesson and build the "What We Do" section of the Run Buddy landing page. Onwards!
+Now let's continue to the next lesson and build the "What We Do" and "What You Do" sections of the Run Buddy landing page. 
 
 - - -
 
