@@ -110,7 +110,7 @@ Now that we have our development environment set up, let's add some documentatio
 > **Deep Dive:** For a closer look let's take a look at the official documentation on [GitHub Guides](https://guides.github.com/features/wikis/) and [Markdown](https://www.markdownguide.org/basic-syntax)
 
 The `README.md` is a Markdown file which is a text file that offers some light weight markup or styling. It is located in the top level or root directory of the repo which allows GitHub to render it on the landing page of your repo. README files do not have to be in Markdown, and can be regular text files, however we will continue using Markdown due to its simplicity and ease of use in Github and VS Code.
-> **Rewind**: Similar to HTML, Markdown uses syntax and markup notation for styling. See this [Markdown guide](https://www.markdownguide.org/basic-syntax) that will give a nice comparison with HTML. Here is some background on the [Markdown language on Wikipedia](https://en.wikipedia.org/wiki/Markdown).
+> **Rewind:** Similar to HTML, Markdown uses syntax and markup notation for styling. See this [Markdown guide](https://www.markdownguide.org/basic-syntax) that will give a nice comparison with HTML. Here is some background on the [Markdown language on Wikipedia](https://en.wikipedia.org/wiki/Markdown).
 <!-- You can also find many `README.md` templates online, here is a [sample](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2). -->
 Now our next step is to create a `README.md` in GitHub.
 
@@ -123,7 +123,6 @@ Now our next step is to create a `README.md` in GitHub.
 > 3. `README.md` is the default file name in the input field. We will keep this.
 > 4. For the body of the README let's use the Markdown tags to create a rich text with a few headings regarding the title and purpose of this project, the coding languages used, other technologies used, and your name. Later we can add more and even further enhance this `README.md` with screenshots and gifs. There are plenty of advanced [templates online](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) however for a first project, it will be best to keep the documentation simple for now.
 Here's an example of what your raw Markdown file should look like.
-
 ```markdown
 # Run Buddy
 
@@ -158,7 +157,7 @@ While in our GitHub repo let's take a look at our branches by selecting the bran
 
 > **Answer**: The `develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on Github.com. This is considered the "remote" repo. As we did in the past module, we will need to `git push` our local changes up to the remote repo in GitHub.
 
-In order to create a secure backup as well as provide a collaborative and communal development branch that team members can use to branch off of, let's backup our local `develop` branch by creating a copy in our Github repo by using the following command example:
+In order to create a secure backup as well as provide a collaborative and communal development branch that team members can use to branch from, let's backup our local `develop` branch by creating a copy in our Github repo by using the following command example:
 ```
 git push origin <remote-branch-name>
 ```
@@ -360,7 +359,6 @@ The blue highlight indicates the second version of the same conflicting code or 
 2) Notice on above the green highlight there are several options to resolve this conflict. The first option is to "Accept Current Change" which refers to the green highlight and represents the active branch modification, in this case the local change. The second option is to "Accept Incoming Change" which refers to the blue highlight or the target branch, in our case the remote branch from Github. There are a few more options that are available including "Accept Both Changes", "Compare Changes", and "Start Live Share Session". "Accept Both Changes" is chosen when both options may have correct parts that must be manually merged. The last two options are to compare differences and share the screen with another developer that made the changes to collaborate on large conflicts that need both authors of the code to parse effectively.
 
 3) Note that in the Explorer side panel, the `README.md` font color is now purple. VS Code is able to locate the merge conflicts and highlight the files and containing folders. The example we created was simplified, but in a large project with an extensive folder tree, many different files could be potentially impacted by conflicts that must be resolved in order for the merge process to complete. VS Code offers this nice feature that finds the merge conflicts for you.
-
 
 > **On the Job:** In the real world, merge conflicts normally occur when collaborating on a project and different team members will need to work on the same file. As our example showed, even if the work is done on separate branches, if the same file has modifications in the same areas, conflicts can occur. There are some preventative measures that reduce merge conflicts such as making sure team members keep their work in isolation by strictly sticking to separate files when possible.
 
