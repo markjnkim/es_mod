@@ -82,7 +82,8 @@ We chose an `<h3>` element for the heading. But why not an `<h1>` or `<h4>`? The
 
 The `<p>` element means "paragraph" and is used to render the text in the page's body. The browser will not add font-size or font-weight to the content of this element, but will make the `display` property, mentioned in the last lesson, a `<block>` element.
 
-> **Deep Dive:** For a visual representation of the `display` property, check out ... [Jira issue 46](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197?selectedIssue=FSFO-46).
+Here is a quick look at the difference between a block-level and inline-level display.
+![Block-level vs Inline-level](./assets/step-3/80-block-inline-display.png)
 
 Your page should now look something like this:
 
