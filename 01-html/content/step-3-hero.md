@@ -92,7 +92,7 @@ Your page should now look something like this:
 
 ![hero-heading](./assets/step-3/100-heading-html.png)
 
-This isn't quite what we're looking for stylistically, but the structure and content is set up properly. Just like when building a house, the foundation and frame must go up before the rest can be built. The decorating (and CSS styling!) always comes last.
+This isn't quite what we're looking for stylistically, but the structure and content is set up the way we need it. Just like when building a house where the foundation and frame must go up before the rest can be built, the decorating (aka CSS styling!) always comes last.
 
 ### Create the Sign-Up Form
 
@@ -125,27 +125,36 @@ We'll start by adding the following HTML to the `<form>` element. Look closely a
 </form>
 ```
 
-The `<label>` text not only offers a visual directive of what to enter but also programmatically links to the associated `<input>`. When a user with a disability uses a screen reader, the label will be read out when they focus on the input field. Labels also make it easier to fill out forms on mobile devices: clicking on the label will target the focus to the associated input field, which can be hard to do manually on a small screen.
+The `<label>` text not only offers a visual directive of what to enter but also programmatically links to the associated `<input>`. When a user with a visual impairment uses a screen reader, the label will be read out when they focus on the input field. Labels also make it easier to fill out forms on mobile devices; clicking on the label will target the focus to the associated input field, which can be hard to do manually on a small screen.
 
 Let's break down the attributes in the `<input>` element:
 
-- **`for`** is an attribute in the `<label>` that programmatically links to the `id` attribute in the `<input>`. 
+- **`for`** is an attribute in the `<label>` that programmatically links to the `id` attribute in the `<input>` element. 
 - **`type`** relates to what kind of input element we are using. Here we want a text field, which is also the default value.
 - **`placeholder`** offers a hint or label within the text field, but will not be submitted if this field if left blank.
 - **`name`** identifies the element so the response can be referenced after the form is submitted.
 
-> **Activity:** Given the first text input field for "name," can you code
-> the fields for "email" and "phone number"?
+Given the first text input field for name, can you code
+the fields for email and phone number? Remember that the label and inputs will need the attributes for `name`, `for`, `type`, `id`, and `placeholder`. 
 
-> **Hint:** The label and inputs will need the attributes for `name`, `for`, `type`, `id`, and `placeholder`. 
+When you're done, the HTML for these should look like this:
 
-> **Pause:** Notice at the end of the `<input />` tag is a forward slash. What is this slash for?
+```html
+ <label for="email">Enter email address:</label>
+ <input type="text" placeholder="Email Address" name="email" id="email" />
+ <label for="phone">Enter a telephone number:</label>
+ <input type="text" placeholder="Phone Number" name="phone" id="phone"/>
+```
 
-> **Answer:** This is known as a self-closing tag and is a common sight in HTML. Certain elements like `<input>` do not contain any content or child elements, so the closing tag immediately follows the opening tag. Thus this shortcut was created to self-close the opening tag. Of course, HTML elements with content or child elements must be wrapped by an opening and closing tag and cannot use this self-closing tag.
+> **Pause:** At the end of the `<input />` tag is a forward slash. What is this slash for?
+
+> **Answer:** This is known as a self-closing tag and is a common sight in HTML. Some elements, like `<input>`, do not contain any content or child elements, so the closing tag immediately follows the opening tag. Thus this shortcut was created to self-close the opening tag. 
 
 ### Add Radio Button Input 
 
-Next, we will create inputs for a radio button and checkbox. But first, what the heck is a radio button? This is something you have probably seen hundreds of times in web applications—and now you will know the name for it! A **radio button** allows a single selection to be made from a list of choices and is typically a small circle that gets filled when clicked.
+Next, we will create inputs for a radio button and checkbox. But first, what the heck is a radio button? It is something you've probably seen hundreds of times in—and now you will know the name for it! 
+
+A **radio button** allows a single selection to be made from a list of choices and is typically a small circle that gets filled when clicked.
 
 Here's an example:
 
@@ -157,7 +166,7 @@ Here's an example:
 
 So a `radio` type input element, commonly referred to as a radio button, is typically used in groups using the `name` attribute as the group reference, and each radio button must have the same `name` value to be considered in the same group. 
 
-Let's type some code and then explain the attributes afterwards. Add the following HTML to `index.html` (remember to place this `<form>` inside the `<div>`):
+Let's type some code and then explain the attributes afterwards. Add the `<p>` element below the text input fields you just created (the entire form's HTML is shown below):
 
 ```html
 <form>
@@ -177,7 +186,7 @@ Let's type some code and then explain the attributes afterwards. Add the followi
 </form>
 ```
 
-Save the file and then see how it looks in the browser. An easy way to do this in VS Code is to choose the "Open in Default Browser" command, which you can access by right-clicking on the `index.html` page.
+Save the file and then see how it looks in the browser. By the way, an easy way to do this in VS Code is to choose the "Open in Default Browser" command, which you can access by right-clicking on the `index.html` page.
 
 On a Mac:
 
@@ -208,11 +217,13 @@ clickable surface area.
 
 ### Add the Checkbox Input
 
-Understanding what you do now about `<input>` element syntax and using Google if you need to, try to code the next checkbox on your own. For accessibility purposes, make sure to wrap the content of the `<p>` in the checkbox in a `<label>` thereby enabling the checkbox to toggle when anywhere in the content is clicked. This simple fix can greatly assist anyone with a motor-skills disability when trying to check a very small box.
+Understanding what you do now about `<input>` element syntax and using Google if you need to, try to code the next checkbox on your own. For accessibility purposes, make sure to wrap the content of the `<p>` in the checkbox in a `<label>`, enabling the checkbox to toggle when anywhere in the content is clicked. This simple fix can greatly assist anyone with a motor-skills disability when trying to check a very small box.
+
+The HTML for this is below, but don't peek! Try to do it yourself first. 
 
 ### Add the Submit Button
 
-A button is an essential component of a user interface and can have a variety of different functions and uses. A button can link to another area on the webpage or to an external site, submit data to a server, or be programmed for any activity. 
+A button is an essential component of a user interface and can have a variety of different functions and uses. A button can link to another area on the webpage or an external site, submit data to a server, or be programmed for any activity. 
 
 Our button has a special function: to submit the user data gathered inside the `<form>`. Once again, we will configure our element with attributes to make it function according to our needs. In our case, we need a `submit` type to perform the needed action. The content of this element, "Get running", will be written inside the `<button>` element to render a label on the button itself.  
 
@@ -295,8 +306,8 @@ The HTML for these two inputs should now look like this:
 <input type="tel" placeholder="Phone Number" name="phone" />
 ```
 
-> **Activity:** Save your work and refresh the page in your browser. Try typing some wacky
-stuff into the email field and clicking the submit button. Can you get the
+> **Activity:** Save your work and refresh the page in the browser. Type some wacky non-email
+text into the email field and click the submit button. Can you get a
 validation warning to appear?
 >
 >Testing the phone field is a little more complicated. First, you need to add,
@@ -317,7 +328,7 @@ when you tap on the phone number field.
 
 <!-- > **Activity:** HTML nesting game. Place your boilerplate HTML code with finished CSS in parallel. Ask the student to place certain items here or there by nesting them properly. -->
 
-Our foundation work is now complete, so we can proceed to the design phase of this lesson after a quick checkpoint.
+Our foundation work is now complete so we can proceed to the design phase of this lesson after a quick checkpoint.
 > **Checkpoint:** <br />
 >  Block elements are displayed on a new line.<br />
 >  <input type="radio" name="checkpoint-1" id="checkpoint-11" /><label for="checkpoint-11"> True</label> <br />
@@ -372,7 +383,8 @@ section {
 ### Use the CSS Class Selector
 
 Now let's add some pizzazz by adding a background image to our hero section. 
-First we need to create an `images` directory inside the `assets` directory. Now let's download all our images and place them inside the `images` directory from our image link <b>_(AWS S3 Bucket URL TBA)_</b>.
+
+First you need to create an `images` directory inside the `assets` directory. Then download the images from our image link and place them inside the `images` directory <b>_(AWS S3 Bucket URL TBA)_</b>.
 
 > **Rewind:** What are the CLI commands for the following actions?
 * Create a new directory.
@@ -401,17 +413,17 @@ Now save and refresh the page to see your changes. The page should look like thi
 
 ![repeated-images](./assets/step-3/502-bg-img-css.png)
 
-Wait a minute! What happened here? If we use the `<section>` element as our CSS selector, we would apply the same background image to all our subsequent `<section>` elements, which is not something we want. 
+Wait a minute! What happened here? Because we used the `<section>` element as our CSS selector, we ended up applying the same background image to all the `<section>` elements, which is not something we want. 
 
-We need a way to target the hero section specifically and not create a global `<section>` rule. Luckily for us, we can use the `class` attribute to target one or many HTML elements. The neat trick about a `class` is that this attribute can be added to any one HTML element or many elements that need the same styling or CSS declarations, therefore saving the time of needing to write duplicate code. 
+We need a way to target the hero section specifically. The answer lies in using the `class` attribute. This attribute can be added to one HTML element or multiple elements that need the same styling or CSS declarations, which saves the time of needing to write duplicate code. 
 
-Let's create a CSS rule for our `hero` class that will only target our hero section. Please note that the name of this `class` is up to us, but it is customary to name it to correspond to the element's function or use so it can be easily be recognized in the CSS style sheet to help identify which element is being styled.
+Let's create a CSS rule for the `hero` class that will only target the hero section. Please note that the name of this `class` is up to us, but it is customary to name it to correspond to the element's function so it can be easily recognized in the style sheet.
 
-Your markup should look like this (notice that `class` is an attribute, so it is placed inside the opening tag):
+Your markup should look like the following (notice that `class` is an attribute, so it is placed inside the opening tag):
 
 `<section class="hero">`
 
-Let's add the following CSS rule in our `style.css` file and make the height an appropriate size to match the mock-up knowing we will need some space for our sign-up form. Let's give our height 600px. Also let's not forget to remove our `background-image` declaration from our `<section>` CSS rule. 
+Let's add the following CSS rule to our `style.css` file and make the height match the mock-up, knowing we will need some space for our sign-up form. Let's give our height 600px. Also let's not forget to remove the `background-image` declaration from the `<section>` CSS rule. 
 
 ```css
 /* Hero Style Start */
@@ -423,11 +435,11 @@ Let's add the following CSS rule in our `style.css` file and make the height an 
 ```
 Now let's unpack this CSS declaration block:
 
-- **Dot notation** is the "." proceeding the class `hero` to indicate to the browser that we are using a class as our CSS selector.
+- **Dot notation** is the "." that preceds the class `hero` to indicate to the browser that we are using a class as our CSS selector.
 
-- **`background-image`** uses the CSS function `url()` to link a resource such as an image, web font, or GIF. Here we are using a relative URL path to select a background image. To learn more about how to use a web resource, or add a color gradient, see [MDN's docs on background-image](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image). 
+- **`background-image`** uses the CSS function `url()` to link a resource such as an image, web font, or GIF. Here we are using a relative URL path to select a background image. To learn more about how to use a web resource or add a color gradient, see the [MDN web docs on background-image](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image). 
 
-- **`height`** fixed at 600px gives an exact size of the section, which is important in this context to allow room for our sign-up form.
+- **`height`** fixed at 600px gives an exact size of the section, which is important in this context to allow room for the sign-up form.
 
 Let's save the file and render our changes. It should look something like this:
 
@@ -437,8 +449,8 @@ Great job! Now the background image is only being assigned to the section we wan
 
 Let's look at the `background-size` property and see if we can fix this issue by changing the size of the background image. 
 
-- **`background-size`** can set the size of the background image to its original size, stretched, repeated, or constrained to fit the available space. In our case, the `cover` assignment will shrink the image so parts of it won't get clipped. Other selections allow repeated images for a tiled look, similar to how background image displays are configured for your computer's background desktop image. For more details, see [MDN's web docs on backgroun-size](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size).
-- **`background-position`** can move the initial position of the background image. We will set this position to center.
+- **`background-size`** can set the size of the background image to its original size or make it stretched, repeated, or constrained to fit the available space. In our case, the `cover` assignment will shrink the image so that parts of it won't get clipped. Other selections allow repeated images for a tiled look, similar to how background image displays are configured for your computer's background desktop image. For more details, see the [MDN web docs on background-size](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size).
+- **`background-position`** can move the initial position of the background image. We'll set this position to center.
 
 Our CSS rule for the `hero` class should now look something like this:
 
@@ -460,15 +472,11 @@ Congrats! Give yourself a nice pat on the back. Way to hang in there! We will no
 
 ### Style the Form and Input Fields
 
-According to the mock-up, the box or `<div>` that contains the `<form>` has some styling requirements, including background color, border, font color, and a specific width. This means we should be thinking about how we will select this `<div>` to create a CSS rule. One way would be to create a new class called `hero-form` and add it to the opening `<div>`. The font color in this `<div>` will be `#024e76` and the background color is `#fce138`. 
+According to the mock-up, the box (or `<div>`) that contains the `<form>` has some styling requirements, including background color, border, font color, and width. This means we should be thinking about how we will select this `<div>` to create a CSS rule. One way would be to create a new class called `hero-form` and add it to the opening `<div>`. The font color in this `<div>` will be `#024e76` and the background color is `#fce138`. 
 
-Go ahead and try to finish the styling on your own. Include the following declarations in your CSS rule for the `hero-form` class for the font color, padding, width, and background color to match the mock-up. We'll handle the `border` together due to the many variations and configuration possibilities.
+Go ahead and try to finish the styling for the `hero-form` class on your own. Include declarations for font color, padding, width, and background color to match the mock-up. We'll handle `border` together when you're done. Don't forget to add the `hero-form` class to the sign-up form container `<div>`.
 
-> **Activity:** Create the CSS rule for the class `hero-form`.
-
-> **Hint:** Don't forget to add the `hero-form` class to the sign-up form container `<div>`.
-
-> **ANSWER:** The CSS rule should look like this:
+When you're done, the CSS rule should look like this:
 
 ```css
 .hero-form {
@@ -511,7 +519,7 @@ Alternatively, there is a shorthand property to include all three values on one 
 ```
 To learn more, see the [MDN web docs on the border property](https://developer.mozilla.org/en-US/docs/Web/CSS/border).
 
-Once the styling of our sign-up container is done, the next step is to position it to the right side of the hero section as shown in the mock-up. But first, we need to dive a bit deeper into the `position` property.
+Once the styling of our sign-up container is done, the next step is to position it to the right side of the hero section. But first we need to dive a bit deeper into the `position` property.
 
 ### Positioning: It's All Relative!
 
@@ -597,7 +605,7 @@ As you can see, the form is now nestled in the corner, just as we positioned it.
 }
 ```
 
-> **Deep Dive:** To learn more, check out [the discussion on StackOverflow about absolute vs. relative positioning](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute).
+> **Deep Dive:** To learn more, see [the discussion on StackOverflow about absolute vs. relative positioning](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute).
 
 > **Heads Up:** Another possible value to use instead of pixels is percentages. Let's see how this might work. For the declaration that assigns the `right` position property, let's use a percentage and see what the difference is. About 10% covered around 140px. Mathematically speaking, this means that the full screen value of 1400px at 10% will be 140px. This is why the form's position remains the same. The true value of having a relative size instead of a static size is that on different screen sizes, the position will remain relative to the element's size and not fixed. We'll go into more depth on relative sizes and screen responsiveness in the next module.
 
