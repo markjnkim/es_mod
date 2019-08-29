@@ -55,7 +55,7 @@ Using the **-b** option flag, which is short for *branch*, we can create a new b
 
 Now let's practice using these commands to create our development environment by making a `develop` branch. Remember we must go to the command prompt and `cd` into our working directory. 
 
-> **Important:** In most workplaces, these branches will have already been configured by the IT department or Development Operations ("DevOps") team. What you are about to do is uncommon in everyday web development. However, it's important to know how to create a Git workflow branching strategy so that you know how to work with it.
+> **On the Job:** In most workplaces, these branches will have already been configured by the IT department or Development Operations ("DevOps") team. What you are about to do is uncommon in everyday web development. However, it's important to know how to create a Git workflow branching strategy so that you know how to work with it.
 
 Let's go to the root directory of our project so we can make a new branch from our `master` branch, our production environment. 
 
@@ -89,7 +89,7 @@ Example here. Let's say two people are working on the same page, how overwriting
 
 Previously we used a `develop` branch to create a local development environment to protect and isolate our production environment from our code changes. In this step, we will branch from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
 
-![Feature Branch](assets/lesson-1/60-feature-branch.png)
+![Feature Branch](assets/lesson-1/60-feature-branch.png)<br>
 As can be seen in the diagram, several feature branches can be branched off the `develop` branch. Once the feature is complete, it is merged back into the `develop` branch.
 There are several important reasons to work on the codebase in a separate `feature` branch and not in the `develop` branch.
 * Developing code on a separate branch preserves a version, in our case the `develop` branch, which allows other team members to branch from a version that is in a stable and working state.
@@ -176,7 +176,7 @@ See the notification of the new `develop` branch that was created. The Branch: m
 
 This remote version serves as the communal or collaborative branch where we will update with completed enhancements and maintain a shared and stable development environment. 
 
-This way a team member can simply pull down an updated version of the development environment by pulling down the `develop` branch from Github in order to get up to speed with the rest of the development team with the latest version of the development environment.
+This is a great way for a team member to update their development environment to the latest stable version by pulling down the `develop` branch from Github.
 
 Let's continue to the next step where we will learn how to communicate updates between our remote repo (Github.com) and our local repo (on our computer).
 
@@ -200,27 +200,34 @@ Now let's run our status check command:
 ```
 git status
 ``` 
-Remember this command verifies if our working tree or working directory is clean, which means checks to see if our files have been staged and committed. If the changes are not "clean" then please `add` and `commit` the file changes. Git does a great job at checking the save status of our files before allowing a checkout to another branch or pull from the remote repo.
+Remember this command verifies if our active branch is clean, which means the files in the active branch have been staged and committed. A "working tree" is simply referring to the current directory and all the subdirectories and files associated to the working directory or active branch. If the working tree is not "clean", then please `add` and `commit` the file changes. So what is all this talk about branches and trees you may ask and correctly so. They are simply terms trying to visually express the folder hierarchy of directories and the version control process of Git.
 
-Now that we have a "clean" branch, we are ready to "pull" or update our local repo branch with the remote thereby downloading any new changes. 
+Now that we have a clean working tree, we are ready to `pull` or update our local repo branch with the remote by downloading any new changes or commits. 
 
 Enough explanations, let's get our hands dirty since there is more learning in doing. Let's `pull` our remote `master` branch that contains our `README.md` file into our local `master` branch. 
 1) Checkout into the `master` branch. 
-2) Check branch status - if clean proceed, otherwise stage and commit file changes
+2) Check branch status - if clean proceed, otherwise stage and commit file changes.
 3) Pull remote into active branch. `git pull origin master`
 
 You should see the following screen after a successful `pull`.
-![Vim](assets/lesson-1/200-vim-cli.png)
 
+![pull-success](assets/lesson-1/300-pull-success-git.png)<br>
 
+> **Troubleshoot:** Instead of the success response, a message request populated the command prompt that looks like this:
+![Vim Text Editor](assets/lesson-1/200-vim-cli.png)
+>
+>Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there is a local commit that differs from the the commit history in the incoming or targeted branch that is being merged. To exit out of this screen type the following into the editor:<br>
+>* Enter ESC to enter normal mode.
+>* Type : to initiate a Vim command.
+>* Type q to quit.
 
-Git has opened a text editor called Vim to request a commit message for the `merge` operation. To exit out of this screen type the following into the editor:
-Enter ESC to enter normal mode, and then : to initiate a Vim command. You will see a colon at the bottom-left of the Vim window. Then type q to quit.
-or alternatively type
-SHIFT + Z + Z
+>or alternatively type:
 
-> **Deep Dive**: To learn more about this powerful text editor, check out [this Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
-This will bring you back to your terminal window which should look like this.
+>SHIFT + Z + Z
+
+> **Deep Dive**: To learn more about this powerful text editor, check out [this Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.<br>
+
+This will bring you back to your terminal window which should then display the success response.
 
 ![pull-success](assets/lesson-1/300-pull-success-git.png)<br>
 
@@ -240,16 +247,16 @@ One more nice ability VS Code offers is to preview the rich text of Markdown by 
 
 If you see the `README.md` file in VS Code, congrats for successfully accomplishing our first `pull`! 
 
-> **On the Job:** Normally, when working on a team, we would use the command `git pull` to update our local development environment. Team members could have potentially "pushed" their enhancements or bug fixes up to the remote development environment so it is good practice to keep our version up to date. If our branch is already up to date, Git will check and let us know a `pull` is not necessary so it is harmless to check. Normally the Git workflow has a `pull` done prior to a `push` so that your local development environment is updated first. This ensures that if any potential conflicts in the code arises, they can be resolved locally in VS Code, which has very nice features that allow efficiency in conflict resolution. So what is a conflict you ask, well the best way to find out is to manufacture one and use VS Code to resolve it. 
+> **On the Job:** Normally, when working on a team, we would use the command `git pull` to update our local development environment. Team members could have potentially "pushed" their enhancements or bug fixes up to the remote development environment so it is good practice to keep our version up to date. If our branch is already up to date, Git will check and let us know a `pull` is not necessary so it is harmless to check. Normally the Git workflow has a `pull` done prior to a `push` so that your local development environment is updated first. This ensures that if any potential conflicts in the code arises, they can be resolved locally in VS Code, which has very nice features that allow efficiency in conflict resolution. So what is a conflict you ask, we will soon see after we find out more about the `pull` command. 
 
 Let's dive a bit deeper in the `pull` command:
 ```
 git pull origin master
 ```
-The `pull` command directs the download process to occur. The `origin` and `master` designate the source of the download or `pull`. The `origin` describes the remote in other words, the GitHub repo, and `master` designates the branch or version in the remote repo we would like to `pull` from or download. Please note if the `<branch-name>` does not exist on the remote repo, the `pull` process will error and not complete.
+The `pull` command directs the download process to occur. The `origin` and `master` designate the source of the download or `pull`. The `origin` describes the remote in other words, the GitHub repo, and `master` designates the branch or version in the remote repo we would like to `pull` from or download. Please note if the `<branch-name>` that is being pulled, does not exist on the remote repo, the `pull` process will error and not occur.
 > **Pause**: Wait, but how does the `pull` command know where the download will to go to?
 any thoughts? guesses?<br />
-> **Answer**: `git pull` will download to the current active branch or whatever branch you are currently checked-out on. That's why it's always a good idea to use a `git branch` to verify the active branch before doing a `git pull`.
+> **Answer**: `git pull` will download to the current active branch. That's why it's always a good idea to use a `git branch` to verify the active branch before doing a `git pull`.
 
 > **Video -** Animation: Showing Data Flow [Git Pull & Git Push-Jira FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)<br>
 ![Git Pull](assets/lesson-1/250-pull-git.png)<!-- Illustration lacks direction-->
