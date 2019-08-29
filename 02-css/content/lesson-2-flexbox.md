@@ -68,6 +68,8 @@ When a container is given a `display` value of `flex`, that element is now able 
 
 - Tell the flexbox parent that it's okay to overflow its content onto the next line. This is what's known as "wrapping" and is commonly used in conjunction with flexbox containers to calculate smart layouts for screens at various sizes such as a mobile phone or tablet. This image demonstrates how wrapping can work:
 
+### [NEED GRAPHIC - FSFO-26 Recreate this one from CSS Tricks](https://trilogyed.atlassian.net/browse/FSFO-126?atlOrigin=eyJpIjoiZGM3NTVmZGQ4NzU0NGJiZDgxZDFhYTRmZjcwZjIzNTAiLCJwIjoiaiJ9)
+
 ![Using flex-wrap property to handle overflowing content](assets/lesson-2/202-flex-wrap.jpg)
 
 
@@ -106,7 +108,7 @@ display: flex;
 
 That's all that needs to be added to get our elements back on the same horizontal line! It should now look like this image:
 
-![Header with flexbox added, creating a row with 2 HTML elements](assets/lesson-2/1000-flex-header.)
+![Header with flexbox added, creating a row with 2 HTML elements](assets/lesson-2/1000-flex-header.jpg)
 
 Flexbox is able to evenly distribute the space of the parent element, the `<header>` element, between the children elements, the `<h1>` and `<nav>` links. What makes this more interesting is that both of those children by default are block-level elements and adding the context of flexbox overrides that default behavior. The `display: flex` declaration also automatically makes that `<header>` a "row" by default, so there's no need to explicitly declare it.
 
@@ -273,7 +275,7 @@ flex-wrap: wrap;
 
 When you save the page and refresh, try moving the screen size in and out to make sure it looks like this:
 
-![Finished footer on a small screen with content stacked on top of one another](assets/lesson-2/1200-flex-footer-finished.)
+![Finished footer on a small screen with content stacked on top of one another](assets/lesson-2/1200-flex-footer-finished.jpg)
 
 If it doesn't match the above mock-up, remember that we can always use Chrome DevTools to debug and inspect our CSS! This video will show us how to use DevTools to cross-reference our code with the code introduced in the instructions above:
 
