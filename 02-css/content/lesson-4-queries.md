@@ -39,7 +39,7 @@ git branch
 git checkout develop
 ```
 
-3. Use `git checkout -b` to create a branch called `feature/mediaqueries`.
+3. Since we're basing these branches off of the GitHub issues we created in the first lesson when we established our Git workflow, let's use `git checkout -b` to create a branch called `feature/mediaqueries`.
 
 ```bash
 git checkout -b feature/mediaqueries
@@ -121,7 +121,7 @@ Before we move onto the second method listed above, let's save ourselves from do
 >
 > **Answer:** The default is `stretch` and it means all flex children will grow to the size of the tallest one.
 
-These changes may seem minor at the moment, but keep in mind that we're trying to find a nice balance for these styles so they look good on any device. Sometimes what seems negligable on one screen makes a world of difference on another.
+These changes may seem minor at the moment, but keep in mind that we're trying to find a nice balance for these styles so they look good on any device. Sometimes what seems negligible on one screen makes a world of difference on another.
 
 Of the two methods described above, we just used the first one by updating styles that apply to all screen sizes, but we also have a lot of pieces of our UI that simply cannot look good at different sizes without some major changes. For example, if we attempt to make the page smaller, the newly laid out "What You Do" steps will have a hard time sharing the horizontal space and will get very tight looking. We'll be fixing it so it takes on a slightly different layout for mobile by stacking the content vertically, as shown in this image:
 
@@ -173,9 +173,19 @@ Notice how all of the style rules we want to apply in this media query are conta
 
 Applying media queries can be a slippery slope if we don't think critically about what we need to do and what screen sizes we should be considering. Obviously no one is asking us to make the page look different at every possible pixel width, that would be insane! Instead what we will do is take three popular device sizes and use them as our `max-width` values. These three sizes we'll use are what's known as **breakpoints**, since they are the point where the CSS will change based on the screen size.
 
-> DEEP DIVE: Here is an extensive list of [all known device breakpoints](http://viewportsizes.mattstow.com/)
+There is no standard for mobile device or tablet sizes, so they _could_ all have their own custom media query created for their breakpoint, but the idea is to write less code, not more! The three device sizes we'll be using in our media queries are used commonly as ballpark values for mobile phones, tablets, and smaller browser screens: `575px`, `768px`, and `980px`, respectively.
 
-Since there is no standard for mobile device or tablet sizes, so they _could_ all have their own custom media query created for their breakpoint, but the idea is to write less code, not more! The three device sizes we'll be using in our media queries are used commonly as ballpark values for mobile phones, tablets, and smaller browser screens: `575px`, `768px`, and `980px`, respectively.
+> **Deep Dive:** Thinking about what breakpoints you need for your style sheet can be tough, as there are a lot of devices in each category. Most mobile phones have a regular size and a plus size these days, same with tablets. Rather than making one for each variation of a device, try and find a value that works for each type of device (mobile phone, tablet, computer, etc):
+>
+> | DEVICE TYPE | BREAKPOINT RANGE |
+> | ----------- | ---------------- |
+> | Phones (Portrait Mode) | ≤ 575px |
+> | Phones (Landscape Mode) and Smaller Tablets | ≤ 768px |
+> | Larger Tablets and Smaller Laptops | ≤ 980px |
+> | Laptop and Desktop Computers | ≤ 1200px |
+> | Large Screens | ≥ 1201px |
+>
+> Remember, these breakpoints are not set in stone and by no means do you have to follow them all the time. As you grow in this field, you will notice different big names in the industry using different values. It will always depend on the layout you are trying to achieve, these values are just a good rough idea of what your breakpoints might need to cover. 
 
 Let's get these three media queries set up in our `style.css` file with some dummy styles to test if they work. It is important that they go in this order _after_ all of the other styles in the stylesheet:
 
@@ -207,7 +217,7 @@ Let's get these three media queries set up in our `style.css` file with some dum
 
 With these three in place, save this file and refresh the browser window, then resize the screen. Even better, if you open up Chrome DevTools and use the device simulator we learned earlier, we can jump right to the sizes we care about!.
 
-As you adjust the screen size and see the different styles taking place for our header's `h1` element, take note of the following:
+As you adjust the screen size and see the different styles taking place for our header's `<h1>` element, take note of the following:
 
 - It has an underline at anything below 980px. This is because when it set to `max-width: 980px`, this style will be applied to anything below it unless another media query is written to specifically remove it.
 
@@ -313,7 +323,7 @@ Lastly, let's add a couple of more styles to round out this 980px media query an
 
 All right, we've finished our first media query! Let's go through these changes section-by-section:
 
-- **Header/Footer**: Since both the `header` and `footer` elements are flex containers, all we had to do is tell both of their children to be 100% of the width. Since we have `flex-wrap` turned on to wrap overflowing content, it allows both children to get their own row one on top of the other. Only thing we needed to do then is adjust their justification properties to center them on the page and adjust some font sizes and spacing to tighten up the design a bit.
+- **Header/Footer**: Since both the `<header>` and `<footer>` elements are flex containers, all we had to do is tell both of their children to be 100% of the width. Since we have `flex-wrap` turned on to wrap overflowing content, it allows both children to get their own row one on top of the other. Only thing we needed to do then is adjust their justification properties to center them on the page and adjust some font sizes and spacing to tighten up the design a bit.
 
 - **Hero**: The hero section of our site got the same treatment by taking the section's flex children and giving them both a width of 100% and centering the text for the "call-to-action" part.
 
@@ -335,7 +345,7 @@ We're going to adjust those two sections so the site will look like this on an i
 
 The big change here is that we're giving the "What You Do" section a similar treatment of stacking flex children instead of keeping them side-by-side. Again, these are both going to be fairly straightforward edits since flexbox properties are easy to adjust for these situations.
 
-The first thing we're going to want to do is give each `section` element a little more breathing room. We currently have the `padding` for those elements set to 30px on all sides, which is great for larger screens because 30px isn't much space in that context; but as our screen shrinks, we realize we're going to want some of that space back on the left and right sides.
+The first thing we're going to want to do is give each `<section>` element a little more breathing room. We currently have the `padding` for those elements set to 30px on all sides, which is great for larger screens because 30px isn't much space in that context; but as our screen shrinks, we realize we're going to want some of that space back on the left and right sides.
 
 Add the following CSS rule to our media query for 768px so it looks like this:
 
@@ -387,7 +397,7 @@ At this point, the page is almost totally mobile responsive! There are a few pai
 
 For our 575 pixel width breakpoint, we really only need to tackle a few aesthetic updates and fix up the "Reach Out" section to read a little bit better, so let's go ahead and make our media query look like this image:
 
-![Mockup of mobile phone media query at 575 pixels](assets/lesson-4/600-575-query.jpg)
+![Mock-up of mobile phone media query at 575 pixels](assets/lesson-4/600-575-query.jpg)
 
 Here's the code to achieve the mock-up above:
 
