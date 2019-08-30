@@ -417,7 +417,7 @@ Here is an example using Markdown to add formatting blocks to organize the requi
 ## Branch Name
 * `feature/hero-text`
 
-## Questions/sugge  stions for Design Team
+## Questions/suggestions for Design Team
 * What will be the marketing text?
 ```
 The naming convention for feature branches is something normally agreed upon by consensus by your development or management team. Choices are abundant but normally simplified to the type of branch and branch's purpose like "feature/[feature-name]" or "[issue-number]/[feature-name]". We will choose the former for our branch name convention.
