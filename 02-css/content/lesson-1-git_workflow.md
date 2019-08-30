@@ -337,7 +337,7 @@ We will commit those changes directly to the remote `master` branch by clicking 
 3) Let's add and commit these changes locally.<br>
 4) Run the Git command to update the local branch with the remote `master` branch.<br>
 > **Pause:** Is the git command a pull or push to update the local active branch?<br>
->**Answer:** pull
+>**Answer:** `pull`
 ```
 git pull origin master
 ```
@@ -368,7 +368,9 @@ git merge --abort
 ```
 then proceed with the merge again with the `pull` command, however any previous merge conflicts that were resolved will not be saved.
 
-> **Pause:** Notice that the last line of the text was added without any conflict issue. Can you explain why?
+> **Pause:** Notice that the last line of the text was added without any conflict issue. 
+![README last line](./assets/lesson-1/395-readme-last-line.png)<br>
+Can you explain why?
 >
 > **Answer:** Since Git tracked only one change between the two branches for this line of text, the incoming change was accepted by Git since there wasn't a conflict with the local version.
 
@@ -415,12 +417,11 @@ Here is an example using Markdown to add formatting blocks to organize the requi
 ## Branch Name
 * `feature/hero-text`
 
-## Questions/suggestions for Design Team
+## Questions/sugge  stions for Design Team
 * What will be the marketing text?
 ```
 The naming convention for feature branches is something normally agreed upon by consensus by your development or management team. Choices are abundant but normally simplified to the type of branch and branch's purpose like "feature/[feature-name]" or "[issue-number]/[feature-name]". We will choose the former for our branch name convention.
 
- <!-- ![new-git-issue](./assets/lesson-1/801-edit-git-issue-hero.png) <!-- red outline of "Submit new issue --> 
 >3) Type a comment using Markdown to outline the feature's requirements and other information related to this task.
 Here is a simple example: 
 ```markdown
@@ -468,15 +469,15 @@ Now that we understand how to make a Git issue, let's create another one for ano
 Notice from the image that this issue was also assigned and labelled to provide more detail to the development team.
 Here is a list of the issues we must create for our development team we have received from the management team. Let's make the following five separate issues needed to complete version 2.0 of Run Buddy. For simplicity and speed, let's keep these simple. You are able to add detail and rich formatting features if you like.
 1) Title: Advanced layouts using Flexbox<br>
-Branch: `feature/flexbox`
+
 2) Title: Mobile responsiveness with Media Queries<br>
-Branch: `feature/medaiqueries`
+
 3) Title: Pricing table using Grid<br>
-Branch: `feature/grid`
+
 4) Title: CSS enhancements and optimizations<br>
-Branch: `feature/aesthetics`
+
 5) Title: Adding animation<br>
-Branch: `feature/animation`<br>
+<br>
 
 The Git Issues page should now look like this:
 ![Git Issues](./assets/lesson-1/830-git-issues.png)<br>
