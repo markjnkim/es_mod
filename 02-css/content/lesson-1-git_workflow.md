@@ -612,7 +612,7 @@ We should see the following:
 Congrats, the markup has been successfully added. We will format later in the CSS lesson. For now let's finish our Git workflow for a finished feature by first pushing up this feature branch up as a backup and update the remote `develop` branch with our new feature.
 ```
 git push origin feature/contact
-git push origin 
+git push origin develop
 ```
 
 > **Pause**: Now that our two feature branches have been completed and merged back into the `develop` branch what is left to do with our issues?<br />
