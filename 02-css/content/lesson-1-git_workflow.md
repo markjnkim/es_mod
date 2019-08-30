@@ -266,7 +266,7 @@ As can be seen in this illustration, the remote repo has converged with the loca
 Let's dive deeper on the `pull` process. The `pull` command is actually a combination of two different operations, `git fetch` and `git merge`.
 The git command `git fetch` updates the local repo with any new changes in the remote repo since the last `fetch` command. A use case for `git fetch` would be to look at a team member's feature branch for a review process or to help in finding a bug. This branch is downloaded through the Git command:
 ```
-git fetch <remote branch name>
+git fetch origin <remote branch name>
 ``` 
 Next step is for the following Git command:
 ```
