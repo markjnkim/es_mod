@@ -498,7 +498,7 @@ Don't worry if all this seems like a lot of steps. We will go over every step in
 ### Setting up our Feature Development Environment
 Our first step is to create a new feature development environment from a stable copy of the current codebase, the `develop` branch, so we can work in isolation. Let's create our first feature branch from the first Git issue.
 
-According to our Git workflow, our first step when creating a feature branch will be to `checkout` into the `develop` branch, then create a new branch. We can accomplish these two git operations with the following command in the terminal:
+According to our Git workflow, our first step when creating a feature branch will be to `checkout` into the `develop` branch. Then let's create our new feature branch and set it as the active branch. We can accomplish these two git operations with the following command in the terminal:
 ```
 git checkout -b feature/hero-text
 ```
