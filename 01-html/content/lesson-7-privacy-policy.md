@@ -592,9 +592,7 @@ Well, that's enough praise for the browser and its default styling. Let's add ou
 
 ## Add Style
 
-Let's jump right out of the gate and add our `style.css` file to this HTML document.
-
-Do you remember which HTML tag we used in `index.html` to bring in our style sheet? Go ahead and add that to the privacy policy document's `<head>`.
+Let's jump right in and add our `style.css` file to this HTML document. Do you remember which HTML tag we used in `index.html` to bring in our style sheet? Go ahead and add that to the privacy policy document's `<head>`.
 
 > **Pause:** Which one of the following uses relative pathing and which one uses absolute pathing? Which one is preferred? Why?
 >
@@ -718,7 +716,9 @@ Now that you have your files in place, add the following style definitions to `s
 }
 ```
 
-That should've fixed the spacing issues in that section. We overrode the `background-position` and `height` properties and added `text-align` and `margin-bottom`. Notice how we didn't even list the `background-image` and `background-size` properties? We can get a better idea of what's happening right now in Chrome's DevTools:
+That should've fixed the spacing issues in that section. We overrode the `background-position` and `height` properties and added `text-align` and `margin-bottom`. Notice how we didn't even list the `background-image` and `background-size` properties? 
+
+To a better idea of what's happening, use Chrome's DevTools:
 
 ![Chrome DevTools Override](assets/step-7/500-devtools.jpg)
 
