@@ -624,9 +624,9 @@ Both of these issues are easy to solve. Looking back to the mock-up at the top o
 
 To fix the styling of the Privacy Policy page, we'll need to do two things: 
 
-1. We'll keep most of the existing styles for the hero section and make just a couple of edits to them.
+1. Kep most of the existing styles for the hero section and make just a couple of edits to them.
 
-2. We'll add some new style definitions for our page's `<article>` tag by targeting its `secondary-content` class.
+2. Add some new style definitions for the page's `<article>` tag by targeting its `secondary-content` class.
 
 Let's discuss the first point. If you compare the finished product of `index.html` with the screenshot of the finished product we're working towards for `privacy-policy.html`, you'll notice that the hero sections have the same background but the privacy policy page has a centered title and is much shorter in length. Here's a comparison, for reference:
 
@@ -634,7 +634,7 @@ Let's discuss the first point. If you compare the finished product of `index.htm
 
 What we'll do is edit some styles and have them only apply to the privacy policy's hero. There are a couple of ways to do this:
 
-- **Change the class names**: Reuse most of the current CSS rule blocks with only a few edits to the style declarations and give the CSS selector a new class name. This way, we can target different sections but still have a similar look. An example of this would be if we wanted both paths to have the same margins and font sizes but different colors:
+- **Change the class names**: In this approach, we reuse most of the current CSS rule blocks, make only a few edits to the style declarations, and give the CSS selector a new class name. This way, we can target different sections but still have a similar look. An example of this would be if we wanted both paths to have the same margins and font sizes but different colors:
 
 ```css
 /* homepage hero */
@@ -655,7 +655,7 @@ What we'll do is edit some styles and have them only apply to the privacy policy
 
 ```
 
-- **Keep the class names, but override some of the declarations**: This choice seems the most efficient with less duplicate code being written because most of the declarations will be the same except for a few changes. In the example below, there will be an HTML element that gets most of its styles from one class, but then has a couple of them overridden by a second one:
+- **Keep the class names, but override some of the declarations**: This choice seems the most efficient with less duplicate code being written because most of the declarations will be the same except for a few changes. In the example below, an HTML element gets most of its styles from one class but then has a couple of them overridden by a second one:
 
 ```html
 <div class="hero hero-secondary"></div>
