@@ -582,7 +582,7 @@ THIS SHOULD BE DOWNLOADABLE
 
 This is a lot of content, but that is why copy and paste exists!
 
-Now that we are done adding content, it is a good time for us to start including the styles for the page. But first let's take one more look at how the browser displays all of this HTML without any custom CSS included:
+Now that we're done adding content, it's a good time to think about adding styles to the page. But first let's take a look at how the browser displays all of this HTML without any custom CSS:
 
 ![privacy policy html](assets/step-7/300-html-complete.jpg)
 
