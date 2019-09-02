@@ -2,39 +2,39 @@
 
 ## Introduction
 
-Throughout this project, you've learned how to create and organize webpage content, create custom styles and layouts for that content, and use tools to protect, back up, and publish your work. This final lesson reinforces these concepts and helps you "take off the training wheels" while you build a new (simple) page for the Run Buddy website.
+Throughout this project, you've learned how to create and organize webpage content, create custom styles and layouts for that content, and use tools to protect, back up, and publish your work. This final lesson reinforces these concepts and helps you "take off the training wheels" by building a new (simple) page for the Run Buddy website.
 
-The Run Buddy legal department has finalized the privacy policy and it's ready to code, so that's what we'll be taking on next.
+The Run Buddy legal department has finalized the privacy policy, so it's time to code the Privacy Policy page for the site. The steps we'll take to do this are as follows:
 
-The three main tasks that we'll complete in this lesson are the following:
+1. Add a second HTML document to the website and update how the site's pages link to each other using the `<a>` elements.
 
-1. Add a second HTML document to the website and update how the site's pages link to each other using `<a>` elements.
+2. Reuse HTML content via selective copying and pasting.
 
-2. Reuse HTML content through selective copying and pasting.
-
-3. Reuse CSS styles across two HTML documents, but also implement a second style sheet for styles more specific to the second page. The second style sheet will override some of the styles in the first one.
+3. Reuse CSS styles across two HTML documents, but also implement a second style sheet for styles that are specific to the second page. The second style sheet will override some of the styles in the first one.
 
 As usual, we'll start by looking at the mock-up given to us by the design team:
 
 ![Privacy Policy completed](assets/step-7/100-privacy-complete.jpg)
 
-As you can see, this is a very text-heavy page. It also shares some of the components and styles with the landing page, which means you will be able to recycle a good amount of code you wrote earlier. Don't worry, you won't need to type out all that legalese—we'll give that to you. Let's get started!
+As you can see, this is a very text-heavy page. Don't worry, you won't need to type out all that legalese—we'll give that to you to paste into your HTML document. You might also notice that this page has many of the same components and styles as the landing page. This means you'll be able to recycle a good amount of code you wrote earlier. 
+
+Let's get started!
 
 ## Create the HTML File
 
-In the first lesson, do you remember what you had to do before you could start writing HTML? That's right—you had to create the HTML file first. Let's do that for the Privacy Policy page. 
+Do you remember what you had to do before you could start writing HTML way back in Lesson 1? That's right—you had to create the HTML file first. Let's do that for the Privacy Policy page. 
 
-Using the command line, create a file in the root of the project folder called `privacy-policy.html`. Think back to the first and second lessons when you created files; what was the command you used?
+Using the command line, create a file  called `privacy-policy.html` in the root of the project folder. Think back to the first and second lessons when you created files; what was the command you used?
 
-> **Hint:** When using the command line to create folders or files, it is easy to forget where you're running these commands. Don't forget to use the `pwd` command first to print out the command line's current location and confirm that the current directory is the one you want to use.
+> **Hint:** When using the command line to create folders or files, it's easy to lose track of _where_ you're running these commands. Don't forget to use the `pwd` command first to print out the command line's current location and confirm that the current directory is the one you want to use.
 
-So now, in the root of our project's folder, there should be two HTML files: `index.html` and `privacy-policy.html`.
+When you're done, there should be two files in the root of the project's folder: `index.html` and `privacy-policy.html`.
 
-## Add Content to the Privacy Policy
+## Set Up the HTML File
 
-Before we add the actual content, we need to create the skeleton of our HTML document. This means we need to get our starting HTML tags in place. Again, think back to the first lesson before any Run Buddy-specific content was added. 
+Before we add the privacy policy content, we need to create the skeleton of the HTML document. This means we need to get our starting HTML tags in place. 
 
-The page had the following:
+Again, think back to the first lesson before any Run Buddy-specific content was added. That page had the following:
 
 ```html
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ The page had the following:
 
 > **Urkel Says:** Creating the skeleton of an HTML document is also known as **scaffolding**.
 
-Now that we have our document scaffolded, let's make a couple of edits. Because we're creating a new page, we should update the `<title>` to reflect that. The information between the `<title>` tags isn't necessarily incorrect, but it isn't as descriptive as it could be. Not only does having a descriptive title let the user know where they are on the site, it is also useful for accessibility and search engine optimization. 
+When you're done setting up the scaffolding for `privacy-policy.html`, you'll need to make a couple of edits. Because you're creating a new page, you need to update the `<title>` to reflect that. The information that's currently between the `<title>` tags isn't incorrect, but it isn't as descriptive as it could be. Not only does having a descriptive title let the user know where they are on the site, it's also important for accessibility and search engine optimization. 
 
 Edit the `<title>` to say this:
 
@@ -74,7 +74,7 @@ Edit the `<title>` to say this:
 >
 > To learn more, check out the [MDN web docs on creating SEO-friendly page titles](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title#Page_titles_and_SEO).
 
-Take another look at the mock-up of the finished product we're working towards and compare it to the main Run Buddy page we just finished. Do you see any similar pieces that we can reuse here? It would be confusing for visitors to experience different styles throughout a single website, so most sites have similar&mdash;if not identical&mdash;components on every page.
+Take another look at the mock-up of the Privacy Policy page and compare it to the Run Buddy landing page you just finished. Do you see any pieces you can reuse? It can be confusing for visitors to experience different styles throughout a single website, so most sites have similar&mdash;if not identical&mdash;components on every page.
 
 > **Urkel Says:** A set of HTML code that builds out a part of the overall page's UI is commonly referred to as a **component**. The idea behind a component is that it can be reused in multiple places throughout a site.
 
@@ -111,17 +111,13 @@ Let's move on to the next section. The other content from our homepage that can 
 </section>
 ```
 
-We'll get to adding content to this section next, but first let's save our work and open this file in the browser.
-
-> **Hint:** Using the "Open in Browser" extension, right-click anywhere in the HTML document and select the option that says "Open In Default Browser". This is the quickest way to open up an HTML document directly from Visual Studio Code.
->
-> Keep in mind that this only works for HTML files.
+We'll get to adding content to this section soon, but first let's save our work and open this file in the browser.
 
 If your page does not look like the below image, review the previous steps to troubleshoot. The culprit is often something very simple but easy to overlook. Remember—even pros make mistakes!
 
 ![Privacy Policy - html started](assets/step-7/200-html-starter.jpg)
 
-Now that we have a second page for our site, how can we help a visitor get to it from the homepage? In `index.html`, we need to change the `<a>` tag's `href` value in the `<footer>` tag to have a value of `./privacy-policy.html`. We can remove the `href` attribute from this element in `privacy-policy.html` entirely since we are already on this page and don't want users accidentally clicking the link and reloading the page for no reason.
+Now that we have a second page in our website, how will the visitor get to it from the homepage? In `index.html`, we need to change the `<a>` tag's `href` value in the `<footer>` tag to have a value of `./privacy-policy.html`. We can remove the `href` attribute from this element in `privacy-policy.html` entirely since we are already on this page and don't want users accidentally clicking the link and reloading the page for no reason.
 
 > **Pro Tip:** When you have an `<a>` element with an `href` value set to take the user to the same page they're already on, it has the potential to decrease the site's performance because it has to download and display all of the page's data again. Due to this, it is a good practice when possible to disable `<a>` elements that bring you to the page you're currently on when clicked.
 >
@@ -150,6 +146,8 @@ Even though we aren't building more HTML pages, this section has now been repurp
 > **On the Job:** It is not uncommon for a web-based project to be considered complete, only for a boss or client to come back and add more. These additions could come in the form of simple edits/additions to the existing project files&mdash;which is typically an easy change&mdash;or they could involve creating more pages, features, or even functionality.
 >
 > That is why when building new projects, it is a good practice to set up general styles and HTML content layouts that can easily be reused across new sections rather than having to start each new piece from scratch.
+
+## Add Content to the HTML File
 
 Now that the page's title is being displayed, we'll go and add the privacy policy content. Typically when it comes to a privacy policy, a team of lawyers will provide all of the content that needs to be displayed on the page. And this is exactly what has happened with Run Buddy's copy. We just need to paste it in.
 
@@ -620,19 +618,19 @@ There are some styles that are a little out of sorts, however. The `<header>` an
 
 ![Privacy Policy CSS start](assets/step-7/400-css-start.jpg)
 
-Both of these issues are easy to solve. Looking back to the mock-up at the top of this lesson, you can see that there are only a few small differences between the appearance of the Run Buddy homepage and other pages on the site. 
+Both of these issues are easy to solve. Looking back to the mock-up at the top of this lesson, you can see that there are only a few small differences between the appearance of the Run Buddy homepage and the Privacy Policy page. 
 
 To fix the styling of the Privacy Policy page, we'll need to do two things: 
 
-1. Kep most of the existing styles for the hero section and make just a couple of edits to them.
+1. Keep most of the existing styles for the hero section and make just a couple of edits to them.
 
 2. Add some new style definitions for the page's `<article>` tag by targeting its `secondary-content` class.
 
-Let's discuss the first point. If you compare the finished product of `index.html` with the screenshot of the finished product we're working towards for `privacy-policy.html`, you'll notice that the hero sections have the same background but the privacy policy page has a centered title and is much shorter in length. Here's a comparison, for reference:
+Let's discuss the first point. If you compare the finished product of `index.html` with the screenshot of the finished product we're working towards for `privacy-policy.html`, you'll notice that the hero sections have the same background but the privacy policy page has a centered title and is much shorter. Here's a comparison, for reference:
 
 ![Hero section comparison](assets/step-7/401-hero-comparison.jpg)
 
-What we'll do is edit some styles and have them only apply to the privacy policy's hero. There are a couple of ways to do this:
+To adjust the hero section of the Privacy Policy page, we'll edit some styles and have them only apply to the privacy policy's hero. There are a couple of ways to do this:
 
 - **Change the class names**: In this approach, we reuse most of the current CSS rule blocks, make only a few edits to the style declarations, and give the CSS selector a new class name. This way, we can target different sections but still have a similar look. An example of this would be if we wanted both paths to have the same margins and font sizes but different colors:
 
@@ -681,13 +679,11 @@ What we'll do is edit some styles and have them only apply to the privacy policy
 
  The way to avoid this is to create a second CSS file and have it accessible only to the `privacy-policy.html` file. You can do this by placing the secondary style sheet link in `privacy-policy.html` and not `index.html`. This is also useful because the folks at Run Buddy are currently reviewing the work you did on the landing page, so making edits to `style.css` at this moment could break things for them during the review, and an unhappy client makes for an unhappy developer.
 
-> **Important:** Not every HTML page needs its own unique style sheet attached to it. In many cases across the internet, entire sites use a single style sheet.
->
-> Having separate style sheets is useful when there are too many styles to keep organized in a single sheet, and/or when multiple CSS developers are handling different parts of the site and don't want to step on each other's toes.
+> **Important:** Not every HTML page needs a unique style sheet attached to it. In many cases across the internet, entire sites use a single style sheet. Having separate style sheets is useful when there are too many styles to keep organized in a single sheet and/or when multiple CSS developers are handling different parts of the site and don't want to step on each other's toes.
 
 As with most problems you will face in programming, there will usually be a number of possible solutions. You might not always lean towards one over the other, and the option you choose should always depend on the problem to be solved. The key is to not get overwhelmed by these decisions. You can always go back and change it if you don't like how it turns out (one of the many reasons we use Git!), and you'll never know which solutions you like until you try them.
 
-For the sake of seeing how it works, let's go with the second option. The first one is a more than acceptable solution, but the second will let us see two style sheets in action. Let's get to it!
+For the sake of seeing how it works, let's go with the second option. The first one is a more than acceptable solution, but the second will let us see two style sheets in action. 
 
 ## Add a Second Style Sheet 
 
