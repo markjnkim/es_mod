@@ -580,7 +580,7 @@ THIS SHOULD BE DOWNLOADABLE
 </p>
 ```
 
-This is a lot of content, but that is why copy and paste exists!
+That's a lot of content, but that is why copy and paste exists!
 
 Now that we're done adding content, it's a good time to think about adding styles to the page. But first let's take a look at how the browser displays all of this HTML without any custom CSS:
 
@@ -592,7 +592,7 @@ Well, that's enough praise for the browser and its default styling. Let's add ou
 
 > **Pro Tip:** Don't forget to save and publish your work!
 
-## Adding Style
+## Add Style
 
 Let's jump right out of the gate and add our `style.css` file to this HTML document.
 
@@ -761,7 +761,7 @@ Again, we can see these CSS rules and overrides working together to create this 
 
 ![DevTools CSS Overrides](assets/step-7/500-devtools.jpg)
 
-As far as the hero section in `privacy-policy.html` is concerned, it sees two sets of CSS rules from the two style sheets and combines them, then prioritizes the values that come later in conflicting declarations. The result is this:
+The hero section in `privacy-policy.html` sees two sets of CSS rules from the two style sheets and combines them, then prioritizes the values that come later in conflicting declarations. The result is this:
 
 ```css
 .hero {
