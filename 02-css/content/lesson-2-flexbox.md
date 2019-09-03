@@ -181,7 +181,7 @@ As we learned with the `<header>`, setting up elements as a flexbox solves a lot
 
 If you look at the current `<nav>` and resize the browser window, you can see that the `<nav>` element itself breaks onto the next line just fine, but all of the actual links in the `<nav>` break in weird place and start stacking. What we'll be doing next is reworking our `<nav>` element's `<ul>` element to make it more responsive by converting it from an inline list to flexbox.
 
-> IMPORTANT: You can create as many flexbox elements as you need on a page, just remember what type of layout you're trying to achieve before applying it everywhere as it is not a "cure all" for layouts.
+> **Important:** You can create as many flexbox elements as you need on a page, just remember what type of layout you're trying to achieve before applying it everywhere as it is not a "cure all" for layouts.
 
 Let's turn our attention to removing some CSS before applying our flexbox styles:
 
@@ -455,7 +455,7 @@ As we can see, each step will take up less vertical space and have a little more
 
 Before we begin coding, let's take a minute and look at the above mock-up and consider how many "containers" we'd want to make for this content to be easily laid out using flexbox properties. The answer may be a little trickier than you would think just by glancing at it, but think of how we made containers around the `<header>` and `<footer>` elements' children to position them properly.
 
-> HINT: When in doubt, grab a piece of paper and physically recreate the layout using by just drawing the boxes that contain the content. You don't have to be an artist, but drawing the layout helps visualize it so it is easier to transfer to CSS!
+> **Hint:** When in doubt, grab a piece of paper and physically recreate the layout using by just drawing the boxes that contain the content. You don't have to be an artist, but drawing the layout helps visualize it so it is easier to transfer to CSS!
 
 Just like our `<header>` element being a flexbox parent container having two children and one of them (`<nav>`) being its own flexbox container, that is how we will attack each step in this section:
 
