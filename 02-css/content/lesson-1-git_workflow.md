@@ -144,7 +144,7 @@ In order to create a secure backup as well as provide a collaborative and commun
 ```
 git push origin <remote-branch-name>
 ```
-Previously we did the Git operation to push file changes into the remote `master` branch in Module 1. The difference here is instead of pushing to the remote `master` branch, we are creating and pushing into a new `develop` branch. We identify the target of the push to the remote branch. This command does two operations: creates a new remote branch and pushes the code from the local active branch into this new remote branch. The word `origin` simply refers the source repository where the cloning originally occurred. Hence the Git command to to create a remote `develop` branch will be:
+Previously we did the Git operation to push file changes into the remote `master` branch in Module 1. The difference here is instead of pushing to the remote `master` branch, we are creating and pushing into a new `develop` branch. We identify the target of the push to the remote branch. This command does two operations: creates a new remote branch and pushes the code from the local active branch into this new remote branch. The word `origin` simply refers the source repository where the cloning originally occurred. Hence the Git command to create a remote `develop` branch will be:
 ```
 git push origin develop
 ```
@@ -252,7 +252,7 @@ As can be seen in this illustration, the remote repo has converged with the loca
 Let's dive deeper on the `pull` process. The `pull` command is actually a combination of two different operations, `git fetch` and `git merge`.
 The git command `git fetch` updates the local repo with any new changes in the remote repo since the last `fetch` command. A use case for `git fetch` would be to look at a team member's feature branch for a review process or to help in finding a bug. This branch is downloaded through the Git command:
 ```
-git fetch <remote branch name>
+git fetch origin <remote branch name>
 ``` 
 Next step is for the following Git command:
 ```
@@ -482,7 +482,7 @@ Don't worry if all this seems like a lot of steps. We will go over every step in
 ### Setting up our Feature Development Environment
 Our first step is to create a new feature development environment from a stable copy of the current codebase, the `develop` branch, so we can work in isolation. Let's create our first feature branch from the first Git issue.
 
-According to our Git workflow, our first step when creating a feature branch will be to `checkout` into the `develop` branch, then create a new branch. We can accomplish these two git operations with the following command in the terminal:
+According to our Git workflow, our first step when creating a feature branch will be to `checkout` into the `develop` branch. Then let's create our new feature branch and set it as the active branch. We can accomplish these two git operations with the following command in the terminal:
 ```
 git checkout -b feature/hero-text
 ```
