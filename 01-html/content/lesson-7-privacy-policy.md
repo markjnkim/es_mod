@@ -70,9 +70,7 @@ Edit the `<title>` to be the following:
 <title>Privacy Policy - Run Buddy</title>
 ```
 
-> **Pro Tip:** The `<title>` element's content is what appears in the browser's tab, so it's good practice to structure the content as `[page title] - [site title]`. 
->
-> Page titles should be descriptive but also concise because Google cuts off search result titles at around 60 characters.
+> **Pro Tip:** The `<title>` element's content is what appears in the browser's tab, so it's good practice to structure the content as `[page title] - [site title]`. Page titles should be descriptive but also concise because Google cuts off search result titles at around 60 characters.
 >
 > To learn more, check out the [MDN web docs on creating SEO-friendly page titles](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title#Page_titles_and_SEO).
 
@@ -151,7 +149,7 @@ Even though we aren't building any more HTML pages for this project, this sectio
 
 ## Add Content to the HTML File
 
-Now that the page's title is being displayed, we'll go and add the privacy policy content. Typically when it comes to a privacy policy, a team of lawyers will provide all of the content that needs to be displayed on the page. And this is exactly what has happened with Run Buddy's copy. We just need to paste it in.
+Now that the page's title is being displayed, we'll move on to adding the privacy policy content. Typically when it comes to a privacy policy, a team of lawyers will provide all of the content that needs to be displayed on the page. And this is exactly what has happened with Run Buddy's copy. We just need to paste it in.
 
 Before we add this content, let's create the container that will hold it. Add an `<article>` tag after the closing `</section>` of the hero with a class of `secondary-content`.
 
@@ -582,11 +580,11 @@ Now go ahead and add the following content inside the `<article>` tag that was j
 
 That's a lot of content, but that's why copy-and-paste exists!
 
-Now that we're done adding content, it's a good time to think about adding styles to the page. But first let's take a look at how the browser displays all of this HTML without any custom CSS:
+Now that we're done adding content, it's a good time to think about adding styles to the page. But first let's take a look at how the browser displays this HTML without any custom CSS:
 
 ![privacy policy html](assets/step-7/300-html-complete.jpg)
 
-It's not as pretty as it will be once we've added in our CSS, but the browser still prints the content to the page in an organized and readable fashion. To reiterate a concept we've discussed earlier in this project, this is what's known as the **normal flow** of a webpage: all of the content comes onto the page in the order in which it was placed in the HTML document and gets its own space based on which HTML tag wraps it. Even though the result isn't the most visually appealing, it serves its core purpose, which is to get HTML content to the visitor.
+It's not as pretty as it will be once we've added in our CSS, but the browser still prints the content to the page in an organized and readable fashion. To reiterate a concept we discussed earlier in this project, this is what's known as the **normal flow** of a webpage: all of the content comes onto the page in the order in which it was placed in the HTML document and gets its own space based on which HTML tag wraps it. Even though the result isn't the most visually appealing, it serves its core purpose, which is to get HTML content to the visitor.
 
 Well, that's enough praise for the browser and its default styling. Let's add our own!
 
