@@ -95,7 +95,9 @@ Let's take a look at our page now and see what the `<iframe>` looks like:
 
 ![iframe-map](./assets/step-6/200-iframe-html.png)
 
-Take a moment to play with the map using the zoom and scrolling functionality. Pretty cool! These interactive controls aren't actually a part of the `<iframe>`, but rather helpful controls that Google adds when it detects a map being rendered inside an `<iframe>`.
+Take a moment to play with the map using the zoom and scrolling functionality. Pretty cool! 
+
+These interactive controls aren't actually a part of the `<iframe>`, but rather helpful controls that Google adds when it detects a map being rendered inside an `<iframe>`.
 
 > **Pro Tip**: It's important to note that with the power of the `<iframe>` also comes responsibility. Be careful when using an `<iframe>` from any copyrighted websites. Security risks must also be assessed because an `<iframe>` from a compromised website may prove to be dangerous.
 
@@ -262,7 +264,7 @@ Please save and view in the browser to see style changes.
 
 Very nicely done. Now it looks like we are ready to style the `<iframe>` and contact info container.
 
-## Adding Styles to our iframe and contact info
+## Add Styles to the iframe and Contact Info
 It's time for the final styling steps to complete not only our Reach Out section, but also the landing page as well. 
 
 Let's start with the `<iframe>` and create the CSS rule that will give us some of the size dimensions. But wait, didn't we do that already in the markup with the attributes? 
@@ -273,30 +275,37 @@ We can use CSS to declare the height and width of the `<iframe>`. Please remove 
 
 >**Answer**: Principle of single responsibility is a doctrine in computer science for best practice design patterns that in this case would suggest that styling should be in the style sheet and HTML should be left for purely HTML markup purposes. This way if a style needs to be changed, we would go to the style sheets and not in the markup. Also note that reassignment of a CSS property isn't possible for inline styling since external style sheet references are over written by embedded and then inline styles respectively.
 
-> **Activity**: In this next styling step we will give the `<iframe>` a height and width. Please add this rule to the style sheet. 
+In this next styling step we will give the `<iframe>` a height and width. Please add this rule to the style sheet. 
+
 > **Hint**: When creating a new rule, we always start with the selector. Think about the element we wish to target. 
-> **Solution**:
+
 Your code should now look something like this:
+
 ```css
 .contact-info iframe {
   width: 400px;
   height: 400px;
 }
 ```
-So this may be a little different than your implementation so let's break this rule down a little further to see the "why" of our choices.
->  **Heads Up**: `.contact-info iframe` was chosen, but `<iframe>` would've worked just as well since there is only one `<iframe>` currently in this project. But what happens if another `<iframe>` is added, either in this HTML file or in any HTML file linking to this style sheet? This rule would style every `<iframe>` element which could add styling where it wasn't wanted leading to surprising results. A type selector is a CSS selector, like in this example with `<iframe>`, that selects every HTML element of that type. A potentially dangerous choice due to possible side effects unless a global rule is wanted. By using the class as the CSS selector, also called a class selector, we can safely target the `<iframe>` that is a descendent or child of the element with this class. 
 
-## Designing a Multi Column Layout
-The design team has requested the map and contact information containers to sit side by side in a two column layout. Let's take a peak at this in the mock-up and figure out what to do from there.
+This might be a little different than your implementation, so let's break this rule down a little further to see the "why" of our choices.
 
-> **Activity**: Create a two column layout with the `<iframe>` and the `<div>` containing the contact information to sit in the same row, side by side, rather than on top of each other as seen here:<br />
+`.contact-info iframe` was chosen, but `<iframe>` would've worked just as well since there is only one `<iframe>` currently in this project. But what happens if another `<iframe>` is added, either in this HTML file or in any HTML file linking to this style sheet? This rule would style every `<iframe>` element, which could add styling where it wasn't wanted and lead to surprising results. 
+
+A type selector is a CSS selector, like in this example with `<iframe>`, that selects every HTML element of that type. This is a potentially dangerous choice due to possible side effects (unless a global rule is wanted). By using the class as the CSS selector, also called a **class selector**, we can safely target the `<iframe>` that is a descendant or child of the element with this class. 
+
+## Design a Multi-Column Layout
+
+The design team has requested that the map and contact information containers sit next to each other in a two-column layout. Let's take a peak at this in the mock-up and figure out what to do from there:
+
 ![Two Column Layout](./assets/step-6/650-two-column-css.png)
-<br /> 
 
-> **Hint**: Create a CSS rule with the *direct child* `<div>` nested in the `<div>` parent element with the class `.contact-info` to reassign `display` and `width` properties.
+How would you go about doing this? Give it a go on your own.
 
+> **Hint**: Create a CSS rule with the *direct child* `<div>` nested in the `<div>` parent element with the class `.contact-info` to reassign the `display` and `width` properties.
 
 Your code should look something like this:
+
 ```css
 .contact-info iframe {
   width: 400px;
@@ -315,19 +324,24 @@ Your code should look something like this:
 It is important to note that in the CSS rule above targeting the child `<div>`, we overwrote the default `display` property for a `<div>` and changed it from `block` to `inline-block`. This allows the `.contact-info` container to sit on the same row as the `<iframe>` element *and* allows us to assign a width, something that the property value `inline` would not let us do.
 
 Another important property used here is the `vertical-align` property.
-> **Pause**: Please take a moment think about what the purpose of the `vertical-align` property and what problem it solves here.
+
+> **Pause**: Please take a moment think about the purpose of the `vertical-align` property and what problem it solves here.
 
 > **Answer**: Because the content of this `<div>` naturally rests at the bottom of the container, we need the `vertical-align` property to lift this content up to the top. In conjunction with the `text-align` property, this allows the contact information to begin at the top of the `<div>` and start aligned from the left for an easy-to-read layout.
 
-Let's take a break to see how our code is rendering in the browser. It is good practice to add and commit when you make a great step in progress.
+Let's take a break to see how our code is rendering in the browser. Also, it's a good time to `add` and `commit` because you just made a big leap in progress.
 
-In the following CSS rules, let's refer to the mock-up and see what our following steps must be. Looks like we will be applying some font color(#fce138) and size to the `<h3>`, adding spacing, line height, and font size to our contact info content, and changing the link color to yellow(#fce138). Try out the spacing and coloring in Chrome's DevTools as a great way to try out different combinations. Use the CSS box model to add some pixels to the different layers for each element to see what looks best. 
-Remember the CSS box model is in the Styles panel in DevTools.
+In the following CSS rules, let's refer to the mock-up and see what our following steps must be. Looks like we will be applying some font color (`#fce138`) and size to the `<h3>`, adding spacing, line height, and font size to our contact info content, and changing the link color to yellow (`#fce138`). 
+
+Try out the spacing and coloring in Chrome's DevTools as a great way to try out different combinations. Use the CSS box model to add some pixels to the different layers for each element to see what looks best. 
+
+Remember the CSS Box Model is in the Styles panel in DevTools, as shown here:
+
 ![DevTools-CSS-box-model](./assets/step-6/700-DevTools-css.png)
 
-> **Hint**: Use the property for `line-height` to adjust how to stretch out or shrink the text to find the best matching measurement that aligns with our mock-up. 
+> **Hint**: Use the property for `line-height` to adjust how to stretch out or shrink the text to find the best matching measurement that aligns with the mock-up. 
 
-Your completed CSS rules for the Reach Out section should look like this:
+Ta-da! Your completed CSS rules for the Reach Out section should look like this:
 
 ```css
 .contact-info h3 {
@@ -349,18 +363,25 @@ Your completed CSS rules for the Reach Out section should look like this:
 /* REACH OUT STYLES END */
 
 ```
-Note that the second CSS rule targets two different elements. The comma separates the two selectors, indicating that the following declaration block will apply to both CSS selectors.
+Note that the second CSS rule targets two different elements. The comma separates the two selectors, indicating that the subsequent declaration block will apply to both CSS selectors.
 
-Let's save the file and reload `index.html` in the browser. 
-Congrats, you have completed the landing page and created a professional layout. Now is a great time to add, commit, and push your work to your repo. 
+Save the file and reload `index.html` in the browser. 
+Congrats! You have completed the landing page and created a professional layout. Now is a great time to `add`, `commit`, and push your work to your repo. 
 
 
 
 ## Reflection
-Nice job! In this lesson, we are continuing to build upon the our HTML and CSS skills by creating new content and tackling more advanced HTML elements. We built an interactive map as well as implemented a multi-column layout. 
+Nice job! In this lesson, you continued to build on your HTML and CSS skills by creating new content and tackling more advanced HTML elements like building an interactive map and implementing a multi-column layout. 
 
-Next we will create our `policy.html` page, to complete our mock-up requirements, but first let's recap some of the highlights from this lesson.
+Next, we will create Run Buddy's Privacy Policy page, but first let's recap some of the highlights from this lesson:
 
-* We gained more experience with the build process, starting with the markup and then adding style. We were able to reuse CSS rules by applying CSS class selectors to achieve an efficient and clean codebase without repeating code. Getting into the habit of writing code that is concise is a best practice that takes time to master but is worthwhile because of the improved readability and maintainability.
-* We created a multi-column layout by creating container elements to a set width and declaring the `display: inline-block;`. An important skill that will be used often because modern websites demand interesting ways to delivery content.
-* We implemented a unique HTML element called an `<iframe>` that allows nested browser content from another HTML page to be embedded into the current one. This can offer some user interactivity and interoperability with another website that adds rich visual features without adding a lot of code.
+* We gained more experience with the webpage build process, starting with the HTML and then adding style. 
+* We reused CSS rules by applying CSS class selectors to achieve an efficient and clean codebase without repeating code. 
+* We created a multi-column layout by creating container elements to a set width and declaring the `display: inline-block;`. 
+* We implemented a unique HTML element called an `<iframe>` which allows nested browser content from another HTML page to be embedded into the current one. This offers user interactivity and interoperability with another website that adds rich visual features without adding a lot of code.
+
+Modern websites demand interesting ways to deliver content. The skills you learned in today's lesson allow you to do this. You provided user interactivity and interoperability between websites, and created rich visual features without adding a lot of code. You are already becoming well-equipped to succeed as a full-stack developer! 
+
+---
+
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
