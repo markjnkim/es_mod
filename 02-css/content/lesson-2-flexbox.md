@@ -112,11 +112,11 @@ That's all that needs to be added to get our elements back on the same horizonta
 
 Flexbox is able to evenly distribute the space of the parent element, the `<header>` element, between the children elements, the `<h1>` and `<nav>` links. What makes this more interesting is that both of those children by default are block-level elements and adding the context of flexbox overrides that default behavior. The `display: flex` declaration also automatically makes that `<header>` a "row" by default, so there's no need to explicitly declare it.
 
-> URKEL SAYS: To change a flexbox from a row layout to a column layout, you can use the property called `flex-direction` and give it a value of `column` and the box will lay out all of it's children vertically rather than horizontally.
+> **Pro-tip:** To change a flexbox from a row layout to a column layout, you can use the property called `flex-direction` and give it a value of `column` and the box will lay out all of it's children vertically rather than horizontally.
 
 There are just a few more things we want to do at this point. Notice how the navigation items seem to be up against the left-hand side, closer to the `<h1>`? Well we can adjust that easily using a property that works in flexbox containers called `justify-content`.
 
-> DEEP DIVE: The `justify-content` property is one that only applies to elements with a `display` property value of `flex` or `grid` (more on that later). It allows you to control spacing between child elements with the following values:
+> **Deep Dive:** The `justify-content` property is one that only applies to elements with a `display` property value of `flex` or `grid` (more on that later). It allows you to control spacing between child elements with the following values:
 >
 > - **`flex-start`**: This is the default value. It left justifies all of the elements in the container.
 > ![Flexbox with flex-start justification](assets/lesson-2/300-justify-flex-start.jpg)
@@ -147,9 +147,9 @@ justify-content: space-between;
 
 What this property declaration just did for us is it took all of unused space in the `<header>` and put it between the two elements. It determines the unused space by looking at each child element and seeing how much the border-width, margin, padding, and content itself add up to. If it doesn't add up to 100% of the parent, then whatever is left over is what's considered the unused space.
 
-> PAUSE: What is it called when we calculate an element's dimensions by adding the content, padding, border-width, and margin values?
+> **Pause:** What is it called when we calculate an element's dimensions by adding the content, padding, border-width, and margin values?
 >
-> ANSWER: The "box-model"
+> **Answer:** The "box-model"
 
 So our `<header>` content looks great, but what happens when the screen gets smaller and the content becomes too wide for the container? Take a minute and resize your browser window and see what happens.
 
@@ -297,7 +297,7 @@ When building layouts using HTML and CSS, it is important to understand what the
 
 In the outlined mock-up above, we can see a rough example of how the hero section of our site can be laid out on the overall page. We don't even need to worry about what is happening in each of those boxes with white outlines, all we need to do is worry about the boxes themselves. Think of it as us creating a game plan for what we want to do before we do it so we can visualize our problem and stay on track.
 
-> URKEL SAYS: The practice of sketching the outline of a page's layout is called "wireframing" and it is used throughout all of web development.
+> **Urkel Says:** The practice of sketching the outline of a page's layout is called "wireframing" and it is used throughout all of web development.
 
 Just like the `<header>` and `<footer>` styles, it would be best if we started by removing some current styles in our hero section:
 
@@ -431,7 +431,7 @@ Now that we have our flex row created, let's turn our attention to the `.section
 
 > **Pause:** How much margin does each side get if the declaration reads `margin: 0 auto 35px auto`?
 >
-> Answer: top: 0, right: auto, bottom: 35px, and left: auto
+> **Answer:** top: 0, right: auto, bottom: 35px, and left: auto
 
 Lastly, we need to center the text in our "What We Do" paragraph, so we'll finish by adding a `text-align: center` to the `.intro p` CSS rule.
 
@@ -482,7 +482,7 @@ Go through each `<div>` element with a class of `step` in `index.html` and chang
 </div>
 ```
 
-> HINT: Use this structure but don't forget to keep the content for each step the same as it is now!
+> **Hint**: Use this structure but don't forget to keep the content for each step the same as it is now!
 
 What we've done here is create containers for each piece of the content in a step, so now it'll be easier to move the content around by adding style rules to the containers that surround them rather than the content itself.
 
@@ -494,7 +494,7 @@ Let's hit the next part of our code cleanup and remove existing CSS styles that 
 
 - Remove the `margin-top` declaration from `.steps h3` and rename the selector to `.step h3` to tighten the relationship of the selector and make it a bit quicker for the browser to set the rule
 
-> IMPORTANT: The browser reads CSS selectors from right to left (or innermost element to outermost element), so given a selector of `header nav a` we can think of it as the browser saying to itself "find every `<a>` element that is inside of a `<nav>` element, but that `<nav>` element has to be in a `<header>` element." This means that the browser has to do a few pass-throughs and work its way up the HTML structure to ensure the CSS styles are only being applied to those distinct `a` elements.
+> **Important:** The browser reads CSS selectors from right to left (or innermost element to outermost element), so given a selector of `header nav a` we can think of it as the browser saying to itself "find every `<a>` element that is inside of a `<nav>` element, but that `<nav>` element has to be in a `<header>` element." This means that the browser has to do a few pass-throughs and work its way up the HTML structure to ensure the CSS styles are only being applied to those distinct `a` elements.
 >
 > While the selector `header nav a` is fine, having a whole page of that may prove not as performant as the page gets larger. A way to make this more performant is to provide a class to the elements you want to style and select just that class, but that could prove tedious and creating unnecessary amounts of extra HTML by adding a class attribute to every element.
 >
@@ -658,7 +658,7 @@ Our current section for the trainers has all three of them stacked on top of one
 
 While all three of these now run a little bit longer, they still aren't as tall as the current layout.
 
-> URKEL SAYS: When related HTML content is laid out in a narrow, vertical column, it is often referred to as a "card."
+> **Urkel Says:** When related HTML content is laid out in a narrow, vertical column, it is often referred to as a "card."
 
 For the sake of repetition, let's take the above mock-up and think about it in terms of a flexbox parent/children relationship and wireframe it. It should look something like this:
 
@@ -737,7 +737,7 @@ It doesn't look great just yet, as is shown in the above image, but that's becau
 
   - Add `flex: 1`
 
-> REWIND: If all flexbox children have a value of `flex: 1`, that means they will share any extra space evenly.
+> **Rewind**: If all flexbox children have a value of `flex: 1`, that means they will share any extra space evenly.
 
 - Find the CSS rule for `.trainer img`:
 
@@ -938,7 +938,7 @@ git merge feature/flexbox
 
 5. The updated code from `feature/flexbox` will now be reflected in `develop`. Open the page in a browser and test it!
 
-> DEEP DIVE: To learn more about Git and GitHub, [check out try.github.io](https://try.github.io/)
+> **Deep Dive:** To get more practice with Git and GitHub, [check out try.github.io](https://try.github.io/)
 
 ## Reflection
 
