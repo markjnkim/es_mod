@@ -155,7 +155,7 @@ Before we add this content, let's create the container that will hold it. Add an
 
 Now go ahead and add the following content inside the `<article>` tag that was just created (be warned; this is long!):
 
-THIS SHOULD BE DOWNLOADABLE
+### [NEED File Download - FSFO-132 Privacy Policy content ](https://trilogyed.atlassian.net/browse/FSFO-132?atlOrigin=eyJpIjoiMmYxZDY2YWVjMDY5NGFlMTk4ODExNjBmNmE1YTYxNTUiLCJwIjoiaiJ9)
 
 ```html
 <p>
@@ -732,26 +732,9 @@ As you can see, there are two sets of styles being applied to the `hero` class. 
 
 In `privacy-policy.html`, the `<link>` tag for `secondary-styles.css` comes after `style.css`. The browser reads these tags in order of appearance, so everything from `style.css` is applied first. Then it sees the styles defined in `secondary-styles.css` and applies those. Any conflicting property definitions are overridden by the declarations that are read last. This is what **source order** means: the declarations that come last prevail.
 
-A useful feature of CSS is that it overrides at the declaration level, not the rule level. Any property declarations in the overridden rule will remain intact if the overriding rule does not redeclare them. We didn't define new values for `background-image`, `background-size`, or `position` because we want to use the same styles, so they get to carry over from the other style definition.
+A useful feature of CSS is that it overrides at the declaration level, not the rule level. Any property declarations in the overridden rule will remain intact if the overriding rule does not redeclare them. We didn't define new values for `background-image`, `background-size`, or `position` because we want to use the same styles, so they get to carry over from the other style definition. To see declaration level overrides in action, check out the following video:
 
-### NEED: Video demonstrating rule-level vs. declaration-level
-
->
-> **Declaration Level**
-> 
-> ```css
-> /* only the property name and value is a declaration */
-> background-position: center;
-> ```
->
-> **Rule Level**
->
-> ```css
-> /* This whole thing is the rule */
-> .hero {
->   background-position: center;
-> }
-> ```
+### [NEED VIDEO: FSFO-133 Rule Level vs Declaration Level](https://trilogyed.atlassian.net/browse/FSFO-133?atlOrigin=eyJpIjoiZmM5ODg1YzZiNDUxNGNjMmEyYjM4ZDg4MmNlMmU1NDgiLCJwIjoiaiJ9) 
 
 Again, we can see these CSS rules and overrides working together to create this updated hero section in Chrome's DevTools:
 
