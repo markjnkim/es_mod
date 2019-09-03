@@ -24,7 +24,7 @@ Before we get started, let's use our Git skills and create a new feature branch.
 
 At the end of the last lesson, we merged the work we did in the `feature/flexbox` branch into the `develop` branch. If we were working on Run Buddy with other developers, they would likely be branching off of `develop` for their own work, and merging their changes back in. So let's get into the habit of starting new work on the freshest code possible, even though we're working by ourselves: 
 
-1. Use `git fetch origin` to sync your local repository with your remote GitHub repository. Not much will happen here as you are working on this solo, but it is a good habit to use this command when starting something new just to make sure. Worst case scenario, it doesn't find anything in the remote and you move on!
+1. Use `git fetch origin` to sync your local repository with your remote GitHub repository. Not much will happen here as you are working on this solo, but it is a good habit to use this command when starting something new just to make sure. Best case scenario, it doesn't find anything in the remote and you move on; worse case scenario, there is new code on the remote you need to incorporate into your branch by using `git pull origin master`.
 
 ```bash
 git fetch origin
@@ -89,7 +89,7 @@ Speaking of which, before we forget, let's go ahead and add that exact `<meta>` 
 
 Now that we have this in place, let's start making the site fully responsive!
 
-> DEEP DIVE: For a very thorough history and explanation about this tag, visit [the MDN docs and learn more about the viewport meta tag.](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag)
+> **Deep Dive:** For a very thorough history and explanation about this tag, visit [the MDN docs and learn more about the viewport meta tag.](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag)
 
 ## Make Initial Site Edits
 
@@ -163,11 +163,11 @@ The syntax here may seem confusing at first, so let's dive into it piece by piec
 
   - **Print**: Applies the rule only when the page is printed or displayed in print preview.
 
-- **Logical Operator**: A term that can be used to create more complex media queries by combining conditions. In the example above, by saying `screen and (max-width: 900px)` we are saying that this media query should apply to screen media and only when the width of that screen is under 900 pixels. The `and` operator is the most prevalent but there are others like `not` and `only`, which are used in more specific cases. [Read more about logical operators](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Logical_operators)
+- **Logical Operator**: A term that can be used to create more complex media queries by combining conditions. In the example above, by saying `screen and (max-width: 900px)` we are saying that this media query should apply to screen media and only when the width of that screen is under 900 pixels. The `and` operator is the most prevalent but there are others such as `not` and `only`, which are used in more specific cases. [Read more about logical operators](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Logical_operators)
 
-- **Media Features**: On top of setting the Media Type, we can also set up other conditions for the media query to be applied by specifying a property at a certain value. For example, we can have a media query be applied when the device is a `screen` and the `max-width` of the page is 900px. This means if the page is being viewed on a digital screen and the screen is under 900px, the media query will be applied. If the content is being viewed on a screen 901px or above, the media query will be ignored.
+- **Media Features**: We can also use style characteristics of the browser window to set conditions for our media queries as well. For example, we can have a media query be applied when the device is a `screen` and the `max-width` of the page is 900px. This means if the page is being viewed on a digital screen and the screen is under 900px, the media query will be applied. If the content is being viewed on a screen 901px or above, the media query will be ignored.
 
-> URKEL SAYS: Ever wonder why printing an article doesn't include all of the advertisements or unnecessary content and just the article itself? That site uses media queries to hide all of those extraneous elements when printing using the `print` media type!
+> **Urkel Says:** Ever wonder why printing an article doesn't include all of the advertisements or unnecessary content and just the article itself? That site uses media queries to hide all of those extraneous elements when printing using the `print` media type!
 
 Notice how all of the style rules we want to apply in this media query are contained in the media query's brackets `{ }`? It's almost like we're creating a stylesheet within the stylesheet, and that second stylesheet will only come into play when the media query's conditions are met. That is actually exactly what's happening, and with proper organization we can use these to have our site look different at any screen size we need.
 
@@ -225,7 +225,7 @@ As you adjust the screen size and see the different styles taking place for our 
 
 - The `font-size` is overridden again when we hit the `575px` breakpoint.
 
-> PRO-TIP: Keep DevTools open during this and watch the style rules get stricken out as new ones come in to take over. This video will demonstrate what happens with the three above media queries when the site is displayed on a smaller screen:
+> **Pro Tip:** Keep DevTools open during this and watch the style rules get stricken out as new ones come in to take over. This video will demonstrate what happens with the three above media queries when the site is displayed on a smaller screen:
 >
 > ### [NEED VIDEO: FSFO-91 - Overriding styles with media queries](https://trilogyed.atlassian.net/browse/FSFO-91?atlOrigin=eyJpIjoiZTE1NjU1Mjg3ZTE1NDRlNzhiY2U5MjdhMmNhZDljOTUiLCJwIjoiaiJ9)
 
@@ -233,7 +233,7 @@ The order of how we write our media queries matters, not only in how the three a
 
 Now consider what would happen if we placed our media queries at the top of `style.css` and not at the bottom. What do you think would happen then? All of the CSS rules we applied in the media queries that override desktop styles would not be applied because the desktop styles were defined later than the media query styles. Again, this is because of the browser reading a style sheet from top to bottom.
 
-> IMPORTANT: Writing media queries that handle screen sizes going from large to small is a good practice when there is already a site created that looks good on a desktop browser screen. When starting a new site from scratch, however, it is best practice to take a "mobile-first" approach and use `min-width` values instead of `max-width` ones.
+> **Important:** Writing media queries that handle screen sizes going from large to small is a good practice when there is already a site created that looks good on a desktop browser screen. When starting a new site from scratch, however, it is best practice to take a "mobile-first" approach and use `min-width` values instead of `max-width` ones.
 >
 > A "mobile-first" approach means we think about how the site looks like on mobile before anything else. The reason behind this is that it is inherently more difficult to make a site look good on a small screen and much easier on a large screen, so think of how it looks on mobile first and build out those CSS styles. When you are satisfied with how it looks on mobile, then scale it up for tablets and computer screens.
 >
@@ -291,6 +291,8 @@ Do we see an overall theme at this width? Instead of making our layouts run more
 
 Now save your file and refresh the site in your browser, then use Chrome DevTools to set the viewport to just under 980px or simply resize the browser window. It's recommended you use DevTools to get more practice with it, but you can see the results either way!
 
+Since both the `<header>` and `<footer>` elements are flex containers, all we had to do is tell both of their children to be 100% of the width. Because we have `flex-wrap` turned on to wrap overflowing content, it allows both children to get their own row one on top of the other. Only thing we needed to do then is adjust their justification properties to center them on the page and adjust some font sizes and spacing to tighten up the design a bit.
+
 Now let's add some more styles to this media query by including the following:
 
 ```css
@@ -303,7 +305,11 @@ Now let's add some more styles to this media query by including the following:
 }
 ```
 
-Same as before, save and refresh to see the changes in your browser. Notice how the hero section now stacks on top of one another and both child elements run full width now? 
+Same as before, save and refresh to see the changes in your browser. Notice how the hero section now stacks on top of one another and both child elements run full width now?
+
+![The hero section at the 980px query](assets/lesson-4/401-980-hero.jpg)
+
+The hero section of our site got the same treatment as the header and footer by taking the section's flex children and giving them both a width of 100% and centering the text for the "call-to-action" part.
 
 Lastly, let's add a couple of more styles to round out this 980px media query and then we'll walk through exactly what we did for each section:
 
@@ -322,10 +328,6 @@ Lastly, let's add a couple of more styles to round out this 980px media query an
 ```
 
 All right, we've finished our first media query! Let's go through these changes section-by-section:
-
-- **Header/Footer**: Since both the `<header>` and `<footer>` elements are flex containers, all we had to do is tell both of their children to be 100% of the width. Since we have `flex-wrap` turned on to wrap overflowing content, it allows both children to get their own row one on top of the other. Only thing we needed to do then is adjust their justification properties to center them on the page and adjust some font sizes and spacing to tighten up the design a bit.
-
-- **Hero**: The hero section of our site got the same treatment by taking the section's flex children and giving them both a width of 100% and centering the text for the "call-to-action" part.
 
 - **What We Do/What You Do**: These sections will pretty much stay the same for now. We made some adjustments to all of the `.section-titles` to let them be wider on a smaller screen so they don't get too narrow. Since we used the `flex` property to create each step earlier, we don't have to worry about that not scaling well either. We'll adjust how that looks at the 768 pixel breakpoint, but for now it looks good as is.
 
@@ -446,9 +448,49 @@ Once you save the style sheet and refresh the browser, you can now see our page'
 
 > DEEP DIVE: To learn more, [check out the MDN docs for the order property and see how it can be used.](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
 
-The page is now not only responsive, but it is completely mobile-friendly! We've completed what the team at Run Buddy asked us to complete for this feature, so let's cross this issue off our list and merge our working branch's finished code into `develop`! 
+## Merge Feature Branch
 
-Don't forget to add, commit, and push your code up to the `feature/mediaqueries` branch on GitHub as well. It's always good to have backups! 
+The page is now not only responsive, but it is completely mobile-friendly! We've completed what the team at Run Buddy asked us to complete for this feature, so let's cross this issue off our list on GitHub and merge our working branch's finished code into `develop` using the following steps:
+
+1. Make sure your code is committed and pushed using `git add`, `git commit`, and `git push origin feature/mediaqueries`.
+
+```bash
+git add -A
+
+git commit -m "<your commit message>"
+
+git push origin feature/mediaqueries
+```
+
+2. Use `git checkout develop` to move back into the develop branch. If you have uncommitted work, your changed files and code from `feature/mediaqueries` will carry over to develop but will not save it in the `feature/mediaqueries` branch. So make sure you completed the last step first.
+
+```bash
+git checkout develop
+```
+
+3. Double-check that you in fact are in develop by typing in git branch or git status.
+
+```bash
+git branch
+```
+
+4. Now we want to tell git to copy the feature/flexbox branch's code into develop. To do this we need to use a git merge command like this:
+
+```bash
+git merge feature/mediaqueries
+```
+
+The updated code from `feature/mediaqueries` will now be reflected in the `develop` branch. Open the page in a browser and test it!
+
+One last thing we want to do, just to be doubly sure our code is backed up, let's push this `develop` branch up to GitHub as well with these commands and we'll wrap up:
+
+```bash
+git add -A
+
+git commit -m "<your commit message>"
+
+git push origin develop
+```
 
 ## Reflection
 
@@ -458,10 +500,10 @@ Visualizing a web page that looks good across multiple screen sizes is not alway
 
 Let's recap some key concepts:
 
-- A media query is a special CSS tool used to change the style or layout of the site when a condition is met, such as the browser being under or over a specified width.
+- We used media queries, a special CSS tool used to change the style or layout of the site when a condition is met such as the browser being under or over a specified width.
 
-- It is easier to change a layout that is using flexbox as opposed to `float` and `position` since all of the elements getting moved are controlled by those flex containers.
+- We learned that it is easier to change a layout that is using flexbox as opposed to `float` and `position` since all of the elements getting moved are controlled by those flex containers.
 
-- When dealing with complex styles and responsive design, Chrome DevTools can be used to debug and test possible solutions.
+- We used Chrome DevTools to debug and test possible solutions when we dealt with complex styles and responsive design.
 
 At this point, the site _could_ be ready to go into production since it is mobile-friendly and responsive, but the Run Buddy team has sent us an entire new section to add to the site that we'll have to use yet another new CSS layout tool for called **CSS Grid**. This tool introduces layout control that flexbox doesn't support, as it allows us to control both horizontal and vertical axes rather than just one at a time. Let's get to it! 
