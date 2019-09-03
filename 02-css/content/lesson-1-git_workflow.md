@@ -161,7 +161,7 @@ In order to create a secure backup as well as provide a collaborative and commun
 ```
 git push origin <remote-branch-name>
 ```
-Previously we did the Git operation to push file changes into the remote `master` branch in Module 1. The difference here is instead of pushing to the remote `master` branch, we are creating and pushing into a new `develop` branch. We identify the target of the push to the remote branch. This command does two operations: creates a new remote branch and pushes the code from the local active branch into this new remote branch. The word `origin` simply refers the source repository where the cloning originally occurred. Hence the Git command to to create a remote `develop` branch will be:
+Previously we did the Git operation to push file changes into the remote `master` branch in Module 1. The difference here is instead of pushing to the remote `master` branch, we are creating and pushing into a new `develop` branch. We identify the target of the push to the remote branch. This command does two operations: creates a new remote branch and pushes the code from the local active branch into this new remote branch. The word `origin` simply refers the source repository where the cloning originally occurred. Hence the Git command to create a remote `develop` branch will be:
 ```
 git push origin develop
 ```
