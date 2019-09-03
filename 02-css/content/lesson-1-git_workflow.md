@@ -154,7 +154,7 @@ While in our GitHub repo let's take a look at our branches by selecting the bran
 
 ![Github Branches](./assets/lesson-1/190-branches-github.png)
 > **Pause**: Although we see our `master` branch, we don't see the `develop` branch we just created. Can you explain why?
-
+>
 > **Answer**: The `develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on Github.com. This is considered the "remote" repo. As we did in the past module, we will need to `git push` our local changes up to the remote repo in GitHub.
 
 In order to create a secure backup as well as provide a collaborative and communal development branch that team members can use to branch from, let's backup our local `develop` branch by creating a copy in our Github repo by using the following command example:
