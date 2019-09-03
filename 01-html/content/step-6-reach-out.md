@@ -298,7 +298,7 @@ A type selector is a CSS selector, like in this example with `<iframe>`, that se
 
 The design team has requested that the map and contact information containers sit next to each other in a two-column layout. Let's take a peak at this in the mock-up and figure out what to do from there:
 
-![Two Column Layout](./assets/step-6/650-two-column-css.png)
+![Two-Column Layout](./assets/step-6/650-two-column-css.png)
 
 How would you go about doing this? Give it a go on your own.
 
