@@ -167,7 +167,7 @@ Now when we resize our browser window, the `<header>` will collapse onto a secon
 
 The properties we used here (`display: flex`, `justify-content`, and `flex-wrap`) are usually the three most used flexbox properties, and as we can see&mdash;all three of them are added to parent container, the `<header>`. This is the crux of using flexbox for web layouts, let the child elements inherit CSS properties from the parent elements instead of having to worry about each child's needs one at a time.
 
-With these minor edits to the `<header>` we were able to achieve the same layout with easier to understand concepts, which will allow us to make more complex layouts as time goes on. There are still a few changes we want to make to the `nav` element, though, to make it more adaptive to different screen sizes.
+With these minor edits to the `<header>` we were able to achieve the same layout with easier to understand concepts, which will allow us to make more complex layouts as time goes on. There are still a few changes we want to make to the `<nav>` element, though, to make it more adaptive to different screen sizes.
 
 If you are guessing that those changes will involve converting the `<nav>` element to a flexbox as well, then you'd be correct, so let's keep moving!
 
