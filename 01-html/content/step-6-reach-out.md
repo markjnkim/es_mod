@@ -168,8 +168,10 @@ Great! All our content is there, so it's time to apply some CSS styling jazz it 
 
 ## Add Some Class
 
-Now that our markup has been added to our website, its time to flex our CSS skills again. The first step will be to add classes to the HTML elements we wish to target for styling in our style sheet.
-Let's practice some of the skills we have learned in the previous lessons to the markup that has already been provided for us.
+Now that the HTML for this section has been added to our website, its time to flex our CSS skills again. The first step is to add classes to the HTML elements we wish to target for styling in our style sheet.
+
+Let's practice some of the skills we've learned in previous lessons on the HTML that's already in place, beginning with the Reach Out section from Lesson 1:
+
 ```html
 <!-- "reach out" section -->
 <section>
@@ -177,7 +179,9 @@ Let's practice some of the skills we have learned in the previous lessons to the
   ...
 </section>
 ```
-Currently the link in our `nav` element doesn't work. 
+
+Currently, the link in our `nav` element doesn't work:
+
 ```html
 <nav>
   <ul>
@@ -188,12 +192,16 @@ Currently the link in our `nav` element doesn't work.
   </ul>
 </nav>
 ```
-> **Activity**: Add the classes and id's to the `<section>` and `<h2>` tags and the corresponding CSS rules to create the blue background(#024e76), yellow heading font color(#fce138), center alignment, and the id anchor for the link in our `nav` element to look like this: <br />
-![Styling Reach Out Section](./assets/step-6/300-contact-css.png) <br />
-> **Hint**: Look at the markup for the previous sections and headings for a great template for this step. Whenever a similar style pattern starts to emerge, it is important to recognize where code might be repeated and try to assign that class to the element to replicate the styles.
 
-After having spent some time thinking and adding classes to our markup, our section should look something like this.
-> **Solution**:
+Add the classes and id's to the `<section>` and `<h2>` tags and the corresponding CSS rules to create the blue background (`#024e76`), yellow heading font color (`#fce138`), center alignment, and the id anchor for the link in our `nav` element to look like this: 
+
+![Styling the Reach Out Section](./assets/step-6/300-contact-css.png) 
+
+> **Hint**: Look at the HTML for the previous sections and headings for a workable template for this step. Whenever a style pattern starts to emerge, it is important to recognize where code might be repeated and try to assign that class to the element to replicate the styles.
+
+After having spent some time thinking about and adding classes to the HTML, the Reach Out section should look something like this:
+
+
 ```html
 <!-- "reach out" section -->
 <section id="reach-out" class="contact">
@@ -203,7 +211,9 @@ After having spent some time thinking and adding classes to our markup, our sect
 </section>
 ```
 
-> Let's unpack this solution and see if our choices made sense. We created a new class called `contact` for the specific styling needed for this section's blue background color and alignment. The section heading reassigned the class `section-title` because most of the styling needed has been done for us such as the font-size, margin, padding, and even border. Only the font color for the `<h2>` element will need to be reassigned, but that's better than   riting this CSS rule since we will reuse five of the CSS declarations. 
+Let's unpack this solution and see if our choices made sense. We created a new class called `contact` for this section's blue background color and alignment. The section heading reassigned the class `section-title` because most of the styling needed has been done for us, such as the font-size, margin, padding, and even border. Only the font color for the `<h2>` element will need to be reassigned, but that's better than rewriting this CSS rule since we will reuse five of the CSS declarations. 
+
+
 
 ```css
 .section-title {
