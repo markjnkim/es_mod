@@ -762,9 +762,9 @@ Now that all of the style overriding is done, we can turn our attention to creat
 
 ## Create New Styles
 
-We're nearing the finish line! We just need to add a few more styles to the privacy policy page to get it looking like the screenshot at the top of this lesson.
+We're nearing the finish line! We just need to add a few more styles to the Privacy Policy page to get it looking like the mock-up.
 
-Using everything we've learned about CSS, let's tackle the page's title styling first. We will start by defining which selector will be used. The quickest way to do this is to select the element by its class, `page-title`.
+Using everything we've learned about CSS, let's tackle the page's title first. We'll start by defining which selector will be used. The quickest way to do this is to select the element by its class, `page-title`.
 
 Here are some specifications for how it should look:
 
@@ -798,23 +798,23 @@ The result should look like this:
 
 ![Privacy Policy Hero](assets/step-7/600-page-title-css.jpg)
 
-Now do the same thing and add styles to the `secondary-content` class and its child elements using class selectors and nested selectors. Use these specifications:
+Now we'll add styles to the `secondary-content` class and its child elements using class selectors and nested selectors. 
 
-- The styles for `secondary-content` are as follows:
+The styles for `secondary-content` are as follows:
 
-  - Set its `width` to 80%.
+- Set the `width` to 80%.
 
-  - Center it on the page by using `margin`. Think back to how you centered elements before using this property; the values here will be very close if not the same.
+- Center it on the page by using `margin`. Think back to how you centered elements in previous lessons using this property; the values here will be very close if not the same.
 
-  - Set the default font `color` for all text in this `<article>` to have a value of `#024e76`.
+- Set the default font `color` for all text in this `<article>` to have a value of `#024e76`.
 
-- Style the `<h3>` tags in `secondary-content` (use nested selectors to make sure it only applies to these tags and no other `<h3>` tags):
+Style the `<h3>` tags in `secondary-content` (use nested selectors to make sure it only applies to these tags and no other `<h3>` tags):
 
-  - Give it a `font-size` of 25px.
+- Give it a `font-size` of 25px.
 
-  - Set its `margin` to have 20px on the top and bottom, and 0 on the left and right.
+- Set its `margin` to have 20px on the top and bottom, and 0 on the left and right.
 
-- Style the `<p>` tags in `secondary-content` (use nested selectors to target only these `<p>` tags):
+Style the `<p>` tags in `secondary-content` (use nested selectors to target only these `<p>` tags):
 
   - Give it a `font-size` of 16px.
 
@@ -822,15 +822,15 @@ Now do the same thing and add styles to the `secondary-content` class and its ch
 
   - Give it the same `margin` values you gave the `<h3>` tag above.
 
-- Style the `<ul>` tags in `secondary-content`:
+Style the `<ul>` tags in `secondary-content`:
 
-  - Set its `margin` to have 15px on the top and bottom and 20px on the left and right.
+- Set the `margin` to have 15px on the top and bottom and 20px on the left and right.
 
-- Finally, style the `<li>` tags in `secondary-content`:
+Finally, style the `<li>` tags in `secondary-content`:
 
-  - Make them stand out from the rest of the text by giving them a `color` value of `#39a6b2`.
+- Make them stand out from the rest of the text by giving them a `color` value of `#39a6b2`.
 
-  - Give them some space by adding a `margin` of 10px to the top and bottom, and 0 for left and right.
+- Give them some space by adding a `margin` of 10px to the top and bottom, and 0 for left and right.
 
 > **Hint:** Make sure that you save and refresh the page often to track your progress. If any styles you apply accidentally break those in `index.html`, you can adjust how specific the selector is so that it targets only the HTML you want.
 >
