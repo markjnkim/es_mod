@@ -4,13 +4,13 @@
 
 Throughout this project, you've learned how to create and organize webpage content, create custom styles and layouts for that content, and use tools to protect, back up, and publish your work. This final lesson reinforces these concepts and helps you "take off the training wheels" while building a new (simple) page for the Run Buddy website.
 
-The Run Buddy legal department has finalized the privacy policy, so it's time to code the Privacy Policy page for the site. The steps we'll take to do this are as follows:
+The Run Buddy legal department has finalized the privacy policy, so it's time to build the Privacy Policy page for the site. The steps we'll take to do this are as follows:
 
-1. Add a second HTML document to the website and update how the site's pages link to each other using the `<a>` elements.
+1. Add a second HTML document to the website and update how the site's pages link to each other using `<a>` elements.
 
 2. Reuse HTML content via selective copying and pasting.
 
-3. Reuse CSS styles across two HTML documents, but also implement a second style sheet for styles that are specific to the second page. 
+3. Reuse CSS styles across two HTML documents, and also implement a second style sheet for styles that are specific to the second page. 
 
 As usual, we'll start by looking at the mock-up given to us by the design team:
 
