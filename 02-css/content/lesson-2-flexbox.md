@@ -172,8 +172,8 @@ With these minor edits to the `<header>` we were able to achieve the same layout
 If you are guessing that those changes will involve converting the `<nav>` element to a flexbox as well, then you'd be correct, so let's keep moving!
 
 > **Important:** Don't forget to use your git commands to `add` and `commit`, and `push` your work to this `feature/flexbox` feature branch!
-
-> **Hint:** If you forget which branch you're in, type `git branch` in the command line!
+>
+> Hint: If you forget which branch you're in, type `git branch` in the command line!
 
 ## Flexing the Navigation
 
@@ -295,7 +295,7 @@ Thinking about it in terms of a flexbox layout, we would have a "row" with two "
 
 When building layouts using HTML and CSS, it is important to understand what the content of the layout is going to be, but it is a more important skill to understand how to take the mock-up of the layout and understand how all of this content can be placed in containers and laid out to match it.
 
-In the outlined mock-up above, we can see a rough example of how the hero section of our site can be laid out on the overall page. We don't even need to worry about what is happening in each of those boxes with white outlines, all we need to do is worry about the boxes themselves. Think of it as us creating a game plan for what we want to do before we do it so we can visualize our problem and stay on track.
+In the outlined mock-up above, we can see a rough example of how the hero section of our site can be laid out on the overall page. We don't even need to worry about what is happening in each of those boxes with purple outlines, all we need to do is worry about the boxes themselves. Think of it as us creating a game plan for what we want to do before we do it so we can visualize our problem and stay on track.
 
 > **Urkel Says:** The practice of sketching the outline of a page's layout is called "wireframing" and it is used throughout all of web development.
 
@@ -350,11 +350,11 @@ Next we want to adjust our `.hero-form` CSS rule to have these two declarations:
 
 - `margin: 3.5%;`
 
-Notice how we used percentage values for the margins and widths this time around? Since margins and padding are usually done in very small amounts like 10 pixels, it's usually okay to not make their lengths relative to the size of the parent container or page. We used it here in this case more just to show how it can work in the overall flow of this section. You'll find throughout your career that picking values for most sizing and spacing properties is going to involve a good amount of trial and error, this is why we use Chrome DevTools to adjust values until we think they will work!
+Notice how we used percentage values for the margins and widths this time around? Since margins and padding are usually done in very small amounts like 10 pixels, it's usually okay to not make their lengths relative to the size of the parent container or page. We used it here in this case more just to show how it can work in the overall flow of this section.
 
 > **Pro Tip:** Picking a unit of measurement to use in CSS can sometimes be a daunting task that causes us to constantly second guess our choice. All of these units of measurement exist for a reason and while some may work better than others in certain cases, there really is no such thing as a "wrong" decision, as we can achieve similar&mdash;if not the same&mdash;results with any mix of these units.
 >
-> This is why it is important to experiment with these different units of measurement and see what pattern works for you. A lot of developers will have an opinion on what they think is superior, but the most important opinion is your own since you are the one building the page. Over time these decisions will become much easier to make, but only if you practice!
+> This is why it is important to experiment with these different units of measurement and see what pattern works for you using tools like Chrome DevTools. A lot of developers will have an opinion on what they think is superior, but the most important opinion is your own since you are the one building the page. Over time these decisions will become much easier to make, but only if you practice!
 
 The hero isn't 100% mobile-ready just yet as it doesn't break down onto the next line as nicely as our other flexboxes have done so far, but this isn't a problem. We'll tackle that in a future lesson when we handle all of our mobile styles at once.
 
@@ -620,7 +620,7 @@ One last thing we need to do is tell the `<img>` element to limit its width to b
 }
 ```
 
-Again, we just fixed a problem that probably did not occur on any of our machines if we are using Google Chrome, but it is a good practice to stay ahead of any browser quirks. You never know where the site's user is from or how Internet-savvy they are, so it is part of our job to never let them come across any issues like that just because they are on an older browser.
+Again, we just fixed a problem that probably did not occur on any of our machines if we are using Google Chrome, but it is a good practice to stay ahead of any browser quirks. You never know where the site's user is from or how Internet-savvy they are, so it is part of our job to never let them come across any issues like that just because they are on a different browser than you.
 
 The layout for each step should be in pretty good shape now, let's finish up with something easier and apply styles to our step's text content. We can start by updating our `.step p` CSS rule:
 
@@ -781,40 +781,40 @@ Once that's set up in this order, wrap the three elements with a `<div>` that ha
 
 ```html
 <div class="contact-info">
-<div>
-  <h3>Run Buddy</h3>
-  <p>
-    Any questions or concerns before signing up?
-    <br />
-    Let us know and we'll be happy to talk to you!
-  </p>
+  <div>
+    <h3>Run Buddy</h3>
+    <p>
+      Any questions or concerns before signing up?
+      <br />
+      Let us know and we'll be happy to talk to you!
+    </p>
 
-  <address>
-    55 Main Street <br />
-    Some Town, Ca <br />
-    12345 <br />
-    P: <a href="tel:555.786.2839">555.RUN.BUDZ (555.786.2839)</a><br />
-    E: <a href="mailto://info@runbuddy.io">info@runbuddy.io</a>
-  </address>
+    <address>
+      55 Main Street <br />
+      Some Town, Ca <br />
+      12345 <br />
+      P: <a href="tel:555.786.2839">555.RUN.BUDZ (555.786.2839)</a><br />
+      E: <a href="mailto://info@runbuddy.io">info@runbuddy.io</a>
+    </address>
 
-</div>
+  </div>
 
-<div class="contact-form">
-  <h3>Contact Us</h3>
-  <form>
-    <label for="contact-name">Your Name</label>
-    <input type="text" id="contact-name" placeholder="Your Name" />
+  <div class="contact-form">
+    <h3>Contact Us</h3>
+    <form>
+      <label for="contact-name">Your Name</label>
+      <input type="text" id="contact-name" placeholder="Your Name" />
 
-    <label for="contact-message">Message</label>
-    <textarea id="contact-message" placeholder="Message"></textarea>
+      <label for="contact-message">Message</label>
+      <textarea id="contact-message" placeholder="Message"></textarea>
 
-    <button type="submit">Submit</button>
-  </form>
-</div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 
-<iframe
-  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12182.30520634488!2d-74.0652613!3d40.2407219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1561060983193!5m2!1sen!2sus"
-  frameborder="0" style="border:0" allowfullscreen></iframe>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12182.30520634488!2d-74.0652613!3d40.2407219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1561060983193!5m2!1sen!2sus"
+    frameborder="0" style="border:0" allowfullscreen></iframe>
 
 </div>
 ```
@@ -837,16 +837,6 @@ Now that we've stripped some breaking style declarations, we can add our flexbox
 
 - `flex-wrap: wrap;`
 
-It should now look like this:
-
-```css
-.contact-info {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-```
-
 Last thing we need to do for the flexbox layout is have all three child elements share the space as equally as possible. If you recall, we did that just a little while ago in the trainer section by giving them all a `flex: 1` style declaration. Now our three elements don't all share a common element name or even class, so how do we select all three of them at once to make this easier?
 
 Well we could go back to the HTML and give them all a class, or we could skip that and select all of them with a familiar selector used in a different context:
@@ -858,9 +848,9 @@ Well we could go back to the HTML and give them all a class, or we could skip th
 }
 ```
 
-Do you remember what the `*` selector did? What about the `>` syntax?
+Do you remember what the `*` selector did? Also, what's with this new `>` syntax?
 
-> **Hint:** We're still using it at the very top of the `style.css` file
+> **Hint:** We're still using `*` at the very top of the `style.css` file
 
 That is the symbol we use to select all HTML elements, so how is it being used in this context? This is saying "select all elements that are direct children of anything with a class of `contact-info`." The `>` symbol means it is looking specifically for direct children of the element listed first, in this case it is selecting all children of the element with `contact-info` as its class.
 
