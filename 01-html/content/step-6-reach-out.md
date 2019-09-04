@@ -42,15 +42,7 @@ Let's place the `<iframe>` inside the **contact container**. In our case, we'll 
 
 Follow these steps to retrieve an `<iframe>` for our address:
 
-> **Video Walkthrough**: For the following steps:
-
-1. Enter your address in the search box at [Google Maps.](https://www.google.com/maps)
-2. Click the Share icon.
-3. Choose the Embed tab
-4. Click the COPY HTML link to copy the `<iframe>` element.
-5. Paste the `<iframe>` element into the `contact-info` container.
-
-![google-map](./assets/step-6/500-google-map-html.png)
+ > **Video:** [Google Map Iframe - Jira FSFO-134](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-134)
 
 The HTML for the map should look like this:
 
