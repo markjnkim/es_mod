@@ -442,17 +442,7 @@ This will shrink the font size of the `<span>` while the adjacent text in the `<
 
 ![see results](./assets/step-4/700-see-results.png)
 
-> **Check Point:**
-
->What is the purpose of the `alt` attribute for images?\
-**Answer:** Alt attributes provide context for the image, particularly for screen readers.
->
->How can you add more than one class to an HTML element?\
-**Answer:** Add a space between the class names (e.g., `class="one two"`).
->
->What are two ways you could center a 50%-width `<div>` using CSS?\
-**Answer:** Add `text-align: center` to the parent or margin, or add `0 auto` to the \<div\> you want centered.
-
+> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-145>
 
 # Reflection
 
