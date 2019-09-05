@@ -76,12 +76,12 @@ Now add a height and width attribute to enable Google Maps' interactive controls
 
  Let's unpack the attributes for the `<iframe>` and review some of the other options available:
 
-- **`src`**: This is the most important attribute, because without it, nothing will render. The `src` value is a URL path linking to the external website content that will be embedded. This should be familiar because it's the same attribute used in the `img` element.
+- **`src`**: This is the most important attribute, because without it, nothing will render. The `src` value is a URL path linking to the external website content that will be embedded. This should be familiar because it's the same attribute used in the `<img>` element.
 - **`frameborder`**: By default, the browser will render an `<iframe>` element with a thin border. This attribute allows us to override that, effectively removing the border.
 - **`style`**: This is an inline style to set no border, for newer browsers.
 - **`allowfullscreen`**: Some attributes are properties that can be turned on by simply adding the attribute. The `allowfullscreen` attribute offers a link to view the map on a new page in full-screen mode. Notice how `allowfullscreen` doesn't have any value assignment. Another popular attribute that doesn't have a value assignment is `checked` for a `checkbox` input element.
 
-> **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers, so we will use the `border` property from CSS to declare this property. We wouldn't typically worry about old-browser support, but Google likes to cover all its bases and we want Google to like our website. Like any technology, browsers have changed over time. Browser enhancements, such as tabbed browsing and phishing filters, have improved user experiences, but certain properties were deprecated or no longer supported in favor of offloading the work onto new technologies like CSS. For more information, see [Wikipedia on  browser histories and the browser wars](https://en.wikipedia.org/wiki/Browser_wars).
+> **Legacy Lem**: `frameborder` is no longer supported by HTML5 and new browsers, so we will use the `border` property from CSS to declare this property. We wouldn't typically worry about old-browser support, but Google likes to cover all its bases since they have a global reach of billions of visitors each day. Like any technology, browsers have changed over time. Browser enhancements, such as [tabbed browsing](https://en.wikipedia.org/wiki/Tab_(interface)) and [phishing filters](https://en.wikipedia.org/wiki/Phishing), have improved user experiences, but certain properties were deprecated or no longer supported in favor of offloading the work onto new technologies like CSS. For more information, see [Wikipedia on  browser histories and the browser wars](https://en.wikipedia.org/wiki/Browser_wars).
 
 Let's take a look at our page now and see what the `<iframe>` looks like: 
 
@@ -265,7 +265,7 @@ We can use CSS to declare the height and width of the `<iframe>`. Please remove 
 
 >**Pause**: What are a few reasons why inline styling is considered a bad practice?
 
->**Answer**: Principle of single responsibility is a doctrine in computer science for best practice design patterns that in this case would suggest that styling should be in the style sheet and HTML should be left for purely HTML markup purposes. This way if a style needs to be changed, we would go to the style sheets and not in the markup. Also note that reassignment of a CSS property isn't possible for inline styling since external style sheet references are over written by embedded and then inline styles respectively.
+>**Answer**: Principle of single responsibility is a doctrine in computer science for best practice [design patterns](https://en.wikipedia.org/wiki/Software_design_pattern) that in this case would suggest that styling should be in the style sheet and HTML should be left for purely HTML markup purposes. This way, if a style needs to be changed, we would go to the style sheets and not the markup. Also note that reassignment of a CSS property isn't possible for inline styling since external style sheet references are overwritten inline styles.
 
 In this next styling step we will give the `<iframe>` a height and width. Please add this rule to the style sheet. 
 
