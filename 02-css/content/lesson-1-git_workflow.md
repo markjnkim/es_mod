@@ -208,7 +208,8 @@ You should see the following screen after a successful `pull`.
 
 >SHIFT + Z + Z
 
-> **Deep Dive**: To learn more about this powerful text editor, check out [this Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
+> **Deep Dive**: To learn more about this powerful text editor, check out [this Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)).
+
 
 This will bring you back to your terminal window which should then display the success response.
 
