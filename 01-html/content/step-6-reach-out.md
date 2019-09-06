@@ -70,7 +70,7 @@ Now add a height and width attribute to enable Google Maps' interactive controls
   ></iframe>
   ```
 
-> **Important:** We had to manually add the height and width attributes in the `<iframe>` to render a larger image capable of testing interactivity because the default sizing was too small to enable controls.
+> **Important:** We manually added the height and width attributes to the `<iframe>` in order to render a larger map that would allow us to test user interactivity; the default size was too small to enable controls.
 
 Let's unpack the attributes for the `<iframe>`:
 
@@ -202,7 +202,7 @@ After having spent some time thinking about and adding classes to the HTML, the 
 </section>
 ```
 
-Let's unpack this solution and see if our choices made sense. We created a new class called `contact` for this section's blue background color and alignment. The section heading reassigned the class `section-title` because most of the styling needed has been done for us, such as the font-size, margin, padding, and even border. Only the font color for the `<h2>` element will need to be reassigned, but that's better than rewriting this CSS rule since we will reuse five of the CSS declarations. 
+Let's unpack this solution and see if our choices made sense. We created a new class called `contact` for this section's blue background color and alignment. The section heading reassigned the class `section-title` because most of the needed styling was already done there, including font-size, margin, padding, and border. Only the font color (for the `<h2>` element) needed to be reassigned, which is way better than needing to rewrite the entire CSS rule. 
 
 ```css
 .section-title {
@@ -260,7 +260,7 @@ We can use CSS to declare the height and width of the `<iframe>`. Please remove 
 
 >**Pause:** Why is inline styling considered a bad practice?
 
->**Answer:** The Principle of Single Responsibility is a doctrine in computer science for best practice [design patterns](https://en.wikipedia.org/wiki/Software_design_pattern) that in this case would suggest that styling should be in the style sheet and the HTML should be reserved entirely for HTML markup purposes. This way, if a style needs to be changed, we would go to the style sheets and not the HTML. Also note that reassignment of a CSS property isn't possible with inline styling because external style sheet references are overwritten by inline styles.
+>**Answer:** The Principle of Single Responsibility is a doctrine in computer science for best practice [design patterns](https://en.wikipedia.org/wiki/Software_design_pattern) that (in this case) would suggest that styling should be contained to the style sheet and the HTML file reserved entirely for HTML markup purposes. This way, if a style needs to be changed, we would go to the style sheets and not the HTML. Also note that reassignment of a CSS property isn't possible with inline styling because external style sheet references are overwritten by inline styles.
 
 In this next styling step, we'll give the `<iframe>` a height and width.  
 
@@ -358,7 +358,7 @@ Congrats! You have completed the landing page and created a professional layout.
 
 ## Reflection
 
-Nice job! In this lesson, you continued to build on your HTML and CSS skills by creating new content and tackling more advanced HTML elements like building an interactive map and implementing a multi-column layout. 
+Nice job! In this lesson, you continued to build on your HTML and CSS skills by creating new content and tackling more advanced HTML elements like building an interactive map and implementing a multi-column layout. Modern websites demand interesting ways to deliver content. The skills you learned today will allow you to deliver that in your career as a web developer. 
 
 Let's recap some of the highlights from this lesson:
 
@@ -368,9 +368,7 @@ Let's recap some of the highlights from this lesson:
 
 * We created a multi-column layout by creating container elements to a set width and declaring the `display: inline-block;`. 
 
-* We implemented a unique HTML element called an `<iframe>` which allows nested browser content from another HTML page to be embedded into the current one. This offers user interactivity and interoperability with another website, and adds rich visual features without needing to write a lot of code.
-
-Modern websites demand interesting ways to deliver content. The skills you learned in today's lesson allow you to do this. You provided user interactivity and interoperability between websites, and created rich visual features without adding a lot of code. You are already becoming well-equipped to succeed as a full-stack developer! 
+* We implemented a unique HTML element called an `<iframe>` which allows nested browser content from another HTML page to be embedded into the current one. This offers user interactivity and interoperability with another website, and adds rich visual features without needing to write a lot of code. 
 
 In the next lesson, you'll get a chance to add a page to the site when we create Run Buddy's Privacy Policy page.
 
