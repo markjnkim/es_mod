@@ -11,7 +11,7 @@ In this lesson we will introduce three main concepts.
 * Interacting with Github which will house the project's codebase.
 * Learning Git workflow to manage development work and update the production environment.
 
-> **Career Prep**: Git is the industry standard for developers. Employer-ready students must demonstrate a solid familiarity with Git version control.
+> **Career Prep:** Git is the industry standard for developers. Employer-ready students must demonstrate a solid familiarity with Git version control.
 
 ## Development vs Production
 Git allows developers to create versions of the codebase to create new features or fix bugs. These versions are referred to as branches in Git. In our case we would like to have one version that is deployed which will continue to serve our website visitors and another version of the codebase to work on in isolation that will allow us to edit and change the code without worrying about disrupting the website for users. This is done by making a branch from the `master` branch. This new branch will become our development environment which we will call the `develop` branch. We will work on the code in our `develop` branch while our `master` branch will become the production environment which is the public live version of our project. Development environments are not exposed to the public whereas production environments are. As a rule, a live version or the production environment should never be worked on directly since any bugs or errors will be apparent to the users. Git offers a technique to isolate versions of the code for development and testing with branching. 
