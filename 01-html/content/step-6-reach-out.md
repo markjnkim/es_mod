@@ -205,7 +205,7 @@ After having spent some time thinking about and adding classes to the HTML, the 
 </section>
 ```
 
-Let's unpack this solution and see if our choices made sense. We created a new class called `contact` for this section's blue background color and alignment. The section heading reassigned the class `section-title` because most of the styling needed has been done for us, such as the font-size, margin, padding, and even border. Only the font color for the `<h2>` element will need to be reassigned, but that's better than rewriting this CSS rule since we will reuse five of the CSS declarations. 
+Let's unpack this solution and see if our choices made sense. We created a new class called `contact` for this section's blue background color and alignment. The section heading reassigned the class `section-title` because most of the styling needed has been done for us, such as the font-size, margin, padding, and border. Only the font color for the `<h2>` element will need to be reassigned, but that's better than rewriting this CSS rule since we will reuse four of the CSS declarations. 
 
 
 
