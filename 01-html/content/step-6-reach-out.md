@@ -190,7 +190,7 @@ Add the classes and id's to the `<section>` and `<h2>` tags and the correspondin
 
 > **Hint:** Look at the HTML for the previous sections and headings for a workable template for this step. Whenever a style pattern starts to emerge, it is important to recognize where code might be repeated and try to assign that class to the element to replicate the styles.
 
-After having spent some time thinking about and adding classes to the HTML, the Reach Out section should look something like this:
+After having spent some time adding classes to the HTML, the Reach Out section should now look something like this:
 
 
 ```html
@@ -202,7 +202,7 @@ After having spent some time thinking about and adding classes to the HTML, the 
 </section>
 ```
 
-Let's unpack this solution and see if our choices made sense. We created a new class called `contact` for this section's blue background color and alignment. The section heading reassigned the class `section-title` because most of the needed styling was already done there, including font-size, margin, padding, and border. Only the font color (for the `<h2>` element) needed to be reassigned, which is way better than needing to rewrite the entire CSS rule. 
+Let's unpack this solution and see if our choices made sense. We created a new class called `contact` for this section's blue background color and alignment. The section heading was reassigned the class `section-title` because most of the needed styling was already done there, including font-size, margin, padding, and border. Only the font color needed to be changed, which is way better than needing to rewrite the entire CSS rule. 
 
 ```css
 .section-title {
@@ -316,11 +316,11 @@ Another important property used here is the `vertical-align` property.
 
 > **Answer:** Because the content of this `<div>` naturally rests at the bottom of the container, we need the `vertical-align` property to lift this content up to the top. In conjunction with the `text-align` property, this allows the contact information to begin at the top of the `<div>` and start aligned from the left for an easy-to-read layout.
 
-Let's take a break to see how our code is rendering in the browser. Also, it's a good time to `add` and `commit` because you just made a big leap in progress.
+Let's take a break to see how our code is rendering in the browser. Also, now is a good time to `add` and `commit` because you just made a big leap in progress.
 
 In the following CSS rules, let's refer to the mock-up and see what our following steps must be. Looks like we will be applying some font color (`#fce138`) and size to the `<h3>`, adding spacing, line height, and font size to our contact info content, and changing the link color to yellow (`#fce138`). 
 
-Try out the spacing and coloring in Chrome's DevTools as a great way to try out different combinations. Use the CSS box model to add some pixels to the different layers for each element to see what looks best. 
+Try out the spacing and coloring in Chrome's DevTools as a great way to try out different combinations. Use the CSS Box Model to add some pixels to the different layers for each element to see what looks best. 
 
 Remember that the CSS Box Model is in the Styles panel in DevTools, as shown here:
 
@@ -358,7 +358,7 @@ Congrats! You have completed the landing page and created a professional layout.
 
 ## Reflection
 
-Nice job! In this lesson, you continued to build on your HTML and CSS skills by creating new content and tackling more advanced HTML elements like building an interactive map and implementing a multi-column layout. Modern websites demand interesting ways to deliver content. The skills you learned today will allow you to deliver that in your career as a web developer. 
+Modern websites demand interesting ways to deliver content. The skills you learned today will allow you to deliver that in your career as a web developer. You continued to build on your skills by tackling more advanced HTML elements, including building an interactive map and implementing a multi-column layout. Nice job! 
 
 Let's recap some of the highlights from this lesson:
 
@@ -370,7 +370,7 @@ Let's recap some of the highlights from this lesson:
 
 * We implemented a unique HTML element called an `<iframe>` which allows nested browser content from another HTML page to be embedded into the current one. This offers user interactivity and interoperability with another website, and adds rich visual features without needing to write a lot of code. 
 
-In the next lesson, you'll get a chance to add a page to the site when we create Run Buddy's Privacy Policy page.
+In the next lesson, we'll get a chance to add a page to the site when we create Run Buddy's Privacy Policy page.
 
 ---
 
