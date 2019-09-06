@@ -320,9 +320,9 @@ Let's take a break to see how our code is rendering in the browser. Also, now is
 
 In the following CSS rules, let's refer to the mock-up and see what our following steps must be. Looks like we will be applying some font color (`#fce138`) and size to the `<h3>`, adding spacing, line height, and font size to our contact info content, and changing the link color to yellow (`#fce138`). 
 
-Try out the spacing and coloring in Chrome's DevTools as a great way to try out different combinations. Use the CSS Box Model to add some pixels to the different layers for each element to see what looks best. 
+Try out the spacing and coloring in Chrome's DevTools as a great way to try out different combinations. Use the CSS box model to add some pixels to the different layers for each element to see what looks best. 
 
-Remember that the CSS Box Model is in the Styles panel in DevTools, as shown here:
+Remember that the CSS box model is in the Styles panel in DevTools, as shown here:
 
 ![DevTools-CSS-box-model](./assets/step-6/700-DevTools-css.png)
 
