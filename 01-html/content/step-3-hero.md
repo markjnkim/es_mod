@@ -64,7 +64,7 @@ Go ahead and add a `<div>` element to `index.html`. That section of the file sho
 </section>
 ```
 
-> **Heads Up:** The browser doesn't care if lines are indented or if every element is on the same line.  Nonetheless, indentation is an organizational practice that helps you and other developers read and understand the code, and is a great habit to get into. 
+> **Important:** The browser doesn't care if lines are indented or if every element is on the same line.  Nonetheless, indentation is an organizational practice that helps you and other developers read and understand the code, and is a great habit to get into. 
 
 Now that we have a `<div>` element, let's insert its child elements, including a heading for this section and some text. 
 
