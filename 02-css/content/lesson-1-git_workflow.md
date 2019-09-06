@@ -74,7 +74,7 @@ Now that we have learned an important use of Git's branches to create an isolate
 
 Features are significant additions or changes to the codebase. For instance adding a header, footer, or section could be considered a feature. A feature is normally developed in its own branch called a `feature` branch.
 
-> **Video**: [Why working in isolation is important- Jira FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) 
+> **Video:** [Why working in isolation is important- Jira FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) 
 
 Previously we used a `develop` branch to create a local development environment to protect and isolate our production environment from our code changes. In this step, we will branch from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
 
