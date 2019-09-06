@@ -71,7 +71,7 @@ Now add a height and width attribute to enable Google Maps' interactive controls
   ```
 
 
-> **Heads Up**: We had to manually add the height and width attributes in the `<iframe>` to render a larger image capable of testing interactivity because the default sizing was too small to enable controls.
+> **Important**: We had to manually add the height and width attributes in the `<iframe>` to render a larger image capable of testing interactivity because the default sizing was too small to enable controls.
 
 
  Let's unpack the attributes for the `<iframe>` and review some of the other options available:
@@ -174,7 +174,7 @@ Let's practice some of the skills we've learned in previous lessons on the HTML 
 </section>
 ```
 
-Currently, the link in our `nav` element doesn't work:
+Currently, the link in our `nav` element doesn't work so let's fix it:
 
 ```html
 <nav>
@@ -187,7 +187,7 @@ Currently, the link in our `nav` element doesn't work:
 </nav>
 ```
 
-Add the classes and id's to the `<section>` and `<h2>` tags and the corresponding CSS rules to create the blue background (`#024e76`), yellow heading font color (`#fce138`), center alignment, and the id anchor for the link in our `nav` element to look like this: 
+Add the classes and id's to the `<section>` and `<h2>` tags and the corresponding CSS rules to create the blue background (`#024e76`), yellow heading font color (`#fce138`), center alignment, and the id anchor for the link in our `<nav>` element to look like this: 
 
 ![Styling the Reach Out Section](./assets/step-6/300-contact-css.png) 
 
