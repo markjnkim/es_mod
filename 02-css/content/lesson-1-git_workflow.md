@@ -208,7 +208,7 @@ You should see the following screen after a successful `pull`.
 
 >SHIFT + Z + Z
 
-> **Deep Dive**: To learn more about this powerful text editor, check out [this Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)).
+> **Deep Dive:** To learn more about this powerful text editor, check out [this Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)).
 
 
 This will bring you back to your terminal window which should then display the success response.
@@ -216,7 +216,7 @@ This will bring you back to your terminal window which should then display the s
 ![pull-success](assets/lesson-1/300-pull-success-git.png)
 
 As can be seen from our success response in the terminal, the `README.md` file has added 14 new lines.
-> **Video**: Animation - [Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
+> **Video:** Animation - [Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
 The next lines display what files were changed and how many lines were added in green "+" or removed in red"-". We only have additions hence no red "-".
 
 One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, VS Code has an Explorer side panel that will display an updated folder tree that shows the folder hierarchy including the subdirectories and files contained in each folder. If you do not see this side panel, open it by going to the menu bar under View > Explorer
@@ -239,10 +239,10 @@ Let's dive a bit deeper in the `pull` command:
 git pull origin master
 ```
 The `pull` command directs the download process to occur. The `origin` and `master` designate the source of the download or `pull`. The `origin` describes the remote in other words, the GitHub repo, and `master` designates the branch or version in the remote repo we would like to `pull` from or download. Please note if the `<branch-name>` that is being pulled, does not exist on the remote repo, the `pull` process will error and not occur.
-> **Pause**: Wait, but how does the `pull` command know where the download will to go to?
+> **Pause:** Wait, but how does the `pull` command know where the download will to go to?
 any thoughts? guesses?
 >
-> **Answer**: `git pull` will download to the current active branch. That's why it's always a good idea to use a `git branch` to verify the active branch before doing a `git pull`.
+> **Answer:** `git pull` will download to the current active branch. That's why it's always a good idea to use a `git branch` to verify the active branch before doing a `git pull`.
 
 > **Video -** Animation: Showing Data Flow [Git Pull & Git Push-Jira FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
 ![Git Pull](assets/lesson-1/250-pull-git.png)<!-- Illustration lacks direction-->
@@ -435,8 +435,8 @@ Congratulations on completing your first Git issue. Please note this screen is t
 Take a look at [GitHub's help documents for an expansive view of how Git issues](https://help.github.com/en/articles/managing-your-work-with-issues) can further assist in project management.
 
 Now that we understand how to make a Git issue, let's create another one for another HTML addition we have been assigned from the sales department. They would like a form for users to submit questions directly to the sales staff in the Reach Out section.
-> **Activity**: Please create a new Git issue for this new feature.
-> **Solution**: The finished issue should look something like this:
+> **Activity:** Please create a new Git issue for this new feature.
+> **Solution:** The finished issue should look something like this:
 ```markdown
 # Contact Form for Reach Out Section
 
@@ -502,10 +502,10 @@ Let's take a quick look at the Git Issue and the mock-up from the design team to
 
 ![Git Issue Text Block Requirements](assets/lesson-1/1000-text-block-issue.png)
 
-> **Activity**: Practice your HTML skills by fulfilling the Git issue requirements and following the mock-up for guidance.
+> **Activity:** Practice your HTML skills by fulfilling the Git issue requirements and following the mock-up for guidance.
 
 >
-> **Solution**: The markup should look like this:
+> **Solution:** The markup should look like this:
 ```html
    <div class="hero-cta">
     <h2>Start Building Habits.</h2>
@@ -521,9 +521,9 @@ Let's take a quick look at the Git Issue and the mock-up from the design team to
 Please save and render so your browser should look like this:
 ![Hero Text Display](assets/lesson-1/1100-hero-text-markup-html.png)
 
-> **Pause**: Notice how the text over runs into the sign up form. Why does this occur?
+> **Pause:** Notice how the text over runs into the sign up form. Why does this occur?
 >
-> **Answer**: The sign-up form was declared with absolute position so it is removed from the document flow. This allows the text block to overlap with the sign-up form. We will fix this in the next section when adding the CSS styling. 
+> **Answer:** The sign-up form was declared with absolute position so it is removed from the document flow. This allows the text block to overlap with the sign-up form. We will fix this in the next section when adding the CSS styling. 
 
 One more thing, the design team want the hero image to rotate horizontally to flip the image of the person lacing up their shoes to the right side of the page to improve the legibility of the text. We will do this by replacing the current image with a flipped version.
 1) Download the image: **Image download** from Canvas/AWS [flipped-hero-image](assets/lesson-1/400-hero-flip-css.jpg)
@@ -551,7 +551,7 @@ First, let's perform the Git operation to make `develop` the active branch.
 git checkout develop
 ```
 In VS Code, let's look at the hero section in the `index.html` file. Note that the new markup we just added is not visible here. The new markup only exists on the feature branch, `feature/hero-text`. In order to add the new code into the `develop` branch we will need to perform a `merge` operation. Let's continue with that step now.
-> **Pro Tip**: It must be reiterated that branch awareness is often overlooked by new developers so keep track by using the `git branch` command prior to merge, pull, or developing features. Using the integrated terminal in VS Code is highly recommended due to the status bar notification of the active branch.
+> **Pro Tip:** It must be reiterated that branch awareness is often overlooked by new developers so keep track by using the `git branch` command prior to merge, pull, or developing features. Using the integrated terminal in VS Code is highly recommended due to the status bar notification of the active branch.
 ```
 git merge feature/hero-text
 ```
@@ -560,7 +560,7 @@ Upon successful merging, the terminal should look like this:
 This should look familiar to our `git pull` operation we executed earlier in the lesson since we also performed a `git merge` operation then as well.
 Excellent, now `develop` is updated with our new markup and has remained a stable codebase throughout. 
 Now let's move onto the second issue and tackle the contact form feature.
-> **Activity**: Let's follow the same procedure as we did for the `feature/hero-text` issue. 
+> **Activity:** Let's follow the same procedure as we did for the `feature/hero-text` issue. 
 >* Set up the feature development environment
 >* Add the HTML according to the requirements
 >* Verify changes were successful in the browser
@@ -571,9 +571,9 @@ Now let's move onto the second issue and tackle the contact form feature.
 Here is the design team's mock-up and requirements:
 ![contact-form](assets/lesson-1/1400-Reach-Out-mock-up.png)
 ![contact-form-issue](assets/lesson-1/1500-contact-us-requirement-issue.png)
-> **Step 1**: Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters like the size of the rendered input field, maximum character length, and if it is a required input in order to submit. This and many more attributes can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) for a more detailed look at the attributes.
+> **Step 1:** Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters like the size of the rendered input field, maximum character length, and if it is a required input in order to submit. This and many more attributes can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) for a more detailed look at the attributes.
 >
-> **Step 2**: markup
+> **Step 2:** markup
 ```html
     <div class="contact-form">
      <h3>Contact Us</h3>
@@ -588,12 +588,12 @@ Here is the design team's mock-up and requirements:
      </form>
     </div>
 ```
-> **Step 3**: Follow the same steps for the `hero-text` feature above.
+> **Step 3:** Follow the same steps for the `hero-text` feature above.
 >
-> **Step 4***: Once the markup has been inserted into the Reach Out section, add, commit and push the `feature/contact-form` into the remote repo.
+> **Step 4:** Once the markup has been inserted into the Reach Out section, add, commit and push the `feature/contact-form` into the remote repo.
 `git push origin feature/contact-form`
 >
-> **Step 5**: Don't forget to check your active branch before the merging the feature into the develop branch.
+> **Step 5:** Don't forget to check your active branch before the merging the feature into the develop branch.
 
 Now let's check to see if our contact form has been correctly added to the `develop` branch.
 First `checkout` into the `develop` branch and then render in the browser.
@@ -608,14 +608,14 @@ git checkout develop
 git push origin develop
 ```
 
-> **Pause**: Now that our two feature branches have been completed and merged back into the `develop` branch what is left to do with our issues?
+> **Pause:** Now that our two feature branches have been completed and merged back into the `develop` branch what is left to do with our issues?
 >
-> **Hint**: Since the issues have been resolved, how do we change their status?>
-> **Answer**: Let's go to the Issues tab in our Github repo and mark the issues as closed by clicking on the Close Issue button. This will remove the issue from our list of todos.
+> **Hint:** Since the issues have been resolved, how do we change their status?>
+> **Answer:** Let's go to the Issues tab in our Github repo and mark the issues as closed by clicking on the Close Issue button. This will remove the issue from our list of todos.
 <!-- ## Red Outline for Close Issue Button -->
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
 
-> **Checkpoint**: [Learnosity - Jira 119](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-119)
+> **Checkpoint:** [Learnosity - Jira 119](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-119)
 
 
 ## Reflection
