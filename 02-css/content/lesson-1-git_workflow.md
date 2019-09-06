@@ -136,7 +136,7 @@ To check to see if this `README.md` file was created properly, see if the `READM
 While in our GitHub repo let's take a look at our branches by selecting the branch tab. 
 
 ![Github Branches](./assets/lesson-1/190-branches-github.png)
-> **Pause**: Although we see our `master` branch, we don't see the `develop` branch we just created. Can you explain why?
+> **Pause:** Although we see our `master` branch, we don't see the `develop` branch we just created. Can you explain why?
 >
 > **Answer**: The `develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on Github.com. This is considered the "remote" repo. As we did in the past module, we will need to `git push` our local changes up to the remote repo in GitHub.
 
