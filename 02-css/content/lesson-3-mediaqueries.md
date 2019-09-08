@@ -1,4 +1,4 @@
-# Going Mobile
+# Lesson 3: Going Mobile
 
 ## Introduction
 
@@ -10,13 +10,13 @@ This request is a very common one in modern web development. As a matter of fact
 
 Since Run Buddy came to us with a smaller budget when we worked on the first version of the site, this type of approach wasn't really a priority to them. Now that the first iteration of the site is a success, they have the budget to do so, but we'll be taking an opposite approach by taking the site from it's desktop layout and translating it to smaller devices.
 
-**Responsive Web Design** (RWD) is a web development concept that focuses on making sure a web site looks and behaves optimally across all devices and screen sizes. It is a concept that has taken over frontend web development over the past ten years, stemming from increased web site consumption coming from devices like mobile phones and tablets rather than laptop and desktop computers.
+**Responsive Web Design** (RWD) is a web development concept that focuses on making sure a website looks and behaves optimally across all devices and screen sizes. It is a concept that has taken over frontend web development over the past ten years, stemming from increased website consumption coming from devices like mobile phones and tablets rather than laptop and desktop computers.
 
 This need for for an optimal experience across these devices drove the invention and adoption of new tools for developers to use in CSS. The one we will be focusing on in this lesson is called a **media query**, and we're going to use it to define CSS rules for different screen dimensions. Browsers on devices with big screens such as laptops and desktops will load our current CSS rules. Browsers on devices with smaller screens like tablets and phones will load new CSS rules that we're going to write. Here is an example of what our page will look on a mobile device:
 
 ![Run Buddy Mobile](assets/lesson-3/100-runbuddy-mobile.jpeg)
 
-Media queries allow us to instruct some of our CSS styles to be applied at a condition we specify. In our case, we'll be instructing these CSS styles to change when the web page is being viewed on different screen sizes. For example, the three trainers for Run Buddy look good side-by-side across the screen when the screen is wide enough to accommodate them, but on a more narrow screen (like an iPhone) we want them to stack on top of one another instead so they don't become too squished.
+Media queries allow us to instruct some of our CSS styles to be applied at a condition we specify. In our case, we'll be instructing these CSS styles to change when the webpage is being viewed on different screen sizes. For example, the three trainers for Run Buddy look good side-by-side across the screen when the screen is wide enough to accommodate them, but on a more narrow screen (like an iPhone) we want them to stack on top of one another instead so they don't become too squished.
 
 Before we get started, let's use our Git skills and create a new feature branch.
 
@@ -51,13 +51,13 @@ git checkout -b feature/mediaqueries
 git branch
 ```
 
-## A Pixel is Not a Pixel
+## A Pixel Is Not a Pixel
 
 Right now, our overall site looks solid when it comes to font sizes and margins/padding how it's displayed on a laptop or desktop screen. As we make the screen a little smaller, however, it starts to feel a little crowded.
 
-We'll get to adjusting these sizes in a few minutes, but first let's ask ourselves something: How can we see what our code looks like on a mobile phone or tablet right now? The code we're working on is only on our computers, so we can't send the HTML page to be viewed in a mobile device's browser unless we added some additional tools to our project, but that would be overkill in this case. Even if we did, how could we use something as useful as Chrome DevTools to inspect our styles from a mobile device?
+We'll get to adjusting these sizes in a few minutes, but first let's ask ourselves something: How can we see what our code looks like on a mobile phone or tablet right now? The code we're working on is only on our computers, so we can't send the HTML page to be viewed in a mobile device's browser unless we added some additional tools to our project, but that would be overkill in this case. Even if we did, how could we use something as useful as Chrome's DevTools to inspect our styles from a mobile device?
 
-Luckily, we don't have to worry about that because Chrome DevTools has built-in features that allow us to simulate these different devices so we can still use all of the debugging tools DevTools has to offer. Here's a video demonstrating how to use these tools, they will come in very handy not only throughout this lesson, but throughout our careers as developers:
+Luckily, we don't have to worry about that because Chrome's DevTools has built-in features that allow us to simulate these different devices so we can still use all of the debugging tools DevTools has to offer. Here's a video demonstrating how to use these tools, they will come in very handy not only throughout this lesson, but throughout our careers as developers:
 
 ### [NEED VIDEO: FSFO-90 - Emulating devices and screen sizes in DevTools](https://trilogyed.atlassian.net/browse/FSFO-90?atlOrigin=eyJpIjoiYTk1YmFlNmVkMTMxNDY3NzgwYTY4Y2ViNDNjODU1ZDgiLCJwIjoiaiJ9)
 
@@ -65,7 +65,7 @@ When using this tool, you may have noticed the window cuts off the sign-up form 
 
 ![Tablet rendering of the site with overflowing content](assets/lesson-3/101-nometa.jpeg)
 
-The reason for this is because of how mobile browsers render a web page. The mobile browsers render a web page in a virtual viewport and attempts to view it as if it were a normal browser, but then it scales it down. The result is usually something like the above image. To read more about the virtual viewport, checkout the documentation on [mobile viewports on the MDN docs.](https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts#Mobile_Viewports)
+The reason for this is because of how mobile browsers render a webpage. The mobile browsers render a webpage in a virtual viewport and attempts to view it as if it were a normal browser, but then it scales it down. The result is usually something like the above image. To read more about the virtual viewport, checkout the documentation on [mobile viewports on the MDN docs.](https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts#Mobile_Viewports)
 
 To improve their users' experience on their mobile devices, Apple created a viewport`meta` element to address mobile screen rendering issues on mobile browsers:
 
@@ -83,7 +83,7 @@ With this HTML tag in place, the iPad emulation of the site in DevTools should n
 
 ![Tablet rendering of the website with meta tag](assets/lesson-3/102-meta.jpeg)
 
-There still needs to be work done to make this look cleaner, obviously, but it at least has fixed a breaking bug in how these devices render our page. This `<meta>` element has been quickly adopted as a standard practice among web developers when creating any web page, as it helps normalize the scale of a page on any device. 
+There still needs to be work done to make this look cleaner, obviously, but it at least has fixed a breaking bug in how these devices render our page. This `<meta>` element has been quickly adopted as a standard practice among web developers when creating any webpage, as it helps normalize the scale of a page on any device. 
 
 Speaking of which, before we forget, let's go ahead and add that exact `<meta>` element to our `privacy-policy.html` page's `<head>` element as well! 
 
@@ -129,11 +129,11 @@ Of the two methods described above, we just used the first one by updating style
 
 The above image's shift in layout cannot be achieved by simply adjusting our current CSS so we're going to have to add more to our style sheet. Specifically, we're going to be adding in a set of conditions for our CSS styles to change based on screen width using the first method listed above, media queries.
 
-## Using Media Queries
+## Use Media Queries
 
-As we've seen overall in CSS, there is no shortage of tools to get the job done. We've used specific tools to flexible layouts, provide different amounts of spacing using margin and padding, and at some point we'll even be able to animate elements on the page.
+As we've seen overall in CSS, there is no shortage of tools to get the job done. We've used specific tools to create flexible layouts, provide different amounts of spacing using margin and padding, and at some point we'll even be able to animate elements on the page.
 
-The CSS tool we're going to use now is what's known as a **Media Query**. A media query sets special CSS rule conditions that apply certain CSS rules when a certain condition is met. The most common use for them is to apply different CSS rules to a page depending on a device's screen width. This allows specific targeting of CSS on certain mobile devices. We'll get deeper into the syntax next, but first let's look at an example:
+The CSS tool we're going to use now is what's known as a **media query**. A media query sets special CSS rule conditions that apply certain CSS rules when a certain condition is met. The most common use for them is to apply different CSS rules to a page depending on a device's screen width. This allows specific targeting of CSS on certain mobile devices. We'll get deeper into the syntax next, but first let's look at an example:
 
 ```css
 @media screen and (max-width: 900px) {
@@ -147,15 +147,15 @@ The CSS tool we're going to use now is what's known as a **Media Query**. A medi
 }
 ```
 
-This is a very basic example of what a media query looks like in a style sheet and it can be made a lot more complex than this, but only in very specific use cases does it need to be. What is happening in this block of code is that we want to make all `<a>` elements turn aquamarine and give all `<h1>` elements a font-size of 200 pixels, but only if the screen size is under 900 pixels wide. These styles will not be applied if the screen is any bigger than that.
+This is a very basic example of what a media query looks like in a style sheet. It can be made a lot more complex than this, but only in very specific use cases does it need to be. What's happening in this block of code is that we want to make all `<a>` element  aquamarine and give all `<h1>` elements a font-size of 200 pixels, but only if the screen size is under 900 pixels wide. These styles will not be applied if the screen is any bigger than that.
 
 The syntax here may seem confusing at first, so let's dive into it piece by piece:
 
 ![Media Query Syntax](assets/lesson-3/300-media-query-syntax.png)
 
-- **at-rule**: A special CSS statement that instructs the style sheet to behave a certain way or apply certain styles when a condition is met. The most popular is `@media (rule)`, which applies styles to the page when a specific style value (call a "rule") is applied on the device. Read more on the [CSS at-rule syntax on MDN.](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule)
+- **At-rule**: A special CSS statement that instructs the style sheet to behave a certain way or apply certain styles when a condition is met. The most popular is `@media (rule)`, which applies styles to the page when a specific style value (call a "rule") is applied on the device. Read more on the [CSS at-rule syntax on MDN.](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule)
 
-- **Media Type**: There are three types of media we can tell our CSS to be applied to: screen, print, or speech. By specifying this in our media query, we are telling the style sheet what type of media the query will be applied to. Omitting this value in a media query will apply to all media types, so it is better to apply it selectively since all three have different needs:
+- **Media type**: There are three types of media we can tell our CSS to be applied to: screen, print, or speech. By specifying this in our media query, we are telling the style sheet what type of media the query will be applied to. Omitting this value in a media query will apply to all media types, so it is better to apply it selectively since all three have different needs:
 
   - **Screen**: Applies the rule only to digital screens and devices.
 
@@ -163,13 +163,13 @@ The syntax here may seem confusing at first, so let's dive into it piece by piec
 
   - **Print**: Applies the rule only when the page is printed or displayed in print preview.
 
-- **Logical Operator**: A term that can be used to create more complex media queries by combining conditions. In the example above, by saying `screen and (max-width: 900px)` we are saying that this media query should apply to screen media and only when the width of that screen is under 900 pixels. The `and` operator is the most prevalent but there are others such as `not` and `only`, which are used in more specific cases. [Read more about logical operators](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Logical_operators)
+- **Logical operator**: A term that can be used to create more complex media queries by combining conditions. In the example above, by saying `screen and (max-width: 900px)` we are saying that this media query should apply to screen media and only when the width of that screen is under 900 pixels. The `and` operator is the most prevalent but there are others such as `not` and `only`, which are used in more specific cases. [Read more about logical operators](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Logical_operators)
 
-- **Media Features**: We can also use style characteristics of the browser window to set conditions for our media queries as well. For example, we can have a media query be applied when the device is a `screen` and the `max-width` of the page is 900px. This means if the page is being viewed on a digital screen and the screen is under 900px, the media query will be applied. If the content is being viewed on a screen 901px or above, the media query will be ignored.
+- **Media features**: We can also use style characteristics of the browser window to set conditions for our media queries as well. For example, we can have a media query be applied when the device is a `screen` and the `max-width` of the page is 900px. This means if the page is being viewed on a digital screen and the screen is under 900px, the media query will be applied. If the content is being viewed on a screen 901px or above, the media query will be ignored.
 
 > **Urkel Says:** Ever wonder why printing an article doesn't include all of the advertisements or unnecessary content and just the article itself? That site uses media queries to hide all of those extraneous elements when printing using the `print` media type!
 
-Notice how all of the style rules we want to apply in this media query are contained in the media query's brackets `{ }`? It's almost like we're creating a stylesheet within the stylesheet, and that second stylesheet will only come into play when the media query's conditions are met. That is actually exactly what's happening, and with proper organization we can use these to have our site look different at any screen size we need.
+Notice how all of the style rules we want to apply in this media query are contained in the media query's brackets `{ }`? It's almost like we're creating a style sheet within the style sheet, and that second style sheet will only come into play when the media query's conditions are met. That is actually exactly what's happening, and with proper organization we can use these to have our site look different at any screen size we need.
 
 Applying media queries can be a slippery slope if we don't think critically about what we need to do and what screen sizes we should be considering. Obviously no one is asking us to make the page look different at every possible pixel width, that would be insane! Instead what we will do is take three popular device sizes and use them as our `max-width` values. These three sizes we'll use are what's known as **breakpoints**, since they are the point where the CSS will change based on the screen size.
 
@@ -187,7 +187,7 @@ There is no standard for mobile device or tablet sizes, so they _could_ all have
 >
 > Remember, these breakpoints are not set in stone and by no means do you have to follow them all the time. As you grow in this field, you will notice different big names in the industry using different values. It will always depend on the layout you are trying to achieve, these values are just a good rough idea of what your breakpoints might need to cover. 
 
-Let's get these three media queries set up in our `style.css` file with some dummy styles to test if they work. It is important that they go in this order _after_ all of the other styles in the stylesheet:
+Let's get these three media queries set up in our `style.css` file with some dummy styles to test if they work. It is important that they go in this order _after_ all of the other styles in the style sheet:
 
 ```css
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
@@ -215,7 +215,7 @@ Let's get these three media queries set up in our `style.css` file with some dum
 }
 ```
 
-With these three in place, save this file and refresh the browser window, then resize the screen. Even better, if you open up Chrome DevTools and use the device simulator we learned earlier, we can jump right to the sizes we care about!.
+With these three in place, save this file and refresh the browser window, then resize the screen. Even better, if you open up Chrome's DevTools and use the device simulator we learned earlier, we can jump right to the sizes we care about!.
 
 As you adjust the screen size and see the different styles taking place for our header's `<h1>` element, take note of the following:
 
@@ -229,7 +229,7 @@ As you adjust the screen size and see the different styles taking place for our 
 >
 > ### [NEED VIDEO: FSFO-91 - Overriding styles with media queries](https://trilogyed.atlassian.net/browse/FSFO-91?atlOrigin=eyJpIjoiZTE1NjU1Mjg3ZTE1NDRlNzhiY2U5MjdhMmNhZDljOTUiLCJwIjoiaiJ9)
 
-The order of how we write our media queries matters, not only in how the three are placed in relation each other but also how they are placed in `style.css` as a whole. In our case we put the biggest screen size first and worked our way down, using `max-width` as our way of determining if a media query should be applied or not. What would happen if we were to reverse that order by putting `575px` first and `980px` last? The result will show that the `font-size` will stay at 80px even when the screen gets smaller than 575px wide. The reason this occurs is because of the "cascade" in CSS. The browser reads the stylesheet from top to bottom and sees the media query for 575px, but then it continues and sees the media query for 768px, which will now take precedence over any conflicting style rules for 575px because it came later in the stylesheet. If we were to change the value to `min-width`, however, it would work; but since we are using `max-width`, we have to work from large sizes to small instead of small to large.
+The order of how we write our media queries matters, not only in how the three are placed in relation each other but also how they are placed in `style.css` as a whole. In our case we put the biggest screen size first and worked our way down, using `max-width` as our way of determining if a media query should be applied or not. What would happen if we were to reverse that order by putting `575px` first and `980px` last? The result will show that the `font-size` will stay at 80px even when the screen gets smaller than 575px wide. The reason this occurs is because of the "cascade" in CSS. The browser reads the style sheet from top to bottom and sees the media query for 575px, but then it continues and sees the media query for 768px, which will now take precedence over any conflicting style rules for 575px because it came later in the style sheet. If we were to change the value to `min-width`, however, it would work; but since we are using `max-width`, we have to work from large sizes to small instead of small to large.
 
 Now consider what would happen if we placed our media queries at the top of `style.css` and not at the bottom. What do you think would happen then? All of the CSS rules we applied in the media queries that override desktop styles would not be applied because the desktop styles were defined later than the media query styles. Again, this is because of the browser reading a style sheet from top to bottom.
 
@@ -253,7 +253,7 @@ Once that's complete, make sure to save your work to your `media-queries` branch
 
 ## Small Screen Styles
 
-As we saw earlier, all we really need to do when writing our media queries is identify the differences between the screen sizes and what CSS styles can be overridden at each breakpoint. When identifying how we want something to look at a different screen size and we don't have a mock-up to use as our guide, it is easiest to use Chrome DevTools to adjust the screen size and change styles there to see what works and what doesn't.
+As we saw earlier, all we really need to do when writing our media queries is identify the differences between the screen sizes and what CSS styles can be overridden at each breakpoint. When identifying how we want something to look at a different screen size and we don't have a mock-up to use as our guide, it is easiest to use Chrome's DevTools to adjust the screen size and change styles there to see what works and what doesn't.
 
 Lucky for us, however, the team at Run Buddy has told us exactly how they envision the page looking at these three sizes. We'll start by taking care of how the page looks at 980 pixels, so take a look at this mock-up at 980 pixels and study it section-by-section:
 
@@ -289,7 +289,7 @@ Do we see an overall theme at this width? Instead of making our layouts run more
 }
 ```
 
-Now save your file and refresh the site in your browser, then use Chrome DevTools to set the viewport to just under 980px or simply resize the browser window. It's recommended you use DevTools to get more practice with it, but you can see the results either way!
+Now save your file and refresh the site in your browser, then use Chrome's DevTools to set the viewport to just under 980px or simply resize the browser window. It's recommended you use DevTools to get more practice with it, but you can see the results either way!
 
 Since both the `<header>` and `<footer>` elements are flex containers, all we had to do is tell both of their children to be 100% of the width. Because we have `flex-wrap` turned on to wrap overflowing content, it allows both children to get their own row one on top of the other. Only thing we needed to do then is adjust their justification properties to center them on the page and adjust some font sizes and spacing to tighten up the design a bit.
 
@@ -339,7 +339,7 @@ All right, we've finished our first media query! Let's go through these changes 
 >
 > **Answer:** Since it is only two values, the properties being given values are `flex-grow` and `flex-basis`. Since `flex-grow` is set to 0, it will not grow to take up unused space and stay at the 70% we used for `flex-basis`.
 
-Now that we have the site looking good for smaller screens and regular sized browser screens, we should turn our attention to what it looks like when it gets down to the tablet range. Open up Chrome DevTools and use the device simulator to see how it looks on an iPad or Galaxy Tablet. You'll notice that our "What You Do" section is getting a little tight. Everything else looks good because of what we just did for the 980 pixel breakpoint, but we now need to make some adjustments two these two sections that went untouched previously.
+Now that we have the site looking good for smaller screens and regular sized browser screens, we should turn our attention to what it looks like when it gets down to the tablet range. Open up Chrome's DevTools and use the device simulator to see how it looks on an iPad or Galaxy Tablet. You'll notice that our "What You Do" section is getting a little tight. Everything else looks good because of what we just did for the 980 pixel breakpoint, but we now need to make some adjustments two these two sections that went untouched previously.
 
 We're going to adjust those two sections so the site will look like this on an iPad or any device up to 768 pixels wide:
 
@@ -395,9 +395,9 @@ We want to keep the vertical padding, as it creates some nice breathing room for
 
 This follows some of the same beats as the 980px breakpoint where we take flex children and make them run full width of the page instead of sharing the horizontal row with other elements. We didn't want the icon to become full-width of the page, however, because it would get too large; so we capped it at 32% width using `flex-basis` and told it not to take up any extra unused space by setting `flex-grow` to 0 (these are done in the `flex: 0 32%;` declaration).
 
-At this point, the page is almost totally mobile responsive! There are a few pain points we need to address as the screen gets down to mobile phone size, but overall it is a very clean and readable site across most screens now. The big takeaway here is that using media queries, it is not as much work as one would expect to achieve a nice looking site on varying device screen sizes.
+At this point, the page is almost totally mobile-responsive! There are a few pain points we need to address as the screen gets down to mobile phone size, but overall it is a very clean and readable site across most screens now. The big takeaway here is that by using media queries, it is not as much work as one would expect to achieve a nice-looking site on varying device screen sizes.
 
-For our 575 pixel width breakpoint, we really only need to tackle a few aesthetic updates and fix up the "Reach Out" section to read a little bit better, so let's go ahead and make our media query look like this image:
+For our 575 pixel width breakpoint, we really only need to tackle a few aesthetic updates and fix up the Reach Out section to read a little bit better, so let's go ahead and make our media query look like this image:
 
 ![Mock-up of mobile phone media query at 575 pixels](assets/lesson-3/600-575-query.jpg)
 
@@ -446,7 +446,7 @@ If we look at the page and compare it to the mock-up Run Buddy provided us for a
 
 Once you save the style sheet and refresh the browser, you can now see our page's contact section now matches the mock-up! The `order` property can be used to rearrange how these child elements appear on a page without actually moving the HTML code around and can be extremely useful in cases like this. A lot of times, a certain layout will look great on a bigger screen because there's more space, but as that space shrinks and the elements get closer to one another they end up looking like they're running into one another. The `order` property can be used to switch elements around and fix how they end up looking on different devices.
 
-> DEEP DIVE: To learn more, [check out the MDN docs for the order property and see how it can be used.](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
+> **Deep Dive:** To learn more, [check out the MDN docs for the order property and see how it can be used.](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
 
 ## Merge Feature Branch
 
@@ -474,7 +474,7 @@ git checkout develop
 git branch
 ```
 
-4. Now we want to tell git to copy the feature/flexbox branch's code into develop. To do this we need to use a git merge command like this:
+4. Now we want to tell Git to copy the feature/flexbox branch's code into develop. To do this, we need to use a `git merge` command, like this:
 
 ```bash
 git merge feature/mediaqueries
@@ -494,16 +494,20 @@ git push origin develop
 
 ## Reflection
 
-The team at Run Buddy is going to be thrilled to see we were able to match the specifications their mock-ups had. By using CSS media queries, we were able to control our page's layout and style at various viewport breakpoints. The combination of modern tools like flexbox and media queries make creating these layouts a lot easier than they used to be, as we can set styles that can adapt to different screen sizes better and write less overriding styles in our media queries.
+The team at Run Buddy is going to be thrilled to see we were able to match the specifications in their mock-ups. By using CSS media queries, we were able to control our page's layout and style at various viewport breakpoints. The combination of modern tools like flexbox and media queries make creating these layouts a lot easier than they used to be, as we can set styles that can adapt to different screen sizes better and write less overriding styles in our media queries.
 
-Visualizing a web page that looks good across multiple screen sizes is not always an easy task, and we were fortunate that the team at Run Buddy already had an idea in mind of what they wanted, because that is not always the case. Lucky for us, even if we had to come up with the layout changes ourselves, we can use Chrome DevTools to help with the task. At first it may seem like cheating to use such a powerful tool, but in reality that tool was built specifically for us to become better, more efficient developers.
+Visualizing a webpage that looks good across multiple screen sizes is not always an easy task, and we were fortunate that the team at Run Buddy already had an idea in mind of what they wanted, because that is not always the case. Lucky for us, even if we had to come up with the layout changes ourselves, we can use Chrome's DevTools to help with the task. At first it may seem like cheating to use such a powerful tool, but in reality that tool was built specifically for us to become better, more efficient developers.
 
-Let's recap some key concepts:
+Let's recap some key concepts from this lesson:
 
 - We used media queries, a special CSS tool used to change the style or layout of the site when a condition is met such as the browser being under or over a specified width.
 
 - We learned that it is easier to change a layout that is using flexbox as opposed to `float` and `position` since all of the elements getting moved are controlled by those flex containers.
 
-- We used Chrome DevTools to debug and test possible solutions when we dealt with complex styles and responsive design.
+- We used Chrome's DevTools to debug and test possible solutions when we dealt with complex styles and responsive design.
 
-At this point, the site _could_ be ready to go into production since it is mobile-friendly and responsive, but the Run Buddy team has sent us an entire new section to add to the site that we'll have to use yet another new CSS layout tool for called **CSS Grid**. This tool introduces layout control that flexbox doesn't support, as it allows us to control both horizontal and vertical axes rather than just one at a time. Let's get to it! 
+At this point, the site _could_ be ready to go into production because it is mobile-friendly and responsive. However, the Run Buddy team has sent us an entire new section to add to the site! For this, we'll use yet another CSS layout tool called **CSS grid**. This tool introduces layout control that flexbox doesn't support, as it allows us to control both horizontal and vertical axes rather than just one at a time. Let's get to it! 
+
+
+---
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
