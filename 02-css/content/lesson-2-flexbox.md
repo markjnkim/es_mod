@@ -1,10 +1,10 @@
-# Lesson 2: Flexing Our Muscles
+# Lesson 2: Let's Flex Our Muscles
 
 ## Introduction
 
-Run Buddy 2.0 is now in full swing. In the previous lesson we took a peek at what the client wants to see in this new version of the site, but we primarily focused on establishing a Git workflow so we can responsibly make these updates without affecting the current site. We learned how to create and use feature branches, which not only reinforces this concept of working in isolation, but it also takes a load off our minds by allowing us to work on one new feature at a time.
+Run Buddy 2.0 is now in full swing. In the previous lesson, we took a peek at what the client wants to see in this new version of the site, but we primarily focused on establishing a Git workflow so we can responsibly make these updates without affecting the current site. We learned how to create and use feature branches, which not only reinforces this concept of working in isolation, but it also takes a load off our minds by allowing us to work on one new feature at a time.
 
-In this lesson we are going to tackle one of the more important requests Run Buddy has for us&mdash;modifying and updating each section's layout so we can display the page's content in a more impactful way. We'll be taking our current content and laying them out to make better use of the page's horizontal space and alignment. By making these adjustments, we'll also be preparing our site for another feature&mdash;mobile responsiveness. While some of these layout requests coming from Run Buddy will seem challenging at first, we're going to use a new CSS technology called **flexbox** to help us achieve them.
+In this lesson, we'll tackle one of the more important requests Run Buddy has for us&mdash;modifying and updating each section's layout so we can display the page's content in a more impactful way. We'll be taking our current content and laying them out to make better use of the page's horizontal space and alignment. By making these adjustments, we'll also be preparing our site for another feature&mdash;mobile responsiveness. While some of these layout requests coming from Run Buddy will seem challenging at first, we're going to use a new CSS technology called **flexbox** to help us achieve them.
 
 We'll start off by putting our new workflow to use by reviewing our GitHub issue and then create a local Git feature branch to perform our work. This will reinforce the workflow process as we begin something new.
 
@@ -22,7 +22,7 @@ We're ready to get started but as we learned in the previous lesson, our current
 
 ## Create a Feature Branch
 
-The GitHub issue we're working on in this lesson is titled "Advanced layouts using Flexbox", and it is about implementing a new CSS tool called flexbox to position our HTML content. It is going to involve us updating every single section of the Run Buddy web site, so it is best we create another feature branch for us to work in. We'll name it off of the feature we're implementing and call it `feature/flexbox`.
+The GitHub issue we're working on in this lesson is titled "Advanced layouts using Flexbox", and it is about implementing a new CSS tool called flexbox to position our HTML content. It is going to involve us updating every single section of the Run Buddy >website , so it is best we create another feature branch for us to work in. We'll name it off of the feature we're implementing and call it `feature/flexbox`.
 
 Let's follow the steps we established in the first lesson for creating a new feature branch from the command line:
 
@@ -36,7 +36,7 @@ If the active branch is not `feature/flexbox` or you received an error, it's not
 
 ### [NEED VIDEO: FSFO-83 - Video for creating a git feature branch](https://trilogyed.atlassian.net/browse/FSFO-83?atlOrigin=eyJpIjoiODFiM2Q0NDJiNjdhNDQ4YzhkNzA2Y2VkMmZhNzU2NTEiLCJwIjoiaiJ9)
 
-## Adding Flexbox to the Header
+## Add Flexbox to the Header
 
 You may compare the header in the current live site (Run Buddy 1.0) to the mock-up provided by the design team and think "why would this need to be updated? It looks exactly the same!", and while they may look the same, the one we're working towards is going to use new CSS properties that make the HTML more responsive and flexible for different screen sizes. This core layout concept is called **flexbox**, and it is a tool we'll not only use for the header, but for almost every section on the Run Buddy site.
 
@@ -68,7 +68,7 @@ When a container is given a `display` value of `flex`, that element is now able 
 
 - Tell the flexbox parent that it's okay to overflow its content onto the next line. This is what's known as "wrapping" and is commonly used in conjunction with flexbox containers to calculate smart layouts for screens at various sizes such as a mobile phone or tablet. This image demonstrates how wrapping can work:
 
-### [NEED GRAPHIC - FSFO-26 Recreate this one from CSS Tricks](https://trilogyed.atlassian.net/browse/FSFO-126?atlOrigin=eyJpIjoiZGM3NTVmZGQ4NzU0NGJiZDgxZDFhYTRmZjcwZjIzNTAiLCJwIjoiaiJ9)
+### [NEED GRAPHIC: FSFO-26 Recreate this one from CSS Tricks](https://trilogyed.atlassian.net/browse/FSFO-126?atlOrigin=eyJpIjoiZGM3NTVmZGQ4NzU0NGJiZDgxZDFhYTRmZjcwZjIzNTAiLCJwIjoiaiJ9)
 
 ![Using flex-wrap property to handle overflowing content](assets/lesson-2/202-flex-wrap.jpg)
 
@@ -77,7 +77,7 @@ Another thing that flexbox provides that used to be incredibly difficult is hori
 
 All of these ideas are easily carried into making a flexbox column as well, just apply those rules to height instead of width and it's the same idea. Typically flexbox is used more for rows than columns, but there are some really cool use cases for both. Due to its ability automatically adjust alignment and spacing of elements within a container of varying size, flexbox is quickly becoming an industry standard. Read the [MDN documentation for flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) to learn more about the concepts behind it and how it can be used.
 
-### Prepare Our Header for Flexbox
+### Prepare the Header for Flexbox
 
 We'll start making the `<header>` element a flexbox by first removing a few pieces from our CSS file (a lot of this lesson will involve removing CSS properties and adding flexbox properties in their place):
 
@@ -175,7 +175,7 @@ If you are guessing that those changes will involve converting the `<nav>` eleme
 >
 > Hint: If you forget which branch you're in, type `git branch` in the command line!
 
-## Flexing the Navigation
+## Flex the Navigation
 
 As we learned with the `<header>`, setting up elements as a flexbox solves a lot of the headaches we come across in common CSS layouts. It also reinforces the concept of having a parent/child relationship. The idea behind that is to provide the parent with all of the rules so the children can simply inherit them rather than tell each child specifically what they need to be doing, making the code more understandable and flexible.
 
@@ -243,7 +243,7 @@ We're done with the entire `<header>` for now, so now is a good time to save our
 >
 > Here is a list of [all units of measurement in CSS on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/length) and a deeper [explanation of pixels.](https://www.pixelmator.com/tutorials/resources/pixels-explained/)
 
-## Flexing the Footer
+## Flex the Footer
 
 Before moving onto the bigger sections of the page, let's take our newfound knowledge in flexbox and apply it the `<footer>`. Try and answer the following questions:
 
@@ -253,7 +253,7 @@ Before moving onto the bigger sections of the page, let's take our newfound know
 
 The `<header>` may have more going on in it overall since it holds the navigation items, but when compared to the `<footer>`, they are roughly the same when it comes to the layout. The `<header>` contains two direct children, the `<h1>` and `<nav>` elements, and `<footer>` contains two as well with `<h2>` and `<div>` elements.
 
-Keep in mind how we can think of all web site layouts as a series of boxes or containers:
+Keep in mind how we can think of all >website  layouts as a series of boxes or containers:
 
 ![Footer elements outlined with boxes](assets/lesson-2/1100-flex-footer.jpg)
 
@@ -283,7 +283,7 @@ If it doesn't match the above mock-up, remember that we can always use Chrome De
 
 Now that we've gotten used to the basics of flexbox, let's move onto the `hero` section of our page and create a nice two-column layout.
 
-## Flexing the Hero
+## Flex the Hero
 
 We've now learned enough about flexbox to make simple layouts, but the real key to understanding how to use flexbox and building advanced layouts is to always think about them as a series of boxes. Take a look at what we're doing next with the hero section:
 
@@ -360,7 +360,7 @@ The hero isn't 100% mobile-ready just yet as it doesn't break down onto the next
 
 As always, don't forget to add, commit, and push your work!
 
-## Centering Section Titles using Flexbox
+## Center Section Titles Using Flexbox
 
 Flexboxes don't always have to contain multiple elements to be considered useful. In this step, we're going to learn how to use flexbox to create a one-column layout, meaning it will only have one child.
 
@@ -441,13 +441,13 @@ The next part of this lesson is going to involve a fairly large restructuring of
 
 ## Nesting and Flexing
 
-Part of designing and building a web page is understanding how to make good use of the horizontal space so the page itself does not run too long vertically. The idea behind this is that frankly&mdash;users might be lazy&mdash;and they won't take the time to scroll that far down the page to get to all of the information. Some designers try to over-correct this issue by trying to cram as much up top as possible, but that makes the page feel a little top heavy and confusing to read.
+Part of designing and building a webpage is understanding how to make good use of the horizontal space so the page itself does not run too long vertically. The idea behind this is that&mdash;frankly&mdash;users might be lazy and won't take the time to scroll that far down the page to get to all the information. Some designers try to over-correct this issue by trying to cram as much up top as possible, but that makes the page feel a little top heavy and confusing to read.
 
 We are going to try and strike a nice balance of having better use of our horizontal space while also not overstuffing the page by reworking how the "What You Do" steps look like. Currently they look very well organized and it is very easy to see what image goes with a step's text, as is shown in this image:
 
 ![Current step layout with empty space left and right](assets/lesson-2/1500-step-old.jpg)
 
-While it reads well, it's also not making great use of that space to the left and right of the content. We're going to set it up so each step is still on its own horizontal row, but will have a left to right layout as opposed to a top to bottom one like this image:
+While it reads well, it's also not making great use of that space to the left and right of the content. We're going to set it up so each step is still on its own horizontal row, but will have a left-to-right layout as opposed to a top-to-bottom one like this image:
 
 ![New step layout that runs horizontally](assets/lesson-2/1600-step-new.jpg)
 
@@ -486,19 +486,19 @@ Go through each `<div>` element with a class of `step` in `index.html` and chang
 
 What we've done here is create containers for each piece of the content in a step, so now it'll be easier to move the content around by adding style rules to the containers that surround them rather than the content itself.
 
-> Pro Tip: Some HTML elements like the `<img>` element can be unreliable when it comes to sizing them for creating layouts, so it is a better practice to wrap the `<img>` tag in a `<div>` or some other container element and set the image's `width` property to be 100 percent of its parent container's size.
+> **Pro Tip:** Some HTML elements like the `<img>` element can be unreliable when it comes to sizing them for creating layouts, so it is a better practice to wrap the `<img>` tag in a `<div>` or some other container element and set the image's `width` property to be 100 percent of its parent container's size.
 
 Let's hit the next part of our code cleanup and remove existing CSS styles that may conflict with our new layout:
 
-- Remove the entire CSS rule for `.steps div`, `.steps img`, and `.steps span`
+- Remove the entire CSS rule for `.steps div`, `.steps img`, and `.steps span`.
 
-- Remove the `margin-top` declaration from `.steps h3` and rename the selector to `.step h3` to tighten the relationship of the selector and make it a bit quicker for the browser to set the rule
+- Remove the `margin-top` declaration from `.steps h3` and rename the selector to `.step h3` to tighten the relationship of the selector and make it a bit quicker for the browser to set the rule.
 
 > **Important:** The browser reads CSS selectors from right to left (or innermost element to outermost element), so given a selector of `header nav a` we can think of it as the browser saying to itself "find every `<a>` element that is inside of a `<nav>` element, but that `<nav>` element has to be in a `<header>` element." This means that the browser has to do a few pass-throughs and work its way up the HTML structure to ensure the CSS styles are only being applied to those distinct `a` elements.
 >
-> While the selector `header nav a` is fine, having a whole page of that may prove not as performant as the page gets larger. A way to make this more performant is to provide a class to the elements you want to style and select just that class, but that could prove tedious and creating unnecessary amounts of extra HTML by adding a class attribute to every element.
+> While the selector `header nav a` is fine, having a whole page of that may prove not as performant as the page gets larger. A way to improve this is to provide a class to the elements you want to style and select just that class. But that could prove tedious and creating unnecessary amounts of extra HTML by adding a class attribute to every element.
 >
-> Situations like this are common throughout all of programming, there will likely be more than one way to achieve a solution for every problem you come across and it will be up to you to decide what route is best. In this case, it is a decision between making the code slightly more performant versus having code that is slightly easier to read. The answer usually lies in the middle with something like `.nav-class a`, which is very easy to read and understand but is also specific enough for the browser to read efficiently.
+> Situations like this are common throughout all of programming,. There will likely be more than one way to achieve a solution for every problem you come across and it will be up to you to decide which route is best. In this case, it is a decision between making the code slightly more performant versus having code that is slightly easier to read. The answer usually lies in the middle with something like `.nav-class a`, which is very easy to read and understand but is also specific enough for the browser to read efficiently.
 
 Now that the HTML is ready and the CSS has been cleaned up, we can start adding our flexbox styles to each step. Let's start with the step as a whole by creating a CSS rule for anything with a class of `.step`:
 
@@ -523,13 +523,13 @@ By centering them, it will create a better use of vertical space on the left sid
 
 ![Step layout with vertically centered alignment](assets/lesson-2/1801-step-align.jpg)
 
-Now we aren't quite there yet for the `.step` flexbox, as our current layout doesn't match the above mock-up. Right now both of children of the `.step` flexbox (`<h3>` and `<div class="step-info">`) share a horizontal line, but the widths of these children are varied based on the actual length of the content inside of them. As we can see in this image, the content for Step 1 is less than Step 2, so the box holding that content is less wide:
+Now we aren't quite there yet for the `.step` flexbox, as our current layout doesn't match the above mock-up. Right now both of children of the `.step` flexbox (`<h3>` and `<div class="step-info">`) share a horizontal line, but the widths of these children are varied based on the actual length of the content inside them. As we can see in this image, the content for Step 1 is less than Step 2, so the box holding that content is narrower:
 
 ![Step layout without flex property in place](assets/lesson-2/1802-steps-noflex.jpg)
 
-Since we cannot rely on the content being uniform enough to provide a consistent layout we need to tell the containers they live inside of to have some rules for how big they can be.
+Because we can't rely on the content being uniform enough to provide a consistent layout, we need to tell the containers they live inside of to have some rules for how big they can be.
 
-### Using the Flex Property for Widths
+### Use the Flex Property for Widths
 
 In previous sections, we used the `width` property to give those flexbox child elements some dimensions and rules to follow. Setting the width is fine and would work exactly how we expect it to, but there is a new property specific to flexbox that we can provide the flexbox child elements to help them scale with the page.
 
@@ -650,7 +650,7 @@ Don't forget to add, commit, and push your work!
 
 ## Trainer Trading Cards
 
-The design team at Run Buddy must really love this idea of tightening up sections to take up less vertical space, because we're about to give our trainers a treatment similar to the "What We Do" section we just finished up. Lucky for us, it doesn't seem to necessitate the same granular control that the previous section did, so we can get this up and running pretty quick.
+The design team at Run Buddy must really love this idea of tightening up sections to take up less vertical space, because we're about to give our trainers a treatment similar to the "What We Do" section we just finished up. Lucky for us, it doesn't seem to necessitate the same granular control that the previous section did, so we can get this up and running pretty quickly.
 
 Our current section for the trainers has all three of them stacked on top of one another, but now we want to turn each trainer's `<article>` element from a side-by-side landscape layout to a top-to-bottom portrait layout. This way we can fit all three of them on one horizontal row, as this image shows:
 
@@ -757,7 +757,7 @@ The CSS needed for these layouts can sometimes be tricky, but what is more impor
 
 Only one more section left to fix up and we'll be finished with this feature request and mark that GitHub issue as complete, so let's add, commit, and push our code to make sure it's backed up! 
 
-## 3 Column Reach Out
+## Make a Three-Column Reach Out
 
 Only one more flexbox to go, and this one is going to be a breeze. We have most of the knowledge needed to be pretty skilled with flexbox layouts, so let's get our flex on one more time.
 
@@ -906,11 +906,11 @@ We've finished this feature request and are ready to take the code from this bra
 
 ## [NEED CHECKPOINT - Flexbox quiz FSFO-122](https://trilogyed.atlassian.net/browse/FSFO-122?atlOrigin=eyJpIjoiZGU3ZWFiZjFmOWE5NGFlZmE0NzdkNDlmYzAyNWE3NjkiLCJwIjoiaiJ9)
 
-## Merging Features
+## Merge Features
 
 All of the work we just completed needs to make its way into our `develop` branch that we created in the first lesson. Remember that with this workflow we are doing all of our work in different branches specific to the feature or issue we're working on.
 
-To keep the current Run Buddy web site up and running on the `master` branch while we work on our list of features to add, we created the `develop` branch. We won't touch the `master` branch until every GitHub issue is marked "complete", so in the meantime we'll be using `develop` to receive our updates as we progress.
+To keep the current Run Buddy >website  up and running on the `master` branch while we work on our list of features to add, we created the `develop` branch. We won't touch the `master` branch until every GitHub issue is marked "complete", so in the meantime we'll be using `develop` to receive our updates as we progress.
 
 So what we'll work on now is getting our updated page with all of our flexbox layouts into the `develop` branch:
 
@@ -932,16 +932,19 @@ git merge feature/flexbox
 
 ## Reflection
 
-This lesson introduced us to a few new tools and concepts that will be crucial in our growth as developers. We put Git workflow to good use so we can code with peace-of-mind since we are working on the site in a different branch and we are staying organized by tracking our progress using GitHub issues. While these skills don't necessarily involve coding, they are skills that every developer needs to have and understand in order to be successful.
+This lesson introduced us to a few new tools and concepts that will be crucial in our growth as developers. We put Git workflow to good use so we can code with peace of mind because we're working on the site in a different branch and staying organized by tracking our progress using GitHub issues. Even though these skills don't necessarily involve coding, they are skills that every developer needs to have and understand in order to be successful.
 
-As far as our actual coding knowledge goes in this lesson, we picked up:
+As far as actual coding knowledge, in this lesson we added:
 
-- How to visualize layouts as parent/child relationships and relied on sketching to determine what we needed to do
+- How to visualize layouts as parent/child relationships and use sketching to determine what we need to do.
 
-- How we can use flexbox properties to create layouts that will allow our page to scale
+- How we can use flexbox properties to create layouts that allow our page to scale.
 
-- The concept of adjusting layouts so they take up more horizontal space than vertical space
+- The concept of adjusting layouts so they take up more horizontal space than vertical space.
 
-- The difference between Relative and Absolute units of measurement in CSS
+- The difference between relative and absolute units of measurement in CSS.
 
-We'll be moving onto a different method of creating web layouts next called CSS grid. This new method isn't here to replace flexbox, but rather be used in conjunction with it to create some more advanced layouts.
+In the next lesson, we'll learn another method of creating web layouts, called CSS grid. This new method isn't meant to replace flexbox, but rather be used in conjunction with it to create some more advanced layouts.
+
+---
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
