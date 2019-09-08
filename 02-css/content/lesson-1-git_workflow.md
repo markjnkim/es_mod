@@ -1,4 +1,4 @@
-# Lesson 1 - Set Up the Git Workflow
+# Lesson 1: Set Up the Git Workflow
 ## Introduction
 After receiving the mandate from management for the next update for Run Buddy 2.0, we will need to make the website mobile friendly as well as improve the user experience by adding some advanced CSS properties to make the website easier to use. Here is the mock-up we will need to follow for our update which we will build over the course of this module.
 
@@ -627,3 +627,6 @@ This was a dense lesson of concepts many of which were challenging to understand
 * We created Git issues to help communicate the project todo list to keep team members productive and organized in their workflows.
 
 Now let's use this workflow process and apply it to the rest of this project and build a mobile responsive website in the next lesson.
+
+---
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
