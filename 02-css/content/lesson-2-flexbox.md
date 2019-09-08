@@ -1,4 +1,4 @@
-# Lesson 2 - Flexing Our Muscles
+# Lesson 2: Flexing Our Muscles
 
 ## Introduction
 
