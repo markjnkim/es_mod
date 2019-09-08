@@ -4,11 +4,11 @@
 
 *Narrative introducing lesson project. Try to cite a GitHub issue where appropriate, and create one in GitHub to include as a screenshot.* 
 
+*Revisit previous lesson topics that this lesson will build on or contrast with.*
+
 *Include screenshot of what project currently looks like:*
 
 ![Screenshot of project in current state](assets/screenshot.jpg)
-
-*Revisit previous lesson topics that this lesson will build on or contrast with.*
 
 *Tie the lesson to IRL job-skills relevancy.*
 
@@ -34,13 +34,15 @@
 
 ![Mock-up of lesson end goal](assets/screenshot.jpg)
 
-*Transitional text to first section.*
+*Transitional text to first section (e.g., "Let's get started, etc.").*
 
 ## *Step 1 (e.g., Set Up the HTML File)*
 
 *2–3 sentences describing what will be covered in this section.*
 
 *Walk student through this step, include LBs as appropriate, etc.*
+
+*Transitional text to next section.*
 
 
 ## *Step 2*
@@ -49,11 +51,22 @@
 
 *Walk student through this step, include LBs as appropriate, etc.*
 
+*Transitional text to next section.*
+
+
+## Non-Step Section
+
+**Note:** Other sections can be intermingled with the Step sections as necessary. Some sections aren't a step, but explain a concept instead. 
+
+
 ## *Step 3*
 
 *2–3 sentences describing what will be covered in this section.*
 
 *Walk student through this step, include LBs as appropriate, etc.*
+
+*Transitional text to next section.*
+
 
 ## *Step 4*
 
@@ -61,21 +74,25 @@
 
 *Walk student through this step, include LBs as appropriate, etc.*
 
-**Note:** Other sections can be intermingled with these Step sections as necessary. Some sections aren't a step, but explain a concept instead. 
+*Transitional text to next section.*
 
 
-## The Last Mile
+### The Last Mile
 
-*Use copy from The Last Mile 
+*This is the last X% of the last section. Refer to TK for example copy.* 
 
 ## Reflection
 
 *Congratulate the learner (Great work!, Congratulations! Pat yourself on the back, etc.). Recap what they accomplished during the lesson from a bigger perspective in a couple of sentences.*
 
 *In this lesson, you added the following skills to your tool belt, knowledge base, skillset:*
+
 - Skill learned in 1-2 sentences
+
 - Skill learned in 1-2 sentences
+
 - Skill learned in 1-2 sentences
+
 - Etc.
 
 *If this is the last lesson in a module, recap the entire module and introduce the next module.*
