@@ -80,8 +80,10 @@ var fight = function(enemy) {
         break;
       }
 
-      // remove enemy's health by subtracting the amount set in the player.attack variable
-      enemy.health = enemy.health - playerInfo.attack;
+      var damage = randomNumber(player.attack - 3, playerInfo.attack);
+
+      // remove enemy's health by subtracting the amount we set in the damage variable
+      enemy.health = Math.max(0, enemy.health - damage);
       console.log(
         playerInfo.name +
           ' attacked ' +
@@ -114,8 +116,10 @@ var fight = function(enemy) {
         window.alert(enemy.name + ' still has ' + enemy.health + ' health left.');
       }
 
-      // remove players's health by subtracting the amount set in the enemy.attack variable
-      playerInfo.health = playerInfo.health - enemy.attack;
+      var damage = randomNumber(enemyInfo.attack - 3, enemyInfo.attack);
+
+      // remove enemy's health by subtracting the amount we set in the damage variable
+      playerInfo.health = Math.max(0, playerInfo.health - damage);
       console.log(
         enemy.name +
           ' attacked ' +
@@ -138,8 +142,10 @@ var fight = function(enemy) {
       // player gets attacked first
     } else {
 
-      // remove players's health by subtracting the amount set in the enemy.attack variable
-      playerInfo.health = playerInfo.health - enemy.attack;
+      var damage = randomNumber(enemyInfo.attack - 3, enemyInfo.attack);
+
+      // remove enemy's health by subtracting the amount we set in the damage variable
+      playerInfo.health = Math.max(0, playerInfo.health - damage);
       console.log(
         enemy.name +
           ' attacked ' +
