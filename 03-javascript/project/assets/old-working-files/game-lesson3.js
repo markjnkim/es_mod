@@ -118,7 +118,7 @@ var fight = function(enemyName) {
     );
 
     // check player's health
-    if (playerName <= 0) {
+    if (playerHealth <= 0) {
       window.alert(playerName + ' has died!');
       // leave while() loop if player is dead
       break;
