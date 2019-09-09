@@ -78,14 +78,17 @@ var fight = function(enemy) {
       // convert promptFight from a string to a number
       promptFight = parseInt(promptFight);
 
-      if (promptFight === 2) {
-        window.alert(playerInfo.name + ' has decided to skip this fight. Goodbye!');
-        // subtract money from playerInfo.money for skipping
-        playerInfo.money = Math.max(0, playerInfo.money - 10);
+      // confirm user wants to skip
+      var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
+      // if yes (true), leave fight
+      if (confirmSkip) {
+        window.alert(playerName + ' has decided to skip this fight. Goodbye!');
+        // subtract money from playerMoney for skipping
+        playerMoney = playerMoney - 10;
+        // stop while() loop using break; and enter next fight
         break;
       }
-
       // remove enemy's health by subtracting the amount set in the player.attack variable
       enemy.health = enemy.health - playerInfo.attack;
       console.log(

@@ -1,7 +1,4 @@
-var wins = 0;
-var losses = 0;
-
-var playerName;
+var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
@@ -10,16 +7,11 @@ var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-console.log(enemyNames);
-console.log(enemyNames.length);
-console.log(enemyNames[0]);
-console.log(enemyNames[3]);
-
 // function to start a new game
 var startGame = function() {
   // reset player stats
-  playerName = window.prompt("What is your robot's name?");
   playerHealth = 100;
+  playerAttack = 10;
   playerMoney = 10;
 
   // fight each enemy robot by looping over them and fighting them one at a time
@@ -54,17 +46,11 @@ var endGame = function() {
 
   // if player is still alive, player wins!
   if (playerHealth > 0) {
-    window.alert("You've won!");
-    // increase wins
-    wins++;
+    window.alert("Great job, you've survived the game! You now have a score of" + playerMoney + ".");
   } else {
     window.alert("You've lost your robot in battle!");
-    // increase losses
-    losses++;
   }
-  // no matter what, let player know how many wins and losses they have now
-  window.alert(playerName + ' now has ' + wins + ' wins and ' + losses + ' losses!');
-
+  
   // ask player if they'd like to play again
   var playAgainConfirm = window.confirm('Would you like to play again?');
 
@@ -138,7 +124,7 @@ var fight = function(enemyName) {
     if (confirmSkip) {
       window.alert(playerName + ' has decided to skip this fight. Goodbye!');
       // subtract money from playerMoney for skipping
-      playerMoney = playerMoney - 2;
+      playerMoney = playerMoney - 10;
     }
     // if no (false), ask question again by running fight() again
     else {
@@ -171,7 +157,7 @@ var shop = function() {
       playerMoney -= 7;
       break;
     case "upgrade":
-      window.alert("Upgrading player's attack by 6 for 5 dollars.");
+      window.alert("Upgrading player's attack by 6 for 7 dollars.");
       playerAttack += 6;
       playerMoney -= 7;
       break;
