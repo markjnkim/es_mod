@@ -62,22 +62,24 @@ var endGame = function() {
 
 // fight function (now with parameter for enemy's object holding name, health, and attack values)
 var fight = function(enemy) {
-  // ask user if they'd liked to fight or run
-  var promptFight = window.prompt('Would you like fight or skip this battle? Press 1 to fight and 2 to skip.');
 
-  // check if user clicked "cancel" or left the prompt field blank
-  if (promptFight === null || promptFight === '') {
-    // they need to answer, so run fight() again to prompt them
-    window.alert('You need to provide a valid answer. Try again!');
-    return fight(enemy);
+  // keep track of who goes first
+  var isPlayerTurn = true;
+
+  // randomly change turn order
+  if (Math.random() > .5) {
+    isPlayerTurn = false;
   }
 
-  // convert promptFight from a string to a number
-  promptFight = parseInt(promptFight);
+  while (playerInfo.health > 0 && enemy.health > 0) {
+    if (playerTurn) {
+      // ask user if they'd like to fight or skip using fightOrSkip function
+      if (fightOrSkip()) {
+        // if true, leave fight by taking them to the shop and breaking loop
+        shop();
+        break;
+      }
 
-  // if player choses to fight, fight
-  if (promptFight === 1) {
-    while (playerInfo.health > 0 && enemy.health > 0) {
       // remove enemy's health by subtracting the amount set in the player.attack variable
       enemy.health = enemy.health - playerInfo.attack;
       console.log(
@@ -96,7 +98,7 @@ var fight = function(enemy) {
         window.alert(enemy.name + ' has died!');
 
         // award player money for winning
-        playerInfo.money = playerInfo.money + 5;
+        playerInfo.money = playerInfo.money + 20;
 
         // ask if user wants to use the store before next round
         var storeConfirm = window.confirm('The fight is over, visit the store before the next round?');
@@ -126,37 +128,82 @@ var fight = function(enemy) {
       );
 
       // check player's health
-      if (playerInfo.name <= 0) {
+      if (playerInfo.health <= 0) {
         window.alert(playerInfo.name + ' has died!');
         // leave while() loop if player is dead
         break;
       } else {
         window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
       }
+      // player gets attacked first
+    } else {
+
+      // remove players's health by subtracting the amount set in the enemy.attack variable
+      playerInfo.health = playerInfo.health - enemy.attack;
+      console.log(
+        enemy.name +
+          ' attacked ' +
+          playerInfo.name +
+          '. ' +
+          playerInfo.name +
+          ' now has ' +
+          playerInfo.health +
+          ' health remaining.'
+      );
+
+      // check player's health
+      if (playerInfo.health <= 0) {
+        window.alert(playerInfo.name + ' has died!');
+        // leave while() loop if player is dead
+        break;
+      } else {
+        window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
+      }
+
+      if (fightOrSkip()) {
+        // if true, leave fight by taking them to the shop and breaking loop
+        shop();
+        break;
+      }
+
+      var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
+
+      // remove enemy's health by subtracting the amount we set in the damage variable
+      enemy.health = Math.max(0, enemy.health - damage);
+      console.log(
+        playerInfo.name +
+          ' attacked ' +
+          enemy.name +
+          '. ' +
+          enemy.name +
+          ' now has ' +
+          enemy.health +
+          ' health remaining.'
+      );
+
+      // check enemy's health
+      if (enemy.health <= 0) {
+        window.alert(enemy.name + ' has died!');
+
+        // award player money for winning
+        playerInfo.money = playerInfo.money + 20;
+
+        // ask if user wants to use the store before next round
+        var storeConfirm = window.confirm('The fight is over, visit the store before the next round?');
+
+        // if yes, take them to the store() function
+        if (storeConfirm) {
+          shop();
+        }
+
+        // leave while() loop since enemy is dead
+        break;
+      } else {
+        window.alert(enemy.name + ' still has ' + enemy.health + ' health left.');
+      }
     }
-
-    // if player choses to skip
-  } else if (promptFight === 2) {
-    // confirm user wants to skip
-    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
-
-    // if yes (true), leave fight
-    if (confirmSkip) {
-      window.alert(playerInfo.name + ' has decided to skip this fight. Goodbye!');
-      // subtract money from playerInfo.money for skipping
-      playerInfo.money = Math.max(0, playerInfo.money - 10);
-    }
-    // if no (false), ask question again by running fight() again
-    else {
-      fight();
-    }
-
-    // if player did not chose 1 or 2 in prompt
-  } else {
-    window.alert('You need to pick a valid option. Try again!');
-
-    // run the fight function over again, but don't forget to pass the enemy's information!
-    fight(enemy);
+    // switch turn order for next round
+    isPlayerTurn = !isPlayerTurn;
   }
 };
 
