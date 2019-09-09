@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Run Buddy 2.0 is now in full swing. In the previous lesson, we took a peek at what the client wants to see in this new version of the site, but we primarily focused on establishing a Git workflow so we can responsibly make these updates without affecting the current site. We learned how to create and use feature branches, which not only reinforces this concept of working in isolation, but it also takes a load off our minds by allowing us to work on one new feature at a time.
+Run Buddy 2.0 is now in full swing. In the previous lesson, we took a peek at what the client wants to see in this new version of the site, but we primarily focused on establishing a Git workflow so we can make these updates without affecting the live website. We learned how to create and use feature branches, which not only reinforces the concept of working in isolation but also simplifies things by allowing us to work on one new feature at a time.
 
-In this lesson, we'll tackle one of the more important requests Run Buddy has for us&mdash;modifying and updating each section's layout so we can display the page's content in a more impactful way. We'll be taking our current content and laying them out to make better use of the page's horizontal space and alignment. By making these adjustments, we'll also be preparing our site for another feature&mdash;mobile responsiveness. While some of these layout requests coming from Run Buddy will seem challenging at first, we're going to use a new CSS technology called **flexbox** to help us achieve them.
+In this lesson, we'll tackle one of the more important requests Run Buddy has for us&mdash;modifying and updating each section's layout so we can display the page's content in a more impactful way. We'll be taking our current content and laying it out to make better use of the page's horizontal space and alignment. By making these adjustments, we'll also be preparing our site for another feature: mobile responsiveness. Though some of these layout requests will seem challenging at first, we'll have help from a new CSS technology called **flexbox**.
 
 We'll start off by putting our new workflow to use by reviewing our GitHub issue and then create a local Git feature branch to perform our work. This will reinforce the workflow process as we begin something new.
 
