@@ -46,6 +46,8 @@ var endGame = function() {
     localStorage.setItem('name', playerInfo.name);
 
     alert(playerInfo.name + ' now has the high score of ' + playerInfo.money + '!');
+  } else {
+    alert(playerInfo.name + ' did not beat the high score of ' + highScore + '. Maybe next time!');
   }
 
   // ask player if they'd like to play again
@@ -209,6 +211,30 @@ var randomNumber = function(min, max) {
 
   return value;
 };
+
+// function to check if player wants to fight or skip
+var fightOrSkip = function() {
+  // ask user if they'd liked to fight or run
+  var promptFight = window.prompt('Would you like fight or skip this battle? Press 1 to fight and 2 to skip.');
+
+  // convert promptFight from a string to a number
+  promptFight = parseInt(promptFight);
+
+  if (promptFight === 2) {
+    // confirm user wants to skip
+    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+
+    // if yes (true), leave fight
+    if (confirmSkip) {
+      window.alert(playerInfo.name + ' has decided to skip this fight. Goodbye!');
+      // subtract money from playerMoney for skipping, but don't let them go into the negative
+      playerInfo.money = Math.max(0, playerInfo.money - 10);
+      // stop while() loop using break; and enter next fight
+
+      // return true if user wants to leave
+      return true;
+    }
+  }
 
 /* END GAME FUNCTIONS */
 
