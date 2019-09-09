@@ -7,6 +7,9 @@ var startGame = function() {
 
   // fight each enemy robot by looping over them and fighting them one at a time
   for (var i = 0; i < enemyInfo.length; i++) {
+    // check player stats
+    console.log(playerInfo);
+
     // if player is still alive, keep fighting
     if (playerInfo.health > 0) {
       // let user know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
@@ -62,17 +65,16 @@ var endGame = function() {
 
 // fight function (now with parameter for enemy's object holding name, health, and attack values)
 var fight = function(enemy) {
-
   // keep track of who goes first
   var isPlayerTurn = true;
 
   // randomly change turn order
-  if (Math.random() > .5) {
+  if (Math.random() > 0.5) {
     isPlayerTurn = false;
   }
 
   while (playerInfo.health > 0 && enemy.health > 0) {
-    if (playerTurn) {
+    if (isPlayerTurn) {
       // ask user if they'd like to fight or skip using fightOrSkip function
       if (fightOrSkip()) {
         // if true, leave fight by taking them to the shop and breaking loop
@@ -80,7 +82,7 @@ var fight = function(enemy) {
         break;
       }
 
-      var damage = randomNumber(player.attack - 3, playerInfo.attack);
+      var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
 
       // remove enemy's health by subtracting the amount we set in the damage variable
       enemy.health = Math.max(0, enemy.health - damage);
@@ -116,7 +118,7 @@ var fight = function(enemy) {
         window.alert(enemy.name + ' still has ' + enemy.health + ' health left.');
       }
 
-      var damage = randomNumber(enemyInfo.attack - 3, enemyInfo.attack);
+      var damage = randomNumber(enemy.attack - 3, enemy.attack);
 
       // remove enemy's health by subtracting the amount we set in the damage variable
       playerInfo.health = Math.max(0, playerInfo.health - damage);
@@ -141,8 +143,7 @@ var fight = function(enemy) {
       }
       // player gets attacked first
     } else {
-
-      var damage = randomNumber(enemyInfo.attack - 3, enemyInfo.attack);
+      var damage = randomNumber(enemy.attack - 3, enemy.attack);
 
       // remove enemy's health by subtracting the amount we set in the damage variable
       playerInfo.health = Math.max(0, playerInfo.health - damage);
@@ -288,6 +289,7 @@ var fightOrSkip = function() {
       return true;
     }
   }
+};
 
 /* END GAME FUNCTIONS */
 
@@ -304,7 +306,7 @@ var playerInfo = {
     this.attack = 10;
   },
   refillHealth: function() {
-    if (this.month >= 7) {
+    if (this.money >= 7) {
       window.alert("Refilling player's health by 20 for 7 dollars.");
       this.health += 20;
       this.money -= 7;
@@ -317,8 +319,7 @@ var playerInfo = {
       window.alert("Upgrading player's attack by 6 for 7 dollars.");
       this.attack += 6;
       this.money -= 7;
-    }
-    else {
+    } else {
       window.alert("You don't have enough money!");
     }
   }

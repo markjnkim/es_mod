@@ -46,11 +46,11 @@ var endGame = function() {
 
   // if player is still alive, player wins!
   if (playerHealth > 0) {
-    window.alert("Great job, you've survived the game! You now have a score of" + playerMoney + ".");
+    window.alert("Great job, you've survived the game! You now have a score of" + playerMoney + '.');
   } else {
     window.alert("You've lost your robot in battle!");
   }
-  
+
   // ask player if they'd like to play again
   var playAgainConfirm = window.confirm('Would you like to play again?');
 
@@ -63,60 +63,13 @@ var endGame = function() {
 
 // fight function (now with parameter for enemy's name)
 var fight = function(enemyName) {
-  // ask user if they'd liked to fight or run
-  var promptFight = window.prompt('Would you like fight or skip this battle? Press 1 to fight and 2 to skip.');
+  while (playerHealth > 0 && enemyHealth > 0) {
+    // ask user if they'd liked to fight or run
+    var promptFight = window.prompt('Would you like fight or skip this battle? Press 1 to fight and 2 to skip.');
 
-  // convert promptFight from a string to a number
-  promptFight = parseInt(promptFight);
+    // convert promptFight from a string to a number
+    promptFight = parseInt(promptFight);
 
-  // if player choses to fight, fight
-  if (promptFight === 1) {
-    while (playerHealth > 0 && enemyHealth > 0) {
-      // remove enemy's health by subtracting the amount set in the playerAttack variable
-      enemyHealth = enemyHealth - playerAttack;
-      console.log(
-        playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.'
-      );
-
-      // check enemy's health
-      if (enemyHealth <= 0) {
-        window.alert(enemyName + ' has died!');
-
-        // award player money for winning
-        playerMoney = playerMoney + 5;
-
-        // ask if user wants to use the store before next round
-        var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
-        
-        // if yes, take them to the store() function
-        if (storeConfirm) {
-          shop();
-        }
-
-        // leave while() loop since enemy is dead
-        break;
-      } else {
-        window.alert(enemyName + ' still has ' + enemyHealth + ' health left.');
-      }
-
-      // remove players's health by subtracting the amount set in the enemyAttack variable
-      playerHealth = playerHealth - enemyAttack;
-      console.log(
-        enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.'
-      );
-
-      // check player's health
-      if (playerName <= 0) {
-        window.alert(playerName + ' has died!');
-        // leave while() loop if player is dead
-        break;
-      } else {
-        window.alert(playerName + ' still has ' + playerHealth + ' health left.');
-      }
-    }
-
-    // if player choses to skip
-  } else if (promptFight === 2) {
     // confirm user wants to skip
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
@@ -125,52 +78,85 @@ var fight = function(enemyName) {
       window.alert(playerName + ' has decided to skip this fight. Goodbye!');
       // subtract money from playerMoney for skipping
       playerMoney = playerMoney - 10;
-    }
-    // if no (false), ask question again by running fight() again
-    else {
-      fight();
+
+      break;
     }
 
-    // if player did not chose 1 or 2 in prompt
-  } else {
-    window.alert('You need to pick a valid option. Try again!');
+    // remove enemy's health by subtracting the amount set in the playerAttack variable
+    enemyHealth = enemyHealth - playerAttack;
+    console.log(
+      playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.'
+    );
 
-    // run the fight function over again, but don't forget to pass the enemy's name!
-    fight(enemyName);
+    // check enemy's health
+    if (enemyHealth <= 0) {
+      window.alert(enemyName + ' has died!');
+
+      // award player money for winning
+      playerMoney = playerMoney + 20;
+
+      // ask if user wants to use the store before next round
+      var storeConfirm = window.confirm('The fight is over, visit the store before the next round?');
+
+      // if yes, take them to the store() function
+      if (storeConfirm) {
+        shop();
+      }
+
+      // leave while() loop since enemy is dead
+      break;
+    } else {
+      window.alert(enemyName + ' still has ' + enemyHealth + ' health left.');
+    }
+
+    // remove players's health by subtracting the amount set in the enemyAttack variable
+    playerHealth = playerHealth - enemyAttack;
+    console.log(
+      enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.'
+    );
+
+    // check player's health
+    if (playerName <= 0) {
+      window.alert(playerName + ' has died!');
+      // leave while() loop if player is dead
+      break;
+    } else {
+      window.alert(playerName + ' still has ' + playerHealth + ' health left.');
+    }
   }
 };
 
 // go to shop between battles function
 var shop = function() {
-
   // ask player what they'd like to do
-  var shopOptionPrompt = window.prompt("Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one \"REFILL\", \"UPGRADE\", or \"LEAVE\" to make a choice.");
+  var shopOptionPrompt = window.prompt(
+    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
+  );
 
   // convert answer from last prompt to lower case
   shopOptionPrompt = shopOptionPrompt.toLowerCase();
 
   // use switch case to carry out action
   switch (shopOptionPrompt) {
-    case "refill": 
+    case 'refill':
       window.alert("Refilling player's health by 20 for 7 dollars.");
       playerHealth += 20;
       playerMoney -= 7;
       break;
-    case "upgrade":
+    case 'upgrade':
       window.alert("Upgrading player's attack by 6 for 7 dollars.");
       playerAttack += 6;
       playerMoney -= 7;
       break;
-    case "leave":
-      window.alert("Leaving the store.");
+    case 'leave':
+      window.alert('Leaving the store.');
       break;
     default:
-      window.alert("You did not pick a valid option. Try again.")
+      window.alert('You did not pick a valid option. Try again.');
       shop();
       break;
   }
-
-}
+};
 
 // start first game when page loads
 startGame();
