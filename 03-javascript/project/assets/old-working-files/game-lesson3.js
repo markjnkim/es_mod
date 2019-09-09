@@ -70,16 +70,18 @@ var fight = function(enemyName) {
     // convert promptFight from a string to a number
     promptFight = parseInt(promptFight);
 
-    // confirm user wants to skip
-    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+    if (promptFight === 2) {
+      // confirm user wants to skip
+      var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
-    // if yes (true), leave fight
-    if (confirmSkip) {
-      window.alert(playerName + ' has decided to skip this fight. Goodbye!');
-      // subtract money from playerMoney for skipping
-      playerMoney = playerMoney - 10;
+      // if yes (true), leave fight
+      if (confirmSkip) {
+        window.alert(playerName + ' has decided to skip this fight. Goodbye!');
+        // subtract money from playerMoney for skipping
+        playerMoney = playerMoney - 10;
 
-      break;
+        break;
+      }
     }
 
     // remove enemy's health by subtracting the amount set in the playerAttack variable

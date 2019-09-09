@@ -45,7 +45,7 @@ var fight = function() {
     );
 
     // check player's health
-    if (playerName <= 0) {
+    if (playerHealth <= 0) {
       window.alert(playerName + ' has died!');
     } else {
       window.alert(playerName + ' still has ' + playerHealth + ' health left.');
@@ -59,7 +59,7 @@ var fight = function() {
     if (confirmSkip) {
       window.alert(playerName + ' has decided to skip this fight. Goodbye!');
       // subtract money from playerMoney for skipping
-      playerMoney = playerMoney - 2;
+      playerMoney = playerMoney - 10;
     }
     // if no (false), ask question again by running fight() again
     else {
