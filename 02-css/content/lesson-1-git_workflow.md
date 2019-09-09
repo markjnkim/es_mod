@@ -2,13 +2,13 @@
 
 ## Introduction
 
-After receiving a mandate from management for version 2.0 of Run Buddy, we've been tasked with making the website mobile-friendly. We've also been asked to add some advanced CSS properties to make the website easier to use. 
+For version 2.0 of Run Buddy, management has asked us to make the website mobile-friendly. We've also been asked to add some advanced CSS properties to make the website easier to use. 
 
-Here's the mock-up we'll need to follow for our update, which we'll build over the course of this module:
+Here's the mock-up for Run Buddy version 2.0, which we'll build over the course of this module:
 
 ![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
-Due to the fact that the current codebase is live, if we were to make changes to the code, we would break the website thereby disturbing our users' browsing experience. Not an option the management staff would be very happy with. We need to find a different process or workflow that would allow us to work on a duplicate copy while the original copy is still maintaining the website. This is where our friend Git comes back into play.
+Because the current codebase is live, if we were to make changes to the code, we would break the website thereby disturbing our users' browsing experience. Not an option the management staff would be very happy with. We need to find a different process or workflow that would allow us to work on a duplicate copy while the original copy is still maintaining the website. This is where our friend Git comes back into play.
 
 In this lesson, we'll learn about three main concepts:
 
