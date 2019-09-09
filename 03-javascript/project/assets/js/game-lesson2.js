@@ -1,4 +1,4 @@
-var playerName = 'Clank McKrank';
+var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
@@ -58,10 +58,19 @@ var fight = function(enemyName) {
 
     // if player choses to skip
   } else if (promptFight === 2) {
-    window.alert(playerName + ' has decided to skip this fight. You will now lose 2 dollars. Goodbye!');
+    // confirm user wants to skip
+    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
-    // subtract money from playerMoney for skipping
-    playerMoney = playerMoney - 2;
+    // if yes (true), leave fight
+    if (confirmSkip) {
+      window.alert(playerName + ' has decided to skip this fight. Goodbye!');
+      // subtract money from playerMoney for skipping
+      playerMoney = playerMoney - 2;
+    }
+    // if no (false), ask question again by running fight() again
+    else {
+      fight();
+    }
 
     // if player did not chose 1 or 2 in prompt
   } else {
@@ -95,5 +104,4 @@ for (var i = 0; i < enemyNames.length; i++) {
   else {
     window.alert('You have lost your robot in battle! Game Over!');
   }
-
 }

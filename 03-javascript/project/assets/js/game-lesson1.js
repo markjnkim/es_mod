@@ -1,11 +1,12 @@
-var playerName = 'Clank McKrank';
+// var playerName = 'Clank McKrank';
+var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
 console.log(playerName);
 console.log(playerHealth, playerAttack, playerMoney);
-console.log("You can put regular sentences in these.");
+console.log('You can put regular sentences in these.');
 
 var enemyName = 'Roborto';
 var enemyHealth = 50;
@@ -29,12 +30,12 @@ var fight = function() {
     console.log(
       playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.'
     );
-    
+
     // check enemy's health
     if (enemyHealth <= 0) {
-      alert(enemyName + ' has died!');
+      window.alert(enemyName + ' has died!');
     } else {
-      alert(enemyName + ' still has ' + enemyHealth + ' health left.');
+      window.alert(enemyName + ' still has ' + enemyHealth + ' health left.');
     }
 
     // remove players's health by subtracting the amount set in the enemyAttack variable
@@ -45,20 +46,28 @@ var fight = function() {
 
     // check player's health
     if (playerName <= 0) {
-      alert(playerName + ' has died!');
+      window.alert(playerName + ' has died!');
     } else {
-      alert(playerName + ' still has ' + playerHealth + ' health left.');
+      window.alert(playerName + ' still has ' + playerHealth + ' health left.');
     }
-  // if player choses to skip
+    // if player choses to skip
   } else if (promptFight === 2) {
+    // confirm user wants to skip
+    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
-    alert(playerName + ' has decided to skip this fight. Goodbye!');
-
-  // if player did not chose 1 or 2 in prompt
+    // if yes (true), leave fight
+    if (confirmSkip) {
+      window.alert(playerName + ' has decided to skip this fight. Goodbye!');
+      // subtract money from playerMoney for skipping
+      playerMoney = playerMoney - 2;
+    }
+    // if no (false), ask question again by running fight() again
+    else {
+      fight();
+    }
+    // if player did not chose 1 or 2 in prompt
   } else {
-
-    alert('You need to pick a valid option. Try again!');
-    
+    window.alert('You need to pick a valid option. Try again!');
   }
 };
 
