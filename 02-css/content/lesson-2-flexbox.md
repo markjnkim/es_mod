@@ -266,7 +266,7 @@ But first, if you'd liked to reinforce some knowledge about how to use flexbox, 
 
 ## Flex the Footer
 
-Before moving onto the bigger sections of the page, let's take our newfound knowledge in flexbox and apply it the `<footer>`. Try and answer the following questions:
+Before moving on to the bigger sections of the page, let's take our newfound knowledge of flexbox and apply it the `<footer>`. Try and answer the following questions:
 
 - How is the `<footer>` element similar to the `<header>`?
 
@@ -274,11 +274,11 @@ Before moving onto the bigger sections of the page, let's take our newfound know
 
 The `<header>` may have more going on in it overall since it holds the navigation items, but when compared to the `<footer>`, they are roughly the same when it comes to the layout. The `<header>` contains two direct children, the `<h1>` and `<nav>` elements, and `<footer>` contains two as well with `<h2>` and `<div>` elements.
 
-Keep in mind how we can think of all >website  layouts as a series of boxes or containers:
+Keep in mind that we can think of all website layouts as a series of boxes or containers, as shown here:
 
 ![Footer elements outlined with boxes](assets/lesson-2/1100-flex-footer.jpg)
 
-Let's finish up our `<footer>` by copying what we did to the `<header>`:
+Let's finish up the `<footer>` by copying what we did to the `<header>`:
 
 - Remove the `display: inline` declaration from the footer's `<h2>` element's CSS rule.
 
@@ -931,7 +931,7 @@ We've finished this feature request and are ready to take the code from this bra
 
 All of the work we just completed needs to make its way into our `develop` branch that we created in the first lesson. Remember that with this workflow we are doing all of our work in different branches specific to the feature or issue we're working on.
 
-To keep the current Run Buddy >website  up and running on the `master` branch while we work on our list of features to add, we created the `develop` branch. We won't touch the `master` branch until every GitHub issue is marked "complete", so in the meantime we'll be using `develop` to receive our updates as we progress.
+To keep the current Run Buddy website  up and running on the `master` branch while we work on our list of features to add, we created the `develop` branch. We won't touch the `master` branch until every GitHub issue is marked "complete", so in the meantime we'll be using `develop` to receive our updates as we progress.
 
 So what we'll work on now is getting our updated page with all of our flexbox layouts into the `develop` branch:
 
