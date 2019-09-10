@@ -7,6 +7,7 @@ var startGame = function() {
 
   // fight each enemy robot by looping over them and fighting them one at a time
   for (var i = 0; i < enemyInfo.length; i++) {
+
     // check player stats
     console.log(playerInfo);
 
@@ -218,27 +219,27 @@ var fight = function(enemy) {
 var shop = function() {
   // ask player what they'd like to do
   var shopOptionPrompt = window.prompt(
-    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE.'
+    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
   );
 
   // check if prompt answer was left blank, user hit "cancel", or provided a number instead
-  if (shopOptionPrompt === null || shopOptionPrompt === '' || isNaN(shopOptionPrompt)) {
+  if (shopOptionPrompt === null || shopOptionPrompt === '' || !isNaN(shopOptionPrompt)) {
     window.alert('You need to provide a valid answer! Please try again.');
     return shop();
   }
 
-  // convert answer from prompt to an actual number
-  shopOptionPrompt = parseInt(shopOptionPrompt);
+  // convert answer from last prompt to lower case
+  shopOptionPrompt = shopOptionPrompt.toLowerCase();
 
   // use switch case to carry out action
   switch (shopOptionPrompt) {
-    case 1:
+    case 'refill':
       playerInfo.refillHealth();
       break;
-    case 2:
+    case 'upgrade':
       playerInfo.upgradeAttack();
       break;
-    case 3:
+    case 'leave':
       window.alert('Leaving the store.');
       break;
     default:
@@ -269,19 +270,12 @@ var randomNumber = function(min, max) {
 // function to check if player wants to fight or skip
 var fightOrSkip = function() {
   // ask user if they'd liked to fight or run
-  var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+  var promptFight = window.prompt('Would you like fight or skip this battle? Press 1 to fight and 2 to skip.');
 
-  // validate prompt answer
-  if (promptFight === "" || promptFight === null || !isNaN(promptFight)) {
-    window.alert("You didn't enter a valid choice, try again!");
-    // use return to call it again and stop the rest of this function from running
-    return fightOrSkip();
-  }
+  // convert promptFight from a string to a number
+  promptFight = parseInt(promptFight);
 
-  // convert promptFight to all lowercase so we can check with less options
-  promptFight = promptFight.toLowerCase();
-
-  if (promptFight === "skip") {
+  if (promptFight === 2) {
     // confirm user wants to skip
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
@@ -296,7 +290,6 @@ var fightOrSkip = function() {
       return true;
     }
   }
-  return false;
 };
 
 /* END GAME FUNCTIONS */

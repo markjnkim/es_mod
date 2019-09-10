@@ -16,12 +16,10 @@ console.log(enemyNames[3]);
 var fight = function(enemyName) {
   while (playerHealth > 0 && enemyHealth > 0) {
     // ask user if they'd liked to fight or run
-    var promptFight = window.prompt('Would you like fight or skip this battle? Press 1 to fight and 2 to skip.');
+    var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
 
-    // convert promptFight from a string to a number
-    promptFight = parseInt(promptFight);
-
-    if (promptFight === 2) {
+    // if user picks "skip" confirm and then stop the loop
+    if (promptFight === "skip" || promptFight === "SKIP") {
       // confirm user wants to skip
       var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 

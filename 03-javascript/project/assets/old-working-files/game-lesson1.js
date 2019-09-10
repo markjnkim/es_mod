@@ -18,13 +18,10 @@ var fight = function() {
   window.alert('Welcome to Battlebots!');
 
   // ask user if they'd liked to fight or run
-  var promptFight = window.prompt('Would you like fight or skip this battle? Press 1 to fight and 2 to skip.');
-
-  // convert promptFight from a string to a number
-  promptFight = parseInt(promptFight);
+  var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
 
   // if player choses to fight, fight
-  if (promptFight === 1) {
+  if (promptFight === 'fight' || promptFight === 'FIGHT') {
     // remove enemy's health by subtracting the amount set in the playerAttack variable
     enemyHealth = enemyHealth - playerAttack;
     console.log(
@@ -51,7 +48,7 @@ var fight = function() {
       window.alert(playerName + ' still has ' + playerHealth + ' health left.');
     }
     // if player choses to skip
-  } else if (promptFight === 2) {
+  } else if (promptFight === 'skip' || promptFight === 'SKIP') {
     // confirm user wants to skip
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 

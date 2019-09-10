@@ -65,12 +65,10 @@ var endGame = function() {
 var fight = function(enemyName) {
   while (playerHealth > 0 && enemyHealth > 0) {
     // ask user if they'd liked to fight or run
-    var promptFight = window.prompt('Would you like fight or skip this battle? Press 1 to fight and 2 to skip.');
+    var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
 
-    // convert promptFight from a string to a number
-    promptFight = parseInt(promptFight);
-
-    if (promptFight === 2) {
+    // if user picks "skip" confirm and then stop the loop
+    if (promptFight === 'skip' || promptFight === 'SKIP') {
       // confirm user wants to skip
       var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
@@ -134,23 +132,23 @@ var shop = function() {
   var shopOptionPrompt = window.prompt(
     'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
   );
-
-  // convert answer from last prompt to lower case
-  shopOptionPrompt = shopOptionPrompt.toLowerCase();
-
+  
   // use switch case to carry out action
   switch (shopOptionPrompt) {
     case 'refill':
+    case 'REFILL':
       window.alert("Refilling player's health by 20 for 7 dollars.");
       playerHealth += 20;
       playerMoney -= 7;
       break;
     case 'upgrade':
+    case 'UPGRADE':
       window.alert("Upgrading player's attack by 6 for 7 dollars.");
       playerAttack += 6;
       playerMoney -= 7;
       break;
     case 'leave':
+    case 'LEAVE':
       window.alert('Leaving the store.');
       break;
     default:
