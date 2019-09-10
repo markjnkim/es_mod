@@ -14,7 +14,7 @@ Since Run Buddy came to us with a smaller budget when we worked on the first ver
 
 This need for for an optimal experience across these devices drove the invention and adoption of new tools for developers to use in CSS. The one we will be focusing on in this lesson is called a **media query**, and we're going to use it to define CSS rules for different screen dimensions. Browsers on devices with big screens such as laptops and desktops will load our current CSS rules. Browsers on devices with smaller screens like tablets and phones will load new CSS rules that we're going to write. Here is an example of what our page will look on a mobile device:
 
-![Run Buddy Mobile](assets/lesson-4/100-runbuddy-mobile.jpeg)
+![Run Buddy Mobile](assets/lesson-3/100-runbuddy-mobile.jpeg)
 
 Media queries allow us to instruct some of our CSS styles to be applied at a condition we specify. In our case, we'll be instructing these CSS styles to change when the web page is being viewed on different screen sizes. For example, the three trainers for Run Buddy look good side-by-side across the screen when the screen is wide enough to accommodate them, but on a more narrow screen (like an iPhone) we want them to stack on top of one another instead so they don't become too squished.
 
@@ -63,7 +63,7 @@ Luckily, we don't have to worry about that because Chrome DevTools has built-in 
 
 When using this tool, you may have noticed the window cuts off the sign-up form like this image shows:
 
-![Tablet rendering of the site with overflowing content](assets/lesson-4/101-nometa.jpeg)
+![Tablet rendering of the site with overflowing content](assets/lesson-3/101-nometa.jpeg)
 
 The reason for this is because of how mobile browsers render a web page. The mobile browsers render a web page in a virtual viewport and attempts to view it as if it were a normal browser, but then it scales it down. The result is usually something like the above image. To read more about the virtual viewport, checkout the documentation on [mobile viewports on the MDN docs.](https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts#Mobile_Viewports)
 
@@ -81,7 +81,7 @@ The `<meta>` element  is contained within the `<head>` section of the HTML page.
 
 With this HTML tag in place, the iPad emulation of the site in DevTools should now look like this image:
 
-![Tablet rendering of the website with meta tag](assets/lesson-4/102-meta.jpeg)
+![Tablet rendering of the website with meta tag](assets/lesson-3/102-meta.jpeg)
 
 There still needs to be work done to make this look cleaner, obviously, but it at least has fixed a breaking bug in how these devices render our page. This `<meta>` element has been quickly adopted as a standard practice among web developers when creating any web page, as it helps normalize the scale of a page on any device. 
 
@@ -125,7 +125,7 @@ These changes may seem minor at the moment, but keep in mind that we're trying t
 
 Of the two methods described above, we just used the first one by updating styles that apply to all screen sizes, but we also have a lot of pieces of our UI that simply cannot look good at different sizes without some major changes. For example, if we attempt to make the page smaller, the newly laid out "What You Do" steps will have a hard time sharing the horizontal space and will get very tight looking. We'll be fixing it so it takes on a slightly different layout for mobile by stacking the content vertically, as shown in this image:
 
-![What You Do steps from desktop to mobile layout](assets/lesson-4/201-steps-mobile.jpg)
+![What You Do steps from desktop to mobile layout](assets/lesson-3/201-steps-mobile.jpg)
 
 The above image's shift in layout cannot be achieved by simply adjusting our current CSS so we're going to have to add more to our style sheet. Specifically, we're going to be adding in a set of conditions for our CSS styles to change based on screen width using the first method listed above, media queries.
 
@@ -151,7 +151,7 @@ This is a very basic example of what a media query looks like in a style sheet a
 
 The syntax here may seem confusing at first, so let's dive into it piece by piece:
 
-![Media Query Syntax](assets/lesson-4/300-media-query-syntax.png)
+![Media Query Syntax](assets/lesson-3/300-media-query-syntax.png)
 
 - **at-rule**: A special CSS statement that instructs the style sheet to behave a certain way or apply certain styles when a condition is met. The most popular is `@media (rule)`, which applies styles to the page when a specific style value (call a "rule") is applied on the device. Read more on the [CSS at-rule syntax on MDN.](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule)
 
@@ -257,7 +257,7 @@ As we saw earlier, all we really need to do when writing our media queries is id
 
 Lucky for us, however, the team at Run Buddy has told us exactly how they envision the page looking at these three sizes. We'll start by taking care of how the page looks at 980 pixels, so take a look at this mock-up at 980 pixels and study it section-by-section:
 
-![Mock-up of small screen media query at 980 pixels](assets/lesson-4/400-980-query.jpg)
+![Mock-up of small screen media query at 980 pixels](assets/lesson-3/400-980-query.jpg)
 
 Do we see an overall theme at this width? Instead of making our layouts run more narrow side-by-side, we make each flex child get its own row, which is going to be easier now that much of our layout is using flexbox properties. The other properties that we're going to change for this viewport width are a little harder to see, but they involve some minor edits to font sizes and margin/padding in certain areas. Let's update our media query for 980 pixels a little bit at a time so you can save and refresh the browser as we go, this way you can see each style override happen section-by-section. Edit the 980px media query to look like this:
 
@@ -307,7 +307,7 @@ Now let's add some more styles to this media query by including the following:
 
 Same as before, save and refresh to see the changes in your browser. Notice how the hero section now stacks on top of one another and both child elements run full width now?
 
-![The hero section at the 980px query](assets/lesson-4/401-980-hero.jpg)
+![The hero section at the 980px query](assets/lesson-3/401-980-hero.jpg)
 
 The hero section of our site got the same treatment as the header and footer by taking the section's flex children and giving them both a width of 100% and centering the text for the "call-to-action" part.
 
@@ -343,7 +343,7 @@ Now that we have the site looking good for smaller screens and regular sized bro
 
 We're going to adjust those two sections so the site will look like this on an iPad or any device up to 768 pixels wide:
 
-![Mock-up of tablet media query at 768 pixels](assets/lesson-4/500-768-query.jpg)
+![Mock-up of tablet media query at 768 pixels](assets/lesson-3/500-768-query.jpg)
 
 The big change here is that we're giving the "What You Do" section a similar treatment of stacking flex children instead of keeping them side-by-side. Again, these are both going to be fairly straightforward edits since flexbox properties are easy to adjust for these situations.
 
@@ -399,7 +399,7 @@ At this point, the page is almost totally mobile responsive! There are a few pai
 
 For our 575 pixel width breakpoint, we really only need to tackle a few aesthetic updates and fix up the "Reach Out" section to read a little bit better, so let's go ahead and make our media query look like this image:
 
-![Mock-up of mobile phone media query at 575 pixels](assets/lesson-4/600-575-query.jpg)
+![Mock-up of mobile phone media query at 575 pixels](assets/lesson-3/600-575-query.jpg)
 
 Here's the code to achieve the mock-up above:
 
