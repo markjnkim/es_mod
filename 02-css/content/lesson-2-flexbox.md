@@ -8,7 +8,9 @@ Let's take a minute to remind ourselves what the current page looks like:
 
 ![Current Run Buddy page design](assets/lesson-2/101-old-layout.jpg)
 
-In this lesson, we'll tackle one of the more important requests Run Buddy has for us: modifying and updating each section's layout so we can display the page's content in a more impactful way. We'll take our current content and lay it out to make better use of the page's horizontal space and alignment. By making these adjustments, we'll also be preparing the site for another feature: mobile-responsiveness. Though some of these layout requests will seem challenging at first, we'll have help from a new CSS technology called **flexbox**.
+In this lesson, we'll tackle one of the more important requests Run Buddy has for us: modifying and updating the layout to display the page's content in a more impactful way. To do this, we'll restyle the existing content to make better use of the page's horizontal space and alignment. This will also prepare the site for another important feature: mobile-responsiveness. 
+
+Though some of these layout requests will seem challenging at first, never fear&mdash;we'll have help from a new CSS technology called **flexbox**.
 
 ## Preview
 
@@ -66,25 +68,29 @@ But with flexbox (and some other cool tricks we'll add later), our header grows 
 
 ![Run Buddy header resizing with flexbox](assets/lesson-2/701-good-resize.gif)
 
-Flexbox eases these pains by creating HTML parent/child (or container/container-item) relationships where the parent keeps track of how much space each child is taking up and repositions the other children accordingly. This way, developers don't need to be concerned with child element positioning since flexbox does some slick calculations for spacing and alignment. Now the child elements just need to worry about their own content and can grow or shrink depending on the size of the screen.
+Flexbox eases these pains by creating HTML parent/child (or container/container-item) relationships because the parent keeps track of how much space each child is taking up and repositions the other children accordingly. This way, developers don't need to be concerned with child element positioning since flexbox makes some slick calculations for spacing and alignment. The child elements just need to worry about their own content, and can grow or shrink depending on the size of the screen.
 
 ### The Magic of Flexbox
 
-When a container is given a `display` value of `flex`, that element is now able to create what's known as a one-dimensional layout. This means that it can now control the distribution of its content along either the horizontal x-axis (known as a "row") or the vertical y-axis (known as a "column"). By default, a flexbox is set to be a row, meaning that it will try and fit all of its child elements on one horizontal line until it hits the right edge of the parent. 
+When a container is given a `display` value of `flex`, that element is now able to create what's known as a **one-dimensional layout**. This means that it can now control the distribution of its content along either the horizontal x-axis (known as a "row") or the vertical y-axis (known as a "column"). By default, a flexbox is set to be a row, meaning that it will try and fit all of its child elements on one horizontal line until it hits the right edge of the parent. 
 
 At that point, it has to decide whether to do one of the following:
 
 - Make all of the child elements more narrow to accommodate a new sibling on that horizontal line. This usually results in child elements having a "squished" look.
 
-- Tell the flexbox parent that it's okay to overflow its content onto the next line. This is what's known as "wrapping" and is commonly used in conjunction with flexbox containers to calculate smart layouts for screens at various sizes, such as a mobile phone or tablet. This image demonstrates how wrapping can work:
+- Tell the flexbox parent that it's okay to overflow its content onto the next line. This is known as **wrapping**. This approach is commonly used in conjunction with flexbox containers to calculate smart layouts for screens at various sizes, such as a mobile phone or tablet. 
+
+  This image shows how wrapping can work:
 
 ### [NEED GRAPHIC: FSFO-26 Recreate this one from CSS Tricks](https://trilogyed.atlassian.net/browse/FSFO-126?atlOrigin=eyJpIjoiZGM3NTVmZGQ4NzU0NGJiZDgxZDFhYTRmZjcwZjIzNTAiLCJwIjoiaiJ9)
 
 ![Using flex-wrap property to handle overflowing content](assets/lesson-2/202-flex-wrap.jpg)
 
-Another thing that flexbox provides that used to be incredibly difficult is horizontal/vertical alignment of child elements, meaning we can use flexbox to vertically center HTML elements in a container (which used to be near impossible with CSS). Flexbox is also great at evenly spacing elements by calculating the free space available and distributing this space among each child element.
+Another thing that flexbox provides that used to be incredibly difficult is horizontal/vertical alignment of child elements, meaning we can use flexbox to vertically center HTML elements in a container (which used to be nearly impossible with CSS). Flexbox is also great at evenly spacing elements by calculating the free space available and distributing it among the child elements.
 
-All of these ideas are easily carried into making a flexbox column as well&mdash;just apply those rules to height instead of width and it's the same idea. Typically, flexbox is used more for rows than columns, but there are some really cool use cases for both. Due to its ability automatically adjust alignment and spacing of elements within a container of varying size, flexbox is quickly becoming an industry standard. Read the [MDN documentation for flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) to learn more about the concepts behind it and how it can be used.
+All of these ideas can be easily carried into making a flexbox column as well&mdash;just apply those rules to height instead of width and it's the same idea. Typically, flexbox is used more for rows than columns, but there are some really cool use cases for both. Due to its ability to automatically adjust alignment and spacing of elements of varying sizes in a container, flexbox is quickly becoming an industry standard. 
+
+For more details, check out the [MDN web docs on flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
 
 ### Prepare the Header for Flexbox
 
@@ -119,32 +125,34 @@ That's all that needs to be added to get our elements back on the same horizonta
 
 ![Header with flexbox added, creating a row with 2 HTML elements](assets/lesson-2/1000-flex-header.jpg)
 
-Flexbox is able to evenly distribute the space of the parent element, the `<header>` element, between the children elements, the `<h1>` and `<nav>` links. What makes this more interesting is that both of those children by default are block-level elements and adding the context of flexbox overrides that default behavior. The `display: flex` declaration also automatically makes that `<header>` a "row" by default, so there's no need to explicitly declare it.
+Flexbox is able to evenly distribute the space of the parent element (the `<header>` element) among the children elements (the `<h1>` and `<nav>` links). What makes this more interesting is that both of those children by default are block-level elements and adding the context of flexbox overrides that default behavior. The `display: flex` declaration also automatically makes that `<header>` a "row" by default, so there's no need to explicitly declare it.
 
-> **Pro-tip:** To change a flexbox from a row layout to a column layout, you can use the property called `flex-direction` and give it a value of `column` and the box will lay out all of it's children vertically rather than horizontally.
+> **Pro Tip:** To change a flexbox from a row layout to a column layout, you can use a property called `flex-direction` and give it a value of `column`. This causes the box to lay out all of its children vertically rather than horizontally.
 
-There are just a few more things we want to do at this point. Notice how the navigation items seem to be up against the left-hand side, closer to the `<h1>`? Well we can adjust that easily using a property that works in flexbox containers called `justify-content`.
+There are just a few more things we want to do at this point. Did you notice that the navigation items seem to be skewed to the lefthand side, closer to the `<h1>`? We can adjust that easily by using a property that works in flexbox containers called `justify-content`.
 
-> **Deep Dive:** The `justify-content` property is one that only applies to elements with a `display` property value of `flex` or `grid` (more on that later). It allows you to control spacing between child elements with the following values:
+> **Deep Dive:** The `justify-content` property only applies to elements with a `display` property value of `flex` or `grid` (more on that later). It allows you to control spacing between child elements with the following values:
 >
-> - **`flex-start`**: This is the default value. It left justifies all of the elements in the container.
+> - **`flex-start`**: This is the default value. It left-justifies all of the elements in the container.
 > ![Flexbox with flex-start justification](assets/lesson-2/300-justify-flex-start.jpg)
 >
-> - **`flex-end`**: Opposite of `flex-start`, placing all elements at the end (or right justifies) of the container.
+> - **`flex-end`**: This is the opposite of `flex-start`, and places all elements at the end (aka right-justifies) of the container.
 > ![Flexbox with flex-end justification](assets/lesson-2/400-justify-flex-end.jpg)
 >
-> - **`center`**: Position all elements as close to the center of the container as possible.
+> - **`center`**: Positions all elements as close to the center of the container as possible.
 > ![Flexbox with center justification](assets/lesson-2/500-justify-center.jpg)
 >
-> - **`space-between`**: Distribute all empty space evenly between child elements so they are spaced apart.
+> - **`space-between`**: Distributes all empty space evenly between child elements so they are spaced apart.
 > ![Flexbox with space-between justification](assets/lesson-2/502-justify-space-between.jpg)
 >
-> - **`space-around`**: Like `space-between` but it also includes adding space between the elements and the edges of the container, so the left-most and right-most elements are not flush against those edges.
+> - **`space-around`**: This is like `space-between`, but it also adds space between the elements and the edges of the container, so the left-most and right-most elements are not flush against those edges.
 > ![Flexbox with space-around justification](assets/lesson-2/501-justify-space-around.jpg)
 >
 > These are the most used values, but there are a few more. [Learn more about `justify-content` and demo some of its values.](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
 
-What we currently have in our `<header>` are two child elements&mdash;the `<h1>` and `<nav>` elements&mdash;and we want them to be spaced apart from one another as much as possible with the `<h1>` being positioned to the left and the `<nav>` being positioned to the right. This image will help visualize what we need:
+Which one of these is right for our layout? We currently have two child elements in the `<header>` &mdash;the `<h1>` and `<nav>` elements. We want them to be spaced apart from one another as much as possible with the `<h1>` being positioned to the left and the `<nav>` being positioned to the right. 
+
+This image can help visualize what we need:
 
 ![Header outlined with unused space between elements](assets/lesson-2/503-header-outlined.jpg)
 
@@ -154,47 +162,47 @@ Let's add the following declaration to the `header` CSS rule:
 justify-content: space-between;
 ```
 
-What this property declaration just did for us is it took all of unused space in the `<header>` and put it between the two elements. It determines the unused space by looking at each child element and seeing how much the border-width, margin, padding, and content itself add up to. If it doesn't add up to 100% of the parent, then whatever is left over is what's considered the unused space.
+This property declaration just took all the unused space in the `<header>` and put it between the two elements. It determines the unused space by looking at each child element and seeing how much the border-width, margin, padding, and content add up to. If it doesn't add up to 100% of the parent, then whatever is left over is what's considered the unused space.
 
 > **Pause:** What is it called when we calculate an element's dimensions by adding the content, padding, border-width, and margin values?
 >
-> **Answer:** The "box-model"
+> **Answer:** The "box-model."
 
-So our `<header>` content looks great, but what happens when the screen gets smaller and the content becomes too wide for the container? Take a minute and resize your browser window and see what happens.
+So our `<header>` content looks great, but what happens when the screen gets smaller and the content becomes too wide for the container? Take a minute and resize your browser window to see what happens.
 
-We can leave it be&mdash;which will either let the content just try and become as small and tight as possible or burst out the right side of the container&mdash;but that would not be the best choice in most use cases. Instead, we are going to tell the container that when its child elements can't fit on one line, let them break onto the next line so they can take up as much width as they need.
+We can leave it be&mdash;which will either let the content try and become as small and tight as possible or burst out the right side of the container&mdash;but that would not be the best choice in most use cases. Instead, we are going to tell the container that when its child elements can't fit on one line, let them break onto the next line so they can take up as much width as they need.
 
-This is achieved by adding a property called `flex-wrap`, and it allows the flexbox container to let its children wrap onto the next line. By default the value of `flex-wrap` for a flexbox is set to `none`, so we need to explicitly tell it to be `wrap` instead by adding the following to our `header` CSS rule like this:
+This is achieved by adding a property called `flex-wrap`, and it allows the flexbox container to let its children wrap onto the next line. By default, the value of `flex-wrap` for a flexbox is set to `none`, so we need to explicitly tell it to be `wrap` instead by adding the following to the `header` CSS rule, like this:
 
 ```css
 flex-wrap: wrap;
 ```
 
-Now when we resize our browser window, the `<header>` will collapse onto a second line when it runs out of room to fit both the `<h1>` and `<nav>` elements on the same line. This video will explain `flex-wrap` and some of its other uses:
+Now when we resize the browser window, the `<header>` will collapse onto a second line when it runs out of room to fit both the `<h1>` and `<nav>` elements on the same line. This video will explain `flex-wrap` and some of its other uses:
 
 ### [NEED VIDEO: FSFO-86 - flex-wrap demo](https://trilogyed.atlassian.net/browse/FSFO-86?atlOrigin=eyJpIjoiNzBhZjljMmNiZjMzNGQyNGI2Mzk3ZmNjZDI0NGIxYTAiLCJwIjoiaiJ9)
 
-The properties we used here (`display: flex`, `justify-content`, and `flex-wrap`) are usually the three most used flexbox properties, and as we can see&mdash;all three of them are added to parent container, the `<header>`. This is the crux of using flexbox for web layouts, let the child elements inherit CSS properties from the parent elements instead of having to worry about each child's needs one at a time.
+The properties we used here (`display: flex`, `justify-content`, and `flex-wrap`) are usually the three most used flexbox properties and&mdash;as you can see&mdash;all three of them are added to parent container, the `<header>`. This is the crux of using flexbox for web layouts: let the child elements inherit CSS properties from the parent elements instead of having to worry about each child's needs one at a time.
 
-With these minor edits to the `<header>` we were able to achieve the same layout with easier to understand concepts, which will allow us to make more complex layouts as time goes on. There are still a few changes we want to make to the `<nav>` element, though, to make it more adaptive to different screen sizes.
+With these minor edits to the `<header>`, we were able to achieve the same layout with easier-to-understand concepts, which will allow us to make more complex layouts as time goes on. We still need to make a few changes the `<nav>` element to make it more adaptive to different screen sizes.
 
-If you are guessing that those changes will involve converting the `<nav>` element to a flexbox as well, then you'd be correct, so let's keep moving!
+If you're guessing that those changes involve converting the `<nav>` element to a flexbox, you're correct! So let's keep moving.
 
-> **Important:** Don't forget to use your git commands to `add` and `commit`, and `push` your work to this `feature/flexbox` feature branch!
+> **Important:** Don't forget to use your Git commands to `add` and `commit`, and `push` your work to the `feature/flexbox` feature branch!
 >
-> Hint: If you forget which branch you're in, type `git branch` in the command line!
+> **Hint:** If you forget which branch you're in, type `git branch` in the command line.
 
 ## Flex the Navigation
 
-As we learned with the `<header>`, setting up elements as a flexbox solves a lot of the headaches we come across in common CSS layouts. It also reinforces the concept of having a parent/child relationship. The idea behind that is to provide the parent with all of the rules so the children can simply inherit them rather than tell each child specifically what they need to be doing, making the code more understandable and flexible.
+As we learned with the `<header>`, setting up elements as a flexbox solves a lot of the headaches that we tend to come across in common CSS layouts. It also reinforces the concept of having a parent/child relationship. The idea behind this is to provide the parent with all of the rules so the children can simply inherit them rather than tell each child specifically what they need to be doing. This makes the code more understandable and flexible.
 
 If you look at the current `<nav>` and resize the browser window, you can see that the `<nav>` element itself breaks onto the next line just fine, but all of the actual links in the `<nav>` break in weird place and start stacking. What we'll be doing next is reworking our `<nav>` element's `<ul>` element to make it more responsive by converting it from an inline list to flexbox.
 
-> **Important:** You can create as many flexbox elements as you need on a page, just remember what type of layout you're trying to achieve before applying it everywhere as it is not a "cure all" for layouts.
+> **Important:** You can create as many flexbox elements on a page as you need to. Just be very deliberate about the type of layout you're trying to achieve before applying it everywhere&mdash;it is not a cure-all for layouts.
 
 Let's turn our attention to removing some CSS before applying our flexbox styles:
 
-- Completely remove the CSS rule for `header nav ul li`
+- Completely remove the CSS rule for `header nav ul li`.
 
 - Add a new CSS rule for `header nav ul` that looks like this:
 
@@ -208,17 +216,19 @@ header nav ul {
 }
 ```
 
-We've already seen these first three property declarations so no need to stop and explain those, but what about those last two? The property `align-items` works similar to `justify-content`, but on the opposite axis. To justify information means to position it on the main axis, but align means to position it along the cross axis. In this case we are ensuring that our content is vertically centered in the `<nav>` element.
+We've already seen these first three property declarations so there's no need to stop and explain those, but what about those last two? The property `align-items` works in similar way to `justify-content`, but on the opposite axis. To "justify" information means to position it on the main axis, but to "align" means to position it along the cross axis. In this case, we're ensuring that our content is vertically centered in the `<nav>` element.
 
-> **Important**: When using a flexbox as a row, the horizontal (x) axis is what's known as the "main axis". This is the direction we can control when it comes to laying out the flexbox children. The vertical (y) axis is what's known as the "cross axis". However, if we were to use the `flex-direction` property and set the value to be `column` instead of `row` (which is the default value), those axes get switched where the vertical axis becomes the "main axis" and the horizontal axis becomes the "cross axis".
+> **Important**: When using a flexbox as a row, the horizontal (x) axis is what's known as the **main axis**. This is the direction we can control when it comes to laying out the flexbox children. The vertical (y) axis is what's known as the **cross axis**. However, if we were to use the `flex-direction` property and set the value to be `column` instead of `row` (which is the default value), those axes get switched where the vertical axis becomes the main axis and the horizontal axis becomes the cross axis.
 >
-> When switching a flexbox container from row to column, the values used for `justify-content` and `align-items` will be applied differently, as `justify` always follows along the "main axis" and `align` always follows along the "cross axis".
+> When switching a flexbox container from row to column, the values used for `justify-content` and `align-items` will be applied differently, as `justify` always follows along the main axis and `align` always follows along the cross axis.
 
-The other one we've added has nothing to do with flexbox, but rather with HTML lists. `list-style` is a shorthand CSS property that allows you pick how the list items look (bullet points, dashes, etc.) and how it's positioned in the list&mdash;indented or outdented. Since we gave it a property value of `none`, it won't show the bullet points at all!
+The other one we've added has nothing to do with flexbox, but rather with HTML lists. `list-style` is a shorthand CSS property that allows you to designate how a list item will look (bullet points, dashes, etc.) and how it's positioned&mdash;indented or outdented. Because we gave it a property value of `none`, it won't show the bullet points at all!
 
-By default, the color of the bullet points used in a list is the same color set for the text of the list. Since our `body` CSS rule has set the color to be the same teal as the background, we couldn't tell that the bullet points were even there! Now that we are changing some of the styles to our `<header>`, however, that color would've shown up in our navigation bar, so we needed to tell those bullet points to be hidden.
+By default, the color of the bullet points used in a list is the same as the one set for the text of the list. Because the `body` CSS rule set the color to be the same teal as the background, we couldn't tell that the bullet points were even there! But now that we're changing some of the styles for the `<header>`, that color would have shown up in our navigation bar, so we need to tell those bullet points to be hidden.
 
-The `align-items` property is another property that is specifically used with flexbox or grid layouts. Not only does it keep child elements along a row matched up with another, but it can also be used to vertically center an element on a page. This may sound like a simple task, but it wasn't until this property that it was possible to achieve this type of vertical alignment without using JavaScript. Read [MDN's docs on `align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) to learn more.
+The `align-items` property is another property that's specifically used with flexbox or grid layouts. Not only does it keep child elements along a row matched up with another, but it can also be used to vertically center an element on a page. This might sound like a simple task, but it was only when this property was invented that it became possible to achieve this type of vertical alignment without using JavaScript. 
+
+To learn more, read the [MDN web docs on `align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
 
 ### [NEED VIDEO: FSFO-87 - Demo of align-items](https://trilogyed.atlassian.net/browse/FSFO-87?atlOrigin=eyJpIjoiYTg5MTNjZmE3MDQ1NDM1OGE5ZjE2YTBlMjRkMzc3MTciLCJwIjoiaiJ9)
 
@@ -232,21 +242,23 @@ header nav a {
 }
 ```
 
-Can you spot the difference here? We're using the same properties as before, but we are using a different value for `font-size`. The value we provided is using a newer unit of measurement in CSS called `vw`, which is short for **viewport width**. Try resizing the page now and watch the font grow and shrink.
+Can you spot the difference here? We're using the same properties as before but with a different value for `font-size`. The value we provided is using a newer unit of measurement in CSS called `vw`, which is short for **viewport width**. Try resizing the page now and watch the font grow and shrink.
 
-> REWIND: Remember that the viewport is the actual browser window size!
+> **Rewind:** Remember that the **viewport** is the actual browser window size.
 
-By setting the value to `1.55vw`, we are telling the browser that the font's size should be roughly 1.55 percent of the window's overall width. This means that if the browser grows or shrinks, that size will change relative to the new overall width. This unit of measurement is one of a few new methods we can use for flexible length values in CSS, but can be tricky to nail down compared to absolute units of measurement like "pixel".
+By setting the value to `1.55vw`, we're telling the browser that the font's size should be roughly 1.55 percent of the window's overall width. This means that if the browser grows or shrinks, that size will change relative to the new overall width. This unit of measurement is one of a few new methods we can use for flexible length values in CSS, but it can be tricky to nail down compared to absolute units of measurement like pixels.
 
-Now we have a `<nav>` element where the links grow and shrink with the screen size, but as we can see in the following image, they get a little too small when the screen is smaller. This is something we'll circle back on and fix in a later lesson.
+Now we have a `<nav>` element where the links grow and shrink with the screen size, but as you can see in the following image, they get a little too small when the screen is smaller. This is something we'll circle back to and fix in a later lesson.
 
 ![Responsive navigation text shrinking too small](assets/lesson-2/800-header-small.jpg)
 
-We're done with the entire `<header>` for now, so now is a good time to save our work in our `feature/flexbox` branch using Git and we'll move onto the rest of our site's layout, starting with the `<footer>`! But first, if you'd liked to reinforce some knowledge in how to use flexbox, check out a game called [Flexbox Froggy!](https://flexboxfroggy.com/)
+We're done with the entire `<header>` for now, so it's a good time to save our work in the `feature/flexbox` branch using Git. Let's move on to the rest of the site's layout, starting with the `<footer>`! 
+
+But first, if you'd liked to reinforce some knowledge about how to use flexbox, check out a game called [Flexbox Froggy!](https://flexboxfroggy.com/)
 
 > **Deep Dive:** Absolute vs. Relative CSS Values
 >
-> A problem emerged when screens went from being a predictable standard computer screen size to being used on devices as small as your watch and as large as sport stadium's jumbotron. The screen sizes varied, but a pixel is a pixel no matter what, and it would create a lot of broken designs and layouts. A new unit of measurement was needed.
+> A problem emerged when screens went from being a predictable standard computer screen size to being used on devices as small as your watch and as large as a sport stadium's jumbotron. The screen sizes varied, but a pixel is a pixel no matter what, and it would create a lot of broken designs and layouts. A new unit of measurement was needed.
 >
 > A series of new units of measurement made it into CSS to combat these issues. These units were not based on a set dimension but based on the dimensions of the screens displaying the information instead. These units of measurement are what's known as "relative" because they are based off of the something else's size.
 >
