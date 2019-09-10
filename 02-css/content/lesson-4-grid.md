@@ -535,14 +535,13 @@ Your markup should now look something like this inside your grid container:
   </div>
 
   <div class="service-grid-item">
-    <span>Cancel At Any Time!</span>
+    Cancel At Any Time!
   </div>
 ```
 Now that we have our markup in place let's take a look at view our work.
 
 ![Grid HTML](./assets/lesson-4/3500-grid-html.png)
 
-Notice that we used a `<span>` element for our "Cancel At Any Time!" content. Please note we could have used a `<p>` 
 So the design team wouldn't be thrilled with this look, however using our new CSS grid skills we will convert this unreadable list into a pretty chart so let's get started.
 
 ### Build the CSS grid 
@@ -706,7 +705,7 @@ Let's take a look at the markup now to see our changes in the header and body:
   </div>
 
   <div class="service-grid-item cancel">
-    <span>Cancel At Any Time!</span>
+    Cancel At Any Time!
   </div>
 ```
 Now let's add our CSS rules using these class selectors to designate where the grid items will go by declaring each column in our grid.
