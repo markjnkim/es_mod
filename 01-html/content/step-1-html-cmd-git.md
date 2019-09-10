@@ -48,8 +48,9 @@ Fun fact: the graphical "desktop" you see when your computer first starts is thi
 cd Desktop
 pwd
 ```
-> **Pause:** What do you think `cd` stands for?\
->     Answer: Change directory.
+> **Pause:** What do you think `cd` stands for?
+>
+> **Answer:** Change directory.
 
 We can use the `cd` command to move in to directories and to back out of directories. Try the following commands, noting what `pwd` prints each time:
 
@@ -119,11 +120,13 @@ To recap what we've learned:
 |`touch`      |Make a new file        |
 |`rm`         |Remove a file          |
 
-> **Deep Dive:** Some other useful commands include:\
-`cp`\
-`mv`\
-`rm -R`\
-Google each of these to read up on what they do.
+> **Deep Dive:** Some other useful commands include:
+>
+> `cp`\
+> `mv`\
+> `rm -R`
+>
+> Google each of these to read up on what they do.
 
 ## Add a Little HTML
 
@@ -189,15 +192,7 @@ For instance, the browser would like to know what to call this webpage. Hence, t
 
 Try changing the title in the HTML file, making sure you see the change reflected in the browser.
 
-> **Check Point:** \
->What is the correct syntax to close the `<title>` element?\
->    Answer: `</title>`
->    
->What is the difference between `<h1>` and `<h2>`?\
->    Answer: An `<h1>` is the most important heading and is visually larger.
-> 
->What is the purpose of the `<body>` element?\
->    Answer: This is where all of the webpage's content will go.
+> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-141>
 
 There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's an element in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This is an example of a [**meta tag**, of which there are many](https://devhints.io/html-meta). Like `<title>` elements, they give the browser extra information about the page, sometimes for display purposes and sometimes for search engine optimization. We'll discuss more of these in future modules.
 
@@ -297,18 +292,7 @@ With two commits under our belt, run the command `git log`. This will show a his
 
 This could be very useful once we start working on larger apps and/or with multiple developers!
 
-> **Check Point:** \
-> What command creates a new Git repository?\
->    Answer: `git init`
-
-> What does the `git status` command tell us?\
->    Answer: What's changed since the last commit. 
-
-> What command do you need to run before `git commit`?\
->    Answer: `git add`
-
-> How do you add a message to a `git commit`?\
->    Answer: Add a `-m` "message" at the end of `git commit`.
+> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-142>
 
 ## Outline the Page
 
@@ -325,8 +309,8 @@ Inside these boxes, we can have additional boxes, like an overall list (Box 3) t
 Could we have omitted Box 3 in this example, and allowed the link in Boxes 4 and 5 to be inside Box 2? Probably, but it helps to keep like content grouped together. Thus, Box 3's sole purpose is to better organize smaller pieces of information (the links).
 
 > **Pause:** Why is it helpful to indent each nested `<div>`?
-
->  Answer: To make the code more readable.
+>
+> **Answer:** To make the code more readable.
 
 Let's take a piece of our mock-up and think about how we could break this down into logical boxes or containers:
 
@@ -454,16 +438,7 @@ Save, refresh the browser, and admire your efforts:
 
 Okay, still not very pretty, but we've laid some important groundwork that's going to make the next several steps much easier to complete.
 
-> **Check Point:** \
-> What's the first thing you should do before writing a single line of HTML code?\
->    Answer: Sketch out what the webpage should look like.
-
-What's the difference between a `<section>` element and a `<div>`?\
->    Answer: On a technical level, there is no difference, but a `<section>` element can convey more meaning to other developers or search engines.
-
-How do you leave comments in HTML code?
->    Answer: `<!-- -->`
-
+> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-143>
 
 ## Revisit Our Git Workflow
 
@@ -567,17 +542,7 @@ This tells GitHub to use the contents of your master branch for your live websit
 
 Let's back up and look at this link again: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that `index.html` is defined as a default by the server. If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html` because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, make sure every project has an `index.html` file!
 
-> **Check Point:** \
-> What is the purpose of the `.gitignore` file?\
->    Answer: To prevent unwanted files from being committed.
->
-> What is the relationship between Git and GitHub?\
->    Answer: Git is the version control software on your computer. GitHub is a website that can host remote Git repositories.
-
-> What is the command to "push" code to GitHub?\
->    Answer: `git push origin master`
-
-
+> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-144>
 
 ## Reflection
 
