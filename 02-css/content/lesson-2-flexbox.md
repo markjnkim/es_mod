@@ -981,7 +981,7 @@ The updated code from `feature/flexbox` will now be reflected in `develop`. Open
 
 ## Reflection
 
-This lesson introduced us to tools and concepts that will be crucial in our growth as developers. Git workflow allowed us to code with peace of mind because we worked on the site in an isolated branch, and we used GitHub issues to stay organized by tracking our progress. Even though these skills don't involve coding, every developer needs them in order to be successful.
+This lesson introduced us to tools and concepts that are crucial in our growth as developers. Git workflow allowed us to code with peace of mind because we worked on the site in an isolated branch, and we used GitHub issues to stay organized and track our progress. Even though these skills don't involve coding, every developer needs them in order to be successful.
 
 In terms of coding knowledge, we added:
 
