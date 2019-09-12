@@ -2,21 +2,23 @@
 
 ## Introduction
 
-We've added some really nice features to the Run Buddy site in this module, namely in creating pleasing and effective web layouts using flexbox. Between that and learning how to tackle issues one at a time using Git feature branches, we've picked up a lot of skills that web developer use on a daily basis.
+In Lesson 2, we improved the layout of Run Buddy by applying the flexbox CSS property to each section. Between that and learning how to tackle issues one at a time using Git feature branches, we've picked up a lot of skills that web developers use on a daily basis.
 
-We're almost halfway through our list of GitHub issues, but the issue we're about to tackle is possibly the most important one&mdash;making the site completely **mobile-responsive**. The team at Run Buddy has caught wind that we're at this point and have given us some mock-ups of what they expect the site to look like on mobile phones, tablets, and other smaller screen devices.
+We're almost halfway through our list of GitHub issues for Run Buddy version 2.0, but the issue we're about to tackle is possibly the most important one&mdash;making the site completely mobile-responsive. The Run Buddy team has caught wind that we're at this point and has given us some mock-ups of what they want the site to look like on mobile phones, tablets, and other smaller screen devices.
 
-This request is a very common one in modern web development. As a matter of fact, making a site responsive is something most developers do at the outset of a project. This mentality is what's known as having a **mobile-first** approach, meaning we should think about how the site looks on smaller devices first and work our way up to larger devices such as laptop and desktop computers. Run Buddy had a smaller budget for the first version of the site, so this wasn't a priority then. But the success of that site has changed that, and they want a mobile-responsive site STAT!
+This request is a very common one in modern web development. As a matter of fact, making a site responsive is something most developers do at the outset of a project. This is known as having a **mobile-first** approach, meaning we think about how the site will look on smaller devices first and work our way up to larger devices. Run Buddy had a smaller budget for the first version of the site, so this wasn't a priority when we started working on it. But the success of that site has changed that, and they want a mobile-responsive site STAT!
 
-**Responsive web design** (RWD) is a web development concept that focuses on making sure a website looks and behaves optimally across all devices and screen sizes. It is a concept that has taken over front-end web development over the past ten years, stemming from increased website consumption coming from devices like mobile phones and tablets rather than laptop and desktop computers.
+**Responsive web design** (RWD) is a web development concept that focuses on making sure a website looks and behaves optimally on all devices and screen sizes. It has taken over front-end web development over the past ten years, stemming from increasing website consumption on devices like mobile phones and tablets rather than laptop and desktop computers.
 
-This need for an optimal experience across these devices drove the invention and adoption of new CSS tools. The one we'll focus on in this lesson is called a **media query**. We'll use it to define CSS rules for different screen dimensions. Browsers on devices with big screens, such as laptops and desktops, will load our current CSS rules. Browsers on devices with smaller screens, like tablets and phones, will load the new CSS rules that we're going to write in this lesson. 
+## Preview
 
-Here's an example of what our page will look on a mobile device:
+The need for an optimal experience across devices drove the invention and adoption of new CSS tools. The one we'll focus on in this lesson is called a **media query**, which we'll use to define CSS rules for different screen dimensions. Browsers on devices with big screens, such as laptops and desktops, will load our current CSS rules. Browsers on devices with smaller screens, like tablets and phones, will load the new CSS rules that we're going to write in this lesson. 
+
+Here's an example of what our page will look on a mobile device when we're finished with this lesson:
 
 ![Run Buddy Mobile](assets/lesson-3/100-runbuddy-mobile.jpeg)
 
-Media queries allow us to instruct some of our CSS styles to be applied in a condition we specify. In our case, we'll instruct these CSS styles to change when the webpage is being viewed on different screen sizes. For example, the three trainers for Run Buddy look good displayed side-by-side when the screen is wide enough to accommodate them, but on a more narrow screen (like an iPhone) we want them to stack on top of one another instead so they don't get too squished.
+Media queries allow us to instruct some of our CSS styles to be applied only when a condition we specify is met. In this case, we'll instruct these CSS styles to change when the webpage is being viewed on different screen sizes. For example, the three trainers for Run Buddy look good displayed side by side when the screen is wide enough to accommodate them, but on a more narrow screen (like an iPhone) we want them to stack on top of one another instead so they don't get too squished.
 
 Before we get started, let's use our Git skills and create a new feature branch.
 
@@ -95,7 +97,7 @@ Now that we have this in place, let's start making the site fully responsive!
 
 ## Make Initial Site Edits
 
-When it comes to making a site look good across all devices and screen sizes, there are usually two routes to take:
+When it comes to making a site look good across many devices and screen sizes, there are usually two routes to take:
 
 1. We can adjust our current CSS styles so they look good across all devices by finding lengths and sizes that aren't too big for mobile and aren't too small for a computer screen. This isn't always a viable option, depending on the overall design of the site we're building, but it does reduce the amount of code we write.
 
@@ -267,9 +269,9 @@ Luckily for us, however, the team at Run Buddy has told us exactly how they envi
 
 ![Mock-up of small screen media query at 980 pixels](assets/lesson-3/400-980-query.jpg)
 
-Do you see an overall theme at this width? Instead of making our layouts run more narrow side-by-side, we make each flex child get its own row, which is going to be easier now that much of our layout is using flexbox properties. The other properties that we're going to change for this viewport width are a little harder to see, but they involve some minor edits to font sizes and margin/padding in certain areas. 
+Do you see an overall theme at this width? Instead of making our layouts run more narrow side by side, we make each flex child get its own row, which is going to be easier now that much of our layout is using flexbox properties. The other properties that we're going to change for this viewport width are a little harder to see, but they involve some minor edits to font sizes and margin/padding in certain areas. 
 
-Let's update our media query for 980 pixels a little bit at a time so you can save and refresh the browser as we go; this way you can see each style override happen section-by-section. Edit the 980px media query to look like this:
+Let's update our media query for 980 pixels a little bit at a time so you can save and refresh the browser as we go; this way you can see each style override happen section by section. Edit the 980px media query to look like this:
 
 ```css
 @media screen and (max-width: 980px) {
@@ -357,7 +359,7 @@ We're going to adjust those two sections so the site will look like this on an i
 
 ![Mock-up of tablet media query at 768 pixels](assets/lesson-3/500-768-query.jpg)
 
-The big change here is that we're giving the "What You Do" section a similar treatment of stacking flex children instead of keeping them side-by-side. Again, these are both going to be fairly straightforward edits since flexbox properties are easy to adjust for these situations.
+The big change here is that we're giving the "What You Do" section a similar treatment of stacking flex children instead of keeping them side by side. Again, these are both going to be fairly straightforward edits since flexbox properties are easy to adjust for these situations.
 
 The first thing we want to do is give each `<section>` element a little more breathing room. We currently have the `padding` for those elements set to 30px on all sides, which is great for larger screens because 30px isn't much space in that context; but as our screen shrinks, we realize we're going to want some of that space back on the left and right sides.
 
