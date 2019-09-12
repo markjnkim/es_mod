@@ -8,7 +8,7 @@ We're almost halfway through our list of GitHub issues for Run Buddy version 2.0
 
 This request is a very common one in modern web development. As a matter of fact, making a site responsive is something most developers do at the outset of a project. This is known as having a **mobile-first** approach, meaning we think about how the site will look on smaller devices first and work our way up to larger devices. Run Buddy had a smaller budget for the first version of the site, so this wasn't a priority when we started working on it. But the success of that site has changed that, and they want a mobile-responsive site STAT!
 
-**Responsive web design** (RWD) is a web development concept that focuses on making sure a website looks and behaves optimally on all devices and screen sizes. It has taken over front-end web development over the past ten years, stemming from increasing website consumption on devices like mobile phones and tablets rather than laptop and desktop computers.
+**Responsive web design** (RWD) is a web development concept that focuses on making sure a website looks and behaves optimally on all devices and screen sizes. It has taken over front-end web development during the past ten years, stemming from increased website consumption on devices like mobile phones and tablets rather than laptop and desktop computers.
 
 ## Preview
 
@@ -18,15 +18,15 @@ Here's an example of what our page will look on a mobile device when we're finis
 
 ![Run Buddy Mobile](assets/lesson-3/100-runbuddy-mobile.jpeg)
 
-Media queries allow us to instruct some of our CSS styles to be applied only when a condition we specify is met. In this case, we'll instruct these CSS styles to change when the webpage is being viewed on different screen sizes. For example, the three trainers for Run Buddy look good displayed side by side when the screen is wide enough to accommodate them, but on a more narrow screen (like an iPhone) we want them to stack on top of one another instead so they don't get too squished.
+Media queries allow us to instruct some of our CSS styles to be applied only when a specific condition is met. In this case, we'll instruct these CSS styles to change when the webpage is being viewed on different screen sizes. For example, the three trainers for Run Buddy look good displayed side by side when the screen is wide enough to accommodate them, but on a more narrow screen (like an iPhone) we want them to stack on top of one another instead so they don't get too squished.
 
-Before we get started, let's use our Git skills and create a new feature branch.
+Before we get started, let's use our Git skills to create a new feature branch.
 
 ## Create a Branch
 
-At the end of the last lesson, we merged the work we did in the `feature/flexbox` branch into the `develop` branch. If we were working on Run Buddy with other developers, they would likely be branching off `develop` for their own work, and merging their changes back in. So let's get into the habit of starting new work on the freshest code possible, even though we're working by ourselves. 
+At the end of the last lesson, we merged the work we did in the `feature/flexbox` branch into the `develop` branch. If we were working on Run Buddy with other developers, they would likely be branching off `develop` for their own work and merging their changes back in. 
 
-To do so, follow these steps: 
+Let's get into the habit of starting new work on the freshest code possible, even though we're working by ourselves. To do so, follow these steps: 
 
 1. Use `git fetch origin` to sync your local repository with your remote GitHub repository. Not much will happen here as you work on this solo, but it's a good habit to use this command when starting something new just to make sure. Best-case scenario, it won't find anything in the remote and you move on; worst-case scenario, there is new code on the remote repo that you need to incorporate into your branch by using `git pull origin master`.
 
@@ -43,13 +43,13 @@ git branch
 git checkout develop
 ```
 
-3. Since we're basing these branches off the GitHub issues we created in Lesson 1 when we established our Git workflow, let's use `git checkout -b` to create a branch called `feature/mediaqueries`.
+3. Because we're basing these branches off the GitHub issues we created in Lesson 1, let's use `git checkout -b` to create a branch called `feature/mediaqueries`.
 
 ```bash
 git checkout -b feature/mediaqueries
 ```
 
-4. Make sure you are now in that branch by using the `git branch` command.
+4. Make sure you're now in that branch by using the `git branch` command.
 
 ```bash
 git branch
@@ -57,11 +57,11 @@ git branch
 
 ## A Pixel Is Not a Pixel
 
-Right now, the site looks solid when it comes to font sizes and margins/padding when it's displayed on a laptop or desktop. As we make the screen a little smaller, however, it starts to feel a little crowded.
+Right now, the site looks solid when it comes to font sizes and margins/padding when it's displayed on a laptop or desktop. As we make the screen a little smaller, however, it starts to feel crowded.
 
-We'll get to adjusting these sizes in a few minutes, but first let's ask ourselves something: How can we see what our code looks like on a mobile phone or tablet right now? The code we're working on is only on our computers, so we can't send the HTML page to be viewed in a mobile device's browser unless we add some additional tools to our project, but that would be overkill in this case. Even if we did, how could we use something as useful as Chrome's DevTools to inspect our styles from a mobile device?
+We'll adjust these sizes in a few minutes, but first let's ask ourselves something: How can we see what our code looks like on a mobile phone or tablet right now? The code we're working on is only on our computers, so we can't send the HTML page to be viewed in a mobile device's browser unless we add some additional tools to our project, but that would be overkill in this case. Even if we did, how could we use something as useful as Chrome's DevTools to inspect our styles from a mobile device?
 
-Luckily, we don't have to worry about because DevTools allows us to simulate these different devices, so we can still use all of the debugging tools it has to offer. Here's a video demonstrating how to use these tools, which will come in very handy not only throughout this lesson, but throughout our careers as developers:
+Luckily, we don't have to worry about that because DevTools allows us to simulate these different devices! Here's a video demonstrating how to use these tools, which will come in very handy throughout this lesson and your career as a developer:
 
 ### [NEED VIDEO: FSFO-90 - Emulating devices and screen sizes in DevTools](https://trilogyed.atlassian.net/browse/FSFO-90?atlOrigin=eyJpIjoiYTk1YmFlNmVkMTMxNDY3NzgwYTY4Y2ViNDNjODU1ZDgiLCJwIjoiaiJ9)
 
@@ -69,7 +69,7 @@ When using this tool, you may have noticed that the window cuts off the sign-up 
 
 ![Tablet rendering of the site with overflowing content](assets/lesson-3/101-nometa.jpeg)
 
-The reason for this is because of how mobile browsers render a webpage. The mobile browsers render a webpage in a virtual viewport and attempts to view it as if it were a normal browser, but then it scales it down. The result is usually something like the above image. To read more, check out the [MDN web docs on mobile viewports](https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts#Mobile_Viewports).
+This is because mobile browsers render a webpage in a virtual viewport, which attempts to view it as if it were a normal browser but then scales it down. The result is usually something like the above image. To read more, check out the [MDN web docs on mobile viewports](https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts#Mobile_Viewports).
 
 To improve the user experience on mobile devices, Apple created a viewport `meta` element to address mobile-screen rendering issues on mobile browsers:
 
@@ -77,33 +77,33 @@ To improve the user experience on mobile devices, Apple created a viewport `meta
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
 
-The `<meta>` element  is contained within the `<head>` section of the HTML page. The `<meta>` element's `name` attribute identifies the type of `<meta>` element to the browser (in our case, `viewport`). The `<meta>` element's `content` attribute is able to set the content's width as well as the zoom level with the following two property values:
+The `<meta>` element  is contained within the `<head>` section of the HTML page. The `<meta>` element's `name` attribute identifies the type of `<meta>` element to the browser (in our case, `viewport`). The `<meta>` element's `content` attribute can set the content's width as well as the zoom level with the following two property values:
 
 - **`width=device-width`**: `device-width` represents the width of the device and sets the virtual viewport's width.
 
 - **`initial-scale=1.0`**: The value of 1.0 sets the initial zoom level to "normal" or no zoom.
 
-With this HTML tag in place, the iPad emulation of the site in DevTools should now look like this image:
+With this HTML tag in place, the iPad emulation in DevTools should now look like this image:
 
 ![Tablet rendering of the website with meta tag](assets/lesson-3/102-meta.jpeg)
 
-There still needs to be work done to make this look cleaner, obviously, but it at least has fixed a breaking bug in how these devices render our page. This `<meta>` element has been quickly adopted as a standard practice among web developers when creating any webpage, as it helps normalize the scale of a page on any device. 
+We still need to make this look cleaner, obviously, but it at least has fixed a breaking bug in how these devices render the page. This `<meta>` element has been quickly adopted as a standard practice among web developers when creating any webpage, as it helps normalize the scale of a page on any device. 
 
-Speaking of which, before we forget, let's go ahead and add that exact `<meta>` element to our `privacy-policy.html` page's `<head>` element as well! 
-
-Now that we have this in place, let's start making the site fully responsive!
+Speaking of which, before we forget, let's go ahead and add that exact `<meta>` element to the `privacy-policy.html` page's `<head>` element as well! Go ahead and do that now.
 
 > **Deep Dive:** For a very thorough history and explanation about this tag, visit [the MDN docs and learn more about the viewport meta tag.](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag)
 
 ## Make Initial Site Edits
 
-When it comes to making a site look good across many devices and screen sizes, there are usually two routes to take:
+It's time to make the site fully responsive. When it comes to making a site look good on all devices and screen sizes, there are usually two routes to take:
 
-1. We can adjust our current CSS styles so they look good across all devices by finding lengths and sizes that aren't too big for mobile and aren't too small for a computer screen. This isn't always a viable option, depending on the overall design of the site we're building, but it does reduce the amount of code we write.
+1. We can adjust our current CSS styles so they look good on all devices by finding lengths and sizes that aren't too big for mobile and aren't too small for a computer screen. This isn't always a viable option, depending on the overall design of the site we're building, but it does reduce the amount of code we write.
 
-2. Create CSS rules for those screen sizes using media queries. This is primarily used when we need to drastically change how the page looks on different devices, like make two columns stack on top of one another instead of side by side. They're a bit more involved to set up, but not difficult to use, so we'll be getting to them shortly.
+2. Create CSS rules for those screen sizes using media queries. This is primarily used when we need to drastically change how the page looks on different devices, like make two columns stack on top of one another instead of side by side. They're a bit more involved to set up but not difficult to use, so we'll go with this approach.
 
-Before we move onto the second method listed above, let's save ourselves from doing more work in the future. Instead of having these values adjusted at different screen sizes, we can adjust some of these now to strike a nicer balance across all devices. We'll start by finding and changing some of our current styles:
+Before we move onto the second method listed above, let's save ourselves from doing more work in the future. Instead of having these values adjusted at different screen sizes, we can adjust some of them now to strike a nicer balance across all devices. 
+
+We'll start by finding and changing some of our current styles:
 
 - Find the CSS rule for `header nav a`:
   
@@ -129,7 +129,7 @@ Before we move onto the second method listed above, let's save ourselves from do
 
 These changes may seem minor at the moment, but keep in mind that we're trying to find a nice balance for these styles so they look good on any device. Sometimes what seems negligible on one screen makes a world of difference on another.
 
-Of the two methods described above, we just used the first one by updating styles that apply to all screen sizes, but we also have a lot of pieces of our UI that simply cannot look good at different sizes without some major changes. For example, if we attempt to make the page smaller, the newly laid out "What You Do" steps will have a hard time sharing the horizontal space and will get very tight looking. We'll be fixing it so it takes on a slightly different layout for mobile by stacking the content vertically, as shown in this image:
+Of the two methods described above, we just used the first one by updating styles that apply to all screen sizes. But there are several parts of the UI that simply cannot look good at different sizes without some major changes. For example, if we attempt to make the page smaller, the newly laid out "What You Do" steps will have a hard time sharing the horizontal space and will get very tight looking. We'll fix it by stacking the content vertically when viewed on a mobile device, as shown in this image:
 
 ![What You Do steps from desktop to mobile layout](assets/lesson-3/201-steps-mobile.jpg)
 
