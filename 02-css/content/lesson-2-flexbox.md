@@ -346,7 +346,7 @@ We aren't quite there yet, however, as we now have to deal with the fact that th
 
 ![Hero section with full width and un-styled call to action](assets/lesson-2/1401-hero-broken.jpg)
 
-Let's add some styles to :
+Let's add some styles to our CTA:
 
 - Create a CSS rule for the element with a class of `hero-cta` and make it look like this:
 
@@ -576,9 +576,7 @@ This is probably the most challenging flexbox property to understand. The `flex`
 
 ### [NEED VIDEO: FSFO-89 - Demonstration of flex property](https://trilogyed.atlassian.net/browse/FSFO-89?atlOrigin=eyJpIjoiYzBhOTI0OWE4YzZmNGQxYmI2YzJhYzdmOWI0NjlmY2UiLCJwIjoiaiJ9)
 
-These three properties are typically used in conjunction with one another, especially `flex-grow` and `flex-basis`, and are more commonly provided values rolled into one `flex` property. 
-
-The `flex` property can read values in a few different ways:
+These three properties can be listed explicitly or they can be used with a shortcut property simply called `flex`. There's no benefit to using `flex` instead of listing them explicitly, but if you'd like to save a little space in your CSS, the `flex` property can cut three lines into one line.  The shortcut `flex` property can read values in a few different ways, based on the type of value entered:
 
 ```css
 flex: <flex-grow value> <flex-shrink value> <flex-basis value>;
@@ -612,7 +610,7 @@ Start by adding these declarations to the `.step-info` rule:
 
 - `align-items: center;`
 
-Where did our icon go?! It's been totally removed from the screen for some reason. Think about how a flexbox container works if its children do not have any set `width` or `flex-basis` values. It _tries_ to create space for both of them as evenly as possible based on the content of each child element, but what happens when one of the child element's content doesn't have a set dimension?
+Where did our icon go?! It's been totally removed from the screen for some reason. Think about how a flexbox container works if its children do not have any set `width` or `flex-basis` values. It _tries_ to create space for both of them as evenly as possible based on the content of each child element, but what happens when one of the child element's content doesn't have a set dimension? Take a look at the following image to see what this area looks like now:
 
 ![Step with icon missing](assets/lesson-2/1901-step-noicon.jpg)
 
@@ -691,7 +689,7 @@ Our current section for the trainers has all three of them stacked on top of one
 
 ![New trainers section finished](assets/lesson-2/200-trainers.jpg)
 
-While all three of these now run a little bit longer, they still aren't as tall as the current layout.
+While all three of these now run a little bit longer, they still aren't as tall as the old layout where we have all three trainers stacked on top of one another.
 
 > **Urkel Says:** When related HTML content is laid out in a narrow, vertical column, it is often referred to as a **card**.
 
@@ -983,7 +981,7 @@ In terms of coding knowledge, we added:
 
 - The difference between relative and absolute units of measurement in CSS.
 
-In the next lesson, you'll learn another method of creating web layouts, called CSS grid. This new method isn't meant to replace flexbox, but to be used in conjunction with it to create some more advanced layouts.
+In the next lesson, we're going to take our page and make it look good on any device size. This is called making a site "responsive" and we will be learning how to implement a CSS tool called **media queries** to make that happen.
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
