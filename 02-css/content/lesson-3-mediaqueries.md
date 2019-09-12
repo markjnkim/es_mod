@@ -22,7 +22,7 @@ Media queries allow us to instruct some of our CSS styles to be applied only whe
 
 Before we get started, let's use our Git skills to create a new feature branch.
 
-## Create a Branch
+## Create Feature Branch
 
 At the end of the last lesson, we merged the work we did in the `feature/flexbox` branch into the `develop` branch. If we were working on Run Buddy with other developers, they would likely be branching off `develop` for their own work and merging their changes back in. 
 
