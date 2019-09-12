@@ -1,9 +1,7 @@
 require('dotenv').config();
 const fs = require("fs");
 const canvas = require("./tools/canvas.js");
-const converter = require("./tools/converter.js");
-
-// converter.transformMarkdown("../01-html/content/step-1-html-cmd-git.md");
+const Markup = require("./tools/markup.js");
 
 // check for key
 if (!process.env.CANVAS_TOKEN) {
@@ -23,34 +21,82 @@ let folder = "../";
 // find folder that matches module number
 fs.readdirSync(folder).forEach((file) => {
   if (file.match(new RegExp(`^0?${mod}-`))) {
-    folder += file + "/content/assets/";
+    folder += file + "/content/";
   }
 });
 
-// find folder that matches lesson number
-fs.readdirSync(folder).forEach((file) => {
-  if (file.match(new RegExp(`-${lesson}$`))) {
-    folder += file + "/";
-  }
-});
-
-if (!folder.match(/-[0-9]+\/$/m)) {
-  console.error(process.argv[2] + " assets directory doesn't exist");
+if (folder.indexOf("/content/") === -1) {
+  console.error(`module ${mod} folder doesn't exist`);
   process.exit();
 }
 
-async function uploadImages() {
-  // get ID of folder to dump images in
-  let folderID = await canvas.getFolderId(`/images/module-${mod}/lesson-${lesson}`);
+async function uploadLesson() {
+  // get or make module
+  let moduleID = await canvas.getModuleId(mod);
+  let markup;
+  let assets;
 
-  // get all images from folder
-  const images = fs.readdirSync(folder);
-
-  for (let image of images) {
-    await canvas.uploadImage(folderID, folder + image);
+  // find matching lesson
+  fs.readdirSync(folder).forEach((file) => {
+    if (file.match(new RegExp(`-${lesson}-`))) {
+      // run through markdown converter
+      markup = new Markup(folder + file);
+    }
+  });
   
-    console.log(image + " uploaded");
+  if (!markup) {
+    console.error(process.argv[2] + " lesson doesn't exist");
+    process.exit();
+  }
+
+  // find assets folder that matches lesson number
+  fs.readdirSync(folder + "assets/").forEach((file) => {
+    if (file.match(new RegExp(`-${lesson}$`))) {
+      assets = `${folder}assets/${file}/`;
+    }
+  });
+  
+  if (!assets) {
+    console.error("no assets found for lesson " + process.argv[2]);
+  }
+  else {
+    // get all images from folder
+    const images = fs.readdirSync(assets);
+  
+    for (let image of images) {
+      let newFile = await canvas.uploadImage(`images/module-${mod}/lesson-${lesson}`, assets + image);
+    
+      console.log(image + " uploaded");
+  
+      // replace local file in converted markdown
+      markup.insertImage(newFile.display_name, newFile.preview_url);
+    }
+  }
+
+  // create lesson header/label in module navigation
+  await canvas.addHeaderToModule(moduleID, lesson);
+
+  // split up into sub-lessons to become separate pages
+  let chunks = markup.getPageChunks();
+
+  for (let i = 0; i < chunks.length; i++) {
+    // format for canvas
+    let title = `${process.argv[2]}.${i+1}: ${chunks[i].title}`;
+    let body = `${chunks[i].body} <!-- timestamp: ${Date.now()} -->`;
+
+    let page = await canvas.updatePage(title, body);
+  
+    // page is brand new
+    if (page.created_at === page.updated_at) {
+      console.log(page.url + " page created");
+  
+      // append page to module navigation
+      await canvas.addPageToModule(moduleID, page.url);
+    }
+    else {
+      console.log(page.url + " page updated");
+    }
   }
 }
 
-uploadImages();
+uploadLesson();
