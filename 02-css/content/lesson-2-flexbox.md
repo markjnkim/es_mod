@@ -981,7 +981,7 @@ The updated code from `feature/flexbox` will now be reflected in `develop`. Open
 
 ## Reflection
 
-This lesson introduced us to a few new tools and concepts that will be crucial in our growth as developers. We put Git workflow to good use so we can code with peace of mind because we're working on the site in a different branch and staying organized by tracking our progress using GitHub issues. Even though these skills don't necessarily involve coding, they're skills that every developer needs to have in order to be successful.
+This lesson introduced us to tools and concepts that will be crucial in our growth as developers. Git workflow allowed us to code with peace of mind because we worked on the site in an isolated branch, and we used GitHub issues to stay organized by tracking our progress. Even though these skills don't involve coding, every developer needs them in order to be successful.
 
 In terms of coding knowledge, we added:
 
@@ -993,7 +993,7 @@ In terms of coding knowledge, we added:
 
 - The difference between relative and absolute units of measurement in CSS.
 
-In the next lesson, we're going to take our page and make it look good on any device size. This is called making a site "responsive" and we will be learning how to implement a CSS tool called **media queries** to make that happen.
+In the next lesson, we're going to take our page and make it look good on any device size. This is called making a site responsive, and we'll use a CSS tool called **media queries** to make that happen.
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
