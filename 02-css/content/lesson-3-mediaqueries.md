@@ -2,17 +2,15 @@
 
 ## Introduction
 
-In Lesson 2, we improved the layout of Run Buddy by applying the flexbox CSS property to each section. Between that and learning how to tackle issues one at a time using Git feature branches, we've picked up a lot of skills that web developers use on a daily basis.
+In Lesson 2, we improved Run Buddy's layout by applying the flexbox property to every section. We also learned how to tackle issues one at a time using Git feature branches. In this lesson, we'll work on making the site mobile-responsive, which is vital in a world where people access websites from a multitude of device sizes.
 
-We're almost halfway through our list of GitHub issues for Run Buddy version 2.0, but the issue we're about to tackle is possibly the most important one&mdash;making the site completely mobile-responsive. The Run Buddy team has caught wind that we're at this point and has given us some mock-ups of what they want the site to look like on mobile phones, tablets, and other smaller screen devices.
+Making a site responsive is typically something developers do at the outset of a project. This is known as having a **mobile-first** approach, meaning they consider how the site will look on smaller devices first and then work their way up to larger devices. Run Buddy had a smaller budget for the first version of the site, so this wasn't a priority then. But their success has changed that, and now they want a mobile-responsive site STAT!
 
-This request is a very common one in modern web development. As a matter of fact, making a site responsive is something most developers do at the outset of a project. This is known as having a **mobile-first** approach, meaning we think about how the site will look on smaller devices first and work our way up to larger devices. Run Buddy had a smaller budget for the first version of the site, so this wasn't a priority when we started working on it. But the success of that site has changed that, and they want a mobile-responsive site STAT!
-
-**Responsive web design** (RWD) is a web development concept that focuses on making sure a website looks and behaves optimally on all devices and screen sizes. It has taken over front-end web development during the past ten years, stemming from increased website consumption on devices like mobile phones and tablets rather than laptop and desktop computers.
+**Responsive web design** (RWD) has taken over front-end web development during the past ten years, stemming from increased website consumption on devices like mobile phones and tablets alongside laptop and desktop computers. It's a web development concept that focuses on making sure a website looks and behaves optimally on all devices and screen sizes, and one you're sure to encounter during your career.
 
 ## Preview
 
-The need for an optimal experience across devices drove the invention and adoption of new CSS tools. The one we'll focus on in this lesson is called a **media query**, which we'll use to define CSS rules for different screen dimensions. Browsers on devices with big screens, such as laptops and desktops, will load our current CSS rules. Browsers on devices with smaller screens, like tablets and phones, will load the new CSS rules that we're going to write in this lesson. 
+The need for an optimal experience across devices has led to the invention and adoption of new CSS tools. The one we'll focus on in this lesson is called a **media query**, which we'll use to define CSS rules for different screen dimensions. Browsers on devices with big screens, such as laptops and desktops, will load our current CSS rules. Browsers on devices with smaller screens, like tablets and phones, will load the new CSS rules that we'll write in this lesson. 
 
 Here's an example of what our page will look on a mobile device when we're finished with this lesson:
 
@@ -267,15 +265,13 @@ Once that's complete, make sure to save your work to the `media-queries` branch!
 
 ## Small Screen Styles
 
-As we saw earlier, all we really need to do when writing media queries is identify the differences between the screen sizes and what CSS styles can be overridden at each breakpoint. When identifying how we want something to look at a different screen size and we don't have a mock-up to use as our guide, it is easiest to use Chrome's DevTools to adjust the screen size and change styles there to see what works and what doesn't.
+Next, let's add media queries for the following screen sizes: 980px, 768px, and 575px. The team at Run Buddy has told us exactly how they want the page to look at these three sizes. Remember that if they hadn't, you can always use Chrome's DevTools to adjust the screen size, make changes to styles, and see what works. 
 
-Luckily for us, however, the team at Run Buddy has told us exactly how they envision the page looking at these three sizes. We'll start by taking care of how the page looks at 980 pixels. 
-
-Take a look at this mock-up at 980 pixels and study it section by section:
+We'll start by taking care of how the page looks at 980 pixels. Take a look at this mock-up and study it section by section:
 
 ![Mock-up of small screen media query at 980 pixels](assets/lesson-3/400-980-query.jpg)
 
-Do you see an overall theme at this width? Instead of making our layouts run more narrow side by side, we give each flex child its own row, which is going to be easier now that much of our layout is using flexbox properties. The other properties that we'll change for this viewport width are a little harder to see, but they involve some minor edits to font sizes and margin/padding in certain areas. 
+Can you see an overall theme at this width? Instead of making the layouts run more narrow side by side, we give each flex child its own row, which is easier now that much of our layout uses flexbox properties. The other properties that we'll change are a little harder to see&mdash;they involve some minor edits to font sizes and margin/padding in certain areas. 
 
 Let's update the media query for 980 pixels a little bit at a time so you can save and refresh the browser as you go; this way you can see each style override happen section by section. 
 
@@ -476,7 +472,7 @@ The `order` property can be used to rearrange how child elements appear on a pag
 
 > **Deep Dive:** To learn more, check out the [MDN docs on the order property](https://developer.mozilla.org/en-US/docs/Web/CSS/order).
 
-## Merge Feature Branch
+## Merge the Feature Branch
 
 Now the page is not only responsive, but it is completely mobile-friendly! We've completed what the team at Run Buddy asked us to complete for this feature, so let's cross this issue off our list on GitHub and merge our working branch's code into `develop`:
 
@@ -522,19 +518,19 @@ git push origin develop
 
 ## Reflection
 
-The Run Buddy team is going to be be thrilled to see that we were able to match the specifications in their mock-ups. By using CSS media queries, we were able to control our page's layout and style at various viewport breakpoints. The combination of modern tools like flexbox and media queries make creating these layouts a lot easier than they used to be, as we can set styles that can adapt to different screen sizes better and write fewer overriding styles in our media queries.
+The Run Buddy team will be thrilled when they see that we matched the specifications in their mock-ups. By using CSS media queries, we were able to control our page's layout and style at various viewport breakpoints. The combination of modern tools like flexbox and media queries make creating these layouts a lot easier than they used to be, as we can set styles that can adapt to different screen sizes better and write fewer overriding styles in our media queries.
 
-Visualizing a webpage that looks good across multiple screen sizes is not always an easy task. We were fortunate that the team at Run Buddy already had an idea in mind of what they wanted, because that is not always the case. Even if did have to come up with the layout design, we now know that we can always use Chrome's DevTools to help with the task. Even though it might seem like cheating to use such a powerful tool, in reality it was built specifically for developers to become more efficient!
+Visualizing a webpage that looks good across multiple screen sizes is not always an easy task. We were fortunate that the team at Run Buddy already had an idea in mind of what they wanted, because that is not always the case. Even if we had to come up with the layout design, we now know that we can always use Chrome's DevTools to help with the task. Even though it might seem like cheating to use such a powerful tool, in reality it was built specifically for developers to become more efficient!
 
 Let's recap some key concepts from this lesson:
 
-- We used media queries, a special CSS tool used to change the style or layout of the site when a condition is met, such as the browser being under or over a specified width.
+- We used media queries, a CSS tool that can change the style or layout of the site when a condition is met, such as the browser being under or over a specified width.
 
 - We learned that it is easier to change a layout that's using flexbox as opposed to `float` and `position` because all of the elements getting moved are controlled by those flex containers.
 
 - We used Chrome's DevTools to debug and test possible solutions when dealing with complex styles and responsive design.
 
-At this point, the site could be ready to go into production because it's mobile-friendly and responsive. However, the Run Buddy team has sent us an entire new section to add to the site! For this, we'll use yet another CSS layout tool called **CSS grid**. This tool introduces layout control that flexbox doesn't support, as it allows us to control both horizontal and vertical axes rather than just one at a time. Let's get to it! 
+At this point, the site could be ready to go into production because it's mobile-friendly and responsive. However, the Run Buddy team has sent us an entire new section to add to the site. For this, we'll use yet another CSS layout tool called **CSS grid**. This tool introduces layout control that flexbox doesn't support, as it allows us to control both horizontal and vertical axes rather than just one at a time. Let's get to it! 
 
 
 ---
