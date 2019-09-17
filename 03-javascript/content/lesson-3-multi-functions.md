@@ -4,25 +4,25 @@
 
 We technically have a game now where players can fight (or skip fighting) several robots in a row. However, the rules are still pretty simple, and the game can only be played once unless the user refreshes their browser.
 
-One of the things the judges of the game jam will be looking for is replayability. At its most basic level, that means the game should be easy to play again. That's the missing piece to our MVP! More importantly, players should want to play again. The shop discussed earlier&mdash;where players can spend money to refill their health or upgrade their attack power&mdash;would definitely make the game more interesting and engaging on subsequent plays.
-
-We'll leverage our knowledge of JavaScript functions to facilitate restarting the game and implementing this brand new shop feature. Even though the project is still relatively small, thinking in terms of functions now will set us up for success down the road. Functions help keep a codebase organized as the project grows in scope. Who knows, the next project we work on may have five times as many functions!
-
-Once these improvements have been made, we will have accomplished our first big goal of satisfying the MVP:
+One of the things the judges of the game jam will be looking for is replayability. At its most basic level, that means the game should be easy to play again. That's the missing piece to our MVP:
 
 > ## WAITING ON GITHUB ISSUE SCREENSHOT
 
-This means we can close out the final MVP GitHub issue and start on the first of our "optimization" efforts.
+More importantly, players should want to play again. The shop discussed earlier&mdash;where players can spend money to refill their health or upgrade their attack power&mdash;would definitely make the game more interesting and engaging on subsequent plays. That will be the first optimization task we take on post-MVP:
+
+> ## WAITING ON GITHUB ISSUE SCREENSHOT
+
+We'll leverage our knowledge of JavaScript functions to facilitate restarting the game and implementing this brand new shop feature. Even though the project is still relatively small, thinking in terms of functions now will set us up for success down the road. Functions help keep a codebase organized as the project grows in scope. Who knows, the next project we work on may have five times as many functions!
 
 ## Preview
 
 From the player's perspective, there are two new things being added to the game. At the end of the game, we will display the player's score in one alert and then ask the player if they want to play again:
 
-![Confirm window asks "Would you like to play again?"](./assets/lesson-3/200-play-again.jpg)
+![Confirm window asks "Would you like to play again?"](./assets/lesson-3/300-play-again.jpg)
 
 Second, after the player defeats or skips an enemy robot, we will ask if they want to visit the shop. If so, they'll be presented with a few options:
 
-![Prompt window asks user to enter REFILL, UPGRADE, or LEAVE](./assets/lesson-3/300-shop.jpg)
+![Prompt window asks user to enter REFILL, UPGRADE, or LEAVE](./assets/lesson-3/400-shop.jpg)
 
 Take a moment to pseudocode how you might approach each of these features. Remember, pseudocode isn't real code; you can simply write the sequence in which you feel things need to happen.
 
@@ -127,19 +127,17 @@ var startGame = function() {
 };
 ```
 
-Fair warning, this will create an infinite loop, because we haven't defined any condition where `startGame()` doesn't get called after each playthrough. Here's a visual representation of the problem:
+Fair warning, this will create an infinite loop, because we haven't defined any condition where `startGame()` doesn't get called after each playthrough. If you already tested the game in the browser and are stuck in the loop, don't panic! You can still close the tab or use the Chrome DevTools to pause the JavaScript code.
 
-> ## INSERT DIAGRAM OF INFINITE LOOP
+Note that the DevTools approach will only work if the DevTools were already open before the loop happened. In DevTools, navigate to the Sources tab. On the right side of this window, there is a pause button that, when hovered over, will say, "Pause script execution":
 
-If you already tested the game in the browser and are stuck in the infinite loop, don't panic! You can still close the tab or use the Chrome DevTools to pause the JavaScript code. Note that the DevTools approach will only work if the DevTools were already open before the loop happened. In DevTools, navigate to the Sources tab. On the right side of this window, there is a pause button that, when hovered over, will say, "Pause script execution":
+![The Chrome DevTools Source tab includes a "pause script" button](./assets/lesson-3/500-pause-script.jpg)
 
-![The Chrome DevTools Source tab includes a "pause script" button](./assets/lesson-3/400-pause-script.jpg)
-
-Click the button to tell Chrome to pause the current JavaScript logic. This will put the page in a pause state similar to the `debugger` statement. From here, you can stop and reload the page as normal.
+Click the button to tell Chrome to pause the currently running JavaScript code. This will put the page in a pause state similar to the `debugger` statement. From here, you can stop and reload the page as normal.
 
 Another problem you may have noticed as we continually restart the game is that the player keeps the same health and money values from the previous session. Thus, if the player ran out of health in their first play through, they start with zero health the second time and immediately lose! To verify if that's really what's happening, use `console.log()` or the DevTools debugger to track `playerHealth`. When using the debugger, hover over the variable name to see its current value:
 
-![The highlighted variable, playerHealth, shows a value of -8](./assets/lesson-3/500-debug-health.jpg)
+![The highlighted variable, playerHealth, shows a value of -8](./assets/lesson-3/600-debug-health.jpg)
 
 We'll need to reset these player variables each time `startGame()` is called. It will be similar to resetting the `enemyHealth` variable within the `for` loop.
 
@@ -204,7 +202,7 @@ var endGame = function() {
 };
 ```
 
-Next, we'll add an `if` statement in the `endGame()` function to alert a different message depending on the player's final health:
+Next, add an `if` statement in the `endGame()` function to alert a different message depending on the player's final health:
 
 ```js
 // if player is still alive, player wins!
@@ -216,7 +214,7 @@ else {
 }
 ```
 
-Finally, we'll use a `confirm` to ask the player if they want to play again:
+Finally, use a `confirm()` to ask the player if they want to play again:
 
 ```js
 // ask player if they'd like to play again
@@ -248,21 +246,33 @@ var startGame = function() {
 };
 ```
 
-Save, refresh, and test out the game in the browser. After looping over every enemy robot, the player should see the question, "Would you like to play again?" Answering yes should restart the game and player stats. Answering no should do nothing.
+Save, refresh, and test out the game in the browser. After looping over every enemy robot, the player should see the question, "Would you like to play again?"
+
+![Confirm window asks "Would you like to play again?"](./assets/lesson-3/300-play-again.jpg)
+
+Selecting OK should restart the game and player stats. Cancel should do nothing.
 
 If the game isn't working, check the DevTools console for errors. An error like `Uncaught ReferenceError: startgame is not defined`, for instance, suggests that we accidentally used lowercase `startgame()` versus `startGame()`. If there aren't errors, use `console.log()` and/or `debugger` statements to verify if functions and `if` statements are being reached.
 
 ## Close Out the MVP
 
+As tempting as it may be to jump right into the next set of features, we should wrap up the MVP we defined earlier.
+
 > ## WAITING ON GITHUB ISSUE OUTLINE
+
+With the MVP safely squared away, we can start knocking out some of our feature improvements, starting with the shop. These nice-to-haves can be the most fun to build, but it was important to have the groundwork in place first. That's why GitHub issues are so valuable. They help keep us on track so we don't skip critical setup in favor of going straight to the "wow factor."
+
+Because we're working on a new feature, our Git process should follow suit:
+
+1. Use the `git branch` command to verify that you are in the `develop` branch. If not, switch to `develop` before proceeding (e.g. `git checkout develop`).
+
+2. Use the command `git checkout -b feature/shop` to create and switch to a new branch.
 
 ## Add the Shop Function
 
-If you haven't already, give yourself a pat on the back! Finalizing the MVP was no small feat. Of course, there's always more that can be added to a game or project of any kind. These nice-to-have features&mdash;like the game's shop&mdash;can be the most fun to build, but we have to have the groundwork in place first. That's why it's so important to establish GitHub issues ahead of time.
+The shop feature will add some much needed risk/reward to the game, as players must decide if they're willing to lower their score for additional perks.
 
-Now that we're here, though, we can start thinking about one of our game's selling features: the shop. This will add some much needed risk/reward to the game, as players must decide if they're willing to give up their money and for which perks.
-
-Like the endgame logic, we'll put all of our shop logic in a function. Again, this will help keep the code organized, and we're likely to call `shop()` again in different places.
+Like the endgame logic, we'll put all of our shop logic in a function. Again, this will help keep the code organized, and we're likely to call `shop()` in more than one place.
 
 Let's create a new function that, for now, simply logs a message:
 
@@ -272,40 +282,275 @@ var shop = function() {
 };
 ```
 
-Before we get carried away writing out the rest of the logic, let's make sure this function can be reached by defining the condition that calls it. Remember, the player should have the option to shop after they skip or defeat an enemy but only if there are still more enemies to fight. How do we know if there are more enemies, though? Well, if the `for` loop hasn't reached the end!
+Before we get carried away writing out the rest of the logic, let's make sure this function can be reached by defining the condition that calls it. Remember, the player should have the option to shop after they skip or defeat an enemy but only if there are still more enemies to fight. How do we know if there are more enemies? If the `for` loop hasn't reached the end!
 
-In the `startGame()` function, let's add an `if` statement directly after we call the `fight()` function:
+In the `startGame()` function, add an `if` statement directly after we call the `fight()` function:
 
 ```js
 fight(pickedEnemyName);
 
+// if we're not at the last enemy in the array
 if (i < enemyInfo.length - 1) {
   shop();
 }
 ```
 
+This will ensure that `shop()` is called after every fight but only if the loop iterator, `i`, still has room to increment.
+
+> **Rewind:** If an array has ten items in it, the length of the array is 10. The indexes start at zero, however, so the last item in the array would be at index 9. Therefore, `nameOfArray.length - 1` would give us the last index, no matter how long the array is.
+
+There's one more condition we should probably add to this `if` statement, however. A player can't shop if they've been defeated, so we'll need to check their health again.
+
+Update the `if` statement to look like this instead:
+
+```js
+// if player is still alive and we're not at the last enemy in the array
+if (playerHealth > 0 && i < enemyInfo.length - 1) {
+  shop();
+}
+```
+
+This would be a good time to test the game in the browser. Verify that the console message `"entered the shop"` appears after a successful fight or skip.
+
+> **Pro Tip:** A good developer tests their code often! It's important to build and test in small steps. That way, if something goes wrong, there isn't too much code we have to backtrack through to discover the problem.
+
+While testing, you may have noticed that the player is never asked if they want to shop; it goes directly into the `shop()` function.
+
+Add a `confirm()` before calling the `shop()` function:
+
+```js
+if (playerHealth > 0 && i < enemyInfo.length - 1) {
+  // ask if user wants to use the store before next round
+  var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
+
+  // if yes, take them to the store() function
+  if (storeConfirm) {
+    shop();
+  }
+}
+```
+
+Now that we've established how and when `shop()` gets called, we can focus our efforts solely on completing the shop functionality.
+
+Replace the `console.log()` in `shop()` with a `prompt()`:
+
+```js
+var shop = function() {
+  // ask player what they'd like to do
+  var shopOptionPrompt = window.prompt(
+    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
+  );
+};
+```
+
+> **Important:** The `prompt()` string needed to use single quotes (`'`) instead of double quotes (`"`), because there were double quotes in the message itself. Writing `"Would you like to "REFILL" your health"` would cause an error, because JavaScript would think the string ended at the second quote mark: `"Would you like to "`.
+
+Whatever the user types in the prompt window will become the value of the variable `shopOptionPrompt`. There are four possibilities we need to account for: REFILL, UPGRADE, LEAVE, and anything else. If your instinct is to use a series of `if` statements, that's great thinking! In programming, however, there's always more than one way to solve a problem. We'll use this prompt as a chance to explore `switch` statements as an alternative to `if`.
+
+A basic example of a `switch` looks like this:
+
+```js
+var num = 5;
+
+switch(num) {
+  case 1:
+    console.log("the variable was 1");
+    break;
+  case 2:
+    console.log("the variable was 2");
+    break;
+  case 3:
+    console.log("the variable was 3");
+    break;
+  default:
+    console.log("the variable was something else");
+    break;
+}
+```
+
+`switch` statements are useful when checking a single value against multiple possibilities, or **cases**. In this example, we're defining what should happen when the variable `num` equals 1, 2, 3, or something else (the `default` case). Each case ends with a `break` to specify that nothing more should happen.
+
+We could have also written this using `if` statements:
+
+```js
+if (num === 1) {
+  console.log("the variable was 1");
+}
+else if (num === 2) {
+  console.log("the variable was 2");
+}
+else if (num === 3) {
+  console.log("the variable was 3");
+}
+else {
+  console.log("the variable was something else");
+}
+```
+
+Both examples accomplish the same thing, so it's ultimately up to you which you prefer. `switch` statements simply cut down on how much you have to write `x === y`, `x === z`, etc. Since we only have one variable, `shopOptionPrompt`, that can be multiple values, a `switch` makes sense.
+
+Add the following `switch` statement to the `shop()` function:
+
+```js
+// use switch to carry out action
+switch (shopOptionPrompt) {
+  case "refill":
+    window.alert("Refilling player's health by 20 for 7 dollars.");
+
+    // increase health and decrease money
+    playerHealth = playerHealth + 20;
+    playerMoney = playerMoney - 7;
+    break;
+  case "upgrade":
+    window.alert("Upgrading player's attack by 6 for 7 dollars.");
+
+    // increase attack and decrease money
+    playerAttack = playerAttack + 6;
+    playerMoney = playerMoney - 7;
+    break;
+  case "leave":
+    window.alert("Leaving the store.");
+
+    // do nothing, so function will end
+    break;
+  default:
+    window.alert("You did not pick a valid option. Try again.");
+
+    // call shop() again to force player to pick a valid option
+    shop();
+    break;
+}
+```
+
+Remember to test the game to see if the shop options are working! One problem with the shop is that players can refill or upgrade even if they don't have enough money. We can put `if` statements inside of the `switch` cases, though, to catch that.
+
+Update the "refill" and "upgrade" cases as follows:
+
+```js
+case "refill":
+  if (playerMoney >= 7) {
+    window.alert("Refilling player's health by 20 for 7 dollars.");
+    
+    // increase health and decrease money
+    playerHealth = playerHealth + 20;
+    playerMoney = playerMoney - 7;
+  }
+  else {
+    window.alert("You don't have enough money!");
+  }
+
+  break;
+case "upgrade":
+  if (playerMoney >= 7) {
+    window.alert("Upgrading player's attack by 6 for 7 dollars.");
+    
+   // increase attack and decrease money
+    playerAttack = playerAttack + 6;
+    playerMoney = playerMoney - 7;
+  }
+  else {
+    window.alert("You don't have enough money!");
+  }
+
+  break;
+```
+
+The last thing we should be mindful of is that the instructions in the prompt window capitalize the commands (e.g. REFILL):
+
+![Prompt window asks user to enter REFILL, UPGRADE, or LEAVE](./assets/lesson-3/400-shop.jpg)
+
+There's a good chance players may try to capitalize their input, as well. Whether the user types "refill" or "REFILL," the same thing should happen.
+
+With `if` statements, we could use a `||` operator:
+
+```js
+if (shopOptionPrompt === "refill" || shopOptionPrompt === "REFILL") {
+
+}
+```
+
+While `switch` statements don't support `||` operators, we can simply write additional cases for these repeated options.
+
+Add a few extra cases to your `switch` so the entire thing looks like this:
+
+```js
+switch (shopOptionPrompt) {
+  case "REFILL": // new case
+  case "refill":
+    if (playerMoney >= 7) {
+      window.alert("Refilling player's health by 20 for 7 dollars.");
+      
+      playerHealth = playerHealth + 20;
+      playerMoney = playerMoney - 7;
+    }
+    else {
+      window.alert("You don't have enough money!");
+    }
+
+    break;
+  case "UPGRADE": // new case
+  case "upgrade":
+    if (playerMoney >= 7) {
+      window.alert("Upgrading player's attack by 6 for 7 dollars.");
+      
+      playerAttack = playerAttack + 6;
+      playerMoney = playerMoney - 7;
+    }
+    else {
+      window.alert("You don't have enough money!");
+    }
+
+    break;
+  case "LEAVE": // new case
+  case "leave":
+    window.alert("Leaving the store.");
+    break;
+  default:
+    window.alert("You did not pick a valid option. Try again.");
+    shop();
+    break;
+}
+```
+
+Notice how `case "REFILL":` doesn't include any other code and is immediately followed by `case "refill":`. Because the first case doesn't `break`, it will **fall through** to the next one. This fall-through can continue until the code reaches another `break`.
+
+> **Deep Dive:** Check out other examples of fall-through on the [MDN web docs for switch statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch#Methods_for_multi-criteria_case).
+
+Play the game a few times in the browser to make sure the shop functionality is working correctly. If not, check the DevTools console for errors. For example, the error `Uncaught ReferenceError: refill is not defined` might mean we wrote `case refill:` instead of `case "refill":` with quote marks.
+
 ## Save Progress with Git
 
-> ## WAITING ON GITHUB ISSUE OUTLINE
+Once you're happy with the shop feature, take a moment to save your progress with Git. Because the shop was an isolated feature/GitHub issue, we can also merge the branch into `develop`. Here's the complete workflow:
+
+1. `git status` to verify the correct files were modified
+
+2. `git add -A` or `git add .` to stage any changed files
+
+3. `git commit -m "shop function"`
+
+4. `git push origin feature/shop` to push the branch to GitHub
+
+5. `git checkout develop` to switch branches
+
+6. `git merge feature/shop` to merge the new feature into the `develop` branch
+
+7. `git push origin develop` to push the updated `develop` branch to GitHub
 
 ## Reflection
 
-*Congratulate the learner (Great work!, Congratulations! Pat yourself on the back, etc.). Recap what they accomplished during the lesson from a bigger perspective in a couple of sentences.*
+First of all, congratulations on finishing the MVP! We not only met our goal of having a "minimum" game but we're well on the way to optimizing this project with cool features like the shop. Let's recap what we accomplished in this lesson:
 
-*In this lesson, you added the following skills to your tool belt, knowledge base, skillset:*
+* We wrote multiple functions&mdash;`startGame()` and `endGame()`&mdash;to control the flow of the game, simultaneously keeping the code organized and DRY.
 
-- Skill learned in 1-2 sentences
+* We used additional `confirm()`, `alert()`, and `prompt()` methods to provide a better user experience.
 
-- Skill learned in 1-2 sentences
+* We built a new shop feature that can accommodate multiple input options thanks to the `switch` statement.
 
-- Skill learned in 1-2 sentences
+The game jam isn't over yet, but we're in a great place to still submit something if we run out of time. Of course, we'll use that extra time to continue adding improvements.
 
-- Etc.
+For starters, the game plays out the same way every time. Players and enemies always do the same amount of damage. We definitely need to add some randomness to the mix.
 
-*If this is the last lesson in a module, recap the entire module and introduce the next module.*
-
-*If this is not the last lesson in a module, introduce the next lesson and how it will build on the skills in this lesson.*
-
+Also, if we want to keep working on this project after the game jam ends, we need to make sure it's designed in a way that can scale more easily. In the next lesson, we'll use JavaScript objects to restructure our code.
 
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
