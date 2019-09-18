@@ -6,47 +6,33 @@ Now that our MVP goal has been met, we could technically submit the game as-is. 
 
 > ## WAITING ON GITHUB ISSUE SCREENSHOT
 
-While working on the game, other game jam attendees made some great suggestions on additional features we could add. Alas, there's not enough time to implement their suggestions, but we can at least optimize the codebase now to be more scalable, making it easier to continue working on the project afterwards.
+While working on the game, other game jam attendees made some great suggestions for additional features we could add. Alas, there's not enough time to implement their suggestions, but we can at least optimize the codebase to be more scalable, making it easier to continue working on the project afterwards.
 
-In this lesson, we'll dive deeper into JavaScript objects 
+JavaScript objects will help us accomplish both tasks: the randomness and the restructuring. Like the `window` object, there are other built-in objects that come with useful methods for generating random numbers. We can even make our own objects to tie data together, which is perfect for consolidating our player and enemy stats.
 
-*Narrative introducing lesson project. Try to cite a GitHub issue where appropriate, and create one in GitHub to include as a screenshot.* 
+It's possible the judges may look at our code, so having a more **object-oriented** structure would definitely appeal to them. In larger games and apps, building around objects can help immensely in keeping track of what data you have and how it can be accessed. Similar to our practice with functions, familiarizing ourselves with objects now will pay huge dividends later!
 
-*Revisit previous lesson topics that this lesson will build on or contrast with.*
+## Preview
 
-*Include screenshot of what project currently looks like:*
+There are several places where we can introduce randomness to the game:
 
-![Screenshot of project in current state](assets/screenshot.jpg)
+* Start enemies at a random health value between 40 and 60
 
-*Tie the lesson to IRL job-skills relevancy.*
+* Start enemies with a random attack value between 10 and 14
 
+* Attack damage is random, using the robot's attack value as an upper limit (e.g. if the player's attack is 10, their damage range is 7-10)
 
-## Preview 
+We'll use the built-in `Math` object to perform these improvements. Afterwards, we'll consolidate all of our player variables into a single object. Consider the following diagram:
 
-*A preview of the end product of the lesson.*
+> ## NEED DIAGRAM OF OBJECT VS VARIABLES
 
-*Encourage student to pseudocode steps that take them from current to end product (if they have the appropriate skill level to do this).*
+It would be much easier to maintain the player stats if they all belonged to one object instead of having several different variables floating about. This would become even more important as the game grows in scope and more player stats are needed. We'll similarly convert our enemies into objects.
 
-*- There’s more than one way to do this.* 
-
-*- If there are more than 2 ways to go about the build, briefly discuss 2-3 different strategies the student could use, and explain why we’re going with the strategy we’ve chosen.*
-
-*List each step w/ a summary overview (e.g., “Here’s how we’re going to approach this:”*:
-
-- *Step 1 (e.g., Set up the HTML file for the Run Buddy landing page)*
-- *Step 2*
-- *Step 3*
-- *Step 4*
- 
-*Introduce mock-up of what learner will build in this lesson (e.g., "Here's a mock-up of what we're aiming for in this lesson):*
-
-![Mock-up of lesson end goal](assets/screenshot.jpg)
-
-*Transitional text to first section (e.g., "Let's get started, etc.").*
+That said, here's our plan of attack for the lesson:
 
 1. Create a new feature branch
 
-2. Use the Math object to improve game values
+2. Use the Math object to add randomness to the game
 
 3. Convert player and enemy data to custom objects
 
@@ -54,23 +40,100 @@ In this lesson, we'll dive deeper into JavaScript objects
 
 ## Create Feature Branch
 
-*2–3 sentences describing what will be covered in this section.*
+Starting a new feature means we'll need a new branch. Let's revisit our Git workflow:
 
-*Walk student through this step, include LBs as appropriate, etc.*
+1. Use the `git branch` command to verify that you are in the `develop` branch. If not, switch to `develop` before proceeding (e.g. `git checkout develop`).
 
-*Transitional text to next section.*
-
+2. Use the command `git checkout -b feature/objects` to create and switch to the new branch.
 
 ## Use the Math Object
 
-*2–3 sentences describing what will be covered in this section.*
+If we want to generate random numbers in JavaScript, we'll need the help of a built-in object called `Math`. Accessing this object is similar to accessing `console`. Both are properties of the `window` object, but we're not required to write `window.Math`.
 
-*Walk student through this step, include LBs as appropriate, etc.*
+Try console logging the `Math` object and inspect what's printed in the DevTools:
 
-*Transitional text to next section.*
+![The Math object has been expanded to show its property names](./assets/lesson-4/300-console-math.jpg)
 
+We can see that `Math` has many properties and functions attached to it. When a function belongs to an object, though, we refer to it as a **method**.
 
-## Convert Data to Objects
+Console log some of these properties and methods to see what they do:
+
+```js
+// prints 3.141592653589793
+console.log(Math.PI);
+
+ // rounds to the nearest whole number (4)
+console.log(Math.round(4.4));
+
+ // prints the square root (5)
+console.log(Math.sqrt(25));
+```
+
+The method that we're most interested in is `Math.random()`, but this can be tricky to use and understand. Let's warm up with `Math` by first using the `Math.max()` method. Given a series of numbers, this method will return the largest.
+
+Let's look at a few examples:
+
+```js
+// prints 100
+console.log(Math.max(10, 20, 100));
+
+// prints 0
+console.log(Math.max(0, -50));
+```
+
+How does that help us with the game? Think about areas where one of our number values could dip into negative territory. Player health, enemy health, and money are all deducted from at various points, and there's a chance these values could turn negative. Does that break the game if they do? No, not really, but it also doesn't look very professional. Using something like `Math.max(0, variableName)`, we can ensure deducted values always stop at zero.
+
+Make the following changes in the `fight()` function:
+
+* Replace `enemyHealth = enemyHealth - playerAttack;` with `enemyHealth = Math.max(0, enemyHealth - playerAttack);`
+
+* Replace `playerHealth = playerHealth - enemyAttack;` with `playerHealth = Math.max(0, playerHealth - enemyAttack);`
+
+* Replace `playerMoney = playerMoney - 10;` with `playerMoney = Math.max(0, playerMoney - 10);`
+
+Save and test the game, verifying that your `alert()` or `console.log()` methods never display a negative health or money value.
+
+> **Pause:** How could we have prevented negative values with `if` statements instead of `Math.max()`?
+>
+> **Answer:**
+>
+>```js
+>playerMoney = playerMoney - 10;
+>
+>if (playerMoney < 0) {
+>  playerMoney = 0;
+>}
+>```
+
+Now that we've gotten a taste of the `Math` object, let's dive into its random capabilities. Console log `Math.random()` a few times and you'll get some interesting numbers in return. Maybe `0.7353300720527607` or `0.25000120638240264`. What does this mean?!
+
+The `Math.random()` method returns a random decimal number between 0 and 1 (but not including 1, meaning you would never get exactly 1). For this decimal number to be useful, we have to pair it with other math operations.
+
+In the `startGame()` function, replace the line `enemyHealth = 50;` with the following:
+
+```js
+enemyHealth = Math.floor(Math.random() * 60);
+```
+
+By multiplying `Math.random()` by 60, we've now specified a random range from 0 to 59.xx (remember, `Math.random()` will never be 1, so we would never get an even 60). We don't want decimal numbers cluttering up our game, though, so we can use `Math.floor()` to round down to the nearest whole number. This means, at the start of each round, `enemyHealth` would be a whole number from 0 to 59.
+
+Hmmmm. This still isn't perfect. Even though the odds are low, we don't want to risk an enemy starting with zero health. Ideally, enemy health should be between 40 and 60, which we can still achieve with a little extra math!
+
+Update the line in `startGame()` to look like this:
+
+```js
+enemyHealth = Math.floor(Math.random() * 21) + 40;
+```
+
+Okay, now this random logic is getting confusing. Let's break it down:
+
+1. `Math.random() * 21` will give us a random number between 0 and 20.xx.
+
+2. `Math.floor()` will round this number down, so now the range is 0 to 20.
+
+3. We'll always add 40 to the randomly generated number. If the random number is 0, we at least have 40. If the random number is 20, we have our upper range: 60.
+
+## Convert Data to Custom Objects
 
 *2–3 sentences describing what will be covered in this section.*
 
