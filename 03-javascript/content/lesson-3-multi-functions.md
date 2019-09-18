@@ -338,12 +338,10 @@ Replace the `console.log()` in `shop()` with a `prompt()`:
 var shop = function() {
   // ask player what they'd like to do
   var shopOptionPrompt = window.prompt(
-    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
+    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
   );
 };
 ```
-
-> **Important:** The `prompt()` string needed to use single quotes (`'`) instead of double quotes (`"`), because there were double quotes in the message itself. Writing `"Would you like to "REFILL" your health"` would cause an error, because JavaScript would think the string ended at the second quote mark: `"Would you like to "`.
 
 Whatever the user types in the prompt window will become the value of the variable `shopOptionPrompt`. There are four possibilities we need to account for: REFILL, UPGRADE, LEAVE, and anything else. If your instinct is to use a series of `if` statements, that's great thinking! In programming, however, there's always more than one way to solve a problem. We'll use this prompt as a chance to explore `switch` statements as an alternative to `if`.
 
