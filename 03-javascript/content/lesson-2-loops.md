@@ -40,7 +40,7 @@ In order to defeat all the robots we must be able to face each robot and then de
 ```javascript
 // Game States
 // "WIN" - Player robot has defeated all enemy robots
-//    * Face all enemy robots
+//    * Fight all enemy robots
 //    * Defeat each enemy robot
 // "LOSE" - Player robot's health is zero or less
 ```
@@ -214,8 +214,39 @@ We should see the following in the console:
 
 ![Console Loop](./assets/lesson-2/800-console-loop.png)
 
-Now that we have some familiarity with how to loop through our `enemyNames` array we are able to access each enemy robot which satisfies our sub step to: 
+Much better! Now that we have some familiarity with how to loop through our `enemyNames` array, let's see how we are able to apply these operations to achieve our pseudocoding objectives: 
 ```javascript
-// * Face all enemy robots
+// Game States
+// "WIN" - Player robot has defeated all enemy robots
+//    * Fight all enemy robots
 ```
-let's see how this can fulfill our objective for this lesson
+
+## Function Arguments
+Great, now that we are able to access each enemy robot in the  `enemyNames` array, we must now try to have our robot fight them in the `fight()` function. Currently we have a global variable named `enemyName` inside our `fight()` function to make our robots face off and fight each other. Now that we have an `enemyNames` array, we will need to make some changes to how the robot combatants face off. Let's take a minute to think about a scenario in which as we loop through the `enemyNames` array, with each new robot or loop iteration, we could make the robots fight. Taking into account our `fight()` operation is in a function, this offers the flexibility to call this function inside our `for` loop. Now the utility of functions becomes more apparent. We are able to execute this code in the `fight()` function repeatedly from within a loop. But how do we pass in our enemy robot into the function because presently the function expression is only able to fight a single robot. We will use a property of functions that will allow data to be passed into the function through the argument. This will allow us to pass in a new enemy robot on every loop iteration into our `fight()` function to fight our robot.
+```javascript
+fight(enemyRobot);
+```
+We have used arguments several times whenever we passed information into a function whether it be a variable or a value. Here are some of the examples:
+```javascript
+console.log(enemyNames);      // array argument
+alert("Hello");               // string argument
+console.log(enemyNames[i], i) // two arguments, comma separated
+for(var i = 0; i < enemyNames.length; i++) // three arguments; semicolons are specific to for loops
+```
+Previously we have been using arguments with `window` methods and JavaScript functions, but now we will construct our own function that is able to pass in an argument. Now let's make some changes to our `fight()` function expression to allow an argument to be used. Remember the function expression defines the "how" and "what" of our function's operations. If we want the function to perform differently we must change our function definition every time. We would like to convert our `fight()` function to pass in an enemy robot and then fight this robot. Let's find our `fight()` expression and change the first line to the following:
+```javascript
+var fight = function(enemyName) {
+```
+We just redefined our `fight` variable to now be a function that is able to input or receive a variable. Since we are dealing the a variable placeholder in the function definition, we call this the function *parameter*.
+> **Deep Dive:** Parameters vs Arguments - Parameters are often confused with arguments due to the similarity in syntax. The main distinction between them is the purpose in relation to the function. In a function expression, a parameter serves as a variable placeholder that indicates how this variable will be used in the function. Since the use of the parameter is reserved to only the scope of the function, the name of the parameter isn't very significant, but normally is related to the type or purpose of the variable as follows: 
+```javascript
+var wash = function(soapType) {
+  console.log("I wash with " + soapType);
+}
+```
+Then when I call the `wash()` function, I can enter a type of soap into the argument.
+```javascript
+wash("Irish Spring"); // => I wash with Irish Spring
+```
+Will be returned in the console.
+As shown, the argument is part of the function call, not the function expression. The argument passes information into the function that will be process whether that be a variable or a value with 
