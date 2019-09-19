@@ -247,12 +247,170 @@ Once you're happy with the current state of the game, `git add`, `commit`, and `
 
 ## Convert Data to Custom Objects
 
-*2–3 sentences describing what will be covered in this section.*
+We just spent a fair amount of time working with the `Math` object. Objects can have both properties (`Math.PI`) and methods/functions (`Math.random()`). There are many other built-in JavaScript objects that we'll discover over time, and we can even make our own! Here's an example of a simple custom object:
 
-*Walk student through this step, include LBs as appropriate, etc.*
+```js
+var food = {
+  name: "Banana",
+  type: "fruit",
+  calories: 105
+};
+```
 
-*Transitional text to next section.*
+Objects are created using curly brackets, where any object properties are defined within using `name: value` syntax. Accessing these properties works just like the `Math` object:
 
+```js
+console.log(food.name); // "Banana"
+console.log(food.type); // "fruit"
+console.log(food.calories); // 105
+```
+
+We can use this same syntax to create a new player object. This would help keep all of our player data coupled together, something that would become even more important if we were to have multiple players later on with hundreds of different properties.
+
+At the top of `game.js`, delete the four player variables (`playerName`, `playerHealth`, `playerAttack`, `playerMoney`) and replace them with an object:
+
+```js
+var playerInfo = {
+  name: window.prompt("What is your robot's name?"),
+  health: 100,
+  attack: 10,
+  money: 10
+};
+```
+
+That will momentarily break the game, because we now have references to undefined variables all over the place. We'll need to update these variable references to point to the object:
+
+* Replace all instances of `playerName` with `playerInfo.name`
+
+* Replace all instances of `playerHealth` with `playerInfo.health`
+
+* Replace all instances of `playerAttack` with `playerInfo.attack`
+
+* Replace all instances of `playerMoney` with `playerInfo.money`
+
+Save and test the game to make sure we didn't miss any variables. Note that switching to a player object didn't change the game at all, but it consolidated a lot of important data. Accessing this data also makes for more readable code, because `playerInfo.health` establishes a direct link between the health property and its owner.
+
+> **Pro Tip:** Another way to access object properties is with bracket notation: `playerInfo["health"]`. This is useful in situations where the property you are looking up is based off of a variable. For instance:
+>
+>```js
+>var userInput = "money";
+>
+>// will equate to playerInfo["money"]
+>console.log(playerInfo[userInput]);
+>```
+
+While we're at it, delete the `enemyNames`, `enemyHealth`, and `enemyAttack` variables. Under the player object, create a new array of enemy objects:
+
+```js
+var enemyInfo = [
+  {
+    name: 'Roborto',
+    attack: 12
+  },
+  {
+    name: 'Amy Android',
+    attack: 13
+  },
+  {
+    name: 'Robo Trumble',
+    attack: 14
+  }
+];
+```
+
+Even though the data in the array looks much different, it's still an array with numerical indexes. That means the first robot object can be accessed as `enemyInfo[0]`, and getting that robot's name is as simple as `enemyInfo[0].name`.
+
+Note that we didn't include `health` as a property of the array objects. Once an object has been defined, properties can still be added after the fact. For example, we could add an extra property to the first robot only: `enemyInfo[0].special = true;`. We'll postpone defining the health to better demonstrate this idea.
+
+In the `startGame()` function, adjust the following lines of code to reference the enemy array:
+
+* In the `for` loop, replace both mentions of `enemyNames.length` with `enemyInfo.length`
+
+* Replace `var pickedEnemyName = enemyNames[i];` with `var pickedEnemyObj = enemyInfo[i];`
+
+* Change `enemyHealth = randomNumber(40, 60);` to `pickedEnemyObj.health = randomNumber(40, 60);`
+
+* Change `fight(pickedEnemyName);` to `fight(pickedEnemyObj);`
+
+Whoa, hold on. We were originally passing a string (`pickedEnemyName`) into the `fight()` function, but now we're passing an entire object. We're allowed to do that, of course, but that means the code inside the function will need to change to reflect the object.
+
+First, rename the function parameter to something more appropriate:
+
+```js
+var fight = function(enemy) {
+  console.log(enemy);
+
+  // other logic...
+};
+```
+
+If you console log `enemy`, you'll see that it is an object with three properties, including the newly added `health` property:
+
+![The DevTools console displays an enemy object and then a reference error](./assets/lesson-4/400-console-enemy.jpg)
+
+Unfortunately, the console displays an error immediately afterwards, because we still have leftover variables like `enemyHealth` that need to be swapped out.
+
+Make the following changes in the `fight()` function:
+
+* Replace all instances of `enemyHealth` with `enemy.health`
+
+* Replace all instances of `enemyName` with `enemy.name`
+
+* Replace all instances of `enemyAttack` with `enemy.attack`
+
+That should take care of the remaining errors. Test the game again to make sure we didn't forget any.
+
+> **Deep Dive:** Passing objects into a function presents an interesting gotcha in JavaScript. In the above example, where we defined `enemy` as a parameter, that does not create a brand new object called `enemy`. Instead, it creates a reference to the original object. Therefore, updating a property on `enemy` also updates the original object.
+>
+>Here's a smaller example to demonstrate this **passing by reference**:
+>
+>```js
+>var oldObj = {
+>  name: "test",
+>  count: 1
+>};
+>
+>var addOne = function(newObj) {
+>  // increment count property of newObj by one
+>  newObj.count = newObj.count + 1;
+>};
+>
+>// pass oldObj into the function
+>addOne(oldObj);
+>
+>console.log(oldObj.count); // prints 2
+>```
+>
+>Updating `newObj` in the function also updated `oldObj`. Sometimes this behavior can work to our advantage, like our enemy array. But if you're not aware that JavaScript does this, it can feel like something's broken!
+
+Now that we have an array of enemy objects, we can easily define different attack values for each. In fact, why not make these attack values random using our handy `randomNumber()` function?
+
+Update the objects in the `enemyInfo` array as such:
+
+```js
+var enemyInfo = [
+  {
+    name: 'Roborto',
+    attack: randomNumber(10, 14)
+  },
+  {
+    name: 'Amy Android',
+    attack: randomNumber(10, 14)
+  },
+  {
+    name: 'Robo Trumble',
+    attack: randomNumber(10, 14)
+  }
+];
+```
+
+If you test the game, though, you'll get the following error: `Uncaught TypeError: randomNumber is not a function`.
+
+> **Pause:** Why does the browser think `randomNumber` is not a function?
+> 
+> **Answer:** `enemyInfo` is being defined before `randomNumber`
+
+Move the `enemyInfo` array and `playerInfo` object to the bottom of the `game.js` file to prevent these kinds of errors. Organizing the code this way ensures that all functions are defined ahead of time before other objects or methods try to use them.
 
 ## Merge Branch
 
