@@ -239,14 +239,32 @@ var fight = function(enemyName) {
 ```
 We just redefined our `fight` variable to now be a function that is able to input or receive a variable. Since we are dealing the a variable placeholder in the function definition, we call this the function *parameter*.
 > **Deep Dive:** Parameters vs Arguments - Parameters are often confused with arguments due to the similarity in syntax. The main distinction between them is the purpose in relation to the function. In a function expression, a parameter serves as a variable placeholder that indicates how this variable will be used in the function. Since the use of the parameter is reserved to only the scope of the function, the name of the parameter isn't very significant, but normally is related to the type or purpose of the variable as follows: 
+>```javascript
+>var wash = function(soapType) {
+>  console.log("I wash with " + soapType);
+>}
+>```
+>Then when we call the `wash()` function, we can enter a type of soap into the argument.
+>```javascript
+>wash("Irish Spring"); // => I wash with Irish Spring
+>```
+>Will be returned in the console.
+As shown, the argument is part of the function call, not the function expression. The argument passes information into the function whether that be a variable or a value with any data type or data structure.
+
+Let's look into the `fight()` function and note that by adding the parameter `enemyName` this maps perfectly within the function to display our enemy robot's name.
+
+### Application Organization
+Now that our `fight()` function has been corrected, let's continue with our goal to make our robot fight each of our enemy robots. Before we proceed let's make sure our app is correctly organized. Our global variables should be at the top of our `game.js` file along with our `enemyNames` array.
 ```javascript
-var wash = function(soapType) {
-  console.log("I wash with " + soapType);
-}
+var playerName = window.prompt("What is your robot's name?");
+var playerHealth = 100;
+var playerAttack = 10;
+var playerMoney = 10;
+
+var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
+var enemyHealth = 50;
+var enemyAttack = 12;
 ```
-Then when I call the `wash()` function, I can enter a type of soap into the argument.
-```javascript
-wash("Irish Spring"); // => I wash with Irish Spring
-```
-Will be returned in the console.
-As shown, the argument is part of the function call, not the function expression. The argument passes information into the function that will be process whether that be a variable or a value with 
+Let's comment out our `console.log` statements for now to declutter our console. Next in our file should be the `fight()` function expression. This has to be above our `for` loop because since we will be calling the `fight()` within our loop, if the function is not declared before our function call we will get another "Uncaught ReferenceError" in our console. 
+
+
