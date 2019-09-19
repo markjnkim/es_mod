@@ -202,7 +202,11 @@ After having spent some time adding classes to the HTML, the Reach Out section s
 </section>
 ```
 
+<<<<<<< Updated upstream
 Let's unpack this solution and see if our choices made sense. We created a new class called `contact` for this section's blue background color and alignment. We reassigned the class `section-title` to the section heading because the font-size, margin, padding, and border declarations are the same. Only the font color needed to be changed, so we only need to write one CSS declaration instead of five — quite a nice optimization. 
+=======
+Let's unpack this solution and see if our choices made sense. We created a new class called `contact` for this section's blue background color and alignment. We reassigned the class `section-title` to the section heading because many of the same styles are needed for style consistency in our document such as font-size, margin, padding, and border. The font color for the section heading will need to be reassigned, but that's still a nice optimization of code as opposed to rewriting these four declarations again.
+>>>>>>> Stashed changes
 
 ```css
 .section-title {

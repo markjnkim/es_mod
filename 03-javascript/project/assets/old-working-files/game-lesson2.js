@@ -1,8 +1,10 @@
+// lesson 1
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
+// lesson 2
 var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 var enemyHealth = 50;
 var enemyAttack = 12;
@@ -83,7 +85,7 @@ for (var i = 0; i < enemyNames.length; i++) {
     enemyHealth = 50;
 
     // use debugger to pause script from running and check what's going on at that moment in the code
-    debugger;
+    // debugger;
 
     // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
     fight(pickedEnemyName);
@@ -91,5 +93,6 @@ for (var i = 0; i < enemyNames.length; i++) {
   // if player isn't alive, stop the game
   else {
     window.alert('You have lost your robot in battle! Game Over!');
+    break;
   }
 }
