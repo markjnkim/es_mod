@@ -265,6 +265,45 @@ var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 var enemyHealth = 50;
 var enemyAttack = 12;
 ```
-Let's comment out our `console.log` statements for now to declutter our console. Next in our file should be the `fight()` function expression. This has to be above our `for` loop because since we will be calling the `fight()` within our loop, if the function is not declared before our function call we will get another "Uncaught ReferenceError" in our console. 
+Let's comment out our `console.log` statements for now to declutter our console window. Next in our file should be the `fight()` function expression. This has to be above our `for` loop because since we will be calling the `fight()` within our loop. 
+> **Pause:** If the function is not declared before the function call, what type of error will be in the console?
+> 
+> **Answer:** *Uncaught ReferenceError*
+
+Now let's type the `for` loop into our `game.js` file beneath the `fight()` function as follows:
+```javascript
+for(var i = 0; i < enemyNames.length; i++) {
+  fight(enemyNames[i]);
+}
+```
+<!-- > **Video:** [Gif displays current game state - Jira Issue](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-162)
+> Fall Back with screen shots -->
+![Successful Loop Function Call](./assets/lesson-2/900-console-fight-robots.png)
+
+As can be seen in our console, we have successfully looped through our array and fought each robot. Congratulations! We have almost reached our MVP and successfully accomplished our objective to face and fight each enemy robot. The next objective we need to tackle is to defeat each enemy robot, then we will be able to "WIN" the game.
+This is a great spot to add, commit, and push our work into the Github repo for safe keeping. 
+
+## Fight Loop
+The next objective is to defeat each robot. Currently we are only able to fight each robot once. So how do we go about fighting each robot until a winner is found? Sounds a bit like we need another loop, to continue the fighting. Earlier we determined that to defeat a robot we need to fight them until their health points reduce to zero or less. This was translated into code by using the following conditional:
+```javascript
+if (enemyHealth <= 0) 
+```
+
+Thankfully we have a function we can use that loops or repeatedly executes a line or block of code while a condition remains true. This is called the `while` loop. Very similar in concept to the `for` loop, both repeatedly execute a line or block of code until a condition becomes false. Let's write our code within the `fight()` function to look like the following:
+```javascript
+var fight = function(enemyName) {
+  while(enemyHealth > 0) {
+
+  }
+```
+Within the block of the `while` loop let's move all the code from our `fight()` function. Now when the `fight()` function is called, our robot will fight the enemy robot until the defeat.
+
+Let's run this code and see the results in the console.
+
+> **Important:** Keep the console window in the browser open during the development process since errors and results will be displayed there.
+
+
+
+
 
 
