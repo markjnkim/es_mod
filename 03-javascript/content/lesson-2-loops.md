@@ -323,7 +323,7 @@ Now let's run the program to see what happens. Our console's response should loo
 
 ![Chrome Debugger](./assets/lesson-2/1100-chrome-debugger.png)
 
-Notice that in the middle window, we can see the JavaScript file with our `debugger;` statement highlighted. On the right window, we can see the debugger control window. The current status notes that the debugger has been paused. We can also see that currently we are in the Sources tab.
+Notice that in the middle window, we can see the JavaScript file with our `debugger;` statement highlighted. This is called the Code Editor pane. To the left, is the the File Navigator pane which displays the folder tree. To the right will be the JavaScript Debugging pane. The current status notes that the `debugger` has been paused therefore the program is currently frozen unless we click the resume button. We currently we are in the Sources tab of the console.
 
 > **Video:** [Gif Debugger Tool - Jira FSFO-163](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-163)
 
@@ -345,9 +345,17 @@ Since we are in the first iteration of the `for` loop as indicated by the `i` se
 
 Since the health of the robots is a major inflection point in our battle, we should keep an extra eye on how these values change. Currently it appears that the `enemyHealth` value is currently at zero. 
 ### Debugger Controller
-Notice on the very top of the debugger controller window in the console, there are some buttons that will offer control over how the program will progress forward.
+Notice on the very top of the JavaScript Debugging pane, there are controls that will unpause the program. Hover over each control to find a quick explanation. We will focus on the step control which looks like this:
+
+![Debugger Step Button](./assets/lesson-2/1400-debug-step.png)
+
+> **Deeper Dive:** Other controls include resuming the program's execution as well as stepping into, out of, and over functions. For a closer look at these controls as well as the other tools such as breakpoints in the Chrome DevTools debugger take a look at [Google's DevTools JavaScript Debugger tutorial.](https://developers.google.com/web/tools/chrome-devtools/javascript/)
 
 
+Let's click on the step button and progress slowly through the program executing each line one at a time. 
+
+
+> **Video:** Gif Jira FSFO-
 The debugger in Chrome can also allow the program to progress step by step so we are able to see how the values change as well as the behavior of the conditional statements.
 
 
