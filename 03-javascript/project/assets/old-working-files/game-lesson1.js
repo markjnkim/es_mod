@@ -25,12 +25,14 @@ var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 
 var enemyHealth = 20;
 var enemyAttack = 12;
-
+var printEnemy = function(enemy, index) {
+  console.log(enemy, index);
+}
 // fight function
 var fight = function(enemyName) {
   // let user know they have begun the fight
-  while(enemyHealth) {
-    window.alert('Welcome to Battlebots!');
+  while(enemyHealth > 0) {
+    // window.alert('Welcome to Battlebots!');
 
     // ask user if they'd liked to fight or run
     var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
@@ -46,6 +48,7 @@ var fight = function(enemyName) {
       // check enemy's health
       if (enemyHealth <= 0) {
         window.alert(enemyName + ' has died!');
+        // break;
       } else {
         window.alert(enemyName + ' still has ' + enemyHealth + ' health left.');
       }
@@ -59,6 +62,7 @@ var fight = function(enemyName) {
       // check player's health
       if (playerHealth <= 0) {
         window.alert(playerName + ' has died!');
+        // break;
       } else {
         window.alert(playerName + ' still has ' + playerHealth + ' health left.');
       }
@@ -73,7 +77,7 @@ var fight = function(enemyName) {
         // subtract money from playerMoney for skipping
         playerMoney = playerMoney - 10;
         console.log("playerMoney", playerMoney);
-        break;
+        // break;
       }
       // if no (false), ask question again by running fight() again
       else {
@@ -82,12 +86,15 @@ var fight = function(enemyName) {
       // if player did not chose 1 or 2 in prompt
     } else {
       // break;
-      // window.alert('You need to pick a valid option. Try again!');
+      window.alert('You need to pick a valid option. Try again!');
   }
 }
 };
 for(var i = 0; i < enemyNames.length; i++) {
+
   fight(enemyNames[i]);
+  // printEnemy(enemyNames[i], i)
+  // console.log(enemyNames[i], i);
 }
 // run fight function to start game
 // fight();

@@ -286,21 +286,28 @@ This is a great spot to add, commit, and push our work into the Github repo for 
 ## Fight Loop
 The next objective is to defeat each robot. Currently we are only able to fight each robot once. So how do we go about fighting each robot until a winner is found? Sounds a bit like we need another loop, to continue the fighting. Earlier we determined that to defeat a robot we need to fight them until their health points reduce to zero or less. This was translated into code by using the following conditional:
 ```javascript
-if (enemyHealth <= 0) 
+if (enemyHealth <= 0) // enemy robot is defeated
 ```
 
-Thankfully we have a function we can use that loops or repeatedly executes a line or block of code while a condition remains true. This is called the `while` loop. Very similar in concept to the `for` loop, both repeatedly execute a line or block of code until a condition becomes false. Let's write our code within the `fight()` function to look like the following:
+Thankfully we have a function we can use that loops or repeatedly execute a line or block of code *while* a condition remains true. This is called the `while` loop. Very similar in concept to the `for` loop, both functions repeatedly execute a line or block of code until a condition becomes false. Let's write our code within the `fight()` function to look like the following:
 ```javascript
 var fight = function(enemyName) {
+  // repeat and execute as long as the enemy robot is alive
   while(enemyHealth > 0) {
 
   }
 ```
-Within the block of the `while` loop let's move all the code from our `fight()` function. Now when the `fight()` function is called, our robot will fight the enemy robot until the defeat.
+Within the block of the `while` loop let's move all the code from our `fight()` function. Now when the `fight()` function is called, our robot will fight the enemy robot again until defeated.
 
 Let's run this code and see the results in the console.
+We should see the following in the console.
+
+![Console Fight Loop](./assets/lesson-2/1000-console-fight-loop.png)
+
+This is part of what we want. The `while` loop in the `fight()` function appeared to have worked correctly, however only one enemy robot was fought and there doesn't seem to be any errors to speak of. Is our `for` loop not iterating through our array? Is the `while` loop
 
 > **Important:** Keep the console window in the browser open during the development process since errors and results will be displayed there.
+
 
 
 

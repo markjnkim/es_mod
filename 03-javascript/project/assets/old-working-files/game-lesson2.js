@@ -21,6 +21,7 @@ var fight = function(enemyName) {
         window.alert(playerName + ' has decided to skip this fight. Goodbye!');
         playerMoney = playerMoney - 10;
         break;
+        // debugger;
       }
     }
     enemyHealth = enemyHealth - playerAttack;
