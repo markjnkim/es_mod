@@ -351,12 +351,43 @@ Notice on the very top of the JavaScript Debugging pane, there are controls that
 
 > **Deeper Dive:** Other controls include resuming the program's execution as well as stepping into, out of, and over functions. For a closer look at these controls as well as the other tools such as breakpoints in the Chrome DevTools debugger take a look at [Google's DevTools JavaScript Debugger tutorial.](https://developers.google.com/web/tools/chrome-devtools/javascript/)
 
-
 Let's click on the step button and progress slowly through the program executing each line one at a time. 
 
+> **Video:** [Gif - Jira FSFO-165 Debugging Step](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-164)
 
-> **Video:** Gif Jira FSFO-
-The debugger in Chrome can also allow the program to progress step by step so we are able to see how the values change as well as the behavior of the conditional statements.
+We can see that the next progression, the `i` value iterates by one due to the `for` loop argument. Next, the `i` conditional is checked in the `for` loop. After this conditional has been satisfied since `1 < 3` returns a true statement, we then proceed into the `fight()` function. But instead of progressing with our new robot enemy into the `while` loop, we are immediately kicked out of this function. It appears we did not satisfy the `while` loops condition that the `enemyHealth > 0`. *Ah ha!* That is why our player robot is failing to fight the other enemy robots besides the first one. Since we only have a single global `enemyHealth` variable, attacking one robot is the same as attacking all the enemy robots. We must reset the `enemyHeatlh` value before each robot battle so the next robot can start battling at full strength. Let's reset our enemy robot's health by assigning it right before we our `fight()` function call inside the `for` loop. For simplicity sake let's choose a variable name that is more semantic than `enemyNames[i]` to store our current enemy robot. 
+<!-- Another adjustment in the `for` loop would be to remove our `alert("Welcome to Battlebots!")` from our `fight()` function.  -->
+Please make sure your `for` loop looks similar to this:
+```javascript
+for (var i = 0; i < enemyNames.length; i++) {
+    window.alert('Welcome to Battlebots! Round ' + (i + 1));
+    var pickedEnemyName = enemyNames[i];
+    enemyHealth = 50;
+    fight(pickedEnemyName);
+}
+```
+Let's run this in the browser and see if we have solved our problem.
+
+![Defeat the Robots](./assets/lesson-2/1500-console-fight-array)
+
+
+## Reflection
+Congratulations on creating this step of our MVP. Since we were able to develop the MVP of this project so quickly, we can start thinking about nice features or added gameplay options that could improve the user engagement and experience.
+
+Review what the student has accomplished in this lesson:
+Created more gameplay complexity with control and different opponents
+First pseudocode steps for game logic 
+How to translate pseudocode into programming logic
+Completed the the core logic, so we’re very close to the MVP. Looking at the clock, we’ve got plenty of time.
+Specific skills learned:
+Learned how to loop until a condition is met.
+Use arguments to pass in data to compute in a function
+Difference between loops while vs for
+Arrays are lists that store data
+Looping through arrays
+Function arguments
+Debugger in a loop
+Let’s continue onto the next lesson and create more functions that will add game control, complexity (a shop!), code optimizations, and fun.
 
 
 
