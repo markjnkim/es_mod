@@ -366,16 +366,21 @@ for (var i = 0; i < enemyNames.length; i++) {
     fight(pickedEnemyName);
 }
 ```
-Let's run this in the browser and see if we have solved our problem.
+Let's run this in the browser and see if we have solved our problem. We should see the following in our console:
 
 ![Defeat the Robots](./assets/lesson-2/1500-console-fight-array.png)
 
-Great job! We now have a game that is playable and nearly complete in regards to our MVP. Seeing that we still have some time left in our Game Jam, let's add some interesting game play features to increase game complexity and randomness since a predictable game can be a bit boring to play. This will go over well with the Game Jam judges since at the end of the day more fun will be more impressive. Before we continue let's review some of the key concepts we have covered.
+Now our battles are much longer and more complex. Excellent work! We can see our fight with each robot, and the drain of health points as the battle progresses. When a robot has been defeated, a new robot joins the fray at full health as we wanted. Let's pause and preserve our work in Github as we proceed to the end of this lesson.
 
 ## Reflection
-We learned some of the basic building blocks of JavaScript including the arrays and loops. Mastering these concepts will take time and practice but are necessary in every aspect of web development. We also learned how to pseudocode our steps and think like a computer. With each project and application that is built, more familiarity will build knowledge and confidence with this mindset.
-We also learned how to deal with console errors and carefully investigate possible error sources by using the Chrome DevTools debugger.
-Going forward, we will build upon these skills and learn new skills that leverage our current knowledge.
+Great job! We now have a game that is playable and nearly complete in regards to our MVP. We are making excellent progress in our Game Jam so far. Seeing that we still have some time left, let's add some interesting game play features to increase game complexity and randomness since a predictable game can be a bit boring. This will go over well with the Game Jam judges since at the end of the day more fun is always better. Before we continue let's review some of the key concepts we have covered so far.
+
+We learned some of the basic building blocks of JavaScript and how to implement them in an application.
+  * Arrays are data structures similar to an ordered list that allows storage of data at indexes.
+  * The `for` and `while` loops allow for line(s) of code to be executed repeatedly until conditional statements are not met which will then break the loop.
+  * Using `console.log` and the debugger statement allows for variables to be revealed in the browser at certain moments of the program's execution.
+
+Going forward in this module and beyond, we will continue to use and build upon these skills and learn new skills that leverage our current knowledge.
 
 
 <!-- 

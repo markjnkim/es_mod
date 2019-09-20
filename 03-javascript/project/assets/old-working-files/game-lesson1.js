@@ -1,6 +1,6 @@
 // var playerName = 'Clank McKrank';
 var playerName = window.prompt("What is your robot's name?");
-var playerHealth = 20;
+var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
@@ -23,7 +23,7 @@ var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 // for(var i = 0; i < 3; i++) console.log("apple " + i);
 // for(var i = 0; i < enemyNames.length; i++) console.log(enemyNames[i]);
 
-var enemyHealth = 20;
+var enemyHealth = 50;
 var enemyAttack = 12;
 var printEnemy = function(enemy, index) {
   console.log(enemy, index);
@@ -93,6 +93,7 @@ var fight = function(enemyName) {
 for(var i = 0; i < enemyNames.length; i++) {
 
   fight(enemyNames[i]);
+  enemyHealth = 50;
   debugger;
   // printEnemy(enemyNames[i], i)
   // console.log(enemyNames[i], i);
