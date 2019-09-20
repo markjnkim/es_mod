@@ -301,15 +301,54 @@ Within the block of the `while` loop let's move all the code from our `fight()` 
 
 Let's run this code and see the results in the console.
 We should see the following in the console.
+> **Important:** Keep the console window in the browser open during the development process since errors and results will be displayed there.
 
 ![Console Fight Loop](./assets/lesson-2/1000-console-fight-loop.png)
 
-This is part of what we want. The `while` loop in the `fight()` function appeared to have worked correctly, however only one enemy robot was fought and there doesn't seem to be any errors to speak of. Is our `for` loop not iterating through our array? Is the `while` loop
+This is partially what we want. The `while` loop in the `fight()` function appeared to have worked correctly, however only one enemy robot was fought and there doesn't seem to be any errors to speak of. A good way to debug our code is ask a few questions to start. 
+  * Is our `for` loop not iterating through our array? 
+  * Is the `while` loop not functioning as expected? 
+  * Is our `fight()` function not accepting additional enemy robots? 
+  
+In order to resolve these questions it would be good to see some of our variable's values to explain where in the program we need to fix.  A good technique we are familiar would be to place strategic `console.log()`'s judiciously in our program. A good place to start would be in the `for` loop. 
+Let's use a different technique this time to reveal our variable values. The `for` loop is an excellent place to use a new tool called the debugger. Let's type the following in the `game.js` file:
+```javascript
+for(var i = 0; i < enemyNames.length; i++) {
+  fight(enemyNames[i]);
+  debugger;
+}
+```
+This is inform us if the `for` loop is actually iterating through the `enemyNames` array.
+Now let's run the program to see what happens. Our console's response should look something like this:
 
-> **Important:** Keep the console window in the browser open during the development process since errors and results will be displayed there.
+![Chrome Debugger](./assets/lesson-2/1100-chrome-debugger.png)
+
+Notice that in the middle window, we can see the JavaScript file with our `debugger;` statement highlighted. On the right window, we can see the debugger control window. The current status notes that the debugger has been paused. We can also see that currently we are in the Sources tab.
+
+> **Video:** [Gif Debugger Tool - Jira FSFO-163](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-163)
+
+Our main focus will be in the debugger tool panel on the right. Let's expand the Watch option. We can see the following:
+
+![Debugger Watch Tool](./assets/lesson-2/1200-watch-debugger.png)
+
+As we can see, this option allows us to track many variable values at once. This informs us on the current game state. We are able to see a snapshot at the precise moment the program reaches the `debugger` statement. The program is paused which allows us to see current values for some of the global variables as well as our local variable iterator `i`. One other variable that would be helpful to track would be the current array element being accessed in the `for` loop. To add this, let's click on the "+" link located next to the Watch header. Let's type the following into the input field:
+```javascript
+enemyNames[i];
+```
+Once we press enter, the Watch window is updated with our new variable value as seen here:
+
+![Debugger Add Variable Tracker](./assets/lesson-2/1300-variable-debugger.png)
+
+Since we are in the first iteration of the `for` loop as indicated by the `i` set to zero, the first element of the array is currently being accessed in the `for` loop. Since we placed the `debugger` statement after the `fight()` function call, we have found our robots after a round of fighting. 
+
+> **Pro Tip:** For the sake of faster development, we can reduce some of the health initial values for the player and the enemy for quicker battles.
+
+Since the health of the robots is a major inflection point in our battle, we should keep an extra eye on how these values change. Currently it appears that the `enemyHealth` value is currently at zero. 
+### Debugger Controller
+Notice on the very top of the debugger controller window in the console, there are some buttons that will offer control over how the program will progress forward.
 
 
-
+The debugger in Chrome can also allow the program to progress step by step so we are able to see how the values change as well as the behavior of the conditional statements.
 
 
 

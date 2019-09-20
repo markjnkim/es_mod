@@ -93,6 +93,7 @@ var fight = function(enemyName) {
 for(var i = 0; i < enemyNames.length; i++) {
 
   fight(enemyNames[i]);
+  debugger;
   // printEnemy(enemyNames[i], i)
   // console.log(enemyNames[i], i);
 }
