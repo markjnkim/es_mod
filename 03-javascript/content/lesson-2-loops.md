@@ -368,13 +368,17 @@ for (var i = 0; i < enemyNames.length; i++) {
 ```
 Let's run this in the browser and see if we have solved our problem.
 
-![Defeat the Robots](./assets/lesson-2/1500-console-fight-array)
+![Defeat the Robots](./assets/lesson-2/1500-console-fight-array.png)
 
+Great job! We now have a game that is playable and nearly complete in regards to our MVP. Seeing that we still have some time left in our Game Jam, let's add some interesting game play features to increase game complexity and randomness since a predictable game can be a bit boring to play. This will go over well with the Game Jam judges since at the end of the day more fun will be more impressive. Before we continue let's review some of the key concepts we have covered.
 
 ## Reflection
-Congratulations on creating this step of our MVP. Since we were able to develop the MVP of this project so quickly, we can start thinking about nice features or added gameplay options that could improve the user engagement and experience.
+We learned some of the basic building blocks of JavaScript including the arrays and loops. Mastering these concepts will take time and practice but are necessary in every aspect of web development. We also learned how to pseudocode our steps and think like a computer. With each project and application that is built, more familiarity will build knowledge and confidence with this mindset.
+We also learned how to deal with console errors and carefully investigate possible error sources by using the Chrome DevTools debugger.
+Going forward, we will build upon these skills and learn new skills that leverage our current knowledge.
 
-Review what the student has accomplished in this lesson:
+
+<!-- 
 Created more gameplay complexity with control and different opponents
 First pseudocode steps for game logic 
 How to translate pseudocode into programming logic
@@ -389,6 +393,6 @@ Function arguments
 Debugger in a loop
 Let’s continue onto the next lesson and create more functions that will add game control, complexity (a shop!), code optimizations, and fun.
 
-
+ -->
 
 
