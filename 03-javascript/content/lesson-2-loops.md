@@ -355,7 +355,7 @@ Let's click on the step button and progress slowly through the program executing
 
 > **Video:** [Gif - Jira FSFO-165 Debugging Step](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-164)
 
-We can see that the next progression, the `i` value iterates by one due to the `for` loop argument. Next, the `i` conditional is checked in the `for` loop. After this conditional has been satisfied since `1 < 3` returns a true statement, we then proceed into the `fight()` function. But instead of progressing with our new robot enemy into the `while` loop, we are immediately kicked out of this function. It appears we did not satisfy the `while` loops condition that the `enemyHealth > 0`. *Ah ha!* That is why our player robot is failing to fight the other enemy robots besides the first one. Since we only have a single global `enemyHealth` variable, attacking one robot is the same as attacking all the enemy robots. We must reset the `enemyHeatlh` value before each robot battle so the next robot can start battling at full strength. Let's reset our enemy robot's health by assigning it right before we our `fight()` function call inside the `for` loop. For simplicity sake let's choose a variable name that is more semantic than `enemyNames[i]` to store our current enemy robot. 
+We can see that the next progression, the `i` value iterates by one due to the `for` loop argument, `i++`. Next, the `i` conditional is checked in the `for` loop, `i < enemyNames.length`. Since this conditional is satisfied because `1 < 3` returns a true statement, we then proceed into the `fight()` function. But instead of progressing with our new robot enemy into the `while` loop, we are immediately kicked out of this function. It appears we did not satisfy the `while` loops condition that the `enemyHealth > 0`. *Ah ha!* That is why our player robot is failing to fight the other enemy robots besides the first one. We only have a single global `enemyHealth` variable set as the health for all the robots, attacking one robot is like attacking all the enemy robots. We must reset the `enemyHeatlh` value before each robot battle so the next robot can start battling at full strength. Let's reset our enemy robot's health by assigning it right before we our `fight()` function call inside the `for` loop. For simplicity sake let's choose a variable name that is more semantic than `enemyNames[i]` to store our current enemy robot. 
 <!-- Another adjustment in the `for` loop would be to remove our `alert("Welcome to Battlebots!")` from our `fight()` function.  -->
 Please make sure your `for` loop looks similar to this:
 ```javascript
@@ -370,7 +370,14 @@ Let's run this in the browser and see if we have solved our problem. We should s
 
 ![Defeat the Robots](./assets/lesson-2/1500-console-fight-array.png)
 
-Now our battles are much longer and more complex. Excellent work! We can see our fight with each robot, and the drain of health points as the battle progresses. When a robot has been defeated, a new robot joins the fray at full health as we wanted. Let's pause and preserve our work in Github as we proceed to the end of this lesson.
+Now that looks more like a battle! Our rounds are much longer and extensive. Excellent work! We can see our fight with each robot and the reduction in health points as the battle progresses. When an enemy robot has been defeated, a new enemy robot joins the fray at full health, just as we wanted. Let's pause and preserve our work in Github as we proceed to the end of this lesson.
+
+Looking at the console, there does seem to be some oddities that are not very representative of how an actual battle would occur. Let's fix these cases to improve the gameplay.
+* The player robot's health drops into negative numbers
+* After an enemy robot has been defeated, it is still able to attack
+* After an enemy robot has been defeated, let's reward the player robot for its battle skill and bravery
+* Fix the "SKIP" option to function correctly
+
 
 ## Reflection
 Great job! We now have a game that is playable and nearly complete in regards to our MVP. We are making excellent progress in our Game Jam so far. Seeing that we still have some time left, let's add some interesting game play features to increase game complexity and randomness since a predictable game can be a bit boring. This will go over well with the Game Jam judges since at the end of the day more fun is always better. Before we continue let's review some of the key concepts we have covered so far.
