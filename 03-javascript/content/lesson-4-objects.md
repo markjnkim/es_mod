@@ -131,7 +131,7 @@ Okay, now this random logic is getting confusing. Let's break it down:
 
 2. `Math.floor()` will round this number down, so now the range is a whole number between 0 and 20.
 
-3. We'll always add 40 to the generated number. If the random number is 0, we at least have 40. If the random number is 20, we have our upper range: 60.
+3. We'll always add 40 to the generated number. If the random number is 0, we at least have 40. If the random number is 20, we have our upper limit: 60.
 
 Play the game again and notice how each enemy starts with a different health value! There are still other places where we could use a random number, though, making this a good use case for a function.
 
@@ -257,7 +257,7 @@ var food = {
 };
 ```
 
-Objects are created using curly brackets, where any object properties are defined within using `name: value` syntax. Accessing these properties works just like the `Math` object:
+Objects are created using curly brackets, where any object properties are defined within using `property: value` syntax and separated by a comma. Accessing these properties works just like the `Math` object:
 
 ```js
 console.log(food.name); // "Banana"
@@ -265,7 +265,7 @@ console.log(food.type); // "fruit"
 console.log(food.calories); // 105
 ```
 
-We can use this same syntax to create a new player object. This would help keep all of our player data coupled together, something that would become even more important if we were to have multiple players later on with hundreds of different properties.
+We can use this same syntax to create a new player object. This would help keep all of our player data coupled together, something that would become even more important if we were to have multiple players later on with hundreds of different properties each.
 
 At the top of `game.js`, delete the four player variables (`playerName`, `playerHealth`, `playerAttack`, `playerMoney`) and replace them with an object:
 
@@ -410,34 +410,187 @@ If you test the game, though, you'll get the following error: `Uncaught TypeErro
 > 
 > **Answer:** `enemyInfo` is being defined before `randomNumber`
 
-Move the `enemyInfo` array and `playerInfo` object to the bottom of the `game.js` file to prevent these kinds of errors. Organizing the code this way ensures that all functions are defined ahead of time before other objects or methods try to use them.
+Move the `enemyInfo` array and `playerInfo` object closer to the bottom of the `game.js` file, directly above the call to `startGame()`. Organizing the code this way ensures that all functions are defined ahead of time before other objects or methods try to use them.
+
+> ## INSERT CHECKPOINT QUIZ
+
+We've made great strides in optimizing our code with objects, but we've only scratched the surface of what's possible. Remember, objects can also have methods, where methods are functions that belong to an object. What methods would be useful to have on our `playerInfo` object? We have a few places in the code where multiple player values are being updated at once:
+
+```js
+// in startGame()
+playerInfo.health = 100;
+playerInfo.attack = 10;
+playerInfo.money = 10;
+
+// in shop()
+playerInfo.health = playerInfo.health + 20;
+playerInfo.money = playerInfo.money - 7;
+```
+
+We could consolidate these updates into methods like `playerInfo.reset()`. This would be helpful for a few reasons:
+
+* The player object becomes an even more valuable "source of truth" for all things player data related
+
+* It declutters the main game logic, which can already be somewhat difficult to follow
+
+* It's more clear what's being intended (e.g. `playerInfo.reset()` is very self-explanatory)
+
+Revisit the `playerInfo` object and add another property, this time in the form of a method/function:
+
+```js
+var playerInfo = {
+  name: window.prompt("What is your robot's name?"),
+  health: 100,
+  attack: 10,
+  money: 10,
+  reset: function() {
+    this.health = 100;
+    this.money = 10;
+    this.attack = 10;
+  }
+};
+```
+
+This does introduce a new keyword, though: `this`. Take a moment to think about what `this` might mean. Because `reset()` is a method that belongs to the `playerInfo` object, we need a way for the method to self-reference its owner. If you were to console log `this` inside the `reset()` method, you would see that it is, in fact, the entire original object:
+
+![The DevTools console shows the player object with all of its methods](./assets/lesson-4/500-console-this.jpg)
+
+Using `this`, we not only have access to all of the object's properties but its methods, too! You can think of it as, "`this` refers to THIS object." So if we update a property on `this` (e.g. `this.health = 100`), it will update the original object.
+
+Now that we have a `reset()` method, update the beginning of the `startGame()` function to call the method instead of writing `playerInfo.health = 100`, `playerInfo.attack = 10`, etc:
+
+```js
+var startGame = function() {
+  // reset player stats
+  playerInfo.reset();
+
+  // other game logic...
+};
+```
+
+Test the game again to verify that nothing broke in the process. If you see an error like `Uncaught SyntaxError: Unexpected identifier`, it usually means we forgot to type a character that JavaScript needed. Remember that object properties and methods are separated by commas. For example:
+
+```js
+var food = {
+  name: "Banana",
+  type: "fruit"
+  // JavaScript expected a comma on the previous line but didn't see one, so this would throw an error
+  calories: 105
+};
+```
+
+Now that we have a `reset()` method, add two more methods to the `playerInfo` object that will update the health and attack properties:
+
+```js
+var playerInfo = {
+  name: window.prompt("What is your robot's name?"),
+  health: 100,
+  attack: 10,
+  money: 10,
+  reset: function() {
+    this.health = 100;
+    this.money = 10;
+    this.attack = 10;
+  }, // comma!
+  refillHealth: function() {
+    this.health += 20;
+    this.money -= 7;
+  }, // comma!
+  upgradeAttack: function() {
+    this.attack += 6;
+    this.money -= 7;
+  }
+};
+```
+
+> **Pro Tip:** Note the `+=` and `-=` syntax. This is shorthand for `this.health = this.health + 20` and `this.money = this.money - 7`. It's another common programming trick to cut down on how much of the same code you have to write, similar to writing `i++` instead of `i = i + 1`.
+
+There's nothing stopping us from also writing conditional logic in these methods. Expand the current `refillHealth()` and `upgradeAttack()` code to include `if` statements and `alert()` calls:
+
+```js
+refillHealth: function() {
+  if (this.money >= 7) {
+    window.alert("Refilling player's health by 20 for 7 dollars.");
+    this.health += 20;
+    this.money -= 7;
+  } 
+  else {
+    window.alert("You don't have enough money!");
+  }
+},
+upgradeAttack: function() {
+  if (this.money >= 7) {
+    window.alert("Upgrading player's attack by 6 for 7 dollars.");
+    this.attack += 6;
+    this.money -= 7;
+  } 
+  else {
+    window.alert("You don't have enough money!");
+  }
+}
+```
+
+These `if` statements look a lot like the ones we originally wrote in the `shop()` function, which means we can delete most of that old code.
+
+In the `shop()` function's `switch` statement, update the following cases as such:
+
+```js
+case "REFILL":
+case "refill":
+  playerInfo.refillHealth();
+  break;
+case "UPGRADE":
+case "upgrade":
+  playerInfo.upgradeAttack();
+  break;
+```
+
+The `switch` statement looks much more readable now! Objects can greatly help in cleaning up an application's main logic. They're also useful for keeping like data coupled together (e.g. player stats) and making apps easier to scale up. For instance, what if, in a later version of the game, we wanted to add a shield object to every enemy? Without objects, it could be a huge hassle to track all of those different variables, but with objects, it's simply a matter of adding another property:
+
+```js
+var enemy = {
+  name: "Roborto",
+  attack: randomNumber(10, 14),
+  shield: {
+    health: 25,
+    defense: 10
+  }
+};
+```
+
+In future applications, continue thinking about where and how objects can be used. They're a valuable tool right up there with functions and arrays.
 
 ## Merge Branch
 
-*2–3 sentences describing what will be covered in this section.*
+Our work on this GitHub issue is done, which means it's time to revisit the Git branch workflow:
 
-*Walk student through this step, include LBs as appropriate, etc.*
+1. `git status` to verify the correct files were modified
 
-*Transitional text to next section.*
+2. `git add -A` or `git add .` to stage any changed files
+
+3. `git commit -m "object optimization"`
+
+4. `git push origin feature/objects` to push the branch to GitHub
+
+5. `git checkout develop` to switch branches
+
+6. `git merge feature/objects` to merge the new feature into the `develop` branch
+
+7. `git push origin develop` to push the updated `develop` branch to GitHub
 
 ## Reflection
 
-*Congratulate the learner (Great work!, Congratulations! Pat yourself on the back, etc.). Recap what they accomplished during the lesson from a bigger perspective in a couple of sentences.*
+At the beginning of this lesson, the game worked, but the mechanics were oversimplified and predictable. Now we have a dynamic game that's fun and interesting to play again and again. Plus, the codebase is in a state where we can easily add more features without sacrificing maintainability! Let's recap the highlights:
 
-*In this lesson, you added the following skills to your tool belt, knowledge base, skillset:*
+* We used the built-in `Math.max()` method to prevent values from going negative
 
-- Skill learned in 1-2 sentences
+* We generated random numbers with the `Math.random()` method
 
-- Skill learned in 1-2 sentences
+* We converted many of our variables into objects to keep player and enemy data coupled together
 
-- Skill learned in 1-2 sentences
+* We added methods to our player object to facilitate manipulating player data
 
-- Etc.
-
-*If this is the last lesson in a module, recap the entire module and introduce the next module.*
-
-*If this is not the last lesson in a module, introduce the next lesson and how it will build on the skills in this lesson.*
-
+Take a moment to celebrate making it this far! The game is basically done, but the game jam isn't over yet. With the remaining time that we have, we should get some feedback from other attendees to help catch potential bugs or areas where the game logic can be improved. In the next lesson, we'll compile a list of bug fixes and feature requests and see what we can knock out before time's up!
 
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
