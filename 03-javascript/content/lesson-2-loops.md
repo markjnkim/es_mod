@@ -378,7 +378,6 @@ Looking at the console, there does seem to be some oddities that are not very re
 * After an enemy robot has been defeated, let's reward the player robot for its battle skill and bravery
 * Fix the "SKIP" option to function correctly
 
-
 ## Reflection
 Great job! We now have a game that is playable and nearly complete in regards to our MVP. We are making excellent progress in our Game Jam so far. Seeing that we still have some time left, let's add some interesting game play features to increase game complexity and randomness since a predictable game can be a bit boring. This will go over well with the Game Jam judges since at the end of the day more fun is always better. Before we continue let's review some of the key concepts we have covered so far.
 
