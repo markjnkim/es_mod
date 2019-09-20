@@ -379,6 +379,7 @@ We learned some of the basic building blocks of JavaScript and how to implement 
   * Arrays are data structures similar to an ordered list that allows storage of data at indexes.
   * The `for` and `while` loops allow for line(s) of code to be executed repeatedly until conditional statements are not met which will then break the loop.
   * Using `console.log` and the debugger statement allows for variables to be revealed in the browser at certain moments of the program's execution.
+  * Pseudocoding step beforehand gives structure and organization to project building
 
 Going forward in this module and beyond, we will continue to use and build upon these skills and learn new skills that leverage our current knowledge.
 
