@@ -287,18 +287,17 @@ The next objective is to defeat each robot. Currently we are only able to fight 
 if (enemyHealth > 0) // if the enemy robot has health points continue to fight
 ```
 
-Thankfully we have a function we can use that loops or repeatedly execute a line or block of code *while* a condition remains true. This is called the `while` loop. Very similar in concept to the `for` loop, both functions repeatedly execute a line or block of code while a condition is true. Let's write our code within the `fight()` function to look like the following:
+Thankfully we have a function we can use that loops or repeatedly executes a line or block of code *while* a condition remains true. This is called the `while` loop. Very similar in concept to the `for` loop, both functions repeatedly execute a code block if a condition remains true. Code blocks are the lines of code that is to be executed. This is found in functions, conditional statements, and loops between the curly braces. The difference between a `for` and `while` loop is the syntax, the function's arguments, and the use cases. A `for` loop is made for arrays and a finite number of iterations where `while` loops are more commonly used for an unknown number of iterations until a certain condition is met. Let's write our code within the `fight()` function to look like the following:
 ```javascript
 var fight = function(enemyName) {
   // repeat and execute as long as the enemy robot is alive 
   while(enemyHealth > 0) {
-    // place fight code here . . .
+    // place fight function code block here . . .
   }
 ```
-Within the block of the `while` loop let's move all the code from our `fight()` function. Now when the `fight()` function is called, our robot will fight the enemy robot again until defeated.
+Within the block of the `while` loop let's move all the code from our `fight()` function. Now when the `fight()` function is called, our robot will fight the enemy robot again until defeated. Another suggestion would be to remove the  `alert("Welcome to Battlebots!")` statement from our `fight()` function. This message will be redundant at the beginning of each fight so let's remove for now.
 
-Let's run this code and see the results in the console.
-We should see the following in the console.
+Let's run this code and see the results in the console:
 
 > **Important:** Keep the console window in the browser open during the development process since errors and results will be displayed there.
 
@@ -355,8 +354,8 @@ Let's click on the step button and progress slowly through the program executing
 
 > **Video:** [Gif - Jira FSFO-165 Debugging Step](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-164)
 
-We can see that the next progression, the `i` value iterates by one due to the `for` loop argument, `i++`. Next, the `i` conditional is checked in the `for` loop, `i < enemyNames.length`. Since this conditional is satisfied because `1 < 3` returns a true statement, we then proceed into the `fight()` function. But instead of progressing with our new robot enemy into the `while` loop, we are immediately kicked out of this function. It appears we did not satisfy the `while` loops condition that the `enemyHealth > 0`. *Ah ha!* That is why our player robot is failing to fight the other enemy robots besides the first one. We only have a single global `enemyHealth` variable set as the health for all the robots, attacking one robot is like attacking all the enemy robots. We must reset the `enemyHeatlh` value before each robot battle so a new robot can start battling at full strength. Let's reset our enemy robot's health by assigning it right before we our `fight()` function call inside the `for` loop. For simplicity sake let's choose a variable name that is more semantic than `enemyNames[i]` to store our current enemy robot. 
-<!-- Another adjustment in the `for` loop would be to remove our `alert("Welcome to Battlebots!")` from our `fight()` function.  -->
+We can see that the next progression, the `i` value iterates by one due to the `for` loop argument, `i++`. Next, the `i` conditional statement is evaluated in the `for` loop, `i < enemyNames.length`. Since this conditional statement is true because `1 < 3`, we then proceed into the `fight()` function. But instead of progressing with our new robot enemy into the `while` loop, we are immediately kicked out of this function. It appears we did not satisfy the `while` loop's condition that the `enemyHealth > 0`. *Ah ha!* That is why our player robot is failing to fight the other enemy robots. We only have a single global `enemyHealth` variable set as the health for all the robots, attacking one robot is like attacking all the enemy robots, so when one is defeated, they are all defeated. To fix this, we must reset the `enemyHeatlh` value before each robot battle so a new robot can start battling at full strength. Let's reset our enemy robot's health by assigning it right before we our `fight()` function call inside the `for` loop. For simplicity sake let's choose a variable name that is more semantic than `enemyNames[i]` to store our current enemy robot. 
+
 Please make sure your `for` loop looks similar to this:
 ```javascript
 for (var i = 0; i < enemyNames.length; i++) {
@@ -371,11 +370,17 @@ Let's run this in the browser and see if we have solved our problem. We should s
 
 Now that looks more like a battle! Our rounds are much longer and extensive. Excellent work! We can see our fight with each robot and the reduction in health points as the battle progresses. When an enemy robot has been defeated, a new enemy robot joins the fray at full health, just as we wanted. Let's pause and preserve our work in Github as we proceed to the end of this lesson.
 
-Looking at the console, there does seem to be some oddities that are not very representative of how an actual battle would occur. Let's fix these cases to improve the gameplay.
+## Break out of the loop
+
+Looking at the console, there does seem to be some oddities that are not very representative of how an actual battle would occur. It would also be nice to offer more information regarding when a new round has started or if the game is over. Improving the user experience will surely impress the judges and make the game more fun to play.
+Let's fix these cases to improve the gameplay.
 1) The player robot's health drops into negative numbers
 2) After an enemy robot has been defeated, it is still able to attack
 3) Let's reward the player robot for defeating robots
 4) Fix the "SKIP" option to function correctly
+5) Display round of battle.
+6) Improve the user experience with a message noting when it is "Game Over".
+
 
 ### 1) Lose Game State
 In order to prevent our player robot from attacking after our health is depleted, we need to review one of our the  objectives:
@@ -390,8 +395,8 @@ if (playerHealth <= 0 ) {
   window.alert(playerName + ' has died!');
 }
 ```
-Currently the user is notified through an `window.alert()` if the player robot has been defeated. We need to add a way to stop fighting once this condition has been met.
-Luckily we can use a keyword called `break`. The `break` keyword allows us to exit the 
+Currently the user is notified through an `window.alert()` if the player robot has been defeated. We need to add a way to stop fighting as well once this condition has been met.
+Luckily we can use a keyword in JavaScript called `break`. The `break` keyword allows us to exit the 
 current loop. Let's add this beneath the `window.alert` within the `if` statement so it looks like the following:
 ```javascript
 if (playerHealth <= 0 ) {
@@ -433,11 +438,159 @@ if (enemyHealth <= 0) {
   break;
 }
 ```
+Its time to test our code and see if the result is as we expect. Let's run our game and look in the console of the browser.
+It should look similar to this:
 
-### 3) Reward 
+![Console Fix Fight Anomaly](./assets/lesson-2/1900-fight-no-more.png)
 
-### 4) Skip
+Now once our enemy robot has been defeated, the `while` loop exits and we are confronted by our next robot combatant. No longer are we subject to cheap shots from defeated enemy robots. Much better!
 
+### 3) Reward Time
+Think it's time to add some incentive into our battles by rewarding the player robot with a nice cash prize. This will also allow us to track which player robots are the best by letting us compare their prize winnings. Let's pseudocode this step, add the JavaScript statement, then figure out where this statement belongs in our game. Let's add 20 to our `playerMoney` variable upon defeating an enemy robot.
+```javascript
+// award player money for winning
+playerMoney = playerMoney + 20;
+```
+The next step would be to identify where we would place this statement. How about in the conditional statement we were just working on that identifies when an enemy robot has been defeated?
+```javascript
+// check enemy's health
+if (enemyHealth <= 0) {
+  window.alert(enemyName + ' has died!');
+
+  // award player money for winning
+  playerMoney = playerMoney + 20;
+  console.log("playerMoney", playerMoney);
+
+  // leave while() loop since enemy is dead
+  break;
+} 
+```
+It is a good practice to use a `console.log` statement to confirm changes.
+After running the game, your console should look similar to this:
+
+![Console Player Reward](./assets/lesson-2/2000-player-reward.png)
+
+Our player robot will be fighting better than ever now. Let' move onto the next step.
+### 4) Give Peace a Chance 
+Currently our skip function doesn't actually work quite right. As can be seen in our console here:
+
+![Console Skip Malfunction](./assets/lesson-2/2100-console-skip.png)
+
+Looks like although we lose money for choosing to skip, we don't actually skip, but resume fighting the same enemy robot. Just as in the previous steps, we need to break out of the `while` loop to quit fighting the enemy robot. The question is where should this `break` statement go?
+1) In the `while` loop
+2) In the conditional statement that checks for the skip prompt.
+Let's look at the conditional statement we created to control the skip response in our `prompt()`.
+```javascript
+else if (promptFight === 'skip' || promptFight === 'SKIP') {
+      // confirm user wants to skip
+      var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+
+      // if yes (true), leave fight
+      if (confirmSkip) {
+        window.alert(playerName + ' has decided to skip this fight. Goodbye!');
+        // subtract money from playerMoney for skipping
+        playerMoney = playerMoney - 10;
+        console.log("playerMoney", playerMoney);
+      }
+      // if no (false), ask question again by running fight() again
+      else fight();
+      
+    }
+```
+In the conditional statement that checks if the skip prompt has been confirmed appears to be where the logic executes for a skipped fight. 
+> **Pause:** Where in the conditional block will the `break` statement go?
+> 
+> **Answer:** 
+>```javascript
+>if (confirmSkip) {
+>   window.alert(playerName + ' has decided to skip this fight. Goodbye!');
+>   // subtract money from playerMoney for skipping
+>   playerMoney = playerMoney - 10;
+>   console.log("playerMoney", playerMoney);
+>   break;
+> }
+>```
+Notice if we we place our `break` statement before our other statements in our conditional code block, the VS code editor actually makes the following lines of code opaque as seen here:
+
+![VS Code Break](./assets/lesson-2/2200-vs-code-break.png)
+
+That is because VS Code is letting us know, the code beneath the `break;` statement will never run. That is why `break` statements must always be positioned at the bottom of the code block.
+
+Let's run our game and see if we have fixed our skipping issue.
+The console should look something like this:
+
+![Console Skip Fight](./assets/lesson-2/2300-console-skip-fight.png)
+
+Great, now once we skip, we are debited 10 `playerMoney` credits as planned but no longer face the same opponent. 
+
+Now we can apply our understanding of the `break` to make a change to our conditional statements in the `while` loop regarding our fight or skip prompt.
+Since we can use our `break` statement to exit out of the loop, we will rearrange our prompt for the fight or skip conditional statements. Essentially we will check to see if the prompt was replied with a skip, otherwise we will let the fight round continue.
+Let' move our skip conditional statement to the top and convert it from an `else if` to just an `if` statement like so:
+```javascript
+// if user picks "skip" confirm and then stop the loop
+    if (promptFight === "skip" || promptFight === "SKIP") {
+      // confirm user wants to skip
+      var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+
+      // if yes (true), leave fight
+      if (confirmSkip) {
+        window.alert(playerName + ' has decided to skip this fight. Goodbye!');
+        // subtract money from playerMoney for skipping
+        playerMoney = playerMoney - 10;
+        break;
+      }
+    }
+```
+This conditional statement will follow directly after the prompt at the beginning of the `while` loop.
+```javascript
+    // ask user if they'd liked to fight or run
+    var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+```
+The rest of the `while` loop will simply contain the code operations for robots to fight with all the conditionals that hold crucial game logic to check for robot health. The reason why we don't have to check for the "fight" prompt anymore is that in regards to the game logic, as long as we satisfy the user's request to skip a robot, we can assume that our robots are here to fight.
+The rest of the `fight()` function should now look similar to this:
+```javascript
+    // remove enemy's health by subtracting the playerAttack
+    enemyHealth = enemyHealth - playerAttack;
+    console.log(
+      playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.'
+    );
+    // check enemy's health
+    if (enemyHealth <= 0) {
+      window.alert(enemyName + ' has died!');
+      // award player money for winning
+      playerMoney = playerMoney + 20;
+      // leave while() loop since enemy is dead
+      break;
+    } 
+    else window.alert(enemyName + ' still has ' + enemyHealth + ' health left.');
+    // remove players's health by subtracting the enemyAttack
+    playerHealth = playerHealth - enemyAttack;
+    console.log(
+      enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.'
+    );
+    // check player's health
+    if (playerHealth <= 0) {
+      window.alert(playerName + ' has died!');
+      // leave while() loop if player is dead
+      break;
+    } 
+    else window.alert(playerName + ' still has ' + playerHealth + ' health left.');
+  }
+```
+Now let's run this game in the browser to see our work.
+It should look like this in the console:
+![Console Break Check](./assets/lesson-2/2400-console-refactor-test.png)
+
+### 6) Are We There Yet?
+For this last part of game improvements, let's add a message to notify our user's if our player robot has been defeated.
+Let's pseudocode this step first.
+
+```javascript
+// when the player health is zero, send alert "Game Over"
+```
+> **Pause:** Translate the pseudocode into JavaScript including the alert. 
+>
+> **Answer:** if (playerHealth <= 0 ) alert("Game Over");
 ## Reflection
 Great job! We now have a game that is playable and nearly complete in regards to our MVP. We are making excellent progress in our Game Jam so far. Seeing that we still have some time left, let's add some interesting game play features to increase game complexity and randomness since a predictable game can be a bit boring. This will go over well with the Game Jam judges since at the end of the day more fun is always better. Before we continue let's review some of the key concepts we have covered so far.
 
