@@ -24,7 +24,7 @@ There are several places where we can introduce randomness to the game:
 
 We'll use the built-in `Math` object to perform these improvements. Afterwards, we'll consolidate all of our player variables into a single object. Consider the following diagram:
 
-> ## NEED DIAGRAM OF OBJECT VS VARIABLES
+![Three independent variables sit next to a tree diagram linking player properties together](./assets/lesson-4/200-obj-vs-var.jpg)
 
 It would be much easier to maintain the player stats if they all belonged to one object instead of having several different variables floating about. This would become even more important as the game grows in scope and more player stats are needed. We'll similarly convert our enemies into objects.
 
@@ -69,9 +69,11 @@ console.log(Math.round(4.4));
 console.log(Math.sqrt(25));
 ```
 
+> **Deep Dive:** There are plenty more math-related methods available. Skim over the [MDN web docs on Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods) to see what else is possible.
+
 The method that we're most interested in is `Math.random()`, but this can be tricky to use and understand. Let's warm up with `Math` by first using the `Math.max()` method. Given a series of numbers, this method will return the largest.
 
-Let's look at a few examples:
+Here are a few examples:
 
 ```js
 // prints 100
@@ -216,6 +218,8 @@ var randomNumber = function(40, 60) {
 
 Working with random numbers can definitely be tricky. Fortunately, there are many articles online that can help and can be found with a quick [Google search for "js random numbers"](https://www.google.com/search?q=js+random+numbers). For now, our `randomNumber()` function seems to do what we want. We won't need to edit it any further and can focus on where to call it.
 
+> **On the Job:** While random numbers are used often in game development, it may be harder to see their application in regular apps. However, random numbers can still be useful for situations like helping users generate a password, assigning students to a study group, picking a sweepstakes winner, or shuffling an image gallery. 
+
 If you haven't already, make one last change in `startGame()` to set `enemyHealth` correctly:
 
 ```js
@@ -295,7 +299,7 @@ Save and test the game to make sure we didn't miss any variables. Note that swit
 >```js
 >var userInput = "money";
 >
->// will equate to playerInfo["money"]
+>// will equate to playerInfo["money"], which is the same as playerInfo.money
 >console.log(playerInfo[userInput]);
 >```
 
@@ -412,8 +416,6 @@ If you test the game, though, you'll get the following error: `Uncaught TypeErro
 
 Move the `enemyInfo` array and `playerInfo` object closer to the bottom of the `game.js` file, directly above the call to `startGame()`. Organizing the code this way ensures that all functions are defined ahead of time before other objects or methods try to use them.
 
-> ## INSERT CHECKPOINT QUIZ
-
 We've made great strides in optimizing our code with objects, but we've only scratched the surface of what's possible. Remember, objects can also have methods, where methods are functions that belong to an object. What methods would be useful to have on our `playerInfo` object? We have a few places in the code where multiple player values are being updated at once:
 
 ```js
@@ -503,7 +505,7 @@ var playerInfo = {
 };
 ```
 
-> **Pro Tip:** Note the `+=` and `-=` syntax. This is shorthand for `this.health = this.health + 20` and `this.money = this.money - 7`. It's another common programming trick to cut down on how much of the same code you have to write, similar to writing `i++` instead of `i = i + 1`.
+> **Rewind:** Remember the `+=` and `-=` syntax? This is shorthand for `this.health = this.health + 20` and `this.money = this.money - 7`. It's another common programming trick to cut down on how much of the same code you have to write, similar to writing `i++` instead of `i = i + 1`.
 
 There's nothing stopping us from also writing conditional logic in these methods. Expand the current `refillHealth()` and `upgradeAttack()` code to include `if` statements and `alert()` calls:
 
@@ -559,6 +561,8 @@ var enemy = {
 ```
 
 In future applications, continue thinking about where and how objects can be used. They're a valuable tool right up there with functions and arrays.
+
+> ## INSERT CHECKPOINT QUIZ: <https://trilogyed.atlassian.net/browse/FSFO-165>
 
 ## Merge Branch
 
