@@ -64,7 +64,7 @@ Altogether, this is how we'll proceed in the lesson:
 
 2. Add the `endGame()` function to display stats and prompt user to play again
 
-3. Close out the MVP and switch branches
+3. Finalize the MVP and switch branches
 
 4. Add the `shop()` function for all shop-related logic
 
@@ -129,7 +129,13 @@ var startGame = function() {
 
 Fair warning, this will create an infinite loop, because we haven't defined any condition where `startGame()` doesn't get called after each playthrough. If you already tested the game in the browser and are stuck in the loop, don't panic! You can still close the tab or use the Chrome DevTools to pause the JavaScript code.
 
-Note that the DevTools approach will only work if the DevTools were already open before the loop happened. In DevTools, navigate to the Sources tab. On the right side of this window, there is a pause button that, when hovered over, will say, "Pause script execution":
+> **Important:** The DevTools approach will only work if the DevTools were already open before the loop happened. If the loop is preventing you from opening and using the DevTools, you can temporarily comment out the first call to `startGame()`:
+>
+>```js
+>// startGame();
+>```
+
+With the DevTools open, navigate to the Sources tab. On the right side of this window, there is a pause button that, when hovered over, will say, "Pause script execution":
 
 ![The Chrome DevTools Source tab includes a "pause script" button](./assets/lesson-3/500-pause-script.jpg)
 
@@ -183,15 +189,17 @@ The variable `a` was declared outside of any function, making it global in scope
 
 Scope can definitely be tricky, but it's something we'll continue to practice in this and future JavaScript projects. In fact, the next function we write will touch on this, too!
 
+> **Pro Tip:** Scope presents a good case for writing unique, meaningful variable names. If a global variable and a local function variable have the same name, the local variable will take precedence. But to avoid such confusion, it's probably better not to reuse the same variable names!
+
 ## Add the End Game Function
 
 The game currently restarts without providing any feedback to the player. For a better user experience, we should display some of the player's final stats and then ask if they want to play again.
 
-While we could just write this "end game" logic directly in `startGame()`, using another function make sense for two reasons:
+While we could just write this "end game" logic directly in `startGame()`, using another function would be a better approach.
 
-* It keeps the codebase organized
-
-* We may end up needing to call "end game" in other places as more conditions are added
+> **Pause:** Why would it be helpful to have an `endGame()` function?
+>
+> **Answer:** It keeps the codebase organized, and we may end up needing to call "end game" in other places as more conditions are added.
 
 Let's write this new function alongside our other functions:
 
@@ -250,11 +258,13 @@ Save, refresh, and test out the game in the browser. After looping over every en
 
 ![Confirm window asks "Would you like to play again?"](./assets/lesson-3/300-play-again.jpg)
 
-Selecting OK should restart the game and player stats. Cancel should do nothing.
+Selecting OK should restart the game and reset the player stats. Cancel should do nothing. Here's a video to demonstrate the desired behavior:
+
+> ## INSERT VIDEO: <https://trilogyed.atlassian.net/browse/FSFO-166>
 
 If the game isn't working, check the DevTools console for errors. An error like `Uncaught ReferenceError: startgame is not defined`, for instance, suggests that we accidentally used lowercase `startgame()` versus `startGame()`. If there aren't errors, use `console.log()` and/or `debugger` statements to verify if functions and `if` statements are being reached.
 
-## Close Out the MVP
+## Finalize the MVP
 
 As tempting as it may be to jump right into the next set of features, we should wrap up the MVP we defined earlier.
 
@@ -366,7 +376,7 @@ switch(num) {
 }
 ```
 
-`switch` statements are useful when checking a single value against multiple possibilities, or **cases**. In this example, we're defining what should happen when the variable `num` equals 1, 2, 3, or something else (the `default` case). Each case ends with a `break` to specify that nothing more should happen.
+`switch` statements are useful when checking a single value against multiple possibilities, or **cases**. In this example, we're defining what should happen when the variable `num` equals 1, 2, 3, or something else (the `default` case). Each case ends with a `break` to specify that nothing more should happen. In the above example, `"the variable was something else"` will print because `num` was 5.
 
 We could have also written this using `if` statements:
 
