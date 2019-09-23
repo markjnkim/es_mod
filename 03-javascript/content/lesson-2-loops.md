@@ -233,12 +233,12 @@ alert("Hello");               // string argument
 console.log(enemyNames[i], i) // two arguments, comma separated
 for(var i = 0; i < enemyNames.length; i++) // three arguments; semicolons are specific to for loops
 ```
-Previously we have been using arguments with `window` methods and JavaScript functions, but now we will construct our own function that is able to pass in an argument. Now let's make some changes to our `fight()` function expression to allow an argument to be used. Remember the function expression defines the "how" and "what" of our function's operations. If we want the function to perform differently we must change our function definition every time. We would like to convert our `fight()` function to pass in an enemy robot and then fight this robot. Let's find our `fight()` expression and change the first line to the following:
+Previously we have been using arguments with `window` methods and JavaScript functions, but now we will change our `fight()`  function to pass in an argument. Remember the function expression defines the "how" and "what" of our function's operations. If we want the function to perform differently we must change our function's definition. We would like to convert our `fight()` function to pass in an enemy robot and then fight this robot. Let's find our `fight()` expression and change the first line to the following:
 ```javascript
 var fight = function(enemyName) {
 ```
-We just redefined our `fight` variable to now be a function that is able to input or receive a variable. Since we are dealing the a variable placeholder in the function definition, we call this the function *parameter*.
-> **Deep Dive:** Parameters vs Arguments - Parameters are often confused with arguments due to the similarity in syntax. The main distinction between them is the purpose in relation to the function. In a function expression, a parameter serves as a variable placeholder that indicates how this variable will be used in the function. Since the use of the parameter is reserved to only the scope of the function, the name of the parameter isn't very significant, but normally is related to the type or purpose of the variable as follows: 
+We just redefined our `fight` variable to now be a function that is able to input or receive a variable. Since we are dealing the a variable placeholder in the function definition, we call this the function's *parameter*.
+> **Deep Dive:** Parameters vs Arguments - Parameters are often confused with arguments due to the similarity in syntax. The main distinction between them is the purpose in relation to the function. In a function expression, a parameter serves as a variable placeholder that indicates how this variable will be used in the function. Since the use of the parameter is reserved to only the scope of the function, the name of the parameter isn't significant, but normally is related to the type or purpose of the variable as follows: 
 >```javascript
 >var wash = function(soapType) {
 >  console.log("I wash with " + soapType);
@@ -248,10 +248,10 @@ We just redefined our `fight` variable to now be a function that is able to inpu
 >```javascript
 >wash("Irish Spring"); // => I wash with Irish Spring
 >```
->Will be returned in the console.
-As shown, the argument is part of the function call, not the function expression. The argument passes information into the function whether that be a variable or a value with any data type or data structure.
+>Will be displayed in the console.
+As shown, the argument is part of the function call and passes information into the function whether that be a variable or a value with any data type or data structure.
 
-Let's look into the `fight()` function and note that by adding the parameter `enemyName` this maps perfectly within the function to display our enemy robot's name.
+Let's look into the `fight()` function and note that by adding the parameter `enemyName` maps perfectly within the function to our original `enemyName` variable we used to store our enemy robot's name.
 
 ### Application Organization
 Now that our `fight()` function has been corrected, let's continue with our goal to make our robot fight each of our enemy robots. Before we proceed let's make sure our app is correctly organized. Our global variables should be at the top of our `game.js` file along with our `enemyNames` array.
@@ -265,10 +265,8 @@ var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 var enemyHealth = 50;
 var enemyAttack = 12;
 ```
-Let's comment out our `console.log` statements for now to declutter our console window. Next in our file should be the `fight()` function expression. This has to be above our `for` loop because since we will be calling the `fight()` within our loop. 
-> **Pause:** If the function is not declared before the function call, what type of error will be in the console?
-> 
-> **Answer:** *Uncaught ReferenceError*
+Let's comment out our `console.log` statements for now to declutter our console window. Next in our `game.js` file should be the `fight()` function expression. This has to be above our `for` loop because we will be calling the `fight()` within our loop. 
+If the function is not declared before the function call, we would get an error similar to the one we received earlier except a bit different.  Uncaught TypeError: fight is not a function
 
 Now let's type the `for` loop into our `game.js` file beneath the `fight()` function as follows:
 ```javascript
@@ -284,38 +282,40 @@ As can be seen in our console, we have successfully looped through our array and
 This is a great spot to add, commit, and push our work into the Github repo for safe keeping. 
 
 ## Fight Loop
-The next objective is to defeat each robot. Currently we are only able to fight each robot once. So how do we go about fighting each robot until a winner is found? Sounds a bit like we need another loop, to continue the fighting. Earlier we determined that to defeat a robot we need to fight them until their health points reduce to zero or less. This was translated into code by using the following conditional:
+The next objective is to defeat each robot. Currently we are only able to fight each robot once. So how do we go about fighting each robot until a winner is found? Sounds a bit like we need another loop, to continue the fighting. Earlier we determined that to defeat a robot we need to fight them until their health points reduce to zero or less. Conversely we can say that we will fight the enemy robot while it is alive. This was translated into code by using the following conditional:
 ```javascript
-if (enemyHealth <= 0) // enemy robot is defeated
+if (enemyHealth > 0) // if the enemy robot has health points continue to fight
 ```
 
-Thankfully we have a function we can use that loops or repeatedly execute a line or block of code *while* a condition remains true. This is called the `while` loop. Very similar in concept to the `for` loop, both functions repeatedly execute a line or block of code until a condition becomes false. Let's write our code within the `fight()` function to look like the following:
+Thankfully we have a function we can use that loops or repeatedly execute a line or block of code *while* a condition remains true. This is called the `while` loop. Very similar in concept to the `for` loop, both functions repeatedly execute a line or block of code while a condition is true. Let's write our code within the `fight()` function to look like the following:
 ```javascript
 var fight = function(enemyName) {
-  // repeat and execute as long as the enemy robot is alive
+  // repeat and execute as long as the enemy robot is alive 
   while(enemyHealth > 0) {
-
+    // place fight code here . . .
   }
 ```
 Within the block of the `while` loop let's move all the code from our `fight()` function. Now when the `fight()` function is called, our robot will fight the enemy robot again until defeated.
 
 Let's run this code and see the results in the console.
 We should see the following in the console.
+
 > **Important:** Keep the console window in the browser open during the development process since errors and results will be displayed there.
 
 ![Console Fight Loop](./assets/lesson-2/1000-console-fight-loop.png)
 
 This is partially what we want. The `while` loop in the `fight()` function appeared to have worked correctly, however only one enemy robot was fought and there doesn't seem to be any errors to speak of. A good way to debug our code is ask a few questions to start. 
-  * Is our `for` loop not iterating through our array? 
+  * Is our `for` loop not iterating through our `enemyNames` array correctly? 
   * Is the `while` loop not functioning as expected? 
   * Is our `fight()` function not accepting additional enemy robots? 
   
 In order to resolve these questions it would be good to see some of our variable's values to explain where in the program we need to fix.  A good technique we are familiar would be to place strategic `console.log()`'s judiciously in our program. A good place to start would be in the `for` loop. 
-Let's use a different technique this time to reveal our variable values. The `for` loop is an excellent place to use a new tool called the debugger. Let's type the following in the `game.js` file:
+Let's use a different technique this time to reveal our variable values. The `for` loop is an excellent place to use a new tool called the debugger. Let's type the following in the `game.js` file before the `fight()` function call:
 ```javascript
-for(var i = 0; i < enemyNames.length; i++) {
-  fight(enemyNames[i]);
+for (var i = 0; i < enemyNames.length; i++) {
   debugger;
+  // call fight function with enemy robot
+  fight(enemyNames[i]);
 }
 ```
 This is inform us if the `for` loop is actually iterating through the `enemyNames` array.
@@ -323,7 +323,7 @@ Now let's run the program to see what happens. Our console's response should loo
 
 ![Chrome Debugger](./assets/lesson-2/1100-chrome-debugger.png)
 
-Notice that in the middle window, we can see the JavaScript file with our `debugger;` statement highlighted. This is called the Code Editor pane. To the left, is the the File Navigator pane which displays the folder tree. To the right will be the JavaScript Debugging pane. The current status notes that the `debugger` has been paused therefore the program is currently frozen unless we click the resume button. We currently we are in the Sources tab of the console.
+Notice that in the middle window, we can see the JavaScript file with our `debugger;` statement highlighted. This is called the Code Editor pane. To the left, is the the File Navigator pane which displays the folder tree. To the right will be the JavaScript Debugging pane. The current status notes that the `debugger` has been paused therefore the program is currently frozen unless we click the resume button. We currently are in the Sources tab of the console.
 
 > **Video:** [Gif Debugger Tool - Jira FSFO-163](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-163)
 
@@ -339,9 +339,9 @@ Once we press enter, the Watch window is updated with our new variable value as 
 
 ![Debugger Add Variable Tracker](./assets/lesson-2/1300-variable-debugger.png)
 
-Since we are in the first iteration of the `for` loop as indicated by the `i` set to zero, the first element of the array is currently being accessed in the `for` loop. Since we placed the `debugger` statement after the `fight()` function call, we have found our robots after a round of fighting. 
+Since we are in the first iteration of the `for` loop, the `i` value is zero and the first element of the array is currently being accessed in the `for` loop. Since we placed the `debugger` statement before the `fight()` function call, we have found our robots before they go into battle. 
 
-> **Pro Tip:** For the sake of faster development, we can reduce some of the health initial values for the player and the enemy for quicker battles.
+> **Pro Tip/ Shortcut:** For the sake of faster testing results, we can reduce some of the health points initial values for the player and the enemy for quicker battles.
 
 Since the health of the robots is a major inflection point in our battle, we should keep an extra eye on how these values change. Currently it appears that the `enemyHealth` value is currently at zero. 
 ### Debugger Controller
@@ -355,12 +355,11 @@ Let's click on the step button and progress slowly through the program executing
 
 > **Video:** [Gif - Jira FSFO-165 Debugging Step](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-164)
 
-We can see that the next progression, the `i` value iterates by one due to the `for` loop argument, `i++`. Next, the `i` conditional is checked in the `for` loop, `i < enemyNames.length`. Since this conditional is satisfied because `1 < 3` returns a true statement, we then proceed into the `fight()` function. But instead of progressing with our new robot enemy into the `while` loop, we are immediately kicked out of this function. It appears we did not satisfy the `while` loops condition that the `enemyHealth > 0`. *Ah ha!* That is why our player robot is failing to fight the other enemy robots besides the first one. We only have a single global `enemyHealth` variable set as the health for all the robots, attacking one robot is like attacking all the enemy robots. We must reset the `enemyHeatlh` value before each robot battle so the next robot can start battling at full strength. Let's reset our enemy robot's health by assigning it right before we our `fight()` function call inside the `for` loop. For simplicity sake let's choose a variable name that is more semantic than `enemyNames[i]` to store our current enemy robot. 
+We can see that the next progression, the `i` value iterates by one due to the `for` loop argument, `i++`. Next, the `i` conditional is checked in the `for` loop, `i < enemyNames.length`. Since this conditional is satisfied because `1 < 3` returns a true statement, we then proceed into the `fight()` function. But instead of progressing with our new robot enemy into the `while` loop, we are immediately kicked out of this function. It appears we did not satisfy the `while` loops condition that the `enemyHealth > 0`. *Ah ha!* That is why our player robot is failing to fight the other enemy robots besides the first one. We only have a single global `enemyHealth` variable set as the health for all the robots, attacking one robot is like attacking all the enemy robots. We must reset the `enemyHeatlh` value before each robot battle so a new robot can start battling at full strength. Let's reset our enemy robot's health by assigning it right before we our `fight()` function call inside the `for` loop. For simplicity sake let's choose a variable name that is more semantic than `enemyNames[i]` to store our current enemy robot. 
 <!-- Another adjustment in the `for` loop would be to remove our `alert("Welcome to Battlebots!")` from our `fight()` function.  -->
 Please make sure your `for` loop looks similar to this:
 ```javascript
 for (var i = 0; i < enemyNames.length; i++) {
-    window.alert('Welcome to Battlebots! Round ' + (i + 1));
     var pickedEnemyName = enemyNames[i];
     enemyHealth = 50;
     fight(pickedEnemyName);
@@ -375,8 +374,12 @@ Now that looks more like a battle! Our rounds are much longer and extensive. Exc
 Looking at the console, there does seem to be some oddities that are not very representative of how an actual battle would occur. Let's fix these cases to improve the gameplay.
 * The player robot's health drops into negative numbers
 * After an enemy robot has been defeated, it is still able to attack
-* After an enemy robot has been defeated, let's reward the player robot for its battle skill and bravery
+* Let's reward the player robot for defeating robots
 * Fix the "SKIP" option to function correctly
+
+In order to prevent our player robot from attacking after our health is gone, we need to set up the next pseudocoding objective: How to lose the game. Once the player or the robot has been defeated, we should no longer be in able to fight which means need to exit the `fight()` function. Luckily for us we can use a keyword called `break`.
+
+
 
 ## Reflection
 Great job! We now have a game that is playable and nearly complete in regards to our MVP. We are making excellent progress in our Game Jam so far. Seeing that we still have some time left, let's add some interesting game play features to increase game complexity and randomness since a predictable game can be a bit boring. This will go over well with the Game Jam judges since at the end of the day more fun is always better. Before we continue let's review some of the key concepts we have covered so far.
