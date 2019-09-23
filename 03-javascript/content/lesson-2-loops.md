@@ -372,14 +372,71 @@ Let's run this in the browser and see if we have solved our problem. We should s
 Now that looks more like a battle! Our rounds are much longer and extensive. Excellent work! We can see our fight with each robot and the reduction in health points as the battle progresses. When an enemy robot has been defeated, a new enemy robot joins the fray at full health, just as we wanted. Let's pause and preserve our work in Github as we proceed to the end of this lesson.
 
 Looking at the console, there does seem to be some oddities that are not very representative of how an actual battle would occur. Let's fix these cases to improve the gameplay.
-* The player robot's health drops into negative numbers
-* After an enemy robot has been defeated, it is still able to attack
-* Let's reward the player robot for defeating robots
-* Fix the "SKIP" option to function correctly
+1) The player robot's health drops into negative numbers
+2) After an enemy robot has been defeated, it is still able to attack
+3) Let's reward the player robot for defeating robots
+4) Fix the "SKIP" option to function correctly
 
-In order to prevent our player robot from attacking after our health is gone, we need to set up the next pseudocoding objective: How to lose the game. Once the player or the robot has been defeated, we should no longer be in able to fight which means need to exit the `fight()` function. Luckily for us we can use a keyword called `break`.
+### 1) Lose Game State
+In order to prevent our player robot from attacking after our health is depleted, we need to review one of our the  objectives:
+```javascript
+// Game States
+// "LOSE" - Player robot's health is zero or less
+```
+Once the player robot has been defeated, we should no longer be able to fight. To accomplish this we need to exit the `while` loop in the `fight()` function. 
+In the last lesson, we created a condition to check the status of our player robot's health inside the `fight()` function:
+```javascript
+if (playerHealth <= 0 ) {
+  window.alert(playerName + ' has died!');
+}
+```
+Currently the user is notified through an `window.alert()` if the player robot has been defeated. We need to add a way to stop fighting once this condition has been met.
+Luckily we can use a keyword called `break`. The `break` keyword allows us to exit the 
+current loop. Let's add this beneath the `window.alert` within the `if` statement so it looks like the following:
+```javascript
+if (playerHealth <= 0 ) {
+  window.alert(playerName + ' has died!');
+  break;
+}
+```
+Now let's run our game and see what happens. Your console should now look like this:
 
+![Robot Battle in Console](./assets/lesson-2/1600-console-break-fight-loop.png)
 
+Although we are able to effectively exit from the `while` loop when our player robot has lot all its health, it appears that we are still able to re enter the `while` loop as shown in the last few lines of the console:
+
+![Console While Loop Reentered](./assets/lesson-2/1700-console-break-for-loop.png)
+
+Our player robot has reentered the `while` loop to fight the last robot even though its health is at zero. Let's change our condition of our `while` loop to prevent this from happening by adding a condition for our player robot.
+```javascript
+while (enemyHealth  > 0 && playerHealth > 0) 
+```
+With the `&&` operator, we can set the `while` loop to have two conditions that must resolve to true in order to enter the loop. Now the enemy AND the player robot must both have health in order to fight.
+
+![Console Fight Exit](./assets/lesson-2/1800-console-while-condition.png)
+
+### 2) Cease and Desist 
+Nice job, now the player robot can no longer fight when defeated. Let's move onto the next step to disable the enemy robot's ability to fight after being defeated. This seems very similar to the last step. We will need a condition to allow us to break out of the `while` loop in the `fight()` function. Let's write some pseudocode that will perform this operation.
+```javascript
+// if the enemy robot's health is zero or less, exit from the fight loop.
+```
+> **Pause:** Let's take a moment and try to translate that into JavaScript.
+>
+> **Answer:** 
+> ```javascript
+> if (enemyHealth <= 0) break;
+> ```
+From the last lesson, we have a condition that checks for the enemy robot's health, we just need to add our `break` to exit the fight loop and not allow the robot to fight after being defeated. Let's add this `break` statement to our condition's block so it looks similar to this:
+```javascript
+if (enemyHealth <= 0) {
+  window.alert(enemyName + ' has died!');
+  break;
+}
+```
+
+### 3) Reward 
+
+### 4) Skip
 
 ## Reflection
 Great job! We now have a game that is playable and nearly complete in regards to our MVP. We are making excellent progress in our Game Jam so far. Seeing that we still have some time left, let's add some interesting game play features to increase game complexity and randomness since a predictable game can be a bit boring. This will go over well with the Game Jam judges since at the end of the day more fun is always better. Before we continue let's review some of the key concepts we have covered so far.
