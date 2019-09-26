@@ -304,7 +304,7 @@ var isPlayerTurn = true;
 >
 > **Answer:** `if (Math.random() > 0.5) isPlayerTurn = false;`
 
-Now that we are able to successful randomize the value of our turn variable, how to we implement 
+Now that we are able to successfully randomize the value of our turn variable, how to we implement this to affect the attack order of the robots? Try to use this boolean value to create a conditional statements to execute attacks. 
 
 ## Six. Save and load high score from localStorage
 
