@@ -192,8 +192,9 @@ Great job, however this bug is a two parter. We also need will allow lower and u
 
 ### Expand logic to accept strings in any case 
 Just imagine if we wanted our user to be able to accept fight or skip as a response in any variation of mixed upper and lower case letters. 
-
-![Insert Github Issue Screenshot]()
+Let's demo the bug first then look at the Github issue.
+> **Video:** [Gif Reproduce Bug#2: Jira FSFO-174]()
+![Insert Github Issue 2 Screenshot]()
 
 Although these responses are short, the different combinations that are possible run well over a hundred. There must be an easier way to deal with this scenario. Of course there is! A nice way to deal with this is to simply change all the characters in the response to lower case characters and then simply check if the lower case passes our condition. 
 > **Pause:** Let's try to harness our Google powers to find our the method that changes characters in a string to lowercase. 
@@ -253,7 +254,7 @@ Great job shipping another bug fix! We are making great progress! Let's close th
 ## Update shop() function to handle invalid and integer inputs
 Let's create another branch from this Github Issue: `bug/3-shop`
 
-![Insert Github Issue]()
+![Insert Github Issue 3 Screenshot]()
 
 Here is another case that could use a recursive error handling function call to re-prompt the user for invalid responses.
 Let's use our `test()` function example and our `fightOrSkip()` function to create a conditional statement that will recursively call the function until valid information is entered in the `prompt()`.
