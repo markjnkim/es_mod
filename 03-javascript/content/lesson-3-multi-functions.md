@@ -83,7 +83,7 @@ Let's start making edits to our `game.js` file. Wrap the current `for` loop in a
 var startGame = function() {
   for (var i = 0; i < enemyNames.length; i++) {
     if (playerHealth > 0) {
-      window.alert('Welcome to Battlebots! Round ' + (i + 1));
+      window.alert('Welcome to Robot Gladiators! Round ' + (i + 1));
 
       var pickedEnemyName = enemyNames[i];
 
@@ -233,7 +233,7 @@ if (playAgainConfirm) {
   startGame();
 } 
 else {
-  window.alert("Thank you for playing Battlebots! Come back soon!");
+  window.alert("Thank you for playing Robot Gladiators! Come back soon!");
 }
 ```
 
