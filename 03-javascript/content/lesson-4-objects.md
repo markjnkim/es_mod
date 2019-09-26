@@ -308,15 +308,15 @@ While we're at it, delete the `enemyNames`, `enemyHealth`, and `enemyAttack` var
 ```js
 var enemyInfo = [
   {
-    name: 'Roborto',
+    name: "Roborto",
     attack: 12
   },
   {
-    name: 'Amy Android',
+    name: "Amy Android",
     attack: 13
   },
   {
-    name: 'Robo Trumble',
+    name: "Robo Trumble",
     attack: 14
   }
 ];
@@ -394,15 +394,15 @@ Update the objects in the `enemyInfo` array as such:
 ```js
 var enemyInfo = [
   {
-    name: 'Roborto',
+    name: "Roborto",
     attack: randomNumber(10, 14)
   },
   {
-    name: 'Amy Android',
+    name: "Amy Android",
     attack: randomNumber(10, 14)
   },
   {
-    name: 'Robo Trumble',
+    name: "Robo Trumble",
     attack: randomNumber(10, 14)
   }
 ];
