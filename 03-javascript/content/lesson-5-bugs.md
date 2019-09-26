@@ -69,13 +69,17 @@ Please finish the rest of the Github issues for this lesson.
 
 Now that we have our Github Issues completed, let's see how many we can get done before our deadline.
 ## Handle blank/null user input
-In this step and each subsequent step we will first create our development environment by creating a new branch for each issue. In this step, we will call the branch `bug/1-player-name` and place the Github issue number in the branch name.
+In this step and each subsequent step we will first create our development environment by creating a new branch for each issue. In this step, we will call the branch `bug/1-player-name` and place the Github issue number in the branch name. Remember we need to branch off the master and checkout into the bug branch.
+Let's reference the Github issue above to reproduce our error.
 
-![Insert Github Issue Screenshot]()
+![insert screenshot of error reproduction](./assets/lesson-5/450-bug-1-reproduce.png)
 
 Now that we have our feature branch let's create a function that will handle the player name response. Let's call this function `getPlayerName()`. 
-Create this new function that will be continuously prompt "What is your robot's name" until a valid answer is given. 
+Let's go over few of the objectives for this function. We would like this function to:
+* Not accept invalid data such as a blank or null(cancel button)
+* Prompt user until valid data is received
 
+Here is some of the initial setup of this function, please add a loop that contains the prompt with a condition of the invalid data:
  ```javascript
 // function to set name
 var getPlayerName = function() {
@@ -96,32 +100,27 @@ while (name === "" || name === null) {
 }
 ```
 Notice how the condition repeatedly prompts the user if the responses are either "" or null. It is important to initialize the `name = ""` to enter the `while` loop at least once to prompt the user for the player robot name. Notice that the blank is identified as "" also known as an empty string. 
+<!-- 
+> **Pro Tip/Shortcut:** We can use the `!` operator known as the "not" operator with the knowledge that falsy values such as "", null, undefined and 0 to evaluate to false in a conditional expression to  -->
 
 Because the `getPlayerName()` function now returns a valid player name we can place the function call in our `playerInfo` object in the `name` property.
 ```javascript
 /* GAME INFORMATION / VARIABLES */
 var playerInfo = {
   name: getPlayerName(),
-  health: 100,
-  attack: 10,
-  money: 10,
-  reset: function() {
-    this.health = 100;
-    this.money = 10;
-    this.attack = 10;
-  },
-  // other playerInfo methods
-  ...
+  ... // other playerInfo properties and methods
+
 ```
 
 Let's run this in our browser to test our results.
 > **Video:** [Gif Demo of prompt testing Jira FSFO-169](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-169)
-Excellent work. Let's add, commit, and push our work. Then let's ship our bug fix. Checkout into the `master` then merge our work. The last step will be to close our Github Issue and continue to the next branch.
+
+Excellent work. Let's add, commit, and push our work to Github. Then let's ship our bug fix to the master by merging locally. Checkout into the `master` then merge our work. The last step will be to close our Github Issue and continue to the next issue.
 
 ### Recursive functions
-Before we begin let's create a new branch to for our next Github issue. The name of the new branch will be `bug/2-fight-skip
+Before we begin let's create a new branch to for our next Github issue. The name of the new branch will be `bug/2-fight-skip`. Remember to checkout into the master before creating a new bug branch.
 
-![Insert Github Issue]()
+![Insert Github Issue screenshot]()
 
 We discovered one way to loop until a valid answer is received. Let's take a moment to think about an alternative solution. 
 > **Hint:** Use a conditional statement to catch incorrect responses then execute a function call that prompts the user again.
@@ -168,7 +167,8 @@ When a function calls itself, we consider this a recursive function. Special att
 Let's test our changes and see if we are getting the expected results.
 > **Video:** [Gif demo on prompts for `fightOrSkip()` and `shop()`Jira FSFO-170](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-170)
 
-Let's continue onto the next step which will allow lower and upper cases to be accepted by the user for the fight or skip prompt. 
+Great job, let's ship this bug and continue onto the next bug.
+The next issue will allow lower and upper cases to be accepted by the user for the fight or skip prompt. 
 
 ## Expand logic to accept strings in any case 
 Just imagine if we wanted our user to be able to accept fight or skip as a response in any variation of mixed upper and lower case letters. 
