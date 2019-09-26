@@ -2,139 +2,129 @@
 
 ## Introduction
 
-For version 2.0 of Run Buddy, management has asked us to make the website mobile-friendly. We've also been asked to add some advanced CSS properties to make the website easier to use. 
+The Run Buddy website has been a huge success! That means management has both the impetus and capital to upgrade the site. For Run Buddy version 2.0, the team has asked us to make the site mobile-friendly and easier to use. 
 
 Here's the mock-up for Run Buddy version 2.0, which we'll build over the course of this module:
 
 ![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
-Because the current codebase is live, if we were to make changes to the code, we would break the website thereby disturbing our users' browsing experience. Not an option the management staff would be very happy with. We need to find a different process or workflow that would allow us to work on a duplicate copy while the original copy is still maintaining the website. This is where our friend Git comes back into play.
+Because the current codebase is live, we can't make changes directly to it without disturbing Run Buddy's users. We need a workflow that allows us to work on a copy of the website code and then merge the changes into the live site. This is where our friend Git comes back into play.
 
-In this lesson, we'll learn about three main concepts:
+In this lesson, we'll learn about three important software development workflow concepts:
 
-* Using Git to create branches to make versions of the codebase.
+* Using Git to create branches (versions) of the codebase.
 
-* Interacting with GitHub, which will house the project's codebase.
+* Interacting with GitHub, which houses the project's codebase.
 
 * Learning Git workflow to manage development work and update the production environment.
 
-> **On the Job:** Git is the industry standard for developers. Employer-ready students must demonstrate a solid familiarity with Git version control.
+> **On the Job:** Git is the industry-standard version control software. To be employer-ready at the end of this course, you must demonstrate a thorough, working knowledge of Git.
 
 ## Development vs. Production
 
-Git allows developers to create versions of the codebase to create new features or fix bugs. These versions are referred to as **branches** in Git. In our case, we would like to have one version of the codebase that is deployed, which will continue to serve our website visitors, and another version to work on that will allow us to change the code without worrying about disrupting the live website. 
+Git allows developers to create copies of the codebase, known as **branches**. Our live site runs from the `master` branch; this is known as the **production environment**. The branch we create to work on will be a copy of the `master` branch; this will be our **development environment**. We'll name it the `develop` branch. 
 
-This is done by making a branch from the `master` branch. This new branch will become our development environment, which we will call the `develop` branch. We'll work on the code in the `develop` branch while our `master` branch will become the production environment, which is the public live version of our project. 
+As a rule, production environments should never be worked on directly because any bugs or errors that are introduced will be immediately apparent to users. Git branching allows us to isolate versions of the code for development and testing. This is known as "working in isolation."  
 
-Development environments are not exposed to the public whereas production environments are. As a rule, a live version of the production environment should never be worked on directly because any bugs or errors will be immediately apparent to users. Git offers a technique to isolate versions of the code for development and testing by using branching. 
+> **Pro Tip**: Branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, but in our situation this will be the case. 
 
-> **Pro Tip**: Please note that the branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, but in our situation this will be the case. 
+The `develop` branch will be where we develop and test our new features. Once we are satisfied with the result and have a stable working version, we **merge** the `develop` branch into the `master` branch. This adds the new features and enhancements into the live production environment and updates the website for our users.
 
-The `develop` branch will be where we collect the new features or enhancements and test them. Once we are satisfied with the final result and we have a stable working version, we can then **merge** the `develop` branch into the `master` branch. This adds the new features and enhancements into the live production environment and updates the website for our users.
+Before we create our development environment, let's learn some new Git commands: 
 
-Before we can create our development environment, let's first learn some new Git commands for the terminal. 
+* `git branch` displays a list of all the current branches in the repo. It also highlights which branch you are in, which is called the **active branch** or **working directory**.
 
-```
-git branch
-```
+* `git branch <branch-name>` creates a new branch with your `<branch-name>` which creates a version of the current active branch. Once changes are committed onto the new branch, the branches will no longer be in sync with each other since their commit histories will diverge. This is how we make a new version of the active branch. We can only make a version from the active branch so it is a good practice to use the `git branch` command to verify the active branch before creating a new branch.
 
-Displays a list of all the current branches currently in our repo. This also highlights which branch you are currently on. This is called the **active** branch or working directory.
+* `git checkout <branch-name>` lets you switch into a different branch, which is then the new active branch. This is how to navigate between different versions of the codebase.
 
-```
-git branch <branch-name>
+* `git checkout -b <branch-name>` creates a new branch and moves (aka `checkout`) into that branch, making it the active branch. This command performs the following two Git operations at once:
 
-```
+    ```
+    git branch <branch-name>
+    git checkout <branch-name>
+    ```
 
-This Git command creates a new branch with your `<branch-name>` which creates a version of the current active branch. Once changes are committed onto the new branch, the branches will no longer be in sync with each other since their commit histories will diverge. This is how we make a new version of the active branch. We can only make a version from the active branch so it is a good practice to use the `git branch` command to verify the active branch before creating a new branch.
+Let's use these commands to create our development environment by making a `develop` branch. Remember that we must go to the command prompt and `cd` into our working directory. 
 
-```
-git checkout <branch-name>
-```
+> **On the Job:** In most workplaces, these branches will have already been configured by the IT department or development operations (aka DevOps) team. What you are about to do is uncommon in everyday web development. However, it's important to know how to create a Git workflow branching strategy so that you know how to work with it.
 
-The `checkout` command enables a user to switch into a different branch which will become the new active branch. This is how to navigate between different versions of the codebase.
-
-```
-git checkout -b <branch-name>
-```
-
-This Git command performs the following two Git operations at once.
-
-```
-git branch <branch-name>
-git checkout <branch-name>
-```
-
-Using the **-b** option flag, which is short for *branch*, we can create a new branch **AND** `checkout` into the new branch we just created. So essentially the new branch becomes the active branch.
-
-Now let's practice using these commands to create our development environment by making a `develop` branch. Remember we must go to the command prompt and `cd` into our working directory. 
-
-> **On the Job:** In most workplaces, these branches will have already been configured by the IT department or Development Operations ("DevOps") team. What you are about to do is uncommon in everyday web development. However, it's important to know how to create a Git workflow branching strategy so that you know how to work with it.
-
-Let's go to the root directory of our project so we can make a new branch from our `master` branch, our production environment. 
+Let's go to the root directory of our project so we can make a new branch from our `master` branch, our production environment. To do so, type the following two commands:
 
 ```
 git branch develop
-
 git checkout develop
 ```
-or we could have just used the command:
+
+Or you could have just used the command:
+
 ```
 git checkout -b develop
 ```
-Now let's type in our command to list the branches to verify our work.
+
+Now let's type in the command to list the branches to verify our work:
+
 ``` 
 git branch
 ```
+
 Your terminal should now look like this:
+
+
 ![Develop Branch Active](./assets/lesson-1/004-active-branch-terminal.png)
 
-The green font color and asterisk indicate the active branch or "working directory". This command may be one of the most used since knowing which branch or version you are currently on is important to know for all the following Git workflow operations.
+The green font color and asterisk indicates the active branch, or working directory. `git branch` may be one of the most commonly used since knowing which branch or version you're currently on is vital to all Git workflow operations.
 
-Now that we have learned an important use of Git's branches to create an isolated development environment to work, edit, and collaborate without disturbing our production environment, let's explain another invaluable function that branching performs which is the ability to create feature branches. Don't worry if you are having a hard time trying to memorize all these Git commands. Simply use a cheatsheet to free up some memory by [bookmarking Atlassian's Git cheatsheet.](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
+Let's move on to another invaluable function of branching: the ability to create feature branches. 
 
-## Now Featuring ... Branches
+Don't worry if you're having a hard time memorizing these Git commands. You could bookmark a cheatsheet such as [Atlassian's Git cheatsheet.](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
 
-Features are significant additions or changes to the codebase. For instance, a header, footer, or section would be considered a feature. A feature is normally developed in its own branch called a `feature` branch.
+## Create Feature Branches
+
+Features are significant additions or changes to the codebase. For instance, a header, footer, or section is considered a feature. A feature is normally developed in a separate branch called a `feature` branch.
 
 > **Video**: [Why working in isolation is important- JIRA FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) 
 
-Previously we used a `develop` branch to create a local development environment to protect and isolate our production environment from our code changes. In this step, we will branch from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
+Previously, we created a `develop` branch as a development environment to protect and isolate our production environment. In this step, we'll branch from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
+
+The following diagram introduces the concept of feature branches:
 
 ![Feature Branch](assets/lesson-1/60-feature-branch.png)
 
-As can be seen in the diagram, several feature branches can be branched off the `develop` branch. Once the feature is complete, it is merged back into the `develop` branch. 
+As can be seen in the diagram, several feature branches can be branched off the `develop` branch. Once the feature is complete, it's merged back into the `develop` branch. 
 
 There are several important reasons to work on the codebase in a separate `feature` branch and not in the `develop` branch:
 
-* Developing code on a separate branch preserves a version, in our case the `develop` branch, which allows other team members to branch from a version that is in a stable and working state.
+* Developing code in a separate branch preserves a version (in our case, the `develop` branch), which allows other team members to branch from a version that is in a stable and working state.
 
-* Working on separate branches allows team members to work in parallel, developing features simultaneously which increases productivity and accountability.
+* Working on separate branches allows team members to work in parallel to develop features simultaneously, which increases productivity and accountability.
 
-* Features can be added independently, meaning a `feature` branch can not only start separately, but also added or merged back into the `develop` branch when it is finished, without needing to wait for other team members to finish their work on other branches.
+* Features can be added independently, meaning a `feature` branch can be started separately and merged into the `develop` branch without waiting for other team members to finish their work on other feature branches.
 
-* Testing the feature branch in isolation will help find errors or bugs more quickly since the changes in the codebase will be unique to the feature.
+* Testing the feature branch in isolation helps find errors or bugs more quickly since the changes in the codebase will be unique to the feature.
 
 > **Video**: [Animation of Git workflow-JIRA FSFO-106](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-106). Start with  `master` then branch to `develop`. The branching from `develop` into a feature, then another feature, [actual code development] then merging back into the `develop` branch, then into `master` branch.
 
-It's time to switch gears now that we have our development environment set up. Let's go to our repo in GitHub and create some documentation for the new version of the Run Buddy project by creating a `README.md` file after a quick checkpoint.
+It's time to switch gears. Let's go to our repo in GitHub and create a `README.md` file for Run Buddy version 2.0. 
 
 > **Checkpoint** [Learnosity Asset-JIRA 117](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-117)
 
 
-## README, Please?
+## Create a README
 
-Now that we have our development environment set up, let's add some documentation to help give people a quick overview of the Run Buddy project. In GitHub, this task is handled by a text file located in the repo called a `README.md`. This is a Markdown file, which is widely used on GitHub and provides some light weight markup. We will go further into Markdown and `README.md` files as their use becomes more evident later in the course. 
+Now that we have our development environment set up, let's add some documentation to give people a quick overview of the Run Buddy project. In GitHub, this is handled by a text file in the repo called a `README.md` file. READMEs are typically written in Markdown, which is widely used on GitHub and offers some lightweight markup, but they can also be regular text files. We'll go further into Markdown and `README.md` files as their use becomes more evident later in the course. 
 
-> **Deep Dive:** For a closer look let's take a look at the official documentation on [GitHub Guides](https://guides.github.com/features/wikis/) and [Markdown](https://www.markdownguide.org/basic-syntax)
+> **Deep Dive:** For a closer look, check out the [GitHub Guides](https://guides.github.com/features/wikis/) and [Markdown Guide](https://www.markdownguide.org/basic-syntax).
 
-The `README.md` is a Markdown file which is a text file that offers some light weight markup or styling. It is located in the top level or root directory of the repo which allows GitHub to render it on the landing page of your repo. README files do not have to be in Markdown, and can be regular text files, however we will continue using Markdown due to its simplicity and ease of use in GitHub and VS Code.
-> **Rewind:** Similar to HTML, Markdown uses syntax and markup notation for styling. See this [Markdown guide](https://www.markdownguide.org/basic-syntax) that will give a nice comparison with HTML. Here is some background on the [Markdown language on Wikipedia](https://en.wikipedia.org/wiki/Markdown).
+The `README.md` file is located in the top level or root directory of the repo. This allows GitHub to render it on the repo's landing page. 
 
-Now our next step is to create a `README.md` in GitHub.
+> **Rewind:** Like HTML, Markdown uses syntax and markup notation for styling. For more information, see this [Markdown guide](https://www.markdownguide.org/basic-syntax), or check out the [Wikipedia page on the Markdown language](https://en.wikipedia.org/wiki/Markdown).
+
+Let's go ahead and create a `README.md` file for our repo. 
 
 > **Video:** [Creating a `README.md` file in GitHub - JIRA FSFO-107](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-107)
 
-Here's an example of what your raw Markdown file should look like:
+Here's what your raw Markdown file should look like:
 
 ```markdown
 # Run Buddy
@@ -154,37 +144,43 @@ Made with ❤️ by [your name]
 
 ```
 
-Click the preview tab to view the stylized version.
+Click the preview tab to view the stylized version:
 
 ![Markdown Preview](./assets/lesson-1/169-markdown-preview.png)
 
-> 5. Add a message in the text field, "Create README.md" the click the "Commit new file" button
+Add a message for the commit (you can keep the default "Create README.md") and then click the "Commit new file" button:
+
 ![Commit to Master](./assets/lesson-1/180-markdown-commit.png)
 
-To check to see if this `README.md` file was created properly, see if the `README.md` file is visible in your repo.
+To check to see if the `README.md` file was created properly, see if the `README.md` file is visible on your repo's landing page:
 
 ![GitHub Repo](./assets/lesson-1/170-markdown-preview.png)
 
-While in our GitHub repo let's take a look at our branches by selecting the branch tab. 
+While in our GitHub repo, let's take a look at our branches by selecting the branch tab: 
 
 ![GitHub Branches](./assets/lesson-1/190-branches-github.png)
 
 > **Pause**: Although we see our `master` branch, we don't see the `develop` branch we just created. Can you explain why?
 >
-> **Answer**: The `develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on GitHub.com. This is considered the "remote" repo. As we did in the past module, we will need to `git push` our local changes up to the remote repo in GitHub.
+> **Answer**: The `develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on GitHub.com. This is considered the "remote" repo. As we did in the past module, we'll need to `git push` our local changes up to the remote repo in GitHub.
 
-In order to create a secure backup as well as provide a collaborative and communal development branch that team members can use to branch from, let's backup our local `develop` branch by creating a copy in our GitHub repo by using the following command example:
+Let's create a secure backup and provide a collaborative and communal development branch that team members can branch from, let's push our local `develop` branch to our GitHub repo by using the following command:
 
 ```
 git push origin <remote-branch-name>
 ```
 
-Previously we did the Git operation to push file changes into the remote `master` branch in Module 1. The difference here is instead of pushing to the remote `master` branch, we are creating and pushing into a new `develop` branch. We identify the target of the push to the remote branch. This command does two operations: creates a new remote branch and pushes the code from the local active branch into this new remote branch. The word `origin` simply refers the source repository where the cloning originally occurred. Hence the Git command to create a remote `develop` branch will be:
+Did you notice something new here? In Module 1, we pushed our changes to the remote `master` branch. Now, instead of pushing to the remote `master` branch, we're creating and pushing to a new `develop` branch. 
+
+This command does two things: creates a new remote branch and then pushes the code from the local active branch into that remote branch. The word `origin` simply refers the source repository where the cloning originally occurred. 
+
+The Git command to create and push to a remote `develop` branch is:
 
 ```
 git push origin develop
 ```
-Let's see if this command was successful by looking at the branch tab in the run-buddy repo in GitHub.
+
+Let's see if this command was successful by looking at the branch tab in the run-buddy repo in GitHub:
 
 ![Develop Branch in GitHub](./assets/lesson-1/006-github-develop.png)
 
