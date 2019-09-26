@@ -123,7 +123,7 @@ Before we begin let's create a new branch to for our next Github issue. The name
 ![Insert Github Issue screenshot]()
 
 We discovered one way to loop until a valid answer is received. Let's take a moment to think about an alternative solution. 
-> **Hint:** Use a conditional statement to catch incorrect responses then execute a function call that prompts the user again.
+> **Hint:** Try to set up a generic function that uses a conditional statement to catch incorrect responses then execute a function call that prompts the user again.
 
 Here is an example of that function:
 ```javascript
@@ -136,38 +136,59 @@ var test = function() {
   return response;
 }
 ```
-Let's use this technique in our `fight()` function for our user response to fight or skip. In this case we should create a new function similar to our `test()` example and our `getPlayerName()` function due to the number of nested conditionals. This new function will be called `fightOrSkip()`. It will be responsible for receiving a valid response from the user to determine if the player robot will continue fighting. Let's extract our skip and fight conditional logic from the `fight()` function as well as the `confirmSkip` condition and place it in our new function.
-The `fightOrSkip()` function should look similar to this:
-```javascript
-var fightOrSkip = function() {
-  // ask user if they'd like to fight or skip using  function
-  var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+A key statement in this function is the recursive call after the alert in the conditional code block. This is called recursive because the function calls itself. This is create a loop that will constantly call itself is the conditional statement remains true. We can see a distinct similarity to the `while` loop we just created in the last bug we squashed. As in the `while` loop, recursive functions must pay special attention to the conditional statement to break the loop otherwise a stack overflow error will occur.
+> **Deep Dive:** Recursive functions can be very tricky to learn for new developers due to it's iterative nature. This method is used in Mathematics such as in the Fibonacci sequence as well as Computer Science in many algorithms. [To find out more visit Wikipedia for a wider breadth of recursive uses](https://en.wikipedia.org/wiki/Recursion_(computer_science))
 
-  if (promptFight === "" || promptFight === null) {
-    window.alert("You need to provide a valid answer! Please try again.");
-    return fightOrSkip();
-  }
-  // if user picks "skip" confirm and then stop the loop
-  if (promptFight === 'skip' || promptFight === 'SKIP') {
-    // confirm user wants to skip
-    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+Let's use this recursive method to handle blank or null responses to the fight or skip prompt. We will create a new function similar to our `test()` example and our `getPlayerName()` function due to the level of complexity currently in our `while` loop due to the number of nested conditionals. Creating a function will greatly increase the readability of our code. This also helps isolate bugs since we can test functions individually.
 
-    // if yes (true), leave fight
-    if (confirmSkip) {
-      window.alert(playerName + ' has decided to skip this fight. Goodbye!');
-      // subtract money from playerMoney for skipping
-      playerMoney = playerMoney - 10;
-      shop();
-      break;
-    }
-  }
-}
-```
-When a function calls itself, we consider this a recursive function. Special attention should be paid to the breaking condition otherwise an endless loop can occur which will cause the program to error. 
+This new function will be called `fightOrSkip()`. It will be responsible for receiving a valid response from the user to determine if the player robot will continue fighting. Let's extract our skip and fight conditional logic from the `fight()` function as well as the `confirmSkip` condition and place it in our new function.
+> **Pause:** Enter the conditional recursive function call in the `fightOrSkip()` function below:
+>```javascript
+>var fightOrSkip = function() {
+>  // ask user if they'd like to fight or skip using  function
+>  var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+>
+>  // Enter the conditional recursive function call
+>
+>  // if user picks "skip" confirm and then stop the loop
+>  if (promptFight === 'skip' || promptFight === 'SKIP') {
+>    // confirm user wants to skip
+>    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+>
+>    // if yes (true), leave fight
+>    if (confirmSkip) {
+>      window.alert(playerName + ' has decided to skip this fight. Goodbye!');
+>      // subtract money from playerMoney for skipping
+>      playerMoney = playerMoney - 10;
+>      shop();
+>      break;
+>    }
+>  }
+>}
+>```
+> **Answer:**
+>The `fightOrSkip()` function should now look like this:
+>```javascript
+>var fightOrSkip = function() {
+>  // ask user if they'd like to fight or skip using  function
+>  var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+>
+>  // Conditional Recursive Function Call
+>  if (promptFight === "" || promptFight === null) {
+>    window.alert("You need to provide a valid answer! Please try again.");
+>    return fightOrSkip();
+>  }
+>  // if user picks "skip" confirm and then stop the loop
+>  if (promptFight === 'skip' || promptFight === 'SKIP') {
+>    // confirm user wants to skip
+>    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+>... // rest of the function
+>```
+
 Let's test our changes and see if we are getting the expected results.
 > **Video:** [Gif demo on prompts for `fightOrSkip()` and `shop()`Jira FSFO-170](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-170)
 
-Great job, let's ship this bug and continue onto the next bug.
+Great job, let's ship this bug and close this issue before continuing onto the next bug. 
 The next issue will allow lower and upper cases to be accepted by the user for the fight or skip prompt. 
 
 ## Expand logic to accept strings in any case 
