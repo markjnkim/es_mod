@@ -28,8 +28,8 @@ will be remembered in the browser's storage system!
 
 Can all of this be done with JavaScript? Definitely. JavaScript is a powerful,
 wildly popular, general-purpose programming language. One reason for its
-popularity is that it's easy to learn. Another reason is that all the major web
-browsers can run JavaScript code. 
+popularity is that it's relatively easy to learn. Another reason is that all
+the major web browsers can run JavaScript code. 
 
 In "Module 1: HTML, CSS, and Git," we learned that HTML defines a web page's
 structure, and CSS defines a web page's presentation. JavaScript is the third
@@ -54,10 +54,11 @@ used on [95% of them](https://w3techs.com/technologies/history_overview/client_s
 It's worth noting that most useful web applications communicate with
 "backend" applications. A backend application typically runs on an
 internet-connected server that can do heavy data processing and store large
-amounts of data. JavaScript works there, too! We'll learn more about creating
-backend (often called "server-side") applications in future modules. For now,
-rest assured that what you learn in this module will be foundational for the
-remainder of the course.
+amounts of data. JavaScript works there, too!
+
+We'll learn more about creating backend (often called "server-side")
+applications in future modules. For now, rest assured that what you learn in
+this module will be foundational for the remainder of the course.
 
 The Other MVP
 ---
@@ -97,7 +98,7 @@ changes to our game before the deadline.
 
 We're going to use GitHub Issues and branches to help us manage our work. This
 is important, because we're also going to learn JavaScript while creating this
-game! The less we have the think about, the better.
+game! That's a lotThe less we have the think about, the better.
 
 Our old friends HTML and CSS are on the bench this round, but a lot of their 
 concepts will come into play while we learn JavaScript:
@@ -157,18 +158,33 @@ questions. Then, you find answers to each question.
 There are many ways that we could approach creating the simple version of
 Robot Gladiators outlined above. But this is way we're going to do it:
 
-1. Create a new GitHub repository for this project, and clone it on our local
-machine. We'll then create branches to do our work in.
+1. Create a New GitHub Repository, an Issue, and branches. These are the basic
+   steps for any new project.
+2. Create our project files. We need to set up the `index.html` and `game.js`
+   file structure according to the Con Solo instructions. 
+3. Use JavaScript functions to display game status to the player. JavaScript
+   has some built-in functions that do this.
+4. Use JavaScript variables and operators to manage game data. We're going to
+   do a little math and keep track of robot health, player money, and other
+   game values.
+5. Make decisions with JavaScript conditions. The game should allow a robot to
+   fight if it still has health points, but not if its health points reach 0.
+6. Accept user input. We're going to ask the player a lot of questions.
+   JavaScript has more built-in functions to help us store the player's answers.
 
-2 Create our project files.
-Create variables to store all necessary data and use JavaScript-specific tools provided by the web browser to print out data being held in variables to ensure it’s correct
-3. Manipulate our robot’s data using JavaScript operators, then create a “fight” function to store these actions so we can perform them multiple times.
-Add conditions to the fight so we can check the status of our two robots in battle
-Access and use functions the browser provides to add player interactivity 
+This is an ambitious project, but we have mapped out a strategy for building it
+without even opening our code editor!  A thoughtful planning process can break
+almost any project down into manageable chunks, and help us identify the
+questions we need to answer to complete those chunks.
 
+Let's set up our project and get started.
 
 1. Create a New GitHub Repository, Issue, and branches
 ---
+As we do with each new
+project, we'll create a GitHub repository and clone
+it on our local machine. We'll then create a GitHub Issue to define the
+requirements for our MVP. Finally, we'll create branches to do our work in.
 
 
 2. Create Project Files and Structure
@@ -206,11 +222,13 @@ file! We'll have to make one. We'll also have to learn some JavaScript...
 
 
 	
-3. JavaScript Function and Variables
+3. Use JavaScript functions to communicate with the player
 ---
 
-4. Using JavaScript Functions
+4. Manipulate data with functions, variables, and operators
 ---
+Manipulate our robot’s data using JavaScript operators, then create a “fight” function to store these actions so we can perform them multiple times.
+Add conditions to the fight so we can check the status of our two robots in battle
 
 5. Adding Conditions to our Function
 ---
