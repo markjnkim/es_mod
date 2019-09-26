@@ -188,10 +188,9 @@ This new function will be called `fightOrSkip()`. It will be responsible for rec
 Let's test our changes and see if we are getting the expected results.
 > **Video:** [Gif demo on prompts for `fightOrSkip()` and `shop()`Jira FSFO-170](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-170)
 
-Great job, let's ship this bug and close this issue before continuing onto the next bug. 
-The next issue will allow lower and upper cases to be accepted by the user for the fight or skip prompt. 
+Great job, however this bug is a two parter. We also need will allow lower and upper cases to be accepted by the user for the fight or skip prompt. 
 
-## Expand logic to accept strings in any case 
+### Expand logic to accept strings in any case 
 Just imagine if we wanted our user to be able to accept fight or skip as a response in any variation of mixed upper and lower case letters. 
 
 ![Insert Github Issue Screenshot]()
@@ -199,9 +198,10 @@ Just imagine if we wanted our user to be able to accept fight or skip as a respo
 Although these responses are short, the different combinations that are possible run well over a hundred. There must be an easier way to deal with this scenario. Of course there is! A nice way to deal with this is to simply change all the characters in the response to lower case characters and then simply check if the lower case passes our condition. 
 > **Pause:** Let's try to harness our Google powers to find our the method that changes characters in a string to lowercase. 
 >
-> **Answer:** In the search results let's choose the MDN option. Here we can see that there is a method called `toLowerCase()`. Excellent detective work!
+> **Answer:** In the search results let's choose the [MDN option to find a method to convert into lower case characters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase). Here we can see that there is a method called `toLowerCase()`. Excellent detective work! Notice there is a method for `toUpperCase()` as well. Can you guess what that does?
 
-Now let's use this method to convert the response from our `prompt()` and change our conditional statement to check for just the lowercase response.
+We can use this method to convert the response from our `prompt()`. How will this change our conditional statement? Please try to modify it yourself before proceeding.
+
 Our conditional statement in our `fightOrSkip()` function should now look like the following:
 ```javascript
 promptFight = promptFight.toLowerCase();
