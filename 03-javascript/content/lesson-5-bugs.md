@@ -1,24 +1,25 @@
 # Lesson 5
 ## Introduction
-We have made a ton of progress so far in our Battle Bots game. Now that our MVP is finished we can use the remaining time in our Game Jam to give our game some polish and shine. Since the remaining time is quite short, we should proceed in an iterative development process to add our small improvements rather than try to wrap our tasks together that will take longer to finish. Thankfully we can use Github Issues to help us focus on delivering each task.
+We have made a ton of progress so far in our Battle Bots game. Now that our MVP is finished we can use the remaining time in our Game Jam to give our game some polish and shine. Since the remaining time is quite short, we should proceed in an iterative development process to add small improvements rather than try to wrap our tasks together that will take longer to finish possibly past the deadline. Thankfully we can use Github Issues to help us focus on shipping our fixes after each task is completed.
 
-With this in mind, a great use of time would be to share our game with other developers for testing purposes. It would a shame if the game crashed as the Game Jam judges were assessing our game. This is definitely time well spent to ensure the game is durable and stable. 
+With this in mind, a great use of time would be to share our game with other developers for testing purposes. It would a shame if the game crashed as the Game Jam judges were in the middle of their game assessment. This is definitely time well spent to ensure the game is durable and stable. 
 
 > **On the Job:** This would be known as Beta Testing, allowing a limited release to a small sample of people to receive feedback and catch errors so improvements can be made before the product or application goes live to everyone, in this case the Game Jam judges. 
 
 We have just received the feedback of our Beta Test from our game testers and here are some of the results:
 High praise and positive marks were received all around for the gameplay and entertainment value.
-A few bugs were also exposed:
+A few bugs were also revealed:
   * Empty player names are accepted
   * Pressing the cancel button in the player name prompt assigns null as the player's name
   * Empty or mixed case input to fight/skip dialog results in the `fight` option
+
 There were also some feature requests:
-  * See who is able to make the most money, we can call this the high score
-  * Randomize who attacks first in each confrontation, the enemy or the player robot 
-  * Ease input process to lessen amount of typing needed to reply to prompts
+  * Ability to save the high score
+  * Randomize who attacks first in each confrontation
+  * Simplify the input process to lessen amount of typing needed to reply to prompts
 ## Preview
-Let's take a look at what these results will look like in the browser:
-Here's an example of the new shop dialog:
+At the end of this lesson we would like to see what these fixes will look like in the browser:
+Here's an example of the new shop dialog that can input numbers:
 ![Shop Dialog](./assets/lesson-5/100-shop-dialog.png)
 
 Here's an example of the new high score dialog:
@@ -28,9 +29,9 @@ Here's an example of the when a new high score is not reached:
 ![Not the High Score](./assets/lesson-5/300-not-high-score.png)
 
 Here's a sample of the game's final demo:
-> **Video:** [Gif - Game Demo of finished game Jira FSFO](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-168)
+> **Video:** [Gif - Game Demo of finished game Jira FSFO-168](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-168)
 
-Let's take a moment to try to answer the following questions:
+Let's map out our process for this lesson and think about how we will implement our Beta test suggestions by first trying to answer the following questions:
 * How do we handle a blank or null player name response?
 * Are there other responses that may need a similar treatment?
 * How can we handle mixed case input to fight/skip prompt?
@@ -38,30 +39,32 @@ Let's take a moment to try to answer the following questions:
 * What method should we use to randomize the fight order?
 * How do we save our high score in the browser storage?
 
-Not sure what browser storage is? Time to use our Google skills and see what we can find.
-In our search results we find the link to [Web Storage API from MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) This appears to be the answer we were looking for. We will be using `localStorage` to save our high score.
+> **Pause:** Not sure what browser storage is? Time to use our Google skills and see what we can find.
+>
+> **Answer:** In our search results we find the link to [Web Storage API from MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) We will be using the `localStorage` property of the `window` object to save our high score.
 
-Let's pseudocode our answer to these questions then proceed with the build process section of this lesson. 
+The answers to these questions will be an important first step in leading our  build process section of this lesson and help create our Github Issues. 
 
 * If a blank or null value is received for a player name repeat `prompt()` until acceptable answer is received.
 * Extend this condition to our fight/skip prompt as well to handle blank or null responses.
 * Change the response to a lower case before checking in the conditional statement.
 * Use conditional statements that execute statements based on the responses' numeric values in the `shop()` function.
 * Randomize the fight order using the `Math` object's `random()` method.
-* Save our high score using the Web Storage API `localStorage`.
+* Save our high score using the Web Storage API and `localStorage`.
 
 ## Create a GitHub issue for each bug and feature
 In this step we will be creating our Github Issues for each bug and feature to reinforce our iterative development process. This will allow us to merge each improvement with the master branch as soon they are completed before we hit our deadline.
 
 Let's create a Github issue for each of the following:
-* Blank and null response handling
-* Mixed case response handling
-* Integer responses in `shop()` function
-* Randomize fight order
-* Save high score 
+* Bug - Blank/null response handling for the player name prompt
+* Bug - Mixed case response and blank/null handling for the fight or skip prompt
+* Bug - Integer responses and blank/null handling in `shop()` function
+* Feature - Randomize fight order in the `fight()` function
+* Feature - Save high score using `localStorage`
 
-Creating a bug Github issue should look something like the following:
+Here is an example of how to create a bug Github issue:
 ![Screenshot of Github Issue](./assets/lesson-5/400-github-issue-response.png)
+
 Please finish the rest of the Github issues for this lesson.
 
 Now that we have our Github Issues completed, let's see how many we can get done before our deadline.
@@ -304,8 +307,302 @@ var isPlayerTurn = true;
 >
 > **Answer:** `if (Math.random() > 0.5) isPlayerTurn = false;`
 
-Now that we are able to successfully randomize the value of our turn variable, how to we implement this to affect the attack order of the robots? Try to use this boolean value to create a conditional statements to execute attacks. 
+Now that we are able to successfully randomize the value of our turn variable, how do we implement this to affect the attack order of the robots? Let's use this boolean value in the `while` loop to create conditional statements to execute attacks. First let's use some pseudocode:
+* If it is the player robot's turn
+  * Prompt the fight or skip request
+  * Remove damage from enemy robot's health
+  * Check if the enemy robot has enough health to continue fighting
+* If not the player robot's turn
+  * Prompt the fight or skip request
+  * Remove damage from the player robot's health
+  * Check if the player robot has enough health to continue fighting
+* Switch turns for next bout of fighting
 
-## Six. Save and load high score from localStorage
+The last step is a critical one so that an exchange of fighting can occur.
+Please try your best to use this pseudocode to modify the `fight()` function and randomize the fighting order. Try to Google answers to any questions you may have.
+> **Hint:** During the switch step use the "!" operator to change a boolean value.
+
+The modified `fight()` function should now look like this:
+```javascript
+var fight = function(enemy) {
+  // keep track of who goes first
+  var isPlayerTurn = true;
+
+  // randomly change turn order
+  if (Math.random() > 0.5) {
+    isPlayerTurn = false;
+  }
+
+  while (playerInfo.health > 0 && enemy.health > 0) {
+    if (isPlayerTurn) {
+      // ask user if they'd like to fight or skip using fightOrSkip function
+      if (fightOrSkip()) {
+        // if true, leave fight by taking them to the shop and breaking loop
+        shop();
+        break;
+      }
+
+      var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
+
+      // remove enemy's health by subtracting the amount we set in the damage variable
+      enemy.health = Math.max(0, enemy.health - damage);
+      console.log(
+        playerInfo.name +
+          " attacked " +
+          enemy.name +
+          ". " +
+          enemy.name +
+          " now has " +
+          enemy.health +
+          " health remaining."
+      );
+
+      // check enemy's health
+      if (enemy.health <= 0) {
+        window.alert(enemy.name + " has died!");
+
+        // award player money for winning
+        playerInfo.money = playerInfo.money + 20;
+
+        // ask if user wants to use the store before next round
+        var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
+
+        // if yes, take them to the store() function
+        if (storeConfirm) {
+          shop();
+        }
+
+        // leave while() loop since enemy is dead
+        break;
+      } else {
+        window.alert(enemy.name + " still has " + enemy.health + " health left.");
+      }
+
+      var damage = randomNumber(enemy.attack - 3, enemy.attack);
+
+      // remove enemy's health by subtracting the amount we set in the damage variable
+      playerInfo.health = Math.max(0, playerInfo.health - damage);
+      console.log(
+        enemy.name +
+          " attacked " +
+          playerInfo.name +
+          ". " +
+          playerInfo.name +
+          " now has " +
+          playerInfo.health +
+          " health remaining."
+      );
+
+      // check player's health
+      if (playerInfo.health <= 0) {
+        window.alert(playerInfo.name + " has died!");
+        // leave while() loop if player is dead
+        break;
+      } else {
+        window.alert(playerInfo.name + " still has " + playerInfo.health + " health left.");
+      }
+      // player gets attacked first
+    } else {
+      var damage = randomNumber(enemy.attack - 3, enemy.attack);
+
+      // remove enemy's health by subtracting the amount we set in the damage variable
+      playerInfo.health = Math.max(0, playerInfo.health - damage);
+      console.log(
+        enemy.name +
+          " attacked " +
+          playerInfo.name +
+          ". " +
+          playerInfo.name +
+          " now has " +
+          playerInfo.health +
+          " health remaining."
+      );
+
+      // check player's health
+      if (playerInfo.health <= 0) {
+        window.alert(playerInfo.name + " has died!");
+        // leave while() loop if player is dead
+        break;
+      } else {
+        window.alert(playerInfo.name + " still has " + playerInfo.health + " health left.");
+      }
+
+      if (fightOrSkip()) {
+        // if true, leave fight by taking them to the shop and breaking loop
+        shop();
+        break;
+      }
+
+      var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
+
+      // remove enemy's health by subtracting the amount we set in the damage variable
+      enemy.health = Math.max(0, enemy.health - damage);
+      console.log(
+        playerInfo.name +
+          " attacked " +
+          enemy.name +
+          ". " +
+          enemy.name +
+          " now has " +
+          enemy.health +
+          " health remaining."
+      );
+
+      // check enemy's health
+      if (enemy.health <= 0) {
+        window.alert(enemy.name + " has died!");
+
+        // award player money for winning
+        playerInfo.money = playerInfo.money + 20;
+
+        // ask if user wants to use the store before next round
+        var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
+
+        // if yes, take them to the store() function
+        if (storeConfirm) {
+          shop();
+        }
+
+        // leave while() loop since enemy is dead
+        break;
+      } else {
+        window.alert(enemy.name + " still has " + enemy.health + " health left.");
+      }
+    }
+    // switch turn order for next round
+    isPlayerTurn = !isPlayerTurn;
+  }
+};
+```
+<!-- use debugger here -->
+Notice how the "!", known as the not operator, is used in the value switching operation to reassign the `isPlayerTurn`. This step is critical for exchanging turns. There seems to be quite a bit of duplicate code in this function. Normally we would try to refactor this function so there wouldn't be as much redundancy but due to the time constraints we will need to consider this code debt for now. This means it is a task to fix the code that isn't critical, but will need to be done in the future.
+Let's test our new function to ensure our fight order has become randomized. 
+
+![Randomized Robot Battle](./assets/lesson-5/600-console-random.png)
+
+As can be seen in our console, the first battle with each new robot has been randomized so now the advantage of the first attack is more balanced and fair.
+Time to ship our feature so let's merge it to the master and start on our next feature. Don't forget to close this issue now that it has been completed.
+
+## Save and load high score from localStorage
+With just a few moments left in our Game Jam, let's quickly take a look at our Github issue and create our feature branch which will be name `feature/5-highscore`.
+![Insert Github Issue Screenshot]()
+Earlier we did some googling to find that `localStorage` will allow us to store our high score in the browser. Let's review [MDN's documents regarding localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Local_storage) to see how to interface with this property. From the documentation we can find that this is a property of the `window` object and that there is also a `sessionStorage` property as well. A big differentiator between the two is that while `sessionStorage` will persistent the data during the session of the page or while the browser is open. `localStorage` will persist the data in the browser until manually deleted. This means that if I close my browser or my browser session, the data in `sessionStorage` will disappear but in `localStorage` the data will persistent across sessions and is not affected by closing the browser.
+The similarities of `sessionStorage` and `localStorage` include the interface methods and the use of key/value pairs to store the object data. Note that the keys and values will always be converted into strings as a condition for browser storage.
+To understand what a key/value pair is, let's use a familiar object to illustrate these components.
+```javascript
+var playerInfo = {
+  name: "Robocop",
+  health: 100
+}
+```
+The `name` and `health` properties are the *keys* in the `playerInfo` object. These are used to access their respective *values*, "Robocop" and 100. 
+### Storage Methods
+Now that we know we are storing the data as objects, the next step will be to use the storage methods to access and enter the object into the browser's storage. This are known as the Web Storage API:
+```javascript
+localStorage.setItem('color', 'red');
+```
+The `setItem` method always receives two arguments. The first argument is the key and the second argument is the value. 
+Let's type this example in the console of the browser as seen here:
+
+![Web Storage API setItem](./assets/lesson-5/700-set-item.png)
+
+We are able to type simple JavaScript statements into the console because it is part of the browser.
+The undefined message shown here is simply indicating that nothing is returned from this statement which is correct since we are setting or storing our object into `localStorage`, not retrieving or returning anything.
+To see if our statement actually worked we can look use Chrome DevTools to open the Application tab and click on the Local Storage option as shown here:
+![Chrome DevTools Application](./assets/lesson-5/800-dev-tools-application.png)
+
+As we can see, our data was stored successfully as a key value pair. Please note above the Local Storage option on the left pane is also the option to Clear storage which will erase all of the data stored there.
+Our next step will be to use the Web Storage API to retrieve the value. Let's type in the following statement into the console to see our results:
+```javascript
+ localStorage.getItem('color');
+ ```
+To retrieve this value from `localStorage`, we use the `getItem` method and the key to return the associated value.
+The result should look like the following:
+
+![Web Storage API getItem](./assets/lesson-5/900-get-item.png)
+
+Now that we are familiar with the Web Storage API, how can we use it to store our new high score for our game?
+Let's pseudocode this step and try to write the code ourselves.
+
+* Once the game has ended and we have survived facing all the robots
+  * Retrieve the current high score from `localStorage`
+  * Compare the player robot score with the current high score
+    * If the current high score is higher
+      * Send user the message the player did not beat the high score
+    * If the player score is higher
+      * Set new high score object into `localStorage`
+      * Set new player robot's name object into `localStorage`
+
+Since this logic is happening once the game has ended, which function should these operations occur?
+If you guessed the `endGame()` function that would be correct.
+Let's use our knowledge of conditional statements as well as our new Web Storage APIs to try and code this operation ourselves. 
+> **Hint:** Try to retrieve a key from `localStorage` that does not exist to see  what is returned.
+> We get a `null` value. Let's take into account that no high score has been stored so if our `getItem` retrieves a null, set the current high score to zero.
+
+The final endGame() function should now look similar to this:
+```javascript
+var endGame = function() {
+  window.alert("The game has now ended. Let's see how you did!");
+
+  // check localStorage for high score, if it's not there, use 0
+  var highScore = localStorage.getItem("highscore");
+  if (highScore === null) highScore = 0;
+
+  // if player have more money than the high score, player has new high score!
+  if (playerInfo.money > highScore) {
+    localStorage.setItem("highscore", playerInfo.money);
+    localStorage.setItem("name", playerInfo.name);
+
+    alert(playerInfo.name + " now has the high score of " + playerInfo.money + "!");
+  } 
+  else {
+    alert(playerInfo.name + " did not beat the high score of " + highScore + ". Maybe next time!");
+  }
+
+  // ask player if they'd like to play again
+  var playAgainConfirm = window.confirm("Would you like to play again?");
+
+  if (playAgainConfirm) {
+    startGame();
+  } 
+  else {
+    window.alert("Thank you for playing Battlebots! Come back soon!");
+  }
+};
+```
+> **Pro Tip:** Note the following conditional statement can be written in shorthand: 
+>```javascript
+>if (highScore === null) highScore = 0;
+>```
+>This following is a called a short circuit conditional statement:
+>```javascript
+>highScore = highScore || 0;
+>```
+>This conditional statement means if the `highScore` value is falsy, assign zero to `highScore`. Falsy values evaluate to false in a conditional. Falsy values include null, undefined, zero, NaN, "", and false. For more info on [falsy and truthy values visit the MDN docs.](https://developer.mozilla.org/en-US/docs/Glossary/Falsy). For more information regarding [short cuts for conditional values visit the MDN docs.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators)
+>
+Let's test our latest feature by running our game and see if we can get the high score. Check the Application pane as well to see if we were able to persist our high score in `localStorage`. 
+
+![High Score Local Storage](./assets/lesson-5/1000-high-score.png)
+
+Kudos on a job well done! Let's ship this to the `master` quickly so we can the game jam deadline just in the nick of time. The judges will surely be impressed with how much we were able to achieve in such a short amount of time and experience. Let's remember to close this issue and bask in our glory as JavaScript developers.
 
 ## Reflection
+The student created a game jam submission that they should be proud of
+The student accomplished:
+Managed time and focus by tracking bugs and feature requests in GitHub issues
+Intelligently prioritized the issues
+Validated user input prior to operating on it. (Life skill!)
+Refactored for simplicity and maintainability
+Used a recursive function!
+Distinguish between number and string types
+Learned how to persist data in the browser with localStorage
+Recap the module:
+Learned a solid Javascript foundation that we will build on for the rest of the course
+primitives
+functions
+objects
+conditional statements
+operators
+Created a functional game that is actually fun to play!
+Explain that in coming modules, the student will exercise and build on these skills to create functional front-end applications, as well as powerful back-end applications.
+The fun is just beginning!
