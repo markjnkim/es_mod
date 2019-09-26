@@ -242,13 +242,13 @@ This condition should be placed in the `while` loop replacing the logic we remov
     }
     ... // fight logic
 ```
-So if the `fightOrSkip()` function returns true, our player robot will shop and break the fight loop. Otherwise for a false condition, the fight will continue.
+Now if the `fightOrSkip()` function returns true, our player robot will `shop()` then break the fight loop. Otherwise for a false condition, the fight will continue.
 
 Let's test our changes now for empty string, cancel, and mixed cases to see if our changes had the desired effects.
 > **Video:** [Gif Demo of skip or fight prompts Jira-171](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-171)
 
-Now if we were able improve our prompt response handling let's preserve our work in Github and merge our work into the `master`.
-Great job shipping another bug fix! We are making great progress. Now its time to tackle another Github Issue. 
+Now that we were able improve our prompt response handling, let's preserve our work in Github and merge our work into the `master`.
+Great job shipping another bug fix! We are making great progress! Let's close this issue and squash the next bug.
 
 ## Update shop() function to handle invalid and integer inputs
 Let's create another branch from this Github Issue: `bug/3-shop`
