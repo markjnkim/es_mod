@@ -20,7 +20,7 @@ In this lesson, we'll learn about three important software development workflow 
 
 > **On the Job:** Git is the industry-standard version control software. To be employer-ready at the end of this course, you must demonstrate a thorough, working knowledge of Git.
 
-## Development vs. Production
+## Development vs. Production Environments
 
 Git allows developers to create copies of the codebase, known as **branches**. Our live site runs from the `master` branch; this is known as the **production environment**. The branch we create to work on will be a copy of the `master` branch; this will be our **development environment**. We'll name it the `develop` branch. 
 
@@ -29,6 +29,8 @@ As a rule, production environments should never be worked on directly because an
 > **Pro Tip**: Branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, but in our situation this will be the case. 
 
 The `develop` branch will be where we develop and test our new features. Once we are satisfied with the result and have a stable working version, we **merge** the `develop` branch into the `master` branch. This adds the new features and enhancements into the live production environment and updates the website for our users.
+
+## Create Our Development Environment
 
 Before we create our development environment, let's learn some new Git commands: 
 
@@ -105,14 +107,14 @@ There are several important reasons to work on the codebase in a separate `featu
 
 > **Video**: [Animation of Git workflow-JIRA FSFO-106](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-106). Start with  `master` then branch to `develop`. The branching from `develop` into a feature, then another feature, [actual code development] then merging back into the `develop` branch, then into `master` branch.
 
-It's time to switch gears. Let's go to our repo in GitHub and create a `README.md` file for Run Buddy version 2.0. 
+It's time to switch gears. Let's go to our GitHub repo and create a `README.md` file for Run Buddy version 2.0. 
 
 > **Checkpoint** [Learnosity Asset-JIRA 117](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-117)
 
 
-## Create a README
+## Create a README File
 
-Now that we have our development environment set up, let's add some documentation to give people a quick overview of the Run Buddy project. In GitHub, this is handled by a text file in the repo called a `README.md` file. READMEs are typically written in Markdown, which is widely used on GitHub and offers some lightweight markup, but they can also be regular text files. We'll go further into Markdown and `README.md` files as their use becomes more evident later in the course. 
+Now that we our development environment is set up, let's add some documentation to give people a quick overview of the Run Buddy project. In GitHub, this is handled by a text file in the repo called a `README.md` file. READMEs are typically written in Markdown, which offers some lightweight markup and is widely used on GitHub, but they can also be regular text files. We'll go further into Markdown and `README.md` files as their use becomes more evident later in the course. 
 
 > **Deep Dive:** For a closer look, check out the [GitHub Guides](https://guides.github.com/features/wikis/) and [Markdown Guide](https://www.markdownguide.org/basic-syntax).
 
@@ -160,45 +162,50 @@ While in our GitHub repo, let's take a look at our branches by selecting the bra
 
 ![GitHub Branches](./assets/lesson-1/190-branches-github.png)
 
-> **Pause**: Although we see our `master` branch, we don't see the `develop` branch we just created. Can you explain why?
+> **Pause**: We see the `master` branch, but we don't see the `develop` branch we just created. Can you explain why?
 >
-> **Answer**: The `develop` branch was created locally on your computer, but this change hasn't been updated yet in our repo on GitHub.com. This is considered the "remote" repo. As we did in the past module, we'll need to `git push` our local changes up to the remote repo in GitHub.
+> **Answer**: The `develop` branch was created locally on your computer, but this change hasn't been updated yet on GitHub.com. The repo on GitHub is considered the **remote repo**. As we did in the past module, we'll need to `git push` our local changes up to the remote repo in GitHub.
 
-Let's create a secure backup and provide a collaborative and communal development branch that team members can branch from, let's push our local `develop` branch to our GitHub repo by using the following command:
+Pushing our branch to GitHub creates a secure backup and provides a collaborative and communal development branch that team members can branch from, so let's do that now by using the following command:
 
 ```
 git push origin <remote-branch-name>
 ```
 
-Did you notice something new here? In Module 1, we pushed our changes to the remote `master` branch. Now, instead of pushing to the remote `master` branch, we're creating and pushing to a new `develop` branch. 
+Did you notice something new here? In Module 1, we pushed our changes to the remote `master` branch. But now we're creating and pushing to a new `develop` branch, so we have to add the branch name. 
 
 This command does two things: creates a new remote branch and then pushes the code from the local active branch into that remote branch. The word `origin` simply refers the source repository where the cloning originally occurred. 
 
-The Git command to create and push to a remote `develop` branch is:
+So our Git command to create and push to a remote `develop` branch is:
 
 ```
 git push origin develop
 ```
 
-Let's see if this command was successful by looking at the branch tab in the run-buddy repo in GitHub:
+Let's look at the branch tab in the run-buddy repo on GitHub to see if it worked:
 
 ![Develop Branch in GitHub](./assets/lesson-1/006-github-develop.png)
 
-Now if we click on the develop link, we will navigate to the `develop` branch version of the repo.
+Yup! There's our new `develop` branch. 
+
+If you click on the `develop` link, you can navigate to the `develop` branch version of the repo, shown here:
+
 ![Develop Version in GitHub](./assets/lesson-1/005-github-develop-branch.png)
-See the notification of the new `develop` branch that was created. The Branch: master dropdown menu now has the ability to select develop.
 
-This remote version serves as the communal or collaborative branch where we will update with completed enhancements and maintain a shared and stable development environment. 
+Do you see the notification (highlighted in yellow) that the new `develop` branch was created? And the "Branch: master" dropdown menu now has the ability to select `develop` or `master`.
 
-This is a great way for a team member to update their development environment to the latest stable version by pulling down the `develop` branch from GitHub.
+This remote version serves as the communal or collaborative branch that we will update with completed enhancements. It will be our shared and stable development environment. It also serves as a great way for team members to update their local development environment to the latest stable version—they simply need to pull down the `develop` branch from GitHub.
 
-Let's continue to the next step where we will learn how to communicate updates between our remote repo (GitHub.com) and our local repo (on our computer).
+Let's move on to the next step where we learn how to communicate updates between the remote repo (on GitHub.com) and the local repo (on our computer).
 
 ## Interacting with GitHub
 
-It is important to keep in mind our local repo (on our computer) is different than the remote repo (stored on GitHub.com) even though the code seems relatively the same, they are in fact different versions of the codebase. 
+It's important to keep in mind that the local repo (on your computer) is different than the remote repo (on GitHub). 
+Because we made a change to the `README.md` on the `master` branch in GitHub, let's take a look in the local `master` branch and see if it reflects that. To do that, type `git checkout master` at the command prompt. 
 
-Since we made a change to the `README.md` on the `master` branch in GitHub, let's take a look in the local `master` branch by doing a `git checkout master` in the command prompt. As we can see, the `README.md` file we just created in GitHub isn't in our local folder. This is because our remote repo (GitHub.com) and local repo are currently out of sync. In the next steps we will learn how these repos got out of sync and then how to sync the remote and local repos back again.
+As you can see, the `README.md` file you just created in GitHub isn't in your local folder. This is because the remote repo and local repo are out of sync. Let's figure out how this happened and learn how to fix it.
+
+The following diagram shows the relationship between local and remote branches and commits:
 
 ![Local vs Remote](assets/lesson-1/240-branch-github.png)
 
@@ -206,69 +213,82 @@ Since we made a change to the `README.md` on the `master` branch in GitHub, let'
 
 <!-- Illustrate the problem -->
 
-As can be seen in the illustration, the `master` branch on the remote is not in sync with the `master` branch on the local repo. The circles represent commits and the letters indicate a different commit or save point. Since the commits are different on the two repos, this makes the versions different and out of sync. In this step we will learn how to sync our local repo with the remote repo.
+In the image, the circles represent commits and the letters indicate unique commits or save points. As you can see, the remote `master` branch is not in sync with the `master` branch on the local repo. The commits are different on the two repos, which makes the versions different and out of sync. 
 
-### Update the Local Repo with Git Pull
+So how do we sync our local repo with the remote repo? Let's find out! 
 
-In order to do this we must first introduce the Git command, `git pull`, that is opposite operation of `git push` which we used previously to upload our codebase to the remote server on GitHub.  The `git pull` command pulls down or downloads the code from the remote server to our local repo on our computer whereas `git push` pushes up or uploads the local codebase to the remote repo.
+### Update the Local Repo Using Git Pull
 
-Before we can update our local repo, it is always a good practice to see if local changes need to be staged and committed. Let's first make sure we are in our `master` branch with the following command:
+In order to fix this, we need to add a new Git command to our bag of tricks: `git pull`. This is the opposite operation of `git push`, which we used previously to upload our codebase to the remote server on GitHub. The `git pull` command "pulls down" (or downloads) the code from the remote server to our local repo on our computer, whereas `git push` pushes up (or uploads) the local codebase to the remote repo.
+
+Before we update the local repo, it's always a good practice to see if any local changes need to be staged and committed. Let's first make sure we're in our `master` branch by using the following command:
+
 ```
 git checkout master
 ```
-Now let's run our status check command:
+
+Then let's run the status check command:
+
 ```
 git status
 ``` 
-Remember this command verifies if our active branch is clean, which means the files in the active branch have been staged and committed. A "working tree" is simply referring to the current directory and all the subdirectories and files associated to the working directory or active branch. If the working tree is not "clean", then please `add` and `commit` the file changes. So what is all this talk about branches and trees you may ask and correctly so. They are simply terms trying to visually express the folder hierarchy of directories and the version control process of Git.
 
-Now that we have a clean working tree, we are ready to `pull` or update our local repo branch with the remote by downloading any new changes or commits. 
+Remember that this command verifies if our active branch (aka working tree) is "clean," which means the files in the active branch have been staged and committed. If the working tree is not clean, then you must `add` and `commit` the file changes. 
 
-Enough explanations, let's get our hands dirty since there is more learning in doing. Let's `pull` our remote `master` branch that contains our `README.md` file into our local `master` branch. 
+So what is all this talk about branches and trees, you might ask. They are simply terms that visually express the folder hierarchy of directories and the version control process of Git.
+
+Now that we have a clean working tree, we're ready to `pull` or update the local repo branch with the remote branch by downloading any new changes or commits. 
+
+Enough explanations—let's get our hands dirty! 
+
+Let's `pull` the remote `master` branch that contains the `README.md` file into our local `master` branch. To do that, follow these steps: 
 1) Checkout into the `master` branch. 
-2) Check branch status - if clean proceed, otherwise stage and commit file changes.
-3) Pull remote into active branch. `git pull origin master`
+2) Check the branch status. If clean, proceed. Otherwise, stage and commit file changes.
+3) Pull remote into active branch using `git pull origin master`.
 
-You should see the following screen after a successful `pull`.
+You should see the following screen after a successful `pull`:
 
 ![pull-success](assets/lesson-1/300-pull-success-git.png)
 
-> **Important:** Instead of the success response, a message request populated the command prompt that looks like this:
+> **Important:** Instead of the success response, you might see a message request in the command prompt that looks like this:
 ![Vim Text Editor](assets/lesson-1/200-vim-cli.png)
 >
->Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there is a local commit that differs from the the commit history in the incoming or targeted branch that is being merged. To exit out of this screen type the following into the editor:
->* Enter ESC to enter normal mode.
->* Type : to initiate a Vim command.
->* Type q to quit.
+>Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there is a local commit that differs from the the commit history in the incoming or targeted branch that is being merged. To exit out of this screen, type the following into the editor:
+>1. Press ESC to enter normal mode.
+>1. Type : to initiate a Vim command.
+>1. Type q to quit.
 
->or alternatively type:
+>Or you can press the following keys:
 
->SHIFT + Z + Z
+>Shift + Z + Z
 
-> **Deep Dive**: To learn more about this powerful text editor, check out [this Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
+> **Deep Dive**: To learn more about the powerful text editor, check out this [Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
 
-This will bring you back to your terminal window which should then display the success response.
+This will bring you back to your terminal window, which should then display the success response that was shown above.
 
-![pull-success](assets/lesson-1/300-pull-success-git.png)
+As you can see from the success response, the `README.md` file has added 14 new lines.
 
-As can be seen from our success response in the terminal, the `README.md` file has added 14 new lines.
 > **Video**: Animation - [Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
-The next lines display what files were changed and how many lines were added in green "+" or removed in red"-". We only have additions hence no red "-".
 
-One of the advantages of using the integrated terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, VS Code has an Explorer side panel that will display an updated folder tree that shows the folder hierarchy including the subdirectories and files contained in each folder. If you do not see this side panel, open it by going to the menu bar under View > Explorer:
+The next lines display what files were changed and how many lines were added in green "+" or removed in red"-". We only have additions, so there are no red "-".
+
+### Using Terminal Inside VS Code
+
+One of the advantages of using the terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, VS Code has an Explorer side panel that displays an updated folder tree. If you don't see this side panel, open it by going to the menu bar under View > Explorer:
 
 ![Folder Tree](./assets/lesson-1/360-folder-tree.png)
 
 This folder tree is interactive, allowing us to expand or close folders and open or add files. A file can also be dragged and dropped into a split screen to view multiple files simultaneously. 
 
-Also note that on the bottom left on the status bar in VS Code the active branch will always be displayed to help keep track of the version being edited or copied. A good use case would be to ensure we are not working on the `master` branch since management will not be very happy if the production environment gets corrupted.
+Also note that on the bottom left on the status bar in VS Code, the active branch will always be displayed to help keep track of the version being edited or copied. It's important to check to make sure you're not working on the `master` branch because management will be veru unhappy if the production environment gets corrupted!
 
 ![VS Code-Integrated Terminal](./assets/lesson-1/350-VS-Code-integrated-terminal.png)
 <!--Highlight active branch and preview for Markdown -->
 
-One more nice ability VS Code offers is to preview the rich text of Markdown by clicking on the icon with the magnifying glass located at the top right of the text editor of a raw Markdown file that looks like this:
+Another great feature VS Code offers is a Markdown preview. To see how your Markdown file will look in a browser, clck the magnifying glass icon at the top right of the text editor of a raw Markdown file:
 
 ![Markdown Preview](./assets/lesson-1/351-vs-code-markdown-preview.png)
+
 > **Video**-Gif: [Show how the Explorer changes on branch checkout - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog)
 
 If you see the `README.md` file in VS Code, congrats for successfully accomplishing our first `pull`! 
