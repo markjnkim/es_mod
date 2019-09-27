@@ -680,79 +680,84 @@ Please save your file and then refresh the browser. The updated page should look
 >
 > **Answer:** The sign-up form was declared with absolute position, so it is removed from the document flow. This allows the text block to overlap with the sign-up form. We'll fix this in the next section when we add the CSS styling. 
 
-One more thing—the design team wants the hero image to rotate horizontally to flip the image of the person lacing up their shoes to the right side of the page to improve the legibility of the text. We will do this by replacing the current image with a flipped version.
+One more thing—the design team wants the hero image to rotate horizontally to flip the image of the person lacing up their shoes to the right side of the page to improve the legibility of the text. We'll do this by replacing the current image with a flipped version.
+
+To replace the image, follow these steps:
 
 1) Download the image: **Image download** from Canvas/AWS [flipped-hero-image](assets/lesson-1/400-hero-flip-css.jpg)
-
-2) Change the name of the downloaded image to "hero-bg.jpg".
-3) Drag the image from its current folder into the `images` folder in the `assets` directory of your project.
+2) Change the name of the downloaded image to `hero-bg.jpg`.
+3) Drag the image from its current folder into the `images` folder in the `assets` directory of the project.
 4) Click the Replace button.
 
-Please save and render into the browser to get the following:
+Save the file and render it in the browser. You should see the following:
 
 ![Hero Image](assets/lesson-1/1200-hero-image.png)
 
-It doesn't look pretty now, but this will be addressed later in the styling lesson. For now, our issue is complete so let's add and commit our work in this branch. We will make a slight change to our practiced Git workflow in this instance by pushing our local feature branch up to a remote feature branch. A good reason for this is to create a backup of our work just in case something accidentally happens to our local computer, ie lightning bolt or spilled coffee cup, we will have a secure backup of our work! 
+It doesn't look that great now, but we'll fix this later in the styling lesson. For now, our issue is complete so let's add and commit our work in this branch. We will make a slight change to our practiced Git workflow in this instance by pushing our local feature branch up to a remote feature branch. A good reason for this is to create a backup of our work just in case something accidentally happens to our local computer, like a lightning bolt or spilled coffee cup. 
 
 ```
 git push origin feature/hero-text
 ```
 
-The slight variation in our push command illustrates we are no longer pushing to our remote `master` branch but to a new remote feature branch we name `feature/hero-text`. Hypothetically we could've have named this anything, but consistency of naming conventions means one less branch name needed to commit to memory. We will add the `push` to remote branch in GitHub step to our Git workflow specifically after every add and commit of our feature branch to add extra security to our hard work.
+The slight variation in our push command illustrates that we are no longer pushing to our remote `master` branch but to a new remote feature branch named `feature/hero-text`. Hypothetically, we could've named this anything, but consistent naming conventions means one less branch name to commit to memory. 
 
-We can look at our GitHub repo and see after a successful push, our backup branch is now safely secured in GitHub.
+We'll add the `push` to remote branch step to our Git workflow specifically after every add and commit of our feature branch to add extra security to our hard work.
+
+After a successful push, we can check our GitHub repo and see that our backup branch is now safe and secure. Here's our GitHub repo's branch tab, where we can see the `develop` and `feature/hero-text` branches:
+
 ![New Remote Feature Branch](./assets/lesson-1/1250-remote-branch.png)
-This is a look at the branch tab where we can see the  the `develop` and `feature/hero-text` branches.
 
-### Merge the Feature into Development Environment
+### Merge the Feature into the Development Environment
 
-In this final step, we will be integrating the new feature into the `develop` branch.
+In this final step, we will integrate the new feature into the `develop` branch.
 
-First, let's perform the Git operation to make `develop` the active branch.
+First, let's perform the Git operation to make `develop` the active branch:
 
 ```
 git checkout develop
 ```
 
-In VS Code, let's look at the hero section in the `index.html` file. Note that the new markup we just added is not visible here. The new markup only exists on the feature branch, `feature/hero-text`. In order to add the new code into the `develop` branch we will need to perform a `merge` operation. Let's continue with that step now.
-> **Pro Tip:** It must be reiterated that branch awareness is often overlooked by new developers so keep track by using the `git branch` command prior to merge, pull, or developing features. Using the integrated terminal in VS Code is highly recommended due to the status bar notification of the active branch.
+In VS Code, let's look at the hero section in the `index.html` file. Note that the new markup we just added is not visible here. It only exists in the feature branch, `feature/hero-text`. To add the new code to the `develop` branch, we need to perform a `merge` operation. Let's do that now.
 
 ```
 git merge feature/hero-text
 ```
+> **Pro Tip:** It must be reiterated that branch awareness is often overlooked by new developers. Make it a habit to  keep track by using the `git branch` command prior to merging, pulling, or developing features. Also, using the integrated terminal in VS Code is highly recommended due to the status bar notification of the active branch.
 
 Upon successful merging, the terminal should look like this:
 
 ![Merge Success Terminal](assets/lesson-1/1300-merge-success-terminal.png)
 
-This should look familiar to our `git pull` operation we executed earlier in the lesson since we also performed a `git merge` operation then as well.
+This should look similar to the `git pull` operation we executed earlier in the lesson because we also performed a `git merge` operation then as well.
 
-Excellent, now `develop` is updated with our new markup and has remained a stable codebase throughout. 
-Now let's move onto the second issue and tackle the contact form feature.
+Excellent. Now `develop` is updated with our new markup and has remained a stable codebase throughout. Let's move on to the second issue and tackle the contact form feature.
 
-Let's follow the same procedure as we did for the `feature/hero-text` issue:
+We'll follow the same procedure that we used for the `feature/hero-text` issue:
 
 1. Set up the feature development environment.
 
 1. Add the HTML according to the requirements.
 
-1. Verify changes were successful in the browser.
+1. Verify that changes were successful in the browser.
 
 1. Push up the feature branch to the remote repo.
 
-1. Merge the `feature/contact-form` into `develop` branch.
+1. Merge the `feature/contact-form` into the `develop` branch.
 
 1. Push the `develop` branch to the repo to update the shared version with your new feature.
 
-Here is the design team's mock-up and requirements:
+Here is the design team's mock-up:
 
 ![contact-form](assets/lesson-1/1400-Reach-Out-mock-up.png)
 
+And here is the corresponding issue, which contains the requirements: 
+
 ![contact-form-issue](assets/lesson-1/1500-contact-us-requirement-issue.png)
 
-> **Step 1:** Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters like the size of the rendered input field, maximum character length, and if it is a required input in order to submit. This and many more attributes can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) for a more detailed look at the attributes.
->
-> **Step 2:** markup
+Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters like the size of the rendered input field, maximum character length, and if it is a required input in order to submit. This and many more attributes can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) for a more detailed look at the attributes.
+
+Here is the markup: 
+
 ```html
     <div class="contact-form">
      <h3>Contact Us</h3>
@@ -767,31 +772,36 @@ Here is the design team's mock-up and requirements:
      </form>
     </div>
 ```
-> **Step 3:** Follow the same steps for the `hero-text` feature above.
->
-> **Step 4*:** Once the markup has been inserted into the Reach Out section, add, commit and push the `feature/contact-form` into the remote repo.
+Next, follow the same steps that you used for the `hero-text` feature above.
+
+Once the markup has been inserted into the Reach Out section, add, commit and push the `feature/contact-form` into the remote repo:
+
 `git push origin feature/contact-form`
->
-> **Step 5:** Don't forget to check your active branch before the merging the feature into the develop branch.
+
+> **Important:** Don't forget to check your active branch before merging the feature into the develop branch!
 
 Now let's check to see if our contact form has been correctly added to the `develop` branch.
-First `checkout` into the `develop` branch and then render in the browser.
-We should see the following:
+First `checkout` into the `develop` branch and then render in the browser. You should see the following:
+
 <!-- >> ## Red outline bottom right corner of `<textarea>` to highlight input text field resizing. -->
 ![Contact Form Render](assets/lesson-1/1600-contact-us-render-html.png)
 
-Congrats, the markup has been successfully added. We will format later in the CSS lesson. 
-Now let's update the remote `develop` branch with our new feature.
+Congrats! The markup has been successfully added. We'll format this later in the CSS lesson. 
+
+Now let's update the remote `develop` branch with our new feature by using the following commands:
+
 ```
 git checkout develop
 git push origin develop
 ```
 
-> **Pause:** Now that our two feature branches have been completed and merged back into the `develop` branch what is left to do with our issues?
+> **Pause:** Now that our two feature branches have been completed and merged back into the `develop` branch, what is there left to do with our issues?
 >
-> **Hint:** Since the issues have been resolved, how do we change their status?>
+> **Hint:** The issues have been resolved, so how do we change their status?
 
-> **Answer:** Let's go to the Issues tab in our GitHub repo and mark the issues as closed by clicking on the Close Issue button. This will remove the issue from our list of todos.
+> **Answer:** Go to the Issues tab in the GitHub repo and mark the issues as closed by clicking on the Close Issue button. This will remove the issue from our to-do list.
+
+The following screenshot shows the "Close issue" button:
 
 <!-- ## Red Outline for Close Issue Button -->
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
@@ -801,23 +811,23 @@ git push origin develop
 
 ## Reflection
 
-This was a dense lesson of concepts many of which were challenging to understand. We are currently working in isolation on a straightforward codebase, so all this work of creating branches and Git issues may seem like overkill. But using Git correctly will prepare you for collaborating with many developers on much larger projects. 
+This was a dense lesson of concepts, many of which were probably challenging to understand. Because we're working in isolation on a minimal codebase, all of this work of creating branches and Git issues might seem like overkill. But using Git correctly will prepare you for collaborating with many developers on much larger projects. 
 
-Before we proceed, let's go over some of the key concepts and big ideas we introduced in this lesson.
+Before we proceed, let's go over some of the key concepts and big ideas we introduced in this lesson:
 
 * We learned the difference between the **development** and **production** environments and how creating an isolated version of the codebase allows visitors to use the website and team members to update and/or fix the code simultaneously.
 
-* We created **feature branches** to allow versions of the development environment to coexist, letting team members work in isolation and ship features more quickly. This allows for parallel development that increases the team's productivity and accountability, essential metrics for any enterprise.
+* We created **feature branches** to allow versions of the development environment to coexist, letting team members work in isolation and ship features more quickly. This allows for parallel development, which increases the team's productivity and accountability—essential metrics for any enterprise.
 
 * We introduced the **README.md** file, which is a high-level introduction to your project repo facilitating quick reads by potential employers of your project's technical skill.
 
 * We used Git operations to update the remote repo and local repos with `pull`, `push`, `fetch`, `branch`, `checkout`, and `merge`. A solid understanding of these operations to perform a proper Git workflow is crucial to collaborating on projects and is a key metric for employer-ready students.
 
-* We introduced a Git workflow process which emphasized the isolation of the production environment and allowed a development environment with working versions for feature enhancements. There are many Git workflow models including [Gitflow, a model that emphasizes the release cycle for updates.](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) These are normally in-team discussions with suggestions from the management team.
+* We introduced a Git workflow process that emphasized the isolation of the production environment and allowed a development environment with working versions for feature enhancements. There are many Git workflow models including [Gitflow, a model that emphasizes the release cycle for updates.](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) These are normally in-team discussions with suggestions from the management team.
 
-* We created Git issues to help communicate the project todo list to keep team members productive and organized in their workflows.
+* We created Git issues to help communicate the project to-do list to keep team members productive and organized in their workflows.
 
-Now let's use this workflow process and apply it to the rest of this project and build a mobile-responsive website in the next lesson.
+Next, we'll apply this workflow to the rest of this project, starting with making Run Buddy version 2.0 fully  mobile-responsive in the next lesson. Run Buddy on my cell phone, here we come! 
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
