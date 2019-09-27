@@ -24,7 +24,7 @@ Here is a quick example of what we can expect to see by the end of this lesson:
 ## Pseudocode our game logic
 
 How to start is often a common question or [pain point](https://www.google.com/search?q=pain+points&oq=pain+point&aqs=chrome.0.0j69i57j0l4.1724j0j7&sourceid=chrome&ie=UTF-8) for developers. There seems to be a lot of work to be done, but how to we begin? Pseudocoding our steps will be a great starting point since this will help organize our thoughts, outline the objectives, and get our creative juices flowing. Our first goal will be to identify the different game states and write them as comments near the top of the `game.js` file.
-> **Pause:** How do we win our Battle Bots game?
+> **Pause:** How do we win our Robot Gladiator game?
 > **ANSWER:** Defeat all the robot enemies.
 Our comments may look something similar to this:
 ```javascript
@@ -61,7 +61,7 @@ Before we continue, let's stop our program from executing the `fight()` function
 
 We could have deleted this function call, but commenting it out is actually a better method to use since we will want to execute this function later in this lesson. It is important to note that there is no need to comment the function expression since this only defines the function. The function doesn't actually execute until the last line in the `game.js` file in the `fight()` function call.
 <!-- Present the Problem  -->
-To start let's focus on the "WIN" game state. Currently we only have one robot to fight, not exactly a challenge to win the game. If we want to impress our Game Jam judges, we will need to bring some more game to Battle Bots so let's add some enemy robots to the mix.
+To start let's focus on the "WIN" game state. Currently we only have one robot to fight, not exactly a challenge to win the game. If we want to impress our Game Jam judges, we will need to bring some more game to Robot Gladiator so let's add some enemy robots to the mix.
 
 We could declare each of our enemy robot names so our `game.js` file would look like this:
 ```javascript
@@ -295,7 +295,7 @@ var fight = function(enemyName) {
     // place fight function code block here . . .
   }
 ```
-Within the block of the `while` loop let's move all the code from our `fight()` function. Now when the `fight()` function is called, our robot will fight the enemy robot again until defeated. Another suggestion would be to remove the  `alert("Welcome to Battlebots!")` statement from our `fight()` function. This message will be unnecessary at the beginning of every fight so let's remove it for now.
+Within the block of the `while` loop let's move all the code from our `fight()` function. Now when the `fight()` function is called, our robot will fight the enemy robot again until defeated. Another suggestion would be to remove the  `alert("Welcome to Robot Gladiator!")` statement from our `fight()` function. This message will be unnecessary at the beginning of every fight so let's remove it for now.
 
 Let's run this code and see the results in the console:
 
@@ -552,7 +552,7 @@ It should look like this in the console:
 Excellent work. This would be a great place to preserve our work in Github so let's do that now then proceed to the final step of this lesson.
 
 ## Game State Messages
-For this last part of game improvements, let's add messages to notify our users about the state of the game including the round number and the game ending. This will improve the player's experience, always a bonus with Game Jam judges. Earlier in this lesson we removed our welcome message: `alert("Welcome to Battlebots!")` from our `fight()` function. Let's place it back into our game but also give it the task of announcing the round of battle.
+For this last part of game improvements, let's add messages to notify our users about the state of the game including the round number and the game ending. This will improve the player's experience, always a bonus with Game Jam judges. Earlier in this lesson we removed our welcome message: `alert("Welcome to Robot Gladiator!")` from our `fight()` function. Let's place it back into our game but also give it the task of announcing the round of battle.
 We will consider a round to be a when a new enemy robot is introduced to fight. 
 Since new robots will be introduced in the `for` loop which iterates through the array, this would seem to be a great place to start. The `while` loop wouldn't be as good of an option since the enemy robot exists there in many games states due to the consecutive rounds of fighting. We could simply add the `alert()` however there could be a scenario that occurs when a player robot has been defeated however there are still enemy robots left in the array. In this case the low player robot's health would break the `while` loop at the conditional code block for `if (playerHealth <= 0)` and return to the `for` loop. At that point, the `for` loop's condition would be met so a new robot would be presented to the `fight()` although this condition in the `while` loop: `while (playerHealth > 0 && enemyHealth > 0) ` would be false so fighting would not start.
 > **Pause:** Can you think of a way of preventing this scenario from happening?
@@ -561,7 +561,7 @@ Since new robots will be introduced in the `for` loop which iterates through the
 
 ```javascript
 if (playerHealth > 0){
-  `alert("Welcome to Battlebots!")`
+  `alert("Welcome to Robot Gladiator!")`
 }
 ```
 Now let's change our `alert` to include the round number. 
@@ -569,7 +569,7 @@ Now let's change our `alert` to include the round number.
 >
 > **Answer:** Use the `i` iterator. 
 > ```javascript
-> window.alert('Welcome to Battlebots! Round ' + (i + 1));
+> window.alert('Welcome to Robot Gladiator! Round ' + (i + 1));
 > ```
 
 Notice how we need to add one to the iterator of the `for` loop since our first round is at one, not zero. The iterator syncs to our round number so this will work nicely. 
@@ -578,7 +578,7 @@ What else should we place inside this conditional code block? We could proceed w
 ```javascript
 if (playerHealth > 0) {
     // let user know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-    window.alert('Welcome to Battlebots! Round ' + (i + 1));
+    window.alert('Welcome to Robot Gladiator! Round ' + (i + 1));
 
     // pick new enemy to fight based on the index of the enemyNames array
     var pickedEnemyName = enemyNames[i];
