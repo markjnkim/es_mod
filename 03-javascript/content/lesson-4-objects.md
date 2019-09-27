@@ -174,7 +174,7 @@ Because `randomNumber()` returns a value, that returned value can be stored in t
 >var newNumber = doubleIt(5); // is now 10
 >```
 >
->The second console log, `"end of function"`, never happens, because the function has returned, or ended, before it reached that line.
+>The second console log, `"end of function"`, never happens, because the function has returned, or ended, before it reached that line. It's similar to using a `break` statement in a `for` or `while` loop.
 
 We have a `randomNumber()` function in place now, but it's set up to return a random value between 40 and 60. Other areas of the game will need a random number between a different range. Fortunately, we can reuse the same `randomNumber()` function by adding **parameters**. This will be similar to the `enemyName` parameter that was added to `fight()` earlier:
 
@@ -245,7 +245,13 @@ var damage = randomNumber(enemyAttack - 3, enemyAttack);
 playerHealth = Math.max(0, playerHealth - damage);
 ```
 
-Save and test the game in the browser, making sure the enemy health and damage values are different each time. If anything broke along the way, remember to check the console for errors. Sometimes it's easy to misplace a parentheses. For instance, `Math.floor(Math.random() * (max - min + 1) + min)` (correct) vs `Math.floor(Math.random() * (max - min + 1)) + min` (incorrect).
+Save and test the game in the browser, making sure the enemy health and damage values are different each time. If anything broke along the way, remember to check the console for errors. Sometimes it's easy to misplace a parentheses. For instance, `Math.floor(Math.random() * (max - min + 1) + min);` (correct) versus `Math.floor(Math.random() * (max - min + 1 + min);` (incorrect).
+
+VS Code will likely warn you of these syntax errors, as well, though the character(s) it underlines in red can be misleading:
+
+![VS Code underlines a semicolon in red](./assets/lesson-4/350-syntax-error.jpg)
+
+In this case, the semicolon isn't the problem. VS Code is simply highlighting that something was supposed to come before the semicolon. If you hover over the underlined character, you'll see the message `')' expected`, meaning we forgot a parentheses somewhere.
 
 Once you're happy with the current state of the game, `git add`, `commit`, and `push` to save your progress. In the next step, we're going to move a lot of things around, so it's important to have this commit history!
 
@@ -385,7 +391,9 @@ That should take care of the remaining errors. Test the game again to make sure 
 >console.log(oldObj.count); // prints 2
 >```
 >
->Updating `newObj` in the function also updated `oldObj`. Sometimes this behavior can work to our advantage, like our enemy array. But if you're not aware that JavaScript does this, it can feel like something's broken!
+>Updating `newObj` in the function also updated `oldObj`. Sometimes this behavior can work to our advantage, like with our enemy objects. But if you're not aware that JavaScript does this, it can feel like something's broken!
+>
+>Note that passing by reference applies to objects AND arrays.
 
 Now that we have an array of enemy objects, we can easily define different attack values for each. In fact, why not make these attack values random using our handy `randomNumber()` function?
 
@@ -554,8 +562,8 @@ var enemy = {
   name: "Roborto",
   attack: randomNumber(10, 14),
   shield: {
-    health: 25,
-    defense: 10
+    type: "wood",
+    strength: 10
   }
 };
 ```
@@ -566,7 +574,7 @@ In future applications, continue thinking about where and how objects can be use
 
 ## Merge Branch
 
-Our work on this GitHub issue is done, which means it's time to revisit the Git branch workflow:
+Our work on this GitHub issue is done, which means it's time to revisit the Git branch workflow. We'll want these optimizations to be part of the final judged version, so let's update `master` while we're at it:
 
 1. `git status` to verify the correct files were modified
 
@@ -581,6 +589,12 @@ Our work on this GitHub issue is done, which means it's time to revisit the Git 
 6. `git merge feature/objects` to merge the new feature into the `develop` branch
 
 7. `git push origin develop` to push the updated `develop` branch to GitHub
+
+8. `git checkout master` to switch branches
+
+9. `git merge develop` to bring `master` up to date
+
+10. `git push origin master` to push the updated `master` branch to GitHub
 
 ## Reflection
 
