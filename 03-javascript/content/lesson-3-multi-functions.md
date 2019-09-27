@@ -2,13 +2,13 @@
 
 ## Introduction
 
-We technically have a game now where players can fight (or skip fighting) several robots in a row. However, the rules are still pretty simple, and the game can only be played once unless the user refreshes their browser.
+We technically have a game now where a player can fight (or skip fighting) several robots in a row. However, the rules are still pretty simple, and the game can only be played once unless the user refreshes their browser.
 
 One of the things the judges of the game jam will be looking for is replayability. At its most basic level, that means the game should be easy to play again. That's the missing piece to our MVP:
 
 > ## WAITING ON GITHUB ISSUE SCREENSHOT
 
-More importantly, players should want to play again. The shop discussed earlier&mdash;where players can spend money to refill their health or upgrade their attack power&mdash;would definitely make the game more interesting and engaging on subsequent plays. That will be the first optimization task we take on post-MVP:
+More importantly, players should want to play again. Having a shop feature&mdash;where players can spend money to refill their health or upgrade their attack power&mdash;would definitely make the game more interesting and engaging on subsequent plays. That will be the first optimization task we take on post-MVP:
 
 > ## WAITING ON GITHUB ISSUE SCREENSHOT
 
@@ -110,7 +110,7 @@ startGame();
 
 > **Pause:** Why did the call to `startGame()` need to go at the bottom?
 >
-> **Answer:** A function must be defined before it can be called/used.
+> **Answer:** Function expressions (e.g. `var startGame = function() { };`) can't be used until after they are defined.
 
 This will return the game to a playable state, but the game logic still only runs once. Fortunately, with the `startGame()` function in place, we can easily call it again to play another round.
 
@@ -187,7 +187,9 @@ console.log(b); // error
 
 The variable `a` was declared outside of any function, making it global in scope. Therefore, the `logStuff()` function can access it. The variable `b` was declared inside of a function, so only that function has access to it. If we were to try to access `b` outside of `logStuff()`, we would get an error.
 
-Scope can definitely be tricky, but it's something we'll continue to practice in this and future JavaScript projects. In fact, the next function we write will touch on this, too!
+You may be thinking, "Why don't we just use global variables for everything?" While that may be fine for a small app, too many global variables can be difficult to keep track of. How do we know which functions are supposed to use which variables? We could run into issues where a function accidentally overwrites a variable that was intended for a different function.
+
+Yes, scope can definitely be tricky, but it's something we'll continue to practice in this and future JavaScript projects. In fact, the next function we write will touch on this, too!
 
 > **Pro Tip:** Scope presents a good case for writing unique, meaningful variable names. If a global variable and a local function variable have the same name, the local variable will take precedence. But to avoid such confusion, it's probably better not to reuse the same variable names!
 
@@ -266,9 +268,29 @@ If the game isn't working, check the DevTools console for errors. An error like 
 
 ## Finalize the MVP
 
-As tempting as it may be to jump right into the next set of features, we should wrap up the MVP we defined earlier.
+As tempting as it may be to jump right into the next set of features, we should wrap up the MVP we defined earlier. That means we're done with our `feature/initial-game` branch, so...
 
-> ## WAITING ON GITHUB ISSUE OUTLINE
+1. Use `git status` and `git add` to stage the current changes.
+
+2. Commit these changes with `git commit -m "start and end game functions"`.
+
+3. Push the branch to GitHub with the `git push origin feature/initial-game` command.
+
+4. Switch branches using `git checkout develop`.
+
+5. Use `git merge feature/initial-game` to merge the MVP into `develop`.
+
+6. Push the updated version of `develop` to GitHub with `git push origin develop`.
+
+Keep in mind that the `develop` branch represents our development environment. If we want to deploy these changes to GitHub Pages, for example, we would need to merge them into `master`. Now that we have an MVP, this would be a good time to update `master`. This way, the judges will still have something to look at even if we don't finish any other features.
+
+To update `master`, follow these Git commands:
+
+```bash
+git checkout master
+git merge develop
+git push origin master
+```
 
 With the MVP safely squared away, we can start knocking out some of our feature improvements, starting with the shop. These nice-to-haves can be the most fun to build, but it was important to have the groundwork in place first. That's why GitHub issues are so valuable. They help keep us on track so we don't skip critical setup in favor of going straight to the "wow factor."
 
@@ -280,7 +302,7 @@ Because we're working on a new feature, our Git process should follow suit:
 
 ## Add the Shop Function
 
-The shop feature will add some much needed risk/reward to the game, as players must decide if they're willing to lower their score for additional perks.
+The shop feature will add some much needed strategy to the game, as players must decide if they're willing to lower their score for additional perks.
 
 Like the endgame logic, we'll put all of our shop logic in a function. Again, this will help keep the code organized, and we're likely to call `shop()` in more than one place.
 
