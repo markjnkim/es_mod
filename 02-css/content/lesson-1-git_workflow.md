@@ -72,19 +72,19 @@ Your terminal should now look like this:
 
 The green font color and asterisk indicates the active branch, or working directory. 
 
-`git branch` may be one of the most commonly used Git commands because it's vital to know which branch you're in when undertaking any Git workflow operation. 
+`git branch` may be one of the most commonly used Git commands because it's important to know which branch you're in when undertaking any Git workflow operation. 
 
-Let's move on to another invaluable function of branching: the ability to create feature branches. 
+Let's move on to another invaluable function of branching: creating feature branches. 
 
-Don't worry if you're having a hard time memorizing these Git commands. You could bookmark a cheatsheet such as [Atlassian's Git cheatsheet.](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
+Don't worry if you're having a hard time memorizing these Git commands. If you want to free up some memory space, you could bookmark a cheatsheet such as [Atlassian's Git cheatsheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet).
 
 ## Create Feature Branches
 
-Features are significant additions or changes to the codebase. For instance, a header, footer, or section is considered a feature. A feature is normally developed in a separate branch called a `feature` branch.
+**Features** are additions or changes to a significant part of the codebase. For instance, major upgrades to a header, footer, or section would be considered a feature. A feature is normally developed in a separate branch called a `feature` branch.
 
 > **Video:** [Why working in isolation is important- JIRA FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) 
 
-Previously, we created a `develop` branch as a development environment to protect and isolate our production environment. In this step, we'll branch from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
+We just created a `develop` branch as a development environment to protect and isolate our production environment. In this step, we'll branch from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
 
 The following diagram introduces the concept of feature branches:
 
@@ -94,13 +94,13 @@ As can be seen in the diagram, several feature branches can be branched off the 
 
 There are several important reasons to work on the codebase in a separate `feature` branch and not in the `develop` branch:
 
-* Developing code in a separate branch preserves a version (in our case, the `develop` branch), which allows other team members to branch from a version that is in a stable and working state.
+* Developing code in a separate branch preserves a stable, working version (in our case, the `develop` branch), which other team members can branch from. 
 
-* Working on separate branches allows team members to work in parallel to develop features simultaneously, which increases productivity and accountability.
+* Working on separate branches allows team members to develop features simultaneously, increasing productivity and accountability.
 
 * Features can be added independently, meaning a `feature` branch can be started separately and merged into the `develop` branch without waiting for other team members to finish their work on other feature branches.
 
-* Testing the feature branch in isolation helps find errors or bugs more quickly since the changes in the codebase will be unique to the feature.
+* Testing the feature branch in isolation helps find errors or bugs more quickly because the changes in the codebase will be unique to the feature.
 
 > **Video:** [Animation of Git workflow-JIRA FSFO-106](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-106). Start with  `master` then branch to `develop`. The branching from `develop` into a feature, then another feature, [actual code development] then merging back into the `develop` branch, then into `master` branch.
 
@@ -111,11 +111,11 @@ It's time to switch gears. Let's go to our GitHub repo and create a `README.md` 
 
 ## Create a README File
 
-Now that we our development environment is set up, let's add some documentation to give people a quick overview of the Run Buddy project. In GitHub, this is handled by a text file in the repo called a `README.md` file. READMEs are typically written in Markdown, which offers some lightweight markup and is widely used on GitHub, but they can also be regular text files. We'll go further into Markdown and `README.md` files as their use becomes more evident later in the course. 
+Now that our development environment is set up, let's add some documentation to give people a quick overview of the Run Buddy project. In GitHub, this is handled by a `README.md` file. READMEs are typically written in Markdown, which offers some lightweight markup and is widely used on GitHub, but they can also be regular text files. 
 
 > **Deep Dive:** For a closer look, check out the [GitHub Guides](https://guides.github.com/features/wikis/) and [Markdown Guide](https://www.markdownguide.org/basic-syntax).
 
-The `README.md` file is located in the top level or root directory of the repo. This allows GitHub to render it on the repo's landing page. 
+The `README.md` file is located in the top level or root directory of the repo. This allows GitHub to display it on the repo's landing page like a welcome mat.  
 
 > **Rewind:** Like HTML, Markdown uses syntax and markup notation for styling. For more information, see this [Markdown guide](https://www.markdownguide.org/basic-syntax), or check out the [Wikipedia page on the Markdown language](https://en.wikipedia.org/wiki/Markdown).
 
@@ -151,11 +151,11 @@ Add a message for the commit (you can keep the default "Create README.md") and t
 
 ![Commit to Master](./assets/lesson-1/180-markdown-commit.png)
 
-To check to see if the `README.md` file was created properly, see if the `README.md` file is visible on your repo's landing page:
+To check to see if the `README.md` file was created properly, see if it's visible on the repo's landing page:
 
 ![GitHub Repo](./assets/lesson-1/170-markdown-preview.png)
 
-While in our GitHub repo, let's take a look at our branches by selecting the branch tab: 
+While in our GitHub repo, let's take a look at the branches by selecting the branch tab: 
 
 ![GitHub Branches](./assets/lesson-1/190-branches-github.png)
 
