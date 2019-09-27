@@ -8,11 +8,11 @@ Here's the mock-up for Run Buddy version 2.0, which we'll build over the course 
 
 ![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
-Because the current codebase is live, we can't make changes directly to it without disturbing Run Buddy's users. We need a workflow that allows us to work on a copy of the website code and then merge the changes into the live site. This is where our friend Git comes back into play.
+Because the current codebase is live, we can't make changes directly to it without disturbing Run Buddy's users. We need a workflow that will let us work on a copy of the website code and then merge the changes into the live site. This is where our friend Git comes back into play.
 
 In this lesson, we'll learn about three important software development workflow concepts:
 
-* Using Git to create branches (versions) of the codebase.
+* Using Git to create branches of the codebase.
 
 * Interacting with GitHub, which houses the project's codebase.
 
@@ -24,34 +24,29 @@ In this lesson, we'll learn about three important software development workflow 
 
 Git allows developers to create copies of the codebase, known as **branches**. Our live site runs from the `master` branch; this is known as the **production environment**. The branch we create to work on will be a copy of the `master` branch; this will be our **development environment**. We'll name it the `develop` branch. 
 
-As a rule, production environments should never be worked on directly because any bugs or errors that are introduced will be immediately apparent to users. Git branching allows us to isolate versions of the code for development and testing. This is known as "working in isolation."  
+As a rule, production environments should never be worked on directly because any bugs or errors that are introduced will be immediately apparent to users. This is where Git branching comes in&mdash;it allows us to isolate versions of the code for development and testing. This is known as **working in isolation**.  
 
-> **Pro Tip:** Branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, but in our situation this will be the case. 
+> **Pro Tip:** Branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, but in our scenario this will be the case. 
 
-The `develop` branch will be where we develop and test our new features. Once we are satisfied with the result and have a stable working version, we **merge** the `develop` branch into the `master` branch. This adds the new features and enhancements into the live production environment and updates the website for our users.
+The `develop` branch will be where we develop and test new features. Once we're satisfied with the result and have a stable working version, we'll **merge** the `develop` branch into the `master` branch. This adds the new features and enhancements into the live production environment and updates the website for our users.
 
 ## Create Our Development Environment
 
 Before we create our development environment, let's learn some new Git commands: 
 
-* `git branch` displays a list of all the current branches in the repo. It also highlights which branch you are in, which is called the **active branch** or **working directory**.
+* `git branch` displays a list of all the branches in the repo. It also highlights which branch you are in, which is called the **active branch** or **working directory**.
 
-* `git branch <branch-name>` creates a new branch with your `<branch-name>` which creates a version of the current active branch. Once changes are committed onto the new branch, the branches will no longer be in sync with each other since their commit histories will diverge. This is how we make a new version of the active branch. We can only make a version from the active branch so it is a good practice to use the `git branch` command to verify the active branch before creating a new branch.
+* `git branch <branch-name>` creates a new branch (with your `<branch-name>`) that is a version of the current active branch. After you commit changes to the new branch, the branches will no longer be in sync with each other because their commit histories will diverge. 
 
 * `git checkout <branch-name>` lets you switch into a different branch, which is then the new active branch. This is how to navigate between different versions of the codebase.
 
-* `git checkout -b <branch-name>` creates a new branch and moves (aka `checkout`) into that branch, making it the active branch. This command performs the following two Git operations at once:
+* `git checkout -b <branch-name>` is two commands in one. It creates a new branch (`git branch <branch-name>`) and moves (`git checkout <branch-name>`) into that branch, making it the active branch. 
 
-    ```
-    git branch <branch-name>
-    git checkout <branch-name>
-    ```
+Let's use these commands to create our development environment by making a `develop` branch. Remember that we must first go to the command prompt and `cd` into our working directory. 
 
-Let's use these commands to create our development environment by making a `develop` branch. Remember that we must go to the command prompt and `cd` into our working directory. 
+> **On the Job:** In most workplaces, these branches will have already been configured by the IT department or development operations (DevOps) team. However, it's still important to know how to create a Git workflow branching strategy so that you know how to work with it.
 
-> **On the Job:** In most workplaces, these branches will have already been configured by the IT department or development operations (aka DevOps) team. What you are about to do is uncommon in everyday web development. However, it's important to know how to create a Git workflow branching strategy so that you know how to work with it.
-
-Let's go to the root directory of our project so we can make a new branch from our `master` branch, our production environment. To do so, type the following two commands:
+In the root directory, type the following commands to create a new branch from the `master` branch:
 
 ```
 git branch develop
@@ -64,7 +59,7 @@ Or you could have just used the command:
 git checkout -b develop
 ```
 
-Now let's type in the command to list the branches to verify our work:
+Now let's list all the branches in the repo to verify that we created the branch:
 
 ``` 
 git branch
@@ -75,7 +70,9 @@ Your terminal should now look like this:
 
 ![Develop Branch Active](./assets/lesson-1/004-active-branch-terminal.png)
 
-The green font color and asterisk indicates the active branch, or working directory. `git branch` may be one of the most commonly used since knowing which branch or version you're currently on is vital to all Git workflow operations.
+The green font color and asterisk indicates the active branch, or working directory. 
+
+`git branch` may be one of the most commonly used Git commands because it's vital to know which branch you're in when undertaking any Git workflow operation. 
 
 Let's move on to another invaluable function of branching: the ability to create feature branches. 
 
