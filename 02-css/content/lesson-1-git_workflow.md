@@ -169,11 +169,11 @@ Pushing our branch to GitHub creates a secure backup and provides a collaborativ
 git push origin <remote-branch-name>
 ```
 
-Did you notice something new here? In Module 1, we pushed our changes to the remote `master` branch. But now we're creating and pushing to a new `develop` branch, so we have to add the branch name. 
+Did you notice something new here? In Module 1, we pushed our changes to the remote `master` branch. But now we're creating and pushing to a new `develop` branch, so we added the branch name (`<remote-branch-name>`). 
 
-This command does two things: creates a new remote branch and then pushes the code from the local active branch into that remote branch. The word `origin` simply refers the source repository where the cloning originally occurred. 
+This command does two things: creates a new remote branch and then pushes the code from the local active branch into that remote branch. The word `origin` simply to refers the source repository where the cloning originally occurred. 
 
-So our Git command to create and push to a remote `develop` branch is:
+So in our scenario, the Git command to create and push to a remote `develop` branch is:
 
 ```
 git push origin develop
@@ -185,20 +185,20 @@ Let's look at the branch tab in the run-buddy repo on GitHub to see if it worked
 
 Yup! There's our new `develop` branch. 
 
-If you click on the `develop` link, you can navigate to the `develop` branch version of the repo, shown here:
+If you click on the `develop` link, you can navigate to the `develop` branch of the repo, shown here:
 
 ![Develop Version in GitHub](./assets/lesson-1/005-github-develop-branch.png)
 
-Do you see the notification (highlighted in yellow) that the new `develop` branch was created? And the "Branch: master" dropdown menu now has the ability to select `develop` or `master`.
+Do you see the notification (highlighted in yellow) that the new `develop` branch was created? Also notice that the "Branch: master" dropdown menu now has the ability to select `develop` or `master`.
 
-This remote version serves as the communal or collaborative branch that we will update with completed enhancements. It will be our shared and stable development environment. It also serves as a great way for team members to update their local development environment to the latest stable version—they simply need to pull down the `develop` branch from GitHub.
+This remote version serves as the communal or collaborative branch that we will update with our enhancements. It's our shared and stable development environment. It also serves as a great way for team members to update their local development environment to the latest stable version—they simply need to pull down the `develop` branch from GitHub.
 
 Let's move on to the next step where we learn how to communicate updates between the remote repo (on GitHub.com) and the local repo (on our computer).
 
 ## Interacting with GitHub
 
 It's important to keep in mind that the local repo (on your computer) is different than the remote repo (on GitHub). 
-Because we made a change to the `README.md` on the `master` branch in GitHub, let's take a look in the local `master` branch and see if it reflects that. To do that, type `git checkout master` at the command prompt. 
+Let's see this in action. Because we made a change to the `README.md` on the `master` branch in GitHub, let's take a look in the local `master` branch and see if it reflects that. To do that, type `git checkout master` at the command prompt. 
 
 As you can see, the `README.md` file you just created in GitHub isn't in your local folder. This is because the remote repo and local repo are out of sync. Let's figure out how this happened and learn how to fix it.
 
@@ -224,21 +224,20 @@ Before we update the local repo, it's always a good practice to see if any local
 git checkout master
 ```
 
-Then let's run the status check command:
+Then we'll run the status check command:
 
 ```
 git status
 ``` 
 
-Remember that this command verifies if our active branch (aka working tree) is "clean," which means the files in the active branch have been staged and committed. If the working tree is not clean, then you must `add` and `commit` the file changes. 
+Remember that this command verifies if our active branch is "clean," which means that any changed files in the branch have been staged and committed. If the branch is not clean, then you must `add` and `commit` the file changes first. 
 
 So what is all this talk about branches and trees, you might ask. They are simply terms that visually express the folder hierarchy of directories and the version control process of Git.
 
-Now that we have a clean working tree, we're ready to `pull` or update the local repo branch with the remote branch by downloading any new changes or commits. 
-
-Enough explanations—let's get our hands dirty! 
+Now that we have a clean working tree, we're ready to `pull` or update the local branch by downloading any new changes or commits that are in the remote branch. 
 
 Let's `pull` the remote `master` branch that contains the `README.md` file into our local `master` branch. To do that, follow these steps: 
+
 1) Checkout into the `master` branch. 
 2) Check the branch status. If clean, proceed. Otherwise, stage and commit file changes.
 3) Pull remote into active branch using `git pull origin master`.
@@ -259,15 +258,15 @@ You should see the following screen after a successful `pull`:
 
 >Shift + Z + Z
 
-> **Deep Dive:** To learn more about the powerful text editor, check out this [Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)) for a bit of history.
+> **Deep Dive:** To learn more about this powerful text editor, check out this [Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)).
 
-This will bring you back to your terminal window, which should then display the success response that was shown above.
+This will bring you back to your terminal window, which should display the success response that was shown above.
 
 As you can see from the success response, the `README.md` file has added 14 new lines.
 
 > **Video:** Animation - [Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
 
-The next lines display what files were changed and how many lines were added in green "+" or removed in red"-". We only have additions, so there are no red "-".
+The next lines display what files were changed and how many lines were added in green "+" or removed in red "-". In our caes, we only have additions, so there are no red "-".
 
 ### Using Terminal Inside VS Code
 
@@ -275,14 +274,14 @@ One of the advantages of using the terminal window in VS Code is that when we `c
 
 ![Folder Tree](./assets/lesson-1/360-folder-tree.png)
 
-This folder tree is interactive, allowing us to expand or close folders and open or add files. A file can also be dragged and dropped into a split screen to view multiple files simultaneously. 
+This folder tree is interactive. You can expand or close folders and open or add files. A file can also be dragged and dropped into a split screen to view multiple files simultaneously. 
 
-Also note that on the bottom left on the status bar in VS Code, the active branch will always be displayed to help keep track of the version being edited or copied. It's important to check to make sure you're not working on the `master` branch because management will be veru unhappy if the production environment gets corrupted!
+Also note that on the bottom left status bar in VS Code, the active branch is displayed to help keep track of the version being edited or copied. It's important to check to make sure you're not working on the `master` branch&mdash;management would be very unhappy if the production environment got corrupted!
 
 ![VS Code-Integrated Terminal](./assets/lesson-1/350-VS-Code-integrated-terminal.png)
 <!--Highlight active branch and preview for Markdown -->
 
-Another great feature VS Code offers is a Markdown preview. To see how your Markdown file will look in a browser, clck the magnifying glass icon at the top right of the text editor of a raw Markdown file:
+Another great feature VS Code offers is a Markdown preview. To see how your Markdown file looks in a browser, clck the magnifying glass icon at the top right of the text editor:
 
 ![Markdown Preview](./assets/lesson-1/351-vs-code-markdown-preview.png)
 
@@ -290,13 +289,11 @@ Another great feature VS Code offers is a Markdown preview. To see how your Mark
 
 If you see the `README.md` file in VS Code, congrats for successfully accomplishing our first `pull`! 
 
-> **On the Job:** Typically when working on a team, we'd use the command `git pull` to update our local development environment whenever we started editing our code. Team members could have potentially pushed their enhancements or bug fixes up to the remote development environment, so it is always good practice to keep our version up to date. If our branch is already up to date, Git will let us know a `pull` is not necessary. So it is harmless to check. 
->
-> Normally the Git workflow has a `pull` done prior to a `push` so that your local development environment is updated first. This ensures that if any potential conflicts in the code arises, they can be resolved locally in VS Code, which has very nice features that allow efficiency in conflict resolution. So what is a conflict you ask, we will soon see after we find out more about the `pull` command. 
+> **On the Job:** It's good practice to get into the habit of doing a `git pull` to update your local development environment before you start editing code. Team members could have pushed enhancements or bug fixes up to the remote development environment since the last time you pulled down the codebase, so it's always good practice to make sure you local version is up to date before you make any changes. If your branch is up to date, Git will let you know that a `pull` is not necessary. 
 
 ### Git Pull
 
-Let's dive a bit deeper into the `pull` command:
+Let's dive a bit deeper into the following `pull` command:
 
 ```
 git pull origin master
@@ -304,10 +301,9 @@ git pull origin master
 
 The `pull` command directs the download process to occur. The `origin` and `master` designate the source of the download or `pull`. The word `origin` describes the remote (aka GitHub) repo, and `master` designates the branch or version in the remote repo we'd like to pull. Please note that if the `<branch-name>` that's being pulled does not exist on the remote repo, the `pull` process will give an error and not occur.
 
-> **Pause:** But how does the `pull` command know where the download will to go to?
-Any thoughts? Guesses?
+> **Pause:** But how does the `pull` command know where the download will to go to? Any thoughts? 
 >
-> **Answer:** `git pull` will download to the current active branch. That's why it's always a good idea to use a `git branch` to verify the active branch before doing a `git pull`.
+> **Answer:** `git pull` will always download to the current active branch. That's why it's always a good idea to use a `git branch` to verify the active branch before doing a `git pull`.
 
 > **Video -** Animation: Showing Data Flow [Git Pull & Git Push-JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
 
@@ -344,50 +340,48 @@ The `git merge` operation, on the other hand, merges the target branch into the 
 git merge <target-branch>
 ```
 
-In this operation, Git will determine any differences in the code between the active branch and the target branch, and update the active branch with those changes. Conversely, the target branch will remain the same and will not undergo any changes.
+In this operation, Git will determine any differences in the code between the active branch and the target branch, and update the active branch with those changes. Conversely, the target branch will remain the same.
 
 The following diagram illustrates how these commands work: 
 
 ![Git Pull](assets/lesson-1/260-git-fetch-merge-pull.png)
 
-After the merge, the active branch (in our case, the `master` branch) will not only receive the new file updates from the remote `master` branch but also all the commits associated with that branch. 
+After the merge, the active branch (in our case, the `master` branch) will receive the new file updates from the remote `master` branch and all of the commits associated with that branch. 
 
 > **Deep Dive:** For more details, please see the [official Git docs](https://git-scm.com/docs/git-pull), which is a great site to bookmark!
 
-With the update of the `master` branch, the `develop` branch is no longer current. Because we'll be working consistently with the `develop` branch as we add new features, it is important we are working with the most updated environment. 
+With the update of the `master` branch, the `develop` branch is no longer current. Because we'll be working consistently with the `develop` branch as we add new features, it is important that we make sure it's updated. 
 
-How do we update our local `develop` branch? There are a number of ways to do this:
+So how do we update our local `develop` branch? There are a number of ways to do this:
 
 * Use `git pull origin master`. Similar to how we updated our local `master` branch, we can also update the local `develop` branch by checking out into the `develop` branch first.
 
 * Use `git merge master`. We can checkout into the `develop` branch, then merge the changes from the `master` to copy over the `README.md` file into the `develop` branch.
 
-* GitHub changes. We can make the same change in our remote `develop` branch to our `README.md` file, then perform another `git pull origin develop` in our local `develop` branch to update our local branch from the remote branch. However, it is strongly recommended **NOT** to do it this way as it could cause many merge conflicts, which will be addressed shortly.
+* Make the changes in GitHub. We can make the same change to the `README.md` file in the remote `develop` branch, then perform another `git pull origin develop` in our local `develop` branch to update it from the remote branch. However, it is strongly recommended **NOT** to do it this way as it could cause several merge conflicts, which will be explained shortly.
 
-Let's go with choice #2 so we can practice merging branches locally and not just from GitHub. Choice 1 is completely acceptable option as well, however.
+Let's go with the second option, using `git merge master`, so we can practice merging branches locally and not just from GitHub. The first option is completely acceptable as well, however.
 
-> **Pause:** Plan out the steps needed to update the `develop` branch from the `master` branch.
+> **Pause:** What are the Git commands that you'd use to update the `develop` branch from the `master` branch?
 >
 > **Answer:** 
 > 1) `git checkout develop`
 > 2) `git merge master`
 
-To verify that the merge was successful, look for the `README.md` file in the `develop` branch. If you were able to accomplish this task, congrats! 
+To verify that the merge was successful, look for the `README.md` file in the `develop` branch. If you were able to successfully add it, congrats! 
 
-Dealing with different branches and trying to update them locally and remotely can be challenging. Some common errors often occur due to misspelling as well as losing sight of the active branch or which branch needs the update. At times, a pull request or a merge will not be performed if Git's comparison of the two versions reveal no changes to update.
+Dealing with multiple branches and trying to update them locally and remotely can be challenging. Some common missteps include misspelling a branch name or losing sight of the active branch or which branch needs the update. 
 
 ## Create a Merge Conflict
 
-Let's do a bit of role playing. Pretend you're on Run Buddy's legal team. Upon seeing the `README.md` file in the GitHub repo, you decide to do a quick edit to tighten up the business's liability protection. 
+Let's do a bit of role playing to practice dealing with a merge conflict. Pretend you're on Run Buddy's legal team. Upon seeing the `README.md` file in the GitHub repo, you decide to do a quick edit to tighten up the business's liability protection. You decide to add Run Buddy's copyright info directly to the `README.md` file on GitHub.
 
-Let's go to the `README.md` file on GitHub and add Run Buddy's copyright info.
-
-Click on the edit button or the pencil icon:
+Go to the remote repo's landing page and click on the edit button or the pencil icon. The "Edit file" pane will open:
 
 ![Edit README](./assets/lesson-1/380-GitHub-edit-README.png)
 <!-- red highlight -->
 
-In the text editor in GitHub, add the following Markdown:
+Add the following Markdown:
 
 ```markdown
 # Run Buddy, Inc
@@ -408,21 +402,26 @@ Made with ❤️ by [your name]
 ### ©️2019 Run Buddy, Inc 
 ```
 
-Go ahead and commit those changes directly to the remote `master` branch by clicking on the green "Commit changes" button shown here:
+Now commit those changes directly to the remote `master` branch by clicking the green "Commit changes" button shown in this screenshot:
 
 ![Commit README.md changes](./assets/lesson-1/390-commit-changes.png)<br>
 
-Now that we have changes to the remote `master` branch, let's make a quick change to our local `README.md` file in the local `master` branch. Open the `README.md` file and make a little tweak the title of the `README.md` as follows:
+Now that we've made changes to the remote `master` branch, let's make a quick change to our local `README.md` file in the local `master` branch. This will create the merge conflict. 
+
+Open the local `README.md` file and remove the comma before "Inc.":
 
 ```markdown
 # Run Buddy Inc.
 ```
 
-Let's add and commit these changes locally. Run the Git command to update the local branch with the remote `master` branch.
+Let's add and commit these changes locally. Then run the Git command to update the local branch with the remote `master` branch.
 
-> **Pause:** Is the git command a pull or push to update the local active branch?
+> **Pause:** Is the Git command to update the local active branch a pull or push?
 >
 >**Answer:** `pull`
+
+Use the following command to update the local branch: 
+
 ```
 git pull origin master
 ```
@@ -431,50 +430,51 @@ The returning message in the command prompt should look something like this:
 
 ![Command Prompt Conflict](./assets/lesson-1/391-command-prompt-conflict.png)
 
-The most interesting lines in this corresponding message are the last two that say there is a merge conflict, therefore the merge failed.
+The most important lines in this corresponding message are the last two that say there is a merge conflict and the merge failed.
 
-Let's open VS Code and open the `README.md` file. Can you figure out why this conflict occurred?
+Let's go back to VS Code and open the `README.md` file. Can you figure out why this conflict occurred?
 
-Because Git can track all the changes in the files of both the remote and local repos, when Git sees that the same line has been modified in the same file in both versions, Git is unable to identify which modification is correct. All Git can do is update to the most recent change based on the commit history, but if both lines in the file were changed, Git offers the developer an opportunity to make the decision on how to proceed. This is called a **merge conflict**. 
+Git tracks all the changes in the files in both the remote and local repos. When Git sees that the same line has been modified in the same file in both versions, it can't identify which modification is correct so the merge fails. In this case, Git offers the developer an opportunity to decide how to proceed. This is called resolving a **merge conflict**. 
 
-In order to proceed with the merge process, Git requires additional input from the user to determine which modification to keep, either the change on the active branch (our local change), or the incoming change from the target branch (in our case, the remote branch).
+To proceed with the merge, Git requires input from the user to determine which modification to keep&mdash;either the change on the active branch (our local change), or the incoming change from the target branch (in our case, the remote branch).
 
-Let's look at the following image to see how to resolve this conflict:
+The following image shows how VS Code presents this conflict:
 
 ![VS Code Merge Conflict](./assets/lesson-1/392-merge-conflict-vs-code.png)<br>
 <!-- labels for Options and folder tree -->
 
-Let's go over the three major areas of interest (note that the highlighting shown here is specific to the formatting for the VS Code editor):
+Let's go over the three major areas of interest (note that the highlighting shown here is specific to the formatting in VS Code):
 
 * The highlighted areas represent the two versions of the same code or text. The green highlight is labeled as the "Current Change." This represents the active branch modification.
-The blue highlight indicates the second version of the same conflicting code or text that is labeled "Incoming Change" noting it is coming from the target branch, in this case the remote branch. Notice the series of "=" signs indicate the separation between versions and will disappear just as will the "<<<<<" and the ">>>>>" notation that indicates the versions. To learn more about the notation for the HEAD and commit reference, please take a look at the [Atlassian Docs about resolving merge conflicts](https://confluence.atlassian.com/bitbucket/resolve-merge-conflicts-704414003.html).
+The blue highlight indicates the second version of the same conflicting code or text that is labeled "Incoming Change" noting it is coming from the target branch (in this case, the remote branch). To learn more about the notation for the HEAD and commit reference, please take a look at the [Atlassian Docs about resolving merge conflicts](https://confluence.atlassian.com/bitbucket/resolve-merge-conflicts-704414003.html).
 
-* Notice that above the green highlight, there are several options to resolve this conflict. The first option is to "Accept Current Change," which refers to the green highlight and represents the active branch modification (in this case, the local change). The second option is to "Accept Incoming Change," which refers to the blue highlight or the target branch (in our case, the remote branch from GitHub). 
+* Above the green highlight, several options to resolve this conflict appear. The first is to "Accept Current Change," which refers to the green highlighted code and represents the active branch modification. The second is to "Accept Incoming Change," which refers to the blue highlighted code or the target branch. 
 
-  There are a few more options, including "Accept Both Changes," "Compare Changes," and "Start Live Share Session." "Accept Both Changes" is chosen when both options may have correct parts that must be manually merged. The last two options are to compare differences and share the screen with another developer that made the changes to collaborate on large conflicts that need both authors of the code to parse effectively.
+  There are a few more options, including "Accept Both Changes," "Compare Changes," and "Start Live Share Session." "Accept Both Changes" is chosen when both options may have correct parts that must be manually merged. The last two options let you compare the differences and share the screen with another developer to collaborate on large conflicts, respectively.
 
-* Note that in the Explorer side panel, the `README.md` font color is now purple. VS Code is able to locate the merge conflicts and highlight the files and containing folders. The example we created was simplified, but in a large project with an extensive folder tree, many different files could be potentially impacted by conflicts that must be resolved in order for the merge process to complete. VS Code offers this nice feature that finds the merge conflicts for you.
+* Note that in the Explorer side panel, the `README.md` font color is purple. In a large project with an extensive folder tree, many files could be impacted by conflicts that must be resolved in order for the merge process to complete.  VS Code makes this easier by highlighting the affected files and folders.
 
-> **On the Job:** In the real world, merge conflicts normally occur when collaborating on a project and different team members need to work on the same file. As our example showed, even if the work is done on separate branches, if the same file has modifications in the same areas, conflicts can occur. There are some preventative measures that can reduce merge conflicts, such as making sure team members keep their work in isolation by strictly working on separate files when possible.
+> **On the Job:** In the real world, merge conflicts typically occur when multiple team members need to work on the same file. As our example showed, even if the work is done on separate branches, if the same file has modifications in the same areas, conflicts can occur. You can take measures to prevent this, such as making sure team members strictly work on separate files when possible.
 
-Let's resolve this conflict and decide which version we will keep. In our case, we'll be keeping the "Incoming Change" from GitHub. Let's click the "Accept Incoming Change" option. VS Code will now resolve two versions into one, eliminating the local change. Be sure to make this decision thoughtfully. 
+Let's resolve this conflict and decide which version to keep. In our case, we'll keep the "Incoming Change" from GitHub (the title with the comma before "Inc."). So go ahead and click the "Accept Incoming Change" option. VS Code will now resolve two versions into one, eliminating the local change.  
 
-> **Pause:** Notice that the last line of the text was added without any conflict issue. 
-![README last line](./assets/lesson-1/395-readme-last-line.png)
-Can you explain why?
+> **Pause:** Notice that the last line of the text that we only added on the remote `README.md` was added without any conflict issue:
 >
-> **Answer:** Since Git tracked only one change between the two branches for this line of text, the incoming change was accepted by Git because there wasn't a conflict with the local version.
+>![README last line](./assets/lesson-1/395-readme-last-line.png)
+> Can you explain why?
+>
+> **Answer:** This line didn't conflict with anything in the local file; it was merely an addition to the file. 
 
-Notice how the purple highlight of the `README.md` file remained although the merge conflict was resolved. Only when we add and commit the file changes will the merge conflict truly be resolved, so let's do that now:
+Notice how the purple highlight of the `README.md` file remained even though the merge conflict was resolved. Only when we add and commit the file changes will the merge conflict truly be resolved, so let's do that now:
 
 ```
 git add .
 git commit -m "resolved merge conflict in title of README.md file"
 ```
 
-Congratulations—you just navigated through your first merge conflict! This is a very typical process of software development, so understanding how to avoid and resolve these is an important skill that employers will seek.
+Congratulations&mdash;you just navigated through your first merge conflict! This is a very typical process in software development and knowing how to avoid and resolve these is an important skill that employers will seek.
 
-Now that we have our local `master` branch updated, our development environment needs an update. 
+Now that we our local `master` branch is updated, our development environment needs an update. 
 
 > **Pause:** How do we update the `develop` branch with the `master`?
 
@@ -482,22 +482,22 @@ Now that we have our local `master` branch updated, our development environment 
 
 Now our development environment is ready to go! Please note that it is not typical to make commits directly to the `develop` or `master` branch in a real-world team environment in a workplace. In our example, we created a merge conflict in the `README.md` so as not to alter the code in any way. 
 
-Now let's get elbows-deep again in our Git workflow and learn about a service provided by GitHub called Git issues.
+Now let's get back into our Git workflow and learn about a service provided by GitHub called Git issues.
 
 ## Git Issues
 
-The design team has requested that we insert a text block into the hero section to add some visual balance and Run Buddy marketing material. 
+The design team has requested that we insert a text block into the hero section to add some visual balance and Run Buddy marketing bling. 
 
-We could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a service from GitHub called Git issues. **Git issues** is a task management tool that teams use to track, organize, and communicate ideas, tasks, bugs, and enhancements. Issues can help team members remember key tasks, identify bottlenecks or blockers that could prevent work progress, indicate file changes to reduce merge conflicts, and prevent duplicating work through assigning tasks or issues. Usually in the workplace, the design team would be making these issues and assigning them to us, but we will make them on their behalf to simulate the workflow.
+We could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a GitHub feature called Git issues. **Git issues** is a task management tool that teams use to track, organize, and communicate ideas, tasks, bugs, and enhancements. Issues can help team members remember key tasks, identify bottlenecks or blockers that could prevent work progress, indicate file changes to reduce merge conflicts, and prevent duplicating work through assigning tasks or issues. Usually in the workplace, the design team would be creating these issues and assigning them to us, but we'll make them on their behalf to simulate the workflow.
 
-Let's go to our GitHub repo and select the Issues tab:
+Let's go to our GitHub repo and select the Issues tab.
 
 > **Video:** [Create Git Issue - JIRA FSFO - 111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
 
 > Create issue, compose content/labels, submit issue, verify issue, edit
 issue, comment on issue, close issue
 
-From there, we can create a new issue by clicking on the green New Issue button:
+From there, we can create a new issue by clicking on the green "New issue" button:
 
 >  ## Storyboard for Video Team using Screen shots<br />
 > **Linear Steps**
@@ -506,7 +506,9 @@ From there, we can create a new issue by clicking on the green New Issue button:
 >![Git Issue Tab](assets/lesson-1/800-git-issues-github.png)
 > 3) Git Issue Title - Normally descriptive naming the enhancement or fix. In our case we will type Hero Section Text Block
 > 4) Git Issue Comment - Can contain requirements of the feature or issue that is being fixed. Even adding mock-ups or design requirements are common. 
-Here is an example using Markdown to add formatting blocks to organize the requirements.
+
+
+Here is the text of an issue (using Markdown) requesting that we add formatting blocks to organize the requirements:
 
 ```markdown
 
@@ -523,9 +525,9 @@ Here is an example using Markdown to add formatting blocks to organize the requi
 * What will be the marketing text?
 ```
 
-The naming convention for feature branches is something normally agreed upon by consensus by your development or management team. Choices are abundant but normally simplified to the type of branch and branch's purpose like "feature/[feature-name]" or "[issue-number]/[feature-name]". We will choose the former for our branch name convention.
+The Branch Name section indicates the branch where this issue should be developed. The naming convention for feature branches is something typically agreed upon by your development or management team. Good choices include the type of branch and branch's purpose like `feature/[feature-name]` or `[issue-number]/[feature-name]`. 
 
->3) Type a comment using Markdown to outline the feature's requirements and other information related to this task.
+Type a comment using Markdown to outline the feature's requirements and other information related to this task.
 
 Here is a simple example: 
 
@@ -546,10 +548,11 @@ Here is a simple example:
 ```
 Other formatting options include checkboxes, code blocks, and the ability to mention a team member(s) using their GitHub handle with the "@" notation.
 
->4) Notice on the right side panel, there are options to add labels or team member assignments. Let's add the *enhancement* label to our `hero-text` issue now and assign it to ourselves.
-Click on the *Assignees* option
-Click on the *Labels* option
->5) Click on the "Submit new issue" button.
+Notice on the right side panel, there are options to add labels or team member assignments. Let's add the Enhancement label to the `hero-text` issue now and assign it to ourselves. To do that, follow these steps:
+
+1. Click on the Assignees option.
+1. Click on the Labels option.
+1. Click on the "Submit new issue" button.
 
 You should see the following screen following a successful issue creation:
 
