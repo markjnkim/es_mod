@@ -490,6 +490,8 @@ The design team has requested that we insert a text block into the hero section 
 
 We could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a GitHub feature called Git issues. **Git issues** is a task management tool that teams use to track, organize, and communicate ideas, tasks, bugs, and enhancements. Issues can help team members remember key tasks, identify bottlenecks or blockers that could prevent work progress, indicate file changes to reduce merge conflicts, and prevent duplicating work through assigning tasks or issues. Usually in the workplace, the design team would be creating these issues and assigning them to us, but we'll make them on their behalf to simulate the workflow.
 
+### Create Our First Issue
+
 Let's go to our GitHub repo and select the Issues tab.
 
 > **Video:** [Create Git Issue - JIRA FSFO - 111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
@@ -561,11 +563,13 @@ You should see the following screen following a successful issue creation:
 
 Congratulations on completing your first Git issue! Please note this screen is the edit screen that allows changing the text as well as closing the issue once the enhancement or work has been finished. This edit screen can be found on the Issues tab, which now notes that there is one outstanding issue at the repo's landing page.
 
-Take a look at [GitHub's help documents for an expansive view of how Git issues can further assist in project management](https://help.github.com/en/articles/managing-your-work-with-issues).
+>**Deep Dive:** For more information, take a look at [GitHub's documentation on managing your work with issues](https://help.github.com/en/articles/managing-your-work-with-issues).
 
-Now that we understand how to make a Git issue, let's create one for another HTML addition we have been assigned from the sales department. They would like a form for users to submit questions directly to the sales staff in the Reach Out section.
+### Create a Second Issue
 
-Go ahead and  create a new Git issue for this new feature. The finished issue should look something like this:
+Now that we understand how to make a Git issue, let's create one for another HTML addition from the sales department. They want to add a form to the Reach Out section for users to submit questions directly to the sales staff.
+
+Go ahead and create a new Git issue for this feature. The finished issue should look something like this:
 
 ```markdown
 # Contact Form for Reach Out Section
@@ -585,7 +589,9 @@ The following image shows how the issue should appear in GitHub:
 
 Notice that this issue was also assigned and labeled to provide more details for the development team.
 
-Here is a list of the issues we must create for our development team. Let's make the following five separate issues needed to complete version 2.0 of Run Buddy. For simplicity and speed, keep these simple. You can add detail and rich formatting features if you like.
+### Create All the Issues!
+
+Here is a list of the issues we must create for our development team in order to create Run Buddy version 2.0. For simplicity and speed, keep these simple. Okay&mdash;you can add detail and rich formatting features if you really want to!
 
 Create the following issues:
 
@@ -599,53 +605,54 @@ Create the following issues:
 
 5) Title: Adding animation
 
-The Git Issues page should now look like this:
+When you're done creating these, the Git Issues page should look like this:
 
 ![Git Issues](./assets/lesson-1/830-git-issues.png)
 
-Let's continue progressing through our project requirements and revisit our old friend HTML to add some markup in our next step. We will now transform this issue into a feature branch. Normally we would assign each of these features to different team members so we can work in parallel, but in our case we will work through each of these issues ourselves to get better practice in CSS and Git workflow.
+Let's keep progressing through our project requirements. Typically, we'd assign each feature to a different team member so we can all work in parallel, but in our case we'll work through each issue ourselves to get better practice in CSS and Git workflow.
 
 ## Git Workflow for a New Feature
 
-In the following steps, we will create a feature branch, complete the work, then add our work to the remote `develop` branch. 
+In the following steps, we'll create a feature branch for our first issue (adding HTML to the hero section), complete the work, and then add our work to the remote `develop` branch. 
 
 Here's a quick overview of the steps in this Git workflow process (all are done at the command prompt):
 
 1) Create a feature branch from the `develop` branch.
-2) Add HTML for a contact form.
+2) Add HTML for the contact form.
 3) Git add, commit, and push to the remote feature branch.
 4) Checkout back to `develop`.
 5) Locally merge the feature branch into the `develop` branch.
 6) Pull the remote `devlop` branch into the local `develop` branch to check for updates.
 7) Push the `develop` branch into the remote `develop` branch.
 
-Don't worry if all this seems like a lot of steps. We'll go over every step in detail. Let's begin! 
+Don't worry if this seems like a lot of steps. We'll go over every step in detail. Let's begin! 
 
 > **Video:** [Create feature branch and merge Gif - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-115)
 
 ### Set Up the Feature Development Environment
 
-Our first step is to create a new feature development environment from a stable copy of the current codebase, the `develop` branch, so we can work in isolation. Let's create our first feature branch from the first Git issue.
+Our first step is to create a new feature development environment from a stable copy of the `develop` branch so we can work in isolation. 
 
-According to our Git workflow, our first step when creating a feature branch will be to `checkout` into the `develop` branch. Then we'll create our new feature branch and set it as the active branch. We can accomplish these two Git operations by using the following command in the terminal:
+If you recall from our Git workflow introduction, the first step when creating a feature branch is to `checkout` into the `develop` branch. Then we'll create our new feature branch and set it as the active branch. We can accomplish these two Git operations by using the following command:
 
 ```
 git checkout -b feature/hero-text
 ```
 
-Please take notice that this made an exact copy of the `develop` branch, including the newly created `README.md` file. As soon as we start to work and commit in the feature branch, these versions will begin to diverge.
+Please note that this made an exact copy of the `develop` branch, including the newly created `README.md` file. As soon as we start to work and commit in the feature branch, these branches will begin to diverge.
 
+Now confirm that your branch was created. Type `git branch` and you'll see the following:
 
 ![Git Feature Branch](assets/lesson-1/910-integrated-terminal-vs-code.png)
 
-Notice how the `git branch` was used to verify the active branch.
+Notice how `git branch` was also used to verify the active branch.
 
 > **Checkpoint:** [Know Git?-JIRA 118](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-118)
 
 
 ### Update the Hero Section
 
-Let's take a quick look at the Git Issue and the mock-up from the design team to see what content we need to add for the hero text block.
+Let's take a quick look at the Git Issue and the mock-up from the design team to see what we need to add to the hero text block.
 
 Here's the mock-up:
 
@@ -655,7 +662,7 @@ And here's the Git issue:
 
 ![Git Issue Text Block Requirements](assets/lesson-1/1000-text-block-issue.png)
 
-Practice your HTML skills by fulfilling the Git issue requirements and following the mock-up for guidance.
+On your own, practice your HTML skills by fulfilling the Git issue requirements and following the mock-up for guidance.
 
 When you're done, the markup should look like this:
 
@@ -676,11 +683,11 @@ Please save your file and then refresh the browser. The updated page should look
 
 ![Hero Text Display](assets/lesson-1/1100-hero-text-markup-html.png)
 
-> **Pause:** Did you notice how the text runs into the sign-up form? Why does this occur?
+> **Pause:** Did you notice that the text runs into the sign-up form? Why does this occur?
 >
-> **Answer:** The sign-up form was declared with absolute position, so it is removed from the document flow. This allows the text block to overlap with the sign-up form. We'll fix this in the next section when we add the CSS styling. 
+> **Answer:** The sign-up form was declared with absolute position, so it's removed from the document flow. This allows the text block to overlap with the sign-up form. We'll fix this in the next section when we add CSS styling. 
 
-One more thing—the design team wants the hero image to rotate horizontally to flip the image of the person lacing up their shoes to the right side of the page to improve the legibility of the text. We'll do this by replacing the current image with a flipped version.
+One more thing—the design team wants to flip the image of the person lacing up their shoes to the right side of the page. We'll do this by replacing the current image with a flipped version.
 
 To replace the image, follow these steps:
 
@@ -693,7 +700,7 @@ Save the file and render it in the browser. You should see the following:
 
 ![Hero Image](assets/lesson-1/1200-hero-image.png)
 
-It doesn't look that great now, but we'll fix this later in the styling lesson. For now, our issue is complete so let's add and commit our work in this branch. We will make a slight change to our practiced Git workflow in this instance by pushing our local feature branch up to a remote feature branch. A good reason for this is to create a backup of our work just in case something accidentally happens to our local computer, like a lightning bolt or spilled coffee cup. 
+It doesn't look that great now, but we'll fix this later in the styling lesson. For now, our issue is complete so let's add and commit our work in this branch. We will make a slight change to our practiced Git workflow in this instance by pushing our local feature branch up to a remote feature branch. A good reason for this is to create a backup of our work just in case something like a lightening bolt or spilled cup of coffee accidentally destroys our local computer. 
 
 ```
 git push origin feature/hero-text
@@ -701,7 +708,7 @@ git push origin feature/hero-text
 
 The slight variation in our push command illustrates that we are no longer pushing to our remote `master` branch but to a new remote feature branch named `feature/hero-text`. Hypothetically, we could've named this anything, but consistent naming conventions means one less branch name to commit to memory. 
 
-We'll add the `push` to remote branch step to our Git workflow specifically after every add and commit of our feature branch to add extra security to our hard work.
+We'll add the "push to remote branch" step to our Git workflow after every add and commit of our feature branch to secure our hard work.
 
 After a successful push, we can check our GitHub repo and see that our backup branch is now safe and secure. Here's our GitHub repo's branch tab, where we can see the `develop` and `feature/hero-text` branches:
 
@@ -709,9 +716,9 @@ After a successful push, we can check our GitHub repo and see that our backup br
 
 ### Merge the Feature into the Development Environment
 
-In this final step, we will integrate the new feature into the `develop` branch.
+In this final step, we'll integrate the new feature into the `develop` branch.
 
-First, let's perform the Git operation to make `develop` the active branch:
+First, let's make `develop` the active branch:
 
 ```
 git checkout develop
@@ -722,7 +729,7 @@ In VS Code, let's look at the hero section in the `index.html` file. Note that t
 ```
 git merge feature/hero-text
 ```
-> **Pro Tip:** It must be reiterated that branch awareness is often overlooked by new developers. Make it a habit to  keep track by using the `git branch` command prior to merging, pulling, or developing features. Also, using the integrated terminal in VS Code is highly recommended due to the status bar notification of the active branch.
+> **Pro Tip:** Branch awareness is often overlooked by new developers. Make it a habit to keep track of what branch you're in by using the `git branch` command prior to merging, pulling, or developing features. Also, using the integrated terminal in VS Code is highly recommended due to the status bar notification of the active branch.
 
 Upon successful merging, the terminal should look like this:
 
@@ -750,11 +757,11 @@ Here is the design team's mock-up:
 
 ![contact-form](assets/lesson-1/1400-Reach-Out-mock-up.png)
 
-And here is the corresponding issue, which contains the requirements: 
+And here is the corresponding issue with the requirements: 
 
 ![contact-form-issue](assets/lesson-1/1500-contact-us-requirement-issue.png)
 
-Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters like the size of the rendered input field, maximum character length, and if it is a required input in order to submit. This and many more attributes can be found at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) for a more detailed look at the attributes.
+Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters such as the size of the rendered input field, maximum character length, and whether it is a required input in order to submit. For more details, see the [MDN web docs on the textarea element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
 Here is the markup: 
 
@@ -774,11 +781,11 @@ Here is the markup:
 ```
 Next, follow the same steps that you used for the `hero-text` feature above.
 
-Once the markup has been inserted into the Reach Out section, add, commit and push the `feature/contact-form` into the remote repo:
+Once the markup has been inserted into the Reach Out section, add, commit, and push the `feature/contact-form` into the remote repo:
 
 `git push origin feature/contact-form`
 
-> **Important:** Don't forget to check your active branch before merging the feature into the develop branch!
+> **Important:** Don't forget to check which branch is active before merging the feature into the develop branch!
 
 Now let's check to see if our contact form has been correctly added to the `develop` branch.
 First `checkout` into the `develop` branch and then render in the browser. You should see the following:
@@ -788,7 +795,7 @@ First `checkout` into the `develop` branch and then render in the browser. You s
 
 Congrats! The markup has been successfully added. We'll format this later in the CSS lesson. 
 
-Now let's update the remote `develop` branch with our new feature by using the following commands:
+Now let's update the remote `develop` branch with the new feature by using the following commands:
 
 ```
 git checkout develop
@@ -799,7 +806,7 @@ git push origin develop
 >
 > **Hint:** The issues have been resolved, so how do we change their status?
 
-> **Answer:** Go to the Issues tab in the GitHub repo and mark the issues as closed by clicking on the Close Issue button. This will remove the issue from our to-do list.
+> **Answer:** Go to the Issues tab in the GitHub repo and mark the issues as closed by clicking the Close Issue button. This removes the issue from our to-do list!
 
 The following screenshot shows the "Close issue" button:
 
@@ -811,23 +818,23 @@ The following screenshot shows the "Close issue" button:
 
 ## Reflection
 
-This was a dense lesson of concepts, many of which were probably challenging to understand. Because we're working in isolation on a minimal codebase, all of this work of creating branches and Git issues might seem like overkill. But using Git correctly will prepare you for collaborating with many developers on much larger projects. 
+Congratulations on getting through a dense lesson of challenging concepts! Because we're working on such a minimal codebase, all of this work creating branches and Git issues might seem like overkill. But knowing how to use Git and GitHub correctly will enable you to collaborate with developers on large projects, which is a real-world skill that future employers will value highly. 
 
-Before we proceed, let's go over some of the key concepts and big ideas we introduced in this lesson:
+Let's go over some of the key concepts and big ideas we introduced in this lesson:
 
-* We learned the difference between the **development** and **production** environments and how creating an isolated version of the codebase allows visitors to use the website and team members to update and/or fix the code simultaneously.
+* We learned the difference between **development** and **production** environments and how creating an isolated version of the codebase allows visitors to use the website and team members to update and/or fix the code simultaneously.
 
-* We created **feature branches** to allow versions of the development environment to coexist, letting team members work in isolation and ship features more quickly. This allows for parallel development, which increases the team's productivity and accountability—essential metrics for any enterprise.
+* We created **feature branches** to allow versions of the development environment to coexist, letting team members work in isolation and ship features more quickly. 
 
-* We introduced the **README.md** file, which is a high-level introduction to your project repo facilitating quick reads by potential employers of your project's technical skill.
+* We introduced the **README.md** file, which is a high-level introduction to your project repo (that, incidentally, potential employers can read to get a sense of your technical wizardry).
 
-* We used Git operations to update the remote repo and local repos with `pull`, `push`, `fetch`, `branch`, `checkout`, and `merge`. A solid understanding of these operations to perform a proper Git workflow is crucial to collaborating on projects and is a key metric for employer-ready students.
+* We used `pull`, `push`, `fetch`, `branch`, `checkout`, and `merge` to update remote and local repos. A solid understanding of using these in a proper Git workflow is crucial to collaborating on projects and a key metric for employer-ready students.
 
-* We introduced a Git workflow process that emphasized the isolation of the production environment and allowed a development environment with working versions for feature enhancements. There are many Git workflow models including [Gitflow, a model that emphasizes the release cycle for updates.](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) These are normally in-team discussions with suggestions from the management team.
+* We introduced a Git workflow process that emphasized the isolation of the production environment and created a development environment with working versions for feature enhancements. There are many Git workflow models including [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow), a model that emphasizes the release cycle for updates. 
 
 * We created Git issues to help communicate the project to-do list to keep team members productive and organized in their workflows.
 
-Next, we'll apply this workflow to the rest of this project, starting with making Run Buddy version 2.0 fully  mobile-responsive in the next lesson. Run Buddy on my cell phone, here we come! 
+Next we'll apply this workflow to the rest of this project, starting with making Run Buddy version 2.0 fully  mobile-responsive in the next lesson. Run Buddy on my cell phone, here we come! 
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
