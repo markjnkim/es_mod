@@ -6,11 +6,13 @@ Now that our MVP goal has been met, we could technically submit the game as-is. 
 
 > ## WAITING ON GITHUB ISSUE SCREENSHOT
 
-While working on the game, other game jam attendees made some great suggestions for additional features we could add. Alas, there's not enough time to implement their suggestions, but we can at least optimize the codebase to be more scalable, making it easier to continue working on the project afterwards.
+While we're still making improvements to the game, we should also take time to clean up the codebase. This will give us a better shot at that "code quality" prize in the game jam. More importantly, it will leave our project in a state where we can more easily expand on it afterwards. Such code optimization is the other GitHub issue we'll tackle in this lesson:
+
+> ## WAITING ON GITHUB ISSUE SCREENSHOT
 
 JavaScript objects will help us accomplish both tasks: the randomness and the restructuring. Like the `window` object, there are other built-in objects that come with useful methods for generating random numbers. We can even make our own objects to tie data together, which is perfect for consolidating our player and enemy stats.
 
-It's possible the judges may look at our code, so having a more **object-oriented** structure would definitely appeal to them. In larger games and apps, building around objects can help immensely in keeping track of what data you have and how it can be accessed. Similar to our practice with functions, familiarizing ourselves with objects now will pay huge dividends later!
+Having a more **object-oriented** structure would definitely appeal to the game jam judges. In larger games and apps, building around objects can help immensely in keeping track of what data you have and how it can be accessed. Similar to our practice with functions, familiarizing ourselves with objects now will pay huge dividends later!
 
 ## Preview
 
@@ -34,17 +36,19 @@ That said, here's our plan of attack for the lesson:
 
 2. Use the Math object to add randomness to the game
 
-3. Convert player and enemy data to custom objects
+3. Merge and switch branches
 
-4. Merge feature branch
+4. Convert player and enemy data to custom objects
 
-## Create Feature Branch
+5. Merge object branch and update `master`
+
+## Create a Feature Branch
 
 Starting a new feature means we'll need a new branch. Let's revisit our Git workflow:
 
 1. Use the `git branch` command to verify that you are in the `develop` branch. If not, switch to `develop` before proceeding (e.g. `git checkout develop`).
 
-2. Use the command `git checkout -b feature/objects` to create and switch to the new branch.
+2. Use the command `git checkout -b feature/random` to create and switch to the new branch.
 
 ## Use the Math Object
 
@@ -253,7 +257,29 @@ VS Code will likely warn you of these syntax errors, as well, though the charact
 
 In this case, the semicolon isn't the problem. VS Code is simply highlighting that something was supposed to come before the semicolon. If you hover over the underlined character, you'll see the message `')' expected`, meaning we forgot a parentheses somewhere.
 
-Once you're happy with the current state of the game, `git add`, `commit`, and `push` to save your progress. In the next step, we're going to move a lot of things around, so it's important to have this commit history!
+## Merge and Switch Branches
+
+Once you're happy with the current state of the game, save your progress with Git. We won't be doing any more work related to this branch, so go ahead and merge it as part of the Git process:
+
+1. `git status` to verify the correct files were modified
+
+2. `git add -A` or `git add .` to stage any changed files
+
+3. `git commit -m "random health and attack values"`
+
+4. `git push origin feature/random` to push the branch to GitHub
+
+5. `git checkout develop` to switch branches
+
+6. `git merge feature/random` to merge the new feature into the `develop` branch
+
+7. `git push origin develop` to push the updated `develop` branch to GitHub
+
+Close the corresponding GitHub issue and move on to the next one. We'll treat this next "code quality" issue as a feature, too, so the Git steps will be the same as before:
+
+1. Use the `git branch` command to verify that you are in the `develop` branch. If not, switch to `develop` before proceeding (e.g. `git checkout develop`).
+
+2. Use the command `git checkout -b feature/objects` to create and switch to the new branch.
 
 ## Convert Data to Custom Objects
 
@@ -572,9 +598,9 @@ In future applications, continue thinking about where and how objects can be use
 
 > ## INSERT CHECKPOINT QUIZ: <https://trilogyed.atlassian.net/browse/FSFO-165>
 
-## Merge Branch
+## Merge Branch and Update Master
 
-Our work on this GitHub issue is done, which means it's time to revisit the Git branch workflow. We'll want these optimizations to be part of the final judged version, so let's update `master` while we're at it:
+Our work on this GitHub issue is done, which means it's time to revisit the Git branch workflow. We'll want all of the optimizations we've made since the MVP to be part of the final judged version, so let's update `master` while we're at it:
 
 1. `git status` to verify the correct files were modified
 
@@ -592,7 +618,7 @@ Our work on this GitHub issue is done, which means it's time to revisit the Git 
 
 8. `git checkout master` to switch branches
 
-9. `git merge develop` to bring `master` up to date
+9. `git merge develop` to bring `master` up to date with all changes made to `develop`
 
 10. `git push origin master` to push the updated `master` branch to GitHub
 
