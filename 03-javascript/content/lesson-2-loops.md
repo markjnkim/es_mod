@@ -3,7 +3,7 @@
 > ## Github Issue Placeholder
 
 <!-- Summarize current state of the game -->
-Now that we created a basic `fight()` function in the last lesson, we are able to exchange attacks with the enemy robot. However we are only able to have a single battle round with one enemy robot. Let's build upon our previous work and increase our Battle Bot game's complexity by introducing more enemy robots and exchanging multiple rounds of attack until a combatant has been defeated. This will be considered our MVP since it can now be considered a game that can be played albeit very simply. The judges at the game jam won't be highly impressed with our game in its current state since we are unable to determine the winner of the fight or even how to win the game, but after completing our MVP, at the very least they will be able to get a sense of how the game works and operates. 
+Now that we created a basic `fight()` function in the last lesson, we are able to exchange attacks with the enemy robot. However we are only able to have a single battle round with one enemy robot. Let's build upon our previous work and increase our Battle Bot game's complexity by introducing more enemy robots and exchanging multiple rounds of attack until a combatant has been defeated. This will be considered our MVP since it can now be considered a game that can be played albeit very simply. The judges at the Con Solo game jam won't be highly impressed with our game in its current state since we are unable to determine the winner of the fight or even how to win the game, but after completing our MVP, at the very least they will be able to get a sense of how the game works and operates. 
 
 > **On the Job:** The `fight()` function established a nice building block that will provide some of the basic game functionality we can build upon to create more features that will add game complexity and interest. An essential part of creating programs in JavaScript is knowing how to create and use functions as building blocks of code that can work together to accomplish a program's overarching goal.
 
@@ -14,19 +14,25 @@ In this lesson we will build upon using the `window`'s interactive methods, glob
 * Add enemy robot combatants
 * Fight all enemy robot combatants
 * Exchange attacks with each enemy until defeated
-* Use DevTools to spot errors and "see" the inner workings of our program
+* Use DevTools to spot errors and reveal our variable values at key inflection points in our game
 
-If you feel like the order of these steps may be a bit arbitrary, that is because some of them are. To some, it makes much more sense to first complete our `fight()` function to defeat a robot and then add more robots to `fight()`. Although the sequence to some of the steps isn't critical, completing each step is, so for now we will continue with our declared approach, but understand in the future there will be multiple strategies and problem solving approaches that should be considered.
+It may feel like the order of these steps is arbitrary, but we will need each step to build the subsequent step. 
+
+
+ <!-- that is because some of them are. To some, it makes much more sense to first complete our `fight()` function to defeat a robot and then add more robots to `fight()`. Although the sequence to some of the steps isn't critical, completing each step is, so for now we will continue with our declared approach, but understand in the future there will be multiple strategies and problem solving approaches that should be considered.   -->
 
 Here is a quick example of what we can expect to see by the end of this lesson:
 > **Video:** [Gif of the game interaction - Jira 161](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-161)
+<!-- Fall Back Screenshot -->
+![Preview of Game in Console](./assets/lesson-2/50-console-game.png)
 
-
-## Pseudocode our game logic
+### Pseudocode our Game Logic
 
 How to start is often a common question or [pain point](https://www.google.com/search?q=pain+points&oq=pain+point&aqs=chrome.0.0j69i57j0l4.1724j0j7&sourceid=chrome&ie=UTF-8) for developers. There seems to be a lot of work to be done, but how to we begin? Pseudocoding our steps will be a great starting point since this will help organize our thoughts, outline the objectives, and get our creative juices flowing. Our first goal will be to identify the different game states and write them as comments near the top of the `game.js` file.
 > **Pause:** How do we win our Robot Gladiator game?
+>
 > **ANSWER:** Defeat all the robot enemies.
+
 Our comments may look something similar to this:
 ```javascript
 // Game States
@@ -37,6 +43,7 @@ Although this may seem simple, when programs get convoluted and complex, it help
 In order to "WIN" and defeat all robots we must first:
 1) Face all the robots
 2) Defeat each robot
+
 In order to defeat all the robots we must be able to face each robot and then defeat each robot, so let's make our revisions to our original pseudocode step.
 ```javascript
 // Game States
@@ -62,7 +69,7 @@ Before we continue, let's stop our program from executing the `fight()` function
 
 We could have deleted this function call, but commenting it out is actually a better method to use since we will want to execute this function later in this lesson. It is important to note that there is no need to comment the function expression since this only defines the function. The function doesn't actually execute until the last line in the `game.js` file in the `fight()` function call.
 <!-- Present the Problem  -->
-To start let's focus on the "WIN" game state. Currently we only have one robot to fight, not exactly a challenge to win the game. If we want to impress our Game Jam judges, we will need to bring some more game to Robot Gladiator so let's add some enemy robots to the mix.
+To start let's focus on the "WIN" game state. Currently we only have one robot to fight, not exactly a challenge to win the game. If we want to impress our game jam judges, we will need to bring some more game to Robot Gladiator so let's add some enemy robots to the mix.
 
 We could declare each of our enemy robot names so our `game.js` file would look like this:
 ```javascript
@@ -72,7 +79,7 @@ var enemy3 = "Robo Trumble";
 ```
 Not so bad in our case since we are only introducing a couple more robots, but what if we later decide to add 100 robots or more? Typing out each enemy's variable and expression will take lots of time to type and many lines of code that will bloat our codebase. So how can we avoid that terrible scenario keep our program clean and concise. 
 <!-- Present the Solution  -->
-### Array Declare
+### Declare an Array
 This is where we introduce a special new data structure called an array. Arrays are like ordered lists that can hold over 4.2 billion separate entries. That should be enough robots for our game.
 
 Let's create our first array with our enemy robots then go over some of the properties our array offers. Please type the following into your `game.js` file by replacing the `enemyName` declaration near the top of the file with the following expression:
@@ -83,7 +90,7 @@ var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 Declaring an array is similar to how we declared variables previously. Once we declare a variable using the `var` key word and then the variable name, we assign an array using the bracket syntax "[ ]" to enclose our *array elements* which are the values stored within the array. In our case the `enemyNames` array contains three array elements that are strings. The commas serve an important job to separate each array element.
 Note an array element can be many different data types and are not beholden to just strings. Array elements can also be floating numbers (or decimals), integers, booleans, as well as variables and even objects, but more on this later. Now that we are able to store lots of values in a single data structure, this allows for a single repository to store many the enemy names, but for the sake of simplicity, let's stick for just three for now. Please remove any other `enemyName` or `enemyName1` declarations since we will be using the array exclusively going forward.
 
-### Array Access
+### Access an Array
 
 In our array expression, we declared our array and the initialized string values, but how do we retrieve the values once we've stored them in the array? Array elements are actually stored in the array at specific indexes so when a particular index is called, the value stored at that index is retrieved, similar to a file cabinet that uses tabs to retrieve a folder's contents. In the case of an array, the first index is zero and increments by one for each corresponding element. So then the second element will be at the index one and so on.
 
@@ -138,7 +145,7 @@ In the console, we can see that the `length` property displays the number three 
 Now that we know what an array is and how to access it, let's think about how an array could be used in the real world. 
 -->
 [For Loops on MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement)
-## For Loops
+## For Loop or not to Loop 
 In the prior example, when we wished to display each element of the array in the console we had to manually write out each element and its corresponding index like so:
 ```javascript
 console.log(enemyNames[0]);
@@ -178,7 +185,7 @@ Notice how the iterator starts at zero and ends at two which maps very similarly
 
 As we can now see, the iterator can become the array's index which will allow us to iterate through an array, element by element, index by index.
 Let's go ahead and progress forward to see how to loop through an array to display each element.
-### Array Loop
+### For Loops and Arrays 
 Replace the previous `for` loop with the following statement:
 ```javascript
 for(var i = 0; i < enemyNames.length; i++) console.log(enemyName[i]);
@@ -198,7 +205,7 @@ for(var i = 0; i < enemyNames.length; i++) {
   console.log(enemyName[i] + " is at " + i + " index");
 }
 ```
-## The Console
+### The Console is your Friend
 The console is also where the browser will notify you if you have errors in your code. For instance here is a common error that every developer will get familiar with after a short time in programming:
 
 ![Console Error](./assets/lesson-2/700-console-error.png)
@@ -222,7 +229,7 @@ Much better! Now that we have some familiarity with how to loop through our `ene
 //    * Fight all enemy robots
 ```
 
-## Function Arguments
+## Function Arguments Pass Data
 Great, now that we are able to access each enemy robot in the  `enemyNames` array, we must now try to have our robot fight them in the `fight()` function. Currently we have a global variable named `enemyName` inside our `fight()` function to make our robots face off and fight each other. Now that we have an `enemyNames` array, we will need to make some changes to how the robot combatants face off. Let's take a minute to think about a scenario in which as we loop through the `enemyNames` array, with each new robot or loop iteration, we could make the robots fight. Taking into account our `fight()` operation is in a function, this offers the flexibility to call this function inside our `for` loop. Now the utility of functions becomes more apparent. We are able to execute this code in the `fight()` function repeatedly from within a loop. But how do we pass in our enemy robot into the function because presently the function expression is only able to fight a single robot. We will use a property of functions that will allow data to be passed into the function through the argument. This will allow us to pass in a new enemy robot on every loop iteration into our `fight()` function to fight our robot.
 ```javascript
 fight(enemyRobot);
@@ -371,7 +378,7 @@ Let's run this in the browser and see if we have solved our problem. We should s
 
 Now that looks more like a battle! Our rounds are much longer and extensive. Excellent work! We can see our fight with each robot and the reduction in health points as the battle progresses. When an enemy robot has been defeated, a new enemy robot joins the fray at full health, just as we wanted. Let's pause and preserve our work in Github as we proceed to the end of this lesson.
 
-## Break out of the loop
+### Break out of the loop
 
 Looking at the console, there does seem to be some oddities that are not very representative of how an actual battle would occur. 
 Let's fix these cases to improve the gameplay.
@@ -379,7 +386,7 @@ Let's fix these cases to improve the gameplay.
 2) After an enemy robot has been defeated, it is still able to attack
 3) The "skip" option to function correctly
 
-### 1) Lose Game State
+#### 1) Lose Game State
 In order to prevent our player robot from attacking after our health is depleted, we need to review one of our the  objectives:
 ```javascript
 // Game States
@@ -417,7 +424,7 @@ With the `&&` operator, we can set the `while` loop to have two conditions that 
 
 ![Console Fight Exit](./assets/lesson-2/1800-console-while-condition.png)
 
-### 2) No More Cheap Shots 
+#### 2) No More Cheap Shots 
 Nice job, now the player robot can no longer fight when defeated. Let's move onto the next step to disable the enemy robot's ability to fight after being defeated. This seems very similar to the last step. We will need a condition to allow us to break out of the `while` loop in the `fight()` function. Let's write some pseudocode that will perform this operation.
 ```javascript
 // if the enemy robot's health is zero or less, exit from the fight loop.
@@ -442,7 +449,7 @@ It should look similar to this:
 
 Now once our enemy robot has been defeated, the `while` loop exits and we are confronted by our next robot combatant. No longer are we subject to cheap shots from defeated enemy robots. Much better!
 
-### 3) Give Peace a Chance 
+#### 3) Give Peace a Chance 
 Currently our skip function doesn't actually work quite right. As can be seen in our console here:
 
 ![Console Skip Malfunction](./assets/lesson-2/2100-console-skip.png)
@@ -553,7 +560,7 @@ It should look like this in the console:
 Excellent work. This would be a great place to preserve our work in Github so let's do that now then proceed to the final step of this lesson.
 
 ## Game State Messages
-For this last part of game improvements, let's add messages to notify our users about the state of the game including the round number and the game ending. This will improve the player's experience, always a bonus with Game Jam judges. Earlier in this lesson we removed our welcome message: `alert("Welcome to Robot Gladiator!")` from our `fight()` function. Let's place it back into our game but also give it the task of announcing the round of battle.
+For this last part of game improvements, let's add messages to notify our users about the state of the game including the round number and the game ending. This will improve the player's experience, always a bonus with game jam judges. Earlier in this lesson we removed our welcome message: `alert("Welcome to Robot Gladiator!")` from our `fight()` function. Let's place it back into our game but also give it the task of announcing the round of battle.
 We will consider a round to be a when a new enemy robot is introduced to fight. 
 Since new robots will be introduced in the `for` loop which iterates through the array, this would seem to be a great place to start. The `while` loop wouldn't be as good of an option since the enemy robot exists there in many games states due to the consecutive rounds of fighting. We could simply add the `alert()` however there could be a scenario that occurs when a player robot has been defeated however there are still enemy robots left in the array. In this case the low player robot's health would break the `while` loop at the conditional code block for `if (playerHealth <= 0)` and return to the `for` loop. At that point, the `for` loop's condition would be met so a new robot would be presented to the `fight()` although this condition in the `while` loop: `while (playerHealth > 0 && enemyHealth > 0) ` would be false so fighting would not start.
 > **Pause:** Can you think of a way of preventing this scenario from happening?
@@ -608,7 +615,7 @@ Notice how the curly braces are missing in this conditional. They are only neces
 <!-- > **Build up showing need of conditional for `alert()` removed due to word count:** -->
 
 ## Reflection
-Great job! We now have a game that is playable and nearly complete in regards to our MVP. We are making excellent progress in our Game Jam so far. Seeing that we still have some time left, let's add some interesting game play features to increase game complexity and randomness since a predictable game can be a bit boring. This will go over well with the Game Jam judges since at the end of the day more engagement is a key metric for any game. Before we continue, let's review some of the key concepts we have covered so far in this lesson.
+Great job! We now have a game that is playable and nearly complete in regards to our MVP. We are making excellent progress in our game jam so far. Seeing that we still have some time left, let's add some interesting game play features to increase game complexity and randomness since a predictable game can be a bit boring. This will go over well with the game jam judges since at the end of the day more engagement is a key metric for any game. Before we continue, let's review some of the key concepts we have covered so far in this lesson.
 
 We learned some of the basic building blocks of JavaScript and how to implement them in an application.
   * Arrays are data structures similar to an ordered list that allows storage of data at numeric indexes.
