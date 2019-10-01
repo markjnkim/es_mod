@@ -155,7 +155,7 @@ To check to see if the `README.md` file was created properly, see if it's visibl
 
 ![GitHub Repo](./assets/lesson-1/170-markdown-preview.png)
 
-While in our GitHub repo, let's take a look at the branches by selecting the branch tab: 
+At the top of this image we see the branches tab. This is a subset of tabs located in the Code tab. If you don't see the branches option, the Code tab may not be selected. Click on this option to look at our branches to see the following:
 
 ![GitHub Branches](./assets/lesson-1/190-branches-github.png)
 
