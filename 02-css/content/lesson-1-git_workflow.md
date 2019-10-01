@@ -125,6 +125,8 @@ Let's go ahead and create a `README.md` file for our repo.
 
 > **Video:** [Creating a `README.md` file in GitHub - JIRA FSFO-107](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-107)
 
+Go to our repo in Github and select the Add a README button. This will lead to our form which we can fill out with the following Markdown.
+
 Here's what your raw Markdown file should look like:
 
 ```markdown
