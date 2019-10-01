@@ -236,7 +236,7 @@ git status
 
 Remember that this command verifies if our active branch is "clean," which means that any changed files in the branch have been staged and committed. If the branch is not clean, then you must `add` and `commit` the file changes first. 
 
-So what is all this talk about branches and trees, you might ask. They are simply terms that visually express the folder hierarchy of directories and the version control process of Git.
+> **Urkel Says:** So what is all this talk about branches and trees, you might ask. They are simply terms that visually express the folder hierarchy of directories and the version control process of Git.
 
 Now that we have a clean working tree, we're ready to `pull` or update the local branch by downloading any new changes or commits that are in the remote branch. 
 
