@@ -10,11 +10,12 @@ Now that we created a basic `fight()` function in the last lesson, we are able t
 
 ## Preview
 In this lesson we will build upon using the `window`'s interactive methods, global and local variables, conditional statements, and the `fight()` function we created in the last lesson and introduce a new data structure called an array and native JavaScript functions. Let's map out our build process for this lesson and establish our lesson's goals.
-* Pseudocode our game's objectives including how to win the game and how to defeat an enemy robot
-* Add enemy robot combatants
-* Fight all enemy robot combatants
-* Exchange attacks with each enemy until defeated
-* Use DevTools to spot errors and reveal our variable values at key inflection points in our game
+1. Pseudocode Our Game Logic
+2. Add Combatants to the Fray Using Arrays
+3. Fight Enemy Robot Combatants With For Loops
+4. Fight Each Combatant With Function Arguments
+5. Defeat the Combatant Until Defeated With a While Loop
+6. Improve the User Game Experience
 
 It may feel like the order of these steps is arbitrary, but we will need each step to build the subsequent step. 
 
@@ -145,7 +146,9 @@ In the console, we can see that the `length` property displays the number three 
 Now that we know what an array is and how to access it, let's think about how an array could be used in the real world. 
 -->
 [For Loops on MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement)
-## For Loop or not to Loop 
+
+## Fight all enemy robot combatants - For Loops
+
 In the prior example, when we wished to display each element of the array in the console we had to manually write out each element and its corresponding index like so:
 ```javascript
 console.log(enemyNames[0]);
@@ -559,7 +562,7 @@ It should look like this in the console:
 
 Excellent work. This would be a great place to preserve our work in Github so let's do that now then proceed to the final step of this lesson.
 
-## Game State Messages
+### Game State Messages
 For this last part of game improvements, let's add messages to notify our users about the state of the game including the round number and the game ending. This will improve the player's experience, always a bonus with game jam judges. Earlier in this lesson we removed our welcome message: `alert("Welcome to Robot Gladiator!")` from our `fight()` function. Let's place it back into our game but also give it the task of announcing the round of battle.
 We will consider a round to be a when a new enemy robot is introduced to fight. 
 Since new robots will be introduced in the `for` loop which iterates through the array, this would seem to be a great place to start. The `while` loop wouldn't be as good of an option since the enemy robot exists there in many games states due to the consecutive rounds of fighting. We could simply add the `alert()` however there could be a scenario that occurs when a player robot has been defeated however there are still enemy robots left in the array. In this case the low player robot's health would break the `while` loop at the conditional code block for `if (playerHealth <= 0)` and return to the `for` loop. At that point, the `for` loop's condition would be met so a new robot would be presented to the `fight()` although this condition in the `while` loop: `while (playerHealth > 0 && enemyHealth > 0) ` would be false so fighting would not start.
