@@ -175,15 +175,40 @@ We should see the following in the console window:
 
 Notice next to the word "apple" in the console is the number three. This means that this word was displayed three times into the console. Yes, our `for` loop worked! Let's breakdown the syntax now and see what makes the `for` loop special.
 ### For Loop Arguments
-The `for` loop is a special type of statement called a _control flow statement_. The _control flow_ is the order in which the computer executes statements in a JavaScript file or script, which normal runs sequentially from the first line to the last line of the script. Control flow statements such as conditional statements or `for` statements, change the control flow based on the conditions.
+The `for` loop is a special type of statement called a _control flow statement_. The _control flow_ is the order in which the computer executes statements in a JavaScript file or script, which normal runs sequentially from the first line to the last line of the script. Control flow statements such as conditional statements or `for` statements, change the control flow based on the statement's conditions.
 
 
-This is because it is able to change the normal control flow of the 
+> **Deep Dive:** Still not sure what [the differences are between statements, expressions, and functions? This explainer in StackOverflow may help clarify the differences.](https://stackoverflow.com/questions/9307291/difference-between-statement-and-function)
 
+Just as with `if` statements, `for` statements also have conditions.
+```js
+for([InitialExpression]; [Condition]; [IncrementExpression])
+   statement
+```
+When a `for` loop executes, the following occurs:
+1. The `InitialExpression` is the first statement executed. This initializes the loop iterator or counter. This expression is also able to declare variables.
 
-, when the `for` loop is called, within its parentheses, we can pass data or conditions into the statement. The parentheses in this case is the argument. A `for` loop can take in three arguments that are separated by semi-colons. The first argument declares the variable `i` known as the iterator and initializes the value to zero. The second argument sets the condition when the loop is to stop. Currently the condition is set to stop if the iterator condition results in a false result. Can you determine at which number the following condition become false? As soon as `i` becomes three, this stops the loop and the programs exits from the loop to the next statement.
+`InitialExpression`:
+```js
+var i = 0;
+```
+2. The `Condition` statement is then evaluated. If this condition evaluates to true, the loop `statement` execute. If the condition's value is false, the `for` loop terminates. If this condition is omitted, the condition is assumed to be true.
 
-The third argument declares how the iterator will increment. The expression `i++` is the same at `i+1` which means add one to `i` for every loop.
+`Condition`:
+```js
+i < 3;
+```
+3. Then the `statement` executes. To execute multiple statements, use a block statement `{  }`, as used in `if`/ `else` statements.
+4. After the `statement` is executed, the `IncrementExpression` then executes which increments the iterator.
+
+`IncrementExpression`:
+```js
+i++
+```
+equivalent to `i + 1`
+
+5. After the iterator increments, the `Condition` is then reevaluated and continues the loop chain.
+
 To see the iterator in action lets display it in each loop by adding an argument in the `console.log` function with a comma.
 ```javascript
 for(var i = 0; i < 3; i++) console.log("apple", i);
@@ -198,8 +223,8 @@ Notice how the iterator starts at zero and ends at two which maps very similarly
 
 ![Console Window of Array](./assets/lesson-2/100-console-array.png) 
 
-As we can now see, the iterator can become the array's index which will allow us to iterate through an array, element by element, index by index.
-Let's go ahead and progress forward to see how to loop through an array to display each element.
+We can actually use the iterator in the for loop to map to an array's index. This allows us to iterate through an array, element by element, index by index.
+Let's go ahead and see how to use a `for` loop through an array to display each element.
 ### For Loops and Arrays 
 Replace the previous `for` loop with the following statement:
 ```javascript
