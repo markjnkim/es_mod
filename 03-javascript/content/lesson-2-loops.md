@@ -1,6 +1,6 @@
 # Lesson 2 - Enemy Battle Rounds
 ## Introduction
-> ## Github Issue Placeholder
+> ## @TODO Github Issue Placeholder
 
 <!-- Summarize current state of the game -->
 Now that we created a basic `fight()` function in the last lesson, we are able to exchange attacks with the enemy robot. However we are only able to have a single battle round with one enemy robot. Let's build upon our previous work and increase our Battle Bot game's complexity by introducing more enemy robots and exchanging multiple rounds of attack until a combatant has been defeated. This will be considered our MVP since it can now be considered a game that can be played albeit very simply. The judges at the Con Solo game jam won't be highly impressed with our game in its current state since we are unable to determine the winner of the fight or even how to win the game, but after completing our MVP, at the very least they will be able to get a sense of how the game works and operates. 
@@ -41,8 +41,10 @@ Our comments may look something similar to this:
 ```
 Although this may seem simple, when programs get convoluted and complex, it helps to be able to jot down key parameters and game states of your program to keep them in mind. Sometimes it also helps to break down a step to smaller sub steps.
 In order to "WIN" and defeat all robots we must first:
+
 1) Face all the robots
 2) Defeat each robot
+
 
 In order to defeat all the robots we must be able to face each robot and then defeat each robot, so let's make our revisions to our original pseudocode step.
 ```javascript
@@ -94,7 +96,8 @@ var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 ```
 
 Declaring an array is similar to how we declared variables previously. Once we declare a variable using the `var` keyword and then the variable name, we assign an array using the bracket syntax `[ ]` to enclose our *array elements* which are the values stored within the array. In our case the `enemyNames` array contains three array elements that are strings. The commas serve an important job to separate each array element.
-Note an array element can be many different data types and are not limited to just strings. Array elements can also be numbers, booleans, as well as variables and even objects, but more on this later. Now that we are able to store lots of values in a single data structure, this allows for a single repository to store many the enemy names, but for the sake of simplicity, let's stick for just three for now. Please remove any other `enemyName` or `enemyName1` declarations since we will be using the array exclusively going forward.
+
+Note an array element can be many different data types and is not limited to strings. Array elements can also be numbers, booleans, as well as variables and even objects, but more on that later. Eventually we will learn how we can make a two dimensional array similar to a grid by placing arrays within our array. For now let's focus on what an array can help us do in regards to our game. It can act as a single repository that stores all our enemy robot names. Please remove any other `enemyName` or `enemyName1` declarations since we will be using the array exclusively going forward for our enemy name storage.
 
 ### Access an Array
 
@@ -168,14 +171,16 @@ Thankfully we have a statement we can use that enables us to loop through the ar
 
 In this example say we would like to display the word "apple" three times in the console. Type the following `for` loop in the `game.js` file beneath our array `console.log`'s:
 ```javascript
-for(var i = 0; i < 3; i++) console.log("apple");
+for(var i = 0; i < 3; i++) {
+  console.log("apple");
+}
 ```
 We should see the following in the console window:
 
 ![For Loop](./assets/lesson-2/400-console-for-loop.png)
 
 Notice next to the word "apple" in the console is the number three. This means that this word was displayed three times into the console. Yes, our `for` loop worked! Let's breakdown the syntax now and see what makes the `for` loop special.
-### For Loop Arguments
+### For Loop Syntax
 The `for` loop is a special type of statement called a _control flow statement_. The _control flow_ is the order in which the computer executes statements in a JavaScript file or script, which normal runs sequentially from the first line to the last line of the script. Control flow statements such as conditional statements or `for` statements, change the control flow based on the statement's conditions.
 
 
@@ -183,8 +188,9 @@ The `for` loop is a special type of statement called a _control flow statement_.
 
 Just as with `if` statements, `for` statements also have conditions.
 ```js
-for([InitialExpression]; [Condition]; [IncrementExpression])
+for([InitialExpression]; [Condition]; [IncrementExpression]) {
    statement
+}
 ```
 When a `for` loop executes, the following occurs:
 1. The `InitialExpression` is the first statement executed. This initializes the loop iterator or counter. This expression is also able to declare variables.
@@ -206,13 +212,15 @@ i < 3;
 ```js
 i++
 ```
-equivalent to `i + 1`
+equivalent to `i = i + 1`.
 
 5. After the iterator increments, the `Condition` is then reevaluated and continues the loop chain.
 
 To see the iterator in action lets display it in each loop by adding an argument in the `console.log` function with a comma.
 ```javascript
-for(var i = 0; i < 3; i++) console.log("apple", i);
+for(var i = 0; i < 3; i++) {
+  console.log("apple", i);
+}
 ```
 Alternatively we could've have also concatenated the string and the variable as follows:
 `console.log("apple " + i)`
@@ -229,7 +237,9 @@ Let's go ahead and see how to use a `for` loop through an array to display each 
 ### For Loops and Arrays 
 Replace the previous `for` loop with the following statement:
 ```javascript
-for(var i = 0; i < enemyNames.length; i++) console.log(enemyName[i]);
+for(var i = 0; i < enemyNames.length; i++) {
+  console.log(enemyName[i]);
+}
 ```
 We should get the following in the browser:
 
@@ -237,8 +247,8 @@ We should get the following in the browser:
 
 As can be seen, the more results we display in the console, the harder it will be to determine which statement rendered which result. By reviewing the line numbers next to the right of the displayed values, we can determine that a single line, the `for` loop, created the last three entries which also maps back perfectly to our `game.js` file. 
 
-Congratulations, we just looped through our first array. Similar to our conditional `if` statements, we can include curly braces for multiple lines of code to be executed on each iteration.
-For example, run the following by replacing your `for` loop with the following code:
+Congratulations, we just looped through our first array.
+Run the following by replacing your `for` loop with the following code:
 ```javascript
 for(var i = 0; i < enemyNames.length; i++) {
   console.log(enemyNames[i]);
@@ -251,7 +261,7 @@ The console is also where the browser will notify you if you have errors in your
 
 ![Console Error](./assets/lesson-2/700-console-error.png)
 
-> Uncaught ReferenceError: `enemyName` is not defined
+__Uncaught ReferenceError: `enemyName` is not defined__
 
 This message from the browser is stating that the variable `enemyName` is being used, however it has never been declared so the browser is unable to execute the statement. Again we are given the file name and line number where we can find this error.
 It appears that when referencing the array in the `for` loop, we mistakenly tried to reference `enemyName` as our array instead of the `enemyNames` array which we have declared. It is often a typo that can trigger an error such as this. 
@@ -271,7 +281,9 @@ Much better! Now that we have some familiarity with how to loop through our `ene
 ```
 
 ## Function Arguments Pass Data
-Great, now that we are able to access each enemy robot in the  `enemyNames` array, we must now try to have our robot fight them in the `fight()` function. Currently we have a global variable named `enemyName` inside our `fight()` function to make our robots face off and fight each other. Now that we have an `enemyNames` array, we will need to make some changes to how the robot combatants face off. Let's take a minute to think about a scenario in which as we loop through the `enemyNames` array, with each new robot or loop iteration, we could make the robots fight. Taking into account our `fight()` operation is in a function, this offers the flexibility to call this function inside our `for` loop. Now the utility of functions becomes more apparent. We are able to execute this code in the `fight()` function repeatedly from within a loop. But how do we pass in our enemy robot into the function because presently the function expression is only able to fight a single robot. We will use a property of functions that will allow data to be passed into the function through the argument. This will allow us to pass in a new enemy robot on every loop iteration into our `fight()` function to fight our robot.
+Great, now that we are able to access each enemy robot in the  `enemyNames` array, we must now try to have our robot fight them in the `fight()` function. Currently we have a global variable named `enemyName` inside our `fight()` function to make our robots face off and fight each other. Now that we have an `enemyNames` array, we will need to make some changes to how the robot combatants face off. Let's take a minute to think about a scenario in which as we loop through the `enemyNames` array, with each new robot or loop iteration, we could make the robots fight. Taking into account our `fight()` operation is in a function, this offers the flexibility to call this function inside our `for` loop. Now the use of functions becomes more apparent. We are able to execute this code in the `fight()` function repeatedly from within a loop. 
+
+But how do we pass in our enemy robot into the function? Presently the function expression is only able to fight a single robot. We will use a property of functions that will allow data to be passed into the function through the argument. This will allow us to pass in a new enemy robot on every loop iteration into our `fight()` function to fight our robot like so:
 ```javascript
 fight(enemyRobot);
 ```
@@ -279,19 +291,20 @@ We have used arguments several times whenever we passed information into a funct
 ```javascript
 console.log(enemyNames);      // array argument
 alert("Hello");               // string argument
-console.log(enemyNames[i], i) // two arguments, comma separated
-for(var i = 0; i < enemyNames.length; i++) // three arguments; semicolons are specific to for loops
+console.log(enemyNames[i], i); // two arguments, comma separated
 ```
 Previously we have been using arguments with `window` methods and JavaScript functions, but now we will change our `fight()`  function to pass in an argument. Remember the function expression defines the "how" and "what" of our function's operations. If we want the function to perform differently we must change our function's definition. We would like to convert our `fight()` function to pass in an enemy robot and then fight this robot. Let's find our `fight()` expression and change the first line to the following:
 ```javascript
 var fight = function(enemyName) {
+  ... // fight function statements
+}
 ```
 We just redefined our `fight` variable to now be a function that is able to input or receive a variable. Since we are dealing the a variable placeholder in the function definition, we call this the function's *parameter*.
 > **Deep Dive:** Parameters vs Arguments - Parameters are often confused with arguments due to the similarity in syntax. The main distinction between them is the purpose in relation to the function. In a function expression, a parameter serves as a variable placeholder that indicates how this variable will be used in the function. Since the use of the parameter is reserved to only the scope of the function, the name of the parameter isn't significant, but normally is related to the type or purpose of the variable as follows: 
 >```javascript
 >var wash = function(soapType) {
 >  console.log("I wash with " + soapType);
->}
+>};
 >```
 >Then when we call the `wash()` function, we can enter a type of soap into the argument.
 >```javascript
@@ -330,13 +343,19 @@ for(var i = 0; i < enemyNames.length; i++) {
 As can be seen in our console, we have successfully looped through our array and fought each robot. Congratulations! We have almost reached our MVP and successfully accomplished our objective to face and fight each enemy robot. The next objective we need to tackle is to defeat each enemy robot, then we will be able to "WIN" the game.
 This is a great spot to add, commit, and push our work into the Github repo for safe keeping. 
 
-## Fight Loop
+## Fight Loop Using a While Loop
 The next objective is to defeat each robot. Currently we are only able to fight each robot once. So how do we go about fighting each robot until a winner is found? Sounds a bit like we need another loop, to continue the fighting. Earlier we determined that to defeat a robot we need to fight them until their health points reduce to zero or less. Conversely we can say that we will fight the enemy robot while it is alive. This was translated into code by using the following conditional:
 ```javascript
 if (enemyHealth > 0) // if the enemy robot has health points continue to fight
 ```
 
-Thankfully we have a function we can use that loops or repeatedly executes a line or block of code *while* a condition remains true. This is called the `while` loop. Very similar in concept to the `for` loop, both functions repeatedly execute a code block if a condition remains true. Code blocks are the lines of code that is to be executed. This is found in functions, conditional statements, and loops between the curly braces. The difference between a `for` and `while` loop is the syntax, the function's arguments, and the use cases. A `for` loop is made for arrays and a finite number of iterations where `while` loops are more commonly used for an unknown number of iterations until a certain condition is met. Let's write our code within the `fight()` function to look like the following:
+Thankfully we have can introduce another type of control flow statement that loops or repeatedly executes a statement(s) *while* a condition remains true. This is called the `while` loop. Very similar in concept to the `for` loop, both statements repeatedly execute a code block if a condition remains true. The code block is the statement or statements contained with the curly braces:
+```js
+while([Condition]) {
+  statement
+}
+```
+In a `while` statement, if the `Condition` evaluates to true, the `statement` executes. Then the `Condition` is reevaluated and so on. Let's write our code within the `fight()` function to look like the following:
 ```javascript
 var fight = function(enemyName) {
   // repeat and execute as long as the enemy robot is alive 
