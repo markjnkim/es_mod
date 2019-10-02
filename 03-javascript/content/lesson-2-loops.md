@@ -33,6 +33,7 @@ How to start is often a common question for developers. There seems to be a lot 
 > **ANSWER:** Defeat all the robot enemies.
 
 Our comments may look something similar to this:
+
 ```javascript
 // Game States
 // "WIN" - Player robot has defeated all enemy robots
