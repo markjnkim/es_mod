@@ -8,8 +8,6 @@ Here's the mock-up for Run Buddy version 2.0, which we'll build over the course 
 
 ![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
-Notice that there are some large changes we are planning to make, like the addition of the price comparison table, and some that are a bit more subtle, like the rounded corners of our input fields and the Call-To-Action form container. Some of the changes are not visible at all since they are contingent on user interaction. So let's first get our development environment set up before we proceed.
-
 Because the current codebase is live, we can't make changes directly to it without disturbing Run Buddy's users. We need a workflow that will let us work on a copy of the website code and then merge the changes into the live site. This is where our friend Git comes back into play.
 
 In this lesson, we'll learn about three important software development workflow concepts:
@@ -125,8 +123,6 @@ Let's go ahead and create a `README.md` file for our repo.
 
 > **Video:** [Creating a `README.md` file in GitHub - JIRA FSFO-107](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-107)
 
-Go to our repo in Github and select the Add a README button. This will lead to our form which we can fill out with the following Markdown.
-
 Here's what your raw Markdown file should look like:
 
 ```markdown
@@ -236,7 +232,7 @@ git status
 
 Remember that this command verifies if our active branch is "clean," which means that any changed files in the branch have been staged and committed. If the branch is not clean, then you must `add` and `commit` the file changes first. 
 
-> **Urkel Says:** So what is all this talk about branches and trees, you might ask. They are simply terms that visually express the folder hierarchy of directories and the version control process of Git.
+So what is all this talk about branches and trees, you might ask. They are simply terms that visually express the folder hierarchy of directories and the version control process of Git.
 
 Now that we have a clean working tree, we're ready to `pull` or update the local branch by downloading any new changes or commits that are in the remote branch. 
 
@@ -510,13 +506,12 @@ From there, we can create a new issue by clicking on the green "New issue" butto
 > 1) Click on Issues tab
 > 2) Click on New Issue button
 >![Git Issue Tab](assets/lesson-1/800-git-issues-github.png)
-> 3) Git Issue Title - Normally descriptive naming the enhancement or fix. In our case we will type Hero Section Text Block
-> 4) Git Issue Comment - Can contain requirements of the feature or issue that is being fixed. Even adding mock-ups or design requirements are common. 
+> 3) Git Issue Title - A descriptive name with the issue type such as an enhancement or fix. In our case we will type "Hero Section Text Block"
+> 4) Git Issue Comment - Can contain requirements of the feature or issue that is being fixed. Even adding mock-ups or design requirements are common. For bugs, often there are descriptions of the current state vs the desired state as well as steps to reproduce the bug.
 
+Here is an example of the raw Markdown:
 
-Here is the text of an issue (using Markdown) requesting that we add formatting blocks to organize the requirements:
-
-```markdown
+<!-- ```markdown
 
 # Hero Section Text Block 
 
@@ -524,18 +519,15 @@ Here is the text of an issue (using Markdown) requesting that we add formatting 
 * Heading: "Start Building Habits"
 * Text Body: `<p>` Lorem ipsum text placeholder
 
-## Branch Name
-* `feature/hero-text`
-
 ## Questions/suggestions for Design Team
 * What will be the marketing text?
-```
-
-The Branch Name section indicates the branch where this issue should be developed. The naming convention for feature branches is something typically agreed upon by your development or management team. Good choices include the type of branch and branch's purpose like `feature/[feature-name]` or `[issue-number]/[feature-name]`. 
-
+``` -->
+<!-- 
+The Branch Name section indicates the branch where this issue should be developed. The naming convention for feature branches is something typically agreed upon by your development or management team. Good choices include the type of branch and branch's purpose like `feature/[feature-name]` or `[issue-number]/[feature-name]`.  -->
+<!-- 
 Type a comment using Markdown to outline the feature's requirements and other information related to this task.
 
-Here is a simple example: 
+Here is a simple example:  -->
 
 ```markdown
 
@@ -546,13 +538,10 @@ Here is a simple example:
 * Text Body: Lorem ipsum text placeholder
 * Download new hero image for hero section
 
-## Branch
-* `feature/hero-text`
-
 ## Questions/suggestions for Design Team
 * What will be the marketing text?
 ```
-Other formatting options include checkboxes, code blocks, and the ability to mention a team member(s) using their GitHub handle with the "@" notation.
+Other formatting options we can add to this issue includes checkboxes, code blocks, and the ability to mention a team member(s) using their GitHub handle with the "@" notation.
 
 Notice on the right side panel, there are options to add labels or team member assignments. Let's add the Enhancement label to the `hero-text` issue now and assign it to ourselves. To do that, follow these steps:
 
@@ -582,9 +571,6 @@ Go ahead and create a new Git issue for this feature. The finished issue should 
 * Heading:  "Contact Us"
 * Name: Input Text field
 * Message: Large message area
-
-## Branch
-* `feature/contact-form`
 ```
 
 The following image shows how the issue should appear in GitHub: 
