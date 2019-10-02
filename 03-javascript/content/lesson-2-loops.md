@@ -9,16 +9,13 @@ Now that we created a basic `fight()` function in the last lesson, we are able t
 
 
 ## Preview
-In this lesson we will build upon using the `window`'s interactive methods, global and local variables, conditional statements, and the `fight()` function we created in the last lesson and introduce a new data structure called an array and native JavaScript functions. Let's map out our build process for this lesson and establish our lesson's goals.
+In this lesson we will build upon our knowledge of the `window`'s interactive methods, global and local variables, conditional statements, and the `fight()` function we created in the last lesson and introduce a new data structure called an array and native JavaScript functions. Let's map out our build process for this lesson and establish our lesson's goals.
 1. Pseudocode Our Game Logic
-2. Add Combatants to the Fray Using Arrays
+2. Add Combatants to the Battle Using Arrays
 3. Fight Enemy Robot Combatants With For Loops
 4. Fight Each Combatant With Function Arguments
-5. Defeat the Combatant Until Defeated With a While Loop
+5. Battle the Combatants Until Defeated With a While Loop
 6. Improve the User Game Experience
-
-It may feel like the order of these steps is arbitrary, but we will need each step to build the subsequent step. 
-
 
  <!-- that is because some of them are. To some, it makes much more sense to first complete our `fight()` function to defeat a robot and then add more robots to `fight()`. Although the sequence to some of the steps isn't critical, completing each step is, so for now we will continue with our declared approach, but understand in the future there will be multiple strategies and problem solving approaches that should be considered.   -->
 
@@ -27,9 +24,10 @@ Here is a quick example of what we can expect to see by the end of this lesson:
 <!-- Fall Back Screenshot -->
 ![Preview of Game in Console](./assets/lesson-2/50-console-game.png)
 
-### Pseudocode our Game Logic
 
-How to start is often a common question or [pain point](https://www.google.com/search?q=pain+points&oq=pain+point&aqs=chrome.0.0j69i57j0l4.1724j0j7&sourceid=chrome&ie=UTF-8) for developers. There seems to be a lot of work to be done, but how to we begin? Pseudocoding our steps will be a great starting point since this will help organize our thoughts, outline the objectives, and get our creative juices flowing. Our first goal will be to identify the different game states and write them as comments near the top of the `game.js` file.
+## Pseudocode our Game Logic
+
+How to start is often a common question for developers. There seems to be a lot of work to be done, but how to we begin? Pseudocoding our steps will be a great starting point since this will help organize our thoughts, outline the objectives, and get our creative juices flowing. Our first goal will be to identify the different game states and write them as comments near the top of the `game.js` file.
 > **Pause:** How do we win our Robot Gladiator game?
 >
 > **ANSWER:** Defeat all the robot enemies.
@@ -63,12 +61,18 @@ Conversely the "LOSE" game state is also important and will be something we will
 > **ANSWER:** if(enemyHealth <= 0) 
 
 ## Arrays Are Like Ordered Lists
-Before we continue, let's stop our program from executing the `fight()` function since we are not currently working on this function and those pesky pop ups can get a bit tiresome.
+Before we continue, let's stop our program from executing the `fight()` function since we are not currently working on this function and those pesky alert dialogs can get a bit tiresome.
 > **Pause:** How do you stop the `fight()` function from executing?
 >
-> **Answer:** Comment out the `fight()` function call at the bottom of the `game.js` file
+> **Answer:** Comment out the `fight()` function call at the bottom of the `game.js` file. 
 
-We could have deleted this function call, but commenting it out is actually a better method to use since we will want to execute this function later in this lesson. It is important to note that there is no need to comment the function expression since this only defines the function. The function doesn't actually execute until the last line in the `game.js` file in the `fight()` function call.
+We comment out a line or multiple lines of code by selecting the beginning of the line we wish to temporarily remove and add `//`. 
+```js
+//fight()
+```
+The green font indicates this line has been commented and will not execute.
+
+We could have deleted this function call, but commenting it out is actually a better method when there is a possibility of using the line again. It is important to note that there is no need to comment the function expression since this only defines the function. The function doesn't actually execute until the last line in the `game.js` file in the `fight()` function call.
 <!-- Present the Problem  -->
 To start let's focus on the "WIN" game state. Currently we only have one robot to fight, not exactly a challenge to win the game. If we want to impress our game jam judges, we will need to bring some more game to Robot Gladiator so let's add some enemy robots to the mix.
 
@@ -88,18 +92,21 @@ Let's create our first array with our enemy robots then go over some of the prop
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 ```
 
-Declaring an array is similar to how we declared variables previously. Once we declare a variable using the `var` key word and then the variable name, we assign an array using the bracket syntax "[ ]" to enclose our *array elements* which are the values stored within the array. In our case the `enemyNames` array contains three array elements that are strings. The commas serve an important job to separate each array element.
-Note an array element can be many different data types and are not beholden to just strings. Array elements can also be floating numbers (or decimals), integers, booleans, as well as variables and even objects, but more on this later. Now that we are able to store lots of values in a single data structure, this allows for a single repository to store many the enemy names, but for the sake of simplicity, let's stick for just three for now. Please remove any other `enemyName` or `enemyName1` declarations since we will be using the array exclusively going forward.
+Declaring an array is similar to how we declared variables previously. Once we declare a variable using the `var` keyword and then the variable name, we assign an array using the bracket syntax `[ ]` to enclose our *array elements* which are the values stored within the array. In our case the `enemyNames` array contains three array elements that are strings. The commas serve an important job to separate each array element.
+Note an array element can be many different data types and are not limited to just strings. Array elements can also be numbers, booleans, as well as variables and even objects, but more on this later. Now that we are able to store lots of values in a single data structure, this allows for a single repository to store many the enemy names, but for the sake of simplicity, let's stick for just three for now. Please remove any other `enemyName` or `enemyName1` declarations since we will be using the array exclusively going forward.
 
 ### Access an Array
 
 In our array expression, we declared our array and the initialized string values, but how do we retrieve the values once we've stored them in the array? Array elements are actually stored in the array at specific indexes so when a particular index is called, the value stored at that index is retrieved, similar to a file cabinet that uses tabs to retrieve a folder's contents. In the case of an array, the first index is zero and increments by one for each corresponding element. So then the second element will be at the index one and so on.
 
+> **Urkel Says:** Arrays that start their index at zero are called "zero-indexed" arrays. These are the most common arrays in programming.
+
+
 Let's type in the following statement beneath the array declaration in the `game.js` file to display the array in the console and review the results. 
 ```javascript
 console.log(enemyNames);
 ```
-This should reveal the following in the console window of the browser:
+Let's save then refresh the browser to reveal the following in the console window of the browser:
 ![Console Window of Array](./assets/lesson-2/100-console-array.png) 
 [Jira Issue for labeling expansion arrow](./assets/lesson-2/100-console-array.png)
 
@@ -115,18 +122,18 @@ Please try to display each element of the array in the console by typing the sta
 
 Your result in the console should look similar to this:
 ![Console Array Elements](./assets/lesson-2/200-console-array-elements.png)
-[Jira Issue - Label the line numbers](./assets/lesson-2/200-console-array-elements.png)
+[Jira Issue FSFO-174 - Label Array Expansion arrow in Console](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-174)
 
 Notice how each array element is displayed with the file name and line number of each statement on the right side of the console window. This will help identify which `console.log` is being displayed which is useful when our application become very large with many `console.log` statements.
 
 Type the following statement in the `game.js` file and explain the result:
 ```javascript
-console.log(enemyNames[3])
+console.log(enemyNames[3]);
 ```
 Note how this statement displays *undefined*. This is because at index three, there isn't an element in the array because the last element is at index two. Expanding on this point, if we try to access an array at an index that doesn't contain an element, the result will be undefined. The result is undefined because this element hasn't been declared yet.
-It is important to remember the index of the last element of an array is always its length minus one or `length - 1`.
+It is important to remember the index of the last element of an array is always the number of elements minus one in other words the array's length minus one.
 
-A JavaScript array is actually a type of object and therefore has some built in properties and methods we can use. Just think about the `Window` object and the different methods we used for `alert()` and `prompt()`. For instance the `length` property of the `Array` object is able to calculate the length of an array. This is especially useful when the number of items in an array is unknown.
+A JavaScript array is actually a type of object and therefore has some built in properties and methods we can use. Just think about the `window` object and the different methods we used for `alert()` and `prompt()`. The `length` property of the `Array` object contains the number of elements in an array. This is especially useful when the number of items in an array is unknown.
 
 Type the following into the `game.js` file:
 ```javascript
@@ -145,7 +152,7 @@ In the console, we can see that the `length` property displays the number three 
 <!-- ### Array Use Cases
 Now that we know what an array is and how to access it, let's think about how an array could be used in the real world. 
 -->
-[For Loops on MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement)
+<!-- [For Loops on MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement) -->
 
 ## Fight all enemy robot combatants - For Loops
 
@@ -156,7 +163,7 @@ console.log(enemyNames[1]);
 console.log(enemyNames[2]);
 ```
 Just imagine if we wanted to display each element in an array that was over 100 items in length. This would be incredibly time consuming, extremely repetitive, and very long.
-Thankfully we have a function we can use that enables us to loop through the array no matter what the length. It is here that we will introduce the `for` loop, a function not bound to just arrays but can be generally used whenever we need the same operation done repetitively. Let's first take a general approach then we'll see why arrays go with `for` loops like peanut butter and jelly.
+Thankfully we have a statement we can use that enables us to loop through the array no matter what the length. It is here that we will introduce the `for` loop, a statement not bound to just arrays but can be generally used whenever we need the same operation done repetitively. Let's first take a general approach then we'll see why arrays go with `for` loops like peanut butter and jelly.
 
 In this example say we would like to display the word "apple" three times in the console. Type the following `for` loop in the `game.js` file beneath our array `console.log`'s:
 ```javascript
@@ -166,10 +173,15 @@ We should see the following in the console window:
 
 ![For Loop](./assets/lesson-2/400-console-for-loop.png)
 
-Notice next to the word "apple" in the console is the number three. This means that this word was displayed five times into the console. Yes, our `for` loop worked! Let's breakdown the syntax now and see what makes the `for` loop special.
+Notice next to the word "apple" in the console is the number three. This means that this word was displayed three times into the console. Yes, our `for` loop worked! Let's breakdown the syntax now and see what makes the `for` loop special.
 ### For Loop Arguments
-Since the `for` loop is a function, when the `for` loop is called, within its parentheses, we can pass data or conditions into the function. The parentheses in this case is the argument. A `for` loop can take in three arguments that are separated by semi-colons. The first argument declares the variable `i` known as the iterator and initializes the value to zero. The second argument sets the condition when the loop is to stop. Currently the condition is set to stop if the iterator condition results in a false result. Can you determine at which number the following condition become false? As soon as `i` becomes three, this stops the loop and the programs exits from the loop to the next statement.
+The `for` loop is a special type of statement called a _control flow statement_. The _control flow_ is the order in which the computer executes statements in a JavaScript file or script, which normal runs sequentially from the first line to the last line of the script. Control flow statements such as conditional statements or `for` statements, change the control flow based on the conditions.
 
+
+This is because it is able to change the normal control flow of the 
+
+
+, when the `for` loop is called, within its parentheses, we can pass data or conditions into the statement. The parentheses in this case is the argument. A `for` loop can take in three arguments that are separated by semi-colons. The first argument declares the variable `i` known as the iterator and initializes the value to zero. The second argument sets the condition when the loop is to stop. Currently the condition is set to stop if the iterator condition results in a false result. Can you determine at which number the following condition become false? As soon as `i` becomes three, this stops the loop and the programs exits from the loop to the next statement.
 
 The third argument declares how the iterator will increment. The expression `i++` is the same at `i+1` which means add one to `i` for every loop.
 To see the iterator in action lets display it in each loop by adding an argument in the `console.log` function with a comma.
