@@ -323,7 +323,7 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 ```
@@ -365,7 +365,7 @@ var fight = function(enemyName) {
 ```
 Within the block of the `while` loop let's move all the code from our `fight()` function. Now when the `fight()` function is called, our robot will fight the enemy robot again until defeated. Another suggestion would be to remove the  `alert("Welcome to Robot Gladiator!")` statement from our `fight()` function. This message will be unnecessary at the beginning of every fight so let's remove it for now.
 
-Let's run this code and see the results in the console:
+Save `game.js` and reload `index.html` in Chrome.
 
 > **Important:** Keep the console window in the browser open during the development process since errors and results will be displayed there.
 
@@ -386,11 +386,11 @@ for (var i = 0; i < enemyNames.length; i++) {
 }
 ```
 This is inform us if the `for` loop is actually iterating through the `enemyNames` array.
-Now let's run the program to see what happens. Our console's response should look something like this:
+Save `game.js` and reload `index.html` in Chrome. We should see the following in the console:
 
 ![Chrome Debugger](./assets/lesson-2/1100-chrome-debugger.png)
 
-Notice that in the middle window, we can see the JavaScript file with our `debugger;` statement highlighted. This is called the Code Editor pane. To the left, is the the File Navigator pane which displays the folder tree. To the right will be the JavaScript Debugging pane. The current status notes that the `debugger` has been paused therefore the program is currently frozen unless we click the resume button. We currently are in the Sources tab of the console.
+Notice that in the middle window, we can see the script with our `debugger;` statement highlighted. This is called the Code Editor pane. To the left, is the the File Navigator pane which displays the folder tree. To the right will be the JavaScript Debugging pane. The current status notes that the `debugger` has been paused therefore the program is currently frozen unless we click the resume button. We currently are in the Sources tab of the console.
 
 > **Video:** [Gif Debugger Tool - Jira FSFO-163](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-163)
 
@@ -408,7 +408,7 @@ Once we press enter, the Watch window is updated with our new variable value as 
 
 Since we are in the first iteration of the `for` loop, the `i` value is zero and the first element of the array is currently being accessed in the `for` loop. Since we placed the `debugger` statement before the `fight()` function call, we have found our robots before they go into battle. 
 
-> **Pro Tip/ Shortcut:** For the sake of faster testing results, we can reduce some of the health points initial values for the player and the enemy for quicker battles.
+> **Pro Tip:** For the sake of faster testing results, we can reduce some of the health points initial values for the player and the enemy for quicker battles.
 
 Since the health of the robots is a major inflection point in our battle, we should keep an extra eye on how these values change. Currently it appears that the `enemyHealth` value is currently at zero. 
 ### Debugger Controller
@@ -420,9 +420,9 @@ Notice on the very top of the JavaScript Debugging pane, there are controls that
 
 Let's click on the step button and progress slowly through the program executing each line one at a time. 
 
-> **Video:** [Gif - Jira FSFO-165 Debugging Step](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-164)
+> **Video:** [Animation - Jira FSFO-164 Debugging Step](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-164)
 
-We can see that the next progression, the `i` value iterates by one due to the `for` loop argument, `i++`. Next, the `i` conditional statement is evaluated in the `for` loop, `i < enemyNames.length`. Since this conditional statement is true because `1 < 3`, we then proceed into the `fight()` function. But instead of progressing with our new robot enemy into the `while` loop, we are immediately kicked out of this function. It appears we did not satisfy the `while` loop's condition that the `enemyHealth > 0`. *Ah ha!* That is why our player robot is failing to fight the other enemy robots. We only have a single global `enemyHealth` variable set as the health for all the robots, attacking one robot is like attacking all the enemy robots, so when one is defeated, they are all defeated. To fix this, we must reset the `enemyHeatlh` value before each robot battle so a new robot can start battling at full strength. Let's reset our enemy robot's health by assigning it right before we our `fight()` function call inside the `for` loop. For simplicity sake let's choose a variable name that is more semantic than `enemyNames[i]` to store our current enemy robot. 
+We can see that the next progression, the `i` value increments by one due to the `for` statement increment expression, `i++`. Next, the `i` conditional statement is evaluated in the `for` loop, `i < enemyNames.length`. Since this conditional statement is true because `1 < 3`, we then proceed into the `fight()` function. But instead of progressing with our new robot enemy into the `while` loop, we are immediately kicked out of this function. It appears we did not satisfy the `while` loop's condition that the `enemyHealth > 0`. *Ah ha!* That is why our player robot is failing to fight the other enemy robots. We only have a single global `enemyHealth` variable set as the health for all the robots, attacking one robot is like attacking all the enemy robots, so when one is defeated, they are all defeated. To fix this, we must reset the `enemyHeatlh` value before each robot battle so a new robot can start battling at full strength. Let's reset our enemy robot's health by assigning it right before we our `fight()` function call inside the `for` loop. For simplicity sake let's choose a variable name that is more semantic than `enemyNames[i]` to store our current enemy robot. 
 
 Please make sure your `for` loop looks similar to this:
 ```javascript
@@ -456,7 +456,7 @@ Once the player robot has been defeated, we should no longer be able to fight. T
 In the last lesson, we created a condition to check the status of our player robot's health inside the `fight()` function:
 ```javascript
 if (playerHealth <= 0 ) {
-  window.alert(playerName + ' has died!');
+  window.alert(playerName + " has died!");
 }
 ```
 Currently the user is notified through an `window.alert()` if the player robot has been defeated. We need to add a way to stop fighting as well once this condition has been met.
@@ -464,7 +464,7 @@ Luckily we can use a keyword in JavaScript called `break`. The `break` keyword a
 current loop. Let's add this beneath the `window.alert` within the `if` statement so it looks like the following:
 ```javascript
 if (playerHealth <= 0 ) {
-  window.alert(playerName + ' has died!');
+  window.alert(playerName + " has died!");
   break;
 }
 ```
@@ -498,7 +498,7 @@ Nice job, now the player robot can no longer fight when defeated. Let's move ont
 From the last lesson, we have a condition that checks for the enemy robot's health, we just need to add our `break` to exit the fight loop and not allow the robot to fight after being defeated. Let's add this `break` statement to our condition's block so it looks similar to this:
 ```javascript
 if (enemyHealth <= 0) {
-  window.alert(enemyName + ' has died!');
+  window.alert(enemyName + " has died!");
   break;
 }
 ```
@@ -516,13 +516,13 @@ Currently our skip function doesn't actually work quite right. As can be seen in
 
 Looks like although we lose money for choosing to skip, we don't actually skip, but resume fighting the same enemy robot. Just as in the previous steps, we need to break out of the `while` loop to quit fighting the enemy robot. The question is where should this `break` statement go? Let's narrow down our search and find the conditional statement we created to control the skip response in our `prompt()`. Notice we also added a `console.log` to display the current `playerMoney` value.
 ```javascript
-else if (promptFight === 'skip' || promptFight === 'SKIP') {
+else if (promptFight === "skip" || promptFight === "SKIP") {
   // confirm user wants to skip
   var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
   // if yes (true), leave fight
   if (confirmSkip) {
-    window.alert(playerName + ' has decided to skip this fight. Goodbye!');
+    window.alert(playerName + " has decided to skip this fight. Goodbye!");
     // subtract money from playerMoney for skipping
     playerMoney = playerMoney - 10;
     console.log("playerMoney", playerMoney);
@@ -537,14 +537,14 @@ In the conditional statement that checks if the skip prompt has been confirmed a
 > **Answer:** 
 >```javascript
 >if (confirmSkip) {
->   window.alert(playerName + ' has decided to skip this fight. Goodbye!');
+>   window.alert(playerName + " has decided to skip this fight. Goodbye!");
 >   // subtract money from playerMoney for skipping
 >   playerMoney = playerMoney - 10;
 >   console.log("playerMoney", playerMoney);
 >   break;
 > }
 >```
-Notice if we we place our `break` statement before our other statements in our conditional code block, the VS code editor actually makes the following lines of code opaque as seen here:
+Notice if we we place our `break` statement before our other statements in our conditional code block, the VS code editor actually makes the following lines of code dim as seen here:
 
 ![VS Code Break](./assets/lesson-2/2200-vs-code-break.png)
 
@@ -568,7 +568,7 @@ Let' move our skip conditional statement to the top and convert it from an `else
 
       // if yes (true), leave fight
       if (confirmSkip) {
-        window.alert(playerName + ' has decided to skip this fight. Goodbye!');
+        window.alert(playerName + " has decided to skip this fight. Goodbye!");
         // subtract money from playerMoney for skipping
         playerMoney = playerMoney - 10;
         console.log("playerMoney", playerMoney)
@@ -579,7 +579,7 @@ Let' move our skip conditional statement to the top and convert it from an `else
 This conditional statement will follow directly after the prompt at the beginning of the `while` loop.
 ```javascript
     // ask user if they'd liked to fight or run
-    var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+    var promptFight = window.prompt("Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.");
 ```
 The rest of the `while` loop will simply contain the code operations for robots to fight with all the conditionals that hold crucial game logic to check for robot health. The reason why we don't have to check for the "fight" prompt anymore is that in regards to the game logic, as long as we satisfy the user's request to skip a robot, we can assume that our robots are here to fight.
 The rest of the `fight()` function should now look similar to this:
@@ -587,29 +587,29 @@ The rest of the `fight()` function should now look similar to this:
 // remove enemy's health by subtracting the playerAttack
 enemyHealth = enemyHealth - playerAttack;
 console.log(
-  playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.'
+  playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
 );
 // check enemy's health
 if (enemyHealth <= 0) {
-  window.alert(enemyName + ' has died!');
+  window.alert(enemyName + " has died!");
   // award player money for winning
   playerMoney = playerMoney + 20;
   // leave while() loop since enemy is dead
   break;
 } 
-else window.alert(enemyName + ' still has ' + enemyHealth + ' health left.');
+else window.alert(enemyName + " still has " + enemyHealth + " health left.");
 // remove players's health by subtracting the enemyAttack
 playerHealth = playerHealth - enemyAttack;
 console.log(
-  enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.'
+  enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
 );
 // check player's health
 if (playerHealth <= 0) {
-  window.alert(playerName + ' has died!');
+  window.alert(playerName + " has died!");
   // leave while() loop if player is dead
   break;
 } 
-else window.alert(playerName + ' still has ' + playerHealth + ' health left.');
+else window.alert(playerName + " still has " + playerHealth + " health left.");
 }
 ```
 Now let's run this game in the browser to see if our game still works after our refactor.
@@ -637,7 +637,7 @@ Now let's change our `alert` to include the round number.
 >
 > **Answer:** Use the `i` iterator. 
 > ```javascript
-> window.alert('Welcome to Robot Gladiator! Round ' + (i + 1));
+> window.alert("Welcome to Robot Gladiator! Round " + (i + 1));
 > ```
 
 Notice how we need to add one to the iterator of the `for` loop since our first round is at one, not zero. The iterator syncs to our round number so this will work nicely. 
@@ -646,7 +646,7 @@ What else should we place inside this conditional code block? We could proceed w
 ```javascript
 if (playerHealth > 0) {
     // let user know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-    window.alert('Welcome to Robot Gladiator! Round ' + (i + 1));
+    window.alert("Welcome to Robot Gladiator! Round " + (i + 1));
 
     // pick new enemy to fight based on the index of the enemyNames array
     var pickedEnemyName = enemyNames[i];
@@ -668,7 +668,7 @@ Let's see how this new message functions in the game.
 
 Our next step would be to add a message that notifies the player when the game is over when the player robot has been defeated. We can use the `else` conditional statement since this occurs only when the player robot has no health or when it has been defeated. Let's add this statement to below our `if` statement:
 ```javascript
-  else alert('You have lost your robot in battle! Game Over!');
+  else alert("You have lost your robot in battle! Game Over!");
 ```
 Notice how the curly braces are missing in this conditional. They are only necessary if the executing code is more than one line. For a single line of code to execute, the statement may be combined to a single line.
 
