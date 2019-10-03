@@ -335,7 +335,7 @@ These operations create a separate, isolated version of the remote branch on the
 
 #### Git Merge
 
-The `git merge` operation, on the other hand, merges the target branch into the active branch. This updates the active branch with code differences in the target branch.
+The `git merge` operation, on the other hand, updates the active branch with changes from the target branch. The target branch refers to the branch that contains the changes we need to add. Once they are merged, the active branch has been updated with the changes in the target branch. The target branch however is unchanged.
 
 ```
 git merge <target-branch>
