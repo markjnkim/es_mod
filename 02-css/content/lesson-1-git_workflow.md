@@ -331,7 +331,7 @@ Next, use the following command to switch to that branch:
 git checkout <remote-branch-name>
 ```
 
-These operations create a separate, isolated version of the remote branch on the local machine and no updates or merges occurred. This code can be rendered in the browser, tested, code reviewed, or changed as needed separate from any other local branch. These changes can then be staged, committed, and pushed back to the remote repo.
+These operations create a separate, isolated version of the remote branch on the local machine. No updates or merges occurred to any other local branch during this process. This code can be rendered in the browser, tested, code reviewed, or changed as needed. These changes can then be staged, committed, and pushed back to the remote repo.
 
 #### Git Merge
 
