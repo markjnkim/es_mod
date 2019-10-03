@@ -319,7 +319,7 @@ Let's dive deeper into the `pull` process. The `pull` command is actually a comb
 
 The `git fetch` command updates the local repo with any changes in the remote repo since the last `fetch` command. A use case for `git fetch` would be to look at a team member's feature branch for a review process or to help find a bug. 
 
-The remote branch is downloaded by using the following command:
+The remote branch is downloaded by using the `fetch` command:
 
 ```
 git fetch origin <remote-branch-name>
