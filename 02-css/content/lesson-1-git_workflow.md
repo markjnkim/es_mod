@@ -8,6 +8,8 @@ Here's the mock-up for Run Buddy version 2.0, which we'll build over the course 
 
 ![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
+Notice that there are some large changes we are planning to make, like the addition of the price comparison table, and some that are a bit more subtle, like the rounded corners of our input fields and the Call-To-Action form container. Some of the changes are not visible at all since they are contingent on user interaction. So let's first get our development environment set up before we proceed.
+
 Because the current codebase is live, we can't make changes directly to it without disturbing Run Buddy's users. We need a workflow that will let us work on a copy of the website code and then merge the changes into the live site. This is where our friend Git comes back into play.
 
 In this lesson, we'll learn about three important software development workflow concepts:
