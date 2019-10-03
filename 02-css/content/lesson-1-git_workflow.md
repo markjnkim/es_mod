@@ -307,7 +307,7 @@ As you can see in the following diagram, the remote repo has converged with the 
 
 ![Git Pull](assets/lesson-1/250-pull-git.png)<!-- Illustration lacks direction-->
 
-> **Graphic Reproduction Request: [Git Pull: Jira FSFO-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
+> **Graphic Reproduction:** [Git Pull: Jira FSFO-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
 
 > **Video:** Nice to Have: Animation - Showing Data Flow Direction[Git Pull & Git Push: JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
 
