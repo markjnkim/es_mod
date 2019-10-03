@@ -369,6 +369,11 @@ Let's go with the second option, using `git merge master`, so we can practice me
 > 1) `git checkout develop`
 > 2) `git merge master`
 
+Go ahead and type the following commands to update the `develop` branch:
+
+`git checkout develop`
+`git merge master`
+
 To verify that the merge was successful, look for the `README.md` file in the `develop` branch. If you were able to successfully add it, congrats! 
 
 Dealing with multiple branches and trying to update them locally and remotely can be challenging. Some common missteps include misspelling a branch name or losing sight of the active branch or which branch needs the update. 
@@ -447,7 +452,7 @@ The following image shows how VS Code presents this conflict:
 Let's go over the three major areas of interest (note that the highlighting shown here is specific to the formatting in VS Code):
 
 * The highlighted areas represent the two versions of the same code or text. The green highlight is labeled as the "Current Change." This represents the active branch modification.
-The blue highlight indicates the second version of the same conflicting code or text that is labeled "Incoming Change" noting it is coming from the target branch (in this case, the remote branch). To learn more about the notation for the HEAD and commit reference, please take a look at the [Atlassian Docs about resolving merge conflicts](https://confluence.atlassian.com/bitbucket/resolve-merge-conflicts-704414003.html).
+The blue highlight indicates the second version of the same conflicting code or text that is labeled "Incoming Change" noting it is coming from the target branch (in this case, the remote branch). To learn more about the notation for the HEAD and commit reference, please take a look at the [Atlassian docs about resolving merge conflicts](https://confluence.atlassian.com/bitbucket/resolve-merge-conflicts-704414003.html).
 
 * Above the green highlight, several options to resolve this conflict appear. The first is to "Accept Current Change," which refers to the green highlighted code and represents the active branch modification. The second is to "Accept Incoming Change," which refers to the blue highlighted code or the target branch. 
 
