@@ -579,9 +579,9 @@ Let' move our skip conditional statement to the top and convert it from an `else
 This conditional statement will follow directly after the prompt at the beginning of the `while` loop.
 ```javascript
     // ask user if they'd liked to fight or run
-    var promptFight = window.prompt("Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.");
+    var promptFight = window.prompt("Would you like FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
 ```
-The rest of the `while` loop will simply contain the code operations for robots to fight with all the conditionals that hold crucial game logic to check for robot health. The reason why we don't have to check for the "fight" prompt anymore is that in regards to the game logic, as long as we satisfy the user's request to skip a robot, we can assume that our robots are here to fight.
+The rest of the `while` loop will contain the code operations for robots to fight with the conditionals that hold crucial game logic to check for each robot's health. The reason why we don't have to check for the "fight" value is returned by the prompt is that we assume fight is the default action unless specifically commanded by the user to do otherwise.
 The rest of the `fight()` function should now look similar to this:
 ```javascript
 // remove enemy's health by subtracting the playerAttack
@@ -597,7 +597,9 @@ if (enemyHealth <= 0) {
   // leave while() loop since enemy is dead
   break;
 } 
-else window.alert(enemyName + " still has " + enemyHealth + " health left.");
+else {
+  window.alert(enemyName + " still has " + enemyHealth + " health left.");
+}
 // remove players's health by subtracting the enemyAttack
 playerHealth = playerHealth - enemyAttack;
 console.log(
@@ -609,7 +611,8 @@ if (playerHealth <= 0) {
   // leave while() loop if player is dead
   break;
 } 
-else window.alert(playerName + " still has " + playerHealth + " health left.");
+else {
+  window.alert(playerName + " still has " + playerHealth + " health left.");
 }
 ```
 Now let's run this game in the browser to see if our game still works after our refactor.
@@ -620,27 +623,37 @@ It should look like this in the console:
 Excellent work. This would be a great place to preserve our work in Github so let's do that now then proceed to the final step of this lesson.
 
 ### Game State Messages
-For this last part of game improvements, let's add messages to notify our users about the state of the game including the round number and the game ending. This will improve the player's experience, always a bonus with game jam judges. Earlier in this lesson we removed our welcome message: `alert("Welcome to Robot Gladiator!")` from our `fight()` function. Let's place it back into our game but also give it the task of announcing the round of battle.
-We will consider a round to be a when a new enemy robot is introduced to fight. 
-Since new robots will be introduced in the `for` loop which iterates through the array, this would seem to be a great place to start. The `while` loop wouldn't be as good of an option since the enemy robot exists there in many games states due to the consecutive rounds of fighting. We could simply add the `alert()` however there could be a scenario that occurs when a player robot has been defeated however there are still enemy robots left in the array. In this case the low player robot's health would break the `while` loop at the conditional code block for `if (playerHealth <= 0)` and return to the `for` loop. At that point, the `for` loop's condition would be met so a new robot would be presented to the `fight()` although this condition in the `while` loop: `while (playerHealth > 0 && enemyHealth > 0) ` would be false so fighting would not start.
-> **Pause:** Can you think of a way of preventing this scenario from happening?
+For this last part of game improvements, let's add the following messages to notify our users about the state of the game:
+
+* Round number 
+* Game Over
+
+Adding these messages will improve the player's experience, always a bonus with game jam judges. Earlier in this lesson we removed our welcome message: `alert("Welcome to Robot Gladiator!")` from our `fight()` function. Let's place it back into our game and add the round number.
+#### Add the Round Number
+We will consider a new round to start a when a new enemy robot is introduced to fight. 
+Since enemy robots will be introduced in the `for` loop which iterates through the `enemyNames` array, this would seem to be a great place to start. Inside he `while` loop wouldn't be as good of an option since the enemy robot exists there in many game states due to the consecutive rounds of fighting. 
+
+<!-- We could add the `alert()` however there could be a scenario that occurs when a player robot has been defeated however there are still enemy robots left in the array. In this case the low player robot's health would break the `while` loop at the conditional code block for `if (playerHealth <= 0)` and return to the `for` loop. At that point, the `for` loop's condition would be met so a new robot would be presented to the `fight()` although this condition in the `while` loop: `while (playerHealth > 0 && enemyHealth > 0) ` would be false so fighting would not start. -->
+
+
+> **Pause:** Can you think of a scenario when a new robot enemy is presented, but a new round of battle should not begin?
 >
-> **Answer:** Let's use a conditional statement that checks the player's health and only allows the message to occur if the player is still able to fight.
+> **Answer:** In the scenario when a player robot has been defeated, the `while` loop would then exit back to the `for` loop. The `for` loop would then execute if there are more enemy robots to battle. Then a new enemy robot is presented however a new round of battle should not begin since the player robot has no health. Let's introduce a conditional check to prevent this scenario. We will add the following statement to the top of our  `for` loop code block:
 
 ```javascript
 if (playerHealth > 0){
-  `alert("Welcome to Robot Gladiator!")`
+  window.alert("Welcome to Robot Gladiator!");
 }
 ```
-Now let's change our `alert` to include the round number. 
-> **Pause:** How do we get the round number in the `for` loop?
+Let's change our `alert` to include the round number. 
+> **Pause:** What is the relation between the iterator in the `for` loop and the round number?
 >
-> **Answer:** Use the `i` iterator. 
+> **Answer:** Since each new robot initiates a new round and the iterator increments at the beginning of each round, these two counters map together well. The difference is the round number starts at one where the iterator starts and zero. By increasing the iterator by one, the round number can be calculated as follows: 
 > ```javascript
-> window.alert("Welcome to Robot Gladiator! Round " + (i + 1));
+> window.alert("Welcome to Robot Gladiator! Round " + ( i + 1 ) );
 > ```
 
-Notice how we need to add one to the iterator of the `for` loop since our first round is at one, not zero. The iterator syncs to our round number so this will work nicely. 
+Notice how the `( i + 1 )` was wrapped in parentheses. What happens if we remove the parentheses? The parentheses are important because they allow the arithmetic operation to perform and then concatenates this sum to the string message. Without the parentheses, the `i` does not add the one but treats it like a string and concatenates the one, which is not what we are looking for.
 
 What else should we place inside this conditional code block? We could proceed with placing all our code from our `for` loop into this conditional block so these steps only occur when a player has health. Let's proceed with that so our conditional statement looks like this:
 ```javascript
@@ -666,32 +679,22 @@ Let's see how this new message functions in the game.
 ![Game Round Alert](./assets/lesson-2/2500-game-round-alert.png)
 > **Video:** [Gif - Demo of Round Alerts Jira FSFO-167](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-167)
 
-Our next step would be to add a message that notifies the player when the game is over when the player robot has been defeated. We can use the `else` conditional statement since this occurs only when the player robot has no health or when it has been defeated. Let's add this statement to below our `if` statement:
+Our next step would be to add a message that notifies the player when the game is over when the player robot has been defeated. We can use the `else` conditional statement since this occurs only when the player robot has no health or when it has been defeated. Let's add this statement below our `if` statement:
 ```javascript
-  else alert("You have lost your robot in battle! Game Over!");
+  else {
+    alert("You have lost your robot in battle! Game Over!")
+  }
 ```
-Notice how the curly braces are missing in this conditional. They are only necessary if the executing code is more than one line. For a single line of code to execute, the statement may be combined to a single line.
-
-<!-- > **Build up showing need of conditional for `alert()` removed due to word count:** -->
+To execute the above statement, what is the current state of the player robot?
+The player robot has been defeated.
 
 ## Reflection
 Great job! We now have a game that is playable and nearly complete in regards to our MVP. We are making excellent progress in our game jam so far. Seeing that we still have some time left, let's add some interesting game play features to increase game complexity and randomness since a predictable game can be a bit boring. This will go over well with the game jam judges since at the end of the day more engagement is a key metric for any game. Before we continue, let's review some of the key concepts we have covered so far in this lesson.
 
 We learned some of the basic building blocks of JavaScript and how to implement them in an application.
   * Arrays are data structures similar to an ordered list that allows storage of data at numeric indexes.
-  * The `for` and `while` loops allow for line(s) of code to be executed repeatedly until the conditional statements in their arguments are false which will then break the loop.
+  * The `for` and `while` loops allow for blocks of code to be executed repeatedly until their conditional statements evaluate to false which will then break the loop.
   * Using `console.log` and the `debugger` statement allows for variables to be revealed in the browser at certain moments of the program's execution.
   * A great way to start thinking about how to code is to first pseudocode the step. This will help think in terms of the computer's instruction and also give structure and organization to project building.
 
 Going forward in this module and beyond, we will continue to use and build upon these skills and learn new skills that leverage our current knowledge.
-
-
-
-<!-- 
-
-1) Let's reward the player robot for defeating robots
-2) Display round of battle.
-3) Improve the user experience with a message noting when it is "Game Over".
- -->
-
-
