@@ -270,6 +270,7 @@ The next lines display what files were changed and how many lines were added in 
 
 ### Using Terminal Inside VS Code
 
+Having become familiar with the terminal on our computer to create, navigate, and delete files and folders in our file system, we can use an integrated terminal in VS Code that offers the exact same abilities, but in a shared window.
 One of the advantages of using the terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, VS Code has an Explorer side panel that displays an updated folder tree. If you don't see this side panel, open it by going to the menu bar under View > Explorer:
 
 ![Folder Tree](./assets/lesson-1/360-folder-tree.png)
