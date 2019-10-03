@@ -8,6 +8,8 @@ Here's the mock-up for Run Buddy version 2.0, which we'll build over the course 
 
 ![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
+Notice that there are some large changes we are planning to make, like the addition of the price comparison table, and some that are a bit more subtle, like the rounded corners of our input fields and the Call-To-Action form container. Some of the changes are not visible at all since they are contingent on user interaction. So let's first get our development environment set up before we proceed.
+
 Because the current codebase is live, we can't make changes directly to it without disturbing Run Buddy's users. We need a workflow that will let us work on a copy of the website code and then merge the changes into the live site. This is where our friend Git comes back into play.
 
 In this lesson, we'll learn about three important software development workflow concepts:
@@ -247,7 +249,7 @@ You should see the following screen after a successful `pull`:
 > **Important:** Instead of the success response, you might see a message request in the command prompt that looks like this:
 ![Vim Text Editor](assets/lesson-1/200-vim-cli.png)
 >
->Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there is a local commit that differs from the the commit history in the incoming or targeted branch that is being merged. To exit out of this screen, type the following into the editor:
+>Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there is a local commit that differs from the commit history in the incoming branch that is being merged. To exit out of this screen, type the following into the editor:
 >1. Press ESC to enter normal mode.
 >1. Type : to initiate a Vim command.
 >1. Type q to quit.
@@ -268,6 +270,7 @@ The next lines display what files were changed and how many lines were added in 
 
 ### Using Terminal Inside VS Code
 
+Having become familiar with the terminal on our computer to create, navigate, and delete files and folders in our file system, we can use an integrated terminal in VS Code that offers the exact same abilities, but in a shared window.
 One of the advantages of using the terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, VS Code has an Explorer side panel that displays an updated folder tree. If you don't see this side panel, open it by going to the menu bar under View > Explorer:
 
 ![Folder Tree](./assets/lesson-1/360-folder-tree.png)
@@ -317,7 +320,7 @@ Let's dive deeper into the `pull` process. The `pull` command is actually a comb
 
 The `git fetch` command updates the local repo with any changes in the remote repo since the last `fetch` command. A use case for `git fetch` would be to look at a team member's feature branch for a review process or to help find a bug. 
 
-The remote branch is downloaded by using the following command:
+The remote branch is downloaded by using the `fetch` command:
 
 ```
 git fetch origin <remote-branch-name>
@@ -329,11 +332,11 @@ Next, use the following command to switch to that branch:
 git checkout <remote-branch-name>
 ```
 
-These operations create a separate, isolated version of the remote branch on the local machine and no updates or merges occurred. This code can be rendered in the browser, tested, code reviewed, or changed as needed separate from any other local branch. These changes can then be staged, committed, and pushed back to the remote repo.
+These operations create a separate, isolated version of the remote branch on the local machine. No updates or merges occurred to any other local branch during this process. This code can be rendered in the browser, tested, code reviewed, or changed as needed. These changes can then be staged, committed, and pushed back to the remote repo.
 
 #### Git Merge
 
-The `git merge` operation, on the other hand, merges the target branch into the active branch. This updates the active branch with code differences in the target branch.
+The `git merge` operation, on the other hand, updates the active branch with changes from the target branch. The target branch refers to the branch that contains the changes we need to add. Once they are merged, the active branch has been updated with the changes in the target branch. The target branch however is unchanged.
 
 ```
 git merge <target-branch>
@@ -368,6 +371,11 @@ Let's go with the second option, using `git merge master`, so we can practice me
 > **Answer:** 
 > 1) `git checkout develop`
 > 2) `git merge master`
+
+Go ahead and type the following commands to update the `develop` branch:
+
+`git checkout develop`
+`git merge master`
 
 To verify that the merge was successful, look for the `README.md` file in the `develop` branch. If you were able to successfully add it, congrats! 
 
@@ -447,7 +455,7 @@ The following image shows how VS Code presents this conflict:
 Let's go over the three major areas of interest (note that the highlighting shown here is specific to the formatting in VS Code):
 
 * The highlighted areas represent the two versions of the same code or text. The green highlight is labeled as the "Current Change." This represents the active branch modification.
-The blue highlight indicates the second version of the same conflicting code or text that is labeled "Incoming Change" noting it is coming from the target branch (in this case, the remote branch). To learn more about the notation for the HEAD and commit reference, please take a look at the [Atlassian Docs about resolving merge conflicts](https://confluence.atlassian.com/bitbucket/resolve-merge-conflicts-704414003.html).
+The blue highlight indicates the second version of the same conflicting code or text that is labeled "Incoming Change" noting it is coming from the target branch (in this case, the remote branch). To learn more about the notation for the HEAD and commit reference, please take a look at the [Atlassian docs about resolving merge conflicts](https://confluence.atlassian.com/bitbucket/resolve-merge-conflicts-704414003.html).
 
 * Above the green highlight, several options to resolve this conflict appear. The first is to "Accept Current Change," which refers to the green highlighted code and represents the active branch modification. The second is to "Accept Incoming Change," which refers to the blue highlighted code or the target branch. 
 
@@ -480,7 +488,8 @@ Now that we our local `master` branch is updated, our development environment ne
 > **Pause:** How do we update the `develop` branch with the `master`?
 
 > **Answer:** Checkout into the `develop` branch, then `git merge master`.
-
+> * `git checkout develop`
+> * `git merge master`
 Now our development environment is ready to go! Please note that it is not typical to make commits directly to the `develop` or `master` branch in a real-world team environment in a workplace. In our example, we created a merge conflict in the `README.md` so as not to alter the code in any way. 
 
 Now let's get back into our Git workflow and learn about a service provided by GitHub called Git issues.
