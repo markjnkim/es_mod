@@ -480,7 +480,8 @@ Now that we our local `master` branch is updated, our development environment ne
 > **Pause:** How do we update the `develop` branch with the `master`?
 
 > **Answer:** Checkout into the `develop` branch, then `git merge master`.
-
+> * `git checkout develop`
+> * `git merge master`
 Now our development environment is ready to go! Please note that it is not typical to make commits directly to the `develop` or `master` branch in a real-world team environment in a workplace. In our example, we created a merge conflict in the `README.md` so as not to alter the code in any way. 
 
 Now let's get back into our Git workflow and learn about a service provided by GitHub called Git issues.
