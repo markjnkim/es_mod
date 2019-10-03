@@ -249,7 +249,7 @@ You should see the following screen after a successful `pull`:
 > **Important:** Instead of the success response, you might see a message request in the command prompt that looks like this:
 ![Vim Text Editor](assets/lesson-1/200-vim-cli.png)
 >
->Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there is a local commit that differs from the the commit history in the incoming or targeted branch that is being merged. To exit out of this screen, type the following into the editor:
+>Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there is a local commit that differs from the commit history in the incoming branch that is being merged. To exit out of this screen, type the following into the editor:
 >1. Press ESC to enter normal mode.
 >1. Type : to initiate a Vim command.
 >1. Type q to quit.
