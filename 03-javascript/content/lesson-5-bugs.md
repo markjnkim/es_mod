@@ -598,24 +598,23 @@ Let's test our latest feature by running our game and see if we can get the high
 
 ![High Score Local Storage](./assets/lesson-5/1000-high-score.png)
 
-Kudos on a job well done! Let's ship this to the `master` quickly so we can the game jam deadline just in the nick of time. The judges will surely be impressed with how much we were able to achieve in such a short amount of time and experience. Let's remember to close this issue and then bask in our glory as we are now JavaScript developers.
+Kudos on a job well done! Let's ship this to the `develop` branch after our normal add, commit, and push commands and then merge those changes into the `master` branch before the game jam deadline. The judges will surely be impressed with how much we were able to achieve in such a short amount of time and experience. Let's remember to close this issue and then bask in our glory as we are now JavaScript developers.
 
 ## Reflection
 Great job on completing not only our MVP for our Robot Gladiator game, but also adding some nice features and error handling. In this lesson we accomplished the following:
 * Managed time and focus by tracking bugs and feature requests in GitHub issues
-* Intelligently prioritized the issues
+* Intelligently prioritized the Github Issues
 * Validated user input prior to operating on it. (Life skill!)
 * Refactored for simplicity and maintainability
 * Used a recursive function!
-* Distinguish between number and string types
-* Learned how to persist data in the browser with localStorage
+* Distinguish and convert between number and string types
+* Learned how to persist data in the browser with `localStorage`
 
-Let's recap what we learned in this module:
-* primitives
-* functions
-* objects
-* conditional statements
-* operators
+Let's recap what we learned in this module about JavaScript:
+* Primitive data types establish how data is stored and manipulated
+* Functions contain code that can be invoked when desired offering control over the applications actions, less repetition, and abstraction that can lead to isolating potential bugs and data variables.
+* Objects offer unique abilities to store properties and methods.
+* Control flow statements such as conditional statements and `for` and `while` loops direct the order of operations and behavior of the application.
 
 These concepts will provide a solid JavaScript foundation that we will build on for the rest of the course. Plus we created a functional game that is actually fun to play!
 
