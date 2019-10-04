@@ -13,7 +13,7 @@ var startGame = function() {
     // if player is still alive, keep fighting
     if (playerInfo.health > 0) {
       // let user know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-      window.alert("Welcome to Battlebots! Round " + (i + 1));
+      window.alert("Welcome to Robot Gladiator! Round " + (i + 1));
 
       // pick new enemy to fight based on the index of the enemyInfo array
       var pickedEnemyObj = enemyInfo[i];
@@ -59,7 +59,7 @@ var endGame = function() {
   if (playAgainConfirm) {
     startGame();
   } else {
-    window.alert("Thank you for playing Battlebots! Come back soon!");
+    window.alert("Thank you for playing Robot Gladiator! Come back soon!");
   }
 };
 
