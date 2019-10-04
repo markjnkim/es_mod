@@ -183,7 +183,21 @@ Every command we just utilized is one we've seen and used before, but never in t
 
 > **Urkel Says:** Using a semicolon in programming is often referred to as a "terminator," meaning that it is used to inform the computer reading and running the code where a command ends so the next command can begin.
 
-We have our 
+Now that we have all of our files created, let's go ahead and open up our project in Visual Studio Code. Remember, there's two main ways to do this:
+
+- Open VSCode, find the menu option to open a new project folder. Then use their navigator to locate your project and open the whole folder into the program.
+
+- From the command line, make sure you are in the root of your project's directory and type in the following command to automatically open the whole project:
+
+```bash
+code .
+```
+
+> **Pause:** What does the period `.` mean when referring to directory and file paths?
+>
+> Answer: A single period `.` tells the machine that we are referring to the directory we are currently in. So when we say `code .`, we are commanding VSCode to load every file and folder from this directory into the program.
+
+Once VSCode has everything loaded up, let's turn our attention to the `index.html` file and open it up in the editor, then copy and paste the following code into it: 
 
 ```html
 <!DOCTYPE html>
@@ -200,16 +214,13 @@ We have our
 </html>
 ```
 
-That looks like the boilerplate for blank web page! There is one interesting
-element in the `<body>` of that page:
+That looks like the boilerplate for blank web page! There is one interesting element in the `<body>` of that page:
 
 ```html
 <script src="./assets/js/game.js"></script>
 ```
 
-We weren't told anything about a `game.js` file. We know that the `.js`
-extension means that it's a JavaScript file. But we weren't given a `game.js`
-file! We'll have to make one. We'll also have to learn some JavaScript...
+We weren't told anything about a `game.js` file. We know that the `.js` extension means that it's a JavaScript file. But we weren't given a `game.js` file! We'll have to make one. We'll also have to learn some JavaScript...
 
 ## Use JavaScript functions to communicate with the player
 
