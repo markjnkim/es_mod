@@ -113,8 +113,6 @@ while (name === "" || name === null) {
 }
 ```
 Notice how the condition repeatedly prompts the user if the responses are either "" or null. It is important to initialize the `name = ""` to enter the `while` loop at least once to prompt the user for the player robot name. Notice that the blank is identified as "" also known as an empty string. 
-<!-- 
-> **Pro Tip/Shortcut:** We can use the `!` operator known as the "not" operator with the knowledge that falsy values such as "", null, undefined and 0 to evaluate to false in a conditional expression to  -->
 
 Because the `getPlayerName()` function now returns a valid player name we can place the function call in our `playerInfo` object in the `name` property.
 ```javascript
@@ -282,26 +280,6 @@ Let's create another branch from this Github Issue: `feature/shop` and look at o
 
 ![Github Issue Integer Input Screenshot](./assets/lesson-5/480-github-issue-3.png)
 
-<!-- Here is another case that could use a recursive error handling function call to re-prompt the user for invalid responses.
-Let's use our `test()` function example and our `fightOrSkip()` function to create a conditional statement that will recursively call the function until valid information is entered in the `prompt()`.
-> **Pause:** Create this conditional statement in the `shop()` function.
->
-> **Answer:** The conditional statement should occur after the `shopOptionPrompt` expression.
-The conditional statement should look like this:
-```javascript
- // check if prompt answer was left blank, user hit "cancel"
-  if (shopOptionPrompt === null || shopOptionPrompt === "") {
-    window.alert("You need to provide a valid answer! Please try again.");
-    return shop();
-  }
-``` -->
-As can be seen from our Github issue, we will allow our responses to accept numbers to represent our three `shop()` function actions.
-After many rounds of fighting, it does get a bit tiresome typing in the same responses over and over again. By allowing numbers to be entered instead of strings, we decease the amount of typing required, eliminate potential typos, and improve the user experience.
-
-Changing to a numeric system is favorable due to the added simplicity but how do we accomplish this task?
-We can simply change our switch case to accept numbers instead of our key phrases.
-<!-- Let's make this change to our conditional statements and test our work by running our game.
-As we can see we are no longer to choose the options in our shop, but constantly get re-prompted to enter a valid option. -->
 To make our switch case statements work properly we will need another method to help us convert data type. The `prompt()` method actually returns a string so instead of the integer 1, we are actually receiving the string "1" in our prompt response. 
 > **Pause:** Let's look to Google to find a function that will convert strings into integers. Please take a moment to search for this built-in JavaScript function.
 >
@@ -316,17 +294,6 @@ var shopOptionPrompt = window.prompt(
     "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
   );
 ```
-<!-- 
-Let's add a bit more input control over our `prompt()` to only allow numbers to be entered as a valid response.
-Thankfully we have a method called `isNaN()` that is able to check if a value is **N**ot a **N**umber or isNaN. By placing this added restriction in our error handling conditional following the shop prompt, we will force our prompt responses to be a number. 
-The conditional should be similar to the following:
-```javascript
- // check if prompt answer was left blank, user hit "cancel", or provided a number instead
-  if (shopOptionPrompt === null || shopOptionPrompt === "" || isNaN(shopOptionPrompt)) {
-    window.alert("You need to provide a valid answer! Please try again.");
-    return shop();
-  }
-``` -->
 
 Let's save our file and reload the `index.html` file in our browser.
 Once we are satisfied with the result let's ship our feature to the develop  and move onto the next Github issue.
