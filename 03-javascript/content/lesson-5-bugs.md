@@ -615,6 +615,7 @@ Let's recap what we learned in this module about JavaScript:
 * Functions contain code that can be invoked when desired offering control over the applications actions, less repetition, and abstraction that can lead to isolating potential bugs and data variables.
 * Objects offer unique abilities to store properties and methods.
 * Control flow statements such as conditional statements and `for` and `while` loops direct the order of operations and behavior of the application.
+* Use `console.log` and Chrome's `debugger` statements to reveal values of variables at specific moments in the application's execution process.
 
 These concepts will provide a solid JavaScript foundation that we will build on for the rest of the course. Plus we created a functional game that is actually fun to play!
 
