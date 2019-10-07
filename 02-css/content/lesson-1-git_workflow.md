@@ -6,11 +6,11 @@ The Run Buddy website has been a huge success! That means management has both th
 
 Here's the mock-up for Run Buddy version 2.0, which we'll build over the course of this module:
 
-![version_2.0-mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
+![Run Buddy version 2.0 mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
-Notice that there are some large changes we are planning to make, like the addition of the price comparison table, and some that are a bit more subtle, like the rounded corners of our input fields and the Call-To-Action form container. Some of the changes are not visible at all since they are contingent on user interaction. So let's first get our development environment set up before we proceed.
+Notice that there are some big changes we are planning to make&mdash;like adding a price comparison table&mdash;and some that are a bit more subtle&mdash;like rounding the corners of the input fields and the call-to-action form container. Some of the changes we'll make aren't visible in the mock-up because they involve user interaction. 
 
-Because the current codebase is live, we can't make changes directly to it without disturbing Run Buddy's users. We need a workflow that will let us work on a copy of the website code and then merge the changes into the live site. This is where our friend Git comes back into play.
+The first thing we need to do is set up our development environment. Because the current codebase is live, we can't make changes directly to it without disturbing Run Buddy's users. We need a workflow that will let us work on a copy of the website code and then merge the changes into the live site. This is where our friend Git comes back into play.
 
 In this lesson, we'll learn about three important software development workflow concepts:
 
@@ -24,19 +24,19 @@ In this lesson, we'll learn about three important software development workflow 
 
 ## Development vs. Production Environments
 
-Git allows developers to create copies of the codebase, known as **branches**. Our live site runs from the `master` branch; this is known as the **production environment**. The branch we create to work on will be a copy of the `master` branch; this will be our **development environment**. We'll name it the `develop` branch. 
+Git allows developers to create copies of the codebase, known as **branches**. Our live site runs from the `master` branch; this is known as the **production environment**. The branch we create to work on will be a copy of the `master` branch. This will be our **development environment**. We'll name it the `develop` branch. 
 
-As a rule, production environments should never be worked on directly because any bugs or errors that are introduced will be immediately apparent to users. This is where Git branching comes in&mdash;it allows us to isolate versions of the code for development and testing. This is known as **working in isolation**.  
+As a rule, production environments should never be worked on directly because any bugs or errors that are introduced will be immediately apparent to users. This is where Git branching comes in. Git branching allows us to isolate versions of the code for development and testing. This is known as **working in isolation**.  
 
 > **Pro Tip:** Branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, but in our scenario this will be the case. 
 
 The `develop` branch will be where we develop and test new features. Once we're satisfied with the result and have a stable working version, we'll **merge** the `develop` branch into the `master` branch. This adds the new features and enhancements into the live production environment and updates the website for our users.
 
-## Create Our Development Environment
+## Create a Development Environment
 
 Before we create our development environment, let's learn some new Git commands: 
 
-* `git branch` displays a list of all the branches in the repo. It also highlights which branch you are in, which is called the **active branch** or **working directory**.
+* `git branch` displays a list of all the branches in the repo. It also highlights the branch you're in, which is called the **active branch** or **working directory**.
 
 * `git branch <branch-name>` creates a new branch (with your `<branch-name>`) that is a version of the current active branch. After you commit changes to the new branch, the branches will no longer be in sync with each other because their commit histories will diverge. 
 
@@ -70,9 +70,9 @@ git branch
 Your terminal should now look like this:
 
 
-![Develop Branch Active](./assets/lesson-1/004-active-branch-terminal.png)
+![Terminal showing the develop branch active](./assets/lesson-1/004-active-branch-terminal.png)
 
-The green font color and asterisk indicates the active branch, or working directory. 
+The green font color and asterisk indicate the active branch. 
 
 `git branch` may be one of the most commonly used Git commands because it's important to know which branch you're in when undertaking any Git workflow operation. 
 
@@ -90,7 +90,7 @@ We just created a `develop` branch as a development environment to protect and i
 
 The following diagram introduces the concept of feature branches:
 
-![Feature Branch](assets/lesson-1/60-feature-branch.png)
+![Diagram showing how develop and feature branches relate](assets/lesson-1/60-feature-branch.png)
 
 As can be seen in the diagram, several feature branches can be branched off the `develop` branch. Once the feature is complete, it's merged back into the `develop` branch. 
 
@@ -147,11 +147,11 @@ Made with ❤️ by [your name]
 
 Click the preview tab to view the stylized version:
 
-![Markdown Preview](./assets/lesson-1/169-markdown-preview.png)
+![Preview of the README.md file](./assets/lesson-1/169-markdown-preview.png)
 
 Add a message for the commit (you can keep the default "Create README.md") and then click the "Commit new file" button:
 
-![Commit to Master](./assets/lesson-1/180-markdown-commit.png)
+![Screenshot showing Commit new file dialog in GitHub](./assets/lesson-1/180-markdown-commit.png)
 
 To check to see if the `README.md` file was created properly, see if it's visible on the repo's landing page:
 
@@ -159,7 +159,7 @@ To check to see if the `README.md` file was created properly, see if it's visibl
 
 At the top of this image we see the branches tab. This is a subset of tabs located in the Code tab. If you don't see the branches option, the Code tab may not be selected. Click on this option to look at our branches to see the following:
 
-![GitHub Branches](./assets/lesson-1/190-branches-github.png)
+![Screenshot of the GitHub repository showing that the README.md file was created](./assets/lesson-1/190-branches-github.png)
 
 > **Pause:** We see the `master` branch, but we don't see the `develop` branch we just created. Can you explain why?
 >
@@ -183,13 +183,13 @@ git push origin develop
 
 Let's look at the branch tab in the run-buddy repo on GitHub to see if it worked:
 
-![Develop Branch in GitHub](./assets/lesson-1/006-github-develop.png)
+![Screenshot showing that develop branch was created in GitHub](./assets/lesson-1/006-github-develop.png)
 
 Yup! There's our new `develop` branch. 
 
 If you click on the `develop` link, you can navigate to the `develop` branch of the repo, shown here:
 
-![Develop Version in GitHub](./assets/lesson-1/005-github-develop-branch.png)
+![Screenshot showing develop branch in GitHub](./assets/lesson-1/005-github-develop-branch.png)
 
 Do you see the notification (highlighted in yellow) that the new `develop` branch was created? Also notice that the "Branch: master" dropdown menu now has the ability to select `develop` or `master`.
 
@@ -206,9 +206,9 @@ As you can see, the `README.md` file you just created in GitHub isn't in your lo
 
 The following diagram shows the relationship between local and remote branches and commits:
 
-![Local vs Remote](assets/lesson-1/240-branch-github.png)
+![Diagram showing relationship between local and remote repositories](assets/lesson-1/240-branch-github.png)
 
-[URL](https://www.atlassian.com/git/tutorials/syncing/git-pull)
+[**IMAGE NEEDS TO BE RE-CREATED.** URL](https://www.atlassian.com/git/tutorials/syncing/git-pull)
 
 <!-- Illustrate the problem -->
 
@@ -246,10 +246,10 @@ Let's `pull` the remote `master` branch that contains the `README.md` file into 
 
 You should see the following screen after a successful `pull`:
 
-![pull-success](assets/lesson-1/300-pull-success-git.png)
+![Terminal window showing a successful pull request](assets/lesson-1/300-pull-success-git.png)
 
 > **Important:** Instead of the success response, you might see a message request in the command prompt that looks like this:
-![Vim Text Editor](assets/lesson-1/200-vim-cli.png)
+![Vim text editor showing message request](assets/lesson-1/200-vim-cli.png)
 >
 >Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there is a local commit that differs from the commit history in the incoming branch that is being merged. To exit out of this screen, type the following into the editor:
 >1. Press ESC to enter normal mode.
@@ -275,18 +275,18 @@ The next lines display what files were changed and how many lines were added in 
 Having become familiar with the terminal on our computer to create, navigate, and delete files and folders in our file system, we can use an integrated terminal in VS Code that offers the exact same abilities, but in a shared window.
 One of the advantages of using the terminal window in VS Code is that when we `checkout` to a different branch or perform a `merge` operation, VS Code has an Explorer side panel that displays an updated folder tree. If you don't see this side panel, open it by going to the menu bar under View > Explorer:
 
-![Folder Tree](./assets/lesson-1/360-folder-tree.png)
+![Folder tree in VS Code](./assets/lesson-1/360-folder-tree.png)
 
 This folder tree is interactive. You can expand or close folders and open or add files. A file can also be dragged and dropped into a split screen to view multiple files simultaneously. 
 
 Also note that on the bottom left status bar in VS Code, the active branch is displayed to help keep track of the version being edited or copied. It's important to check to make sure you're not working on the `master` branch&mdash;management would be very unhappy if the production environment got corrupted!
 
-![VS Code-Integrated Terminal](./assets/lesson-1/350-VS-Code-integrated-terminal.png)
+![VS Code Integrated Terminal](./assets/lesson-1/350-VS-Code-integrated-terminal.png)
 <!--Highlight active branch and preview for Markdown -->
 
 Another great feature VS Code offers is a Markdown preview. To see how your Markdown file looks in a browser, clck the magnifying glass icon at the top right of the text editor:
 
-![Markdown Preview](./assets/lesson-1/351-vs-code-markdown-preview.png)
+![Markdown review button icon](./assets/lesson-1/351-vs-code-markdown-preview.png)
 
 > **Video**-Gif: [Show how the Explorer changes on branch checkout - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog)
 
@@ -310,10 +310,13 @@ The `pull` command directs the download process to occur. The `origin` and `mast
 
 > **Video -** Animation: Showing Data Flow [Git Pull & Git Push-JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
 
-As you can see in the following diagram, the remote repo has converged with the local repo in the "H" merge commit. Now our two repos are synced up and have duplicate code.
+As you can see in the following diagram, the remote repo has converged with the local repo in the "H" merge commit: 
 
-![Git Pull](assets/lesson-1/250-pull-git.png)<!-- Illustration lacks direction-->
+![Diagram showing git pull](assets/lesson-1/250-pull-git.png)<!-- Illustration lacks direction-->
 
+**IMAGE NEEDS TO BE RE-CREATED.**
+
+Now our two repos are synced up and have duplicate code. 
 
 Let's dive deeper into the `pull` process. The `pull` command is actually a combination of two different operations: `git fetch` and `git merge`.
 
@@ -347,7 +350,7 @@ In this operation, Git will determine any differences in the code between the ac
 
 The following diagram illustrates how these commands work: 
 
-![Git Pull](assets/lesson-1/260-git-fetch-merge-pull.png)
+![Diagram showing how git pull, git fetch, and git merge commands interact with the remote repository, local repository, and working copy](assets/lesson-1/260-git-fetch-merge-pull.png)
 
 After the merge, the active branch (in our case, the `master` branch) will receive the new file updates from the remote `master` branch and all of the commits associated with that branch. 
 
@@ -386,7 +389,7 @@ Let's do a bit of role playing to practice dealing with a merge conflict. Preten
 
 Go to the remote repo's landing page and click on the edit button or the pencil icon. The "Edit file" pane will open:
 
-![Edit README](./assets/lesson-1/380-GitHub-edit-README.png)
+![Screenshot of Edit File pane in GitHub](./assets/lesson-1/380-GitHub-edit-README.png)
 <!-- red highlight -->
 
 Add the following Markdown:
@@ -412,7 +415,7 @@ Made with ❤️ by [your name]
 
 Now commit those changes directly to the remote `master` branch by clicking the green "Commit changes" button shown in this screenshot:
 
-![Commit README.md changes](./assets/lesson-1/390-commit-changes.png)<br>
+![Screenshot of Commit changes pane in GitHub](./assets/lesson-1/390-commit-changes.png)<br>
 
 Now that we've made changes to the remote `master` branch, let's make a quick change to our local `README.md` file in the local `master` branch. This will create the merge conflict. 
 
@@ -436,7 +439,7 @@ git pull origin master
 
 The returning message in the command prompt should look something like this:
 
-![Command Prompt Conflict](./assets/lesson-1/391-command-prompt-conflict.png)
+![Terminal window showing a merge conflict](./assets/lesson-1/391-command-prompt-conflict.png)
 
 The most important lines in this corresponding message are the last two that say there is a merge conflict and the merge failed.
 
@@ -448,7 +451,7 @@ To proceed with the merge, Git requires input from the user to determine which m
 
 The following image shows how VS Code presents this conflict:
 
-![VS Code Merge Conflict](./assets/lesson-1/392-merge-conflict-vs-code.png)<br>
+![Merge conflict in VS Code showing the conflicting changes](./assets/lesson-1/392-merge-conflict-vs-code.png)<br>
 <!-- labels for Options and folder tree -->
 
 Let's go over the three major areas of interest (note that the highlighting shown here is specific to the formatting in VS Code):
@@ -468,7 +471,7 @@ Let's resolve this conflict and decide which version to keep. In our case, we'll
 
 > **Pause:** Notice that the last line of the text that we only added on the remote `README.md` was added without any conflict issue:
 >
->![README last line](./assets/lesson-1/395-readme-last-line.png)
+>![Last line of the README.md file showing the copyright line that we added earlier](./assets/lesson-1/395-readme-last-line.png)
 > Can you explain why?
 >
 > **Answer:** This line didn't conflict with anything in the local file; it was merely an addition to the file. 
@@ -554,9 +557,9 @@ Other formatting options we can add to this issue includes checkboxes, code bloc
 
 Notice on the right side panel, there are options to add labels or team member assignments. Let's add the Enhancement label to the `hero-text` issue now and assign it to ourselves. To do that, follow these steps:
 
-1. Click on the Assignees option.
-1. Click on the Labels option.
-1. Click on the "Submit new issue" button.
+1. Click the Assignees option.
+1. Click the Labels option.
+1. Click the "Submit new issue" button.
 
 You should see the following screen following a successful issue creation:
 
@@ -584,7 +587,7 @@ Go ahead and create a new Git issue for this feature. The finished issue should 
 
 The following image shows how the issue should appear in GitHub: 
 
-![Git Issue Contact-Form Success](assets/lesson-1/820-contact-git-issue.png) 
+![Screenshot of issue in GitHub](assets/lesson-1/820-contact-git-issue.png) 
 
 Notice that this issue was also assigned and labeled to provide more details for the development team.
 
@@ -606,7 +609,7 @@ Create the following issues:
 
 When you're done creating these, the Git Issues page should look like this:
 
-![Git Issues](./assets/lesson-1/830-git-issues.png)
+![Screenshot of list of Git issues](./assets/lesson-1/830-git-issues.png)
 
 Let's keep progressing through our project requirements. Typically, we'd assign each feature to a different team member so we can all work in parallel, but in our case we'll work through each issue ourselves to get better practice in CSS and Git workflow.
 
@@ -642,7 +645,7 @@ Please note that this made an exact copy of the `develop` branch, including the 
 
 Now confirm that your branch was created. Type `git branch` and you'll see the following:
 
-![Git Feature Branch](assets/lesson-1/910-integrated-terminal-vs-code.png)
+![Terminal showing git branch command](assets/lesson-1/910-integrated-terminal-vs-code.png)
 
 Notice how `git branch` was also used to verify the active branch.
 
@@ -659,7 +662,7 @@ Here's the mock-up:
 
 And here's the Git issue:
 
-![Git Issue Text Block Requirements](assets/lesson-1/1000-text-block-issue.png)
+![Screenshot of GitHub issue for text block](assets/lesson-1/1000-text-block-issue.png)
 
 On your own, practice your HTML skills by fulfilling the Git issue requirements and following the mock-up for guidance.
 
@@ -680,7 +683,7 @@ When you're done, the markup should look like this:
 
 Please save your file and then refresh the browser. The updated page should look like this: 
 
-![Hero Text Display](assets/lesson-1/1100-hero-text-markup-html.png)
+![Updated hero section with new text added](assets/lesson-1/1100-hero-text-markup-html.png)
 
 > **Pause:** Did you notice that the text runs into the sign-up form? Why does this occur?
 >
@@ -697,7 +700,7 @@ To replace the image, follow these steps:
 
 Save the file and render it in the browser. You should see the following:
 
-![Hero Image](assets/lesson-1/1200-hero-image.png)
+![Hero section with flipped hero image](assets/lesson-1/1200-hero-image.png)
 
 It doesn't look that great now, but we'll fix this later in the styling lesson. For now, our issue is complete so let's add and commit our work in this branch. We will make a slight change to our practiced Git workflow in this instance by pushing our local feature branch up to a remote feature branch. A good reason for this is to create a backup of our work just in case something like a lightening bolt or spilled cup of coffee accidentally destroys our local computer. 
 
@@ -711,7 +714,7 @@ We'll add the "push to remote branch" step to our Git workflow after every add a
 
 After a successful push, we can check our GitHub repo and see that our backup branch is now safe and secure. Here's our GitHub repo's branch tab, where we can see the `develop` and `feature/hero-text` branches:
 
-![New Remote Feature Branch](./assets/lesson-1/1250-remote-branch.png)
+![Screenshot of GitHub showing develop and feature branches](./assets/lesson-1/1250-remote-branch.png)
 
 ### Merge the Feature into the Development Environment
 
@@ -732,7 +735,7 @@ git merge feature/hero-text
 
 Upon successful merging, the terminal should look like this:
 
-![Merge Success Terminal](assets/lesson-1/1300-merge-success-terminal.png)
+![Terminal showing merge success](assets/lesson-1/1300-merge-success-terminal.png)
 
 This should look similar to the `git pull` operation we executed earlier in the lesson because we also performed a `git merge` operation then as well.
 
@@ -754,11 +757,11 @@ We'll follow the same procedure that we used for the `feature/hero-text` issue:
 
 Here is the design team's mock-up:
 
-![contact-form](assets/lesson-1/1400-Reach-Out-mock-up.png)
+![contact form mock-up](assets/lesson-1/1400-Reach-Out-mock-up.png)
 
 And here is the corresponding issue with the requirements: 
 
-![contact-form-issue](assets/lesson-1/1500-contact-us-requirement-issue.png)
+![contact form issue](assets/lesson-1/1500-contact-us-requirement-issue.png)
 
 Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters such as the size of the rendered input field, maximum character length, and whether it is a required input in order to submit. For more details, see the [MDN web docs on the textarea element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
@@ -778,6 +781,7 @@ Here is the markup:
      </form>
     </div>
 ```
+
 Next, follow the same steps that you used for the `hero-text` feature above.
 
 Once the markup has been inserted into the Reach Out section, add, commit, and push the `feature/contact-form` into the remote repo:
@@ -790,7 +794,7 @@ Now let's check to see if our contact form has been correctly added to the `deve
 First `checkout` into the `develop` branch and then render in the browser. You should see the following:
 
 <!-- >> ## Red outline bottom right corner of `<textarea>` to highlight input text field resizing. -->
-![Contact Form Render](assets/lesson-1/1600-contact-us-render-html.png)
+![Contact form](assets/lesson-1/1600-contact-us-render-html.png)
 
 Congrats! The markup has been successfully added. We'll format this later in the CSS lesson. 
 
