@@ -84,7 +84,7 @@ Don't worry if you're having a hard time memorizing these Git commands. If you w
 
 **Features** are additions or changes to a significant part of the codebase. For instance, major upgrades to a header, footer, or section would be considered a feature. A feature is normally developed in a separate branch called a `feature` branch.
 
-> **Video:** [Why working in isolation is important- JIRA FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) 
+> **Video:** [Multiple Development Environments: JIRA FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) 
 
 We just created a `develop` branch as a development environment to protect and isolate our production environment. In this step, we'll branch from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
 
@@ -206,11 +206,9 @@ As you can see, the `README.md` file you just created in GitHub isn't in your lo
 
 The following diagram shows the relationship between local and remote branches and commits:
 
-![Diagram showing relationship between local and remote repositories](assets/lesson-1/240-branch-github.png)
-
-[**IMAGE NEEDS TO BE RE-CREATED.** URL](https://www.atlassian.com/git/tutorials/syncing/git-pull)
-
-<!-- Illustrate the problem -->
+![Local vs Remote Repos](assets/lesson-1/240-branch-github.png)
+> **Graphic Reproduction:** [Git Pull Jira-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
+[URL](https://www.atlassian.com/git/tutorials/syncing/git-pull)
 
 In the image, the circles represent commits and the letters indicate unique commits or save points. As you can see, the remote `master` branch is not in sync with the `master` branch on the local repo. The commits are different on the two repos, which makes the versions different and out of sync. 
 
@@ -266,7 +264,7 @@ This will bring you back to your terminal window, which should display the succe
 
 As you can see from the success response, the `README.md` file has added 14 new lines.
 
-> **Video:** Animation - [Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
+> **Video:** Animation - [Jira FSFO-109: Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
 
 The next lines display what files were changed and how many lines were added in green "+" or removed in red "-". In our caes, we only have additions, so there are no red "-".
 
@@ -314,9 +312,9 @@ As you can see in the following diagram, the remote repo has converged with the 
 
 ![Diagram showing git pull](assets/lesson-1/250-pull-git.png)<!-- Illustration lacks direction-->
 
-**IMAGE NEEDS TO BE RE-CREATED.**
+> **Graphic Reproduction:** [Git Pull: Jira FSFO-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
 
-Now our two repos are synced up and have duplicate code. 
+> **Video:** Nice to Have: Animation - Showing Data Flow Direction[Git Pull & Git Push: JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
 
 Let's dive deeper into the `pull` process. The `pull` command is actually a combination of two different operations: `git fetch` and `git merge`.
 
@@ -351,6 +349,8 @@ In this operation, Git will determine any differences in the code between the ac
 The following diagram illustrates how these commands work: 
 
 ![Diagram showing how git pull, git fetch, and git merge commands interact with the remote repository, local repository, and working copy](assets/lesson-1/260-git-fetch-merge-pull.png)
+
+> **Graphic Reproduction:**  [Git Fetch vs Pull Jira FSFO-177](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-177)
 
 After the merge, the active branch (in our case, the `master` branch) will receive the new file updates from the remote `master` branch and all of the commits associated with that branch. 
 
@@ -506,7 +506,7 @@ We could dive right in and get started on a new feature branch, but instead let'
 
 Let's go to our GitHub repo and select the Issues tab.
 
-> **Video:** [Create Git Issue - JIRA FSFO - 111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
+> **Video:** [Create Git Issue: JIRA FSFO-111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
 
 > Create issue, compose content/labels, submit issue, verify issue, edit
 issue, comment on issue, close issue
@@ -522,24 +522,6 @@ From there, we can create a new issue by clicking on the green "New issue" butto
 > 4) Git Issue Comment - Can contain requirements of the feature or issue that is being fixed. Even adding mock-ups or design requirements are common. For bugs, often there are descriptions of the current state vs the desired state as well as steps to reproduce the bug.
 
 Here is an example of the raw Markdown:
-
-<!-- ```markdown
-
-# Hero Section Text Block 
-
-## Content Requirements
-* Heading: "Start Building Habits"
-* Text Body: `<p>` Lorem ipsum text placeholder
-
-## Questions/suggestions for Design Team
-* What will be the marketing text?
-``` -->
-<!-- 
-The Branch Name section indicates the branch where this issue should be developed. The naming convention for feature branches is something typically agreed upon by your development or management team. Good choices include the type of branch and branch's purpose like `feature/[feature-name]` or `[issue-number]/[feature-name]`.  -->
-<!-- 
-Type a comment using Markdown to outline the feature's requirements and other information related to this task.
-
-Here is a simple example:  -->
 
 ```markdown
 
@@ -563,7 +545,6 @@ Notice on the right side panel, there are options to add labels or team member a
 
 You should see the following screen following a successful issue creation:
 
-<!--  Add red outline to Edit and Close Issue Buttons -->
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
 
 Congratulations on completing your first Git issue! Please note this screen is the edit screen that allows changing the text as well as closing the issue once the enhancement or work has been finished. This edit screen can be found on the Issues tab, which now notes that there is one outstanding issue at the repo's landing page.
