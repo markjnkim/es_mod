@@ -2,24 +2,25 @@ const axios = require("axios");
 const fs = require("fs");
 const FormData = require("form-data");
 
-const apiURL = "https://bootcampspot.instructure.com/api/v1";
-const courseID = 85;
+module.exports = class Canvas {
 
-const authHeader = {
-  headers: {
-    Authorization: "Bearer " + process.env.CANVAS_TOKEN
+  constructor(apiUrl, canvasToken, courseId) {
+    this.courseApiBaseUrl = `${apiUrl}/courses/${courseId}`;
+    this.authHeader = {
+      headers: {
+        Authorization: "Bearer " + canvasToken
+      }
+    };
   }
-};
 
-class Canvas {
   // update page content or create new page if it doesn't exist
   async updatePage(title, body) {
     let url = title.toLowerCase().replace(/:|'|"/g, '').replace(/[^\w]/g, '-').replace('-', '-dot-');
 
     const {data} = await axios.put(
-      `${apiURL}/courses/${courseID}/pages/${url}`, 
+      `${this.courseApiBaseUrl}/pages/${url}`, 
       { wiki_page: {title, body} }, 
-      authHeader
+      this.authHeader
     );
 
     return data;
@@ -28,7 +29,7 @@ class Canvas {
   // put a page inside an existing module
   async addPageToModule(mod, page) {
     return await axios.post(
-      `${apiURL}/courses/${courseID}/modules/${mod}/items`, 
+      `${this.courseApiBaseUrl}/modules/${mod}/items`, 
       {
         module_item: {
           type: "Page",
@@ -36,7 +37,7 @@ class Canvas {
           indent: 1
         }
       },
-      authHeader
+      this.authHeader
     );
   }
 
@@ -45,8 +46,8 @@ class Canvas {
     let title = "Lesson " + lesson;
 
     const {data: items} = await axios.get(
-      `${apiURL}/courses/${courseID}/modules/${mod}/items?per_page=100`, 
-      authHeader
+      `${this.courseApiBaseUrl}/modules/${mod}/items?per_page=100`, 
+      this.authHeader
     );
 
     for (let item of items) {
@@ -58,14 +59,14 @@ class Canvas {
 
     // create new header
     const {data: newItem} = await axios.post(
-      `${apiURL}/courses/${courseID}/modules/${mod}/items`, 
+      `${this.courseApiBaseUrl}/modules/${mod}/items`, 
       {
         module_item: {
           type: "SubHeader",
           title
         }
       },
-      authHeader
+      this.authHeader
     );
 
     return newItem;
@@ -74,8 +75,8 @@ class Canvas {
   // check for existing module in canvas or create new if it doesn't exist
   async getModuleId(mod) {
     let {data: modules} = await axios.get(
-      `${apiURL}/courses/${courseID}/modules?per_page=100`,
-      authHeader
+      `${this.courseApiBaseUrl}/modules?per_page=100`,
+      this.authHeader
     );
 
     for (let module of modules) {
@@ -87,14 +88,14 @@ class Canvas {
 
     // never found module, so make a new one
     let {data: newModule} = await axios.post(
-      `${apiURL}/courses/${courseID}/modules`,
+      `${this.courseApiBaseUrl}/modules`,
       {
         module: {
           name: `Module ${mod}: [Insert Name]`,
           position: mod
         }
       },
-      authHeader
+      this.authHeader
     );
 
     return newModule.id;
@@ -106,7 +107,7 @@ class Canvas {
 
     // initial request preps canvas for file upload
     const {data: prep} = await axios.post(
-      `${apiURL}/courses/${courseID}/files`, 
+      `${this.courseApiBaseUrl}/files`, 
       {
         name: image.split("/").pop(),
         size: stats.size,
@@ -114,7 +115,7 @@ class Canvas {
         parent_folder_path: folder,
         on_duplicate: "overwrite"
       }, 
-      authHeader
+      this.authHeader
     );
 
     // format post data
@@ -133,5 +134,3 @@ class Canvas {
     return newFile;
   }
 }
-
-module.exports = new Canvas();

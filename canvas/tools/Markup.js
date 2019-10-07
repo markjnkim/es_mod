@@ -2,7 +2,7 @@ const fs = require('fs');
 const showdown = require('showdown');
 showdown.setFlavor('github');
 
-class Markup {
+module.exports = class Markup {
   constructor(path) {
     let mdFilePath = fs.readFileSync(path, 'utf-8');
   
@@ -38,5 +38,3 @@ class Markup {
     });
   }
 }
-
-module.exports = Markup;
