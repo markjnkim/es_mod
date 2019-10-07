@@ -90,6 +90,8 @@ The following diagram introduces the concept of feature branches:
 
 ![Diagram showing how develop and feature branches relate](assets/lesson-1/60-feature-branch.png)
 
+**IMAGE NEEDS TO BE RE-CREATED**
+
 As can be seen in the diagram, several feature branches can be branched off the `develop` branch. Once the feature is complete, it's merged back into the `develop` branch. 
 
 There are several important reasons to work on the codebase in a separate `feature` branch and not in the `develop` branch:
@@ -693,9 +695,9 @@ git push origin feature/hero-text
 
 The slight variation in our push command illustrates that we are no longer pushing to our remote `master` branch but to a new remote feature branch named `feature/hero-text`. Hypothetically, we could've named this anything, but consistent naming conventions means one less branch name to commit to memory. 
 
-We'll add the "push to remote branch" step to our Git workflow after every add and commit of our feature branch to secure our hard work.
+We'll add the "push to remote branch" step to our Git workflow after every add and commit of our feature branch to secure our hard work. After a successful push, we can check our GitHub repo and see that our backup branch is now safe and secure. 
 
-After a successful push, we can check our GitHub repo and see that our backup branch is now safe and secure. Here's our GitHub repo's branch tab, where we can see the `develop` and `feature/hero-text` branches:
+Here's our GitHub repo's branch tab, where we can see the `develop` and `feature/hero-text` branches:
 
 ![Screenshot of GitHub showing develop and feature branches](./assets/lesson-1/1250-remote-branch.png)
 
@@ -709,7 +711,9 @@ First, let's make `develop` the active branch:
 git checkout develop
 ```
 
-In VS Code, let's look at the hero section in the `index.html` file. Note that the new markup we just added is not visible here. It only exists in the feature branch, `feature/hero-text`. To add the new code to the `develop` branch, we need to perform a `merge` operation. Let's do that now.
+In VS Code, let's look at the hero section in the `index.html` file. Note that the new markup we just added is not visible here. It only exists in the feature branch, `feature/hero-text`. To add the new code to the `develop` branch, we need to perform a `merge` operation. 
+
+Let's do that now:
 
 ```
 git merge feature/hero-text
@@ -746,7 +750,7 @@ And here is the corresponding issue with the requirements:
 
 ![contact form issue](assets/lesson-1/1500-contact-us-requirement-issue.png)
 
-Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that allow different configuration parameters such as the size of the rendered input field, maximum character length, and whether it is a required input in order to submit. For more details, see the [MDN web docs on the textarea element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
+Notice the large text input field for the message. This is a new HTML element that will allow multiple lines to be entered. This element is called `<textarea>`. This element has quite a few attributes that enable configuration parameters such as the size of the rendered input field, maximum character length, and whether it is a required input in order to submit. For more details, see the [MDN web docs on the textarea element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
 Here is the markup: 
 
@@ -804,7 +808,7 @@ The following screenshot shows the "Close issue" button:
 
 ## Reflection
 
-Congratulations on getting through a dense lesson of challenging concepts! Because we're working on such a minimal codebase, all of this work creating branches and Git issues might seem like overkill. But knowing how to use Git and GitHub correctly will enable you to collaborate with developers on large projects, which is a real-world skill that future employers will value highly. 
+Congratulations on getting through a dense lesson of challenging concepts! Because we're working on such a minimal codebase, all of this work creating branches and Git issues might seem like overkill. But knowing how to use Git and GitHub will equip you to collaborate with developers on large projects, which is a real-world skill that future employers will value highly. 
 
 Let's go over some of the key concepts and big ideas we introduced in this lesson:
 
@@ -812,15 +816,15 @@ Let's go over some of the key concepts and big ideas we introduced in this lesso
 
 * We created **feature branches** to allow versions of the development environment to coexist, letting team members work in isolation and ship features more quickly. 
 
-* We introduced the **README.md** file, which is a high-level introduction to your project repo (that, incidentally, potential employers can read to get a sense of your technical wizardry).
+* We introduced the **README.md** file, which is a high-level introduction to your project repo (which, incidentally, potential employers can read to get a sense of your technical wizardry).
 
 * We used `pull`, `push`, `fetch`, `branch`, `checkout`, and `merge` to update remote and local repos. A solid understanding of using these in a proper Git workflow is crucial to collaborating on projects and a key metric for employer-ready students.
 
-* We introduced a Git workflow process that emphasized the isolation of the production environment and created a development environment with working versions for feature enhancements. There are many Git workflow models including [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow), a model that emphasizes the release cycle for updates. 
+* We introduced a Git workflow process that emphasized the isolation of the production environment and created a development environment with working versions for feature enhancements. There are many Git workflow models, including [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow), which emphasizes the release cycle for updates. 
 
 * We created Git issues to help communicate the project to-do list to keep team members productive and organized in their workflows.
 
-Next we'll apply this workflow to the rest of this project, starting with making Run Buddy version 2.0 fully  mobile-responsive in the next lesson. Run Buddy on my cell phone, here we come! 
+Next we'll apply this workflow to the rest of this project, starting with making Run Buddy version 2.0 fully  mobile-responsive in the next lesson. Run Buddy on your cell phone, here we come! 
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
