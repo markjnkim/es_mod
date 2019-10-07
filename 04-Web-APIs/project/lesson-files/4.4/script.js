@@ -167,27 +167,26 @@ var deleteTask = function(taskId) {
 };
 
 var dropTaskHandler = function(event) {
-    var id = event.dataTransfer.getData("text/plain");
-    console.log(id);
-    var draggableElement = document.querySelector("[data-task-id='" + id + "']");
-    var dropzone = event.target.closest(".task-list");
+  var id = event.dataTransfer.getData("text/plain");
+  console.log(id);
+  var draggableElement = document.querySelector("[data-task-id='" + id + "']");
+  var dropzone = event.target.closest(".task-list");
 
-    // set status of task based on dropzone id
-    var statusSelectEl = draggableElement.querySelector("select[name='status-change']");
-    var statusType = dropzone.id;
+  // set status of task based on dropzone id
+  var statusSelectEl = draggableElement.querySelector("select[name='status-change']");
+  var statusType = dropzone.id;
 
-    if (statusType === "tasks-to-do") {
-      statusSelectEl.selectedIndex = 0;
-    } else if (statusType === "tasks-in-progress") {
-      statusSelectEl.selectedIndex = 1;
-    } else if (statusType === "tasks-completed") {
-      statusSelectEl.selectedIndex = 2;
-    }
+  if (statusType === "tasks-to-do") {
+    statusSelectEl.selectedIndex = 0;
+  } else if (statusType === "tasks-in-progress") {
+    statusSelectEl.selectedIndex = 1;
+  } else if (statusType === "tasks-completed") {
+    statusSelectEl.selectedIndex = 2;
+  }
 
-    dropzone.appendChild(draggableElement);
+  dropzone.appendChild(draggableElement);
 
-    event.dataTransfer.clearData();
-
+  event.dataTransfer.clearData();
 };
 
 var dropzoneDragHandler = function(event) {
