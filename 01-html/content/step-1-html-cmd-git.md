@@ -2,51 +2,55 @@
 
 ## Introduction
 
-In an attempt to increase subscriptions, Run Buddy is launching a new landing page to attract sign-ups. 
+In an attempt to increase subscriptions, Run Buddy is launching a new landing page to attract more sign-ups. 
 
-A friend of a friend who works at Run Buddy put in a good word for you, and the company has agreed to hire you as a freelance web developer! Your job is to make the Run Buddy landing page look good, then hand it off to Run Buddy's internal developers to complete the data collecting portion of it (later in the course, you'll know enough to do both).
+A friend of a friend who works at Run Buddy put in a good word for you, and the company has agreed to hire you as a freelance web developer! Your job is to make the Run Buddy landing page look good, then hand it off to Run Buddy's internal developers to complete the data collection portion (later in the boot camp, you'll know how to do both).
 
-In this first lesson, you'll become familiar with some important tools and processes that you'll need to write that first line of HTML code.
+In this first lesson, you'll learn about some important tools and processes, which is the first step towards writing that first line of HTML code.
 
 ## Preview
 
-The Run Buddy design team has provided a mock-up of what they want the landing page to look like:
+The Run Buddy design team has provided the following mock-up of what they want the landing page to look like:
 
 ![mock-up](./assets/step-1/050-mock-up.png)
 
-Incidentally, did you know that many real-world companies don't expect developers to know everything up front? Part of the development process is figuring out new technologies. Granted, we are brand new developers, so we have a longer road ahead of us than a seasoned programmer learning a new tool. The key is to take it one step at a time and set up the project correctly. 
+Did you know that many real-world companies don't expect developers to know everything up front? Part of the development process for any project is figuring out new technologies. Granted, we are brand new developers, so we have a longer road ahead of us than a seasoned programmer learning a new tool. 
 
-That said, let's jump right in and get our hands dirty with some actual coding! 
+The key is to take it one step at a time. Setting up the project correctly when you're starting it will go a long way towards making the rest of the work go more smoothly. 
+
+That said, let's jump right in and get our hands dirty with some coding! 
 
 ## Get Started with the Command Line
 
 In the old days, entering text-based commands on a black screen (known as the **command-line interface**, or **CLI**) was the only way to interact with a computer. There was no graphical user interface (aka GUI) with icons, menus, and buttons to click. 
 
-Now that powerful operating systems like Windows and macOS exist, most computer users never have to even look at a CLI. For developers, though, the command line (often called the **terminal**) is still commonly used for certain tasks. 
+Now that powerful operating systems like Windows and macOS exist, most computer users never have to even look at a CLI. For developers, though, the command line (often called the **terminal**) is still commonly used for many tasks. 
 
-Later in the course, the CLI will become integral to building full-stack applications. For now, we'll be using it to set up our project.
+Later in the boot camp, the CLI will become integral to building full-stack applications. For now, we'll use it to set up our project.
 
 ### Access the Command Line on a Mac
-Mac users, you already have a built-in Terminal app, which you can go ahead and launch by searching for "terminal" in the Spotlight Search (click the 🔍 icon in the top-right corner, or use the keyboard shortcut Command+Spacebar).
+Mac users, you already have a built-in Terminal app, which you can launch by searching for "terminal" in the Spotlight Search (click the 🔍 icon in the top-right corner, or use the keyboard shortcut Command+Spacebar).
 
 ### Access the Command Line on Windows
-Windows users, you installed [Git Bash](https://git-scm.com/downloads) as part of the prework, which you can open by using the search box in the bottom-left corner (or use the keyboard shortcut: Windows key + S) to search for "git bash".
+Windows users, you installed [Git Bash](https://git-scm.com/downloads) as part of the prework. Open Git Bash by using the search box in the bottom-left corner (or by using the keyboard shortcut "Windows key + S") to search for "git bash".
 
-Regardless of your operating system, you should see a window that looks like this:
+### Use the Command Line
+
+Regardless of your operating system, you should see a window that looks like this when you open the command line:
 
 ![terminal window](./assets/step-1/100-terminal.png)
 
 In this window, type `pwd` and press Enter. The terminal will display something like `/c/Users/YourName` on Windows or `/Users/YourName` on Mac. This is because when you first open Terminal or Git Bash, you start in your user directory. 
 
-> **Important:** To succeed in this boot camp, type out every code snippet yourself instead of copying and pasting. It will help build up that muscle memory you need to become an expert coder faster!
+> **Important:** To succeed in this boot camp, type out every code snippet instead of copying and pasting. It will help build up that muscle memory you need to become an expert coder faster!
 
-The command `pwd` stands for "print working directory" ("print" in this context means "display to the screen") and lets us know which directory (aka folder) the terminal is currently in, or looking at. Typing `pwd` is like asking "Where am I?" 
+The command `pwd` means "print working directory" ("print" in this context means "display to the screen") and lets you know which directory (aka folder) the terminal is currently in, or looking at. Typing `pwd` is like asking "Where am I?" 
 
 If you want to see what's in this directory, you could navigate to it through your operating system's GUI (by clicking on folder icons, etc.), but since we're in the command line, let's try looking at the contents using another command: `ls`. 
 
-The `ls` command lists the files and folders within the current directory; it's like asking "What's here?" Some common folders you might see in your user directory are `Documents`, `Pictures`, `Music`, and `Desktop`. 
+The `ls` command lists the files and folders within the current directory. It's like asking "What's here?" Some common folders you might see in your user directory are `Documents`, `Pictures`, `Music`, and `Desktop`. 
 
-Fun fact: the graphical "desktop" you see when your computer first starts is this `Desktop` folder in your user directory! Let's "go" there now from the command line by typing the following commands, pressing Enter after each line:
+Fun fact: the graphical "desktop" you see when your computer starts is this `Desktop` folder in your user directory! Let's "go" there now from the command line by typing the following commands, pressing Enter after each line:
 
 ```bash
 cd Desktop
@@ -56,7 +60,7 @@ pwd
 >
 > **Answer:** Change directory.
 
-We can use the `cd` command to move in to directories and to back out of directories. Try the following commands, noting what `pwd` prints each time:
+We can use the `cd` command to move in and out of directories. Try the following commands, noting what `pwd` prints each time:
 
 ```bash
 cd ..
@@ -67,22 +71,24 @@ pwd
 
 So `cd ..` took us back a level (or "up" a directory). Good to know! 
 
-Now that we're in the `Desktop` directory again, run the command `ls`. Do you recognize every listed file/folder as something that was already on your desktop? Let's add to the clutter:
+Now that we're in the `Desktop` directory again, run the command `ls`. Do you recognize the listed files and folders as things that are already on your desktop? Let's add to the clutter:
 
 ```bash
 mkdir projects
 ls
 ```
 
-The `mkdir` command allows us to create new folders (or literally, "make directories"). In this case, we created a folder called `projects`. The second command, `ls`, should let us verify if the folder was created. 
+The `mkdir` command allows us to create new folders (or literally, "make directories"). In this case, we created a folder called `projects`. The second command, `ls`, should let us verify that the folder was created. 
 
-Now, try something neat: minimize the command line for a second and look at your computer's desktop again. Do you see the `projects` folder we just made (on the left in the picture below)? What we do on the command line has direct consequences on our computer!
+Now, try something neat: minimize the command line for a second and look at your computer's desktop again. Do you see the `projects` folder we just made (on the left in the picture below)? What you do on the command line has direct consequences on your computer!
 
 ![desktop folder](./assets/step-1/150-desktop-folder.png)
 
 > **Urkel Says:** With great power comes great responsibility. 
 
-This `projects` folder is where we'll keep all of our work throughout the boot camp. From the command line, let's step inside and create another folder for our Run Buddy project:
+This `projects` folder is where we'll keep all of our work throughout the boot camp. 
+
+From the command line, let's step inside the `projects` folder and create another folder for our Run Buddy project:
 
 ```bash
 cd projects
@@ -91,7 +97,7 @@ cd run-buddy
 pwd
 ```
 
-Just for fun, you can run the `ls` command again while in the `run-buddy` directory, but nothing will happen, because we don't yet have any files in here to list out. 
+Just for fun, you can run the `ls` command while in the `run-buddy` directory, but nothing will happen because we don't yet have any files in here to list. 
 
  Let's go ahead and make a few files using the `touch` command:
 
@@ -101,30 +107,30 @@ touch index.html
 ls
 ```
 
-> **Important:** Syntax matters! We're using lowercase for our filenames. `index.html` would be an entirely different file than `Index.html`.
+> **Important:** Syntax matters! Notice that we're using lowercase for our filenames. `index.html` would be an entirely different file than `Index.html`.
 
-Unlike directories, which are made using `mkdir`, we use `touch` for files. Here, we've just made two new files: a text file and an HTML file. Well, you know what... we don't really need that text file after all, so let's go ahead and (permanently) remove it:
+Unlike directories, which are made using `mkdir`, we use `touch` for files. Here, we've just made two new files: a text file and an HTML file. Hmm, on second thought, we don't really need that text file. So let's go ahead and (permanently) remove it by using the `rm` command:
 
 ```bash
 rm hello.txt
 ls
 ```
 
-Of course, everything we've done up to this point could also be accomplished with mouse clicks and context (right-click) menus, but you'll find that, once you're used to it, the command line allows you to work faster as a developer. Plus, it makes you feel really cool. 
+Of course, everything we've done up to this point could also be accomplished with mouse clicks and context (right-click) menus. However, you'll find that, once you're used to it, the command line allows you to work much faster. Plus, it'll make you feel really cool. 
 
-To recap what we've learned:
+The following table recaps what we've learned:
 
 |Command    |Operation              |
 |-----------|-----------------------|
 |`pwd`        |Print working directory|
 |`ls`         |List files in directory|
 |`cd (name)`  |Change to directory    |
-|`cd ..`      |Go up/back a directory |
+|`cd ..`      |Go up / back a directory |
 |`mkdir`      |Make a new directory   |
 |`touch`      |Make a new file        |
 |`rm`         |Remove a file          |
 
-> **Deep Dive:** Some other useful commands include:
+> **Deep Dive:** These are some other useful commands:
 >
 > `cp`\
 > `mv`\
@@ -134,21 +140,23 @@ To recap what we've learned:
 
 ## Add a Little HTML
 
-HTML (or Hypertext Markup Language, in case anyone asks) is the underlying structure of any webpage. Looking at our Run Buddy mock-up, every piece&mdash;the header, the sign-up form, the trainer images&mdash;is an HTML element under the hood. This is why we created an `index.html` file in the previous step. All of our HTML code and content will go inside this HTML file.
+HTML (or Hypertext Markup Language, in case anyone asks) is the underlying structure of any webpage. Looking at our Run Buddy mock-up, every piece&mdash;the header, the sign-up form, the trainer images&mdash;is an HTML element. This is why we created an `index.html` file in the previous step. All of our HTML code and content will go in this file.
 
-We could open this single file directly in our code editor (VS Code), but we should start thinking about Run Buddy as a "project" that will eventually have multiple files and folders. So let's open the entire `run-buddy` folder with VS Code. You can do this in a number of ways: by either dragging the folder into VS Code, using VS Code's "File > Open Folder" menu option, or opening it from the command line. 
+We could open this single file in our code editor (VS Code), but we should start thinking about Run Buddy as a project that will eventually have multiple files and folders. So let's open the entire `run-buddy` folder in VS Code. 
 
-To open VS Code from the command line, in the `run-buddy` directory, run the command `code .` where the `.` means "this directory." 
+You can do this in a number of ways: by either dragging the folder into VS Code, using VS Code's "File > Open Folder" menu option, or opening it from the command line. 
+
+To open VS Code from the command line, in the `run-buddy` directory, run the command `code .` (the `.` means "this directory"). 
 
 > **Important:** Mac users may need to enable the `code` command first by following [these instructions](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line).
 
-> **Pro Tip:** With VS Code open, right-click anywhere in the Explorer menu on the left and select Open in Terminal to bring up a built-in terminal. Windows users: the default VS Code terminal is Powershell, not Git Bash. Fortunately, there are many [helpful articles](https://community.dynamics.com/nav/b/tharangacnavblog/archive/2019/02/18/git-bash-on-visual-studio-code-integrated-terminal) that explain how to change it.
-
-Click on the `index.html` file in the Explorer on the left to load it in the main panel on the right.
+Click on the `index.html` file in the Explorer on the left to load it in the main panel on the right. You should see the following in VS Code:
 
 ![vs explorer](./assets/step-1/175-vs-explorer.png)
 
-Now we're ready to code! Type out the following code in the right panel in VS Code. We'll go over each part later:
+> **Pro Tip:** With VS Code open, right-click anywhere in the Explorer menu on the left and select Open in Terminal to open a built-in terminal inside VS Code. Windows users: the default VS Code terminal is Powershell, not Git Bash. Fortunately, there are many [helpful articles](https://community.dynamics.com/nav/b/tharangacnavblog/archive/2019/02/18/git-bash-on-visual-studio-code-integrated-terminal) that explain how to change it.
+
+Now we're ready to code! Type (don't cut and paste!) the following code in the right panel in VS Code. We'll go over each part later:
 
 ```html
 <!DOCTYPE html>
@@ -164,17 +172,19 @@ Now we're ready to code! Type out the following code in the right panel in VS Co
 </html>
 ```
 
-Awesome! You just wrote your first webpage! Make sure to save the file before viewing it in a browser. You'll know the file hasn't been saved if a white dot appears in the tab next to the filename:
+Awesome! You just created your first webpage! Make sure to save the file before viewing it in a browser. You'll know the file hasn't been saved if a white dot appears in the tab next to the filename, like this:
 
 ![unsaved](./assets/step-1/200-unsaved.png)
 
-> **Pro Tip:** Press CTRL+S on Windows or Command+S on Mac to save via the keyboard.
+> **Pro Tip:** Press CTRL+S on Windows or Command+S on Mac to save the file.
 
-Next, open this HTML file in the browser (preferably Chrome). If you have the [Open in Browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) extension installed for VS Code, you can simply right-click anywhere in the HTML file and select Open in Default Browser. The webpage should look like this:
+Next, open this HTML file in a browser (preferably Chrome). If you have the [Open in Browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) extension installed for VS Code, you can simply right-click anywhere in the HTML file and select Open in Default Browser. 
+
+The webpage should look like this:
 
 ![first screenshot](./assets/step-1/300-html-screenshot.png)
 
-All right, so it's not the most exciting webpage in the world, but you gotta start somewhere! Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** that are made up of an opening tag (e.g., `<title>`) and a closing tag (e.g., `</title>`). Whatever is in between these tags is affected by what that element signifies. The `<h1>` element is a heading element, so it makes the text inside it big and bold. The `<h1>` element denotes a level 1 heading. If we have other, less important headings on our webpage, we can use other header elements like `<h2>`, `<h3>`, and so on.
+Okay, so it's not the most exciting webpage in the world, but you gotta start somewhere! Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** that are made up of an opening tag (e.g., `<title>`) and a closing tag (e.g., `</title>`). Whatever is in between these tags is affected by what that element signifies. The `<h1>` element is a heading element, so it makes the text inside it big and bold. The `<h1>` element denotes a level 1 heading. If we have other, less important headings on our webpage, we can use other header elements like `<h2>`, `<h3>`, and so on.
 
 > **Deep Dive:** Read more about the different [heading elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
 
