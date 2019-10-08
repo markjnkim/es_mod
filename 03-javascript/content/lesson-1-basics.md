@@ -258,11 +258,11 @@ When the HTML file is opened in the browser, the first and only thing we should 
 
 Also take notice of the fact that there is really nothing else we can do in this browser tab until we acknowledge the popup window and click the button associated with it. This is what's known as an **alert**, and we've just written our first line of JavaScript!
 
-We'll get into what this code means next, but now we can move on knowing that our JavaScript is being read correctly by the HTML file.
+We'll get into what this code means next, but now we can move on knowing that our JavaScript is being read correctly by the HTML file. Since we just got our initial project structure created, it's a good time to commit your repository's code!
 
 ## Use JavaScript functions to communicate with the player
 
-So what happened in the last step when we added the `window.alert()` and opened up our HTML file in the browser? We were hit with arguably the most annoying part of being on the web, a popup! Alerts have been a staple in web development since the beginning, but where do they come from exactly? Namely, what is the `window` being mentioned in `window.alert()`? Let's dissect that code.
+So what happened in the last step when we added the `window.alert()` and opened up our HTML file in the browser? We were hit with arguably the most annoying part of being on the web, an alert dialogue! Alerts have been a staple in web development since the beginning, but where do they come from exactly? Namely, what is the `window` being mentioned in `window.alert()`? Let's dissect that code.
 ​
 The first part we'll get into is the `window`, but only briefly. All we need to know for now is that the `window` is referring to the browser itself. Whenever we write JavaScript and run our code in a browser, this `window` will always be present, as we'll see later on when we use it for other purposes. The second thing to look at here is `alert()`, the part that comes after `window.`. An alert is a **function** built into the browser that allows the developer to create messages to send to the user.
 ​
@@ -333,6 +333,7 @@ We need to be able to capture this data somehow. We can use what is known in Jav
 ```js
 var playerName = window.prompt("What is your robot's name?");
 ```
+
 We introduced a critical part of JavaScript that enables us to capture data in variables. 
 
 > **Asset Needed:** image/diagram of variable syntax
