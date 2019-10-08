@@ -4,11 +4,11 @@
 
 Now that our MVP goal has been met, we could technically submit the game as-is. However, it's still not that interesting to play multiple times, because the health and damage values are always the same. We need to update our code to generate these values randomly per our next GitHub issue:
 
-> ## WAITING ON GITHUB ISSUE SCREENSHOT
+> **Asset Needed:** WAITING ON GITHUB ISSUE SCREENSHOT
 
 While we're still making improvements to the game, we should also take time to clean up the codebase. This will give us a better shot at that "code quality" prize in the game jam. More importantly, it will leave our project in a state where we can more easily expand on it afterwards. Such code optimization is the other GitHub issue we'll tackle in this lesson:
 
-> ## WAITING ON GITHUB ISSUE SCREENSHOT
+> **Asset Needed:** WAITING ON GITHUB ISSUE SCREENSHOT
 
 JavaScript objects will help us accomplish both tasks: the randomness and the restructuring. Like the `window` object, there are other built-in objects that come with useful methods for generating random numbers. We can even make our own objects to tie data together, which is perfect for consolidating our player and enemy stats.
 
@@ -596,7 +596,7 @@ var enemy = {
 
 In future applications, continue thinking about where and how objects can be used. They're a valuable tool right up there with functions and arrays.
 
-> ## INSERT CHECKPOINT QUIZ: <https://trilogyed.atlassian.net/browse/FSFO-165>
+> **Asset Needed:** INSERT CHECKPOINT QUIZ: <https://trilogyed.atlassian.net/browse/FSFO-165>
 
 ## Merge Branch and Update Master
 
