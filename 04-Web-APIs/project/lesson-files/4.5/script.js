@@ -216,6 +216,7 @@ var deleteTask = function(taskId) {
 };
 
 var dropTaskHandler = function(event) {
+  event.preventDefault();
   var id = event.dataTransfer.getData("text/plain");
   var draggableElement = document.querySelector("[data-task-id='" + id + "']");
   var dropzone = event.target.closest(".task-list");
@@ -227,16 +228,21 @@ var dropTaskHandler = function(event) {
   // create variable to hold status
   var newStatus;
 
-  // update status of element both on page
-  if (statusType === "tasks-to-do") {
-    statusSelectEl.selectedIndex = 0;
-    newStatus = "to do";
-  } else if (statusType === "tasks-in-progress") {
-    statusSelectEl.selectedIndex = 1;
-    newStatus = "in progress";
-  } else if (statusType === "tasks-completed") {
-    statusSelectEl.selectedIndex = 2;
-    newStatus = "complete";
+  switch (statusType) {
+    case "tasks-to-do":
+      statusSelectEl.selectedIndex = 0;
+      newStatus = "to do";
+      break;
+    case "tasks-in-progress":
+      statusSelectEl.selectedIndex = 1;
+      newStatus = "in progress";
+      break;
+    case "tasks-completed":
+      statusSelectEl.selectedIndex = 2;
+      newStatus = "complete";
+      break;
+    default:
+      console.log("Something went wrong!");
   }
 
   // update tasks array with task's updated status

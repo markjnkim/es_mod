@@ -167,6 +167,7 @@ var deleteTask = function(taskId) {
 };
 
 var dropTaskHandler = function(event) {
+  event.preventDefault();
   var id = event.dataTransfer.getData("text/plain");
   console.log(id);
   var draggableElement = document.querySelector("[data-task-id='" + id + "']");
@@ -176,12 +177,18 @@ var dropTaskHandler = function(event) {
   var statusSelectEl = draggableElement.querySelector("select[name='status-change']");
   var statusType = dropzone.id;
 
-  if (statusType === "tasks-to-do") {
-    statusSelectEl.selectedIndex = 0;
-  } else if (statusType === "tasks-in-progress") {
-    statusSelectEl.selectedIndex = 1;
-  } else if (statusType === "tasks-completed") {
-    statusSelectEl.selectedIndex = 2;
+  switch (statusType) {
+    case "tasks-to-do":
+      statusSelectEl.selectedIndex = 0;
+      break;
+    case "tasks-in-progress":
+      statusSelectEl.selectedIndex = 1;
+      break;
+    case "tasks-completed":
+      statusSelectEl.selectedIndex = 2;
+      break;
+    default:
+      console.log("Something went wrong!");
   }
 
   dropzone.appendChild(draggableElement);
