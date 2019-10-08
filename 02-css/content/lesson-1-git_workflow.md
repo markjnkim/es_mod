@@ -91,6 +91,9 @@ We just created a `develop` branch as a development environment to protect and i
 The following diagram introduces the concept of feature branches:
 
 ![Feature Branch](assets/lesson-1/60-feature-branch.png)
+> **IMAGE NEEDS TO BE RE-CREATED:** [Git Pull Jira-176](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-176)
+
+[URL](https://medium.com/devsondevs/gitflow-workflow-continuous-integration-continuous-delivery-7f4643abb64f)
 
 As can be seen in the diagram, several feature branches can be branched off the `develop` branch. Once the feature is complete, it's merged back into the `develop` branch. 
 
@@ -312,7 +315,7 @@ As you can see in the following diagram, the remote repo has converged with the 
 
 > **Graphic Reproduction:** [Git Pull: Jira FSFO-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
 
-> **Video:** Nice to Have: Animation - Showing Data Flow Direction[Git Pull & Git Push: JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
+> **Video:** Nice to Have: Animation - Showing Data Flow Direction [Git Pull & Git Push: JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
 
 Let's dive deeper into the `pull` process. The `pull` command is actually a combination of two different operations: `git fetch` and `git merge`.
 
