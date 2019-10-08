@@ -2,15 +2,17 @@
 
 ## Introduction
 
-The Run Buddy website has been a huge success! That means management has the motiviation and capital to upgrade the site. For Run Buddy version 2.0, the team wants us to make the site mobile-friendly and easier to use. 
+The Run Buddy website has been a huge success! This means that management has the motiviation and capital to upgrade the site. 
+
+## Preview
+
+For Run Buddy version 2.0, the team wants us to make the site mobile-friendly and easier to use.
 
 Here's the mock-up for version 2.0, which we'll build over the course of this module:
 
 ![Run Buddy version 2.0 mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
-Notice that there are some big changes to make (like adding a price comparison table) and some that are a bit more subtle (like rounding the corners of the input fields and the call-to-action form). Some of the changes can't be seen in the mock-up because they involve user interaction. 
-
-The first thing we need to do is set up our development environment. Because the current codebase is live, we can't make changes directly to it without disturbing Run Buddy's users. We need to be able to work on a copy of the website and then merge the changes into the live site. This is where our friend Git comes back into play.
+Notice that there are some big changes to make (like adding a price comparison table) and some that are more subtle (like rounding the corners of the input fields and the call-to-action form). Some of the changes can't be seen in the mock-up because they involve user interaction. 
 
 In this lesson, we'll learn about three important software development workflow concepts:
 
@@ -24,9 +26,11 @@ In this lesson, we'll learn about three important software development workflow 
 
 ## Development vs. Production Environments
 
-Git allows developers to create copies of the codebase, known as **branches**. Our live site runs from the `master` branch&mdash;this is the **production environment**. The branch we create to work on will be a copy of the `master` branch&mdash;this will be our **development environment**. 
+The first thing we need to do is set up our development environment. Because the current codebase is live, we can't make changes to it without disturbing Run Buddy's users. This is where our friend Git comes back into play.
 
-As a rule, production environments should never be worked on directly because any bugs or errors that are introduced will be immediately apparent to users. This is where Git branching comes in. Git branching allows us to isolate versions of the code for development and testing. This is known as **working in isolation**.  
+Git allows developers to create copies of the codebase, known as **branches**. Our live site runs from the `master` branch&mdash;this is the **production environment**. The branch we'll create to work on will be a copy of the `master` branch&mdash;this will be our **development environment**. 
+
+As a rule, production environments should never be worked on directly because any bugs or errors that are introduced will be immediately apparent to users. Git branching lets us isolate versions of the code for development and testing. This is known as **working in isolation**.  
 
 > **Pro Tip:** Branch names are just labels that can be changed. The `master` branch does not always have to be the production environment, but in our scenario this will be the case. 
 
