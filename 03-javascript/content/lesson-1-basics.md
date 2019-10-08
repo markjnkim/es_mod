@@ -214,17 +214,33 @@ Once VSCode has everything loaded up, let's turn our attention to the `index.htm
 </html>
 ```
 
-That looks like the boilerplate for blank web page! There is one interesting element in the `<body>` of that page:
+That looks like the boilerplate for blank web page! 
+
+> **Hint:** Using VSCode, you can scaffold out boilerplate HTML code by typing an exclamation point `!` and hitting `tab` or `enter`/`return` and it will create all of the code you need to start an HTML file! This is due to VSCode having an add-on installed by default called Emmet.
+>
+> Emmet has a lot more of these shortcuts to offer, save [this Emmet cheat sheet](https://docs.emmet.io/cheat-sheet/) for the full list!
+
+There is one interesting element in the `<body>` of that page:
 
 ```html
 <script src="./assets/js/game.js"></script>
 ```
 
-We weren't told anything about a `game.js` file. We know that the `.js` extension means that it's a JavaScript file. But we weren't given a `game.js` file! We'll have to make one. We'll also have to learn some JavaScript...
+If we recall, we've already created a JavaScript file called `game.js` in its own subdirectory. So if the JavaScript file is to be used with the HTML file, how can we incorporate it into the HTML file? We are using 
+
+Like CSS, JavaScript can actually be written in the HTML file itself. With CSS, we can put all of our style declarations between `<style>` element tags in the HTML file or use the `<link>` element to load the CSS from its own file. With JavaScript, however, we can use the `<script>` element to do both. For JavaScript that is written directly into the HTML file, we can write our code between the `<script>` element tags, but there are multiple reasons why we wouldn't want to do that. Here are two reasons:
+
+- Reusability: It's possible to reuse JavaScript code across multiple HTML files, but if they are all being copied and pasted into the HTML files directly, it becomes difficult to maintain when something needs to be changed.
+
+- Cleanliness: Our JavaScript can become pretty lengthy at times, best to keep it in its own file.
+
+Writing your CSS or JavaScript code in the HTML file is great for when we may not know if something is going to work and we don't feel like creating multiple files to simply test a small line of code, but ultimately it is best to practice "separation of concerns" and separate the three languages' code into separate files.
+
+
+
 
 ## Use JavaScript functions to communicate with the player
 
-​
 So what happened in the last step when we added the `window.alert()` and opened up our HTML file in the browser? We were hit with arguably the most annoying part of being on the web, a popup! Alerts have been a staple in web development since the beginning, but where do they come from exactly? Namely, what is the `window` being mentioned in `window.alert()`? Let's dissect that code.
 ​
 The first part we'll get into is the `window`, but only briefly. All we need to know for now is that the `window` is referring to the browser itself. Whenever we write JavaScript and run our code in a browser, this `window` will always be present, as we'll see later on when we use it for other purposes. The second thing to look at here is `alert()`, the part that comes after `window.`. An alert is a **function** built into the browser that allows the developer to create messages to send to the user.
