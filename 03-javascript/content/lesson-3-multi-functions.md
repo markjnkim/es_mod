@@ -6,11 +6,11 @@ We technically have a game now where a player can fight (or skip fighting) sever
 
 One of the things the judges of the game jam will be looking for is replayability. At its most basic level, that means the game should be easy to play again. That's the missing piece to our MVP:
 
-> ## WAITING ON GITHUB ISSUE SCREENSHOT
+> **Asset Needed:** WAITING ON GITHUB ISSUE SCREENSHOT
 
 More importantly, players should want to play again. Having a shop feature&mdash;where players can spend money to refill their health or upgrade their attack power&mdash;would definitely make the game more interesting and engaging on subsequent plays. That will be the first optimization task we take on post-MVP:
 
-> ## WAITING ON GITHUB ISSUE SCREENSHOT
+> **Asset Needed:** WAITING ON GITHUB ISSUE SCREENSHOT
 
 We'll leverage our knowledge of JavaScript functions to facilitate restarting the game and implementing this brand new shop feature. Even though the project is still relatively small, thinking in terms of functions now will set us up for success down the road. Functions help keep a codebase organized as the project grows in scope. Who knows, the next project we work on may have five times as many functions!
 
@@ -262,7 +262,7 @@ Save, refresh, and test out the game in the browser. After looping over every en
 
 Selecting OK should restart the game and reset the player stats. Cancel should do nothing. Here's a video to demonstrate the desired behavior:
 
-> ## INSERT VIDEO: <https://trilogyed.atlassian.net/browse/FSFO-166>
+> **Asset Needed:** INSERT VIDEO: <https://trilogyed.atlassian.net/browse/FSFO-166>
 
 If the game isn't working, check the DevTools console for errors. An error like `Uncaught ReferenceError: startgame is not defined`, for instance, suggests that we accidentally used lowercase `startgame()` versus `startGame()`. If there aren't errors, use `console.log()` and/or `debugger` statements to verify if functions and `if` statements are being reached.
 
