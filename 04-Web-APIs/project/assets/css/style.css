@@ -33,7 +33,8 @@ header p {
   font-size: 2rem;
 }
 
-p, li {
+p,
+li {
   font-size: 1.6rem;
 }
 
@@ -94,21 +95,20 @@ footer {
 
 .task-list {
   list-style: none;
-  padding: 0;
-  border: 2px solid var(--grey);
+  padding: 15px;
+  height: calc(100% - 50px);
+  background: rgb(196, 196, 196);
   border-radius: 12px;
-  background: var(--tertiary);
-  min-height: 30px;
+  border: 2px solid var(--grey);
 }
 
 .task-item {
   color: var(--grey);
   padding: 15px 15px;
-  border-bottom: 2px solid var(--grey);
-}
-
-.task-item:last-child {
-  border: none;
+  border: 2px solid var(--grey);
+  background: var(--tertiary);
+  border-radius: 12px;
+  margin-bottom: 20px;
 }
 
 .task-title {
@@ -216,7 +216,16 @@ footer {
 }
 
 @media screen and (max-width: 980px) {
+  form .form-group {
+    flex: 1 100%;
+  }
+
+  form .form-group button {
+    width: 100%;
+  }
+
   .task-list-wrapper {
     flex-basis: 100%;
   }
+
 }

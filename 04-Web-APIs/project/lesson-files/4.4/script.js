@@ -189,8 +189,10 @@ var dropTaskHandler = function(event) {
   event.dataTransfer.clearData();
 };
 
+// stops page from loading the dropped item as a resource (opening a new link)
 var dropzoneDragHandler = function(event) {
   event.preventDefault();
+  event.target.closest(".task-list").setAttribute("style", "background: rgba(68, 233, 255, 0.7); border-style: dashed;");
 };
 
 var dragTaskHandler = function(event) {
@@ -198,6 +200,11 @@ var dragTaskHandler = function(event) {
     event.dataTransfer.setData("text/plain", event.target.dataset.taskId);
   }
 };
+
+var dragLeaveHandler = function(event) {
+  event.target.closest(".task-list").removeAttribute("style");
+};
+
 
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);
@@ -211,4 +218,5 @@ pageContentEl.addEventListener("change", taskStatusChangeHandler);
 // for dragging
 pageContentEl.addEventListener("dragstart", dragTaskHandler);
 pageContentEl.addEventListener("dragover", dropzoneDragHandler);
+pageContentEl.addEventListener("dragleave", dragLeaveHandler);
 pageContentEl.addEventListener("drop", dropTaskHandler);

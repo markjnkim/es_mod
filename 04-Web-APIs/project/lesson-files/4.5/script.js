@@ -219,7 +219,7 @@ var dropTaskHandler = function(event) {
   var id = event.dataTransfer.getData("text/plain");
   var draggableElement = document.querySelector("[data-task-id='" + id + "']");
   var dropzone = event.target.closest(".task-list");
-
+  console.log(dropzone);
   // set status of task based on dropzone id
   var statusSelectEl = draggableElement.querySelector("select[name='status-change']");
   var statusType = dropzone.id;
@@ -249,6 +249,7 @@ var dropTaskHandler = function(event) {
   // saveTasks
   saveTasks();
 
+  dropzone.removeAttribute("style");
   dropzone.appendChild(draggableElement);
 
   event.dataTransfer.clearData();
@@ -257,6 +258,10 @@ var dropTaskHandler = function(event) {
 // stops page from loading the dropped item as a resource (opening a new link)
 var dropzoneDragHandler = function(event) {
   event.preventDefault();
+  console.log(event);
+  event.target
+    .closest(".task-list")
+    .setAttribute("style", "background: rgba(68, 233, 255, 0.7); border-style: dashed;");
 };
 
 var dragTaskHandler = function(event) {
@@ -264,6 +269,10 @@ var dragTaskHandler = function(event) {
     console.log(event.target.dataset.taskId);
     event.dataTransfer.setData("text/plain", event.target.dataset.taskId);
   }
+};
+
+var dragLeaveHandler = function(event) {
+  event.target.closest(".task-list").removeAttribute("style");
 };
 
 var saveTasks = function() {
@@ -286,20 +295,11 @@ var loadTasks = function() {
   // parse into array of objects
   tasks = JSON.parse(tasks);
 
-  // identify what id to start at based on highest number in list
-  var mostRecentTask = tasks.reduce(function(prevTask, currentTask) {
-    if (prevTask.id > currentTask.id) {
-      return prevTask;
-    } else {
-      return currentTask;
-    }
-  });
-
-  // set taskIdCounter to one greater than id we just grabbed
-  taskIdCounter = parseInt(mostRecentTask.id) + 1;
-
   // loop through tasks and print them to corresponding list based on their status
   for (var i = 0; i < tasks.length; i++) {
+    // set task item's id to value of taskIdCounter
+    tasks[i].id = taskIdCounter;
+
     var listItemEl = document.createElement("li");
     listItemEl.className = "task-item";
     listItemEl.setAttribute("data-task-id", tasks[i].id);
@@ -326,11 +326,11 @@ var loadTasks = function() {
       listItemEl.querySelector("select[name='status-change']").selectedIndex = 2;
       tasksCompletedEl.appendChild(listItemEl);
     }
+
+    // increase taskIdCounter by 1
+    taskIdCounter++;
   }
 };
-
-// create an interval to autosave tasks
-setInterval(saveTasks, 60000);
 
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);
@@ -344,6 +344,7 @@ pageContentEl.addEventListener("change", taskStatusChangeHandler);
 // for dragging
 pageContentEl.addEventListener("dragstart", dragTaskHandler);
 pageContentEl.addEventListener("dragover", dropzoneDragHandler);
+pageContentEl.addEventListener("dragleave", dragLeaveHandler);
 pageContentEl.addEventListener("drop", dropTaskHandler);
 
 loadTasks();
