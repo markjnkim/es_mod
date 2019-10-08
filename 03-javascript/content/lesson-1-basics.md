@@ -1,4 +1,6 @@
-# Introduction
+# Lesson 3.1 - JavaScript Basics
+
+## Introduction
 
 > The enemy of art is the absence of limitation.
 > --Orson Welles
@@ -72,18 +74,22 @@ Our old friends HTML and CSS are on the bench this round, but a lot of their con
 
 - We used Chrome DevTools to work with HTML and CSS. We'll also use Chrome DevTools to work with JavaScript.
 
-# Preview
+## Preview
 
 In this lesson, we're going to learn enough JavaScript to code a single round of Robot Gladiators. By the end of this lesson, the game will play like this:
 
 1. The game will prompt the user to name their robot.
 2. The player's robot will be initialized with the following properties:
+
 - 100 health points
 - 10 attack points
 - 10 money points
+
 3. The player's opponent, Roborto, will be initialized with these properties:
+
 - 50 health points
 - 12 attack points
+
 4. The game will display "Welcome to Battlebots! Round 1"
 5. The game will prompt the user to either fight this round, or skip it.
 6. If the player chooses to skip:
@@ -122,7 +128,7 @@ This is an ambitious project, but we have mapped out a strategy for building it 
 
 Let's set up our project and get started.
 
-# Create a new GitHub repository, issues, and branches
+## Create a new GitHub repository, issues, and branches
 
 As we do with each new project, we'll create a GitHub repository and clone it on our local machine. We'll then create a GitHub Issue to define the requirements for our MVP. Finally, we'll create branches to do our work in.
 
@@ -163,7 +169,7 @@ git checkout -b feature/NAME
 
 Now we have created a branch for us to start actually writing our project's code, so let's get started by creating our project's files!
 
-# Create Project Files and Structure
+## Create Project Files and Structure
 
 It was mentioned earlier that HTML was not going to be used in this lesson, but since we cannot open a JavaScript file directly from the @TODO explainer of browser's need for HTML.
 
@@ -197,7 +203,7 @@ code .
 >
 > Answer: A single period `.` tells the machine that we are referring to the directory we are currently in. So when we say `code .`, we are commanding VSCode to load every file and folder from this directory into the program.
 
-Once VSCode has everything loaded up, let's turn our attention to the `index.html` file and open it up in the editor, then copy and paste the following code into it: 
+Once VSCode has everything loaded up, let's turn our attention to the `index.html` file and open it up in the editor, then copy and paste the following code into it:
 
 ```html
 <!DOCTYPE html>
@@ -214,7 +220,7 @@ Once VSCode has everything loaded up, let's turn our attention to the `index.htm
 </html>
 ```
 
-That looks like the boilerplate for blank web page! 
+That looks like the boilerplate for blank web page!
 
 > **Hint:** Using VSCode, you can scaffold out boilerplate HTML code by typing an exclamation point `!` and hitting `tab` or `enter`/`return` and it will create all of the code you need to start an HTML file! This is due to VSCode having an add-on installed by default called Emmet.
 >
@@ -226,18 +232,33 @@ There is one interesting element in the `<body>` of that page:
 <script src="./assets/js/game.js"></script>
 ```
 
-If we recall, we've already created a JavaScript file called `game.js` in its own subdirectory. So if the JavaScript file is to be used with the HTML file, how can we incorporate it into the HTML file? We are using 
+If we recall, we've already created a JavaScript file called `game.js` in its own subdirectory. So if the JavaScript file is to be used with the HTML file, how can we incorporate it into the HTML file? We are using an HTML element we haven't encountered before, the `<script>` element, which is used for incorporating JavaScript code into the HTML file.
 
-Like CSS, JavaScript can actually be written in the HTML file itself. With CSS, we can put all of our style declarations between `<style>` element tags in the HTML file or use the `<link>` element to load the CSS from its own file. With JavaScript, however, we can use the `<script>` element to do both. For JavaScript that is written directly into the HTML file, we can write our code between the `<script>` element tags, but there are multiple reasons why we wouldn't want to do that. Here are two reasons:
+Notice the `src` attribute being used here. When we use `<script src="path/to/file.js"></script>`, we are instructing the HTML file to go look for a JavaScript file at that path's location and incorporate it into the HTML file.
 
-- Reusability: It's possible to reuse JavaScript code across multiple HTML files, but if they are all being copied and pasted into the HTML files directly, it becomes difficult to maintain when something needs to be changed.
+Why would we put this towards the bottom of the HTML file, as opposed to CSS where we include the `<link>` element in the `<head>` element above all of our content? Out of all the different assets that go into a web page&mdash;images, CSS stylesheets, JavaScript&mdash;JavaScript runs the highest risk of possibly failing on load and more complicated JavaScript code could cause the browser to take a bit longer to read and run. Because it is our job to get the page to display as fast as possible, it is the best practice to put the `<script>` element at the bottom of the HTML page right before the closing `</body>` HTML tag. It is important to remember that a HTML file loads from top to bottom, meaning that if something at the top fails to load or causes the browser to run a little slow, it could lead to no HTML content showing up at all on the page. This would make users very confused and frustrated.
 
-- Cleanliness: Our JavaScript can become pretty lengthy at times, best to keep it in its own file.
+We can write JavaScript code in the HTML file by putting it between the opening and closing `<script>` element tags, and it is great for when we may not know if something is going to work and we don't feel like creating multiple files to simply test a small line of code, but ultimately it is best to practice "separation of concerns" and separate the three languages' code into separate files.
 
-Writing your CSS or JavaScript code in the HTML file is great for when we may not know if something is going to work and we don't feel like creating multiple files to simply test a small line of code, but ultimately it is best to practice "separation of concerns" and separate the three languages' code into separate files.
+> **Asset Needed:** Learning Block explaining why we still need to use an HTML file to run a JS file in the browser.
 
+### Ensuring our JavaScript is loaded
 
+We're pretty much ready to begin our journey into making our JavaScript application, but we should test that our HTML file is in fact reading our JavaScript file correctly. We can do that by adding a simple line of code that we'll be using quite a bit in this game.
 
+Add this line of code into the `game.js` file, then save the file and open up the HTML page in the browser:
+
+```javascript
+window.alert("This is an alert! JavaScript is running!");
+```
+
+When the HTML file is opened in the browser, the first and only thing we should see is a small popup window that says "This is an alert! JavaScript is running!", something along the lines of this image:
+
+> **Asset Needed:** Image of browser window with this alert
+
+Also take notice of the fact that there is really nothing else we can do in this browser tab until we acknowledge the popup window and click the button associated with it. This is what's known as an **alert**, and we've just written our first line of JavaScript!
+
+We'll get into what this code means next, but now we can move on knowing that our JavaScript is being read correctly by the HTML file.
 
 ## Use JavaScript functions to communicate with the player
 
@@ -245,27 +266,37 @@ So what happened in the last step when we added the `window.alert()` and opened 
 ​
 The first part we'll get into is the `window`, but only briefly. All we need to know for now is that the `window` is referring to the browser itself. Whenever we write JavaScript and run our code in a browser, this `window` will always be present, as we'll see later on when we use it for other purposes. The second thing to look at here is `alert()`, the part that comes after `window.`. An alert is a **function** built into the browser that allows the developer to create messages to send to the user.
 ​
-So what is a function? A function is a predefined action that we can call or invoke at a later time in our code. We just used `alert()`, which is a predefined function provided to us by the browser, but we can also define our own functions. Let's create our own function right now by adding the following code to `game.js`:
+So what is a function? A function is a predefined action that we can call or invoke at a later time in our code. We just used `alert()`, which is a predefined function provided to us by the browser, but we can also define our own functions.
+
+After the `alert` function is listed, there is a set of parentheses with a sentence wrapped with double quotes `" "`. This can be broken down into two pieces:
+
+- The parentheses are necessary to actually run a JavaScript function, even if there is nothing between them.
+
+- If there is content between the parentheses, this is what's known as "passing an argument" into the function. This means that the `alert` function was specifically created to accept varied content that will be displayed as the popup message every time it is used.
+
+Lastly, the alert function's code is closed out by a semicolon `;`. This is to tell the browser running the code that this particular line is completed and any code that comes after it is a new piece code, these are known as **expressions**.
+
+We'll dive further into passing arguments into a function shortly, but first let's create our own function by adding the following code to `game.js`:
 ​
 
-```js
+```javascript
 // this creates a function named "fight"
 function fight() {
-  window.alert('The fight has begun!');
+  window.alert("The fight has begun!");
 }
 ```
 
 Congratulations! You just wrote your first of many custom JavaScript functions. Let's dissect this syntax.
 
-@TODO insert image of function diagram / notation
+> **Asset Needed:** insert image of function diagram / notation
 
 When we _declare_ a function, we use the keyword, `function`, followed by the name we want to give the function. We named our function, `fight`, because we are creating a Robot Gladiators game. We can name our functions anything we want, but best practice is to name them so they describe their functionality. For example, we could name our `fight` function `x`, and we might remember what that means, but does it immediately let other developers know what the function does?
 
-@TODO explain parentheses
+After we name our function, we need to include parentheses. This is part of the required function syntax and allows content to be passed into function&mdash;much like the `alert()` function we just used. In our case, our function does not need input the same way that the alert does, but the parentheses are required either way. 
 
-The _curly braces_, `{ }`, wrap the code that belongs to this function. Any code within the braces will be run by the function. Any code that is outside will not be run by the function.
+The _curly braces_, `{ }`, wrap the code that belongs to this function. Any code within the braces will be run by the function. Any code that is outside will not be run by the function. The code between these curly braces are what's known as a code block.
 
-@TODO possible LB explaining brackets/braces, curly braces, etc
+> **Asset Needed:** possible LB explaining brackets/braces, curly braces, etc
 
 If you haven't yet, save your file and refresh `index.html` in the browser. Did you get an alert stating that "The fight has begun!"? No. Why? We defined our function, but now we need to call it. How do we call a function?
 
@@ -275,24 +306,39 @@ Add the following to the bottom of `game.js`:
 fight();
 ```
 
-@TODO insert screenshot of fight() call
+> **Asset Needed:** insert screenshot of the browser with the fight() function's alert()
 
 Then save the file and refresh `index.html` in your browser. The fight has begun!
 
-@TODO we can pass arguments to our functions
-@TODO refactor fight to accept an argument
+This may seem unnecessary at the moment, why would we create a function that calls an alert when we could just call the alert? For now, that is a correct assumption, but we just set up our main function that we will be adding more and more code to throughout the build of this game. So it won't be unnecessary for long!
 
-```js
-// this creates a function named "fight"
-function fight(message) {
-  window.alert(message);
-}
-fight('The fight has begun!');
+### Store User Input
+
+So far we've communicated with the user in one direction, program to user. But how do we use JavaScript to ask the user for information and capture their input?
+
+Like the alert function we used previously, the `window` has another function that we can use called a **prompt()**. Let's add this line of code to our `game.js` file at the top of the file:
+
+```javascript
+window.prompt("What is your robot's name?");
 ```
 
-@TODO functions are awesome because they allow us to reuse code
-@TODO try calling fight multiple times, with different messages
-​
+Now save and refresh the HTML file in the browser and we should something like this image:
+
+> **Asset Needed:** Image of the browser with this prompt window open
+
+We've now given the user the power to add their own information to our program. Enter your robot's name into the input field displayed in this prompt dialogue and click the "Ok" button (the name of this button may vary depending on the browser in use). The user has now provided the JavaScript program with that information and the program can use it throughout the code. So how do we use this information? 
+
+We need to be able to capture this data somehow. We can use what is known in JavaScript as expression by editing our `window.prompt()` line in `game.js` to look like this:
+
+```js
+var playerName = window.prompt("What is your robot's name?");
+```
+We introduced a critical part of JavaScript that enables us to capture data in variables. 
+
+> **Asset Needed:** image/diagram of variable syntax
+
+
+> **Deep Dive:** The `window` is known as an object which is a collection of functions and many other properties that is build natively into the browser.
 
 4. Manipulate data with functions, variables, and operators
 
