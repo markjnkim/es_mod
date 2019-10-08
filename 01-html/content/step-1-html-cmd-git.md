@@ -2,17 +2,21 @@
 
 ## Introduction
 
-A friend of a friend who works at Run Buddy put in a good word for us, and the company has agreed to hire us as a freelance web developer! Run Buddy is trying to increase its subscriptions and wants to launch a new landing page to attract sign-ups. The Run Buddy design team has provided a mock-up of what they want the landing page to look like:
+In an attempt to increase subscriptions, Run Buddy is launching a new landing page to attract sign-ups. 
+
+A friend of a friend who works at Run Buddy put in a good word for you, and the company has agreed to hire you as a freelance web developer! Your job is to make the Run Buddy landing page look good, then hand it off to Run Buddy's internal developers to complete the data collecting portion of it (later in the course, you'll know enough to do both).
+
+In this first lesson, you'll become familiar with some important tools and processes that you'll need to write that first line of HTML code.
+
+## Preview
+
+The Run Buddy design team has provided a mock-up of what they want the landing page to look like:
 
 ![mock-up](./assets/step-1/050-mock-up.png)
 
-Your job is to make the Run Buddy landing page look nice, then hand it off to Run Buddy's internal developers to finalize the data collecting portion of it. Later in the boot camp, we'll know enough to do both the visuals and database work. For now, though, the goal is to build the landing page's content and visual design with HTML and CSS.
-
-That said, let's jump right in and get our hands dirty with some actual coding! We know this is a big undertaking for a newbie developer, but thankfully Run Buddy has given us a generous deadline. That means we have ample time to learn as we build.
-
 Incidentally, did you know that many real-world companies don't expect developers to know everything up front? Part of the development process is figuring out new technologies. Granted, we are brand new developers, so we have a longer road ahead of us than a seasoned programmer learning a new tool. The key is to take it one step at a time and set up the project correctly. 
 
-In this first lesson, we'll familiarize ourselves with some important tools and processes on our way to writing that first line of HTML code.
+That said, let's jump right in and get our hands dirty with some actual coding! 
 
 ## Get Started with the Command Line
 
