@@ -4,7 +4,7 @@
 
 A friend of a friend who works at Run Buddy put in a good word for us, and the company has agreed to hire us as a freelance web developer! Run Buddy is trying to increase its subscriptions and wants to launch a new landing page to attract sign-ups. The Run Buddy design team has provided a mock-up of what they want the landing page to look like:
 
-![mock-up](./assets/step-1/050-mock-up.png)
+![The finished Run Buddy website](./assets/step-1/050-mock-up.png)
 
 Your job is to make the Run Buddy landing page look nice, then hand it off to Run Buddy's internal developers to finalize the data collecting portion of it. Later in the boot camp, we'll know enough to do both the visuals and database work. For now, though, the goal is to build the landing page's content and visual design with HTML and CSS.
 
