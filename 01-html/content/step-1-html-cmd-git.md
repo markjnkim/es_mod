@@ -16,27 +16,23 @@ The Run Buddy design team has provided the following mock-up of what they want t
 
 As a new developer, this probably looks pretty daunting. How are you supposed to know how to create this? Surely, they should hire someone with more experience than you. 
 
-Fear not. Many real-world companies don't expect even seasoned developers to know everything at the beginning of a new project. Part of the development process for any project is figuring out new technologies.  
-
-The key is to take it one step at a time. Setting up the project correctly when you're starting it will go a long way towards making the rest of it go more smoothly. That said, let's jump right in and start coding! 
+Fear not. Many real-world companies don't expect even seasoned developers to know everything at the beginning of a new project. Part of the development process for any project is figuring out new technologies. With that said, let's jump right in and start coding! 
 
 ## Get Started with the Command Line
 
-In the old days, entering text-based commands on a black screen (known as the **command-line interface**, or **CLI**) was the only way to interact with a computer. There was no graphical user interface (aka GUI) with icons, menus, and buttons to click. 
-
-Now that powerful operating systems like Windows and macOS exist, most computer users never have to even look at a CLI. For developers, though, the command line (often called the **terminal**) is still commonly used for many tasks. 
+In the old days, entering text-based commands on a black screen (known as the **command-line interface**, or **CLI**) was the only way to interact with a computer. But now that powerful, graphical operating systems like Windows and macOS exist, most people never have to even look at a CLI. For developers, though, the command line (often called the **terminal**) is still commonly used for many tasks. 
 
 Later in the boot camp, the CLI will become integral to building full-stack applications. For now, we'll use it to set up our project.
 
 ### Access the Command Line on a Mac
-Mac users, you already have a built-in Terminal app, which you can launch by searching for "terminal" in the Spotlight Search (click the 🔍 icon in the top-right corner, or use the keyboard shortcut Command+Spacebar).
+Mac users, you already have a built-in Terminal app, which you can launch by searching for "terminal" in the Spotlight Search (click the 🔍 icon in the top-right corner, or by using the keyboard shortcut Command+Spacebar).
 
 ### Access the Command Line on Windows
 Windows users, you installed [Git Bash](https://git-scm.com/downloads) as part of the prework. Open Git Bash by using the search box in the bottom-left corner (or by using the keyboard shortcut "Windows key + S") to search for "git bash".
 
 ### Use the Command Line
 
-Regardless of your operating system, you should see a window that looks like this when you open the command line:
+When you open the command line, you should see a window that looks like this:
 
 ![terminal window](./assets/step-1/100-terminal.png)
 
@@ -46,11 +42,11 @@ In this window, type `pwd` and press Enter. The terminal will display something 
 
 The command `pwd` means "print working directory" ("print" in this context means "display to the screen") and lets you know which directory (aka folder) the terminal is currently in, or looking at. Typing `pwd` is like asking "Where am I?" 
 
-If you want to see what's in this directory, you could navigate to it through your operating system's GUI (by clicking on folder icons, etc.), but since we're in the command line, let's try looking at the contents using another command: `ls`. 
+To see what's in this directory, you could navigate to it through your operating system's GUI (by clicking on folder icons, etc.), but since we're in the command line, let's try looking at the contents using another command: `ls`. 
 
-The `ls` command lists the files and folders within the current directory. It's like asking "What's here?" Some common folders you might see in your user directory are `Documents`, `Pictures`, `Music`, and `Desktop`. 
+The `ls` command lists the files and folders within the current directory. It's like asking "What's here?" Some folders you might see in your user directory are `Documents`, `Pictures`, `Music`, and `Desktop`. 
 
-Fun fact: the graphical "desktop" you see when your computer starts is this `Desktop` folder in your user directory! Let's "go" there now from the command line by typing the following commands, pressing Enter after each line:
+Fun fact: the graphical "desktop" you see when your computer starts is this `Desktop` folder in your user directory! Let's "go" there now in the command line by typing the following commands, pressing Enter after each line:
 
 ```bash
 cd Desktop
@@ -240,8 +236,6 @@ The good news is that much of this is boilerplate, meaning every webpage is goin
 >
 >The browser would still render it correctly, but this is difficult to make sense of! As you write code, you want it to be as legible as possible. This is not only for the benefit of other developers who might work on this project but for yourself when you come back the next day, having totally forgotten what you were doing!
 
-> **Coding Challenge:** Create a brand new HTML file that lists your six favorite foods, using the different HTML headings (`<h1>`, `<h2>`, `<h3>`, etc.) to illustrate their importance to you.
-
 ## Get Git
 
 Our webpage doesn't look like much yet, but this is still a good place to stop and take care of another important aspect when it comes to managing a project: **version control**. 
@@ -348,7 +342,7 @@ Can you imagine how useful this will be when you start working on larger apps wi
 
 **NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-142>**
 
-## Sketch Out the Page
+## Outline the Page
 
 We'll have a chance to practice Git again before we're done, but let's jump back into building out the HTML. 
 
