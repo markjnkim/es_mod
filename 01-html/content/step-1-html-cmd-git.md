@@ -238,25 +238,27 @@ The good news is that much of this is boilerplate, meaning every webpage is goin
 
 ## Get Git
 
-Our webpage doesn't look like much yet, but this is still a good place to stop and take care of another important aspect when it comes to managing a project: **version control**. 
+This is a good place to stop and introduce another important aspect when it comes to managing a project: **version control**. 
 
-Git is one option to accomplish this. It's a system that allows you to create "save points" (or in Git terms, **commits**) of your work. Whenever you reach a good stopping point, you can save/commit the current state of your codebase. This creates a nice history of changes and allows you to easily revert to an earlier version.
+Git is a system that allows you to create "save points" (or **commits**) of your work. It's good practice to commit your work whenever you reach a good stopping point. This creates a history of changes and allows you to revert to an earlier version if necessary.
 
-> **On the Job:** In development, you hear the term **production** a lot, which refers to the live version of your app or website that visitors are currently viewing. Sometimes bad code makes it to production, maybe causing the entire app to freeze, and the best course of action is to immediately undo! With Git, an older (working) version of the codebase can be pushed to production while developers investigate what went wrong with the new version.
+> **On the Job:** As a software developer, you'll hear the term **production** a lot. This refers to the live version of your app or website that users are currently using. Sometimes bad code can make it to production. When this happens, the best course of action is to immediately undo! With Git, an older (working) version of the codebase can be pushed to production while developers investigate what went wrong with the new version.
 
-Other benefits of Git include being able to push commits to a remote location, meaning you won't lose any work if your computer crashes. This also lets you switch between your home and office computer and continue where you left off. 
+Git allows you to push commits to a remote location so you won't lose any work if your computer crashes. This also lets you easily switch between computers while working on the same code. 
 
-Git also facilitates working on a team, which is very likely to happen once you step out into the development workforce. Without Git, it would be extremely tedious for developers to share code and work on the same app without accidentally losing or overwriting each other's code. 
+Git also facilitates working on a team, which is common in software development. Without Git, it would be extremely tedious for developers to share code and work on the same app without accidentally losing or overwriting each other's code. 
 
-Using Git, developers can create alternate versions of the same codebase (called **branches**) and work in isolation. When developers are ready to merge these branches together, Git will point out any conflicting lines of code and give developers a chance to fix the overlap. Pretty nifty stuff!
+Using Git, developers can create alternate versions of the same codebase (called **branches**). When they're ready to merge these branches, Git will point out any conflicting lines of code and give developers a chance to fix the overlap. Pretty nifty stuff!
 
 > **Deep Dive:** To learn more, check out this [Git Basics video from the Git team](https://git-scm.com/video/what-is-git)!
 
-We'll be honest&mdash;learning Git is tough. It's okay if things don't click right away or if your commits get messed up. Fortunately, there will be plenty of opportunities to practice Git in the coming weeks. By the time you complete the boot camp, you'll be a Git master!
+We'll be honest&mdash;learning Git is tough. It's okay if things don't click right away. You'll have plenty of opportunities to practice Git in the coming weeks. By the time you complete the boot camp, you'll be a Git master!
 
 ### Create a Run Buddy Git Repository
 
-Let's turn Run Buddy into a Git **repository** (basically a project folder with version control capabilities). Open the terminal in the `run-buddy` directory and run the following command: `git init`. The terminal should print something like `Initialized empty Git repository.`
+Let's turn Run Buddy into a Git **repository**, which is basically a project folder with version control capabilities. 
+
+Open the terminal in the `run-buddy` directory and run the following command: `git init`. The terminal should print something like `Initialized empty Git repository.`
 
 > **Important:** If your computer doesn't recognize the `git` command, make sure you've installed Git from the [Git website](https://git-scm.com/downloads).
 
