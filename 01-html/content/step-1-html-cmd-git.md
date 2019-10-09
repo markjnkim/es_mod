@@ -116,9 +116,9 @@ rm hello.txt
 ls
 ```
 
-Of course, everything we've done up to this point could also be accomplished with mouse clicks and context (right-click) menus. However, you'll find that, once you're used to it, the command line allows you to work much faster. Plus, it'll make you feel really cool. 
+Everything we've done up to this point could also be accomplished by using mouse clicks and context (right-click) menus. But once you're used to it, you'll find that the command line allows you to work much faster. Plus it'll make you feel really cool. 
 
-The following table recaps what we've learned:
+The following table recaps the commands we just learned:
 
 |Command    |Operation              |
 |-----------|-----------------------|
@@ -140,11 +140,11 @@ The following table recaps what we've learned:
 
 ## Add a Little HTML
 
-HTML (or Hypertext Markup Language, in case anyone asks) is the underlying structure of any webpage. Looking at our Run Buddy mock-up, every piece&mdash;the header, the sign-up form, the trainer images&mdash;is an HTML element. This is why we created an `index.html` file in the previous step. All of our HTML code and content will go in this file.
+HTML (or Hypertext Markup Language, in case anyone asks) is the underlying structure of any webpage. Every piece of the Run Buddy mock-up&mdash;the header, sign-up form, trainer images&mdash;is an HTML element. This is why we created an `index.html` file in the previous step: to hold all of this content and code. 
 
 We could open this single file in our code editor (VS Code), but we should start thinking about Run Buddy as a project that will eventually have multiple files and folders. So let's open the entire `run-buddy` folder in VS Code. 
 
-You can do this in a number of ways: by either dragging the folder into VS Code, using VS Code's "File > Open Folder" menu option, or opening it from the command line. 
+You can do this in a number of ways: by dragging the folder into VS Code, using VS Code's "File > Open Folder" menu option, or opening it from the command line. 
 
 To open VS Code from the command line, in the `run-buddy` directory, run the command `code .` (the `.` means "this directory"). 
 
@@ -184,39 +184,53 @@ The webpage should look like this:
 
 ![first screenshot](./assets/step-1/300-html-screenshot.png)
 
-Okay, so it's not the most exciting webpage in the world, but you gotta start somewhere! Let's back up, though, and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** that are made up of an opening tag (e.g., `<title>`) and a closing tag (e.g., `</title>`). Whatever is in between these tags is affected by what that element signifies. The `<h1>` element is a heading element, so it makes the text inside it big and bold. The `<h1>` element denotes a level 1 heading. If we have other, less important headings on our webpage, we can use other header elements like `<h2>`, `<h3>`, and so on.
+Okay, so it's not the most exciting webpage in the world, but you gotta start somewhere! 
 
-> **Deep Dive:** Read more about the different [heading elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
+### HTML Elements
+
+Let's back up and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** that are made up of an opening tag (e.g., `<title>`) and a closing tag (e.g., `</title>`). Whatever is in between these tags is affected by what that element signifies. 
+
+#### The \<h1\> Element
+
+The `<h1>` element is a "level 1" heading element, so it makes the text inside it big and bold. If we have other less important headings on the page, we can use the heading elements `<h2>`, `<h3>`, and so on.
+
+> **Deep Dive:** To learn more, see the [MDN web docs on heading elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
 
 Try changing `<h1>RUN BUDDY</h1>` to `<h2>RUN BUDDY</h2>`. Save the file and refresh the tab in the browser. Notice how the text shrunk slightly. 
 
-Also make a note that this change only affected the RUN BUDDY text. Why do you think that is? It's because the element was closed. If you remove the closing `</h2>` tag, the text underneath RUN BUDDY would also become big and bold because the browser wouldn't know where the `<h2>` content ends. 
+Also make a note that this change only affected the "RUN BUDDY" text. Why do you think that is? It's because the element was closed. If you remove the closing `</h2>` tag, the text that follows "RUN BUDDY" would also be big and bold because the browser wouldn't know where the `<h2>` content ends. 
 
-Now change it to an `<h3>` and observe again how the text shrunk.
+Now change it to an `<h3>` and observe again how the text shrinks.
+
+#### The \<html\>, \<head\>, \<title\>, and \<meta charset\>  Elements
 
 With this new understanding of HTML elements, let's look at the others we used. We're writing an HTML page, so it makes sense that everything would need to be contained in an `<html>` element. The only thing that didn't go inside this element was the `<!DOCTYPE html>`. This is an extra line that tells the browser how to interpret your HTML code.
 
-> **Deep Dive:** Read more about the [DOCTYPE](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode).
+> **Deep Dive:** To read more, check out the [MDN web docs on DOCTYPE](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode).
 
-Inside the `<html>` element, our webpage is further broken up into two other elements: `<head>` and `<body>`. The `<body>` is where all of the content should go. Basically, everything in our mock-up will go here. The `<head>`, on the other hand, is where we can provide any additional information the browser needs to know about our page. 
+Inside the `<html>` element, our webpage is further divided into two other elements: `<head>` and `<body>`. The `<body>` is where all of the content should go. Basically, everything in our mock-up will go here. The `<head>`, on the other hand, is where we can provide anything else the browser needs to know about our page. 
 
-For instance, the browser would like to know what to call this webpage. Hence, the `<title>` element inside `<head>`. Whatever is in the `<title>` element will become the name of the browser tab or window:
+For example, the browser wants to know what to call this webpage. The `<title>` element inside `<head>` tells it to call it "Run Buddy." Whatever is in the `<title>` element will become the name of the browser tab or window, as you can see here:
 
 ![browser title](./assets/step-1/350-browser-title.png)
 
-Try changing the title in the HTML file, making sure you see the change reflected in the browser.
+Try changing the title in the HTML file. Save the file and then reload the page in the browser to see the change. 
 
-> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-141>
+ **NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-141>**
 
-There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's an element in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This is an example of a [**meta tag**, of which there are many](https://devhints.io/html-meta). Like `<title>` elements, they give the browser extra information about the page, sometimes for display purposes and sometimes for search engine optimization. We'll discuss more of these in future modules.
+There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. 
 
-The `charset` meta tag is important to include now, though, because it specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character we would want, from foreign language symbols to emojis. 
+Lastly, there's an element in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This is an example of a **meta tag**, of which there are many. Like `<title>` elements, meta tags give the browser extra information about the page, sometimes for display purposes and sometimes for search engine optimization. We'll discuss these more in future modules.
 
-Try this out for fun: Copy this emoji (🏃) and paste it somewhere in your `<body>`. Note that it shows up just fine in the browser, but if you change the meta tag to `<meta charset="ASCII" />`, it no longer works because the browser will limit the available characters to those of the ASCII character set. Best to stick with UTF-8.
+> **Deep Dive:** To learn more, see this [HTML meta tags cheat sheet](https://devhints.io/html-meta).
 
-> **Deep Dive:** Read more about [character encoding](https://www.w3.org/International/questions/qa-what-is-encoding).
+The `charset` meta tag is important to include because it specifies the range of characters (letters, numbers, symbols, etc.) that can be used. UTF-8 accommodates just about any character, from foreign language symbols to emojis. 
 
-The good news is, much of this is boilerplate, meaning every webpage is going to start with the same structure. Every page needs a DOCTYPE, an `<html>` element, a `<head>` element, etc. It's worth typing out again and again just to reiterate their importance, but it can also be copy/pasted into future projects without harm.
+Try this out for fun: Copy this emoji (🏃) and paste it somewhere in the `<body>` of `index.html`. Note that it shows up just fine in the browser. But if you change the meta tag to `<meta charset="ASCII" />`, it no longer works. Why do you think that is? It's because the browser then limits the available characters to those of the ASCII character set. Best to stick with UTF-8!
+
+> **Deep Dive:** To learn more, read this W3C [article on character encoding for beginners](https://www.w3.org/International/questions/qa-what-is-encoding).
+
+The good news is that much of this is boilerplate, meaning every webpage is going to start with this same structure. Every page needs a DOCTYPE, an `<html>` element, a `<head>` element, etc. It's worth typing out again and again just to reiterate their importance, but it can also be copy/pasted into future projects without harm.
 
 > **Pro Tip:** Keep in mind how we've been organizing the code in our HTML file. New elements were put on a new line, and whenever a element was inside another, we indented the code. You could choose to write your HTML like this:
 >
@@ -224,27 +238,37 @@ The good news is, much of this is boilerplate, meaning every webpage is going to
 ><!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <title>Run Buddy</title> </head> <body> <h1>RUN BUDDY</h1> What We Do </body> </html>
 >```
 >
->The browser would still render it correctly, but this is difficult to make sense of! As we write code, we want it to be as legible as possible. This is not only for the benefit of other developers who may work on this project but for ourselves when we come back the next day, having totally forgotten what we were doing.
+>The browser would still render it correctly, but this is difficult to make sense of! As you write code, you want it to be as legible as possible. This is not only for the benefit of other developers who might work on this project but for yourself when you come back the next day, having totally forgotten what you were doing!
 
 > **Coding Challenge:** Create a brand new HTML file that lists your six favorite foods, using the different HTML headings (`<h1>`, `<h2>`, `<h3>`, etc.) to illustrate their importance to you.
 
 ## Get Git
 
-Our webpage doesn't look like much yet, but this is still a good place to stop and take care of another important aspect when it comes to managing a project: **version control**. Git is one option to accomplish this. It's a system that allows you to create save points (or in Git terms, **commits**) of your work. Whenever you reach a good stopping point, you can save/commit the current state of your codebase. This creates a nice history of changes that you can look back on and allows you to easily revert to an earlier version.
+Our webpage doesn't look like much yet, but this is still a good place to stop and take care of another important aspect when it comes to managing a project: **version control**. 
 
-> **On the Job:** In development, you hear the term **production** a lot, which refers to the live version of your app or website that users are currently using. Sometimes bad code makes it to production, maybe causing the entire app to freeze, and the best course of action is to immediately undo! With Git, an older (working) version of the codebase can be pushed to production while developers investigate what went wrong with the new version.
+Git is one option to accomplish this. It's a system that allows you to create "save points" (or in Git terms, **commits**) of your work. Whenever you reach a good stopping point, you can save/commit the current state of your codebase. This creates a nice history of changes and allows you to easily revert to an earlier version.
 
-Other benefits of Git include being able to push commits to a remote location, meaning you won't lose any work if your computer crashes. This also lets you switch between your home computer and office computer and continue where you left off. Git also facilitates working on a team, which is very likely to happen once you step out into the development workforce. Without Git, it would be extremely tedious for developers to share code and work on the same app without accidentally losing or overwriting each other's code. Using Git, developers can create alternate versions of the same codebase (called **branches**) and work in isolation. When developers are ready to merge these branches together, Git will point out if any lines of code conflict and give developers a chance to fix the overlap. Pretty nifty stuff.
+> **On the Job:** In development, you hear the term **production** a lot, which refers to the live version of your app or website that visitors are currently viewing. Sometimes bad code makes it to production, maybe causing the entire app to freeze, and the best course of action is to immediately undo! With Git, an older (working) version of the codebase can be pushed to production while developers investigate what went wrong with the new version.
 
-> **Deep Dive:** Learn more about [Git](https://git-scm.com/video/what-is-git) from the Git team!
+Other benefits of Git include being able to push commits to a remote location, meaning you won't lose any work if your computer crashes. This also lets you switch between your home and office computer and continue where you left off. 
 
-We'll be honest, though—learning Git is tough. It's okay if things don't click right away, or if commits get messed up. Fortunately, there will be plenty of opportunities to practice Git in the coming weeks. By the time you complete the boot camp, you'll be a Git master!
+Git also facilitates working on a team, which is very likely to happen once you step out into the development workforce. Without Git, it would be extremely tedious for developers to share code and work on the same app without accidentally losing or overwriting each other's code. 
+
+Using Git, developers can create alternate versions of the same codebase (called **branches**) and work in isolation. When developers are ready to merge these branches together, Git will point out any conflicting lines of code and give developers a chance to fix the overlap. Pretty nifty stuff!
+
+> **Deep Dive:** To learn more, check out this [Git Basics video from the Git team](https://git-scm.com/video/what-is-git)!
+
+We'll be honest&mdash;learning Git is tough. It's okay if things don't click right away or if your commits get messed up. Fortunately, there will be plenty of opportunities to practice Git in the coming weeks. By the time you complete the boot camp, you'll be a Git master!
+
+### Create a Run Buddy Git Repository
 
 Let's turn Run Buddy into a Git **repository** (basically a project folder with version control capabilities). Open the terminal in the `run-buddy` directory and run the following command: `git init`. The terminal should print something like `Initialized empty Git repository.`
 
 > **Important:** If your computer doesn't recognize the `git` command, make sure you've installed Git from the [Git website](https://git-scm.com/downloads).
 
-It may not seem like much happened, but this created a hidden `.git` folder in the `run-buddy` directory that designates it as a Git repository. If you want to verify for yourself, run the command `ls -a`, which will list any hidden files and folders as well as normal files. A file or folder starting with `.` is hidden, and the `.git` folder is marked as hidden because it's probably not something we should be messing with.
+It may not seem like much happened, but this created a hidden `.git` folder in the `run-buddy` directory that designates it as a Git repository. If you want to verify for yourself, run the command `ls -a`, which will list any hidden files and folders as well as normal files. A file or folder starting with `.` is hidden. The `.git` folder is marked as hidden because it's probably not something we should be messing with!
+
+### Try Some Git Commands
 
 Now that we have a Git repository, we can now start doing all things Git while in this folder. First, try running the command `git status`, which should display the following information:
 
@@ -252,32 +276,46 @@ Now that we have a Git repository, we can now start doing all things Git while i
 
 > **Important:** Mac users, if you see a `.DS_Store` file in there as well, ignore it for now. We'll talk more about this file later in the lesson.
 
-`git status` is a great way to quickly check what files have changed since the last time you saved, or committed, your work. Granted, we're just barely starting out, so there's not much to see yet. But notice that Git has listed `index.html` under `Untracked files`. The thing about Git is that it only cares about files you tell it to care about. In other words, files you tell it to track. Well, we definitely care about `index.html`, so let's add it to Git's tracking:
+`git status` is a great way to quickly check what files have changed since the last time you saved, or committed, your work. Granted, we're just starting out, so there's not much to see yet. But notice that Git has listed `index.html` under `Untracked files`. The thing about Git is that it only cares about files you tell it to care about&mdash;in other words, files you tell it to track. 
+
+Well, we definitely care about `index.html`, so let's add it to Git's tracking. To do that, type the following in the command line:
 
 ```bash
 git add index.html
 git status
 ```
 
-`git add` is another important command that moves any new files or changes to what is called **staging**. Think of it like the process of getting actors ready to go out on stage. The show hasn't started yet, but we need to round up who is going. In Git terms, we haven't saved/committed anything yet; we've just prepped Git on what could be committed. If you run `git status` again, you'll see that `index.html` now falls under `Changes to be committed`. So let's actually make that commit:
+`git add` is another important command that moves any new files or changes to **staging**. Think of it like the process of getting actors ready to go out on stage. The show hasn't started yet, but we need to round up who is going. In Git terms, we haven't saved/committed anything yet; we've just prepped Git on what could be committed. 
+
+#### Make Your First Git Commit
+
+If you run `git status` again, you'll see that `index.html` now falls under `Changes to be committed`. 
+
+Make that commit now by typing the following:
 
 ```bash
 git commit -m "page template"
 ```
 
-`git commit` is the command that will take everything in staging and commit it, but there's an extra piece we should make sure we have: `-m "message"`. This is how we can attach a helpful message to our commits.
+`git commit` takes everything in staging and commits it. The  `-m "message"` part of the command contains a short description of the commit.
 
-> **Pro Tip:** Every commit should include a message to explain what this particular change to the code is doing.
+> **Pro Tip:** Every commit should include a message to explain what the particular change to the code is doing.
 
-On your first commit, however, Git may ask you to identify yourself:
+On your first commit, Git may ask you to identify yourself, as shown here:
 
 ![git commit](./assets/step-1/450-git-config.png)
 
-This is normal. Just run the commands that the terminal is suggesting (`git config --global user.name "Your Name"`). If you needed to do this step, you'll also need to run the `git commit -m "page template"` command again. You'll know you succeeded if the terminal prints something like this:
+This is normal. Just run the commands that the terminal is suggesting (`git config --global user.name "Your Name"`). 
+
+If you needed to do this step, you'll also need to run the `git commit -m "page template"` command again. You'll know you succeeded if the terminal prints something like this:
 
 ![git commit](./assets/step-1/500-git-commit.png)
 
-Great! You made your first commit! But that was a lot to take in. Let's go through the process again. In your HTML file, update the content to look like this:
+Great! You made your first commit! That was a lot to take in, so let's go through the process again. 
+
+#### Make Another Commit
+
+Now let's try making a change to the `index.html` file. Change the content in the `<body>` element to look like this:
 
 ```html
 <body>
@@ -289,30 +327,36 @@ Great! You made your first commit! But that was a lot to take in. Let's go throu
 </body>
 ```
 
-Now run `git status`, and Git will recognize that the `index.html` file has been modified but that the changes are not staged for commit:
+Now run `git status`. Git will recognize that the `index.html` file has been modified but that the changes are not staged for commit. 
+
+You should see something like this in the command line:
 
 ![git status](./assets/step-1/600-git-status.png)
 
- If we want to commit this change to Git, we'll need to `add` it to staging first before the `commit`:
+ If we want to commit this change to Git, we'll need to `add` it to staging first. To do that, type the following:
 
 ```bash
 git add index.html
 git commit -m "add more link text"
 ```
 
-With two commits under our belt, run the command `git log`. This will show a history of all of the commits made, including the author of the commit and the message that was provided:
+With two commits under our belt, run the command `git log`. This shows a history of all of the commits made, including the author of the commit and the message that was provided:
 
 ![git log](./assets/step-1/700-git-log.png)
 
-This could be very useful once we start working on larger apps and/or with multiple developers!
+Can you imagine how useful this will be when you start working on larger apps with other developers? Very useful indeed!
 
-> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-142>
+**NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-142>**
 
 ## Outline the Page
 
-We'll have a chance to practice Git again before we're done, but let's jump back into building out the HTML. Looking at the design mock-up again, it may feel quite daunting to turn all of those colors and perfectly positioned titles and images into raw HTML. That's why this next step is hugely important. As developers, we must resist the urge to start coding without a plan of attack. HTML can easily get out of control if we don't consider how elements fit together.
+We'll have a chance to practice Git again before we're done, but let's jump back into building out the HTML. 
 
-What's nice about HTML, though, is that it's really just a series of boxes that fit inside of (or next to) each other. Consider the following code and its visual representation on the right:
+Looking at the design mock-up again, it might feel daunting to turn all of those colors and perfectly positioned titles and images into raw HTML. That's why this next step is hugely important. As developers, we must resist the urge to start coding without a plan of attack. 
+
+HTML can easily get out of control if we don't consider how elements fit together. But what's nice about HTML is that it's really just a series of boxes that fit inside of (or next to) each other. 
+
+Consider the following code and its visual representation on the right:
 
 ![box diagram](./assets/step-1/725-box-diagram.png)
 
@@ -332,7 +376,9 @@ Let's take a piece of our mock-up and think about how we could break this down i
 
 Note that the purpose of some containers isn't immediately apparent because they do nothing but hold other containers. It's okay if this doesn't feel intuitive yet. The more apps you build, the better you'll get at mapping their layouts. 
 
-This is as good a time as any to practice, so grab a pen and paper and sketch out the rest of the mock-up on your own. Take this step seriously! Stepping away from the computer screen and applying a physical touch to the development process can help shed new light on a problem. Here's how we sketched out one of the later sections:
+This is as good a time as any to practice, so grab a pen and paper and sketch out the rest of the mock-up on your own. Take this step seriously! Stepping away from the computer screen and applying a physical touch to the development process can help shed new light on a problem. 
+
+Here's how we sketched out one of the later sections:
 
 ![hand-drawn](./assets/step-1/775-drawn-outline.png)
 
