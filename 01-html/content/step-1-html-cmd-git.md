@@ -2,9 +2,9 @@
 
 ## Introduction
 
- In an attempt to increase subscriptions, Run Buddy is launching a new landing page to attract more sign-ups. A friend of a friend who works at Run Buddy put in a good word for you, and the company has agreed to hire you as a freelance web developer!
+Run Buddy is launching a new landing page to attract more sign-ups. A friend of a friend who works at Run Buddy put in a good word for you, and the company has agreed to hire you as a freelance web developer!
 
-Your job is to make the Run Buddy landing page look good and then hand it off to Run Buddy's internal developers to complete the data collection portion. Later in the boot camp, you'll know enough to do both!
+Your job is to make the Run Buddy landing page look good and then hand it off to Run Buddy's internal developers to complete the data collection portion. 
 
 In this first lesson, you'll learn about some important tools and processes, which is the first step towards writing that first line of HTML code.
 
@@ -20,12 +20,14 @@ Fear not. Many real-world companies don't expect even seasoned developers to kno
 
 ## Get Started with the Command Line
 
-In the old days, entering text-based commands on a black screen (known as the **command-line interface**, or **CLI**) was the only way to interact with a computer. But now that powerful, graphical operating systems like Windows and macOS exist, most people never have to even look at a CLI. For developers, though, the command line (often called the **terminal**) is still commonly used for many tasks. 
+In the old days, entering text-based commands on a black screen (known as the **command-line interface**, or **CLI**) was the only way to interact with a computer. But now that graphical operating systems like Windows and macOS exist, most people never have to even look at a CLI. 
 
-Later in the boot camp, the CLI will become integral to building full-stack applications. For now, we'll use it to set up our project.
+For developers, though, the CLI (also called the **terminal**) is still frequently used for many tasks. For now, we'll use it to set up our project.
+
+But first, let's figure out how to access it! 
 
 ### Access the Command Line on a Mac
-Mac users, you already have a built-in Terminal app, which you can launch by searching for "terminal" in the Spotlight Search (click the 🔍 icon in the top-right corner, or by using the keyboard shortcut Command+Spacebar).
+Mac users, you already have a built-in Terminal app, which you can launch by searching for "terminal" in the Spotlight Search (click the 🔍 icon in the top-right corner or use the keyboard shortcut Command+Spacebar).
 
 ### Access the Command Line on Windows
 Windows users, you installed [Git Bash](https://git-scm.com/downloads) as part of the prework. Open Git Bash by using the search box in the bottom-left corner (or by using the keyboard shortcut "Windows key + S") to search for "git bash".
@@ -36,15 +38,15 @@ When you open the command line, you should see a window that looks like this:
 
 ![terminal window](./assets/step-1/100-terminal.png)
 
-In this window, type `pwd` and press Enter. The terminal will display something like `/c/Users/YourName` on Windows or `/Users/YourName` on Mac. This is because when you first open Terminal or Git Bash, you start in your user directory. 
+In this window, type `pwd` and press Enter. `pwd` means "print working directory" ("print" in this context means "display to the screen") and lets you know which directory (aka folder) the terminal is currently in. Typing `pwd` is like asking "Where am I?" 
 
 > **Important:** To succeed in this boot camp, type out every code snippet instead of copying and pasting. It will help build up that muscle memory you need to become an expert coder faster!
 
-The command `pwd` means "print working directory" ("print" in this context means "display to the screen") and lets you know which directory (aka folder) the terminal is currently in, or looking at. Typing `pwd` is like asking "Where am I?" 
+The terminal will display something like `/c/Users/YourName` on Windows or `/Users/YourName` on Mac. This is because when you first open Terminal or Git Bash, you start in your user directory.
 
-To see what's in this directory, you could navigate to it through your operating system's GUI (by clicking on folder icons, etc.), but since we're in the command line, let's try looking at the contents using another command: `ls`. 
+Now let's look at the contents of this directory using another command: `ls`. The `ls` command lists the files and folders within the current directory. It's like asking "What's here?" 
 
-The `ls` command lists the files and folders within the current directory. It's like asking "What's here?" Some folders you might see in your user directory are `Documents`, `Pictures`, `Music`, and `Desktop`. 
+Some folders you might see in your user directory are `Documents`, `Pictures`, `Music`, and `Desktop`. 
 
 Fun fact: the graphical "desktop" you see when your computer starts is this `Desktop` folder in your user directory! Let's "go" there now in the command line by typing the following commands, pressing Enter after each line:
 
@@ -93,7 +95,7 @@ cd run-buddy
 pwd
 ```
 
-Just for fun, you can run the `ls` command while in the `run-buddy` directory, but nothing will happen because we don't yet have any files in here to list. 
+If you were to run the `ls` command while in the `run-buddy` directory, nothing would happen because we don't have any files in here to list. 
 
  Let's go ahead and make a few files using the `touch` command:
 
@@ -112,31 +114,34 @@ rm hello.txt
 ls
 ```
 
-Everything we've done up to this point could also be accomplished by using mouse clicks and context (right-click) menus. But once you're used to it, you'll find that the command line allows you to work much faster. Plus it'll make you feel really cool. 
+Everything we've done up to this point could also be accomplished by using mouse clicks and context (right-click) menus in the operating system. But once you're used to it, you'll find that the command line allows you to work much faster. Plus it'll make you feel really cool. 
 
-The following table recaps the commands we just learned:
+The following list recaps the commands you just learned:
 
-|Command    |Operation              |
-|-----------|-----------------------|
-|`pwd`        |Print working directory|
-|`ls`         |List files in directory|
-|`cd (name)`  |Change to directory    |
-|`cd ..`      |Go up / back a directory |
-|`mkdir`      |Make a new directory   |
-|`touch`      |Make a new file        |
-|`rm`         |Remove a file          |
+- **`pwd`**: Print working directory
 
-> **Deep Dive:** These are some other useful commands:
+- **`ls`**: List files in directory
+
+- **`cd (name)`**: Change to directory
+
+- **`cd ..`**: Go up/back a directory
+
+- **`mkdir`**: Make a new directory
+
+- **`touch`**: Make a new file
+
+- **`rm`**: Remove a file
+
+> **Deep Dive:** Search the internet for these other useful commands to learn what they do: 
 >
-> `cp`\
-> `mv`\
-> `rm -R`
->
-> Google each of these to read up on what they do.
+> - `cp`\
+> - `mv`\
+> - `rm -R`
+
 
 ## Add a Little HTML
 
-HTML (or Hypertext Markup Language, in case anyone asks) is the underlying structure of any webpage. Every piece of the Run Buddy mock-up&mdash;the header, sign-up form, trainer images&mdash;is an HTML element. This is why we created an `index.html` file in the previous step: to hold all of this content and code. 
+HTML (Hypertext Markup Language) is the underlying structure of any webpage. Every piece of the Run Buddy mock-up&mdash;the header, sign-up form, trainer images&mdash;is an HTML element. The `index.html` file that we created in the previous step will hold all of this content and code. 
 
 We could open this single file in our code editor (VS Code), but we should start thinking about Run Buddy as a project that will eventually have multiple files and folders. So let's open the entire `run-buddy` folder in VS Code. 
 
