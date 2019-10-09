@@ -2,9 +2,9 @@
 
 ## Introduction
 
-In an attempt to increase subscriptions, Run Buddy is launching a new landing page to attract more sign-ups. 
+ In an attempt to increase subscriptions, Run Buddy is launching a new landing page to attract more sign-ups. A friend of a friend who works at Run Buddy put in a good word for you, and the company has agreed to hire you as a freelance web developer!
 
-A friend of a friend who works at Run Buddy put in a good word for you, and the company has agreed to hire you as a freelance web developer! Your job is to make the Run Buddy landing page look good, then hand it off to Run Buddy's internal developers to complete the data collection portion (later in the boot camp, you'll know how to do both).
+Your job is to make the Run Buddy landing page look good and then hand it off to Run Buddy's internal developers to complete the data collection portion. Later in the boot camp, you'll know enough to do both!
 
 In this first lesson, you'll learn about some important tools and processes, which is the first step towards writing that first line of HTML code.
 
@@ -14,11 +14,11 @@ The Run Buddy design team has provided the following mock-up of what they want t
 
 ![mock-up](./assets/step-1/050-mock-up.png)
 
-Did you know that many real-world companies don't expect developers to know everything up front? Part of the development process for any project is figuring out new technologies. Granted, we are brand new developers, so we have a longer road ahead of us than a seasoned programmer learning a new tool. 
+As a new developer, this probably looks pretty daunting. How are you supposed to know how to create this? Surely, they should hire someone with more experience than you. 
 
-The key is to take it one step at a time. Setting up the project correctly when you're starting it will go a long way towards making the rest of the work go more smoothly. 
+Fear not. Many real-world companies don't expect even seasoned developers to know everything at the beginning of a new project. Part of the development process for any project is figuring out new technologies.  
 
-That said, let's jump right in and get our hands dirty with some coding! 
+The key is to take it one step at a time. Setting up the project correctly when you're starting it will go a long way towards making the rest of it go more smoothly. That said, let's jump right in and start coding! 
 
 ## Get Started with the Command Line
 
@@ -186,7 +186,7 @@ The webpage should look like this:
 
 Okay, so it's not the most exciting webpage in the world, but you gotta start somewhere! 
 
-### HTML Elements
+### Introducing HTML Elements
 
 Let's back up and explain in more detail what we just wrote. Notice that a lot of the code was composed of **elements** that are made up of an opening tag (e.g., `<title>`) and a closing tag (e.g., `</title>`). Whatever is in between these tags is affected by what that element signifies. 
 
@@ -348,7 +348,7 @@ Can you imagine how useful this will be when you start working on larger apps wi
 
 **NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-142>**
 
-## Outline the Page
+## Sketch Out the Page
 
 We'll have a chance to practice Git again before we're done, but let's jump back into building out the HTML. 
 
@@ -384,9 +384,9 @@ Here's how we sketched out one of the later sections:
 
 > **On the Job:** It's not uncommon for teams to spend many days or even weeks planning out a project before a single line of code is written. Drawing on a piece of paper may feel like a waste of time when we want to scratch that coding itch, but doing so ends up saving time and preventing potential problems in the long run.
 
-Keep your hand-drawn outline close by as we continue. If your outline doesn't 100% match with the code we end up writing, that's fine. There's always more than one way to build a webpage! And for the remainder of this lesson, we won't fill in every container, just the higher-level, structural components. The smaller details will come in future lessons.
+Keep your hand-drawn outline close by as you continue. If your outline doesn't 100% match with the code we end up writing, that's fine. There's always more than one way to build a webpage! 
 
-We've discussed the `<div>` element a little bit, so with that in mind, you may be tempted to reorganize your code to look like this:
+We've discussed the `<div>` element a little bit. With that in mind, you might be tempted to reorganize your code to look like this:
 
 ```html
 <body>
@@ -396,7 +396,11 @@ We've discussed the `<div>` element a little bit, so with that in mind, you may 
 </body>
 ```
 
-And that's actually a great start. We know the company name and navigation links will sit inside a larger teal box, which can be represented code-wise with a `<div>`. The problem with the `<div>` element is that it's a little too generic. If we had a complex layout with a lot of `<div>` elements everywhere, it would be hard to know at a glance what the purpose of each one is. For example:
+And that's actually a great start. We know the company name and navigation links will sit inside a larger teal box, which can be represented code-wise with a `<div>`. The problem with the `<div>` element is that it's a little too generic. 
+
+If we had a complex layout with a lot of `<div>` elements everywhere, it would be hard to know at a glance what the purpose of each one is. 
+
+Here's an example of what that could look like:
 
 ```html
 <div>
@@ -423,9 +427,11 @@ And that's actually a great start. We know the company name and navigation links
 </div>
 ```
 
-> **Urkel Says:** Some developers call that "div soup."
+> **Urkel Says:** Some developers call that "div soup"!
 
-With the advent of HTML5, however, newer **semantic elements** were introduced to help provide clarity around what would have traditionally just been another `<div>`. Consider this rewritten example:
+With the advent of HTML5, **semantic elements** were introduced to help provide clarity around what would have traditionally been just another `<div>`. 
+
+Consider this rewritten example:
 
 ```html
 <body>
@@ -435,11 +441,13 @@ With the advent of HTML5, however, newer **semantic elements** were introduced t
 </body>
 ```
 
-> **Deep Dive:** Read about [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5).
+> **Deep Dive:** To learn more, read the [MDN web docs on HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5).
 
-Is there any ambiguity about what this block of code represents? Nope, it's a header, and we defined it as such using the HTML5 `<header>` element. On a technical level, a `<header>` behaves exactly the same as a `<div>`. Its purpose is simply to convey meaning, not only to developers reading the code but to search engines who like to know which sections of a webpage are more important than others.
+Is there any ambiguity about what this block of code represents? Nope! It's a header, and we defined it as such by using the HTML5 `<header>` element. 
 
-We have another clearly distinct section in our layout at the very bottom: the footer. No coincidence, there's a semantic element for that:
+On a technical level, a `<header>` behaves exactly the same as a `<div>`. Its purpose is simply to convey meaning, not only to developers reading the code but to search engines that like to know which sections of a webpage are more important than others.
+
+We have another clearly distinct section in our layout at the very bottom: the footer. It's no coincidence that there's a semantic element for that:
 
 ```html
 <footer>
@@ -447,11 +455,13 @@ We have another clearly distinct section in our layout at the very bottom: the f
 </footer>
 ```
 
-While there are dozens of [semantic elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning) available to us, it might be harder to find appropriate matches for the rest of the layout. The large image at the top is sometimes referred to as a "jumbotron" or "hero," but there's no `<jumbotron>` element in HTML. If none of the existing elements make sense, there's no harm in falling back on a good ol' `<div>`. At the very least, though, we can think of our layout as having several key sections. 
+Even though there are dozens of [semantic elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning) available to us, it might be harder to find appropriate matches for the rest of the layout. The large image at the top is sometimes referred to as a "jumbotron" or "hero," but there's no `<jumbotron>` element in HTML. 
+
+If none of the existing elements make sense, there's no harm in falling back on a good ol' `<div>`. At the very least, though, we can think of our layout as having several key sections. 
 
 > **Important:** Remember to type out every code snippet in this lesson instead of copying and pasting! 
 
-Hey, what do you know, there's a `<section>` element! Let's go ahead and outline all of our sections in the `index.html` file:
+Hey, what do you know, there's a `<section>` element! Let's go ahead and outline all of our sections in the `index.html` file by typing the following:
 
 ```html
 <!-- navigation -->
@@ -490,7 +500,7 @@ Hey, what do you know, there's a `<section>` element! Let's go ahead and outline
 </footer>
 ```
 
-> **Pro Tip:** You may have noticed something new here: the `<!-- -->` element. This is how we can leave notes, or comments, in the code. These do not show up in the browser but are helpful to have to make the code even easier to read.
+> **Pro Tip:** You might have noticed something new here: the `<!-- -->` element. This allows us to leave notes, or comments, in the code. These do not show up in the browser but make the code easier to read.
 
 Save, refresh the browser, and admire your efforts:
 
@@ -498,32 +508,46 @@ Save, refresh the browser, and admire your efforts:
 
 Okay, still not very pretty, but we've laid some important groundwork that's going to make the next several steps much easier to complete.
 
-> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-143>
+**NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-143>**
 
 ## Revisit Our Git Workflow
 
-As you get into a comfortable workflow, you'll want to commit to Git often. This ensures you don't accidentally lose any work and gives you a "save point" that you can potentially revert back to. We just finished an important milestone: outlining the high-level structure of our webpage. This is the perfect time to commit. Before we commit, though, let's create another file in our project:
+As you get into a comfortable workflow, you'll want to commit to Git often. This ensures that you don't accidentally lose any work and gives you a "save point" that you can potentially revert back to. We just finished an important milestone: outlining the high-level structure of our webpage. This is the perfect time to commit. 
+
+### Create a Gitignore File
+
+Before we commit, though, let's create another file in our project:
 
 ```bash
 touch .gitignore
 ```
 
-A `.gitignore` file (yes, the dot is part of it) is where we can specify any files we don't want Git to track. Developers often get into the habit of running a Git command that will automatically pick up all untracked or modified files in a project folder. While this is certainly convenient, sometimes unwanted files end up getting committed. For example, on macOS, every directory has a hidden `.DS_Store` file that can create unnecessary headaches if accidentally added to Git. Mac users probably already noticed Git continually pointing out this file. Windows users, you can simulate the `.DS_Store` problem by creating your own with the `touch .DS_Store` command.
+A `.gitignore` file (yes, the dot is part of it) is where we can specify any files we don't want Git to track. Developers often get into the habit of running a Git command that will automatically pick up all untracked or modified files in a project folder. Though this is convenient, sometimes unwanted files end up getting committed. 
+
+For example, on macOS, every directory has a hidden `.DS_Store` file that can create unnecessary headaches if accidentally added to Git. Mac users probably already noticed Git continually pointing out this file. Windows users, you can simulate the `.DS_Store` problem by creating your own `.DS_Store` file with the `touch .DS_Store` command (yes, go ahead and do that now!).
 
 Now that everyone has this file in their project, open the `.gitignore` file in VS Code and add the following line: `.DS_Store`. Save the file, then run `git status`, which should display the following information:
 
 ![git status](./assets/step-1/900-git-status.png)
 
-Note that Git has now ignored the `.DS_Store` file. It also sees one modified file (`index.html` with our new semantic elements) and one new, untracked file (`.gitignore`). Let's add both of these to staging at the same time, using ONE of these commands:
+Note that Git has now ignored the `.DS_Store` file. It also sees one modified file (`index.html` with our new semantic elements) and one new, untracked file (`.gitignore`). 
+
+Let's add both of these to staging at the same time, using ONE of these commands:
 
 ```bash
 git add .
 git add -A
 ```
 
-`git add .` will add any untracked or modified files in the current directory (the current directory being represented by a `.`) and all subdirectories. `git add -A` will add any files in the entire project. Both are useful when you need to stage multiple files at once but should be used carefully and not without a `.gitignore` file in place first! 
+How do you know which one to use? Here's how they differ:
 
-With these changes staged, let's commit now:
+- `git add .` adds any untracked or modified files in the current directory (the current directory being represented by `.`) and all subdirectories. 
+
+- `git add -A` adds any files in the entire project. 
+
+Both are useful when you need to stage multiple files at once but should be used carefully and not without a `.gitignore` file in place first! 
+
+With these changes staged, let's commit now by typing the following:
 
 ```bash
 git commit -m "html outline and gitignore"
@@ -531,23 +555,25 @@ git commit -m "html outline and gitignore"
 
 ## Publish with GitHub
 
-Awesome, we've now saved our hard work to Git. The problem, however, is that these commits only live on our local computer—so if our computer dies, our work is lost. The Run Buddy company would be pretty upset if that happened. 
+Awesome&mdash;all your hard work is now saved to Git! There is one problem, though. These commits only live on your local computer. So if it were to die a tragic death at the hands of spilled coffee or a lightning surge, our work is lost. The Run Buddy company would be pretty upset if that happened! 
 
 It would be helpful if we could save this repository in a remote location (i.e., on someone else's computer!). That's where GitHub comes in. [GitHub](https://github.com/) is a website that hosts Git repositories. It's free and very popular among developers, so make sure you have an account!
 
-> **Career Prep:** GitHub has become a vital resource to recruiters and hiring managers because it helps them see a candidate's recent activity, samples of their code, and their thought process via READMEs.
+> **Important:** A common misconception is that Git and GitHub are the same thing. Git is the version control software that you installed on your computer. GitHub is a service that lets you create Git repositories on the internet. There are [other websites](https://opensource.com/article/18/8/github-alternatives) that perform the same service as GitHub, but the software on your computer (Git) wouldn't need to change to use them.
 
-> **Important:** A common misconception is that Git and GitHub are the same thing. Git is the version control software that we've installed on our computer. GitHub is a service that lets us create Git repositories on the internet. There are [other websites](https://opensource.com/article/18/8/github-alternatives) that perform the same service as GitHub, but the software on your computer (Git) wouldn't change.
+What we'll do is create a new, remote repository on GitHub, then link our local Run Buddy project with it. 
 
-What we'll do is create a new, remote repository on GitHub, then link our local Run Buddy project with it. After logging in to GitHub, click the Start a Project button:
+After logging in to GitHub, click the "Start a project" button, shown here:
 
 ![The Start a Project button is next to the Read the Guide button](./assets/step-1/1000-github-new.png)
 
-This will route you to a page where you'll be able to create a new repository. Give the repository a name (run-buddy) but don't change any other options. Then click the "Create repository" button.
+This will route you to a page where you'll be able to create a new repository. Give the repository a name (run-buddy) but don't change any other options. Then click the "Create repository" button, shown below:
 
 ![new repo](./assets/step-1/1100-github-create.png)
 
-The next page will display a blue Quick Setup banner that includes a link to this repository. The link will look something like `git@github.com:username/run-buddy.git`, if the SSH option is clicked, or `https://github.com/username/run-buddy.git` if HTTPS is clicked:
+The next page will display a blue Quick Setup banner that includes a link to this repository. The link will look something like `git@github.com:username/run-buddy.git`, if the SSH option is clicked, or `https://github.com/username/run-buddy.git` if HTTPS is clicked. 
+
+Here's how it looks with SSH selected:
 
 ![copy repo](./assets/step-1/1200-github-copy.png)
 
@@ -572,7 +598,7 @@ If you used the SSH link, Git will ask you to enter your SSH passphrase. The fir
 
 Type `yes`, because we do trust them. If you used the HTTPS link, on the other hand, you'll be asked to enter your GitHub username and password (every time you push to GitHub, which is why SSH is more convenient).
 
-So what exactly did `git push origin master` do? `git push` is the command to send any local commits to a remote location. In this case, the location is `origin` (GitHub), and we wanted to update the origin's `master` branch. (We'll talk more about branches in the next module.) For now, you only have one version of your codebase, and it's called master by default.
+So what exactly did `git push origin master` do? `git push` is the command to send any local commits to a remote location. In this case, the location is `origin` (GitHub), and we wanted to update the origin's `master` branch. (We'll talk more about branches in the next module.) For now, you only have one version of your codebase, and it's called `master` by default.
 
 Go back to your GitHub repository in the browser and refresh the page. It should look like this:
 
@@ -580,7 +606,7 @@ Go back to your GitHub repository in the browser and refresh the page. It should
 
 GitHub now has our two files and a record of our three previous commits! This means we could download this repository on another computer and continue working without missing a beat, or we could add other developers to the project and let them commit and push to this same location. 
 
-From now on, `git push` should become part of your normal Git routine to ensure your changes always make it to GitHub. Memorize these three commands:
+From now on, `git push` should become part of your normal Git routine to ensure that your changes always make it to GitHub. Memorize these three commands:
 
 ```bash
 git add -A
@@ -598,17 +624,25 @@ Then on the next page, scroll down to the GitHub Pages section. Change the dropd
 
 ![github pages](./assets/step-1/1500-github-pages.png)
 
-This tells GitHub to use the contents of your master branch for your live website. Once you do this, GitHub will then display the message: Your site is ready to be published at https://username.github.io/run-buddy/. It might take a minute for this to actually kick in, so wait a moment before visiting this link (replacing "username" with your GitHub username, of course). When you do open it, though, you'll see that your Run Buddy webpage is now live on the internet! As we continue to improve this project and push new commits to GitHub, this live link will automatically update. Thanks, GitHub!
+This tells GitHub to use the contents of your master branch for your live website. Once you do this, GitHub will then display the message: "Your site is ready to be published at https://username.github.io/run-buddy/." 
 
-Let's back up and look at this link again: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that `index.html` is defined as a default by the server. If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html` because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, make sure every project has an `index.html` file!
+It might take a minute for this to actually kick in, so wait a moment before visiting this link (replacing "username" with your GitHub username, of course). When you do open it, though, you'll see that your Run Buddy webpage is now live on the internet! 
 
-> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-144>
+And as we continue to improve this project and push new commits to GitHub, this live link will automatically update. Thanks, GitHub!
+
+> **On the Job:** GitHub has become a vital resource to recruiters and hiring managers because it helps them see a candidate's recent activity, samples of their code, and their thought process via READMEs.
+
+Let's back up and look at this link again: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that `index.html` is defined as a default by the server. 
+
+If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html` because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, make sure every project has an `index.html` file!
+
+**NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-144>**
 
 ## Reflection
 
-This lesson mostly focused on setting up the project, so even though the it might not look like much yet, you've made life much easier for your future self and have paved the way to building out the Run Buddy landing page.
+This lesson mostly focused on setting up the project. Even though it might not look like much yet, you've done a lot to set things up correctly, making life much easier for your future self!
 
-You've already accomplished a lot! The HTML structure is in place and ready to be filled in with more detailed content and styling. You've established a good workflow with Git to continually save your code changes locally and on GitHub. You also have a live website on GitHub Pages that will begin to take shape as you complete the next several lessons. 
+You've already accomplished a lot. The HTML structure is in place and ready to be filled in with more detailed content and styling. You've established a good workflow with Git to continually save your code changes locally and on GitHub. You also have a live website on GitHub Pages that will begin to take shape as you complete the next several lessons. 
 
 Some of the major takeaways from this lesson are:
 
