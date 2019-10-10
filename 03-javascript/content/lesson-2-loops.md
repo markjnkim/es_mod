@@ -18,7 +18,7 @@ In this lesson we will build upon our knowledge of the `window`'s interactive me
 6. Improve the User Game Experience
 
 Here is a quick example of what we can expect to see by the end of this lesson:
-> **Video:** [Gif of the game interaction - Jira 161](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-161)
+> **Asset Needed:** [Gif of the game interaction - Jira 161](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-161)
 <!-- Fall Back Screenshot -->
 ![Preview of Game in Console](./assets/lesson-2/50-console-game.png)
 
@@ -42,7 +42,6 @@ In order to "WIN" and defeat all robots we must first:
 
 1) Face all the robots
 2) Defeat each robot
-
 
 In order to defeat all the robots we must be able to face each robot and then defeat each robot, so let's make our revisions to our original pseudocode step.
 ```javascript
@@ -334,8 +333,8 @@ for(var i = 0; i < enemyNames.length; i++) {
   fight(enemyNames[i]);
 }
 ```
-<!-- > **Video:** [Gif displays current game state - Jira Issue](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-162)
-> Fall Back with screen shots -->
+> **Asset Needed:** [Gif displays current game state - Jira Issue](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-162)
+> Fall Back with screen shots
 ![Successful Loop Function Call](./assets/lesson-2/900-console-fight-robots.png)
 
 As can be seen in our console, we have successfully looped through our array and fought each robot. Congratulations! We have almost reached our MVP and successfully accomplished our objective to face and fight each enemy robot. The next objective we need to tackle is to defeat each enemy robot, then we will be able to "WIN" the game.
@@ -390,7 +389,7 @@ Save `game.js` and reload `index.html` in Chrome. We should see the following in
 
 Notice that in the middle window, we can see the script with our `debugger;` statement highlighted. This is called the Code Editor pane. To the left, is the the File Navigator pane which displays the folder tree. To the right will be the JavaScript Debugging pane. The current status notes that the `debugger` has been paused therefore the program is currently frozen unless we click the resume button. We currently are in the Sources tab of the console.
 
-> **Video:** [Gif Debugger Tool - Jira FSFO-163](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-163)
+> **Asset Needed:** [Gif Debugger Tool - Jira FSFO-163](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-163)
 
 Our main focus will be in the debugger tool panel on the right. Let's expand the Watch option. We can see the following:
 
@@ -418,7 +417,7 @@ Notice on the very top of the JavaScript Debugging pane, there are controls that
 
 Let's click on the step button and progress slowly through the program executing each line one at a time. 
 
-> **Video:** [Animation - Jira FSFO-164 Debugging Step](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-164)
+> **Asset Needed:** [Animation - Jira FSFO-164 Debugging Step](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-164)
 
 We can see that the next progression, the `i` value increments by one due to the `for` statement increment expression, `i++`. Next, the `i` conditional statement is evaluated in the `for` loop, `i < enemyNames.length`. Since this conditional statement is true because `1 < 3`, we then proceed into the `fight()` function. But instead of progressing with our new robot enemy into the `while` loop, we are immediately kicked out of this function. It appears we did not satisfy the `while` loop's condition that the `enemyHealth > 0`. *Ah ha!* That is why our player robot is failing to fight the other enemy robots. We only have a single global `enemyHealth` variable set as the health for all the robots, attacking one robot is like attacking all the enemy robots, so when one is defeated, they are all defeated. To fix this, we must reset the `enemyHeatlh` value before each robot battle so a new robot can start battling at full strength. Let's reset our enemy robot's health by assigning it right before we our `fight()` function call inside the `for` loop. For simplicity sake let's choose a variable name that is more semantic than `enemyNames[i]` to store our current enemy robot. 
 
@@ -675,7 +674,7 @@ if (playerHealth > 0) {
 Let's see how this new message functions in the game.
 
 ![Game Round Alert](./assets/lesson-2/2500-game-round-alert.png)
-> **Video:** [Gif - Demo of Round Alerts Jira FSFO-167](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-167)
+> **Asset Needed:** [Gif - Demo of Round Alerts Jira FSFO-167](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-167)
 
 Our next step would be to add a message that notifies the player when the game is over when the player robot has been defeated. We can use the `else` conditional statement since this occurs only when the player robot has no health or when it has been defeated. Let's add this statement below our `if` statement:
 ```javascript
