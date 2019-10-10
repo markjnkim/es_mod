@@ -1,6 +1,7 @@
 # Lesson 3: Create the Hero
 
 ## Introduction
+
 Now that we've set up the header and footer for our website, let's move on to the body. The design team has asked us to create a flashy section at the top of the landing page to grab visitors' attention and capture their contact information. They've given us a design mock-up for the section and an image to be used as the background. 
 
 Here's the mock-up:

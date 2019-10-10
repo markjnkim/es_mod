@@ -659,8 +659,6 @@ Some of the major takeaways from this lesson are:
 
 * Making commits with `git commit -m ""` and sending them to GitHub with `git push origin master`.
 
-Was it a lot of information to take in? Absolutely! These first few lessons are always challenging, simply because everything is so new. That's why it's important to keep practicing. Force yourself to use the command line. Type out every HTML element. Make practice repositories on GitHub. The more you do it, the more quickly it will become second nature.
-
 Next up, we'll continue to learn more about HTML while applying a much-needed visual makeover to our elements. By the end of the module, you'll have everything you need to make beautiful websites beyond Run Buddy. 
 
 But let's finish this landing page first!
