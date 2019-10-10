@@ -27,7 +27,7 @@ Here is a quick example of what we can expect to see by the end of this lesson:
 
 ## Pseudocode our Game Logic
 
-How to start is often a common question for developers. There seems to be a lot of work to be done, but how to we begin? Pseudocoding our steps will be a great starting point since this will help organize our thoughts, outline the objectives, and get our creative juices flowing. Our first goal will be to identify the different game states and write them as comments near the top of the `game.js` file.
+How to start is often a common question for developers. There seems to be a lot of work to be done, but how do we begin? Pseudocoding our steps will be a great starting point since this will help organize our thoughts, outline the objectives, and get our creative juices flowing. Our first goal will be to identify the different game states and write them as comments near the top of the `game.js` file.
 > **Pause:** How do we win our Robot Gladiator game?
 >
 > **ANSWER:** Defeat all the robot enemies.
