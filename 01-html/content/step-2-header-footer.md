@@ -2,11 +2,24 @@
 
 ## Introduction
 
-Before we go any further, take a moment to give yourself a pat on the back. Even though the Run Buddy landing page doesn't look like much yet, you've already done a lot to pave the way for building the entire website. 
+Before we go any further, take a moment to give yourself a pat on the back. You've already done a lot to prepare for building the entire website. 
 
-One really important step you completed in Lesson 1 was to build a series of "containers" (aka divs) to hold different types of content in the HTML document. At first glance, this may seem like a lot of extra work, but as you add content and apply styles to each section, you'll see that it allows you not to worry about how each one affects the others. You'll get a chance to see this in action in this lesson. 
+Here's what you built in the last lesson: 
 
-In Lesson 2, you'll add some new HTML elements and CSS to your skillset as we add content and style to the header and footer of the Run Buddy webpage. Why focus on the top and bottom of the page and leave the middle untouched? The header and footer typically share similar content and style patterns, so it makes sense to do them both at the same time. They're also the "anchors" of most websites—meaning they appear on every page and hold two very important parts of any website: branding and navigation. 
+ **Add image of webpage as it stands now**
+
+One really important step you completed in the last lesson was to build a series of "containers" (aka divs) to hold different types of content. As you add content and style to each section in this lesson, you'll see how these allow you not to worry about how each one affects the others. 
+
+
+## Preview
+
+In this lesson, you'll add content and style to the header and footer of the Run Buddy landing page. 
+
+When you're done with this lesson, the landing page will look like this: 
+
+**Add image of end result of lesson**
+
+The header and footer typically share similar content and style patterns, so it makes sense to do them both at the same time. They're also the "anchors" of most websites—meaning they appear on every page and hold two very important parts of any website: branding and navigation. 
 
 This is all best learned by doing, so let's get started!
 
@@ -120,7 +133,7 @@ Here are a few examples of the `<a>` element being used to create links:
 
 Did you notice that the first two examples above have an `href=` inside their opening tags? This is an HTML **attribute**. 
 
-Attributes give functionality, meaning, and context to our HTML elements. They are not necessary for every element (we've written a lot of HTML so far without them!) but can be added to any element. However, some elements require them to work, such as `<a>`; if we were to omit the `href` attribute in the examples above, the `<a>` element would not be clickable and the link would not work.
+Attributes give functionality, meaning, and context to HTML elements. They aren't necessary for every element, but some require them to work. One of those is the `<a>` element. If we were to omit the `href` attribute in the examples above, the links would not work.
 
 Throughout this lesson and in future ones, you will be introduced to other important attributes. Attributes can be used to give an HTML element a unique identity, create relationships with other elements, and provide design changes using CSS.
 
