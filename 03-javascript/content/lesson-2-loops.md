@@ -1,9 +1,9 @@
 # Lesson 2 - Enemy Battle Rounds
 ## Introduction
-> ## @TODO Github Issue Placeholder
+> **TODO Github Issue Placeholder**
 
 <!-- Summarize current state of the game -->
-Now that we created a basic `fight()` function in the last lesson, we are able to exchange attacks with the enemy robot. However we are only able to have a single battle round with one enemy robot. Let's build upon our previous work and increase our Battle Bot game's complexity by introducing more enemy robots and exchanging multiple rounds of attack until a combatant has been defeated. This will be considered our MVP since it can now be considered a game that can be played albeit very simply. The judges at the Con Solo game jam won't be highly impressed with our game in its current state since we are unable to determine the winner of the fight or even how to win the game, but after completing our MVP, at the very least they will be able to get a sense of how the game works and operates. 
+Now that we created a basic `fight()` function in the last lesson, we are able to exchange attacks with the enemy robot. However we are only able to have a single battle round with one enemy robot. Let's build upon our previous work and increase our Robot Gladiators game's complexity by introducing more enemy robots and exchanging multiple rounds of attack until a combatant has been defeated. This will be considered our MVP since it can now be considered a game that can be played albeit very simply. The judges at the Con Solo game jam won't be highly impressed with our game in its current state since we are unable to determine the winner of the fight or even how to win the game, but after completing our MVP, at the very least they will be able to get a sense of how the game works and operates. 
 
 > **On the Job:** The `fight()` function established a nice building block that will provide some of the basic game functionality we can build upon to create more features that will add game complexity and interest. An essential part of creating programs in JavaScript is knowing how to create and use functions as building blocks of code that can work together to accomplish a program's overarching goal.
 
@@ -12,9 +12,9 @@ Now that we created a basic `fight()` function in the last lesson, we are able t
 In this lesson we will build upon our knowledge of the `window`'s interactive methods, global and local variables, conditional statements, and the `fight()` function we created in the last lesson and introduce a new data structure called an array and native JavaScript functions. Let's map out our build process for this lesson and establish our lesson's goals.
 1. Pseudocode Our Game Logic
 2. Add Combatants to the Battle Using Arrays
-3. Fight Enemy Robot Combatants With For Loops
-4. Fight Each Combatant With Function Arguments
-5. Battle the Combatants Until Defeated With a While Loop
+3. Fight Enemy Robot Combatants Using For Loops
+4. Fight Each Combatant Using Function Arguments
+5. Battle the Combatants Until Defeated Using a While Loop
 6. Improve the User Game Experience
 
  <!-- that is because some of them are. To some, it makes much more sense to first complete our `fight()` function to defeat a robot and then add more robots to `fight()`. Although the sequence to some of the steps isn't critical, completing each step is, so for now we will continue with our declared approach, but understand in the future there will be multiple strategies and problem solving approaches that should be considered.   -->
@@ -25,7 +25,7 @@ Here is a quick example of what we can expect to see by the end of this lesson:
 ![Preview of Game in Console](./assets/lesson-2/50-console-game.png)
 
 
-## Pseudocode our Game Logic
+## Pseudocode Our Game Logic
 
 How to start is often a common question for developers. There seems to be a lot of work to be done, but how to we begin? Pseudocoding our steps will be a great starting point since this will help organize our thoughts, outline the objectives, and get our creative juices flowing. Our first goal will be to identify the different game states and write them as comments near the top of the `game.js` file.
 > **Pause:** How do we win our Robot Gladiator game?
@@ -63,7 +63,7 @@ Conversely the "LOSE" game state is also important and will be something we will
 >
 > **ANSWER:** if(enemyHealth <= 0) 
 
-## Arrays Are Like Ordered Lists
+## Add Combatants to the Battle Using Arrays
 Before we continue, let's stop our program from executing the `fight()` function since we are not currently working on this function and those pesky alert dialogs can get a bit tiresome.
 > **Pause:** How do you stop the `fight()` function from executing?
 >
@@ -158,7 +158,7 @@ Now that we know what an array is and how to access it, let's think about how an
 -->
 <!-- [For Loops on MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement) -->
 
-## Fight all enemy robot combatants - For Loops
+## Fight Enemy Robot Combatants Using For Loops
 
 In the prior example, when we wished to display each element of the array in the console we had to manually write out each element and its corresponding index like so:
 ```javascript
@@ -280,7 +280,7 @@ Much better! Now that we have some familiarity with how to loop through our `ene
 //    * Fight all enemy robots
 ```
 
-## Function Arguments Pass Data
+## Fight Each Combatant Using Function Arguments
 Great, now that we are able to access each enemy robot in the  `enemyNames` array, we must now try to have our robot fight them in the `fight()` function. Currently we have a global variable named `enemyName` inside our `fight()` function to make our robots face off and fight each other. Now that we have an `enemyNames` array, we will need to make some changes to how the robot combatants face off. Let's take a minute to think about a scenario in which as we loop through the `enemyNames` array, with each new robot or loop iteration, we could make the robots fight. Taking into account our `fight()` operation is in a function, this offers the flexibility to call this function inside our `for` loop. Now the use of functions becomes more apparent. We are able to execute this code in the `fight()` function repeatedly from within a loop. 
 
 But how do we pass in our enemy robot into the function? Presently the function expression is only able to fight a single robot. We will use a property of functions that will allow data to be passed into the function through the argument. This will allow us to pass in a new enemy robot on every loop iteration into our `fight()` function to fight our robot like so:
@@ -343,7 +343,7 @@ for(var i = 0; i < enemyNames.length; i++) {
 As can be seen in our console, we have successfully looped through our array and fought each robot. Congratulations! We have almost reached our MVP and successfully accomplished our objective to face and fight each enemy robot. The next objective we need to tackle is to defeat each enemy robot, then we will be able to "WIN" the game.
 This is a great spot to add, commit, and push our work into the Github repo for safe keeping. 
 
-## Fight Loop Using a While Loop
+## Battle the Combatants Until Defeated Using a While Loop
 The next objective is to defeat each robot. Currently we are only able to fight each robot once. So how do we go about fighting each robot until a winner is found? Sounds a bit like we need another loop, to continue the fighting. Earlier we determined that to defeat a robot we need to fight them until their health points reduce to zero or less. Conversely we can say that we will fight the enemy robot while it is alive. This was translated into code by using the following conditional:
 ```javascript
 if (enemyHealth > 0) // if the enemy robot has health points continue to fight
