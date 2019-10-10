@@ -249,7 +249,7 @@ We're pretty much ready to begin our journey into making our JavaScript applicat
 Add this line of code into the `game.js` file, then save the file and open up the HTML page in the browser:
 
 ```javascript
-window.alert("This is an alert! JavaScript is running!");
+window.alert('This is an alert! JavaScript is running!');
 ```
 
 When the HTML file is opened in the browser, the first and only thing we should see is a small popup window that says "This is an alert! JavaScript is running!", something along the lines of this image:
@@ -260,11 +260,15 @@ Also take notice of the fact that there is really nothing else we can do in this
 
 We'll get into what this code means next, but now we can move on knowing that our JavaScript is being read correctly by the HTML file. Since we just got our initial project structure created, it's a good time to commit your repository's code!
 
+> **On The Job:** We’ll get into what the above code actually means in a bit, but try and think about what it meant when we used the word `window` in that code and what it may be referring to. Also think about the `alert()` syntax and what programming concept it falls under. Is it something that stores data? Or does it perform an action? 
+
 ## Use JavaScript functions to communicate with the player
 
 So what happened in the last step when we added the `window.alert()` and opened up our HTML file in the browser? We were hit with arguably the most annoying part of being on the web, an alert dialogue! Alerts have been a staple in web development since the beginning, but where do they come from exactly? Namely, what is the `window` being mentioned in `window.alert()`? Let's dissect that code.
 ​
 The first part we'll get into is the `window`, but only briefly. All we need to know for now is that the `window` is referring to the browser itself. Whenever we write JavaScript and run our code in a browser, this `window` will always be present, as we'll see later on when we use it for other purposes. The second thing to look at here is `alert()`, the part that comes after `window.`. An alert is a **function** built into the browser that allows the developer to create messages to send to the user.
+
+> **Deep Dive:** Learn more about the [`window.alert()` function on MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
 ​
 So what is a function? A function is a predefined action that we can call or invoke at a later time in our code. We just used `alert()`, which is a predefined function provided to us by the browser, but we can also define our own functions.
 
@@ -282,7 +286,7 @@ We'll dive further into passing arguments into a function shortly, but first let
 ```javascript
 // this creates a function named "fight"
 function fight() {
-  window.alert("The fight has begun!");
+  window.alert('The fight has begun!');
 }
 ```
 
@@ -292,7 +296,7 @@ Congratulations! You just wrote your first of many custom JavaScript functions. 
 
 When we _declare_ a function, we use the keyword, `function`, followed by the name we want to give the function. We named our function, `fight`, because we are creating a Robot Gladiators game. We can name our functions anything we want, but best practice is to name them so they describe their functionality. For example, we could name our `fight` function `x`, and we might remember what that means, but does it immediately let other developers know what the function does?
 
-After we name our function, we need to include parentheses. This is part of the required function syntax and allows content to be passed into function&mdash;much like the `alert()` function we just used. In our case, our function does not need input the same way that the alert does, but the parentheses are required either way. 
+After we name our function, we need to include parentheses. This is part of the required function syntax and allows content to be passed into function&mdash;much like the `alert()` function we just used. In our case, our function does not need input the same way that the alert does, but the parentheses are required either way.
 
 The _curly braces_, `{ }`, wrap the code that belongs to this function. Any code within the braces will be run by the function. Any code that is outside will not be run by the function. The code between these curly braces are what's known as a code block.
 
@@ -326,20 +330,106 @@ Now save and refresh the HTML file in the browser and we should something like t
 
 > **Asset Needed:** Image of the browser with this prompt window open
 
-We've now given the user the power to add their own information to our program. Enter your robot's name into the input field displayed in this prompt dialogue and click the "Ok" button (the name of this button may vary depending on the browser in use). The user has now provided the JavaScript program with that information and the program can use it throughout the code. So how do we use this information? 
+We've now given the user the power to add their own information to our program. Where the `window.alert()` function sent a message from the program to the user through the browser's window, the `window.prompt()` function is used to ask the user to provide some input and send it back to the program. Learn more about the [`window.prompt()` function on MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)
 
-We need to be able to capture this data somehow. We can use what is known in JavaScript as expression by editing our `window.prompt()` line in `game.js` to look like this:
+Enter your robot's name into the input field displayed in this prompt dialogue and click the "Ok" button (the name of this button may vary depending on the browser in use). The user has now provided the JavaScript program with that information and the program can use it throughout the code.
+
+> **Important:** The `window` is a collection of functions and many other properties that is build natively into the browser. Whenever we open up our program in the browser, our JavaScript file's code is executed in the context of the `window`, so the tools and information (called "properties") it provides are always accessible by our code.
+>
+> When there is a collection of functionality and information that is accessed through one name (e.g. `window.alert()` or `window.prompt()`), that is what's known as an **object**, which we'll be learning more about later when we need to make our own.
+>
+> While our JavaScript code can access these properties of the `window` object, it is not actually part of the JavaScript language. We can use it because browsers have built this functionality into their software and put it behind the name `window`. This is what's known as a Web API (Application Programming Interface), which we'll learn a little more about throughout this project and a lot more in the coming weeks.
+>
+> Read more about the [`window` object on MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Window)
+
+So how do we use this data? When a user provides an answer from the prompt, where does it go?
+
+Currently, if we were to run this program and fill out the prompt, the second we dismiss the prompt that response will be sent back to the browser but there is nothing in place to capture and store that response.
+
+We need to be able to capture this data somehow. We can use what is known in JavaScript as an expression by editing our `window.prompt()` line in `game.js` to look like this:
 
 ```js
 var playerName = window.prompt("What is your robot's name?");
 ```
 
-We introduced a critical part of JavaScript that enables us to capture data in variables. 
+We just used a critical part of JavaScript, **variables.** 
+
+In programming, a variable is a named location for a value that gets stored in the browser's memory when a program is run. If we refer to the above code we just placed into `game.js`, when we answer the prompt with our robot's name it will be stored in our program under the variable name `playerName`. This mean's that whenever we want to use our robot's name in our program, we can just refer to it as `playerName`. Since the data coming from the prompt is user driven, the value is unpredictable, so giving it a variable name in the JavaScript program will allow us to refer to variable data in a consistent manner by just calling upon that name. 
+
+Let's dissect basic syntax for creating a variable:
 
 > **Asset Needed:** image/diagram of variable syntax
 
+- **The `var` keyword:** Just like the `function` keyword we used previously, `var` is a keyword built into the JavaScript language. Whenever it is used, it tells the program that we are creating a new variable and the next word is going to be the name of the variable.
 
-> **Deep Dive:** The `window` is known as an object which is a collection of functions and many other properties that is build natively into the browser.
+- **Variable Name:** This is the actual name that will be used to store the information assigned to the variable. The second the browser gets to this line when reading the file, it will store this name in memory so it can be recalled later in the program. The general rule of thumb for naming variables is to give them a meaningful (but not too long) name and to use camel casing when the name is more than one word, as the JavaScript language cannot interpret hyphens.
+
+- **Assignment Operator `=`:** The assignment operator is a single equal sign that is used to set the value to a variable name. Everything on the left of the operator is to set up the variable name for the program. Everything on the right of the operator is the value being stored into the variable name. This value can come in a few different forms, called **data types**. Here are some examples of variables with different data types and an explanation of each one in the comments:
+
+```js
+// This is a String data type, it must be wrapped in double quotes (" ") or single quotes (' '). The standard is using double quotes.
+var stringDataType = "This is a string";
+
+// This is a Number data type, they can be integers (whole numbers) or have decimals (floated numbers)
+var numberIntegerDataType = 10;
+var numberFloatDataType = 10.4;
+
+// This is a Boolean data type, which can only be given a value of true or false
+var booleanDataType = true;
+```
+
+There is a total of eight data types in JavaScript, some are used more than others, some you may not use at all for a while! We'll be learning more about some of the other data types as we need to use them, but it is a good idea we save this [list of data types from MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures) now for future reference.
+
+Let's turn our attention back to the variable that's holding our robot's name, `playerName`. We set up this variable in a different fashion than we did in the examples above. Rather than providing a set value to the variable, we are assigning the variable to be whatever value the `window.prompt()` function returns to us upon completion. The data type of the value returned from the prompt is still a string, however. The variable isn't assigned the prompt function, but rather the value being returned from the function.
+
+### Use Our Variables
+
+We've learned how to create data, but now let's use it in our application. The first thing we may want to check is that the data is there correctly. 
+
+For now, let's comment the `fight()` function's call at the bottom of the `game.js` file by putting two slashes in front of it so it looks like this:
+
+```js
+// fight();
+```
+
+What we just did was tell the browser to ignore running this function by turning it into a comment. This is a good practice when we don't want to delete code, but don't want it to run in the moment either. We'll revisit the `fight` function shortly, but for now let's add this line of code right underneath the variable declaration for `playerName` so it looks like this:
+
+```js
+var playerName = window.prompt("What is your robot's name?");
+// Note the lack of quotation marks around playerName
+window.alert(playerName);
+```
+
+Save the `game.js` file and refresh the HTML page in the browser, we should see an alert come up with our robot's name in it! 
+
+Using an alert to ensure data has been entered properly is good when we're just starting off, but it's really not a realistic practice when we want to use it with multiple variables since having that many dialog boxes pop up on us can be frustrating and annoying. For this project, since we're not using any means of printing data for the use to see on the HTML page, think of the alert functionality as a way to get information to the user. It's not the best way of getting information to the developer, however.
+
+So if an alert isn't ideal for developers to test and debug some of their code, what is? Let's go into our `game.js` file and change the alert function to look like this:
+
+```js
+var playerName = window.prompt("What is your robot's name?");
+// What is this?
+console.log(playerName);
+```
+
+Again, save the file and refresh the page in the browser to see what happens.
+
+Wait a second, it seems nothing has happened at all! 
+
+Something actually has happened, but it's not for users to see. Instead it's for the developers to see behind the scenes in the browser. In Chrome, what tool have we used to debug our code before? We used DevTools! 
+
+Let's open up Chrome DevTools in our browser by right-clicking in the blank HTML document and selecting the word `Inspect` (do this after entering a name in the prompt). When it opens, you'll see the "Elements" tab selected with the HTML and CSS debugging tools. But this is JavaScript we need to look at now, so at the top of the inspector window click the tab titled "Console", and we'll see something like this:
+
+> **Asset Needed:** Image of console at this point.
+
+There's our robot's name! The tool we just used is what's known as the Developer Console. This is a crucial tool for developers to have at their disposal, as we can use this to test our code without interrupting the page like an alert does.
+
+> **Pause:** Based on the syntax `console.log();`, is `console` the function or is `log()` the function?
+>
+> **Answer:** `log()` is the function, as it is the name with the parentheses next to it.
+
+Looking at the code for using a console log function, we can safely assume that the `console` is another piece of the browser's `window` object. Unlike `alert()` and `prompt()`, `console` is not a function, but rather a collection of it's own functions and properties. That's right, it's an object within the `window` object.
+
 
 4. Manipulate data with functions, variables, and operators
 
