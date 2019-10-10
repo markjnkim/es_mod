@@ -17,8 +17,6 @@ In this lesson we will build upon our knowledge of the `window`'s interactive me
 5. Battle the Combatants Until Defeated Using a While Loop
 6. Improve the User Game Experience
 
- <!-- that is because some of them are. To some, it makes much more sense to first complete our `fight()` function to defeat a robot and then add more robots to `fight()`. Although the sequence to some of the steps isn't critical, completing each step is, so for now we will continue with our declared approach, but understand in the future there will be multiple strategies and problem solving approaches that should be considered.   -->
-
 Here is a quick example of what we can expect to see by the end of this lesson:
 > **Video:** [Gif of the game interaction - Jira 161](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-161)
 <!-- Fall Back Screenshot -->
@@ -622,7 +620,7 @@ It should look like this in the console:
 
 Excellent work. This would be a great place to preserve our work in Github so let's do that now then proceed to the final step of this lesson.
 
-### Game State Messages
+## Improve the User Game Experience
 For this last part of game improvements, let's add the following messages to notify our users about the state of the game:
 
 * Round number 
