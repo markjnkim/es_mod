@@ -26,7 +26,7 @@ Here is a quick example of what we can expect to see by the end of this lesson:
 ## Pseudocode Our Game Logic
 
 How to start is often a common question for developers. There seems to be a lot of work to be done, but how to we begin? Pseudocoding our steps will be a great starting point since this will help organize our thoughts, outline the objectives, and get our creative juices flowing. Our first goal will be to identify the different game states and write them as comments near the top of the `game.js` file.
-> **Pause:** How do we win our Robot Gladiator game?
+> **Pause:** How do we win our Robot Gladiators game?
 >
 > **ANSWER:** Defeat all the robot enemies.
 
@@ -74,7 +74,7 @@ The green font indicates this line has been commented and will not execute.
 
 We could have deleted this function call, but commenting it out is actually a better method when there is a possibility of using the line again. It is important to note that there is no need to comment the function expression since this only defines the function. The function doesn't actually execute until the last line in the `game.js` file in the `fight()` function call.
 <!-- Present the Problem  -->
-To start let's focus on the "WIN" game state. Currently we only have one robot to fight, not exactly a challenge to win the game. If we want to impress our game jam judges, we will need to bring some more game to Robot Gladiator so let's add some enemy robots to the mix.
+To start let's focus on the "WIN" game state. Currently we only have one robot to fight, not exactly a challenge to win the game. If we want to impress our game jam judges, we will need to bring some more game to Robot Gladiators so let's add some enemy robots to the mix.
 
 We could declare each of our enemy robot names so our `game.js` file would look like this:
 ```javascript
@@ -360,7 +360,7 @@ var fight = function(enemyName) {
     // place fight function code block here . . .
   }
 ```
-Within the block of the `while` loop let's move all the code from our `fight()` function. Now when the `fight()` function is called, our robot will fight the enemy robot again until defeated. Another suggestion would be to remove the  `alert("Welcome to Robot Gladiator!")` statement from our `fight()` function. This message will be unnecessary at the beginning of every fight so let's remove it for now.
+Within the block of the `while` loop let's move all the code from our `fight()` function. Now when the `fight()` function is called, our robot will fight the enemy robot again until defeated. Another suggestion would be to remove the  `alert("Welcome to Robot Gladiators!")` statement from our `fight()` function. This message will be unnecessary at the beginning of every fight so let's remove it for now.
 
 Save `game.js` and reload `index.html` in Chrome.
 
@@ -625,7 +625,7 @@ For this last part of game improvements, let's add the following messages to not
 * Round number 
 * Game Over
 
-Adding these messages will improve the player's experience, always a bonus with game jam judges. Earlier in this lesson we removed our welcome message: `alert("Welcome to Robot Gladiator!")` from our `fight()` function. Let's place it back into our game and add the round number.
+Adding these messages will improve the player's experience, always a bonus with game jam judges. Earlier in this lesson we removed our welcome message: `alert("Welcome to Robot Gladiators!")` from our `fight()` function. Let's place it back into our game and add the round number.
 #### Add the Round Number
 We will consider a new round to start a when a new enemy robot is introduced to fight. 
 Since enemy robots will be introduced in the `for` loop which iterates through the `enemyNames` array, this would seem to be a great place to start. Inside he `while` loop wouldn't be as good of an option since the enemy robot exists there in many game states due to the consecutive rounds of fighting. 
@@ -639,7 +639,7 @@ Since enemy robots will be introduced in the `for` loop which iterates through t
 
 ```javascript
 if (playerHealth > 0){
-  window.alert("Welcome to Robot Gladiator!");
+  window.alert("Welcome to Robot Gladiators!");
 }
 ```
 Let's change our `alert` to include the round number. 
@@ -647,7 +647,7 @@ Let's change our `alert` to include the round number.
 >
 > **Answer:** Since each new robot initiates a new round and the iterator increments at the beginning of each round, these two counters map together well. The difference is the round number starts at one where the iterator starts and zero. By increasing the iterator by one, the round number can be calculated as follows: 
 > ```javascript
-> window.alert("Welcome to Robot Gladiator! Round " + ( i + 1 ) );
+> window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ) );
 > ```
 
 Notice how the `( i + 1 )` was wrapped in parentheses. What happens if we remove the parentheses? The parentheses are important because they allow the arithmetic operation to perform and then concatenates this sum to the string message. Without the parentheses, the `i` does not add the one but treats it like a string and concatenates the one, which is not what we are looking for.
@@ -656,7 +656,7 @@ What else should we place inside this conditional code block? We could proceed w
 ```javascript
 if (playerHealth > 0) {
     // let user know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-    window.alert("Welcome to Robot Gladiator! Round " + (i + 1));
+    window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
 
     // pick new enemy to fight based on the index of the enemyNames array
     var pickedEnemyName = enemyNames[i];
