@@ -224,7 +224,7 @@ section {
 }
 
 .radio-wrapper label::before {
-  border-radius: 15px;
+  border-radius: 50%;
 }
 
 .radio-wrapper label::after {
@@ -234,7 +234,7 @@ section {
   position:absolute;
   left: -29px;
   top: -3px;
-  border-radius: 15px;
+  border-radius: 50%;
   background-image: radial-gradient(circle, var(--tertiary-color), var(--secondary-color));
 }
 
@@ -456,13 +456,13 @@ section {
   background: var(--primary-color);
 }
 
-.service-grid-container {
+.service-grid-wrapper {
   display: flex;
   width: 100%;
   justify-content: center;
 }
 
-.service-grid {
+.service-grid-container {
   background: rgba(255,255,255, 0.75);
   width: 80%;
   display: grid;
@@ -655,7 +655,7 @@ section {
     flex: 0 70%;
   }
 
-  .service-grid {
+  .service-grid-container {
     width: 100%;
   }
 
@@ -715,7 +715,7 @@ section {
     display: block;
   }
 
-  .service-grid {
+  .service-grid-container {
     grid-template-columns: 1fr 1fr;
   }
 

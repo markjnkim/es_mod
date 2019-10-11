@@ -115,7 +115,6 @@ It's time to switch gears. Let's go to our GitHub repo and create a `README.md` 
 
 > **Checkpoint** [Learnosity Asset-JIRA 117](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-117)
 
-
 ## Create a README File
 
 Now that our development environment is set up, let's add some documentation to give people a quick overview of the Run Buddy project. In GitHub, this is handled by a `README.md` file. READMEs are typically written in Markdown, which offers some lightweight markup and is widely used on GitHub, but they can also be regular text files. 
@@ -809,7 +808,6 @@ The following screenshot shows the "Close issue" button:
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
 
 > **Checkpoint:** [Learnosity - JIRA 119](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-119)
-
 
 ## Reflection
 
