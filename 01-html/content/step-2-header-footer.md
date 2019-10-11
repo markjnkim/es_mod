@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Before we go any further, take a minute to give yourself a pat on the back. You've already done a lot to prepare for building the entire website. 
+Before we go any further, give yourself a pat on the back. You've already done a lot to prepare for building the entire website. 
 
-One really important step you completed in the last lesson was to build a series of "containers" (aka divs) to hold different types of content. In this lesson, you'll see how those divs allow you to add content and style to sections without worrying about how each one affects the others. 
+One really important step you took in the last lesson was to build a series of "containers" (aka divs) to hold different types of content. In this lesson, you'll see how those divs allow you to add content and style to sections without worrying about how each one affects the others. 
 
 Here's what you built in the last lesson: 
 
@@ -13,7 +13,7 @@ Here's what you built in the last lesson:
 
 ## Preview
 
-In this lesson, you'll add content and style to the header and footer of the Run Buddy landing page. 
+In this lesson, you'll add content and style to the header and footer of the webpage. 
 
 When you're done, the landing page will look like this: 
 

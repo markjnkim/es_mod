@@ -105,16 +105,18 @@ touch index.html
 ls
 ```
 
-> **Important:** Syntax matters! Notice that we're using lowercase for our filenames. `index.html` would be an entirely different file than `Index.html`.
+> **Important:** Notice that we're using lowercase for our filenames. A file named `index.html` would be an entirely different file than one named `Index.html`.
 
-Unlike directories, which are made using `mkdir`, we use `touch` for files. Here, we've just made two new files: a text file and an HTML file. Hmm, on second thought, we don't really need that text file. So let's go ahead and (permanently) remove it by using the `rm` command:
+We use the `touch` command to create files. Here, we've just made two new files: a text file (`hello.txt`) and an HTML file (`index.html`). 
+
+On second thought, we don't really need that text file. So let's (permanently) remove it by using the `rm` command:
 
 ```bash
 rm hello.txt
 ls
 ```
 
-Everything we've done up to this point could also be accomplished by using mouse clicks and context (right-click) menus in the operating system. But once you're used to it, you'll find that the command line allows you to work much faster. Plus it'll make you feel really cool. 
+Everything we've done up to this point could also be accomplished with mouse clicks and menus, but once you're used to it, you'll find that the command line allows you to work much faster. Plus it'll make you feel really cool. 
 
 The following list recaps the commands you just learned:
 
@@ -141,7 +143,7 @@ The following list recaps the commands you just learned:
 
 ## Add a Little HTML
 
-HTML (Hypertext Markup Language) is the underlying structure of any webpage. Every piece of the Run Buddy mock-up&mdash;the header, sign-up form, trainer images&mdash;is an HTML element. The `index.html` file that we created in the previous step will hold all of this content and code. 
+HTML (Hypertext Markup Language) is the underlying structure of any webpage. Every piece of the Run Buddy mock-up&mdash;the header, sign-up form, trainer images&mdash;will be contained in an HTML element. The `index.html` file that we created in the previous step will hold all of this content and code. 
 
 We could open this single file in our code editor (VS Code), but we should start thinking about Run Buddy as a project that will eventually have multiple files and folders. So let's open the entire `run-buddy` folder in VS Code. 
 
