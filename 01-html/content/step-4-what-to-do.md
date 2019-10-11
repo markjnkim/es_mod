@@ -20,7 +20,7 @@ High-level, here's our outline:
 
 4. Style the "What You Do" section.
 
-# Fill In the HTML
+## Fill In the HTML
 
 In Lesson 1, we left placeholders for these sections:
 
@@ -103,7 +103,7 @@ Save, refresh, and then click on the links in the header. You'll see that the br
 
 > **Rewind:** The `<a>` element, or **anchor element**, can also be used to route users to an entirely different website. For example, the code `<a href="https://google.com">Google It!</a>` would turn the words "Google It!" into a clickable hyperlink that leads to Google's website.
 
-# Add the Trainer Images
+## Add the Trainer Images
 
 The company's design team has given us some new images to use for the trainer's profile pictures. Download these [SVG files](./link-needed) and add them to your `assets/images` folder. You may be wondering why these are SVGs and not JPGs or PNGs. In fact, what is an SVG?
 
@@ -166,7 +166,7 @@ Our image is enormous! Remember, SVGs are scalable. There's no built-in, hard-se
 
 > **Pro Tip:** This seems like a good stopping point, which means that it's time to `add`, `commit`, and `push` to Git!
 
-# Style "What We Do"
+## Style "What We Do"
 
 With the HTML in place, we're ready to start designing the "What We Do" content. First, in `index.html`, add a class to the `<section>` element so that it can be uniquely identified it in the style sheet:
 
@@ -270,7 +270,7 @@ With the Chrome DevTools, we can inspect the element's margins (the orange boxes
 
 Pretty cool! Yet another CSS trick to put in your toolbelt. And that wraps up "What We Do"!
 
-# Style "What You Do"
+## Style "What You Do"
 
 The setup for this next section is going to be similar to the last one we tackled. First, add a class to the `<section>` element:
 
@@ -442,9 +442,9 @@ This will shrink the font size of the `<span>` while the adjacent text in the `<
 
 ![see results](./assets/step-4/700-see-results.png)
 
-> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-145>
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-145>
 
-# Reflection
+## Reflection
 
 This lesson gave us a chance to practice many of the CSS properties we previously learned to finish a pretty large chunk of the layout&mdash;the "What We Do" and "What You Do" sections. Along the way, we better organized our style sheet with reusable class names and learned a few new bits of HTML and CSS.
 

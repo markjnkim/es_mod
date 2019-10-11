@@ -192,7 +192,7 @@ For instance, the browser would like to know what to call this webpage. Hence, t
 
 Try changing the title in the HTML file, making sure you see the change reflected in the browser.
 
-> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-141>
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-141>
 
 There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we can specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. Lastly, there's an element in the `<head>` that looks like this: `<meta charset="UTF-8" />`. This is an example of a [**meta tag**, of which there are many](https://devhints.io/html-meta). Like `<title>` elements, they give the browser extra information about the page, sometimes for display purposes and sometimes for search engine optimization. We'll discuss more of these in future modules.
 
@@ -292,7 +292,7 @@ With two commits under our belt, run the command `git log`. This will show a his
 
 This could be very useful once we start working on larger apps and/or with multiple developers!
 
-> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-142>
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-142>
 
 ## Outline the Page
 
@@ -438,7 +438,7 @@ Save, refresh the browser, and admire your efforts:
 
 Okay, still not very pretty, but we've laid some important groundwork that's going to make the next several steps much easier to complete.
 
-> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-143>
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-143>
 
 ## Revisit Our Git Workflow
 
@@ -542,7 +542,7 @@ This tells GitHub to use the contents of your master branch for your live websit
 
 Let's back up and look at this link again: https://username.github.io/run-buddy/. Notice how it loaded the contents of our `index.html` file without us having to write https://username.github.io/run-buddy/index.html, although that shows the same page, too. The reason for this is that `index.html` is defined as a default by the server. If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html` because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, make sure every project has an `index.html` file!
 
-> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-144>
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-144>
 
 ## Reflection
 
