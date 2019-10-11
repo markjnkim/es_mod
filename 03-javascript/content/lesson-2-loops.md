@@ -40,8 +40,10 @@ Our comments may look something similar to this:
 Although this may seem simple, when programs get convoluted and complex, it helps to be able to jot down key parameters and game states of your program to keep them in mind. Sometimes it also helps to break down a step to smaller sub steps.
 In order to "WIN" and defeat all robots we must first:
 
+
 1) Face all the robots
 2) Defeat each robot
+
 
 In order to defeat all the robots we must be able to face each robot and then defeat each robot, so let's make our revisions to our original pseudocode step.
 ```javascript
@@ -109,7 +111,7 @@ console.log(enemyNames);
 ```
 Let's save then refresh the browser to reveal the following in the console window of the browser:
 ![Console Window of Array](./assets/lesson-2/100-console-array.png) 
-[Jira Issue for labeling expansion arrow](./assets/lesson-2/100-console-array.png)
+> **Asset Needed** [Jira Issue for labeling expansion arrow](./assets/lesson-2/100-console-array.png)
 
 As displayed in the console, the array has been expanded by clicking on the arrow to the left of the array. To the left of the array is a number. Can you guess what this number represents?
 This will be the length of the array, which has three elements. Beneath is a list of the array elements. The number next to each element represents the index of the element in the array. As stated previously, the first index starts with zero and increments by one for every following element. 
@@ -123,7 +125,7 @@ Please try to display each element of the array in the console by typing the sta
 
 Your result in the console should look similar to this:
 ![Console Array Elements](./assets/lesson-2/200-console-array-elements.png)
-[Jira Issue FSFO-174 - Label Array Expansion arrow in Console](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-174)
+> **Asset Needed** [Jira Issue FSFO-174 - Label Array Expansion arrow in Console](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-174)
 
 Notice how each array element is displayed with the file name and line number of each statement on the right side of the console window. This will help identify which `console.log` is being displayed which is useful when our application become very large with many `console.log` statements.
 
@@ -131,7 +133,7 @@ Type the following statement in the `game.js` file and explain the result:
 ```javascript
 console.log(enemyNames[3]);
 ```
-Note how this statement displays *undefined*. This is because at index three, there isn't an element in the array because the last element is at index two. Expanding on this point, if we try to access an array at an index that doesn't contain an element, the result will be undefined. The result is undefined because this element hasn't been declared yet.
+Note how this statement displays **undefined**. This is because at index three, there isn't an element in the array because the last element is at index two. Expanding on this point, if we try to access an array at an index that doesn't contain an element, the result will be undefined. The result is undefined because this element hasn't been declared yet.
 It is important to remember the index of the last element of an array is always the number of elements minus one in other words the array's length minus one.
 
 A JavaScript array is actually a type of object and therefore has some built in properties and methods we can use. Just think about the `window` object and the different methods we used for `alert()` and `prompt()`. The `length` property of the `Array` object contains the number of elements in an array. This is especially useful when the number of items in an array is unknown.
@@ -178,7 +180,7 @@ We should see the following in the console window:
 
 Notice next to the word "apple" in the console is the number three. This means that this word was displayed three times into the console. Yes, our `for` loop worked! Let's breakdown the syntax now and see what makes the `for` loop special.
 ### For Loop Syntax
-The `for` loop is a special type of statement called a _control flow statement_. The _control flow_ is the order in which the computer executes statements in a JavaScript file or script, which normal runs sequentially from the first line to the last line of the script. Control flow statements such as conditional statements or `for` statements, change the control flow based on the statement's conditions.
+The `for` loop is a special type of statement called a **control flow** statement. The control flow is the order in which the computer executes statements in a JavaScript file or script, which normal runs sequentially from the first line to the last line of the script. Control flow statements such as conditional statements or `for` statements, change the control flow based on the statement's conditions.
 
 
 > **Deep Dive:** Still not sure what [the differences are between statements, expressions, and functions? This explainer in StackOverflow may help clarify the differences.](https://stackoverflow.com/questions/9307291/difference-between-statement-and-function)
@@ -346,7 +348,7 @@ The next objective is to defeat each robot. Currently we are only able to fight 
 if (enemyHealth > 0) // if the enemy robot has health points continue to fight
 ```
 
-Thankfully we have can introduce another type of control flow statement that loops or repeatedly executes a statement(s) *while* a condition remains true. This is called the `while` loop. Very similar in concept to the `for` loop, both statements repeatedly execute a code block if a condition remains true. The code block is the statement or statements contained with the curly braces:
+Thankfully we have can introduce another type of control flow statement that loops or repeatedly executes a statement(s) **while** a condition remains true. This is called the `while` loop. Very similar in concept to the `for` loop, both statements repeatedly execute a code block if a condition remains true. The code block is the statement or statements contained with the curly braces:
 ```js
 while([Condition]) {
   statement
@@ -452,7 +454,7 @@ In order to prevent our player robot from attacking after our health is depleted
 Once the player robot has been defeated, we should no longer be able to fight. To accomplish this we need to exit the `while` loop in the `fight()` function. 
 In the last lesson, we created a condition to check the status of our player robot's health inside the `fight()` function:
 ```javascript
-if (playerHealth <= 0 ) {
+if (playerHealth <= 0) {
   window.alert(playerName + " has died!");
 }
 ```
@@ -460,7 +462,7 @@ Currently the user is notified through an `window.alert()` if the player robot h
 Luckily we can use a keyword in JavaScript called `break`. The `break` keyword allows us to exit the 
 current loop. Let's add this beneath the `window.alert` within the `if` statement so it looks like the following:
 ```javascript
-if (playerHealth <= 0 ) {
+if (playerHealth <= 0) {
   window.alert(playerName + " has died!");
   break;
 }
@@ -490,7 +492,9 @@ Nice job, now the player robot can no longer fight when defeated. Let's move ont
 >
 > **Answer:** 
 > ```javascript
-> if (enemyHealth <= 0) break;
+> if (enemyHealth <= 0) {
+  break;
+  }
 > ```
 From the last lesson, we have a condition that checks for the enemy robot's health, we just need to add our `break` to exit the fight loop and not allow the robot to fight after being defeated. Let's add this `break` statement to our condition's block so it looks similar to this:
 ```javascript
@@ -525,22 +529,23 @@ else if (promptFight === "skip" || promptFight === "SKIP") {
     console.log("playerMoney", playerMoney);
   }
   // if no (false), ask question again by running fight() again
-  else fight();
+  else {
+    fight();
+  }
 }
 ```
 In the conditional statement that checks if the skip prompt has been confirmed appears to be where the logic executes for a skipped fight. 
-> **Pause:** Where in the conditional code block will the `break` statement go?
-> 
-> **Answer:** 
->```javascript
->if (confirmSkip) {
->   window.alert(playerName + " has decided to skip this fight. Goodbye!");
->   // subtract money from playerMoney for skipping
->   playerMoney = playerMoney - 10;
->   console.log("playerMoney", playerMoney);
->   break;
-> }
->```
+So where in the conditional code block will the `break` statement go?
+ 
+```javascript
+if (confirmSkip) {
+   window.alert(playerName + " has decided to skip this fight. Goodbye!");
+   // subtract money from playerMoney for skipping
+   playerMoney = playerMoney - 10;
+   console.log("playerMoney", playerMoney);
+   break;
+ }
+```
 Notice if we we place our `break` statement before our other statements in our conditional code block, the VS code editor actually makes the following lines of code dim as seen here:
 
 ![VS Code Break](./assets/lesson-2/2200-vs-code-break.png)
@@ -559,19 +564,19 @@ Since we can use our `break` statement to exit out of the loop, we will rearrang
 Let' move our skip conditional statement to the top and convert it from an `else if` to just an `if` statement like so:
 ```javascript
 // if user picks "skip" confirm and then stop the loop
-    if (promptFight === "skip" || promptFight === "SKIP") {
-      // confirm user wants to skip
-      var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+if (promptFight === "skip" || promptFight === "SKIP") {
+  // confirm user wants to skip
+  var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
-      // if yes (true), leave fight
-      if (confirmSkip) {
-        window.alert(playerName + " has decided to skip this fight. Goodbye!");
-        // subtract money from playerMoney for skipping
-        playerMoney = playerMoney - 10;
-        console.log("playerMoney", playerMoney)
-        break;
-      }
-    }
+  // if yes (true), leave fight
+  if (confirmSkip) {
+    window.alert(playerName + " has decided to skip this fight. Goodbye!");
+    // subtract money from playerMoney for skipping
+    playerMoney = playerMoney - 10;
+    console.log("playerMoney", playerMoney)
+    break;
+  }
+}
 ```
 This conditional statement will follow directly after the prompt at the beginning of the `while` loop.
 ```javascript
@@ -629,16 +634,11 @@ Adding these messages will improve the player's experience, always a bonus with 
 #### Add the Round Number
 We will consider a new round to start a when a new enemy robot is introduced to fight. 
 Since enemy robots will be introduced in the `for` loop which iterates through the `enemyNames` array, this would seem to be a great place to start. Inside he `while` loop wouldn't be as good of an option since the enemy robot exists there in many game states due to the consecutive rounds of fighting. 
-
-<!-- We could add the `alert()` however there could be a scenario that occurs when a player robot has been defeated however there are still enemy robots left in the array. In this case the low player robot's health would break the `while` loop at the conditional code block for `if (playerHealth <= 0)` and return to the `for` loop. At that point, the `for` loop's condition would be met so a new robot would be presented to the `fight()` although this condition in the `while` loop: `while (playerHealth > 0 && enemyHealth > 0) ` would be false so fighting would not start. -->
-
-
-> **Pause:** Can you think of a scenario when a new robot enemy is presented, but a new round of battle should not begin?
->
-> **Answer:** In the scenario when a player robot has been defeated, the `while` loop would then exit back to the `for` loop. The `for` loop would then execute if there are more enemy robots to battle. Then a new enemy robot is presented however a new round of battle should not begin since the player robot has no health. Let's introduce a conditional check to prevent this scenario. We will add the following statement to the top of our  `for` loop code block:
+Can you think of a scenario when a new robot enemy is presented, but a new round of battle should not begin?
+In the scenario when a player robot has been defeated, the `while` loop would then exit back to the `for` loop. The `for` loop would then execute if there are more enemy robots to battle. Then a new enemy robot is presented however a new round of battle should not begin since the player robot has no health. Let's introduce a conditional check to prevent this scenario. We will add the following statement to the top of our `for` loop code block:
 
 ```javascript
-if (playerHealth > 0){
+if (playerHealth > 0) {
   window.alert("Welcome to Robot Gladiators!");
 }
 ```
@@ -650,7 +650,9 @@ Let's change our `alert` to include the round number.
 > window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ) );
 > ```
 
-Notice how the `( i + 1 )` was wrapped in parentheses. What happens if we remove the parentheses? The parentheses are important because they allow the arithmetic operation to perform and then concatenates this sum to the string message. Without the parentheses, the `i` does not add the one but treats it like a string and concatenates the one, which is not what we are looking for.
+Notice how the `( i + 1 )` was wrapped in parentheses. What happens if we remove the parentheses? 
+
+The parentheses are important because they allow the arithmetic operation to perform and then concatenates this sum to the string message. Without the parentheses, the `i` does not add the one but treats it like a string and concatenates the string "1", which is not what we are looking for.
 
 What else should we place inside this conditional code block? We could proceed with placing all our code from our `for` loop into this conditional block so these steps only occur when a player has health. Let's proceed with that so our conditional statement looks like this:
 ```javascript
