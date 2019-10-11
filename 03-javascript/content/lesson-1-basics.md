@@ -404,6 +404,8 @@ Save the `game.js` file and refresh the HTML page in the browser, we should see 
 
 Using an alert to ensure data has been entered properly is good when we're just starting off, but it's really not a realistic practice when we want to use it with multiple variables since having that many dialog boxes pop up on us can be frustrating and annoying. For this project, since we're not using any means of printing data for the use to see on the HTML page, think of the alert functionality as a way to get information to the user. It's not the best way of getting information to the developer, however.
 
+### The Console: A Dev's Best Friend
+
 So if an alert isn't ideal for developers to test and debug some of their code, what is? Let's go into our `game.js` file and change the alert function to look like this:
 
 ```js
@@ -424,11 +426,69 @@ Let's open up Chrome DevTools in our browser by right-clicking in the blank HTML
 
 There's our robot's name! The tool we just used is what's known as the Developer Console. This is a crucial tool for developers to have at their disposal, as we can use this to test our code without interrupting the page like an alert does.
 
-> **Pause:** Based on the syntax `console.log();`, is `console` the function or is `log()` the function?
->
-> **Answer:** `log()` is the function, as it is the name with the parentheses next to it.
+Like the `window`, the `console` is another object provided to us by the browser we can use in our JavaScript. The `console` object has it's own set of functions and properties that all interface with the browser's console window (in Chrome, it is the DevTools console tab we just used). Since the `console` is not part of the JavaScript language and is rather provided to us by the browser, it is a Web API.
 
-Looking at the code for using a console log function, we can safely assume that the `console` is another piece of the browser's `window` object. Unlike `alert()` and `prompt()`, `console` is not a function, but rather a collection of it's own functions and properties. That's right, it's an object within the `window` object.
+> **Important:** Web APIs (Application Programming Interface) are tools provided to us to use when building applications. Sometimes the tools given to us by the JavaScript language are simply not enough, so we need to reach for a tool more specific to the problem we're trying to solve.
+>
+> Think about how we use tools in real life. We can't use our hands to push a nail into a piece of wood or turn a screw tightly, so we need to reach for something to help us finish the job. Something that was specifically made to solve that problem. The hammer or screwdriver don't work on their own, they work because we use our hands to power them.
+>
+> The same idea goes for Web APIs, they are tools that extend our programming capabilities when the tools we currently have aren't good enough for the problem we're solving. 
+>
+> There are many Web APIs at our disposal, the most popular ones give us the ability to use JavaScript to manipulate HTML, play audio or video on a web page, and even help us with processing and securing credit card payments.
+>
+> If you'd like to learn more about what's available, check out the [MDN docs on Web APIs.](https://developer.mozilla.org/en-US/docs/Web/API). As we grow we'll gain a better understanding of how to use them.
+
+As it was mentioned, using the `console` plays an integral role in writing JavaScript for all developers, no matter how experienced they are. We'll be using it more throughout our Robot Gladiators game, but first let's practice with a few more examples:
+
+Place this code into `game.js` under the first `console.log()` we used:
+
+```js
+console.log("This logs a string, good for leaving yourself a message");
+// this will do math and log 20
+console.log(10 + 10);
+// what is this?
+console.log("Our robot's name is " + playerName);
+```
+
+When we save this file, refresh the browser window, and look at our DevTools Console tab, we'll see something like this image:
+
+> **Asset Needed:** Image of Console showing the above logs.
+
+We have used the `console.log()` function in a couple of different ways here. We logged a plain string sentence, which is very helpful sometimes when we run a lot of code at once and we want to trace when certain functionality executes. We logged the total of two numbers being added together (more on arithmetic operators soon). But what's going on this last log we ran?
+
+Before we learn the official name of what action we performed, let's put it into our own words. We wanted to take the name of our robot and place it into a sentence so it reads "Our robot's name is [robot's name]". To do this, we needed to combine a string with a variable. This is what's called "string interpolation".
+
+The way this type of action works is that we can write out our string normally, but when we need to include variable data, we need to close the string and put a plus sign `+` after the closing quotation, then write our variable name.
+
+Here are a couple more examples:
+
+```js
+console.log(playerName + " is ready for battle!");
+
+console.log("Your robot, " + playerName + " has won!");
+```
+
+The first example is similar to the one we used before, except we flipped where the variable was interpolated. The second one, however, needed the variable in the middle of the sentence. So notice how we had to close the first string, use the plus sign to include the `playerName` variable, then use another plus sign and continue with our string. It is important to note that when we interpolate strings that we need to include a leading or trailing space in our string so the interpolated variable doesn't run up against the word that comes before or after it.
+
+Let's touch upon one more thing before continuing with our Robot Gladiators' game. Open the Console tab in Chrome DevTools. Notice that in the main window for the Console, there is a blinking line, almost as if we're allowed to type in it. Well, we are.
+
+We can use the Console to write simple JavaScript and test out some different features or functionality rather than writing it into our files and doing our save/refresh actions. All we need to know is write a line of JavaScript and hit `Enter` / `Return` on our keyboards and it'll run the code.
+
+Let's add the following to the Console:
+
+```js
+var name = "your name";
+console.log(name);
+```
+
+The above code should create a variable called `name` with your name stored as the value, then the next line will `console.log()` the value of the `name` variable. Let's do one more before moving on:
+
+```js
+console.log(window);
+console.log(console);
+```
+
+
 
 
 4. Manipulate data with functions, variables, and operators
