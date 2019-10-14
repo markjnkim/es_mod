@@ -42,7 +42,7 @@ It's worth noting that most useful web applications communicate with "back end" 
 
 We'll learn more about creating back end (often called "server-side") applications in future modules. For now, rest assured that what you learn in this module will be foundational for the remainder of the course.
 
-@TODO Add Deep Dive LB with link to learning about front end vs back end
+> **Asset Needed:** Add Deep Dive LB with link to learning about front end vs back end
 
 ## The Other MVP
 
@@ -495,15 +495,281 @@ While the last step was about understanding functions, storing data in variables
 
 By the end of this step, we'll be able to execute our `fight()` function and have our robot attack an enemy and have the enemy attack our robot. So let's start by asking ourselves: What do we need in order to make this happen?
 
-In order for our robot's to battle each other, they are going to require some type of data of tracking their overall health values. What 
+In order for our robot's to battle each other, they are going to require some type of data  tracking their overall health values as the game progresses. We are also going to need to know how much attack power each robot has to determine how many of these health points should be removed when attacked. This sounds like a job for variables, so let's update our `game.js` file. And while we're at it, we'll give the enemy robot a name.
 
+Replace everything in `game.js` so the entire file looks like this:
 
+```js
+var playerName = window.prompt("What is your robot's name?");
+var playerHealth = 100;
+var playerAttack = 10;
 
-## Adding Conditions to our Function
+// You can also log multiple values at once like this
+console.log(playerName, playerAttack, playerHealth);
 
+var enemyName = "Roborto";
+var enemyHealth = 50;
+var enemyAttack = 12;
 
+var fight = function() {
+  window.alert("Welcome to Robot Gladiators!");
+}
 
-## Add Interactivity with Window Methods
+fight();
+```
+
+We've now set up our game to keep track of our player robot's information and the enemy robot's information, each receiving three variables to hold their names, health points, and attack points.
+
+> **Pause:** What type of data is the `enemyHealth` variable holding? What about `enemyName`?
+>
+> **Answer:** `enemyHealth` is a "number" data type and `enemyName` is a "string" data type.
+
+We also made a slight change to our `fight` function.
+
+There are two methods to create a function in JavaScript:
+
+1. **Function Declaration:** When we create a function using the `function` keyword first.
+
+```js
+// create function
+function fight() {
+  window.alert("Welcome to Robot Gladiators!");
+}
+// execute function
+fight();
+```
+
+2. **Function Expression:** When we create a function by assigning it to a variable.
+
+```js
+// create function
+var fight = function() {
+  window.alert("Welcome to Robot Gladiators!");
+}
+// execute function
+fight();
+```
+
+Both of these methods are acceptable when it comes to creating functions in JavaScript and we will see them written both ways all throughout our careers; but for the sake of consistency in how we write our code, we'll use the second method and employ function expressions throughout our game. There is one main difference in how the browser interprets those two methods of creating a function, but it won't affect us throughout the Game Con so there's no need to tackle that issue just yet.
+
+> **Asset Needed:** Important Callout explaining the difference between expressions, declarations, and statements
+
+### Do Math with Operators
+
+Now we have the important data needed to have our robots battle, so let's update the `fight` function to actually make it happen. We're going to update the function to do five things when we execute it:
+
+1. Alert users that they are starting the round (this is already done)
+2. Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
+3. Log a resulting message to the Console so we know that it worked.
+4. Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable
+5. Log a resulting message to the Console so we know that it worked.
+
+Think about the above list as a means of outlining what our function needs to perform but in a way for us to think about it that makes more sense. Before we set out on creating any function, no matter how simple it is, it is always a good plan to think about what needs to be done and to write it out in our own words before we hit the ground coding.
+
+Another good idea is to actually put this list of actions into our code as comments, as it will help us remember the order of which we need our code to run and remind us what it is doing. 
+
+Let's update the `fight` function to look like this:
+
+```js
+var fight = function() {
+  // Alert users that they are starting the round 
+  window.alert("Welcome to Robot Gladiators!");
+
+  //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
+
+  // Log a resulting message to the Console so we know that it worked.
+
+  // Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable
+  
+  // Log a resulting message to the Console so we know that it worked.
+}
+```
+
+Now we have in our code a set of instructions for us to follow one-by-one, so let's tackle the next two steps and get introduced to using operators!
+
+Let's add the following code to our `fight` function:
+
+```js
+  //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
+  enemyHealth = enemyHealth - playerAttack;
+
+  // Log a resulting message to the Console so we know that it worked.
+  console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
+```
+
+Once these are in place, save the file and refresh the page in the browser.
+
+> **Hint:** Make sure the Chrome DevTools Console stays open while we work on our game! It'll refresh itself when we refresh the page.
+
+If we check the Console, we can see that something has happened to the value of our enemy's health. It seems to be less than what we set it to when we created the `enemyHealth` variable. We just manipulated and reassigned a variable's value!
+
+Let's dissect the code to better understand what happened:
+
+```js
+enemyHealth = enemyHealth - playerAttack;
+```
+
+The first thing we can see is that there is no `var` keyword here. This is because we use `var` to create new variables, but in our case, we want to update the value of a variable that already exists. If we were to use the `var` keyword, it would create a brand new `enemyHealth` variable inside of the `fight` function, meaning the `enemyHealth` variable we created at the top of the file and outside of the function will be unaffected.
+
+> **Important:** Creating a variable inside of a function is what developers call "scoping" a variable.
+>
+> If a variable is created inside a function and has the same name as a variable created outside of the function or in a different function, it will not overwrite the other variables' data and they will remain untouched, but now that function can only reference the variable created inside of it.
+>
+> The most important thing to know about scoping at this moment is that variables created outside of a function can be referenced and used inside of the function, but variables created inside of a function only exist within that function.
+
+On the left hand of our expression, we simply list the variable we are going to be updating. We're updating it by reassigning it a new value of the following code:
+
+```js
+enemyHealth - playerAttack;
+```
+
+The above code is what is on the right hand side of our expression. When a variable that holds a string, number, or boolean data type is listed to the right of an assignment operator `=`, it uses the value held by that variable and not the variable name itself. 
+
+In our case it would be the equivalent of writing `50 - 10`, but since the value of a variable changes, we need to use the variable name holding the value instead of the value itself.
+
+To think about this in a more understandable fashion, we just reassigned the variable holding onto the enemy's health points by taking the current value of the enemy's health points and subtracting it by our robot's attack points.
+
+After the attack finishes, we use `console.log()` to give ourselves some details as to what just happened. This is a good way of seeing that our code is working. If we were to call the `fight` function again, we would see the second `console.log()` would show the value of `enemyHealth` is ten points lower than the previous log.
+
+Now that we have our robot attacking the enemy robot correctly, let's take our new knowledge and put it to use by having the enemy robot attack our robot.
+
+Add the following into the `fight` function in the `game.js` file:
+
+```js
+  // Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable
+  playerHealth = playerHealth - enemyAttack;
+
+  // Log a resulting message to the Console so we know that it worked.
+  console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
+```
+
+All we had to do was repeat the previous two lines of code and switch the variable names around! Now we have a full working round of battle between our robot's, as they can exchange attacks.
+
+> **Deep Dive:** Arithmetic operators in JavaScript work much like they do in every day math, which a few caveats:
+>
+> - **Addition (`+`):** Used to produce a sum of two or more numbers, but JavaScript also uses this operator to combine strings together (called concatenation). If a value on either side of the `+` operator is a string data type, the result will be the two values combined into a string instead of added together.
+>
+> ```js
+> // this will be 10
+> console.log(4 + 6);
+> 
+> // this will be 46
+> console.log("4" + 6);
+>```
+> 
+> - **Exponentiation (`**`):** In every day mathematics, to multiply a number by itself multiple times can be performed using a single caret operator (`^`). In JavaScript, it is performed like this code:
+>
+> ```js
+> // this will be 125, same as 5^3
+> 5 ** 3
+> ```
+>
+> Besides these two main differences, the rest of the arithmetic operators behave the same way we learned how to use them in math class. For more information, check out the [MDN docs on operators.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators)
+
+Our `fight` function is now starting to take form, as we can now execute it to have our robots attack each other. How does the game know when to end, though? 
+
+> **TODO** Write prompt to enter `fight()` into the DevTools Console a bunch of times and see what happens
+
+We can assume that the game ends when one of the robot's health points gets down to zero, but now we have to figure out a way to instruct our code to check for that type of event and more importantly, what to do when it happens.
+
+## Add Conditions to our Function
+
+A popular term that has permeated programming over the years is something called "state". State is a term used when referring to the data at a point in time for our application, a lot like how we use the word when we say something like "I am in a state of relaxation." It is a term not only used to convey what's happening now, but it can also help us decide what's going to happen next based on it. 
+
+In the real world, we use these states to determine what we want to do next. If we just exercised and worked up a sweat, the next thing we may do is take a shower or drink a glass of water. If we are feeling tired, we go to sleep. What we are really doing is performing a mental check to see where we're at, and based on that information, decide where to go from there. 
+
+In JavaScript, we can perform similar checks based on the status of our code and help the program determine where to from there. These checks are called **conditions**`, and are another crucial set of tools for us to use.
+
+Here is what a condition looks like in JavaScript:
+
+```js
+if (10 > 2) {
+  console.log("Ten is greater than two, so this runs!");
+}
+```
+
+First, let's go through what that whole block of code means. Using the `if` keyword, which is built into the JavaScript language, we are telling the browser that we are going to now check for a condition to be true or false and execute a block of code based on that result.
+
+The condition in question here is what appears between the parentheses, `10 > 2`. In this case, we are checking to see if the value of the number ten is greater than the value of the number two. If it is, then the condition is considered "true", and the code that appears between the curly braces is executed.
+
+If we switched the condition to look like `2 > 10`, or maybe even `10 < 2`, then the result would be "false" because two is not greater than ten and ten is not less than two. Because of this, the code between the braces will not run at all.
+
+The example we just went through is a very basic use case for conditions in JavaScript. We gave it one condition to check and a block of code to execute if that condition is true. Thinking about it, we only gave our code one direction to go based on that condition. Now let's give it two possible directions:
+
+```js
+if (2 === 10) {
+  console.log("This will not run."); 
+}
+else {
+  console.log("This will run instead.");
+}
+```
+
+What we just used is what's known as a "control flow" statement. We used the `if` keyword to check if the number two equals the number ten (in JavaScript, three equal signs is a means to check if two values are directly equal to one another). These two numbers do not equal one another, so the first code block is skipped and runs the second code block instead. The second code block is denoted by using the JavaScript `else` keyword.
+
+We wrote our code in a way to take a certain path depending on a condition. Now the condition used here is always going to result in the `else` block of code running, since two will never equal ten, but think about what happens the condition we're checking is the current value of our robot's health. That is a value that will be changing throughout our application, so to be able to check that value from time to time will give us the ability to change the game's direction if it gets down to zero.
+
+> **Deep Dive:** For more information on conditional statements in JavaScript and the different operators we can use, check out the [MDN docs on conditionals.](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
+
+### Check Our Robots' Health
+
+In our `fight` function, we currently have our two robots attacking each other, but there is no way to determine if either are still able to fight again. This means that if we wanted to, we could execute the `fight` function over and over until both of the robots' health values are way into the negatives. Since health is a value that should stop decreasing when it gets to zero, we'll need to write in a check to see if it gets there.
+
+In the `fight` function, add the following code after we `console.log()` that our enemy has been attacked by the player:
+
+```js
+// put new code under this
+console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
+
+// check enemy's health
+if (enemyHealth <= 0) {
+  window.alert(enemyName + " has died!");
+} 
+else {
+  window.alert(enemyName + " still has " + enemyHealth + " health left.");
+}
+```
+
+When we save this file and refresh our browser, we should receive two alerts from the window. The first will be our "Welcome to Robot Gladators!" message, but after we should receive one of two messages. The message that will be displayed is dependent on the value of the `enemyHealth` variable.
+
+If it is zero or under (notice the use of `<=` to see if it is less than or equal to zero), we will see the message "Roborto has died!", like this image displays:
+
+> **Asset Needed:** Screenshot of "Roborto has died!" alert
+
+If the value of `enemyHealth` is still one or greater, then a message of "Roborto still has [enemyHealth's value] left!" is displayed instead. 
+
+To test to make sure both conditions work, we can easily set the value of `enemyHealth` to be much lower, like five, to start. This way we can run our `fight` function once and Roborto will have an `enemyHealth` value that goes into the negatives. 
+
+> **Hint:** When writing conditions based on values, try running the code with different values to see how it works at those different values. But don't forget to set it back to what you want it to start at when done testing!
+
+Now when our `fight` function executes, we perform the following tasks in this order:
+
+- We let the user know the fight has begun
+- We have our robot attack the enemy robot by subtracting our robot's `playerAttack` value by the enemy's `enemyHealth` value, resulting in our enemy's new `enemyHealth` value
+- We then check to see if that last attack destroyed our robot and got its health down to zero or below by using a conditional statement.
+  - If `enemyHealth` is zero or below, the enemy robot has lost
+  - Else `enemyhealth` is above 0 and the enemy robot can still fight
+- If the enemy robot is still alive, then have it attack the player
+
+There is one more piece we need to add to our `fight` function for it to complete a full round of attacks. If we are checking to see if the enemy robot has died in the fight, then we also need to check if our robot has died as well!
+
+We are going to do so by utilizing the same conditional statements we just used for our enemy robot. Add the following to the `fight` function after the enemy robot attacks our player:
+
+```js
+// put new code under this
+console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
+
+// check player's health
+if (playerHealth <= 0) {
+  window.alert(playerName + " has died!");
+} else {
+  window.alert(playerName + " still has " + playerHealth + " health left.");
+}
+```
+
+Now when we save our `game.js` file and refresh the browser, we'll see three alert dialog windows popping up. The third alert will be in regards to our robot's status. If our robot's health (represented by the `playerHealth` variable) is zero or below, we would have received an alert letting us know our robot has died. If it is above zero, then we would have received an alert letting us know how much health our robot has left.
+
+Again, we can edit our `playerHealth` variable data to be higher or lower when the game starts to make our conditional statement take us in one direction over the other. This way we can check what happens when the condition is true and when the condition is false.
 
 ---
 
