@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In the last few lessons, we implemented flexbox and media queries to make the Run Buddy site mobile-responsive. 
+In recent lessons, we implemented flexbox and media queries to make the Run Buddy site mobile-responsive. 
 
 Our next task is to add a new section to the landing page. The marketing department has requested a service plan comparison table to showcase the differences between the basic and premium plans. 
 
@@ -18,11 +18,11 @@ Let's take a look at the mock-up for the service plan table:
 
 We could approach this solution in a few ways. One would be to use the HTML `<table>` element, but that's intended for [tabular data](https://en.wikipedia.org/wiki/Table_(information)) and not the customized table design we need.
 
-We could also use flexbox, but because we need a two-dimensional table with an element that spans multiple columns (i.e., the magazine subscription row), this could be tricky. 
+We could also use flexbox, but because we need a two-dimensional table with an element that spans multiple columns (the magazine subscription row), this could be tricky. 
 
-This leads us to a CSS layout model called **CSS grid**, aka **grid**. Grid&mdash;a two-dimensional model with many similiarities to flexbox&mdash;is nothing short of a revolutionary system for page layouts, and this is what we'll use. 
+This leads us to a CSS layout model called **CSS grid**, aka **grid**. Grid&mdash;a two-dimensional model similar to flexbox&mdash;is nothing short of a revolutionary system for page layouts, and this is what we'll use. 
 
-The best way to learn is by doing, so let's jump in and start coding!
+The best way to learn is by doing, so let's start coding!
 
 ## Set Up a New Feature
 
@@ -38,11 +38,11 @@ $ git checkout -b "feature/grid"
 
 ## Why Use Grid Instead of Flexbox?
 
-We learned about flexbox in Lesson 2. Flexbox is wonderful for dealing with a single direction like a component that needs horizontal alignment, such as a `<nav>` and its navigational links or a `<div>` with three images, like this:
+Flexbox is wonderful for dealing with a single direction like a component that needs horizontal alignment, such as a `<nav>` and its navigational links or a `<div>` with three images, like this:
 
 ![image-gallery-example](assets/lesson-4/150-image-gallery-flex-css.png)
 
-Grid, on the other hand, has a two-dimensional layout model that can accommodate both columns and rows. This makes it better suited than flexbox for large-scale layouts like custom websites or image galleries. 
+Grid, on the other hand, has a two-dimensional layout model that can accommodate both columns and rows. This makes it better suited for large-scale layouts like custom websites or image galleries. 
 
 > **Asset Needed:** [Introduction to CSS Grid - Jira 140](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-140)
 
@@ -74,15 +74,15 @@ Let's see how CSS grid fares:
 
 ![Can I Use](assets/lesson-4/320-can-i-use.png)
 
-In just a few years, CSS grid has attained a 90% adoption rate. Still, it's important to be mindful of what the experience will be like for the remaining 10% of users. Is it okay to serve them a broken page or do you need to come up with a fallback solution? 
+As you can see, grid has attained a 90% adoption rate. Still, it's important to be mindful of what the experience will be like for the remaining 10% of users. Is it okay to serve them a broken page or do you need to come up with a fallback solution? 
 
 Run Buddy's marketing department has decided that the power and simplicity of CSS grid is worth alienating a small number of users that have been calculated to be outside their target demographic. Grid it is, then!
 
-Take a minute to investigate other front-end technologies like flexbox and media queries to see that consensus in the browser category is not easy to come by.
+Take a minute to investigate other front-end technologies like flexbox and media queries on [CanIUse.com](https://caniuse.com) to see that consensus in the browser category is not easy to come by.
 
-## Get Started with CSS Grid
+## What Is Grid?
 
-So what is grid? Grid is a set of vertical and horizontal lines that intersect much like a table. Elements can be positioned in the grid between the vertical or horizontal lines. 
+So what is grid? Much like it sounds, grid is a set of vertical and horizontal lines that intersect much like a table. Elements can be positioned in the grid between the vertical or horizontal lines. 
 
 To create a grid, we first define the container element and the width and number of columns and rows. Then we declare the height and width of the child elements that sit inside the grid. 
 
@@ -90,7 +90,7 @@ To create a grid, we first define the container element and the width and number
 
 ### The Grid Container
 
- A **grid container** is declared by using `display: grid` and will act as the wrapper for the grid. The direct children of the grid container are the **grid items**. These elements sit within the vertical and horizontal lines, known as **grid lines**. 
+ A **grid container** is declared by using `display: grid` and will act as the wrapper for the grid. The direct children of the grid container are the **grid items**. These elements sit within the vertical and horizontal **grid lines**. 
 
 Let's begin by writing some basic HTML that will establish our grid container and grid items after the "Meet the Trainers" section and before the "Reach Out" section. First let's add the class that we'll later use to style the section and then add the in-page navigation id.
 
@@ -101,12 +101,13 @@ In `index.html`, add the `services` class:
 </section>
 ```
 
-Then add the corresponding link in the `<nav>`:
+Then add the link in the `<nav>`:
 
 ```html
   <a href="#service-plans">Service Plans</a>
 ```
-Within this `<section>` element, add some example HTML to start the grid by adding the grid container with its class attribute and the grid items with their corresponding class attributes:
+
+Within the `<section>` element, add some example HTML to start the grid by adding the grid container with its class attribute and the grid items with their corresponding class attributes:
 
 ```html
 <div class="service-grid-container">
@@ -127,7 +128,7 @@ In `style.css`, add the CSS rule to set up the grid:
 }
 ```
 
-Now add a little bit of styling to the grid items to help visualize our example with the following CSS rule: 
+Now add some styling to the grid items to help visualize our example: 
 
 ```css
 .service-grid-item {
@@ -139,7 +140,7 @@ Now add a little bit of styling to the grid items to help visualize our example 
 }
 ```
 
-Now let's render the grid in the browser:
+Save the files and render the grid in the browser:
 
 ![grid-example-part_1](assets/lesson-4/800-grid-example-part-1.png)
 
@@ -151,7 +152,7 @@ Great job! We'll make sure this grid has the correct number of rows and columns 
 
 > * `grid`: Creates a block-level grid container, which means it will sit alone in its own row.
 
-> * `inline-grid`: Creates a inline-level grid container which means it will sit besides other elements in the same row according to available space and document flow.
+> * `inline-grid`: Creates a inline-level grid container, which means it will sit besides other elements in the same row according to available space and document flow.
 
 > * [`subgrid`](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid): Creates a grid container on a grid item within a grid container. To learn more, check out the [MDN web docs about CSS grid layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout).
 
@@ -167,7 +168,7 @@ A **grid track** is a generic term for either a grid column or grid row, shown h
 
 > **Asset Needed:** [Graphic - Add Vertical Grid Track to Image - Jira FSFO-129](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-129)
 
-To establish the dimensions of the grid, declare either the `grid-template-columns` or `grid-template-rows`. Let's add the declaration of the `grid-template-columns` property to the `.service-grid-container` rule and review the syntax afterwards:
+To establish the dimensions of the grid, declare either the `grid-template-columns` or `grid-template-rows`. Let's add the declaration of the `grid-template-columns` property to the `.service-grid-container` rule:
 
 ```css
 .service-grid-container {
@@ -246,7 +247,7 @@ The following image demonstrates how the available space was distributed between
 
 ![grid-fr-unit](assets/lesson-4/1200-grid-fr-part-4-css.png)
 
-As you can see from the `grid-template-columns` declaration, the value `1fr 1fr` creates two equal width tracks that grow and shrink according to the available space. Because our grid container is a block-level element and does not have a defined width, the entire screen was set as the width. When we reduce the screen width to 500px, the columns remain equal in size as the `fr` unit evenly distributes the available space, as shown here:
+As you can see from the `grid-template-columns` declaration, the value `1fr 1fr` creates two equal width tracks that grow and shrink according to the available space. Because our grid container is a block-level element and doesn't have a defined width, the entire screen was set as the width. When we reduce the screen width to 500px, the columns remain equal in size as the `fr` unit evenly distributes the available space, as shown here:
 
 ![grid-fr-responsive](assets/lesson-4/1300-grid-mobile-part-5-css.png)
 
@@ -254,9 +255,9 @@ In our `grid-template-rows` declaration, we set the value to `1fr 2fr 1fr`, whic
 
 ### Use the repeat() Notation
 
-When dealing with a large grid that has many adjacent rows or columns with the same values, we can use the repeat notation to identify the values of the row and column grid declarations. 
+When dealing with a large grid that has many adjacent rows or columns with the same values, we can use the `repeat` notation to identify the values of the row and column grid declarations. 
 
-The following examples explore two rules that render identically:
+The following examples explore two rules that render identically. Here's the first example:
 
 ```css
 .service-grid-container {
@@ -266,7 +267,7 @@ The following examples explore two rules that render identically:
 }
 ```
 
-With `repeat()` notation
+This one uses the `repeat()` notation:
 
 ```css
 .service-grid-container {
@@ -275,6 +276,8 @@ With `repeat()` notation
   grid-template-rows: repeat(2, 1fr);
 }
 ```
+Here's how this renders: 
+
 ![grid-repeat()](assets/lesson-4/1400-grid-fr-example.png)
 
 Notice in the `repeat()` notation parentheses, the number of columns or rows is followed by a comma and then the width of the column or row. We can also use different units of length (such as px, rem, or %) or use it with other values to note other track sizes. 
@@ -307,11 +310,11 @@ Let's take a look at how this rule is rendered by the browser:
 >
 > **Answer**: The explicit grid as defined in our `.service-grid-container` rule created four rows even though there is only enough content for two. 
 
-Since CSS grid is built to create complex responsive 2D layouts, it shouldn't be surprising to hear that there is a vast number of unique grid properties and property values that help achieve customization and efficiency. Here are a few of the most popular and useful ones to remember:
+Because CSS grid is built to create complex responsive 2D layouts, it shouldn't be surprising to hear that there is a vast number of unique grid properties and property values that help achieve customization and efficiency. Here are a few of the most popular and useful ones to remember:
 
-* **minmax()**: This is a property value that offers a range of possible values with a minimum value and a maximum value. This can be set as a column or row size value designating the possible size range for the width or height of the grid track.  An example would be `minmax(100px, 1fr)`.
+* **minmax()**: Offers a range of possible values with a minimum value and a maximum value. This can be set as a column or row size value designating the possible size range for the width or height of the grid track. An example is `minmax(100px, 1fr)`.
 
-* **auto-fit**: Often used in combination with the `minmax()`, allowing CSS grid to calculate the number of columns or rows to accommodate the grid items.
+* **auto-fit**: Often used in combination with `minmax()`; allows CSS grid to calculate the number of columns or rows to accommodate the grid items.
 
 * **auto**: A property value using CSS grid to calculate the size of the column or row.
 
@@ -327,7 +330,7 @@ Let's use these in our grid to see how they affect it:
 }
 ```
 
-Save and render these properties in the browser to see how changing the viewport size alters the number of grid items on each row. This type of auto-fit scenario would work well for a large number or photos needing to automatically fit in a large photo gallery.
+Save and render these properties in the browser to see how changing the viewport size alters the number of grid items on each row. This type of auto-fit scenario would work well for a large number of photos needing to automatically fit in a large photo gallery.
 
 > **Asset Needed:** [Learnosity Checkpoint - Multiple Choice Jira FSFO-131](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-131)
 
@@ -341,7 +344,9 @@ Examine the following image and note the numerical system used to label each gri
 ![grid-lines](assets/lesson-4/1600-grid-lines-css.png)
 
 Notice how the vertical lines start numerically at one and increase by one from left to right.
-Conversely, the horizontal lines also start at one and increase by one from top to bottom. There is also an alternative number system. This vertical grid line label starts from the right at -1 and decreases by one going right to left. The converse is also true for horizontal grid lines starting at the bottom at -1 and decreasing by one going bottom to top. Although it may appear a bit puzzling as to why two alternative number labelling system may exist for our grid lines, we will soon discover the usefulness of this dual labelling system that starts for either side of the grid.
+Conversely, the horizontal lines also start at one and increase by one from top to bottom. There's also an alternative number system. This vertical grid line label starts from the right at -1 and decreases by one going right to left. The converse is also true for horizontal grid lines starting at the bottom at -1 and decreasing by one going bottom to top. 
+
+Does it seem odd that there are two number-labeling systems for grid lines? You'll soon understand why that is.
 
 ## Position the Grid Items 
 Let's make a few slight adjustments to our CSS rule in our sample grid container to redefine our grid dimensions by adding a set width and center to the page. Let's also add a grid gap of 10px:
