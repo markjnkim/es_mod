@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Now that we've implemented flexbox and media queries to make the Run Buddy site mobile-responsive, our next task is to create a section for the marketing department. They've requested a service plan comparison table to advertise their new premium support plan. 
+In the last few lessons, we implemented flexbox and media queries to make the Run Buddy site mobile-responsive. 
+
+Our next task is to add a new section to the landing page. The marketing department has requested a service plan comparison table to showcase the differences between the basic and premium plans. 
 
 Before we start thinking about how we'll do this, let's refresh our memory about where we left off:
 
@@ -10,11 +12,11 @@ Before we start thinking about how we'll do this, let's refresh our memory about
 
 ## Preview
 
-Let's take a look at the mock-up and strategize our development process.
+Let's take a look at the mock-up for the service plan table:
 
 ![service-plan](assets/lesson-4/100-service-mock-up.png)
 
-We could approach this solution in a few ways. One would be to use the HTML `<table>` element, but that is intended for [tabular data](https://en.wikipedia.org/wiki/Table_(information)) and not the custom rows and tables design we need.
+We could approach this solution in a few ways. One would be to use the HTML `<table>` element, but that's intended for [tabular data](https://en.wikipedia.org/wiki/Table_(information)) and not the customized table design we need.
 
 We could also use flexbox, but because we need a two-dimensional table with an element that spans multiple columns (i.e., the magazine subscription row), this could be tricky. 
 
@@ -24,7 +26,7 @@ The best way to learn is by doing, so let's jump in and start coding!
 
 ## Set Up a New Feature
 
-First let's create a new feature branch by finding our Github issue, "Pricing table using Grid", with the corresponding branch name `feature/grid`. Remember to use `git branch` to verify the active branch before branching to ensure a proper workflow.
+First we'll create a new feature branch by finding our GitHub issue, "Pricing table using Grid", with the corresponding branch name `feature/grid`. Before branching, remember to use `git branch` to verify the active branch.
 
 To create the feature branch, type the following in the command line:
 
@@ -46,11 +48,11 @@ Grid, on the other hand, has a two-dimensional layout model that can accommodate
 
 Let's take a look at a few examples of what CSS grid can do. 
 
-In the following example, although we are still working with rectangle boxes, we are able to position and shape the boxes to deliver custom and unique designs.
+In the following example, although we're still working with rectangle boxes, we can position and shape them to deliver custom and unique designs:
 
 ![page-layout](assets/lesson-4/200-grid-layout-css.png)
 
-In the next example, we use grid to match the image's orientation, either portrait or landscape, and to position the images into a nicely organized gallery. 
+In the next example, we use grid to match the image's orientation, either portrait or landscape, and to position the images into a nicely organized gallery: 
 
 ![image-gallery](assets/lesson-4/300-image-grid-css.png)
 
@@ -60,11 +62,11 @@ Before we get into grid lingo, let's pause for a quick quiz.
 
 > **Asset Needed**: [Learnosity Flexbox vs Grid - Jira FSFO-124](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-124) 
 
-## But Can I Use It?
+## Can I Use It?
 
 <!-- [Can I Use](https://caniuse.com/#feat=css-grid) -->
 
-Whenever a new front-end tool is introduced, the first thing you need to determine is whether you *can* use it. Front-end technologies only work if browsers (both desktop and mobile) support them. But how do you determine that? 
+Whenever a new front-end tool is introduced, the first thing you need to determine is whether you can use it. Front-end technologies only work if browsers (both desktop and mobile) support them. But how do you determine that? 
 
 Luckily for us, there is a website called [CanIUse.com](https://caniuse.com/#feat=css-grid) that tracks technology adoption among desktop and mobile browsers. 
 
