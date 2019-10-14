@@ -334,10 +334,9 @@ Save and render these properties in the browser to see how changing the viewport
 
 > **Asset Needed:** [Learnosity Checkpoint - Multiple Choice Jira FSFO-131](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-131)
 
-## Grid Lines
+## What Are Grid Lines?
 
-Grid lines can be defined as the horizontal or vertical dividing lines that make up the structure of the grid.
-Once we've defined our grid tracks in the `grid-template-columns` and `grid-template-rows` declarations, we'll use the resulting grid lines to place our grid items. 
+Grid lines can be defined as the horizontal or vertical dividing lines that make up the structure of the grid. Once we've defined our grid tracks in the `grid-template-columns` and `grid-template-rows` declarations, we'll use the resulting grid lines to place our grid items. 
 
 Examine the following image and note the numerical system used to label each grid line:
 
@@ -349,7 +348,8 @@ Conversely, the horizontal lines also start at one and increase by one from top 
 Does it seem odd that there are two number-labeling systems for grid lines? You'll soon understand why that is.
 
 ## Position the Grid Items 
-Let's make a few slight adjustments to our CSS rule in our sample grid container to redefine our grid dimensions by adding a set width and center to the page. Let's also add a grid gap of 10px:
+
+Let's redefine the grid dimensions by adding a set width and center to the page. Let's also add a grid gap of 10px:
 
 ```css
 .service-grid-container {
@@ -362,16 +362,16 @@ Let's make a few slight adjustments to our CSS rule in our sample grid container
 }
 ```
 
->**Important:** Please note that `grid-gap` is actually shorthand notation for the properties `grid-row-gap` and `grid-column-gap` and can be written together in one value or separately in two values as:
+>**Important:** Please note that `grid-gap` is shorthand notation for the properties `grid-row-gap` and `grid-column-gap` and can be written together in one value or separately in two values as:
 
 >```css
 >.grid-container {
 >  grid-gap: <grid-row-gap> <grid-column-gap>;
 >}
 >```
-> Where `<grid-row-gap>` can take in a static or relative unit size to declare a gap between rows. Conversely `<grid-column-gap>` declares the column gap. In our rule above, the single value will be assigned to both column and row gaps. This is similar to setting one value for the `padding` property which will set this value for all four sides of the `padding` in our CSS box model.
+> Where `<grid-row-gap>` can take in a static or relative unit size to declare a gap between rows. Conversely `<grid-column-gap>` declares the column gap. In the CSS rule above, the single value will be assigned to both column and row gaps. This is similar to setting one value for the `padding` property, which sets this value for all four sides of the `padding` in our CSS box model.
 
-In our CSS rule for our grid items, let's remove the height and width declarations to allow the background color to fill the grid cell. Let's add a little padding as well and keep our font color black. 
+In the CSS rule for our grid items, let's remove the height and width declarations to allow the background color to fill the grid cell. Let's add a little padding as well and keep our font color black:
 
 ```css
 .service-grid-item {
@@ -382,9 +382,11 @@ In our CSS rule for our grid items, let's remove the height and width declaratio
 }
 ```
 
-Now we can start placing our grid items into the grid by creating CSS class selectors that will uniquely identify each grid item and allow us to position each item individually. Until now we have been using grid properties on the grid parent element or grid container to define the grid. In contrast this step is defining the grid properties on the grid children or grid items. Because we can customize each grid item individually, we must use a class selector to target each grid item element in HTML by their class attribute. Recall this similarity to the flexbox lesson, when we assigned properties to the parent element in order to have consistent behavior in the children elements, whether that be alignment in relation to the parent or spacing in relation to other sibling elements, or when we assigned properties to the flexbox child element to control them individually for responsive behavior.
+Now we can start placing our grid items into the grid by creating CSS class selectors that will uniquely identify each grid item and allow us to position each item individually. Until now, we've been using grid properties on the grid parent element or grid container to define the grid. In contrast, this step defines the grid properties on the grid children or grid items. 
 
-Let's start with a simple example by assigning unique classes to each of our grid items. Labelled here as box1, box2, ... etc.
+Because we can customize each grid item individually, we must use a class selector to target each grid item element in HTML by their class attribute. Recall how this is similar to the flexbox lesson, when we assigned properties to the parent element in order to have consistent behavior in the children elements&mdash;whether that be alignment in relation to the parent or spacing in relation to other sibling elements&mdash; or when we assigned properties to the flexbox child element to control them individually for responsive behavior.
+
+Let's start with a simple example by assigning unique classes to each of our grid items. We'll label them as box1, box2, etc.
 
 ```html
 <div class="service-grid-container">
@@ -397,7 +399,7 @@ Let's start with a simple example by assigning unique classes to each of our gri
 </div>
 ```
 
-Next, we can create a CSS rule for the `box1` class selector and select the size of this item by identifying the grid lines it will start and end on for each side of this grid item.
+Next, we can create a CSS rule for the `box1` class selector and designate the size of this item by identifying the grid lines it starts and ends on:
 
 ```css
 .box1 {
@@ -408,36 +410,40 @@ Next, we can create a CSS rule for the `box1` class selector and select the size
 }
 ```
 
-It should render the following in the browser:
+This should render the following in the browser:
 
 ![grid-position](./assets/lesson-4/1700-chrome-grid.png)
 
-> **Important:** To view the grid line overlay as seen here:
+> **Important:** If you want to view the grid line overlay, as shown here: 
 
 ![grid-position](./assets/lesson-4/1700-grid-row-position.png)
 
-> We are using the Mozilla Firefox browser's Inspector window to activate a checkbox for **Overlay Grid** as seen below. 
+> You can use the Mozilla Firefox browser's Inspector window to activate a checkbox for Overlay Grid, as shown below. 
 
 ![Firefox Grid Lines ](./assets/lesson-4/3750-firefox-grid-lines.png)
 
 
 Notice how the grid item was able to span two rows by defining the row start and row end properties: 
 
-- With the first two declarations, `grid-column-start: 1` and `grid-column-end: 2`, we are defining the position and width of the grid track of this grid item to start on the first vertical grid line at the start or at the one grid line  position. 
+- With the first two declarations, `grid-column-start: 1` and `grid-column-end: 2`, we define the position and width of the grid track of this grid item to start on the first vertical grid line at the start or at the grid line 1 position. 
 
 - With the `end` declaration, we define the grid track to span one column because the column will end on the adjacent grid line 2. 
 
 The result is that the width of the defined box1 will start from grid line 1 and end at grid line 2. 
 
-In the following two declarations, the position and height of the grid item are determined: 
+The following two declarations define the position and height of the grid item: 
 
-- `grid-row-start: 1` defines our box1 grid item to start at the top grid line 
+- `grid-row-start: 1` defines the box1 grid item to start at the top grid line 
 
-- `grid-row-end: 3` defines our grid item, box1, to span two rows with the boundary defined to end on grid line 3
+- `grid-row-end: 3` defines the box1 grid item to span two rows with the boundary defined to end on grid line 3
+
+You can see the result here:
 
 ![Box1 Position](./assets/lesson-4/1750-box1-position-grid.png)
 
-CSS grid automatically positioned the remaining grid children by filling each row before wrapping to the following row. This default property comes from `grid-auto-flow` which was set to `row`. Let's temporarily change this property to `column` by adding the CSS declaration to `grid-auto-flow: column;` for the following effect:
+CSS grid automatically positioned the remaining grid children by filling each row before wrapping to the following row. This default property comes from `grid-auto-flow`, which was set to `row`. 
+
+Let's temporarily change this property to `column` by adding the CSS declaration to `grid-auto-flow: column;` for the following effect:
 
 ![grid-column-position](./assets/lesson-4/1800-grid-column-position.png)
 
@@ -454,7 +460,7 @@ There's also a shortcut notation when writing our position declarations using gr
 }
 ```
 
-Using the `grid-column` and `grid-row` properties allow the start and end values to be assigned in one declaration:
+Using the `grid-column` and `grid-row` properties allows the start and end values to be assigned in one declaration:
 
 ```css
 .box1 {
@@ -472,7 +478,7 @@ The value of these properties can also be stated using the negative number desig
 }
 ```
 
-This is especially useful in the case when the grid is incredibly large, since the end of the grid will be known to be -1.
+This is especially useful in the case where the grid is incredibly large because the end of the grid will be -1.
 
 The values of the `grid-column` and `grid-row` properties can even be assigned by explicitly stating how many grid cells are spanned:
 
@@ -483,7 +489,7 @@ The values of the `grid-column` and `grid-row` properties can even be assigned b
 }
 ```
 
-Let's add a few more CSS rules for some more grid items so we can familiarize ourselves with how to position and size grid items in CSS grid:
+Let's add a few more CSS rules for some more grid items so we can familiarize ourselves with how to position and size grid items:
 
  ```css
  .box2 {
@@ -492,13 +498,13 @@ Let's add a few more CSS rules for some more grid items so we can familiarize ou
 }
 ```
 
-Let's save and render in the browser:
+Save the file and render in the browser:
 
 ![Box 2 Position](./assets/lesson-4/1899-box2-position-grid-chrome.png)
 
 As you can see, box2 has been removed from the normal grid flow and assigned a position in the third column with the declaration `grid-column: 3/4;`. Box2 spans three rows because we declared the box to span from the top grid line to the last grid line with the declaration `grid-row: 1/-1;`. 
 
-Here is the grid with the grid line overlay:
+Here's the grid with the grid line overlay:
 
 ![Box 2 with Grid Overlay](./assets/lesson-4/1900-box2-position-grid.png)
 
@@ -511,21 +517,21 @@ Now what happens if we position a box that overlaps?
 }
 ```
 
-In this rule, we are declaring box3 will span 2 columns and sit in the third row. Please save and render in the browser:
+In this rule, we're declaring that box3 will span two columns and sit in the third row. Save the file and render in the browser:
 
 ![Box 3 Position](./assets/lesson-4/2000-box3-position-grid-chrome.png)
 
-As you can see, `box6` moved into the first column due to the `grid-auto-flow` property, and `box3` now overlaps `box2`:
+As you can see, box6 moved into the first column due to the `grid-auto-flow` property, and box3 now overlaps box2.
 
-> **Deep Dive**: CSS Grid is a complete layout model with many more properties that assist in customization for complex positioning.
-> * [Grid Area](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area)
-> * [Grid Auto Column/Row](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns)
+> **Deep Dive**: CSS Grid is a complete layout model with many more properties that assist in customization for complex positioning. To learn more, please see the following resources:
+> * [MDN web docs on grid area](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area)
+> * [MDN web docs on grid auto-column/row](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns)
 
-## Alignment Properties 
+## Use Alignment Properties to Position Grid Content
 
 Now that we know how to set up a grid and position and size grid items, let's investigate how alignment properties can position their content.
 
-> **Important**: float, display: inline-block, vertical-align and column-* properties have no effect on a grid item. 
+> **Important:** The `float`, `display: inline-block`, `vertical-align` and `column-*` properties have no effect on a grid item. 
 
 The following grid properties are used on the grid container element to align the grid items on a certain axis. 
 
@@ -535,29 +541,33 @@ The following grid properties are used on the grid container element to align th
 
 Arranges grid items along the row axis. This value applies to all the grid items in the grid container.
 
-  Values:
+Here's how this property is written and the values it accepts: 
+
 ```css
 .grid-container {
   justify-items: start | end | center | stretch;
 }
 ```
 
-If the declaration looks confusing the "|" or pipe is simply separating the four possible property values that `justify-items` will accept.
+> **Hint:** In the declaration, the "|" (or pipe) is simply separating the four possible property values that `justify-items` accepts.
 
-* start - aligns items at the start edge of the grid cell
+* The `start` value aligns items at the start edge of the grid cell:
 ![Justify-Items: start](./assets/lesson-4/2200-justify-items-start.png)
-* end - aligns items at the end edge of the grid cell
+
+* The `end` value aligns items at the end edge of the grid cell:
 ![Justify-Items: end](./assets/lesson-4/2300-justify-items-end.png)
-* center - centers items of the grid cell
+
+* The `center` value centers items of the grid cell:
 ![Justify-Items: center](./assets/lesson-4/2400-justify-items-center.png)
-* stretch - fills the width of the cell (default value)
+
+* The `stretch` value fills the width of the cell (default value):
 ![Justify-Items: stretch](./assets/lesson-4/2500-justify-items-stretch.png)
 
 ### The align-items Property
 
 Places grid items along the column axis. This value applies to all the grid items in the grid container.
-  
-  Values:
+
+Here's how this property is written and the values it accepts: 
   
   ```css
 .grid-container {
@@ -565,19 +575,24 @@ Places grid items along the column axis. This value applies to all the grid item
   }
 ```
 
-* start - aligns items at the top edge of the grid cell
+* The `start` value aligns items at the top edge of the grid cell.
 ![Align-Items: start](./assets/lesson-4/2600-align-items-start.png)
-* end - aligns items at the bottom edge of the grid cell
+
+* The `end` value aligns items at the bottom edge of the grid cell.
 ![Align-Items: end](./assets/lesson-4/2700-align-items-end.png)
-* center - centers items of the grid cell
+
+* The `center` value centers items of the grid cell.
 ![Align-Items: center](./assets/lesson-4/2800-align-items-center.png)
-* stretch - fills the height of the cell (default value)
+
+* The `stretch` value fills the height of the cell (default value).
 ![Align-Items: stretch](./assets/lesson-4/2500-justify-items-stretch.png)
 [Image-URL](https://css-tricks.com/snippets/css/complete-guide-grid/)
 
 ### The place-items Property
 
-This is shorthand notation that combines two declarations with one property that is space separated. If only one value is present, this value will be assigned to both properties.
+This is shorthand notation that combines two declarations with one property that is space-separated. If only one value is present, this value will be assigned to both properties.
+
+Here's how this property is written and the values it accepts: 
 
 ```css
 grid-container {
@@ -585,15 +600,15 @@ grid-container {
 }
 ```
 
-> **Deep Dive:** Alignment can also be customized on the grid item level using similar property axis labels. Instead of `*-items`, we will use the `*-self` post-fix for the `align-self` and `justify-self` properties. To learn more about [aligning on a grid item level let's turn to the MDN docs about grid item alignment](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self)
+> **Deep Dive:** Alignment can also be customized on the grid-item level using similar property axis labels. Instead of `*-items`, we will use the `*-self` post-fix for the `align-self` and `justify-self` properties. To learn more, see the [MDN web docs about grid item alignment](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self).
 
 Let's pause for an add, commit, and push to Git. And for a quick checkpoint.
 
 > **Asset Needed:** [Learnosity - Grid alignment - Jira 138](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-138)
 
-This would be a great place to commit and save our work as this will be the starting point of our next lesson. 
+This is a great place to commit and save your work as this will be the starting point of the next lesson. 
 
-To keep a fresh new starting point and since our mock-up doesn't contain any orange boxes with numbers, let's remove the CSS declarations in our example rules in our style sheet so now they look like this:
+To keep a fresh new starting point and because our mock-up doesn't contain any orange boxes with numbers, let's remove the CSS declarations in the example rules in our style sheet so that they look like this:
 
 ```css
 .service-grid-container {
@@ -606,9 +621,9 @@ To keep a fresh new starting point and since our mock-up doesn't contain any ora
 
 ## Make the Grid Match the Mock-Up
 
-With our new CSS grid skills, let's implement our new service plan layout. We'll start by planning our build process.
+Let's use our new grid skills to implement the service plan table layout! We'll start by planning the build process.
 
-First let's take another look at the mockup, then add the HTML. First, we'll add CSS grid properties for the grid container and grid items. Then we'll style the section and section content to match the mock-up. 
+First we'll take another look at the mockup, then add the HTML. We'll add CSS grid properties for the grid container and grid items. Then we'll style the section and section content to match the mock-up. 
 
 > **Important:** Remember that this section should be located after the "Meet the Trainers" section and before "Reach Out." 
 
@@ -618,9 +633,9 @@ Here's the mock-up:
 
 ### Add the HTML
 
-We will use the `<section>` tags with the `service-plans` id and `services` class that we added in the beginning of this lesson to house the service plan table. 
+We'll use the `<section>` tags with the `service-plans` id and `services` class that we added in the beginning of this lesson to contain the service plan table. 
 
-Let's replace the example `<div class="service-grid-container">` and corresponding nested `<div>`s and add an `h2` element for "Our Service Plans" as follows:
+Let's replace the example `<div class="service-grid-container">` and corresponding nested `<div>`s and add an `h2` element the "Our Service Plans" heading as follows:
 
 ```html
  <section id="service-plans" class="services">
@@ -632,7 +647,7 @@ Let's replace the example `<div class="service-grid-container">` and correspondi
   </section>
 ```
 
-Now we'll add two more `<div>`s. We'll add a  `<div>` wrapper under the heading that will be used later in the lesson to center the service plan table in the viewport. We'll also add our grid container by using a `<div>` with the class `service-grid-container`:
+Now we'll add two more `<div>`s. We'll add a  `<div>` wrapper under the heading that will be used later in the lesson to center the service plan table in the viewport. We'll also add the grid container by using a `<div>` with the class `service-grid-container`:
 
 ```html
   <div class="service-grid-wrapper">
@@ -642,17 +657,17 @@ Now we'll add two more `<div>`s. We'll add a  `<div>` wrapper under the heading 
   </div> <!-- div service-grid-wrapper -->
 ```
 
-Not a lot to look at when rendered to the browser just yet, but we've laid the groundwork for the grid. 
+This isn't a lot to look at in the browser just yet, but we've laid the groundwork for the grid. 
 
-The next step will be to add the grid item elements. We'll do this by simply adding a direct child element,  corresponding contentm, and box label for each box. Let's also add the class `service-grid-item` to each of these `<div>` elements for our grid properties. Just as in a table, we will start with the headers and then proceed with the body of the table. 
+The next step will be to add the grid item elements. We'll do this by simply adding a direct child element,  corresponding content, and box label for each box. Let's also add the `service-grid-item` class to each of these `<div>` elements for our grid properties. Just as we would do with a table, we'll start with the headers and then proceed with the body of the table. 
 
-Take your time to accomplish this task step by step. 
+Take your time and approach this step by step. 
 
-> **Pause:** Does the order in which you place the HTML very important?
+> **Pause:** Is the order in which you place the HTML important?
 >
-> **Answer:** Using the `grid-row` and `grid-column` properties, we can place our grid item anywhere we like explicitly. If relying on CSS grid to place them implicitly for us, then the order of the HTML is important.
+> **Answer:** Using the `grid-row` and `grid-column` properties, we can place our grid item anywhere we like explicitly. If we're relying on CSS grid to place them implicitly for us, then the order of the HTML matters.
 
-Your HTML should now look something like this inside your grid container:
+The HTML inside your grid container should now look something like this:
 
 ```html
 
@@ -706,15 +721,15 @@ Your HTML should now look something like this inside your grid container:
   </div>
 ```
 
-Now that we have our HTML in place let's take a look at view our work.
+Now that we have our HTML in place, let's look at our work in the browser:
 
 ![Grid HTML](./assets/lesson-4/3500-grid-html.png)
 
-So the design team wouldn't be thrilled with this look, however using our new CSS grid skills we will convert this unreadable list into a pretty chart so let's get started.
+The design team wouldn't be thrilled with this look, but we can use our new CSS grid skills to convert this unreadable list into a pretty chart. Let's get started! 
 
 ### Build the CSS Grid 
 
-Let's proceed by defining our CSS grid in the grid container. We need to add some basic styling by setting our background color and centering our grid using flexbox.
+Let's proceed by defining the grid in the grid container. We'll set the background color and center the grid using flexbox:
 
 ```css
 /* SERVICE STYLES BEGIN */
@@ -738,7 +753,7 @@ Now let's add CSS grid by declaring it in the grid container.
 >
 > **Answer**: There are three columns and six rows.
 
-Let's add these columns and rows using the `grid-template-columns` and `grid-template-rows` properties and the `fr` value.
+Let's add these columns and rows using the `grid-template-columns` and `grid-template-rows` properties and the `fr` value:
 
 ```css
 .service-grid-container {
@@ -748,11 +763,11 @@ Let's add these columns and rows using the `grid-template-columns` and `grid-tem
 }
 ```
 
-Let's save and render in the browser to view the state of our current grid.
+Let's save and render in the browser to view the state of our current grid:
 
 ![Grid Columns and Rows](./assets/lesson-4/3700-grid-rows-columns.png)
 
-Let's add a few simple styles to our grid container to make the size more manageable and the background color a little easier on the eyes. Let's also add a border color, font color, and increase the font size.
+Now add a few simple styles to the grid container to make the size more manageable and the background color a little easier on the eyes. Also add a border color and font color, and increase the font size:
 
 ```css
 .service-grid-container {
@@ -771,7 +786,7 @@ Now let's save and render our work to see the following:
 
 ![Grid with style](./assets/lesson-4/3800-grid-styles.png)
 
-The grid is coming along nicely, but the grid items don't appear to be in the correct order or format. Let's first try to fix the dimensions of the grid by changing sizes of the columns and rows to reflect our mock-up.
+The grid is coming along nicely, but the grid items aren't in the correct order or format. Let's first try to fix the dimensions of the grid by changing the size of the columns and rows to reflect the mock-up.
 
 Let's take another look at the mock-up:
 
@@ -781,9 +796,9 @@ With a grid overlay, we can see the relative dimensions of our grid columns and 
 
 ![Grid Overlay](./assets/lesson-4/3801-grid-styles-overlay.png)
 
-Let's change our grid to match the dimensions of the mock-up. We can see that the first column should actually be closer to a 1/4 of the size of the other columns. The bottom row is also double the height of the other rows. 
+We can see that the first column should actually be closer to 1/4 of the size of the other columns. The bottom row is also double the height of the other rows. 
 
-> **Pause**: How do we manipulate sizes of the rows and columns in the grid?
+> **Pause**: How do we manipulate the size of the rows and columns in the grid?
 >
 > **Answer**: We can designate each column or row by declaring the size in the property value. 
 
@@ -801,7 +816,7 @@ Let's change our grid to match the dimensions of the mock-up. We can see that th
 }
 ```
 
-Here is our grid with the rows and columns in their correct proportions with the first column 1/4 the size of the other two columns and the bottom rows twice the height of the other rows:
+Here's the grid with the rows and columns in their correct proportions. The first column is 1/4 the size of the other two columns and the bottom row is twice the height of the other rows:
 
 ![Grid format](./assets/lesson-4/3900-grid-template-props.png)
 
@@ -809,8 +824,9 @@ Now that our basic formatting of the grid is done, its time to style our grid it
 
 ### Style the Grid Items
 
-We are almost finished with completing our grid. In this next step we will be using the `.service-grid-item` class selector to give each of our individual grid items some styling including some padding, a border, center positioning using flexbox.
-Let's type in the following into our style sheet:
+Good work! We're almost finished. In this next step, we'll use the `.service-grid-item` class selector to give each grid item some styling, including some padding, a border, and center positioning using flexbox.
+
+Add the following to the style sheet:
 
 ```css
 .service-grid-item {
@@ -823,19 +839,19 @@ Let's type in the following into our style sheet:
 }
 ```
 
-Note that the `align-items` and `justify-content` are flexbox properties in this case, used to center our content in the grid item. This can be confusing since the grid properties look so similar. Keep in mind the alignment properties for grid on the grid-item scope uses the `self` identifier, such as `align-self` or `justify-self`. Having the `display: flex;` declaration is also a key indicator that a flexbox property will be applied in this case. In order the center the text or content in the grid item, we must treat the grid item as a flexbox container and the content or text as the child element that will be centered.
+Note that the `align-items` and `justify-content` are flexbox properties used to center the content in the grid item. This can be confusing because the grid properties look so similar. Keep in mind that the alignment properties for grid on the grid-item scope uses the `self` identifier, such as `align-self` or `justify-self`. Having the `display: flex;` declaration is also a key indicator that a flexbox property will be applied in this case. To center the text or content in the grid item, we must treat the grid item as a flexbox container and the content or text as the child element that will be centered.
 
-Let's save and render this to our browser to see if we are getting a desired effect.
+Let's save and render this in the browser to see if we're getting a desired effect:
 
 ![Grid Item Style](./assets/lesson-4/4000-grid-item-style.png)
 
-That is looking very close to our mock-up except the positioning needs some work.
+This looks very close to the mock-up except the positioning needs some work.
 
 ### Position the Grid Items
 
-In order to position our grid items in their correct placements we will be using the grid lines available in the Firefox inspector window with the Overlay Grid option.
+To position the grid items correctly, we'll use the grid lines available in the Firefox inspector window with the Overlay Grid option.
 
-Instead of assigning a class to every grid item to place individually on the grid, we will be using a column placement method, identifying each column and allowing the `grid-auto-flow` property to fill in the remaining available grid cells with the content available. 
+Instead of assigning a class to every grid item individually, we'll use a column placement method, identifying each column and allowing the `grid-auto-flow` property to fill in the remaining available grid cells with the content available. 
 
 First, let's identify the three columns:
 
@@ -845,8 +861,9 @@ First, let's identify the three columns:
 
 * Column three will contain the Premium Service Plan grid items.
 
-Knowing this let's use the mock-up and place our class attribute for cancel, basic, and premium with the grid items. For now let's ignore the "Subscription to Run Buddy's Health Magazine" grid item, and we'll come back to this later.
-Let's take a look at the HTML now to see our changes in the header and body:
+Knowing this, let's use the mock-up and place our class attribute for cancel, basic, and premium with the grid items. For now, let's ignore the "Subscription to Run Buddy's Health Magazine" grid item&mdash;we'll come back to that later.
+
+Your HTML should now look like this: 
 
 ```html
 <!-- Headers -->
@@ -898,7 +915,7 @@ Let's take a look at the HTML now to see our changes in the header and body:
   </div>
 ```
 
-Now let's add our CSS rules using these class selectors to designate where the grid items will go by declaring each column in our grid.
+Now let's add CSS rules using these class selectors to designate where the grid items will go by declaring each column in the grid:
 
 ```css
 /* specific match */
@@ -907,17 +924,17 @@ Now let's add our CSS rules using these class selectors to designate where the g
 }
 ```
 
-Notice this CSS selector has different syntax. 
+Notice that this CSS selector has different syntax. 
 
-> **Pause:** Can you explain how this selector is functioning since it seems to have two different classes?
+> **Pause:** Can you explain how this selector is functioning as it seems to have two different classes?
 >
-> **Answer:** This class selector will target the HTML elements that have both classes, in this case a great example of selecting a subset of a larger collection of elements.
+> **Answer:** This class selector targets the HTML elements that have both classes. In this case, it's a great example of selecting a subset of a larger collection of elements.
 
-In this first rule, we designated that the `basic` column will be located after the second grid line and span one grid cell. Therefore the second column in the grid.
+In this first rule, we designated that the `basic` column will be located after the second grid line and span one grid cell. That makes it the second column in the grid, as you can see here:
 
 ![Column Position](./assets/lesson-4/4100-basic-column-grid-chrome.png)
 
-With the grid  overlay, the grid appears like this:
+With the grid  overlay, the grid looks like this:
 
 ![Column Position with Overlay](./assets/lesson-4/4101-basic-column-grid-overlay.png)
 
@@ -925,9 +942,9 @@ Notice how the grid items with the class `basic` filled the designated column ba
 
 > **Pause:** What is the grid property that allowed the premium column to fill automatically?
 >
-> **Answer:** The `grid-auto-flow` property filled empty space with grid items in accordance to their HTML order in the HTML file. By default this property is set to a `row` value. 
+> **Answer:** The `grid-auto-flow` property filled empty space with grid items in accordance to their HTML order in the HTML file. By default, this property is set to a `row` value. 
 
-Let's add a class to the grid item for the Subscription to Run Buddy Magazine so we can move its position.
+Let's add a class to the grid item for the "Subscription to Run Buddy's Health Magazine" content so we can move its position:
 
 ```html
   <div class="service-grid-item both">
@@ -944,8 +961,9 @@ It should look like this:
 }
 ```
 
-In this rule, we designated that the grid item with the `.both` class attribute will span from grid line two for two grid cells and end on grid line four. 
-Let's save and refresh the browser to if our results are satisfactory.
+In this rule, we designated that the grid item with the `.both` class attribute will span from grid line 2 for two grid cells and end on grid line 4. 
+
+Let's save and refresh the browser to if the results are satisfactory:
 
 ![Subscription Span](./assets/lesson-4/4200-subscription-span-grid.png)
 
@@ -953,11 +971,11 @@ Excellent work! Our service table is coming along great.
 
 > **Pause:** How did the subscription grid item automatically position itself into the fifth row when only the column declaration was applied? 
 >
-> **Answer:** Before any grid position was designated to the subscription grid item, this item was removed from the grid flow and placed at the bottom. Once a position was assigned to this grid item, this item was returned to the natural grid flow and was place by the `grid-auto-flow` property in accordance to its order in the HTML.
+> **Answer:** Before any grid position was designated to the subscription grid item, this item was removed from the grid flow and placed at the bottom. Once a position was assigned to this grid item, this item was returned to the natural grid flow and was placed by the `grid-auto-flow` property according to its order in the HTML.
 
-In the final step of this section, we will position the "Cancel At Any Time!" grid item to span all the rows in the first column. Let's proceed by using a grid item property similar to one we used for the "Subscription" grid item except to span multiple rows, not columns this time.
+In the final step of this section, we'll position the "Cancel At Any Time!" grid item to span all the rows in the first column. Let's proceed by using a grid item property similar to one we used for the "Subscription" grid item except to span multiple rows, not columns, this time.
 
-Your answer should look like this:
+Your code should look like this:
 
 ```css
 .service-grid-item.cancel {
@@ -965,14 +983,15 @@ Your answer should look like this:
 }
 ```
 
-Note that the -1 property value was used to set the ending grid line. A great shortcut when we know the grid item spans the entire grid.
-So why did we not need to designate a column for this grid item? CSS grid is calculating placement and auto fills areas in the grid that are not occupied. To be explicit we could add the `grid-column` declaration to `1`, but it isn't necessary in this case since this is the only option for the subscription grid item to span the length of the grid.
+Note that the -1 property value was used to set the ending grid line. This is a great shortcut when we know that the grid item spans the entire grid.
 
-Great job so far! Now that our grid items are placed properly in a formatted grid in accordance to our mock-up, the design team is very happy with the progress made so far. They just have a few recommendations to emphasize a key fields in our service plan table.
+So why did we not need to designate a column for this grid item? CSS grid is calculating placement and autofills in the grid areas that aren't occupied. To be explicit, we could add the `grid-column` declaration to `1`, but that isn't necessary in this case because the only option for the subscription grid item isto span the length of the grid.
+
+Great job so far! Now that our grid items are placed properly in a formatted grid according to the mock-up, the design team is very happy with the progress made so far. They just have a few recommendations to emphasize a few key fields in the table.
 
 ### Add the Final Touches
 
-Let's take a peek at our mock-up and see what is left to be done:
+Let's take a peek at the mock-up and see what's left to be done:
 
 ![Service Plan Mock-up](./assets/lesson-4/100-service-mock-up.png)
 
@@ -990,21 +1009,23 @@ This should have the following result in the browser:
 
 ![Cancel writing-mode](./assets/lesson-4/4255-vertical-text.png)
 
-This looks promising however not exactly what the design team wanted so let's keep working on it. We need to find a way to flip or rotate this text around to face the correct direction. Fortunately for us, the `transform` property has a rotate value we can try. Let's add the following declaration into the rule `transform: rotate(180deg);` to render the following in the browser:
+This looks promising. but it's not exactly what the design team wants. So let's keep working on it. We need to find a way to flip or rotate this text to face the correct direction. Fortunately for us, the `transform` property has a rotate value we can try. Let's add the following declaration into the `transform: rotate(180deg);` rule to render the following in the browser:
 
 ![Cancel Vertical Text](./assets/lesson-4/4250-grid-vert-font.png)
 
 Now the "Cancel" grid item looks great!
 
-Wait, but why didn't we just rotate from the beginning? Let's see what the "Cancel" grid item would have looked like if we had just rotated it by -90 degrees and removed the `writing-mode` property.
+Wait a minute. Why why didn't we just rotate it from the beginning? Let's see what the "Cancel" grid item would have looked like if we had just rotated it by -90 degrees and removed the `writing-mode` property:
 
 ![Rotate Cancel Item](./assets/lesson-4/4260-rotate-cancel.png)
 
-So this actually rotated the entire element and not just the font. Let's put the `writing-mode` property back into our rule and set the `transform` property value back to `rotate(180deg);` and proceed to the next step.
+So this actually rotated the entire element and not just the font. Let's put the `writing-mode` property back into our rule and set the `transform` property value back to `rotate(180deg);`.
 
-> **Deep Dive:** Learn more about how to not only [the CSS property to change the writing axis](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode) but also [the numerous transformations possible at MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transform).
+> **Deep Dive:** To learn more, see the [MDN web docs on the writing-mode property](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode) and the [MDN web docs on transformations](https://developer.mozilla.org/en-US/docs/Web/CSS/transform).
 
-Next let's use some CSS properties to increase the headers, cancellation message, and pricing by first assigning the class attributes to the corresponding elements in the HTML, then creating the related CSS rules with a font size of 1.5rem and a bold font-weight.
+Next let's use some CSS properties to increase the headers, cancellation message, and pricing by first assigning the class attributes to the corresponding elements in the HTML, and then creating the related CSS rules with a font size of 1.5rem and a bold font-weight:
+
+Add the following to `index.html`:
 
 ```html
 <!-- Headers -->
@@ -1023,6 +1044,8 @@ Next let's use some CSS properties to increase the headers, cancellation message
   </div>
 ```
 
+Add the following to `style.css`:
+
 ```css
 .grid-head, .grid-price, .service-grid-item.cancel {
   font-size: 1.5rem;
@@ -1030,13 +1053,13 @@ Next let's use some CSS properties to increase the headers, cancellation message
 }
 ```
 
-This rule is using three different selectors to declare font styling to emphasize their priority in the table.
+This rule uses three different selectors to declare font styling to emphasize their priority in the table.
 
 > **Asset Needed:** [Learnosity-Spanning and Positioning-Jira 136](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-136)
 
 ## Make the Service Plan Mobile-Responsive 
 
-Excellent work! The design team is thrilled with our progress, but when they view the service plan on a mobile device, some of the layout feels a little compressed:
+Excellent work! The design team is thrilled with our progress. However, when they view the service plan on a mobile device, some of the layout feels a little compressed:
 
 ![Mobile Screen Service Plan](./assets/lesson-4/4300-compressed-service-plan-mobile.png)
 
@@ -1046,7 +1069,7 @@ Here's a mock-up of the new mobile layout:
 
 ![Mobile Service Plan Mock-up](./assets/lesson-4/4400-mobile-service-plan-request.png)
 
-With our knowledge of media queries and grid positioning, we should be able to make these changes without too much trouble. Let's leverage the work that has already been done and use the media query rule for screens less than 768px. 
+With our knowledge of media queries and grid positioning, we should be able to make these changes pretty easily. Let's leverage the work that's already been done and use the media query rule for screens less than 768px. 
 
 Here are the steps we'll follow:
 
@@ -1062,7 +1085,7 @@ Here are the steps we'll follow:
 
 Let's add these rules to the existing media query for screens sizes under 768px.
 
-Try to use some of the things you learned in the lesson to make these rules yourself.
+Try to use some of the things you've learned in this lesson to make these rules yourself:
 
 ```css
 @media screen and (max-width: 768px) {
@@ -1087,10 +1110,9 @@ Try to use some of the things you learned in the lesson to make these rules your
   }
 }
 ```
-​
-Let's break down this media query, rule by rule, so we can understand each integral transformation.
+​Let's break down this media query, rule by rule, so we can understand each integral transformation.
 
-To start let's start with the parent element rule:
+Let's start with the parent element rule:
 
 ```css
 .service-grid-container {
@@ -1108,10 +1130,9 @@ Next we set the "basic" plan to the first column by using the following rule:
 }
 ```
 
-We set the basic column into the first column instead of the second. Because we moved all of the "basic" grid items to start at the first column, the "premium" grid items naturally flowed into the second column due to the the ability of CSS grid to fill existing space with content (aka implicit grid).
-
+We set the basic column as the first column instead of the second. Because we moved all of the basic grid items to start at the first column, the premium grid items naturally flowed into the second column due to implicit grid.
 ​
-Because we transformed our grid, we needed the following rule to reposition the spanning row to start at column one:
+Because we transformed our grid, we need the following rule to reposition the spanning row to start at column one:
 
 ```css
 .service-grid-item.both {
@@ -1119,7 +1140,7 @@ Because we transformed our grid, we needed the following rule to reposition the 
 }
 ```
 
-The next rule not only turned off the font manipulation, but also moved this grid item and transformed it into a row. 
+The next rule not only turned off the font manipulation but also moved this grid item and transformed it into a row: 
 
 ```css
 .service-grid-item.cancel {
@@ -1132,10 +1153,9 @@ The next rule not only turned off the font manipulation, but also moved this gri
 
 This was necessary to maximize the horizontal screen space on a mobile device screen.
 
-The `grid-column: 1 / -1;` declaration spanned both rows starting at the first column. The `grid-row: -1;` declaration positioned this grid item on the last row. 
-In this rule, we also set the properties `transform` to none and `writing-mode` to unset to negate the styles that vertically transform this font so to appear back to normal.
+The `grid-column: 1 / -1;` declaration spanned both rows starting at the first column. The `grid-row: -1;` declaration positioned this grid item on the last row. In this rule, we also set the `transform` property to `none` and the `writing-mode` property to `unset` to negate the styles that vertically transform this font.
 
-Congrats! The new feature is now complete. Let's following our Git workflow and add, commit, and push our work to the remote feature branch.
+Congrats! The new feature is now complete. Let's follow our Git workflow and add, commit, and push our work to the remote feature branch:
 
 ```bash
 git add .
@@ -1143,7 +1163,7 @@ git commit -m "added service table comparision"
 git push origin feature/grid
 ```
 
-Now let's check out into our `develop` branch, pull down any new changes, merge our new feature branch locally, then push up our updated `develop` branch into the remote repo so the rest of our team can see, test, and verify the finished feature:
+Now let's check out into the `develop` branch, pull down any new changes, merge the new feature branch locally, then push up the updated `develop` branch into the remote repo: 
 
 ```bash
 git checkout develop
@@ -1151,15 +1171,15 @@ git merge feature/grid
 git push origin develop
 ```
 
-Before we continue, let's take a moment to recap our accomplishments in this challenging lesson.
+Great job. Now the rest of the team can see, test, and verify the finished feature. 
 
 ## Reflection
 
-Well done on making it through a challenging lesson! Employers are looking for developers that not only know the basics of CSS and HTML, but understand how to tackle and learn new technologies and advanced tools. Insight into how to make a modern website layout can be a key differentiator when it comes to applying for developer jobs.
+Well done on making it through a challenging lesson! Insight into how to make a modern website layout will make you stand out among other candidates when applying for developer jobs. Employers are looking for developers who not only know the basics of CSS and HTML but also understand how to learn new technologies and advanced tools. 
 
-Let's revisit some of the core concepts of CSS grid that make this model a revolutionary advancement in web design:
+Let's revisit some of the core concepts of CSS grid that make it a revolutionary advancement in web design:
 
-* We learned how to declare a grid and define its rows and columns to create customizable grid layouts. This is a game-changing concept that makes advanced layout design responsive to mobile devices.
+* We learned how to declare a grid and define its rows and columns to create customizable layouts. This is a game-changing concept that makes advanced layout design responsive to mobile devices.
 
 * We learned how to check the adoption rate of front-end technologies on different browsers. This could be an important consideration when weighing options for advanced tools for a website.
 
@@ -1167,9 +1187,9 @@ Let's revisit some of the core concepts of CSS grid that make this model a revol
 
 * We learned how conducive grid is to changing screen sizes, especially when the shape of the table needs to be altered in a media query. This level of flexibility and customization is a testament to the importance that CSS will continue to hold in the future of web development and website design. 
 
-As you advance through this boot camp, you'll see that many of the technologies you're learning in one lesson will be built upon in later ones. You're building a foundational practice of understanding and learning that can be built upon for your entire career. Try to view each step, each lesson, and each module as an investment in the learning process. 
+As you advance through this boot camp, remember that you're building a foundational practice of understanding and learning that can be built upon for your entire career. Try to view each step, each lesson, and each module as an investment in mastering the learning process. 
 
-In the next lesson, we'll learn some advanced CSS styling properties that will make Run Buddy more professional and easier to use. 
+In the next lesson, we'll learn some advanced CSS styling properties that will make the Run Buddy website more professional and easier to use. 
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
