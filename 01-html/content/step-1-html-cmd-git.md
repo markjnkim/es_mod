@@ -219,7 +219,7 @@ For example, the browser wants to know what to call this webpage. The `<title>` 
 
 Try changing the title in the HTML file. Save the file and then reload the page in the browser to see the change. 
 
- **NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-141>**
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-141>
 
 There are two remaining pieces we haven't covered yet. The opening `<html>` tag was actually written as `<html lang="en">`. This is how we specify the default language for our page. In this case, we're letting browsers know that this page is meant to be read in English. 
 
@@ -349,7 +349,7 @@ With two commits under our belt, run the command `git log`. This shows a history
 
 Can you imagine how useful this will be when you start working on larger apps with other developers? Very useful indeed!
 
-**NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-142>**
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-142>
 
 ## Outline the Page
 
@@ -511,7 +511,7 @@ Save, refresh the browser, and admire your efforts:
 
 Okay, still not very pretty, but we've laid some important groundwork that's going to make the next several steps much easier to complete.
 
-**NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-143>**
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-143>
 
 ## Revisit Our Git Workflow
 
@@ -639,7 +639,7 @@ Let's back up and look at this link again: https://username.github.io/run-buddy/
 
 If you visit something.com/contact.html, for instance, the something.com server knows to send back `contact.html` because it was explicitly asked for. But if a file isn't specified, the server sends back `index.html`. Knowing this, make sure every project has an `index.html` file!
 
-**NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-144>**
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-144
 
 ## Reflection
 

@@ -212,7 +212,7 @@ We worked with floats and manipulating a page's default "flow" in Lesson 2, but 
 
 In this case, however, we floated both elements (the `<img>` and `<div>`), which means its parent element&mdash;the `<article>` element&mdash;cannot interpret how much space its inner HTML content needs and assumes there's nothing inside it at all. This means the `<article>` element's styles, like `background-color`, don't show up because the `<article>` element itself is 0 pixels tall.
 
-### NEED: Video showing what floated elements do to the parent
+> **Asset needed:** Video showing what floated elements do to the parent
 
 This a common issue for float-based layouts. It involves not only moving the elements we want to move, but also tweaking elements around it to tell it to understand that there may be some floated elements it needs to account for. There are a few ways to make these tweaks to fix the problem we just had—we chose the `overflow` property.
 

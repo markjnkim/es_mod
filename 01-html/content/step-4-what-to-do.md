@@ -450,7 +450,7 @@ This will shrink the font size of the `<span>` while the adjacent text in the `<
 
 ![see results](./assets/step-4/700-see-results.png)
 
-**NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-145>**
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-145>
 
 ## Reflection
 
