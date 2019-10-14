@@ -85,7 +85,7 @@ var createTaskActions = function(taskId) {
   for (var i = 0; i < statusChoices.length; i++) {
     // create option element
     var statusOptionEl = document.createElement("option");
-    statusOptionEl.setAttribute("value", statusChoices[i].replace(" ", "-").toLowerCase());
+    statusOptionEl.setAttribute("value", statusChoices[i]);
     statusOptionEl.textContent = statusChoices[i];
 
     // append to select
@@ -133,11 +133,11 @@ var taskStatusChangeHandler = function(event) {
   var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
 
   // convert value to lower case
-  var statusValue = event.target.value;
+  var statusValue = event.target.value.toLowerCase();
 
-  if (statusValue === "to-do") {
+  if (statusValue === "to do") {
     tasksToDoEl.appendChild(taskSelected);
-  } else if (statusValue === "in-progress") {
+  } else if (statusValue === "in progress") {
     tasksInProgressEl.appendChild(taskSelected);
   } else if (statusValue === "completed") {
     tasksCompletedEl.appendChild(taskSelected);

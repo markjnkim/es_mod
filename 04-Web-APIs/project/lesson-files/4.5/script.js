@@ -34,7 +34,7 @@ var taskFormHandler = function(event) {
     var taskObj = {
       title: taskTitleInput,
       type: taskTypeInput,
-      status: "to-do"
+      status: "to do"
     };
     createTaskEl(taskObj);
   }
@@ -57,11 +57,11 @@ var createTaskEl = function(taskObj) {
   listItemEl.appendChild(taskActionsEl);
 
   switch (taskObj.status) {
-    case "to-do":
+    case "to do":
       taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
       tasksToDoEl.append(listItemEl);
       break;
-    case "in-progress":
+    case "in progress":
       taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 1;
       tasksInProgressEl.append(listItemEl);
       break;
@@ -114,7 +114,7 @@ var createTaskActions = function(taskId) {
   for (var i = 0; i < statusChoices.length; i++) {
     // create option element
     var statusOptionEl = document.createElement("option");
-    statusOptionEl.setAttribute("value", statusChoices[i].replace(" ", "-").toLowerCase());
+    statusOptionEl.setAttribute("value", statusChoices[i]);
     statusOptionEl.textContent = statusChoices[i];
 
     // append to select
@@ -172,11 +172,11 @@ var taskStatusChangeHandler = function(event) {
   var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
 
   // convert value to lower case
-  var statusValue = event.target.value;
+  var statusValue = event.target.value.toLowerCase();
 
-  if (statusValue === "to-do") {
+  if (statusValue === "to do") {
     tasksToDoEl.appendChild(taskSelected);
-  } else if (statusValue === "in-progress") {
+  } else if (statusValue === "in progress") {
     tasksInProgressEl.appendChild(taskSelected);
   } else if (statusValue === "completed") {
     tasksCompletedEl.appendChild(taskSelected);
@@ -264,7 +264,7 @@ var dropTaskHandler = function(event) {
     // update tasks array with task's updated status
     tasks.forEach(function(task) {
       if (parseInt(id) === task.id) {
-        task.status = statusSelectEl.value;
+        task.status = statusSelectEl.value.toLowerCase();
       }
     });
 
