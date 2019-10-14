@@ -2,13 +2,21 @@
 
 ## Introduction
 
-Our Run Buddy webpage is looking good. We've knocked out some pretty tricky sections like the header, hero, and sign-up form. Up next, we have these two more informative pieces to build: the "What We Do" and "What We Do" sections. 
+Our Run Buddy webpage is looking good! We've knocked out some pretty tricky sections like the header, hero, and sign-up form. 
+
+Here's how the page currently looks: 
+
+ **NEED IMAGE of webpage as it stands now**
+
+## Preview
+
+Up next, we have these two more informative pieces to build: the "What We Do" and "What We Do" sections.  
 
 Here's how they look in the mock-up:
 
 ![overview](./assets/step-4/050-overview.png)
 
-This lesson might feel like a bit of a breather because we won't need to use any complex CSS properties like floats or positioning. As we build out these two sections, though, a few new concepts will still come into play. Be prepared to learn and exercise some previous skills at the same time!
+This lesson might feel like a bit of a breather because we won't need to use any complex CSS properties like floats or positioning. But a few new concepts will still come into play. 
 
 High-level, here's our outline:
 
@@ -36,7 +44,7 @@ In Lesson 1, we left placeholders for these sections:
 </section>
 ```
 
-Let's go ahead and fill in the missing HTML content per the mock-up. Ignore the blue icons for now but take into consideration which elements would be appropriate to best organize the code. 
+Let's fill in the missing HTML content per the mock-up. Ignore the blue icons for now, but take into consideration which elements would be appropriate to best organize the code. 
 
 In `index.html`, add the following code:
 
@@ -357,7 +365,7 @@ We also need to update the HTML code to use these new classes. In `index.html`, 
 
 Note that these `<h2>` elements in different sections can use the same `section-title` class, which gives them all the same baseline in terms of size, spacing, etc. We can then add additional classes by separating the class names with a space. The attribute `class="section-title primary-border"` is actually pulling in CSS declarations from two different classes.
 
-> **Skill Drill:** This is such an important concept in CSS that it's worth practicing a little more. Try writing two class rules (and only two classes—no other selectors) that make the following possible:
+> **Asset Needed - ADD JIRA TICKET:** This is such an important concept in CSS that it's worth practicing a little more. Try writing two class rules (and only two classes—no other selectors) that make the following possible:
 >
 > ```html
 > <div>bold, green text</div>

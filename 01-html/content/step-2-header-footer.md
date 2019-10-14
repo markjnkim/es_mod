@@ -2,35 +2,48 @@
 
 ## Introduction
 
-Before we go any further, take a moment to give yourself a pat on the back. Even though the Run Buddy landing page doesn't look like much yet, you've already done a lot to pave the way for building the entire website. 
+Before we go any further, give yourself a pat on the back. You've already done a lot to prepare for building the entire website. 
 
-One really important step you completed in Lesson 1 was to build a series of "containers" (aka divs) to hold different types of content in the HTML document. At first glance, this may seem like a lot of extra work, but as you add content and apply styles to each section, you'll see that it allows you not to worry about how each one affects the others. You'll get a chance to see this in action in this lesson. 
+One really important step you took in the last lesson was to build a series of "containers" (aka divs) to hold different types of content. In this lesson, you'll see how those divs allow you to add content and style to sections without worrying about how each one affects the others. 
 
-In Lesson 2, you'll add some new HTML elements and CSS to your skillset as we add content and style to the header and footer of the Run Buddy webpage. Why focus on the top and bottom of the page and leave the middle untouched? The header and footer typically share similar content and style patterns, so it makes sense to do them both at the same time. They're also the "anchors" of most websites—meaning they appear on every page and hold two very important parts of any website: branding and navigation. 
+Here's what you built in the last lesson: 
+
+ **NEED IMAGE of webpage as it stands now**
+
+
+## Preview
+
+In this lesson, you'll add content and style to the header and footer of the webpage. 
+
+When you're done, the landing page will look like this: 
+
+![Run Buddy webpage with styled header and footer](assets/step-2/900-step-2-complete.jpg)
+
+The header and footer typically share similar content and style patterns, so it makes sense to do them both at the same time. They're also the "anchors" of most websites—meaning they appear on every page and hold two very important parts of any website: branding and navigation. 
 
 This is all best learned by doing, so let's get started!
 
 ## Add Content to the Header
 
-This image shows what we'll be working towards by adding content to our `<header>` element: 
+This image shows the content that we'll add to the `<header>` element: 
 
 ![header html](assets/step-2/100-header-html.jpg)
 
-We'll begin by adding two things to our `<header>` that most modern webpages have: branding and navigation. 
+We'll begin by adding two things to our `<header>` that most modern webpages have: **branding** and **navigation**. 
 
-These two important components are typically contained in the `<header>` so that they appear on every page in the website in a uniform way. Think about a website you're familiar with: does the top of the site look the same on every page you visit? You betcha! And where do you look on a website when you want to navigate to another page? Usually, you look for a menu on the top and/or bottom of any page. 
+These two important components are typically contained in the header (and footer) so that they appear on every page in a uniform way. Think about a website you're familiar with: does the top of the site look the same on every page you visit? You betcha! And where do you look when you want to navigate to another page? Usually, you look for a menu on the top and/or bottom of the webpage. 
 
 ### Add Branding
 
 Branding refers to the logo, colors, and general style (aka "brand") of a company or organization. Think about Target's red bullseye or Amazon's orange arrow; if you visit these websites, you will always see their brand loud and clear at the top (and usually bottom) of the page. 
 
-We started to add branding content for Run Buddy in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. This put the Run Buddy name in the header (top) of the page. We will style it later in this lesson. 
+We started to add branding content in Lesson 1 when we added `<h1>RUN BUDDY</h1>` to the `<header>`. This put the Run Buddy name at the top of every page. We will style it later in this lesson. 
 
 ### Add Navigation 
 
-Okay, so branding content is taken care of, but what about navigation? Let's add some HTML elements to hold our navigation content. 
+Okay, so branding content is taken care of, but what about navigation? 
 
-In VS Code, add `<nav>` and `</nav>` immediately below `<h1>` but above the closing `</header>` tag. 
+Open `index.html` in VS Code, and add `<nav>` and `</nav>` immediately below `<h1>` but above the closing `</header>` tag. 
 
 It should look something like this: 
 
@@ -43,21 +56,23 @@ It should look something like this:
 
 The `<nav>` element is a newer **semantic element** introduced in HTML5. The browser can read these elements and get an idea about the information that's inside, which aids both accessibility and SEO.
 
-**Accessibility** is the practice of describing and detailing HTML elements in a way that allows tools such as screen readers to explain the page's content in a meaningful way to those who may have an impairment, such as vision or hearing loss. **SEO**, or search engine optimization, is the process of maximizing the number of visits a website receives and how frequently it shows up in a search engine's results. 
+What are accessibility and SEO, you ask? Read on:
+
+- **Accessibility** is the practice of adding HTML elements in a way that allows tools such as screen readers to explain the page's content in a meaningful way to those who have a disability such as vision or hearing loss. 
+
+- **SEO**, or search engine optimization, is the process of maximizing the number of visits a website receives and how frequently it shows up in search results. 
 
 > **Important:** Web Accessibility
 >
-> As the web has grown, so has the need to make it available to as many people as possible. Your role as a developer will be to create products that can provide a similar&mdash;if not identical&mdash;experience to every user, including those with disabilities. 
+> As the web has grown, so has the need to make it available to as many people as possible. Software now exists to make content accessible to people with disabilities, including visual, hearing, cognitive, motor, and more. For example, screen readers allow browsers to interpret website content and read it aloud as a user moves through a website. And it's up to developers to provide information in a way the browser can interpret.
 >
-> Software now exists to make content accessible to people with visual and hearing impairments, and cognitive and other disabilities. For example, screen readers allow browsers to interpret website content and read it aloud as a user moves through a website. But it's up to developers to provide information in a way the browser can interpret.
+> There are a number of tools for adding accessibility to webpages. The most prominent and easy to implement is HTML5's semantic elements. Before HTML5, the `<div>` element was used for all blocks of content on a webpage. This forced developers to work extra hard to identify content for screen readers. Now, semantic elements like `<header>`, `<footer>`, and `<nav>` work just like a `<div>` element, but they have more meaningful names that tell the browser about the content inside them. 
 >
-> There are a number of tools for adding accessibility to webpages, the most prominent and easy to implement being HTML5 semantic elements. Before HTML5, the `<div>` element was used for all blocks of content on a webpage. This forced developers to work extra hard to identify content for screen readers. Now, semantic elements like `<header>`, `<footer>`, and `<nav>` work just like a `<div>` element, but they have more meaningful names that tell the browser about the content inside them. This makes it much easier to create accessible content.
->
-> For more information, see the [resources available on MDN on web accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility). 
+> For more information, see the [MDN web docs web accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility). 
 
 There are a number of ways to organize navigation. We'll use the popular method of creating a list of navigation links. 
 
-In VS Code, type the following right after the opening `<nav>` you just created: 
+In the `index.html` file, type the following right after the opening `<nav>` you just created: 
 
 ```html
 <!-- Unordered list element -->
@@ -91,7 +106,7 @@ types of lists: ordered and unordered.
 
 - **Unordered lists** (`<ul>`) allow for a more loosely formatted list by marking each nested list item with a symbol (such as a bullet point or square).
 
-The following image has examples of different types of lists, both ordered and unordered, and with indented sub-list items as well:
+The following image shows examples of ordered and unordered lists:
 
 ![Ordered lists with numbers vs. unordered list with
 bullets](assets/step-2/100.5-ordered-unordered.jpg)
@@ -100,12 +115,12 @@ The relationship between a `<ul>` or `<ol>` element to an `<li>` is a direct par
 
 Within reason, anything can be nested in an `<li>` element. In our case, we created a link in each list item using an anchor element (`<a>`). Anchor elements are used to create links that take us to other destinations when clicked. These destinations can be within the same page, on another page in our website, or on another website entirely.
 
-> **Connect the Dots:** The `<a>` element is a prime example of the "hypertext" in Hypertext Markup Language (HTML). Hypertext is defined as text that links to other text. Since this term was coined in the early 1960s, its definition has expanded to include other types of media as well. 
+> **Connect the Dots:** The `<a>` element is a prime example of the "hypertext" in Hypertext Markup Language (HTML). Hypertext is defined as text that links to other text. Since this term was coined in the early 1960s, its definition has expanded to include other types of media as well (such as images and videos). 
 
 Here are a few examples of the `<a>` element being used to create links:
 
 ```html
-<!-- When we click "Go to Google," it will take you to Google -->
+<!-- When you click "Go to Google," it will take you to Google -->
 <a href="https://google.com">Go to Google</a>
 
 <!-- This will take us to our own site's privacy policy HTML page -->
@@ -120,9 +135,9 @@ Here are a few examples of the `<a>` element being used to create links:
 
 Did you notice that the first two examples above have an `href=` inside their opening tags? This is an HTML **attribute**. 
 
-Attributes give functionality, meaning, and context to our HTML elements. They are not necessary for every element (we've written a lot of HTML so far without them!) but can be added to any element. However, some elements require them to work, such as `<a>`; if we were to omit the `href` attribute in the examples above, the `<a>` element would not be clickable and the link would not work.
+Attributes can be used to give an HTML element a unique identity, create relationships with other elements, and provide design changes using CSS. They give functionality, meaning, and context to HTML elements. 
 
-Throughout this lesson and in future ones, you will be introduced to other important attributes. Attributes can be used to give an HTML element a unique identity, create relationships with other elements, and provide design changes using CSS.
+Attributes aren't necessary for every element, but some do require them. One of those is the `<a>` element. If we were to omit the `href` attribute in the examples above, the links would not work.
 
 Here are some popular attributes:
 
@@ -191,7 +206,7 @@ Here's a refresher of the Git commands you should use to commit your code locall
 
 2. `git commit -m "commit message"`: Then tell Git what you added or changed (replace `"commit message"` with a short note about what changed).
 
-    > **Note**: These two commands tell Git locally what you're saving and why you're saving it. These two must be done first (in this order) before you can push the code up to GitHub.
+    > **Hint**: These two commands tell Git locally what you're saving and why you're saving it. These two must be done first (in this order) before you can push the code up to GitHub.
 
 3. `git push origin master`: Use this command to take all of the code and file edits from your recent `commit` and push it all up to GitHub. 
 
@@ -506,9 +521,8 @@ Here, we're implementing a more specific selector pattern. This one ensures that
 >
 > CSS styles are also applied through something known as **inheritance**, which means that if a style isn't explicitly defined for a child element, it will use the style being applied to the parent element.
 >
-
+>To learn more,see [MDN's docs on cascade and inheritance](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance).
   
-  To learn more,see [MDN's docs on cascade and inheritance](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance).
 
 Now let's turn our attention to the property declarations here:
 
@@ -679,7 +693,7 @@ Awesome job! It's time to move on to styling the `<footer>`. Don't worry—we we
 
 We covered a lot, so let's do a pulse check:
 
-> Check Point:
+> **NEED LEARNOSITY Check Point**
 >
 > **Given the following CSS selector, which HTML element would be the outermost/parent element?**
 >
@@ -811,9 +825,11 @@ footer a {
 }
 ```
 
-That wasn't so bad, was it? Did you notice that we repeated the same layout that was in the header by making the `<h2>` an inline element and the `<div>` float to the right? And only two new properties have been introduced:
+That wasn't so bad, was it? Did you notice that we repeated the same layout that was in the header by making the `<h2>` an inline element and the `<div>` float to the right? 
 
-- **`line-height`**: This assigns how much vertical space should be between lines of text content. The value associated with it (1.5) means we want the spacing to be 1.5 times the size of the font itself. This value varies depending on what font we're using, but 1.5 is a good baseline. The idea behind this is we don't want our lines of text too close to one another, but we don't want them floating apart from one another either, so this lets us finesse the spacing and make it more readable.
+And only two new properties were introduced:
+
+- **`line-height`**: This assigns how much vertical space should be between lines of text content. The value (1.5) means we want the spacing to be 1.5 times the size of the font. This value varies depending on what font we're using, but 1.5 is a good baseline. The idea behind this is we don't want our lines of text too close or too far apart. This lets us finesse the spacing and make it more readable.
 
 - **`text-align`**: This lets us align our text to the left, right, center, or justified. By default, it is left-aligned.
 
@@ -823,23 +839,23 @@ Great work! You've officially completed all of the styles for the header and foo
 
 ## Reflection
 
-We covered a lot in this lesson. There's no "soft" way to be introduced to some of these concepts, CSS in particular, so we just jumped right in and started coding. To recap what we did:
+We covered a lot in this lesson. There's no easy way to be introduced to some of these concepts&mdash;CSS in particular&mdash;so we just jumped right in and started coding. To recap what we did:
 
-- We built two major components that typically go on every webpage: the header and footer. By doing them one by one, we were able to learn about new HTML elements and structure without getting overwhelmed. This is a good workflow to practice, especially as beginners.
+- We built two major components that typically go on every webpage: the header and footer. By doing them one by one, we were able to learn about new HTML elements and structure without getting overwhelmed. 
 
-- We introduced quite a few new HTML elements that we will be using not only a lot throughout the rest of this project but throughout the rest of our careers.
+- We introduced quite a few new HTML elements that we will use throughout the rest of this project (and our careers!).
 
-- We learned about HTML attributes, which provide more context, meaning, and functionality to our HTML elements. The next section will introduce more attributes, but this was a nice introduction to them.
+- We learned about HTML attributes, which provide more context, meaning, and functionality to HTML elements. 
 
-- We became familiar with CSS, what it does, what it looks like, and how to implement it using the `link` element in our HTML using relative paths.
+- We became familiar with CSS: what it does, what it looks like, and how to implement it using the `link` element and relative paths.
 
-- We used CSS element selectors and properties to style elements (and nested elements).
+- We used CSS element selectors and properties to style elements and nested elements.
 
-- Lastly, we learned that the browser conducts its styling of HTML elements a certain way (inline vs. block, the CSS Box Model, margins/padding, etc.), and that way may not always work for us. We can use CSS to override these default settings and make our lives easier.
+- We learned how to use CSS to override the default way that browsers style HTML elements. 
 
-The best part about hitting all of these new topics at once is that the upcoming steps will be less introduction and more doing! The basic concepts you learned in Lesson 2 will carry through your entire career as a developer. It's just a matter of knowing when to apply the right style— and that will come with practice and repetition.
+The best part about hitting all of these new topics at once is that the upcoming steps will be less introduction and more doing! The basic concepts you learned in this lesson will carry through your entire career as a developer. 
 
-> **Pro Tip:** Don't forget to save and push your work up to GitHub!
+In the next lesson, we'll move on to the body of the landing page, starting with creating a flashy "hero" section to entice visitors to stay on our site and eventually sign up with Run Buddy. 
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.

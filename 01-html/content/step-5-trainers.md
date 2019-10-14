@@ -1,10 +1,18 @@
 # Lesson 5: Meet the Trainers 
 
+## Introduction
+
 At this point, we're more than halfway done with our Run Buddy landing page! We've let visitors know what product Run Buddy offers and how they can get started with a trainer. Now we will add a little more of a personal touch to the page by adding some information about the "faces" of the product.
+
+Here's where the Run Buddy landing page stands after all your hard work in the last lesson:
+
+ **NEED IMAGE of webpage as it stands now**
+
+## Preview
 
 In this lesson, you'll build another `<section>` of the page: the "Meet the Trainers" section. This one contains three similar pieces of content, so expect a fair amount of repetition. Because of that repetition, the lesson is a good opportunity to practice what you've learned so far while also picking up some new skills along the way.
 
-As usual, the Run Buddy design team has given us a mock-up for this section: 
+As usual, the Run Buddy design team has given us a mock-up: 
 
 ![trainers complete](assets/step-5/100-trainers-complete.jpg)
 

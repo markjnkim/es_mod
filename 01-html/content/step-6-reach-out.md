@@ -4,6 +4,12 @@
 
 Way to go! The Run Buddy landing page is nearly complete. Along the way, you've learned a lot of new web development concepts that you'll use throughout your career as a developer. 
 
+In case you forgot, here's the current state of the Run Buddy landing page: 
+
+ **NEED IMAGE of webpage as it stands now**
+
+## Preview
+
 We have a new request from the folks at Run Buddy. The sales team wants us to build a contact section (called Reach Out) that invites visitors to ask questions or voice concerns. Like the sign-up form on the homepage, it's also another opportunity to generate sales leads. 
 
 Just like we always do, let's start by looking at the mock-up: 
@@ -354,7 +360,7 @@ Note that the second CSS rule targets two different elements. The comma separate
 
 Save the file, reload `index.html` in the browser, and behold the beautiful result!
 
-Congrats! You have completed the landing page and created a professional layout. Now is a great time to `add`, `commit`, and push your work to your repo. 
+Congrats! You've completed the landing page and created a professional layout. Now is a great time to add, commit, and push your work to GitHub. 
 
 ## Reflection
 
@@ -362,15 +368,15 @@ Modern websites demand interesting ways to deliver content. The skills you learn
 
 Let's recap some of the highlights from this lesson:
 
-* We gained more experience with the webpage build process, starting with the HTML and then adding style. 
+* You gained more experience with the webpage build process, starting with the HTML and then adding style. 
 
-* We reused CSS rules by applying CSS class selectors to achieve an efficient and clean codebase without repeating code. 
+* You reused CSS rules by applying CSS class selectors to achieve an efficient and clean codebase without repeating code. 
 
-* We created a multi-column layout by creating container elements to a set width and declaring the `display: inline-block;`. 
+* You created a multi-column layout by creating container elements to a set width and declaring the `display: inline-block;`. 
 
-* We implemented a unique HTML element called an `<iframe>` which allows nested browser content from another HTML page to be embedded into the current one. This offers user interactivity and interoperability with another website, and adds rich visual features without needing to write a lot of code. 
+* You implemented a unique HTML element called an `<iframe>`, which allows nested browser content from another HTML page to be embedded into the current one. This offers user interactivity and interoperability with another website, and adds rich visual features without needing to write a lot of code. 
 
-In the next lesson, we'll get a chance to add a page to the site when we create Run Buddy's Privacy Policy page.
+In the next lesson, you'll get a chance to add a page to the site when you create Run Buddy's Privacy Policy page.
 
 ---
 
