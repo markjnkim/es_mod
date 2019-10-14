@@ -273,8 +273,6 @@ var dropTaskHandler = function(event) {
 
     dropzone.removeAttribute("style");
     dropzone.appendChild(draggableElement);
-
-    event.dataTransfer.clearData();
   }
 };
 
