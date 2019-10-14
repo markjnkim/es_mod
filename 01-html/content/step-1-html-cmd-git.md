@@ -136,8 +136,8 @@ The following list recaps the commands you just learned:
 
 > **Deep Dive:** Search the internet for these other useful commands to learn what they do: 
 >
-> - `cp`\
-> - `mv`\
+> - `cp`
+> - `mv`
 > - `rm -R`
 
 
