@@ -481,28 +481,27 @@ var name = "your name";
 console.log(name);
 ```
 
-The above code should create a variable called `name` with your name stored as the value, then the next line will `console.log()` the value of the `name` variable. Let's do one more before moving on:
+The above code should create a variable called `name` with your name stored as the value, then the next line will `console.log()` the value of the `name` variable. 
 
-```js
-console.log(window);
-console.log(console);
-```
+> **Deep Dive:** The Chrome DevTools window can help developers discover bugs and issues in almost every aspect of front-end development, yet sometimes the amount of options it offers is overwhelming and hard to understand at first. Luckily, the team at Google have created [detailed documentation about DevTools](https://developers.google.com/web/tools/chrome-devtools) for us to use.
+
+We've now learned how to create functions, execute functions, how to interact with the user, and store data, let's revisit our `fight()` function and start giving our robot something to do!
+
+Make sure you commit the code you've completed so far using git!
+
+## Manipulate data with functions, variables, and operators
+
+While the last step was about creating data and functionality and putting them to use, this step is going to be all about manipulating data using **operators**.
+
+By the end of this step, we'll be able to execute our `fight()` function and have our robot attack an enemy and have the enemy attack our robot. 
 
 
 
+## Adding Conditions to our Function
 
-4. Manipulate data with functions, variables, and operators
 
----
 
-Manipulate our robot’s data using JavaScript operators, then create a “fight” function to store these actions so we can perform them multiple times.
-Add conditions to the fight so we can check the status of our two robots in battle
-
-5. Adding Conditions to our Function
-
----
-
-6. Add Interactivity with Window Methods
+## Add Interactivity with Window Methods
 
 ---
 
