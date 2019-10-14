@@ -491,9 +491,11 @@ Make sure you commit the code you've completed so far using git!
 
 ## Manipulate data with functions, variables, and operators
 
-While the last step was about creating data and functionality and putting them to use, this step is going to be all about manipulating data using **operators**.
+While the last step was about understanding functions, storing data in variables, and putting them both to use, this step is going to be all about manipulating data using **operators**.
 
-By the end of this step, we'll be able to execute our `fight()` function and have our robot attack an enemy and have the enemy attack our robot. 
+By the end of this step, we'll be able to execute our `fight()` function and have our robot attack an enemy and have the enemy attack our robot. So let's start by asking ourselves: What do we need in order to make this happen?
+
+In order for our robot's to battle each other, they are going to require some type of data of tracking their overall health values. What 
 
 
 
