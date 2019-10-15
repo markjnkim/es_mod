@@ -4,11 +4,7 @@
 
 In recent lessons, we implemented flexbox and media queries to make the Run Buddy site mobile-responsive. 
 
-Our next task is to add a new section to the landing page. The marketing department has requested a service plan comparison table to showcase the differences between the basic and premium plans. 
-
-Before we start thinking about how we'll do this, let's refresh our memory about where we left off:
-
-> **ADD IMAGE OF CURRENT WEBSITE**
+Our next task is to add a new section to the landing page. The marketing department has requested a service plan comparison table to showcase the differences between the basic and premium plans. This new section will be placed after the "Meet the Trainers" section and before the "Reach Out" section.
 
 ## Preview
 
@@ -16,11 +12,11 @@ Let's take a look at the mock-up for the service plan table:
 
 ![service-plan](assets/lesson-4/100-service-mock-up.png)
 
-We could approach this solution in a few ways. One would be to use the HTML `<table>` element, but that's intended for [tabular data](https://en.wikipedia.org/wiki/Table_(information)) and not the customized table design we need.
+We can approach this solution in a few ways. One is to use the HTML `<table>` element, but that's intended for [tabular data](https://en.wikipedia.org/wiki/Table_(information)) and not the customized table design we need.
 
-We could also use flexbox, but because we need a two-dimensional table with an element that spans multiple columns (the magazine subscription row), this could be tricky. 
+We could also use flexbox, but this could be tricky because we need a two-dimensional table with an element that spans multiple columns (for the magazine subscription row). 
 
-This leads us to a CSS layout model called **CSS Grid**, aka **grid**. Grid&mdash;a two-dimensional model similar to flexbox&mdash;is nothing short of a revolutionary system for page layouts, and this is what we'll use. 
+This leads us to a CSS layout model called **CSS Grid Layout**. CSS Grid&mdash;a two-dimensional model similar to flexbox&mdash;is nothing short of a revolutionary system for page layouts, and this is what we'll use. 
 
 The best way to learn is by doing, so let's start coding!
 
@@ -36,13 +32,13 @@ $ git checkout -b "feature/grid"
 
 > **Pro Tip:** Always checkout into the stable development version, the `develop` branch, before creating a new feature branch. Branching off a different branch could insert broken or untested code, which could lead to unintended consequences.
 
-## Why Use Grid Instead of Flexbox?
+## Why Use CSS Grid Instead of Flexbox?
 
 Flexbox is wonderful for dealing with a single direction like a component that needs horizontal alignment, such as a `<nav>` and its navigational links or a `<div>` with three images, like this:
 
 ![image-gallery-example](assets/lesson-4/150-image-gallery-flex-css.png)
 
-Grid, on the other hand, has a two-dimensional layout model that can accommodate both columns and rows. This makes it better suited for large-scale layouts like custom websites or image galleries. 
+CSS Grid, on the other hand, has a two-dimensional layout model that can accommodate both columns and rows. This makes it better suited for large-scale layouts like custom websites or image galleries. 
 
 > **Asset Needed:** [Introduction to CSS Grid - Jira 140](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-140)
 
@@ -52,13 +48,13 @@ In the following example, although we're still working with rectangle boxes, we 
 
 ![page-layout](assets/lesson-4/200-grid-layout-css.png)
 
-In the next example, we use grid to match the image's orientation, either portrait or landscape, and to position the images into a nicely organized gallery: 
+In the next example, we use CSS Grid to match the image's orientation, either portrait or landscape, and to position the images into a nicely organized gallery: 
 
 ![image-gallery](assets/lesson-4/300-image-grid-css.png)
 
-Grid even allows other tools to be used inside it, such as flexbox or even another grid or [subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid).
+CSS Grid even allows other tools to be used inside it, such as flexbox or even another grid or [subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid).
 
-Before we get into grid lingo, let's pause for a quick quiz. 
+Before we get into CSS Grid lingo, let's pause for a quick quiz. 
 
 > **Asset Needed**: [Learnosity Flexbox vs Grid - Jira FSFO-124](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-124) 
 
@@ -74,19 +70,19 @@ Let's see how CSS Grid fares:
 
 ![Can I Use](assets/lesson-4/320-can-i-use.png)
 
-As you can see, grid has attained a 90% adoption rate. Still, it's important to be mindful of what the experience will be like for the remaining 10% of users. Is it okay to serve them a broken page or do you need to come up with a fallback solution? 
+As you can see, CSS Grid has attained a 90% adoption rate. Still, it's important to be mindful of what the experience will be like for the remaining 10% of users. Is it okay to serve them a broken page or do you need to come up with a fallback solution? 
 
 Run Buddy's marketing department has decided that the power and simplicity of CSS Grid is worth alienating a small number of users that have been calculated to be outside their target demographic. Grid it is, then!
 
 Take a minute to investigate other front-end technologies like flexbox and media queries on [CanIUse.com](https://caniuse.com) to see that consensus in the browser category is not easy to come by.
 
-## What Is Grid?
+## What Is CSS Grid?
 
-So what is grid? Much like it sounds, grid is a set of vertical and horizontal lines that intersect much like a table. Elements can be positioned in the grid between the vertical or horizontal lines. 
+So what is CSS Grid? Much like it sounds, CSS Grid is a set of vertical and horizontal lines that intersect much like a table. Elements can be positioned in the grid between the vertical or horizontal lines. 
 
 To create a grid, we first define the container element and the width and number of columns and rows. Then we declare the height and width of the child elements that sit inside the grid. 
 
-> **Rewind**: Many of the grid terms and parent/child relationships are similar to flexbox.
+> **Rewind**: Many of the CSS Grid terms and parent/child relationships are similar to flexbox.
 
 ### The Grid Container
 
@@ -231,7 +227,7 @@ Currently, our grid is static. This means the column, row, and cell sizes do not
 
 To create a responsive layout, we can assign relative units to the `grid-template-columns` and `grid-template-rows` properties to allow flexible grid tracks. We can do this by using some of the values we previously covered, namely the `percent` or `rem` unit values. 
 
-Grid also introduces a relative unit length value called `fr` or **fraction**. This relative value is unique to grid and cannot be used elsewhere. It's called fraction because grid assigns the unit length based on a fraction of the available space.  
+CSS Grid also introduces a relative unit length value called `fr` or **fraction**. This relative value is unique to CSS Grid and cannot be used elsewhere. It's called fraction because CSS Grid assigns the unit length based on a fraction of the available space.  
 
 Let's use `fr` in an example:
 
@@ -251,7 +247,7 @@ As you can see in the `grid-template-columns` declaration, the `1fr 1fr` value c
 
 ![grid-fr-responsive](assets/lesson-4/1300-grid-mobile-part-5-css.png)
 
-In the `grid-template-rows` declaration, we set the value to `1fr 2fr 1fr`, which caused the second row to be twice the height as the other rows. In cases when there is no "available" space, a `fr` unit will be determined by grid to be the height of the content in the row with the most height. Two `fr` units in this row example will be twice this height.
+In the `grid-template-rows` declaration, we set the value to `1fr 2fr 1fr`, which caused the second row to be twice the height as the other rows. In cases when there is no "available" space, a `fr` unit will be determined by CSS Grid to be the height of the content in the row with the most height. Two `fr` units in this row example will be twice this height.
 
 ### Use the repeat() Notation
 
@@ -310,7 +306,7 @@ Let's take a look at how this rule is rendered by the browser:
 
 > **Pause**: Explain the large gap of space located at the bottom the picture.
 >
-> **Answer**: The explicit grid as defined in our `.service-grid-container` rule created four rows even though there is only enough content for two. 
+> **Answer**: The explicit grid, as defined in our `.service-grid-container` rule, created four rows even though there is only enough content for two. 
 
 Because CSS Grid is built to create complex responsive 2D layouts, it shouldn't be surprising to hear that there is a vast number of unique grid properties and property values that help achieve customization and efficiency. Here are a few of the most popular and useful ones to remember:
 
@@ -318,7 +314,7 @@ Because CSS Grid is built to create complex responsive 2D layouts, it shouldn't 
 
 * **auto-fit**: Often used in combination with `minmax()`; allows CSS Grid to calculate the number of columns or rows to accommodate the grid items.
 
-* **auto**: A property value using CSS Grid to calculate the size of the column or row.
+* **auto**: A property value that uses CSS Grid to calculate the size of the column or row.
 
 > **Asset Needed**: [Demonstration of the auto-fit property value in action Jira FSFO-104](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-104)
 
@@ -349,7 +345,7 @@ Conversely, the horizontal lines also start at one and increase by one from top 
 
 Does it seem odd that there are two number-labeling systems for grid lines? You'll soon understand why that is.
 
-## Position the Grid Items 
+## Position Grid Items 
 
 Let's redefine the grid dimensions by adding a set width and center to the page. Let's also add a grid gap of 10px:
 
@@ -524,7 +520,7 @@ In this rule, we're declaring that box3 will span two columns and sit in the thi
 
 As you can see, box6 moved into the first column due to the `grid-auto-flow` property, and box3 now overlaps box2.
 
-> **Deep Dive**: CSS Grid is a complete layout model with many more properties that assist in customization for complex positioning. To learn more, please see the following resources:
+> **Deep Dive**: CSS Grid is a robust layout model with many properties that can be used for complex positioning. To learn more, please see the following resources:
 > * [MDN web docs on grid area](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area)
 > * [MDN web docs on grid auto-column/row](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns)
 
@@ -620,7 +616,7 @@ Since we are finished with our grid example and our mock-up doesn't contain any 
 
 ## Make the Grid Match the Mock-Up
 
-Let's use our new grid skills to implement the service plan table layout! We'll start by planning the build process.
+Let's use our new CSS Grid skills to implement the service plan table layout! We'll start by planning the build process.
 
 First we'll take another look at the mockup, then add the HTML. We'll add CSS Grid properties for the grid container and grid items. Then we'll style the section and section content to match the mock-up. 
 
@@ -724,9 +720,9 @@ Now that we have our HTML in place, let's look at our work in the browser:
 
 ![Grid HTML](./assets/lesson-4/3500-grid-html.png)
 
-The design team wouldn't be thrilled with this look, but we can use our new CSS Grid skills to convert this unreadable list into a pretty chart. Let's get started! 
+The design team wouldn't be thrilled with this look, but we can use our new CSS Grid skills to convert this unreadable list into an attractive chart. Let's get started! 
 
-### Build the CSS Grid 
+### Build the Grid 
 
 Let's proceed by defining the grid in the grid container. We'll set the background color and center the grid using flexbox:
 
@@ -933,7 +929,7 @@ In this first rule, we designated that the `basic` column will be located after 
 
 ![Column Position](./assets/lesson-4/4100-basic-column-grid-chrome.png)
 
-With the grid  overlay, the grid looks like this:
+With the grid overlay, the grid looks like this:
 
 ![Column Position with Overlay](./assets/lesson-4/4101-basic-column-grid-overlay.png)
 
@@ -1109,7 +1105,7 @@ Try to use some of the things you've learned in this lesson to make these rules 
   }
 }
 ```
-​Let's break down this media query, rule by rule, so we can understand each integral transformation.
+Let's break down this media query, rule by rule, so we can understand each integral transformation.
 
 Let's start with the parent element rule:
 
@@ -1120,7 +1116,7 @@ Let's start with the parent element rule:
 ```
 
  With CSS Grid and media queries, we can adjust how many rows or columns our grid needs on the fly. By setting the value of `grid-template-columns` to `1fr 1fr`, we created two equal columns for this grid.
-​
+
 Next we set the "basic" plan to the first column by using the following rule:
 
 ```css
@@ -1184,7 +1180,7 @@ Let's revisit some of the core concepts of CSS Grid that make it a revolutionary
 
 * We learned the properties and values associated with the grid parent container and grid items which allow customization of the grid's dimensions, positioning, and alignment. These save developers time and allow them to innovate. 
 
-* We learned how conducive grid is to changing screen sizes, especially when the shape of the table needs to be altered in a media query. This level of flexibility and customization is a testament to the importance that CSS will continue to hold in the future of web development and website design. 
+* We learned how conducive CSS Grid is to changing screen sizes, especially when the shape of the table needs to be altered in a media query. This level of flexibility and customization is a testament to the importance that CSS will continue to hold in the future of web development and website design. 
 
 As you advance through this boot camp, remember that you're building a foundational practice of understanding and learning that can be built upon for your entire career. Try to view each step, each lesson, and each module as an investment in mastering the learning process. 
 
