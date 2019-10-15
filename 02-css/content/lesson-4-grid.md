@@ -58,7 +58,7 @@ Before we get into CSS Grid lingo, let's pause for a quick quiz.
 
 > **Asset Needed**: [Learnosity Flexbox vs Grid - Jira FSFO-124](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-124) 
 
-## Can I Use It?
+## But Can I Use It?
 
 <!-- [Can I Use](https://caniuse.com/#feat=css-grid) -->
 
@@ -76,7 +76,7 @@ Run Buddy's marketing department has decided that the power and simplicity of CS
 
 Take a minute to investigate other front-end technologies like flexbox and media queries on [CanIUse.com](https://caniuse.com) to see that consensus in the browser category is not easy to come by.
 
-## What Is CSS Grid?
+## Get Started with CSS Grid
 
 So what is CSS Grid? Much like it sounds, CSS Grid is a set of vertical and horizontal lines that intersect much like a table. Elements can be positioned in the grid between the vertical or horizontal lines. 
 
@@ -84,7 +84,7 @@ To create a grid, we first define the container element and the width and number
 
 > **Rewind**: Many of the CSS Grid terms and parent/child relationships are similar to flexbox.
 
-### The Grid Container
+### Create the Grid Container
 
  A **grid container** is declared by using `display: grid` and will act as the wrapper for the grid. The direct children of the grid container are the **grid items**. These elements sit within the vertical and horizontal **grid lines**. 
 
@@ -154,7 +154,7 @@ Great job! We'll make sure this grid has the correct number of rows and columns 
 
 Now pause to add and commit your work in the feature branch. The commit message should be related to the work you just completed, such as "added grid example."
 
-### Format the Grid with Rows and Columns
+### Format the Rows and Columns
 
 A **grid column** is defined by the space between two adjacent vertical lines. The size of the column is determined by the `grid-template-columns` property. Conversely, a **grid row** is defined by the space between two adjacent horizontal lines whose height is determined by the `grid-template-rows` property. 
 
@@ -249,7 +249,7 @@ As you can see in the `grid-template-columns` declaration, the `1fr 1fr` value c
 
 In the `grid-template-rows` declaration, we set the value to `1fr 2fr 1fr`, which caused the second row to be twice the height as the other rows. In cases when there is no "available" space, a `fr` unit will be determined by CSS Grid to be the height of the content in the row with the most height. Two `fr` units in this row example will be twice this height.
 
-### Use the repeat() Notation
+### Using the repeat() Notation
 
 When dealing with a large grid that has many adjacent rows or columns with the same values, we can use the `repeat` notation to identify the values of the row and column grid declarations. 
 
@@ -332,7 +332,7 @@ Save and render these properties in the browser to see how changing the viewport
 
 > **Asset Needed:** [Learnosity Checkpoint - Multiple Choice Jira FSFO-131](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-131)
 
-## What Are Grid Lines?
+## Using Grid Lines
 
 Grid lines can be defined as the horizontal or vertical dividing lines that make up the structure of the grid. Once we've defined our grid tracks in the `grid-template-columns` and `grid-template-rows` declarations, we'll use the resulting grid lines to place our grid items. 
 
@@ -345,7 +345,7 @@ Conversely, the horizontal lines also start at one and increase by one from top 
 
 Does it seem odd that there are two number-labeling systems for grid lines? You'll soon understand why that is.
 
-## Position Grid Items 
+## Position the Grid Items 
 
 Let's redefine the grid dimensions by adding a set width and center to the page. Let's also add a grid gap of 10px:
 
@@ -1052,7 +1052,7 @@ This rule uses three different selectors to declare font styling to emphasize th
 
 > **Asset Needed:** [Learnosity-Spanning and Positioning-Jira 136](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-136)
 
-## Make the Service Plan Mobile-Responsive 
+## Make the Service Plan Grid Mobile-Responsive 
 
 Excellent work! The design team is thrilled with our progress. However, when they view the service plan on a mobile device, some of the layout feels a little compressed:
 
