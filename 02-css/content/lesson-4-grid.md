@@ -605,7 +605,6 @@ Let's pause for an add, commit, and push to Git. And for a quick checkpoint.
 
 > **Asset Needed:** [Learnosity - Grid alignment - Jira 138](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-138)
 
-This is a great place to commit and save your work as this will be the starting point of the next lesson. 
 
 To keep a fresh new starting point and because our mock-up doesn't contain any orange boxes with numbers, let's remove the CSS declarations in the example rules in our style sheet so that they look like this:
 
