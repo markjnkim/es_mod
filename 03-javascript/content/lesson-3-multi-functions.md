@@ -4,13 +4,13 @@
 
 We technically have a game now where a player can fight (or skip fighting) several robots in a row. However, the rules are still pretty simple, and the game can only be played once unless the user refreshes their browser.
 
-One of the things the judges of the game jam will be looking for is replayability. At its most basic level, that means the game should be easy to play again. That's the missing piece to our MVP:
+One of the things the judges of the game jam will be looking for is replayability. At its most basic level, that means the game should be easy to play again. The gameplay defined in our MVP should reset without requiring a browser refresh:
 
-> **Asset Needed:** WAITING ON GITHUB ISSUE SCREENSHOT
+![Screenshot shows the MVP issue defined in GitHub](./assets/lesson-3/100-issue-mvp.jpg)
 
 More importantly, players should want to play again. Having a shop feature&mdash;where players can spend money to refill their health or upgrade their attack power&mdash;would definitely make the game more interesting and engaging on subsequent plays. That will be the first optimization task we take on post-MVP:
 
-> **Asset Needed:** WAITING ON GITHUB ISSUE SCREENSHOT
+![Screenshot shows the shop issue defined in GitHub](./assets/lesson-3/200-issue-shop.jpg)
 
 We'll leverage our knowledge of JavaScript functions to facilitate restarting the game and implementing this brand new shop feature. Even though the project is still relatively small, thinking in terms of functions now will set us up for success down the road. Functions help keep a codebase organized as the project grows in scope. Who knows, the next project we work on may have five times as many functions!
 
