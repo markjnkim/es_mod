@@ -909,8 +909,122 @@ In our case, we're using `else if` to do a similar check as our `if` statement, 
 
 If the user does not choose one of the values we've explicitly listed, then our code reaches the `else` block of code. Think of the `else` as a default action if all else fails.
 
+> **Asset Needed:** Learnosity checkpoint quiz with different conditions and having students guess what'll happen
 
+### Leave the Fight, at a Cost
 
----
+We have all of the important pieces in place to make this game interactive with the user. They can pick their robot's name and they can decide if they want to go through with the battle, which will play heavily into when our robot battles multiple enemies soon. There is one issue with our logic, however. What is to stop a player from skipping all of the fights and finishing with full health? 
 
-# Reflection
+This is a hard question to answer, as there are a lot of different answers we can provide. We could penalize a player by subtracting health points upon leaving a fight, but that doesn't make too much sense, as the whole point of leaving the fight is to retain health for the next possible battle. So rather than gauging a player's success off of how much health they have at the end, let's gauge it off of how much money they have at the end instead.
+
+> **Legacy Lem:** Think about how old arcade games used to display "High Score" lists to rank players. Most games are not about getting to the end, but rather how high of a score they have when the game is over for them. 
+
+We're going to finish off this lesson by adding in functionality to penalize our player if they choose to skip a fight, so let's start by adding a variable to keep track of how much money they have.
+
+At the top of `game.js` where we have declared all of our other player-based variables, create another one called `playerMoney` with an initial value of 10:
+
+```js
+var playerMoney = 10;
+```
+
+We now have the ability to keep track of how much money our player has. This will come into play later in the game when we add the ability to purchase items, but for now we will us it to penalize a player when they choose to skip a fight.
+
+Let's go ahead an add this penalty for skipping the fight into our `fight` function. If it is to only happen when a user chooses to "SKIP" or "skip" the fight, where should we place the penalty?
+
+In the `else if` statement checking to see if we the user picked one of those values.
+
+Inside of the `else if` statement, we are going to add the following steps for our code to run:
+
+- Confirm with the user that they do want to quit
+
+- If they say "yes", subtract two from the `playerMoney` variable and create and alert that let's the user know they are leaving the game
+
+- If they say "no", execute the `fight` function start the fight over again. This will give them the choice to fight or skip, where they can choose "fight" and keep playing.
+
+Add the following code inside of our `else if` statement so it looks like this when it's done:
+
+```js
+else if (promptFight === "skip" || promptFight === "SKIP") {
+  // confirm user wants to skip
+  var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+
+  // if yes (true), leave fight
+  if (confirmSkip) {
+    window.alert(playerName + " has decided to skip this fight. Goodbye!");
+    // subtract money from playerMoney for skipping
+    playerMoney = playerMoney - 2;
+  }
+  // if no (false), ask question again by running fight() again
+  else {
+    fight();
+  }
+}
+```
+
+So we have two things to point out here:
+
+1. What is this `window.confirm()` thing? 
+
+2. Did we just use an `if / else` statement inside of another conditional statement?
+
+Both of these are somewhat familiar territory to us by now. 
+
+We know based on our knowledge of alerts and prompts that `window.confirm();` must be another function provided to us by the browser. It works a lot like `window.prompt();` in that it asks the user for input and stores their response into a variable, but it asks for a different type of response.
+
+A prompt lets the user enter whatever they want, which is great for taking in information like a name or something else that isn't a simple "yes" or "no" answer. For simple "yes" or "no" questions, that's where the `confirm()` function comes in, and looks like this image:
+
+> **Asset Needed:** Image of window.confirm() dialog in browser
+
+In this image, we can see that we are asked to acknowledge a question or statement by clicking the "Ok" or "Cancel" buttons. If we click "Ok", the boolean value `true` is returned and stored in the variable. If we click "Cancel", the boolean value `false` returned instead.
+
+Think about how we can use this for our game. Our user can choose to "skip" the fight, but let's ask them one more time if that's really what they want to do, since it's going to make them leave the game. If they choose to leave, then we can check to see if the `confirmSkip` value is true and take them out of the game. Otherwise, let's have them restart the `fight` function instead.
+
+This is where the next part comes in, where we check a condition inside of another condition. This is a very common practice in programming, and we can nest conditional statements as much as we need to&mdash;within reason, of course.
+
+Remember that with conditional statements, we're checking to see if something is true or false. So what is the value of `confirmSkip` if we choose to quit? The value is in fact `true`.
+
+Consider these two examples:
+
+```js
+var confirmSkip = true;
+
+if (confirmSkip === true) {
+  // do something
+}
+
+if (confirmSkip) {
+  // do something
+}
+```
+
+The first example we are directly checking to see if the value of `confirmSkip` is the boolean value `true`, in the second one we are implicitly asking "is `true`, well... true?" They achieve the same results, but one uses less code and can be used in other ways (which we'll see and use later).
+
+If we now run our program and choose to "skip", we will be asked if we really want to quit. If we choose to quit, then we will have 2 subtracted from our `playerMoney` variable's value and since there's nothing else to do, the program ends. 
+
+If we choose to "skip" and then decide we're not sure we'd like to quit, then the value of `confirmSkip` is false. Meaning that if we check that in our conditional statement, we are asking it "is `false` true?" The answer to that is "no", because `false` does not equal true.
+
+> **Deep Dive:** We can use JavaScript conditional logic in a number of ways. Since JavaScript tries to define logic in simple `true` or `false` fashion, our conditions may not always fit that bill so easily. Luckily, JavaScript knows this, and can do a little magic to make certain conditions and values result in `true` or `false`.
+>
+> This is known as "truthy" and "falsy" values. For more information, check out the [MDN docs on truthy values](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) and the [MDN docs on falsy values.](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+
+We're all set! We now have one round of our Robot Gladiators game running and can now think about adding more features into it. 
+
+Before we move on, don't forget to add, commit, and push our code up to our GitHub feature branches!
+
+## Reflection
+
+We've really hit the ground running for our first game jam! Sometimes the hardest part of learning something new like JavaScript is getting started, as it is easy to spend a lot of time trying to plan every single aspect of a program before writing it. That can lead to an app never getting off the ground because too much time was spent planning. 
+
+We took a different approach and built a functional program from the start and introduced new tools and concepts as we needed to add new features in our application. Of course with every new addition, we also open ourselves up to new problems that need solving. But for every problem we come across in JavaScript, we will also be presented with a new opportunity to solve it and make our program even better!
+
+Let's review what we've covered so far:
+- We learned about the role JavaScript plays in web development.
+- We used functions built into the browser to interact with the user through dialog boxes.
+- We created our own JavaScript functions to execute our own actions.
+- We learned how to store and manipulate data along with some of the data types we can store using JavaScript variables.
+- We used the Chrome DevTools Console to help us keep track of what data we're using.
+- We created JavaScript control flow statements to run certain blocks of code based on the current state of our data.
+
+The tools we've learned so far all play critical parts in everyday JavaScript development for developers at all experience levels. They've helped us lay the groundwork for our Robot Gladiators game so we can now build upon it and make it more complex. 
+
+Next up we'll be taking our one round of battle created in the `fight` function and instructing our program to run the functionality automatically until one robot loses. If our robot wins, it will face a new enemy robot!
