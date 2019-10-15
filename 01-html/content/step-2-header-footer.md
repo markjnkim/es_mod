@@ -512,7 +512,7 @@ Here, we're implementing a more specific selector pattern. This one ensures that
 >
 > The cascade follows three factors:
 >
-> 1. **Importance**: When you add `!important` to the end of a property declaration, it will override any conflicting style declarations for that element. This is not recommended because using this means you should simply be smarter about how you select elements rather than brute-forcing styles onto them.
+> 1. **Importance**: When you add `!important` to the end of a property declaration, it will override any conflicting style declarations for that element. This is not recommended because overriding the default "cascading" behavior of CSS will make your site harder to maintain.
 >
 > 2. **Specificity**: CSS actually weighs the importance of different types of selectors used by how specific they are. If we were to apply a style by selecting `<h1>`, it will apply to all `<h1>` elements. But if we were to then apply a style by selecting `<header h1>`, it will ignore conflicting property declarations in the `<h1>` definition and apply `<header h1>` instead because it is a more specific selection.
 >

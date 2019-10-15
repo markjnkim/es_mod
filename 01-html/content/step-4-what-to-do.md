@@ -276,7 +276,7 @@ With the Chrome DevTools, we can inspect the element's margins (the orange boxes
 
 ![margin comparison](./assets/step-4/500-margin-comparison.png)
 
-Pretty cool! Yet another CSS trick to put in your toolbelt. And that wraps up "What We Do"!
+Pretty cool! Yet another CSS trick to put in your toolbelt. Note that this only works for horizontal centering. `margin: auto 0` does not vertically center elements. And that wraps up "What We Do"!
 
 ## Style "What You Do"
 

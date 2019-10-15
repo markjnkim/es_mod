@@ -619,7 +619,8 @@ As you can see, the form is now nestled in the corner, just as we positioned it.
 
 > **Deep Dive:** To learn more, see [the discussion on StackOverflow about absolute vs. relative positioning](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute).
 
-> **Connect the Dots:** Another possible value to use instead of pixels is percentages. Let's see how this might work. For the declaration that assigns the `right` position property, let's use a percentage and see what the difference is. About 10% covered around 140px. Mathematically speaking, this means that the full screen value of 1400px at 10% will be 140px. This is why the form's position remains the same. The true value of having a relative size instead of a static size is that on different screen sizes, the position will remain relative to the element's size and not fixed. We'll go into more depth on relative sizes and screen responsiveness in the next module.
+> **Connect the Dots:** Another possible value to use instead of pixels is percentages. Let's see how this might work. For the declaration that assigns the `right` position property, let's use a percentage and see what the difference is. About 10% covered around 140px. Mathematically speaking, this means that the full screen value of 1400px at 10% will be 140px. This is why the form's position remains the same. The true value of having a relative size instead of a static size is that on different screen sizes, the position will remain relative to the element's size and not fixed. Additionally, in order to make a container's width a percentage of its parent element's width, we must explicitly declare its parent element's width.  We'll go into more depth on relative sizes and screen responsiveness in the next module.
+
 
 The `width` property has been saved for last because calculating the width of the form container actually begins a discussion on another property called `box-sizing`.
 
