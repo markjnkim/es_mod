@@ -30,6 +30,10 @@ Here's what our game plan looks like:
 
 Whew, sounds like a lot, but we'll get through this together.
 
+## Preview
+
+
+
 ## Create the Branch
 
 The GitHub issue we're working on, CSS enhancements and optimizations, deals largely with visual touch-ups, so we'll call this new branch "feature/aesthetics." These steps should start feeling pretty familiar now:
