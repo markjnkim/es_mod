@@ -586,7 +586,6 @@ Here's how this property is written and the values it accepts:
 
 * The `stretch` value fills the height of the cell (default value).
 ![Align-Items: stretch](./assets/lesson-4/2500-justify-items-stretch.png)
-[Image-URL](https://css-tricks.com/snippets/css/complete-guide-grid/)
 
 ### The place-items Property
 
