@@ -462,7 +462,7 @@ The next lesson, Meet the Trainers, will further test our skills with a more com
 
 * We used `<span>` elements to highlight inline content.
 
-* We centered non-text content using `margin: auto` and `text-align`.
+* We centered non-text content using `margin: 0 auto` and `text-align`.
 
 * We combined classes on the same element (e.g., `<h2 class="section-title primary-border">`).
 
