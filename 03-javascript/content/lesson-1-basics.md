@@ -5,7 +5,7 @@
 > The enemy of art is the absence of limitation.
 > --Orson Welles
 
-## Let the Games Begin
+### Let the Games Begin
 
 Being brave and confident, we have entered the Con Solo Game Jam, a competitive hackathon with some unusual constraints. Participants have a limited amount of time to create an entertaining, browser-based game that meets the following requirements:
 
@@ -42,9 +42,7 @@ It's worth noting that most useful web applications communicate with "back end" 
 
 We'll learn more about creating back end (often called "server-side") applications in future modules. For now, rest assured that what you learn in this module will be foundational for the remainder of the course.
 
-> **Asset Needed:** Add Deep Dive LB with link to learning about front end vs back end
-
-## The Other MVP
+### The Other MVP
 
 Because we have a tight deadline, we're going to have to focus. We will prioritize the development tasks necessary to "ship an **MVP**. Sports enthusiasts will recognize this initialization as "most valuable player." In software development, it means **minimal viable product**.
 
@@ -133,19 +131,47 @@ Let's set up our project and get started.
 As we do with each new project, we'll create a GitHub repository and clone it on our local machine. We'll then create a GitHub Issue to define the requirements for our MVP. Finally, we'll create branches to do our work in.
 
 - Create a new repository in GitHub called "robot-gladiators".
-  @TODO Remind students what options to check when creating a repository (provide screenshot)
+  
+> **Asset Needed:** Screenshot of options when creating a repository to remind students of the process
 
-- Navigate to the "Issues" tab in the newly created repository and create an issue for us to make a branch from.
-  @TODO Provide information for the issues and an explanation that it's more of a Feature than an Issue/Bug
+- Navigate to the "Issues" tab in the newly created repository and create the following issues for us to make feature branches from:
+
+```md
+Title: Initial game functionality - MVP
+
+**Description**
+
+_Must Have_
+- Build a game where a player's robot can fight another robot until one of them loses.
+- If the enemy robot loses first, the player's robot will move on to fight another enemy robot
+
+_Features_
+- The player's robot's name can be dynamically created by the player through the browser
+- The player is given the option to skip the fight by paying a penalty fee, or continue with the fight
+```
+
+```md
+Title: Add shop functionality
+
+**Description**
+
+- After defeating an enemy, ask the user if they would like to purchase an item from a store
+- The user can either purchase health or attack points, if they can afford it
+```
+
+```md
+Title: Restructure data with JS Objects
+
+**Description**
+- Create and use JavaScript objects to organize data related to the player and data related to the enemies
+- Create object methods to perform player actions
+```
 
 - Using the command line on your computer, navigate to the directory where you want to clone your repository using the `cd` command.
 
 - Clone the repository to your computer by using `git clone`
-  @TODO Provide instructions/refresher on the git clone process with screenshots
 
 - Use the `cd` command once more to step into the newly created directory for your repository.
-
-@TODO add LB to remind students how to use command line commands such as `ls` to know which folder they need to step into
 
 Since it's been a while, let's refresh ourselves on what actions we just performed, as they are going to be used for every new project you create. First, we created a repository on GitHub to host all of the code we will be writing for this project. Then we created GitHub issues to help us keep track of the work we are going to do. Lastly, we need to get this repository onto our machines so we can actually write our code. We did this by cloning the repository to our computers, which creates a copy of our GitHub repo locally for us to work in.
 
@@ -159,19 +185,19 @@ git checkout -b develop
 
 - Now create a feature branch for us to write our initial project code in using the same command:
 
-@TODO create feature branch name based on issue created in GitHub
-
 ```bash
-git checkout -b feature/NAME
+git checkout -b feature/initial-game
 ```
 
-@TODO Hint LB reminding students of `git branch` to see where they are
+> **Hint:** Don't forget to use the `git branch` command to see what the active branch is!
+
+This branch will take us through the first 
 
 Now we have created a branch for us to start actually writing our project's code, so let's get started by creating our project's files!
 
 ## Create Project Files and Structure
 
-It was mentioned earlier that HTML was not going to be used in this lesson, but since we cannot open a JavaScript file directly from the @TODO explainer of browser's need for HTML.
+It was mentioned earlier that HTML was not going to be used in this lesson, but browsers are designed to open HTML files, so we'll be creating an HTML file that has the sole purpose of loading our JavaScript code.
 
 Let's create our HTML file in the root of our project directory from command line using the following commands:
 
@@ -201,7 +227,7 @@ code .
 
 > **Pause:** What does the period `.` mean when referring to directory and file paths?
 >
-> Answer: A single period `.` tells the machine that we are referring to the directory we are currently in. So when we say `code .`, we are commanding VSCode to load every file and folder from this directory into the program.
+> **Answer:** A single period `.` tells the machine that we are referring to the directory we are currently in. So when we say `code .`, we are commanding VSCode to load every file and folder from this directory into the program.
 
 Once VSCode has everything loaded up, let's turn our attention to the `index.html` file and open it up in the editor, then copy and paste the following code into it:
 
@@ -222,10 +248,6 @@ Once VSCode has everything loaded up, let's turn our attention to the `index.htm
 
 That looks like the boilerplate for blank web page!
 
-> **Hint:** Using VSCode, you can scaffold out boilerplate HTML code by typing an exclamation point `!` and hitting `tab` or `enter`/`return` and it will create all of the code you need to start an HTML file! This is due to VSCode having an add-on installed by default called Emmet.
->
-> Emmet has a lot more of these shortcuts to offer, save [this Emmet cheat sheet](https://docs.emmet.io/cheat-sheet/) for the full list!
-
 There is one interesting element in the `<body>` of that page:
 
 ```html
@@ -238,9 +260,7 @@ Notice the `src` attribute being used here. When we use `<script src="path/to/fi
 
 Why would we put this towards the bottom of the HTML file, as opposed to CSS where we include the `<link>` element in the `<head>` element above all of our content? Out of all the different assets that go into a web page&mdash;images, CSS stylesheets, JavaScript&mdash;JavaScript runs the highest risk of possibly failing on load and more complicated JavaScript code could cause the browser to take a bit longer to read and run. Because it is our job to get the page to display as fast as possible, it is the best practice to put the `<script>` element at the bottom of the HTML page right before the closing `</body>` HTML tag. It is important to remember that a HTML file loads from top to bottom, meaning that if something at the top fails to load or causes the browser to run a little slow, it could lead to no HTML content showing up at all on the page. This would make users very confused and frustrated.
 
-We can write JavaScript code in the HTML file by putting it between the opening and closing `<script>` element tags, and it is great for when we may not know if something is going to work and we don't feel like creating multiple files to simply test a small line of code, but ultimately it is best to practice "separation of concerns" and separate the three languages' code into separate files.
-
-> **Asset Needed:** Learning Block explaining why we still need to use an HTML file to run a JS file in the browser.
+We can also write JavaScript code in the HTML file by putting it between the opening and closing `<script>` element tags, and it is great for when we may not know if something is going to work and we don't feel like creating multiple files to simply test a small line of code, but ultimately it is best to practice "separation of concerns" and separate the three languages' code into separate files.
 
 ### Ensuring our JavaScript is loaded
 
@@ -249,7 +269,7 @@ We're pretty much ready to begin our journey into making our JavaScript applicat
 Add this line of code into the `game.js` file, then save the file and open up the HTML page in the browser:
 
 ```javascript
-window.alert('This is an alert! JavaScript is running!');
+window.alert("This is an alert! JavaScript is running!");
 ```
 
 When the HTML file is opened in the browser, the first and only thing we should see is a small popup window that says "This is an alert! JavaScript is running!", something along the lines of this image:
@@ -260,21 +280,21 @@ Also take notice of the fact that there is really nothing else we can do in this
 
 We'll get into what this code means next, but now we can move on knowing that our JavaScript is being read correctly by the HTML file. Since we just got our initial project structure created, it's a good time to commit your repository's code!
 
-> **On The Job:** We’ll get into what the above code actually means in a bit, but try and think about what it meant when we used the word `window` in that code and what it may be referring to. Also think about the `alert()` syntax and what programming concept it falls under. Is it something that stores data? Or does it perform an action? 
+> **Connect The Dots:** We’ll get into what the above code actually means in a bit, but try and think about what it meant when we used the word `window` in that code and what it may be referring to. Also think about the `alert()` syntax and what programming concept it falls under. Is it something that stores data? Or does it perform an action?
 
 ## Use JavaScript functions to communicate with the player
 
-So what happened in the last step when we added the `window.alert()` and opened up our HTML file in the browser? We were hit with arguably the most annoying part of being on the web, an alert dialogue! Alerts have been a staple in web development since the beginning, but where do they come from exactly? Namely, what is the `window` being mentioned in `window.alert()`? Let's dissect that code.
-​
+So what happened in the last step when we added the `window.alert()` and opened up our HTML file in the browser? We were hit with arguably the most annoying part of being on the web, an alert dialog box! Alerts have been a staple in web development since the beginning, but where do they come from exactly? Namely, what is the `window` being mentioned in `window.alert()`? Let's dissect that code.
+
 The first part we'll get into is the `window`, but only briefly. All we need to know for now is that the `window` is referring to the browser itself. Whenever we write JavaScript and run our code in a browser, this `window` will always be present, as we'll see later on when we use it for other purposes. The second thing to look at here is `alert()`, the part that comes after `window.`. An alert is a **function** built into the browser that allows the developer to create messages to send to the user.
 
 > **Deep Dive:** Learn more about the [`window.alert()` function on MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
-​
-So what is a function? A function is a predefined action that we can call or invoke at a later time in our code. We just used `alert()`, which is a predefined function provided to us by the browser, but we can also define our own functions.
+
+So what is a function? A function is a predefined action that we can call or invoke at a later time in our code. We just used `alert()`, which is a function provided to us by the browser, but we can also define our own functions.
 
 After the `alert` function is listed, there is a set of parentheses with a sentence wrapped with double quotes `" "`. This can be broken down into two pieces:
 
-- The parentheses are necessary to actually run a JavaScript function, even if there is nothing between them.
+- The parentheses are necessary to actually run a JavaScript function, even if there is nothing between them. When the browser reads the function name and sees the parentheses, it knows to that code and execute it.
 
 - If there is content between the parentheses, this is what's known as "passing an argument" into the function. This means that the `alert` function was specifically created to accept varied content that will be displayed as the popup message every time it is used.
 
@@ -286,7 +306,7 @@ We'll dive further into passing arguments into a function shortly, but first let
 ```javascript
 // this creates a function named "fight"
 function fight() {
-  window.alert('The fight has begun!');
+  window.alert("The fight has begun!");
 }
 ```
 
@@ -294,13 +314,11 @@ Congratulations! You just wrote your first of many custom JavaScript functions. 
 
 > **Asset Needed:** insert image of function diagram / notation
 
-When we _declare_ a function, we use the keyword, `function`, followed by the name we want to give the function. We named our function, `fight`, because we are creating a Robot Gladiators game. We can name our functions anything we want, but best practice is to name them so they describe their functionality. For example, we could name our `fight` function `x`, and we might remember what that means, but does it immediately let other developers know what the function does?
+When we declare a function, we use the keyword, `function`, followed by the name we want to give the function. We named our function, `fight`, because we are creating a Robot Gladiators game. We can name our functions anything we want, but best practice is to name them so they describe their functionality. For example, we could name our `fight` function `x`, and we might remember what that means, but does it immediately let other developers know what the function does?
 
-After we name our function, we need to include parentheses. This is part of the required function syntax and allows content to be passed into function&mdash;much like the `alert()` function we just used. In our case, our function does not need input the same way that the alert does, but the parentheses are required either way.
+After we name our function, we need to include parentheses. This is part of the required function syntax and enables data to be passed into a function&mdash;much like the `alert()` function we just used. In our case, our function does not need input the same way that the alert does, but the parentheses are required regardless.
 
-The _curly braces_, `{ }`, wrap the code that belongs to this function. Any code within the braces will be run by the function. Any code that is outside will not be run by the function. The code between these curly braces are what's known as a code block.
-
-> **Asset Needed:** possible LB explaining brackets/braces, curly braces, etc
+The _curly braces_, `{ }`, wrap the code that belongs to this function. Any code within the braces will be run by the function. Any code that is outside will not be run by the function. The code between these curly braces are what's known as a _code block._
 
 If you haven't yet, save your file and refresh `index.html` in the browser. Did you get an alert stating that "The fight has begun!"? No. Why? We defined our function, but now we need to call it. How do we call a function?
 
@@ -318,7 +336,7 @@ This may seem unnecessary at the moment, why would we create a function that cal
 
 ### Store User Input
 
-So far we've communicated with the user in one direction, program to user. But how do we use JavaScript to ask the user for information and capture their input?
+So far we've communicated with the user in one direction, program to user. But how do we use JavaScript to ask the user for information and capture their input? This is a game, after all, the user has to have some say!
 
 Like the alert function we used previously, the `window` has another function that we can use called a **prompt()**. Let's add this line of code to our `game.js` file at the top of the file:
 
@@ -332,7 +350,7 @@ Now save and refresh the HTML file in the browser and we should something like t
 
 We've now given the user the power to add their own information to our program. Where the `window.alert()` function sent a message from the program to the user through the browser's window, the `window.prompt()` function is used to ask the user to provide some input and send it back to the program. Learn more about the [`window.prompt()` function on MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)
 
-Enter your robot's name into the input field displayed in this prompt dialogue and click the "Ok" button (the name of this button may vary depending on the browser in use). The user has now provided the JavaScript program with that information and the program can use it throughout the code.
+Enter your robot's name into the input field displayed in this prompt dialog and click the "Ok" button (the name of this button may vary depending on the browser in use). The user has now provided the JavaScript program with that information and the program can use it throughout the code.
 
 > **Important:** The `window` is a collection of functions and many other properties that is build natively into the browser. Whenever we open up our program in the browser, our JavaScript file's code is executed in the context of the `window`, so the tools and information (called "properties") it provides are always accessible by our code.
 >
@@ -352,9 +370,9 @@ We need to be able to capture this data somehow. We can use what is known in Jav
 var playerName = window.prompt("What is your robot's name?");
 ```
 
-We just used a critical part of JavaScript, **variables.** 
+We just used a critical part of JavaScript, **variables.**
 
-In programming, a variable is a named location for a value that gets stored in the browser's memory when a program is run. If we refer to the above code we just placed into `game.js`, when we answer the prompt with our robot's name it will be stored in our program under the variable name `playerName`. This mean's that whenever we want to use our robot's name in our program, we can just refer to it as `playerName`. Since the data coming from the prompt is user driven, the value is unpredictable, so giving it a variable name in the JavaScript program will allow us to refer to variable data in a consistent manner by just calling upon that name. 
+In programming, a variable is a named location for a value that gets stored in the browser's memory when a program is run. If we refer to the above code we just placed into `game.js`, when we answer the prompt with our robot's name it will be stored in our program under the variable name `playerName`. This mean's that whenever we want to use our robot's name in our program, we can just refer to it as `playerName`. Since the data coming from the prompt is user driven, the value is unpredictable, so giving it a variable name in the JavaScript program will allow us to refer to variable data in a consistent manner by just calling upon that name.
 
 Let's dissect basic syntax for creating a variable:
 
@@ -384,7 +402,7 @@ Let's turn our attention back to the variable that's holding our robot's name, `
 
 ### Use Our Variables
 
-We've learned how to create data, but now let's use it in our application. The first thing we may want to check is that the data is there correctly. 
+We've learned how to create data, but now let's use it in our application. The first thing we may want to check is that the data is there correctly.
 
 For now, let's comment the `fight()` function's call at the bottom of the `game.js` file by putting two slashes in front of it so it looks like this:
 
@@ -400,7 +418,7 @@ var playerName = window.prompt("What is your robot's name?");
 window.alert(playerName);
 ```
 
-Save the `game.js` file and refresh the HTML page in the browser, we should see an alert come up with our robot's name in it! 
+Save the `game.js` file and refresh the HTML page in the browser, we should see an alert come up with our robot's name in it!
 
 Using an alert to ensure data has been entered properly is good when we're just starting off, but it's really not a realistic practice when we want to use it with multiple variables since having that many dialog boxes pop up on us can be frustrating and annoying. For this project, since we're not using any means of printing data for the use to see on the HTML page, think of the alert functionality as a way to get information to the user. It's not the best way of getting information to the developer, however.
 
@@ -416,9 +434,9 @@ console.log(playerName);
 
 Again, save the file and refresh the page in the browser to see what happens.
 
-Wait a second, it seems nothing has happened at all! 
+Wait a second, it seems nothing has happened at all!
 
-Something actually has happened, but it's not for users to see. Instead it's for the developers to see behind the scenes in the browser. In Chrome, what tool have we used to debug our code before? We used DevTools! 
+Something actually has happened, but it's not for users to see. Instead it's for the developers to see behind the scenes in the browser. In Chrome, what tool have we used to debug our code before? We used DevTools!
 
 Let's open up Chrome DevTools in our browser by right-clicking in the blank HTML document and selecting the word `Inspect` (do this after entering a name in the prompt). When it opens, you'll see the "Elements" tab selected with the HTML and CSS debugging tools. But this is JavaScript we need to look at now, so at the top of the inspector window click the tab titled "Console", and we'll see something like this:
 
@@ -432,7 +450,7 @@ Like the `window`, the `console` is another object provided to us by the browser
 >
 > Think about how we use tools in real life. We can't use our hands to push a nail into a piece of wood or turn a screw tightly, so we need to reach for something to help us finish the job. Something that was specifically made to solve that problem. The hammer or screwdriver don't work on their own, they work because we use our hands to power them.
 >
-> The same idea goes for Web APIs, they are tools that extend our programming capabilities when the tools we currently have aren't good enough for the problem we're solving. 
+> The same idea goes for Web APIs, they are tools that extend our programming capabilities when the tools we currently have aren't good enough for the problem we're solving.
 >
 > There are many Web APIs at our disposal, the most popular ones give us the ability to use JavaScript to manipulate HTML, play audio or video on a web page, and even help us with processing and securing credit card payments.
 >
@@ -481,9 +499,9 @@ var name = "your name";
 console.log(name);
 ```
 
-The above code should create a variable called `name` with your name stored as the value, then the next line will `console.log()` the value of the `name` variable. 
+The above code should create a variable called `name` with your name stored as the value, then the next line will `console.log()` the value of the `name` variable.
 
-> **Deep Dive:** The Chrome DevTools window can help developers discover bugs and issues in almost every aspect of front-end development, yet sometimes the amount of options it offers is overwhelming and hard to understand at first. Luckily, the team at Google have created [detailed documentation about DevTools](https://developers.google.com/web/tools/chrome-devtools) for us to use.
+> **Deep Dive:** The Chrome DevTools window can help developers discover bugs and issues in almost every aspect of front end development, yet sometimes the amount of options it offers is overwhelming and hard to understand at first. Luckily, the team at Google have created [detailed documentation about DevTools](https://developers.google.com/web/tools/chrome-devtools) for us to use.
 
 We've now learned how to create functions, execute functions, how to interact with the user, and store data, let's revisit our `fight()` function and start giving our robot something to do!
 
@@ -495,7 +513,7 @@ While the last step was about understanding functions, storing data in variables
 
 By the end of this step, we'll be able to execute our `fight()` function and have our robot attack an enemy and have the enemy attack our robot. So let's start by asking ourselves: What do we need in order to make this happen?
 
-In order for our robot's to battle each other, they are going to require some type of data  tracking their overall health values as the game progresses. We are also going to need to know how much attack power each robot has to determine how many of these health points should be removed when attacked. This sounds like a job for variables, so let's update our `game.js` file. And while we're at it, we'll give the enemy robot a name.
+In order for our robot's to battle each other, they are going to require some type of data tracking their overall health values as the game progresses. We are also going to need to know how much attack power each robot has to determine how many of these health points should be removed when attacked. This sounds like a job for variables, so let's update our `game.js` file. And while we're at it, we'll give the enemy robot a name.
 
 Replace everything in `game.js` so the entire file looks like this:
 
@@ -513,7 +531,7 @@ var enemyAttack = 12;
 
 var fight = function() {
   window.alert("Welcome to Robot Gladiators!");
-}
+};
 
 fight();
 ```
@@ -545,7 +563,7 @@ fight();
 // create function
 var fight = function() {
   window.alert("Welcome to Robot Gladiators!");
-}
+};
 // execute function
 fight();
 ```
@@ -566,13 +584,13 @@ Now we have the important data needed to have our robots battle, so let's update
 
 Think about the above list as a means of outlining what our function needs to perform but in a way for us to think about it that makes more sense. Before we set out on creating any function, no matter how simple it is, it is always a good plan to think about what needs to be done and to write it out in our own words before we hit the ground coding.
 
-Another good idea is to actually put this list of actions into our code as comments, as it will help us remember the order of which we need our code to run and remind us what it is doing. 
+Another good idea is to actually put this list of actions into our code as comments, as it will help us remember the order of which we need our code to run and remind us what it is doing.
 
 Let's update the `fight` function to look like this:
 
 ```js
 var fight = function() {
-  // Alert users that they are starting the round 
+  // Alert users that they are starting the round
   window.alert("Welcome to Robot Gladiators!");
 
   //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
@@ -580,9 +598,9 @@ var fight = function() {
   // Log a resulting message to the Console so we know that it worked.
 
   // Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable
-  
+
   // Log a resulting message to the Console so we know that it worked.
-}
+};
 ```
 
 Now we have in our code a set of instructions for us to follow one-by-one, so let's tackle the next two steps and get introduced to using operators!
@@ -590,11 +608,13 @@ Now we have in our code a set of instructions for us to follow one-by-one, so le
 Let's add the following code to our `fight` function:
 
 ```js
-  //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
-  enemyHealth = enemyHealth - playerAttack;
+//Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
+enemyHealth = enemyHealth - playerAttack;
 
-  // Log a resulting message to the Console so we know that it worked.
-  console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
+// Log a resulting message to the Console so we know that it worked.
+console.log(
+  playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+);
 ```
 
 Once these are in place, save the file and refresh the page in the browser.
@@ -623,7 +643,7 @@ On the left hand of our expression, we simply list the variable we are going to 
 enemyHealth - playerAttack;
 ```
 
-The above code is what is on the right hand side of our expression. When a variable that holds a string, number, or boolean data type is listed to the right of an assignment operator `=`, it uses the value held by that variable and not the variable name itself. 
+The above code is what is on the right hand side of our expression. When a variable that holds a string, number, or boolean data type is listed to the right of an assignment operator `=`, it uses the value held by that variable and not the variable name itself.
 
 In our case it would be the equivalent of writing `50 - 10`, but since the value of a variable changes, we need to use the variable name holding the value instead of the value itself.
 
@@ -636,11 +656,13 @@ Now that we have our robot attacking the enemy robot correctly, let's take our n
 Add the following into the `fight` function in the `game.js` file:
 
 ```js
-  // Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable
-  playerHealth = playerHealth - enemyAttack;
+// Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable
+playerHealth = playerHealth - enemyAttack;
 
-  // Log a resulting message to the Console so we know that it worked.
-  console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
+// Log a resulting message to the Console so we know that it worked.
+console.log(
+  enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+);
 ```
 
 All we had to do was repeat the previous two lines of code and switch the variable names around! Now we have a full working round of battle between our robot's, as they can exchange attacks.
@@ -652,21 +674,21 @@ All we had to do was repeat the previous two lines of code and switch the variab
 > ```js
 > // this will be 10
 > console.log(4 + 6);
-> 
+>
 > // this will be 46
 > console.log("4" + 6);
->```
-> 
+> ```
+>
 > - **Exponentiation (`**`):** In every day mathematics, to multiply a number by itself multiple times can be performed using a single caret operator (`^`). In JavaScript, it is performed like this code:
 >
 > ```js
 > // this will be 125, same as 5^3
-> 5 ** 3
+> 5 ** 3;
 > ```
 >
 > Besides these two main differences, the rest of the arithmetic operators behave the same way we learned how to use them in math class. For more information, check out the [MDN docs on operators.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators)
 
-Our `fight` function is now starting to take form, as we can now execute it to have our robots attack each other. How does the game know when to end, though? 
+Our `fight` function is now starting to take form, as we can now execute it to have our robots attack each other. How does the game know when to end, though?
 
 > **TODO** Write prompt to enter `fight()` into the DevTools Console a bunch of times and see what happens
 
@@ -674,9 +696,9 @@ We can assume that the game ends when one of the robot's health points gets down
 
 ## Add Conditions to our Function
 
-A popular term that has permeated programming over the years is something called "state". State is a term used when referring to the data at a point in time for our application, a lot like how we use the word when we say something like "I am in a state of relaxation." It is a term not only used to convey what's happening now, but it can also help us decide what's going to happen next based on it. 
+A popular term that has permeated programming over the years is something called "state". State is a term used when referring to the data at a point in time for our application, a lot like how we use the word when we say something like "I am in a state of relaxation." It is a term not only used to convey what's happening now, but it can also help us decide what's going to happen next based on it.
 
-In the real world, we use these states to determine what we want to do next. If we just exercised and worked up a sweat, the next thing we may do is take a shower or drink a glass of water. If we are feeling tired, we go to sleep. What we are really doing is performing a mental check to see where we're at, and based on that information, decide where to go from there. 
+In the real world, we use these states to determine what we want to do next. If we just exercised and worked up a sweat, the next thing we may do is take a shower or drink a glass of water. If we are feeling tired, we go to sleep. What we are really doing is performing a mental check to see where we're at, and based on that information, decide where to go from there.
 
 In JavaScript, we can perform similar checks based on the status of our code and help the program determine where to from there. These checks are called **conditions**`, and are another crucial set of tools for us to use.
 
@@ -698,9 +720,8 @@ The example we just went through is a very basic use case for conditions in Java
 
 ```js
 if (2 === 10) {
-  console.log("This will not run."); 
-}
-else {
+  console.log("This will not run.");
+} else {
   console.log("This will run instead.");
 }
 ```
@@ -719,13 +740,14 @@ In the `fight` function, add the following code after we `console.log()` that ou
 
 ```js
 // put new code under this
-console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
+console.log(
+  playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+);
 
 // check enemy's health
 if (enemyHealth <= 0) {
   window.alert(enemyName + " has died!");
-} 
-else {
+} else {
   window.alert(enemyName + " still has " + enemyHealth + " health left.");
 }
 ```
@@ -736,9 +758,9 @@ If it is zero or under (notice the use of `<=` to see if it is less than or equa
 
 > **Asset Needed:** Screenshot of "Roborto has died!" alert
 
-If the value of `enemyHealth` is still one or greater, then a message of "Roborto still has [enemyHealth's value] left!" is displayed instead. 
+If the value of `enemyHealth` is still one or greater, then a message of "Roborto still has [enemyHealth's value] left!" is displayed instead.
 
-To test to make sure both conditions work, we can easily set the value of `enemyHealth` to be much lower, like five, to start. This way we can run our `fight` function once and Roborto will have an `enemyHealth` value that goes into the negatives. 
+To test to make sure both conditions work, we can easily set the value of `enemyHealth` to be much lower, like five, to start. This way we can run our `fight` function once and Roborto will have an `enemyHealth` value that goes into the negatives.
 
 > **Hint:** When writing conditions based on values, try running the code with different values to see how it works at those different values. But don't forget to set it back to what you want it to start at when done testing!
 
@@ -757,7 +779,9 @@ We are going to do so by utilizing the same conditional statements we just used 
 
 ```js
 // put new code under this
-console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
+console.log(
+  enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+);
 
 // check player's health
 if (playerHealth <= 0) {
@@ -773,21 +797,21 @@ Again, we can edit our `playerHealth` variable data to be higher or lower when t
 
 ### Get That MVP
 
-Our Robot Gladiators game is starting to take shape! We have built the application to run one round of the game, which pits two robots against each other and checks if either robot lost, and to interact with the user through browser alerts and prompts. 
+Our Robot Gladiators game is starting to take shape! We have built the application to run one round of the game, which pits two robots against each other and checks if either robot lost, and to interact with the user through browser alerts and prompts.
 
-Since the user interaction does not affect the outcome of the game, it is not as much of a game as it is a simulation of a battle. Since this is a Game Jam, we need to add more meaningful user interaction with the game. We'll do just that by giving them a choice of skipping the fight for a fee, or go ahead with the round of fighting. 
+Since the user interaction does not affect the outcome of the game, it is not as much of a game as it is a simulation of a battle. Since this is a Game Jam, we need to add more meaningful user interaction with the game. We'll do just that by giving them a choice of skipping the fight for a fee, or go ahead with the round of fighting.
 
 Let's commit our code and get that MVP!
 
 ## "Stay or Go" with Control Flow
 
-Most round-based battle games provide a list of options for a player to choose from throughout the game. These choices can change the direction the game goes in and usually affects the outcome of the game in some way. 
+Most round-based battle games provide a list of options for a player to choose from throughout the game. These choices can change the direction the game goes in and usually affects the outcome of the game in some way.
 
 Since we already have the logic around making our robots battle, let's add another option to the mix and allow the user to skip the fight. Before we begin coding, let's consider how we want to tackle this problem by answering these questions:
 
 > **Hint:** All of the new code we write will go into the `fight` function.
 
-- What can we use to ask the user if they'd like to fight or skip the fight? 
+- What can we use to ask the user if they'd like to fight or skip the fight?
 
 - When would we ask them?
 
@@ -817,7 +841,7 @@ When we execute our `fight` function now, we'll get an alert welcoming us to the
 >
 > **Answer:** We can use `console.log(promptFight);` to log it to the Chrome DevTools Console by writing it after we create the `promptFight` variable.
 
-So now we have the ability to get the user's choice and use it to determine whether we should fight or skip the battle. Think about this in terms of "if this...then do that", if a user picks "FIGHT" what should happen? If the user does not pick "FIGHT", and picks "SKIP" instead, what happens then? 
+So now we have the ability to get the user's choice and use it to determine whether we should fight or skip the battle. Think about this in terms of "if this...then do that", if a user picks "FIGHT" what should happen? If the user does not pick "FIGHT", and picks "SKIP" instead, what happens then?
 
 These are the two main answers we're looking for, but it's a prompt we're using, how can we stop a user from entering whatever they'd like? The answer is we can't stop the prompt from returning an answer we aren't explicitly looking for. Now that we know that, how do we handle a situation like this?
 
@@ -825,7 +849,7 @@ These are the two main answers we're looking for, but it's a prompt we're using,
 >
 > These situations are known as "edge cases".
 
-So now we have to make a decision as developers. We can set up our program to explicitly check to see if our user chose to "FIGHT" and let anything other than that mean the user has chosen to skip the fight instead. This means that if a user were to put into the prompt "tomato", the program would interpret that as the user wanting to skip the fight. This could be very confusing for the user. 
+So now we have to make a decision as developers. We can set up our program to explicitly check to see if our user chose to "FIGHT" and let anything other than that mean the user has chosen to skip the fight instead. This means that if a user were to put into the prompt "tomato", the program would interpret that as the user wanting to skip the fight. This could be very confusing for the user.
 
 At the very least it should be our job to inform them they made an incorrect decision and our program isn't designed to accept an answer like that. So what we are going to do instead is the following:
 
@@ -843,38 +867,38 @@ Let's update our `fight` function by changing all of the code below the `promptF
 
 ```js
 // if player choses to fight, then fight
-  if (promptFight === "fight" || promptFight === "FIGHT") {
-    // remove enemy's health by subtracting the amount set in the playerAttack variable
-    enemyHealth = enemyHealth - playerAttack;
-    console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
+if (promptFight === "fight" || promptFight === "FIGHT") {
+  // remove enemy's health by subtracting the amount set in the playerAttack variable
+  enemyHealth = enemyHealth - playerAttack;
+  console.log(
+    playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+  );
 
-    // check enemy's health
-    if (enemyHealth <= 0) {
-      window.alert(enemyName + " has died!");
-    } 
-    else {
-      window.alert(enemyName + " still has " + enemyHealth + " health left.");
-    }
-
-    // remove player's health by subtracting the amount set in the enemyAttack variable
-    playerHealth = playerHealth - enemyAttack;
-    console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
-
-    // check player's health
-    if (playerHealth <= 0) {
-      window.alert(playerName + " has died!");
-    } 
-    else {
-      window.alert(playerName + " still has " + playerHealth + " health left.");
-    }
-  // if player choses to skip
-  } 
-  else if (promptFight === "skip" || promptFight === "SKIP") {
-    window.alert(playerName + " has chosen to skip the fight!");
-  } 
-  else {
-    window.alert("You need to pick a valid option. Try again!");
+  // check enemy's health
+  if (enemyHealth <= 0) {
+    window.alert(enemyName + " has died!");
+  } else {
+    window.alert(enemyName + " still has " + enemyHealth + " health left.");
   }
+
+  // remove player's health by subtracting the amount set in the enemyAttack variable
+  playerHealth = playerHealth - enemyAttack;
+  console.log(
+    enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+  );
+
+  // check player's health
+  if (playerHealth <= 0) {
+    window.alert(playerName + " has died!");
+  } else {
+    window.alert(playerName + " still has " + playerHealth + " health left.");
+  }
+  // if player choses to skip
+} else if (promptFight === "skip" || promptFight === "SKIP") {
+  window.alert(playerName + " has chosen to skip the fight!");
+} else {
+  window.alert("You need to pick a valid option. Try again!");
+}
 ```
 
 Let's save our `game.js` file, run our game three times, and enter a different choice each time. First time, pick "FIGHT". Second time, pick "SKIP". Lastly, enter anything you'd like that isn't the first two.
@@ -900,7 +924,7 @@ So what happens if we don't enter "FIGHT" or "fight"? What happens if we use "Fi
 After the block (curly braces `{ }`) holding the first `if` statement's code ends, we can see something new:
 
 ```js
-else if ([Condition]) 
+else if ([Condition])
 ```
 
 This means that if the first `if` statement fails, then let's try another one. If the first `if` statement is true, then we'll never get to checking the `else if` statement. This is used as a fall-back condition check.
@@ -913,11 +937,11 @@ If the user does not choose one of the values we've explicitly listed, then our 
 
 ### Leave the Fight, at a Cost
 
-We have all of the important pieces in place to make this game interactive with the user. They can pick their robot's name and they can decide if they want to go through with the battle, which will play heavily into when our robot battles multiple enemies soon. There is one issue with our logic, however. What is to stop a player from skipping all of the fights and finishing with full health? 
+We have all of the important pieces in place to make this game interactive with the user. They can pick their robot's name and they can decide if they want to go through with the battle, which will play heavily into when our robot battles multiple enemies soon. There is one issue with our logic, however. What is to stop a player from skipping all of the fights and finishing with full health?
 
 This is a hard question to answer, as there are a lot of different answers we can provide. We could penalize a player by subtracting health points upon leaving a fight, but that doesn't make too much sense, as the whole point of leaving the fight is to retain health for the next possible battle. So rather than gauging a player's success off of how much health they have at the end, let's gauge it off of how much money they have at the end instead.
 
-> **Legacy Lem:** Think about how old arcade games used to display "High Score" lists to rank players. Most games are not about getting to the end, but rather how high of a score they have when the game is over for them. 
+> **Legacy Lem:** Think about how old arcade games used to display "High Score" lists to rank players. Most games are not about getting to the end, but rather how high of a score they have when the game is over for them.
 
 We're going to finish off this lesson by adding in functionality to penalize our player if they choose to skip a fight, so let's start by adding a variable to keep track of how much money they have.
 
@@ -963,11 +987,11 @@ else if (promptFight === "skip" || promptFight === "SKIP") {
 
 So we have two things to point out here:
 
-1. What is this `window.confirm()` thing? 
+1. What is this `window.confirm()` thing?
 
 2. Did we just use an `if / else` statement inside of another conditional statement?
 
-Both of these are somewhat familiar territory to us by now. 
+Both of these are somewhat familiar territory to us by now.
 
 We know based on our knowledge of alerts and prompts that `window.confirm();` must be another function provided to us by the browser. It works a lot like `window.prompt();` in that it asks the user for input and stores their response into a variable, but it asks for a different type of response.
 
@@ -999,7 +1023,7 @@ if (confirmSkip) {
 
 The first example we are directly checking to see if the value of `confirmSkip` is the boolean value `true`, in the second one we are implicitly asking "is `true`, well... true?" They achieve the same results, but one uses less code and can be used in other ways (which we'll see and use later).
 
-If we now run our program and choose to "skip", we will be asked if we really want to quit. If we choose to quit, then we will have 2 subtracted from our `playerMoney` variable's value and since there's nothing else to do, the program ends. 
+If we now run our program and choose to "skip", we will be asked if we really want to quit. If we choose to quit, then we will have 2 subtracted from our `playerMoney` variable's value and since there's nothing else to do, the program ends.
 
 If we choose to "skip" and then decide we're not sure we'd like to quit, then the value of `confirmSkip` is false. Meaning that if we check that in our conditional statement, we are asking it "is `false` true?" The answer to that is "no", because `false` does not equal true.
 
@@ -1007,17 +1031,18 @@ If we choose to "skip" and then decide we're not sure we'd like to quit, then th
 >
 > This is known as "truthy" and "falsy" values. For more information, check out the [MDN docs on truthy values](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) and the [MDN docs on falsy values.](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
 
-We're all set! We now have one round of our Robot Gladiators game running and can now think about adding more features into it. 
+We're all set! We now have one round of our Robot Gladiators game running and can now think about adding more features into it.
 
 Before we move on, don't forget to add, commit, and push our code up to our GitHub feature branches!
 
 ## Reflection
 
-We've really hit the ground running for our first game jam! Sometimes the hardest part of learning something new like JavaScript is getting started, as it is easy to spend a lot of time trying to plan every single aspect of a program before writing it. That can lead to an app never getting off the ground because too much time was spent planning. 
+We've really hit the ground running for our first game jam! Sometimes the hardest part of learning something new like JavaScript is getting started, as it is easy to spend a lot of time trying to plan every single aspect of a program before writing it. That can lead to an app never getting off the ground because too much time was spent planning.
 
 We took a different approach and built a functional program from the start and introduced new tools and concepts as we needed to add new features in our application. Of course with every new addition, we also open ourselves up to new problems that need solving. But for every problem we come across in JavaScript, we will also be presented with a new opportunity to solve it and make our program even better!
 
 Let's review what we've covered so far:
+
 - We learned about the role JavaScript plays in web development.
 - We used functions built into the browser to interact with the user through dialog boxes.
 - We created our own JavaScript functions to execute our own actions.
@@ -1025,6 +1050,9 @@ Let's review what we've covered so far:
 - We used the Chrome DevTools Console to help us keep track of what data we're using.
 - We created JavaScript control flow statements to run certain blocks of code based on the current state of our data.
 
-The tools we've learned so far all play critical parts in everyday JavaScript development for developers at all experience levels. They've helped us lay the groundwork for our Robot Gladiators game so we can now build upon it and make it more complex. 
+The tools we've learned so far all play critical parts in everyday JavaScript development for developers at all experience levels. They've helped us lay the groundwork for our Robot Gladiators game so we can now build upon it and make it more complex.
 
 Next up we'll be taking our one round of battle created in the `fight` function and instructing our program to run the functionality automatically until one robot loses. If our robot wins, it will face a new enemy robot!
+
+- - -
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
