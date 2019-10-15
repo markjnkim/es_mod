@@ -1,8 +1,8 @@
 # Lesson 5
 ## Introduction
-We have made a ton of progress so far in our Robot Gladiator game. Now that our MVP is finished we can use the remaining time in our Game Jam to give our game some polish and shine. Since the remaining time is quite short, we should proceed in an iterative development process to add small improvements rather than try to wrap our tasks together that will take longer to finish possibly past the deadline. Thankfully we can use Github Issues to help us focus on shipping our fixes after each task is completed.
+We have made a ton of progress so far in our Robot Gladiators game. Now that our MVP is finished we can use the remaining time in our Game Jam to give our game some polish and shine. Since the remaining time is quite short, we should proceed in an iterative development process to add small improvements rather than try to deliver all our tasks at once and possibly miss the deadline. Thankfully we can use Github Issues to help us focus on shipping our fixes and features after each task is completed.
 
-With this in mind, a great use of time would be to share our game with other developers for testing purposes. It would a shame if the game crashed as the Game Jam judges were in the middle of their game assessment. This is definitely time well spent to ensure the game is durable and stable. 
+With this in mind, a great use of time would be to share our game with other developers for testing purposes. It would a shame if the game crashed as the Game Jam judges were in the middle of the game assessment. This is definitely time well spent to ensure the game is durable and stable. 
 
 > **On the Job:** This would be known as Beta Testing, allowing a limited release to a small sample of people to receive feedback and catch errors so improvements can be made before the product or application goes live to everyone, in this case the Game Jam judges. 
 
@@ -29,7 +29,7 @@ Here's an example of the when a new high score is not reached:
 ![Not the High Score](./assets/lesson-5/300-not-high-score.png)
 
 Here's a sample of the game's final demo:
-> **Video:** [Gif - Game Demo of finished game Jira FSFO-168](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-168)
+> **Asset Needed:** [Gif - Game Demo of finished game Jira FSFO-168](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-168)
 
 Let's map out our process for this lesson and think about how we will implement our Beta test suggestions by first trying to answer the following questions:
 * How do we handle a blank or null player name response?
@@ -41,25 +41,25 @@ Let's map out our process for this lesson and think about how we will implement 
 
 > **Pause:** Not sure what browser storage is? Time to use our Google skills and see what we can find.
 >
-> **Answer:** In our search results we find the link to [Web Storage API from MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) We will be using the `localStorage` property of the `window` object to save our high score.
+> **Answer:** In our search results, we will find the link to [Web Storage API from MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) We will be using the `localStorage` property of the `window` object to save our high score.
 
 The answers to these questions will be an important first step in leading our  build process section of this lesson and help create our Github Issues. 
 
-* If a blank or null value is received for a player name repeat `prompt()` until acceptable answer is received.
-* Extend this condition to our fight/skip prompt as well to handle blank or null responses.
-* Change the response to a lower case before checking in the conditional statement.
-* Use conditional statements that execute statements based on the responses' numeric values in the `shop()` function.
-* Randomize the fight order using the `Math` object's `random()` method.
-* Save our high score using the Web Storage API and `localStorage`.
+* If a blank or null value is received for a player name, repeat `prompt()` until acceptable answer is received
+* Extend this condition to our fight/skip prompt as well
+* Make the response to the fight/skip response case insensitive
+* Use conditional statements that execute statements based on the responses' numeric values in the `shop()` function
+* Randomize the fight order for every new round with a new enemy robot
+* Save our high score using the Web Storage API for `localStorage`
 
 ## Create a GitHub issue for each bug and feature
-In this step we will be creating our Github Issues for each bug and feature to reinforce our iterative development process. This will allow us to merge each improvement with the master branch as soon they are completed before we hit our deadline.
+In this step we will be creating our Github Issues for each bug and feature to reinforce our iterative development process. This will allow us to merge each improvement with the `master` branch as soon they are completed before we hit our deadline.
 
 Let's create a Github issue for each of the following:
 * Bug - Blank/null response handling for the player name prompt
 * Bug - Mixed case response and blank/null handling for the fight or skip prompt
-* Feature - Use integer responses in `shop()` function
-* Feature - Randomize fight order in the `fight()` function
+* Feature - Use integer responses in `shop()` function to replace string commands
+* Feature - Randomize fight order in the `fight()` function for each new enemy robot round
 * Feature - Save high score using `localStorage`
 
 Here is an example of how to create a bug Github issue:
@@ -87,18 +87,20 @@ In the screenshots above, we are looking at our the debugger tool in the source 
 >
 > **Answer:** Seeing what the error is will give us a clue as to how the error happened and then how it can be fixed or squashed. Yes, bug squashing is a thing in developer lingo.
 
-Now that we have our bug branch let's create a function that will handle the player name response. Let's call this function `getPlayerName()`. 
+Now that we have our bug branch let's create a function that will handle the player name response. We could've just written this code into our `game.js`, but best practices inform us that to keep our codebase organized we need to create functions that have single responsibility. Let's call this function `getPlayerName()`. 
 Let's go over few of the objectives for this function. We would like this function to:
 * Not accept invalid data such as a blank or null(cancel button)
 * Prompt user until valid data is received
 
-Here is the initial setup of this function, please add a loop that contains the prompt with a condition of the invalid data:
+The repeated prompting clues us in that we will need some looping to repeat behavior. We will need to loop based on a condition. First let's do the initial setup of this function, then you can add a loop that contains the prompt with a condition of the invalid data in the comment below:
  ```javascript
 // function to set name
 var getPlayerName = function() {
   var name = "";
 
-// add loop with prompt 
+// ***************************************
+// ADD LOOP HERE WITH PROMPT AND CONDITION
+// ***************************************
 
   console.log("Your robot's name is " + name);
   return name;
@@ -124,12 +126,12 @@ var playerInfo = {
 ```
 
 Let's run this in our browser to test our results.
-> **Video:** [Gif Demo of prompt testing Jira FSFO-169](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-169)
+> **Asset Needed:** [Gif Demo of prompt testing Jira FSFO-169](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-169)
 
 Excellent work. Let's add, commit, and push our work to Github. Then let's ship our bug fix to the `develop` branch by merging locally. Checkout into the `develop`, then merge our work. The last step will be to close our Github Issue and continue to the next issue.
 
-## Fix the Prompt Bug in the Fight() Function
-Let's create a new branch to for our next Github issue. The name of the new branch will be `bug/fight-skip`. Remember to checkout into the `develop` before creating a new bug branch.
+## Fix the Prompt Bug in the fight() Function
+Let's create a new branch for our next Github issue. The name of the new branch will be `bug/fight-skip`. Remember to checkout into the `develop` before creating a new bug branch.
 
 ![Github Issue for Fight Prompt Screenshot](./assets/lesson-5/470-github-issue-2.png)
 
@@ -147,13 +149,13 @@ var test = function() {
   return response;
 }
 ```
-A key statement in this function is the recursive call after the `alert()` in the conditional code block. This is called recursive because the function calls itself. This is create a loop that will constantly call itself is the conditional statement remains true. We can see a distinct similarity to the `while` loop we just created in the last bug we squashed. As in the `while` loop, recursive functions must pay special attention to the conditional statement to break the loop otherwise a stack overflow error will occur. Recall we used recursion in our `startGame()` and `shop()` functions, when the function was called within the function expression. 
+A key statement in this function is the recursive call, `test()`, after the `alert()` in the conditional code block. This is called recursive because the function calls itself. This will create a loop that will constantly call itself if the conditional statement remains true. We can see a distinct similarity to the `while` loop we just created in the last bug we squashed. As in the `while` loop, recursive functions must pay special attention to the conditional statement to break the loop otherwise a stack overflow error will occur otherwise known as an infinite loop. Recall we used recursion in our `startGame()` and `shop()` functions, when the function was called within the function expression. 
 
-> **Deep Dive:** Recursive functions can be very tricky to learn for new developers due to it's iterative nature. This method is used in Mathematics such as in the Fibonacci sequence as well as Computer Science in many algorithms. [For more information about recursive functions visit Wikipedia.](https://en.wikipedia.org/wiki/Recursion_(computer_science))
+> **Deep Dive:** Recursive functions can be very tricky to learn for new developers due to it's looping nature. This method is used in Mathematics such as in the Fibonacci sequence as well as Computer Science in many algorithms. [For more information about recursive functions visit Wikipedia.](https://en.wikipedia.org/wiki/Recursion_(computer_science))
 
-Let's use this recursive method to handle blank or null responses to the fight or skip prompt. We will create a new function similar to our `test()` example and our `getPlayerName()` function due to the level of complexity currently in our `while` loop due to the number of nested conditionals. Creating a function will increase the readability of our code. This also helps isolate bugs since we can test functions individually.
+Let's use this recursive method to handle blank or null responses in the fight/skip prompt. We will create a new function similar to our `test()` example and our `getPlayerName()` function due to the level of complexity currently in our `while` loop due to the number of nested conditionals. Creating a function will increase the readability of our code. This also helps isolate bugs since we can test functions individually.
 
-This new function will be called `fightOrSkip()`. It will be responsible for receiving a valid response from the user to determine if the player robot will continue fighting. Let's extract our skip and fight conditional logic from the `fight()` function as well as the `confirmSkip` condition and place it in our new function.
+We have decided to create a new function will be called `fightOrSkip()` due to the singular focus of this operation. It will be responsible for receiving a valid response from the user to determine if the player robot will continue fighting. Let's extract our skip and fight conditional logic from the `fight()` function as well as the `confirmSkip` condition and place it in our new function.
 Let's take a moment and look at the code block below. What is the conditional recursive function call that we need to make our function work correctly:
 ```javascript
 var fightOrSkip = function() {
@@ -191,36 +193,38 @@ The `fightOrSkip()` function should now look like this:
 ... // rest of the function
 ```
 
-> **Pause:** Can you think about an alternative way to show the condition we placed in the code block above?
->
-> **Answer:** 
+> **Pro Tip:** There is an alternative and popular shortcut in dealing with non-valid responses. We can use 
+JavaScript's falsy values. Falsy values are values that will evaluate to false in a conditional statement. In JavaScript they include 0, `null`, "", `undefined`, `NaN`, and of course false. This is a great shortcut to represent all these non-valid responses in a single expression. Look at [MDN docs for more information about falsy values in JavaScript.](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+ 
+>To create this conditional statement let's translate the code block into pseudocode to gain more clarity.
+>```js
+>// if the `promptFight` is NOT a valid value, then execute the following statements.
+>```
+> We can represent this with the following conditional statement
 >```js
 >if (!promptFight) {
 >  window.alert("You need to provide a valid answer! Please try again.");
 >  return fightOrSkip();
 >}
 >```
-
-Since null and "" are considered falsy values in JavaScript, meaning they will evaluate to false in a conditional statement, we can add the ! or "not" operator that will make `!promptFight` evaluate to true. Now this acts like our original conditional `if` statement which will execute if a blank or null response are evaluated. Sometimes it helps to translate the code block into pseudocode to translate the meaning of our statement for more clarity.
-```js
-// if the `promptFight` is NOT a valid value, then execute the following statements.
-```
-> **Deep Dive:** There are several falsy values in JavaScript which include 0, null, "", undefined, NaN, and of course false. Look at [MDN docs for more information about falsy values in JavaScript.](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+>The conditional statement above with the "not" or "!" operator will act similar to our original conditional `if` statement which will execute if a blank or null response are evaluated. 
 
 Let's test our changes and see if we are getting the expected results. Save the file and reload the browser.
 
-> **Video:** [Gif demo on prompts for `fightOrSkip()` and `shop()`Jira FSFO-170](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-170)
+> **Asset Needed:** [Gif demo on prompts for `fightOrSkip()` and `shop()`Jira FSFO-170](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-170)
 
-Great job, however this bug is a two parter. We also need will allow lower and upper cases to be accepted by the user for the fight or skip prompt. 
+Great job, however this bug is a two parter. We also need will allow lower and upper case characters to be accepted by the user for the fight or skip prompt. 
 
 ### Expand logic to accept strings in any case 
+It is important to note here that JavaScript is case sensitive. This means that a string "Fight" is not equivalent to "fight", "FIGHT", or "FiGht" since upper case and lower case characters are considered totally different.
+
 Just imagine if we wanted our user to be able to accept fight or skip as a response in any variation of mixed upper and lower case letters. 
 Let's demo the bug first then look at the Github issue.
-> **Video:** [Gif Reproduce Bug: Jira FSFO-174](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-174)
+> **Asset Needed:** [Gif Reproduce Bug: Jira FSFO-174](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-174)
 
 ![Github Issue 2 Screenshot](./assets/lesson-5/470-github-issue-2.png)
 
-Although these responses are short, the different combinations that are possible run well over a hundred. There must be an easier way to deal with this scenario. Of course there is! A nice way to deal with this is to simply change all the characters in the response to lower case characters and then simply check if the lower case passes our condition. 
+Although these responses are short, the different combinations that are possible run well over a hundred. There must be an easier way to deal with this scenario. Of course there is! One method is to change all the characters in the response to lower case and then have our condition check the lower case version of our command. 
 
 > **Pause:** Let's try to harness our Google powers to find our the method that changes characters in a string to lowercase. 
 >
@@ -239,20 +243,19 @@ Let's go one step further and have the `fightOrSkip()` function return a value o
 
 Now we are able to place a single conditional in the `while` loop in place of nest of conditional statements we had previously. 
 
-> **Pause:** Take a moment to place our return statements in their proper locations to return true for a skip and return false otherwise.
-> 
-> **Answer:** If the user has confirmed that skipping is their intention,  then we can return a true value as follows:
->```javascript
->// if yes (true), leave fight
->    if (confirmSkip) {
->      window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
->      // subtract money from playerMoney for skipping, but don't let them go into the negative
->      playerInfo.money = Math.max(0, playerInfo.money - 10);
->
->      // return true if user wants to leave
->      return true;
->    }
->```
+Take a moment to place our return statements in their proper locations to return true for a skip and return false otherwise.
+If the user has confirmed that skipping is their intention,  then we can return a true value as follows:
+```javascript
+// if yes (true), leave fight
+    if (confirmSkip) {
+      window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
+      // subtract money from playerMoney for skipping, but don't let them go into the negative
+      playerInfo.money = Math.max(0, playerInfo.money - 10);
+
+      // return true if user wants to leave
+      return true;
+    }
+```
 
 The `return false` statement should be located as the last line of the `fightOrSkip()` function. 
 
@@ -262,7 +265,7 @@ This condition should be placed in the `while` loop replacing the logic we remov
   while (playerInfo.health > 0 && enemy.health > 0) {
     // ask user if they'd like to fight or skip using fightOrSkip function
     if (fightOrSkip()) {
-      // if true, leave fight by taking them to the shop and breaking loop
+      // if true, leave fight by breaking loop
       break;
     }
     ... // fight logic
@@ -270,25 +273,80 @@ This condition should be placed in the `while` loop replacing the logic we remov
 Now if the `fightOrSkip()` function returns true, meaning if our player robot wants to skip fighting the current enemy robot, then we will break the while loop and return back to the `for` loop. Otherwise for a false condition, the fight continues.
 
 Let's test our changes now for empty string, cancel, and mixed cases to see if our changes had the desired effects.
-> **Video:** [Gif Demo of skip or fight prompts Jira-171](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-171)
+> **Asset Needed:** [Gif Demo of skip or fight prompts Jira-171](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-171)
 
 Now that we were able improve our prompt response handling, let's preserve our work in Github and merge our work into the `develop` branch.
 Great job shipping another bug fix! We are making great progress! Let's close this issue and squash the next bug.
 
-## Update shop() function to handle integer inputs
-Let's create another branch from this Github Issue: `feature/shop` and look at our Github issue.
+## Update shop() Function to Handle Integer Inputs
+Let's create another branch from this Github Issue: `feature/shop-input` and look at our Github issue.
 
 ![Github Issue Integer Input Screenshot](./assets/lesson-5/480-github-issue-3.png)
 
-To make our switch case statements work properly we will need another method to help us convert data type. The `prompt()` method actually returns a string so instead of the integer 1, we are actually receiving the string "1" in our prompt response. 
+We have receive feedback from our Beta testers that they would like less typing for our prompt responses. In order to enact this change let's think about how to proceed:
+  1) Change the conditional statements to execute code based on abbreviated commands
+  2) Instruct the user which commands will perform the desired actions
+
+### Change the Switch Statements
+Currently our `switch` statement in the `shop()` function checks our prompt response, `shopOptionPrompt`, for the commands to refill, upgrade, or leave. Let's replace these with numerical values so that a 1 will call the `refillHealth` method, 2 will call the `upgradeAttack` method, and 3 will leave the store. We will keep our default case the same.
+
+Let's change our case statements in our `switch` to reflect these changes. Please take a moment to replace our case statements as needed to only accept the integers.
+
+Our conditional statements should now look like this:
+```js
+// use switch case to carry out action
+  switch (shopOptionPrompt) {
+    case 1:
+      playerInfo.refillHealth();
+      break;
+    case 2:
+      playerInfo.upgradeAttack();
+      break;
+    case 3:
+      window.alert("Leaving the store.");
+      break;
+    default:
+      window.alert("You did not pick a valid option. Try again.");
+      shop();
+      break;
+  }
+```
+Let's save our `game.js` file and refresh our `index.html` file in the browser. It appears that our changes have created a different bug now so that neither the string command nor the integer is able to execute the statements we desire. Clearly the cases in our `switch` statement are not evaluating the prompt response as we expected.
+The `switch` statement is no longer able to satisfy any of the cases and slips to the default case re-prompting our request. Let's take a closer look at our prompt response by typing `shopOptionPrompt` in the console.
+
+![Console of shopOptionPrompt](./assets/lesson-5/483-shopOptionPrompt.png)
+
+Notice anything peculiar about our return value? The 3 is actually not an integer but the string "3". Note that prompt responses will always be a string, regardless of what was entered into the input field. In order to satisfy our case statements we will need to change our string into an integer by performing a data type conversion.
+
+> **Pro Tip:** The infinite loop we just created is now impossible to break! But there is a way to stop the code in the Sources panel in DevTools by pressing the pause button in the debugger controls:
+![Console DevTools Debugger Pause](./assets/lesson-5/484-pause-debugger.png) 
+
+>Now let's add a breakpoint in the debugger by selecting the `game.js` tab in the DevTools Sources tab and clicking the line number of the beginning of the conditional statement in the `shop()` function which in the line containing the `switch(shopOptionPrompt)` statement. If this doesn't seem to work, we can also right click the line number to expose the drop down menu. Select the Add breakpoint option. We should see the line number highlight once the script file has paused as in the following image:
+![Console Debugger Breakpoint](./assets/lesson-5/486-debugger-breakpoint.png)
+We can also add the variable `shopOptionPrompt` in the Watch panel to display the string response, also revealed in the screenshot above. This exercise was to demonstrate that even in an infinite loop, it is still possible to expose variables and pause code execution.
+Remember to resume the code execution, click on the play button on the debugger control menu. 
+
+
+### Data Type Conversion
+To make our switch case statements work properly we will need another method to help us convert data type. 
+
 > **Pause:** Let's look to Google to find a function that will convert strings into integers. Please take a moment to search for this built-in JavaScript function.
 >
 > **Answer:** In our search results, we should've found the `parseInt()` method that allows our integer conversion.
 
-Let's add `parseInt()` to our `shop()` function before our switch case statement. 
-> **Video:** [Gif Demo of New Shop Numeric Input: Jira FSFO-172](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-172)
 
-Nice job! Now the `shop()` function is able to accept numeric values. Let's fix our prompt message to request a number options as follows:
+Try it out by typing `parseInt(shopOptionPrompt);` into the console window of the browser.
+
+Your response should look like this:
+![Console parseInt()](./assets/lesson-5/485-parseInt.png)
+                        
+Let's add `parseInt()` to our `shop()` function before our switch case statement. 
+```js
+shopOptionPrompt = parseInt(shopOptionPrompt);
+```
+> **Asset Needed:** [Gif Demo of New Shop Numeric Input: Jira FSFO-172](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-172)
+
+Nice job! Now the `shop()` function is able to accept numeric values. Let's fix our prompt message to reflect our number options as follows:
 ```javascript
 var shopOptionPrompt = window.prompt(
     "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
@@ -296,14 +354,14 @@ var shopOptionPrompt = window.prompt(
 ```
 
 Let's save our file and reload the `index.html` file in our browser.
-Once we are satisfied with the result let's ship our feature to the develop  and move onto the next Github issue.
+Once we are satisfied with the result let's ship our feature to the `develop` branch  and move onto the next Github issue.
 
 ## Randomize the Fight Order
 To increase our gameplay appeal, let's add some randomness to our game by changing whether the user or the enemy robot is able to attack first at the beginning of each round. Take a look at the Github issue:
 
 ![Github Issue 4 Screenshot](./assets/lesson-5/490-github-issue-4.png)
 
-To add this feature let's create a new feature branch, `feature/random`.
+To add this feature let's create a new feature branch, `feature/random-order`.
 To begin, let's simulate a coin flip and see if we are able to create a random scenario with 2 possible solutions. With our knowledge of the `Math` object and the `random()` method to find a solution. `Math.random()` actually outputs a random decimal number between 0 and 1. Type `Math.random()` into the console of the browser to see the results:
 
 ![Math.random()](./assets/lesson-5/500-math-random.png)
@@ -317,7 +375,7 @@ if (Math.random() > .5) {
   console.log("heads");
 }
 else {
-  console.log("tails);
+  console.log("tails");
 }
 ```
 
@@ -326,9 +384,13 @@ Let's use this conditional statement to assign the turn to the player or enemy r
 // keep track of who goes first
 var isPlayerTurn = true;
 ```
-> **Pause:** Use the `Math.random()` method to create a conditional statement that will reassign the `isPlayerTurn` to false 50% of the time.
->
-> **Answer:** `if (Math.random() > 0.5) isPlayerTurn = false;`
+Use the `Math.random()` method to create a conditional statement that will reassign the `isPlayerTurn` to false 50% of the time.
+
+```js
+if (Math.random() > 0.5) {
+  isPlayerTurn = false;
+} 
+```
 
 Now that we are able to successfully randomize the value of our turn variable, how do we implement this to affect the attack order of the robots? Let's use this boolean value in the `while` loop to create conditional statements to execute attacks. First let's use some pseudocode:
 * If it is the player robot's turn
@@ -343,7 +405,7 @@ Now that we are able to successfully randomize the value of our turn variable, h
 
 The last step is a critical one so that an exchange of fighting can occur.
 Please try your best to use this pseudocode to modify the `fight()` function and randomize the fighting order. Try to google answers to any questions you may have.
-> **Hint:** During the switch step use the "!" operator to change a boolean value.
+> **Hint:** To switch turns, use the "!" operator to flip a boolean value of the `isPlayerTurn`.
 
 The modified `fight()` function should now look like this:
 ```javascript
@@ -423,11 +485,7 @@ var fight = function(enemy) {
 };
 ```
 <!-- use debugger here -->
-Notice how the "!", known as the not operator, is used in the value switching operation to reassign the `isPlayerTurn`. This step is critical for exchanging turns. There seems to be quite a bit of duplicate code in this function. Normally we would try to refactor this function so there wouldn't be as much redundancy but due to the time constraints we will need to bookmark this as a future task and possibly add this to our GitHub Issues list. 
-
-> **On the Job:** Often projects are limited due to time constraints and deadlines to deliver product. Technical debt is the result of a decision to choose an easy but limited solution for now knowing that a better approach exists but is not pursued due to time. [For a deeper dive go to Wikipedia and find how technical debt can lead to debt interest and software entropy.](https://en.wikipedia.org/wiki/Technical_debt)
-
-This means it is a task to fix the code that isn't critical, but will need to be done in the future.
+Notice how the "!", known as the not operator, is used in the value switching operation to reassign the `isPlayerTurn`. This step is critical for exchanging turns. 
 Let's test our new function to ensure our fight order has become randomized. 
 
 ![Randomized Robot Battle](./assets/lesson-5/600-console-random.png)
@@ -435,12 +493,12 @@ Let's test our new function to ensure our fight order has become randomized.
 As can be seen in our console, the first battle with each new robot has been randomized so now the advantage of the first attack is more balanced and fair.
 Time to ship our feature so let's merge it to the master and start on our next feature. Don't forget to close this issue now that it has been completed.
 
-## Save and load high score from localStorage
-With just a few moments left in our Game Jam, let's quickly take a look at our Github issue and create our feature branch which will be name `feature/highscore`.
+## Save and Load High Score From localStorage
+With just a few moments left in our Game Jam, let's quickly take a look at our Github Issue and create our feature branch which will be name `feature/highscore`.
 
 ![Github Issue for High Score Screenshot](./assets/lesson-5/495-github-issue-5.png)
 
-Earlier we did some googling to find that `localStorage` will allow us to store our high score in the browser. Let's review [MDN's documents regarding localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Local_storage) to see how to interface with this property. From the documentation we can find that this is a property of the `window` object and that there is also a `sessionStorage` property as well. A big differentiator between the two is that while `sessionStorage` will persistent the data during the session of the page or while the browser is open. `localStorage` will persist the data in the browser until manually deleted. This means that if I close my browser or my browser session, the data in `sessionStorage` will disappear but in `localStorage` the data will persistent across sessions and is not affected by closing the browser.
+Earlier we did some googling to find that `localStorage` will allow us to store our high score in the browser. Let's review [MDN's documents regarding localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Local_storage) to see how to interface with this property. From the documentation we can find that this is a property of the `window` object and that there is also a `sessionStorage` property as well. A big distinction between the two is that while `sessionStorage` will persist the data during the session of the page or while the browser is open, `localStorage` will persist the data in the browser until the data is manually deleted. This means that if you close your browser, the data in `sessionStorage` will disappear but not the data in `localStorage`.
 The similarities of `sessionStorage` and `localStorage` include the interface methods and the use of key/value pairs to store the object data. Note that the keys and values will always be converted into strings as a condition for browser storage.
 To understand what a key/value pair is, let's use a familiar object to illustrate these components.
 ```javascript
@@ -449,7 +507,7 @@ var playerInfo = {
   health: 100
 }
 ```
-The `name` and `health` properties are the *keys* in the `playerInfo` object. These are used to access their respective *values*, "Robocop" and 100. 
+The `name` and `health` properties are the **keys** in the `playerInfo` object. These are used to access their respective **values**, "Robocop" and "100". It is important to note that even though we would like to store an integer, `localStorage` only store strings so then will force this number to become the string, "100". Important to understand when retrieving this value, the data type will always be a string. 
 ### Storage Methods
 Now that we know we are storing the data as objects, the next step will be to use the storage methods to access and enter the object into the browser's storage. This are known as the Web Storage API:
 ```javascript
@@ -461,7 +519,7 @@ Let's type this example in the console of the browser as seen here:
 ![Web Storage API setItem](./assets/lesson-5/700-set-item.png)
 
 We are able to type simple JavaScript statements into the console because it is part of the browser.
-The undefined message shown here is simply indicating that nothing is returned from this statement which is correct since we are setting or storing our object into `localStorage`, not retrieving or returning anything.
+The undefined message shown here is simply indicating that nothing is returned from this statement which is correct since we are setting or storing our object into `localStorage`. We are not retrieving or returning anything in this statement.
 To see if our statement actually worked we can look use Chrome DevTools to open the Application tab and click on the Local Storage option as shown here:
 ![Chrome DevTools Application](./assets/lesson-5/800-dev-tools-application.png)
 
@@ -471,10 +529,11 @@ Our next step will be to use the Web Storage API to retrieve the value. Let's ty
  localStorage.getItem("color");
  ```
 To retrieve this value from `localStorage`, we use the `getItem` method and the key to return the associated value.
-The result should look like the following:
+The result in the console should look like the following:
 
 ![Web Storage API getItem](./assets/lesson-5/900-get-item.png)
 
+Notice from this statement, we receive the value stored at the key as the return which in this case was "red".
 Now that we are familiar with the Web Storage API, how can we use it to store our new high score for our game?
 Let's pseudocode this step and try to write the code ourselves.
 
@@ -486,14 +545,17 @@ Let's pseudocode this step and try to write the code ourselves.
     * If the player score is higher
       * Set new high score object into `localStorage`
       * Set new player robot's name object into `localStorage`
+      * Send player the message that they beat the high score
 
-Since this logic is happening once the game has ended, which function should these operations occur?
-If you guessed the `endGame()` function that would be correct.
+Since this logic is happening once the game has ended, in which function should these operations occur?
+
+If you replied, the `endGame()` function, you would be correct.
+
 Let's use our knowledge of conditional statements as well as our new Web Storage APIs to try and code this operation ourselves. 
 > **Hint:** Try to retrieve a key from `localStorage` that does not exist to see  what is returned.
 > We get a `null` value. Let's take into account that no high score has been stored so if our `getItem` retrieves a null, set the current high score to zero.
 
-The final endGame() function should now look similar to this:
+The final `endGame()` function should now look similar to this:
 ```javascript
 var endGame = function() {
   window.alert("The game has now ended. Let's see how you did!");
@@ -525,7 +587,7 @@ var endGame = function() {
   }
 };
 ```
-> **Pro Tip:** Note the following conditional statement sets a value to zero if the variable `highScore` is defined, but not assigned a value: 
+> **Pro Tip:** Note the following conditional statement sets a value to zero if the variable `highScore` is defined, but not assigned a value, which is the same as null: 
 >```javascript
 >if (highScore === null) {
 >  highScore = 0;
@@ -535,16 +597,17 @@ var endGame = function() {
 >```javascript
 >highScore = highScore || 0;
 >```
->This conditional statement means if the `highScore` value is falsy, assign zero to `highScore`. For more information regarding [short cuts for conditional values visit the MDN docs.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators)
+>This conditional statement means if the `highScore` value is falsy, assign zero to `highScore`. Conversely, if `highScore` is a valid value, then that is assigned, not zero. For more information regarding [short cuts for conditional values visit the MDN docs.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators)
 >
-Let's test our latest feature by running our game and see if we can get the high score. Check the Application pane as well to see if we were able to persist our high score in `localStorage`. 
+
+Let's test our latest feature by running our game and see if we can get the high score. Save the file then refresh `index.html` in the browser then check the console and the Application pane to see if we were able to persist our high score in `localStorage`. 
 
 ![High Score Local Storage](./assets/lesson-5/1000-high-score.png)
 
-Kudos on a job well done! Let's ship this to the `develop` branch after our normal add, commit, and push commands and then merge those changes into the `master` branch before the game jam deadline. The judges will surely be impressed with how much we were able to achieve in such a short amount of time and experience. Let's remember to close this issue and then bask in our glory as we are now JavaScript developers.
+Kudos on a job well done! Let's ship this to the `develop` branch after our normal add, commit, and push commands and then merge those changes into the `master` branch before the game jam deadline. The judges will surely be impressed with how much we were able to achieve in such a limited amount of time and experience. Let's remember to close this issue and then bask in our glory as we are now JavaScript developers.
 
 ## Reflection
-Great job on completing not only our MVP for our Robot Gladiator game, but also adding some nice features and error handling. In this lesson we accomplished the following:
+Great job on completing not only our MVP for our Robot Gladiators game, but also adding some nice features and error handling. In this lesson we accomplished the following:
 * Managed time and focus by tracking bugs and feature requests in GitHub issues
 * Intelligently prioritized the Github Issues
 * Validated user input prior to operating on it. (Life skill!)
