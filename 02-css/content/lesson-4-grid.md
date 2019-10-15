@@ -606,7 +606,7 @@ Let's pause for an add, commit, and push to Git. And for a quick checkpoint.
 > **Asset Needed:** [Learnosity - Grid alignment - Jira 138](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-138)
 
 
-To keep a fresh new starting point and because our mock-up doesn't contain any orange boxes with numbers, let's remove the CSS declarations in the example rules in our style sheet so that they look like this:
+Since we are finished with our grid example and our mock-up doesn't contain any orange boxes with numbers, let's remove the CSS declarations in the example's rules in our style sheet so that they look like this:
 
 ```css
 .service-grid-container {
