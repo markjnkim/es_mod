@@ -550,7 +550,7 @@ var fight = function() {
 fight();
 ```
 
-Both of these methods are acceptable when it comes to creating functions in JavaScript and we will see them written both ways all throughout our careers; but for the sake of consistency in how we write our code, we'll use the second method and employ function expressions throughout our game. There is one main difference in how the browser interprets those two methods of creating a function, but it won't affect us throughout the Game Con so there's no need to tackle that issue just yet.
+Both of these methods are acceptable when it comes to creating functions in JavaScript and we will see them written both ways all throughout our careers; but for the sake of consistency in how we write our code, we'll use the second method and employ function expressions throughout our game. There is one main difference in how the browser interprets those two methods of creating a function, but it won't affect us throughout the Game Jam so there's no need to tackle that issue just yet.
 
 > **Asset Needed:** Important Callout explaining the difference between expressions, declarations, and statements
 
@@ -767,9 +767,149 @@ if (playerHealth <= 0) {
 }
 ```
 
-Now when we save our `game.js` file and refresh the browser, we'll see three alert dialog windows popping up. The third alert will be in regards to our robot's status. If our robot's health (represented by the `playerHealth` variable) is zero or below, we would have received an alert letting us know our robot has died. If it is above zero, then we would have received an alert letting us know how much health our robot has left.
+Now when we save our `game.js` file and refresh the browser, we'll see three alert dialog windows pop up. The third alert will be in regards to our robot's status. If our robot's health (represented by the `playerHealth` variable) is zero or below, we would have received an alert letting us know our robot has died. If it is above zero, then we would have received an alert letting us know how much health our robot has left.
 
 Again, we can edit our `playerHealth` variable data to be higher or lower when the game starts to make our conditional statement take us in one direction over the other. This way we can check what happens when the condition is true and when the condition is false.
+
+### Get That MVP
+
+Our Robot Gladiators game is starting to take shape! We have built the application to run one round of the game, which pits two robots against each other and checks if either robot lost, and to interact with the user through browser alerts and prompts. 
+
+Since the user interaction does not affect the outcome of the game, it is not as much of a game as it is a simulation of a battle. Since this is a Game Jam, we need to add more meaningful user interaction with the game. We'll do just that by giving them a choice of skipping the fight for a fee, or go ahead with the round of fighting. 
+
+Let's commit our code and get that MVP!
+
+## "Stay or Go" with Control Flow
+
+Most round-based battle games provide a list of options for a player to choose from throughout the game. These choices can change the direction the game goes in and usually affects the outcome of the game in some way. 
+
+Since we already have the logic around making our robots battle, let's add another option to the mix and allow the user to skip the fight. Before we begin coding, let's consider how we want to tackle this problem by answering these questions:
+
+> **Hint:** All of the new code we write will go into the `fight` function.
+
+- What can we use to ask the user if they'd like to fight or skip the fight? 
+
+- When would we ask them?
+
+- How can we tell the code pertaining to our robots fighting to not run if a user chooses to skip the fight?
+
+We can drive ourselves crazy thinking about all of the "what-if" scenarios we can come up with for our users, but it is important to think about the main functionality first. This is where pseudocoding really helps us decide how to tackle our problems. By asking ourselves questions like the above, even if the answers we come up with aren't 100% going to do the job, it gets us thinking critically about what we need to write into our program.
+
+Here are some potential answers for the above questions:
+
+- We can use a prompt to ask the user if they would like to fight or skip the fight
+
+- We should ask users towards the beginning of the `fight` function so we can know what they want to do before they do it
+
+- We can use an `if` statement to check how the user responded and run the code to make the robots fight only if the user answers a certain way
+
+Notice that these answers allude to how they might be written in code, but are also readable by humans. We didn't provide too much detail as to how all three of these answers will be written, but we provided enough information for us to tackle each of them individually. Let's start by adding a `window.prompt` to our `fight` function.
+
+Right below the first alert in the `fight` function, create a variable called `promptFight` and assign it to store the returning value of a prompt asking the user if they would like to fight or skip the battle. The code should look something like this:
+
+```js
+var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
+```
+
+When we execute our `fight` function now, we'll get an alert welcoming us to the game but then we'll be asked if we'd like to fight or skip the battle. We're also giving them tighter instructions on how we expect them to answer, this way we can use value being stored in `promptFight` later in an `if` statement condition.
+
+> **Pause:** How can we read back the response of `promptFight` to make sure it is working?
+>
+> **Answer:** We can use `console.log(promptFight);` to log it to the Chrome DevTools Console by writing it after we create the `promptFight` variable.
+
+So now we have the ability to get the user's choice and use it to determine whether we should fight or skip the battle. Think about this in terms of "if this...then do that", if a user picks "FIGHT" what should happen? If the user does not pick "FIGHT", and picks "SKIP" instead, what happens then? 
+
+These are the two main answers we're looking for, but it's a prompt we're using, how can we stop a user from entering whatever they'd like? The answer is we can't stop the prompt from returning an answer we aren't explicitly looking for. Now that we know that, how do we handle a situation like this?
+
+> **Urkel Says:** When developers write code, it is often not enough to write it in a way to only work as it was intended to work because user interaction can lead to unpredictable input and actions. A thoughtful developer builds a program that works under ideal conditions, but then adds protective code into it to help handle situations like this so the program doesn't break.
+>
+> These situations are known as "edge cases".
+
+So now we have to make a decision as developers. We can set up our program to explicitly check to see if our user chose to "FIGHT" and let anything other than that mean the user has chosen to skip the fight instead. This means that if a user were to put into the prompt "tomato", the program would interpret that as the user wanting to skip the fight. This could be very confusing for the user. 
+
+At the very least it should be our job to inform them they made an incorrect decision and our program isn't designed to accept an answer like that. So what we are going to do instead is the following:
+
+- Check if the user picked the word "FIGHT" or "fight"
+  - If yes (or true), then we will continue with the battle and our robots will fight
+- If the user did not pick "FIGHT"/"fight", check if the user picked "SKIP" or "skip" instead
+  - If yes, penalize the player and end the `fight` function
+- If the user did not pick any of the above words, then let the user know they need to pick a valid option
+
+Previously, we used control flow statements to take us in one of two possible directions. If the player had no health, let them know they have lost. Otherwise, let them know how they are doing.
+
+Now, we are going to provide three possible directions. First we'll check to see if `promptFight` holds one value and if it doesn't, we'll check to see if it holds a different value. If it holds neither of the values, we'll simply take them in a third direction.
+
+Let's update our `fight` function by changing all of the code below the `promptFight` variable to look like this:
+
+```js
+// if player choses to fight, then fight
+  if (promptFight === "fight" || promptFight === "FIGHT") {
+    // remove enemy's health by subtracting the amount set in the playerAttack variable
+    enemyHealth = enemyHealth - playerAttack;
+    console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
+
+    // check enemy's health
+    if (enemyHealth <= 0) {
+      window.alert(enemyName + " has died!");
+    } 
+    else {
+      window.alert(enemyName + " still has " + enemyHealth + " health left.");
+    }
+
+    // remove player's health by subtracting the amount set in the enemyAttack variable
+    playerHealth = playerHealth - enemyAttack;
+    console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
+
+    // check player's health
+    if (playerHealth <= 0) {
+      window.alert(playerName + " has died!");
+    } 
+    else {
+      window.alert(playerName + " still has " + playerHealth + " health left.");
+    }
+  // if player choses to skip
+  } 
+  else if (promptFight === "skip" || promptFight === "SKIP") {
+    window.alert(playerName + " has chosen to skip the fight!");
+  } 
+  else {
+    window.alert("You need to pick a valid option. Try again!");
+  }
+```
+
+Let's save our `game.js` file, run our game three times, and enter a different choice each time. First time, pick "FIGHT". Second time, pick "SKIP". Lastly, enter anything you'd like that isn't the first two.
+
+Each should yield a different result based on how we responded to the prompt. If we chose "FIGHT" or "fight", we ran the battle code that we wrote previously. If we chose "SKIP" or "skip", we left the fight; and if we chose neither, we were informed that we made an incorrect choice.
+
+We used `if`, `else if`, and `else` keywords to have our code pick one of three directions to go based on checking to see what the value of a variable was. Let's dissect some of this syntax, starting with our initial condition:
+
+```js
+if (promptFight === "FIGHT" || promptFight === "fight")
+```
+
+Keep in mind that anything we put between the parentheses in an `if` statement is going to result in a true or false value, so when we put `promptFight === "FIGHT"` in there, we are checking to see if the value of `promptFight` is the word "FIGHT". Anything other than that value, different casing included, would result in the condition being false.
+
+Since we cannot always count on a user using all uppercase letters when typing the word, we also want to check to see if maybe they entered the word "fight" in all lowercase letters instead. So now, within one condition check, we are seeing if _either_ of these checks result in true. If at least one of them comes back true, then the whole condition is considered true.
+
+We made this happen by using the `||` syntax, which is known as an "OR" operator. When we use this in an `if` statement, we are telling the program to execute that code as long as at least one of the condition checks results in true. If both are false, then move on.
+
+> **Deep Dive:** The OR `||` operator isn't the only logical operator available in JavaScript, and we'll be introduced to them throughout this game, but it is helpful to keep the [MDN docs on logical operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators) handy as a reference.
+
+So what happens if we don't enter "FIGHT" or "fight"? What happens if we use "Fight" instead? This is a logical question, as some users are accustomed to capitalizing everything out of habit. In our case, however, that would be considered false since we did not explicitly check for that permutation of the word. We'll explore other methods of fixing issues like this later in the game, but for now let's focus on what happens if the first `if` statement is false and the code doesn't run.
+
+After the block (curly braces `{ }`) holding the first `if` statement's code ends, we can see something new:
+
+```js
+else if ([Condition]) 
+```
+
+This means that if the first `if` statement fails, then let's try another one. If the first `if` statement is true, then we'll never get to checking the `else if` statement. This is used as a fall-back condition check.
+
+In our case, we're using `else if` to do a similar check as our `if` statement, but now we're checking to see if the user wrote in "SKIP" or "skip" instead. But what happens if the user does not pick that either?
+
+If the user does not choose one of the values we've explicitly listed, then our code reaches the `else` block of code. Think of the `else` as a default action if all else fails.
+
+
 
 ---
 
