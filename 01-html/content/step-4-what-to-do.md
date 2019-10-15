@@ -4,19 +4,19 @@
 
 Our Run Buddy webpage is looking good! We've knocked out some pretty tricky sections like the header, hero, and sign-up form. 
 
-Here's how the page currently looks: 
+Here's how the page currently looks:
 
  **NEED IMAGE of webpage as it stands now**
 
 ## Preview
 
-Up next, we have these two more informative pieces to build: the "What We Do" and "What We Do" sections.  
+Up next, we have these two more informative pieces to build: the "What We Do" and "What You Do" sections.  
 
 Here's how they look in the mock-up:
 
 ![overview](./assets/step-4/050-overview.png)
 
-This lesson might feel like a bit of a breather because we won't need to use any complex CSS properties like floats or positioning. But a few new concepts will still come into play. 
+This lesson might feel like a bit of a breather because we won't need to use any complex CSS properties like floats or positioning. But a few new concepts will still come into play.
 
 High-level, here's our outline:
 

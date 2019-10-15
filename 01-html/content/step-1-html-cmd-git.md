@@ -14,17 +14,17 @@ The Run Buddy design team has provided the following mock-up of what they want t
 
 ![mock-up](./assets/step-1/050-mock-up.png)
 
-As a new developer, this probably looks pretty daunting. How are you supposed to know how to create this? Surely, they should hire someone with more experience than you. 
+As a new developer, this probably looks pretty daunting. How are you supposed to know how to create this? Surely, they should hire someone with more experience than you.
 
-Fear not. Many real-world companies don't expect even seasoned developers to know everything at the beginning of a new project. Part of the development process for any project is figuring out new technologies. With that said, let's jump right in and start coding! 
+Fear not. Many real-world companies don't expect even seasoned developers to know everything at the beginning of a new project. Part of the development process for any project is figuring out new technologies. With that said, let's jump right in and start coding!
 
 ## Get Started with the Command Line
 
-In the old days, entering text-based commands on a black screen (known as the **command-line interface**, or **CLI**) was the only way to interact with a computer. But now that graphical operating systems like Windows and macOS exist, most people never have to even look at a CLI. 
+In the old days, entering text-based commands on a black screen (known as the **command-line interface**, or **CLI**) was the only way to interact with a computer. But now that graphical operating systems like Windows and macOS exist, most people never have to even look at a CLI.
 
 For developers, though, the CLI (also called the **terminal**) is still frequently used for many tasks. For now, we'll use it to set up our project.
 
-But first, let's figure out how to access it! 
+But first, let's figure out how to access it!
 
 ### Access the Command Line on a Mac
 Mac users, you already have a built-in Terminal app, which you can launch by searching for "terminal" in the Spotlight Search (click the 🔍 icon in the top-right corner or use the keyboard shortcut Command+Spacebar).
@@ -38,7 +38,7 @@ When you open the command line, you should see a window that looks like this:
 
 ![terminal window](./assets/step-1/100-terminal.png)
 
-In this window, type `pwd` and press Enter. `pwd` means "print working directory" ("print" in this context means "display to the screen") and lets you know which directory (aka folder) the terminal is currently in. Typing `pwd` is like asking "Where am I?" 
+In this window, type `pwd` and press Enter. `pwd` means "print working directory" ("print" in this context means "display to the screen") and lets you know which directory (aka folder) the terminal is currently in. Typing `pwd` is like asking "Where am I?"
 
 > **Important:** To succeed in this boot camp, type out every code snippet instead of copying and pasting. It will help build up that muscle memory you need to become an expert coder faster!
 
@@ -67,7 +67,7 @@ cd Desktop
 pwd
 ```
 
-So `cd ..` took us back a level (or "up" a directory). Good to know! 
+So `cd ..` took us back a level (or "up" a directory). Good to know!
 
 Now that we're in the `Desktop` directory again, run the command `ls`. Do you recognize the listed files and folders as things that are already on your desktop? Let's add to the clutter:
 
