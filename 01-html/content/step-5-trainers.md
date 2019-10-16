@@ -250,7 +250,7 @@ Notice how these classes have generic names that do not indicate exactly where t
 
 Let's revisit our HTML and add the class `text-left` to the `<div class="trainer-bio">` tag. It should look like this when it's done:
 
-```HTML
+```html
 <div class="trainer-bio text-left">
   <h3>Arron Stephens</h3>
   <h4>Speed / Strength</h4>

@@ -447,7 +447,7 @@ Let's add the following CSS rule to our `style.css` file and make the height mat
 ```
 Now let's unpack this CSS declaration block:
 
-- **Dot notation** is the "." that preceds the class `hero` to indicate to the browser that we are using a class as our CSS selector.
+- **Dot notation** is the "." that precedes the class `hero` to indicate to the browser that we are using a class as our CSS selector.
 
 - **`background-image`** uses the CSS function `url()` to link a resource such as an image, web font, or GIF. Here we are using a relative URL path to select a background image. To learn more about how to use a web resource or add a color gradient, see the [MDN web docs on background-image](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image). 
 
@@ -550,7 +550,7 @@ Here are some of the property's values and how they affect the relationship of t
 
 To see visual representations of the `position` property's options, check out the [MDN web docs on the `position` property](https://developer.mozilla.org/en-US/docs/Web/CSS/position).
 
-> **Pause:** Can you figure out which of these positins would serve our cause? 
+> **Pause:** Can you figure out which of these positions we should use for the hero-form? 
 >
 > **Hint:** Let's use the process of elimination. `static` and `fixed` can be eliminated. `static` is where the form container currently sits, which is incorrect. `fixed` would mean that the form container would stay in the same part of the viewport, even after scrolling down. This is not within the scope of our requirements and therefore not in our interest.
 >
@@ -619,7 +619,8 @@ As you can see, the form is now nestled in the corner, just as we positioned it.
 
 > **Deep Dive:** To learn more, see [the discussion on StackOverflow about absolute vs. relative positioning](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute).
 
-> **Connect the Dots:** Another possible value to use instead of pixels is percentages. Let's see how this might work. For the declaration that assigns the `right` position property, let's use a percentage and see what the difference is. About 10% covered around 140px. Mathematically speaking, this means that the full screen value of 1400px at 10% will be 140px. This is why the form's position remains the same. The true value of having a relative size instead of a static size is that on different screen sizes, the position will remain relative to the element's size and not fixed. We'll go into more depth on relative sizes and screen responsiveness in the next module.
+> **Connect the Dots:** Another possible value to use instead of pixels is percentages. Let's see how this might work. For the declaration that assigns the `right` position property, let's use a percentage and see what the difference is. About 10% covered around 140px. Mathematically speaking, this means that the full screen value of 1400px at 10% will be 140px. This is why the form's position remains the same. The true value of having a relative size instead of a static size is that on different screen sizes, the position will remain relative to the element's size and not fixed. Additionally, in order to make a container's width a percentage of its parent element's width, we must explicitly declare its parent element's width.  We'll go into more depth on relative sizes and screen responsiveness in the next module.
+
 
 The `width` property has been saved for last because calculating the width of the form container actually begins a discussion on another property called `box-sizing`.
 
@@ -742,7 +743,7 @@ DevTools is a tremendous asset to front-end developers because it allows you to:
 
 > **ANSWER:** The changes are not permanent, which you can determine by refreshing the page after you make changes. 
 
-The changes you make to HTMl and CSS in Chrome's DevTools are not permanent and do not change the actual code. Instead, they offer a sandbox to try out different styles and immediately see the effect on the webpage. Once you're satisfied, you need to adjust the actual style sheet (in our case, `style.css`) accordingly to make the style change permanent.
+The changes you make to HTML and CSS in Chrome's DevTools are not permanent and do not change the actual code. Instead, they offer a sandbox to try out different styles and immediately see the effect on the webpage. Once you're satisfied, you need to adjust the actual style sheet (in our case, `style.css`) accordingly to make the style change permanent.
 
 > **Pro Tip:** To become skilled at using tools like Chrome's DevTools, you should use them as much as possible. Try to use new tools as much as possible in the beginning since it easy to forget they are there. It's a good habit keeping this window open so it stays at the top of your mind. Remember that it can be shrunk, stretched, or docked on any side by selecting the menu button in the top-right corner.
 

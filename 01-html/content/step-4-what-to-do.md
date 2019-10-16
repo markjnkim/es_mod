@@ -4,19 +4,19 @@
 
 Our Run Buddy webpage is looking good! We've knocked out some pretty tricky sections like the header, hero, and sign-up form. 
 
-Here's how the page currently looks: 
+Here's how the page currently looks:
 
  **NEED IMAGE of webpage as it stands now**
 
 ## Preview
 
-Up next, we have these two more informative pieces to build: the "What We Do" and "What We Do" sections.  
+Up next, we have these two more informative pieces to build: the "What We Do" and "What You Do" sections.  
 
 Here's how they look in the mock-up:
 
 ![overview](./assets/step-4/050-overview.png)
 
-This lesson might feel like a bit of a breather because we won't need to use any complex CSS properties like floats or positioning. But a few new concepts will still come into play. 
+This lesson might feel like a bit of a breather because we won't need to use any complex CSS properties like floats or positioning. But a few new concepts will still come into play.
 
 High-level, here's our outline:
 
@@ -276,7 +276,7 @@ With the Chrome DevTools, we can inspect the element's margins (the orange boxes
 
 ![margin comparison](./assets/step-4/500-margin-comparison.png)
 
-Pretty cool! Yet another CSS trick to put in your toolbelt. And that wraps up "What We Do"!
+Pretty cool! Yet another CSS trick to put in your toolbelt. Note that this only works for horizontal centering. `margin: auto 0` does not vertically center elements. And that wraps up "What We Do"!
 
 ## Style "What You Do"
 
@@ -462,7 +462,7 @@ The next lesson, Meet the Trainers, will further test our skills with a more com
 
 * We used `<span>` elements to highlight inline content.
 
-* We centered non-text content using `margin: auto` and `text-align`.
+* We centered non-text content using `margin: 0 auto` and `text-align`.
 
 * We combined classes on the same element (e.g., `<h2 class="section-title primary-border">`).
 

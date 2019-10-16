@@ -98,8 +98,7 @@ Let's unpack what we just created, starting with describing what a list is.
 
 #### Lists 
 
-In HTML, there are two
-types of lists: ordered and unordered. 
+In HTML, there are two types of lists: ordered and unordered. 
 
 - **Ordered lists**, denoted with the `<ol>` element, tell the browser to interpret any nested list item (denoted with the `<li>` element) in numeric order (1, 2,
 3, etc.). 
@@ -266,7 +265,7 @@ Let's take a look at some CSS syntax:
 
 - **Selector**: This is the part that says "let's find this matching HTML element (in this case,  the `<body>` element) so we can tell it what it should look like." This is the most basic of selectors, where we select by HTML element name. We can use a CSS selector to be very vague (apply styles to all `<a>` elements) or very specific (apply styles to any `<a>` element that is inside a `<header>` element and ignore any of the others that are not). We'll get into more specific selectors later.
 
-- **Property**: CSS has an extensive list of possible style properties that it recognizes. All we need to do is list one in between the selector's `{}` brackets and we can now change how that element looks. Examples of popular CSS properties are `color` (to control the text color), `background-image` (to apply a background image to that section), and `font-family` (to change the default font). If we use one that isn't predefined, then the browser will ignore the style. To learn more, see [MDN's list of all possible CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index).
+- **Property name**: CSS has an extensive list of possible style properties that it recognizes. All we need to do is list one in between the selector's `{}` brackets and we can now change how that element looks. Examples of popular CSS properties are `color` (to control the text color), `background-image` (to apply a background image to that section), and `font-family` (to change the default font). If we use one that isn't predefined, then the browser will ignore the style. To learn more, see [MDN's list of all possible CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index).
 
 - **Property value**: This is where we get to provide the desired look to the element. Like properties, CSS has a specific set of possible variations for values that it will understand. In the image above, we provide a value of `#39a6b2` to the `color` property (more on this value's meaning soon), which is a value that represents a color and a valid value for any CSS property that deals with colors. Here's another example: if we were to say `font-size: 3meters`, it would not be understood and thus wouldn't be applied. But if we were to say `font-size: 24px`, the font's size would be set to 24 pixels because that is a value CSS can understand. To learn more, see [MDN's list of CSS values and units of measurement](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units).
 
@@ -329,7 +328,7 @@ We'll actually be going with the first one, and here's why:
 
 Before we move on, let's go ahead and remove the `<style>` element and all of its content from the HTML document. We'll be adding different styles in their own file so we don't want to have these in place when we do.
 
-> **Important:** This reinforces a concept called **separation of concerns**, which means that it's better to keep code that serves different purposes in different places so it's easier to read and write.
+> **Important:** This reinforces a concept called **separation of concerns**, which means that it's better to keep code that serves different purposes in separate files so that it's easier to maintain.
 
 ## Set Up the Style Sheet
 
@@ -513,7 +512,7 @@ Here, we're implementing a more specific selector pattern. This one ensures that
 >
 > The cascade follows three factors:
 >
-> 1. **Importance**: When you add `!important` to the end of a property declaration, it will override any conflicting style declarations for that element. This is not recommended because using this means you should simply be smarter about how you select elements rather than brute-forcing styles onto them.
+> 1. **Importance**: When you add `!important` to the end of a property declaration, it will override any conflicting style declarations for that element. This is not recommended because overriding the default "cascading" behavior of CSS will make your site harder to maintain.
 >
 > 2. **Specificity**: CSS actually weighs the importance of different types of selectors used by how specific they are. If we were to apply a style by selecting `<h1>`, it will apply to all `<h1>` elements. But if we were to then apply a style by selecting `<header h1>`, it will ignore conflicting property declarations in the `<h1>` definition and apply `<header h1>` instead because it is a more specific selection.
 >
