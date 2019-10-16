@@ -324,6 +324,8 @@ That will momentarily break the game, because we now have references to undefine
 
 * Replace all instances of `playerMoney` with `playerInfo.money`
 
+> **Pro Tip:** In VS Code, press CTRL+F on Windows or Command+F on Mac to open the Find and Replace menu.
+
 Save and test the game to make sure we didn't miss any variables. Note that switching to a player object didn't change the game at all, but it consolidated a lot of important data. Accessing this data also makes for more readable code, because `playerInfo.health` establishes a direct link between the health property and its owner.
 
 > **Pro Tip:** Another way to access object properties is with bracket notation: `playerInfo["health"]`. This is useful in situations where the property you are looking up is based off of a variable. For instance:
