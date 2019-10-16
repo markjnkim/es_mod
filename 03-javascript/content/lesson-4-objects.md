@@ -52,7 +52,7 @@ Starting a new feature means we'll need a new branch. Let's revisit our Git work
 
 ## Use the Math Object
 
-If we want to generate random numbers in JavaScript, we'll need the help of a built-in object called `Math`. Accessing this object is similar to accessing `console`. Both are properties of the `window` object, but we're not required to write `window.Math`.
+If we want to generate random numbers in JavaScript, we'll need the help of a built-in object called `Math`. Like `prompt()` and `alert()`, this is a property of the `window` object, but we're not required to write `window.Math`.
 
 Try console logging the `Math` object and inspect what's printed in the DevTools:
 
@@ -131,7 +131,7 @@ Update the line in `startGame()` to look like this:
 enemyHealth = Math.floor(Math.random() * 21) + 40;
 ```
 
-Okay, now this random logic is getting confusing. Let's break it down:
+Okay, now this random logic is getting confusing. To understand what's happening, we should start from the inside out. Let's break it down:
 
 1. `Math.random() * 21` will give us a random decimal number between 0 and 20.xx.
 
