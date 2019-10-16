@@ -348,7 +348,9 @@ Now save and refresh the HTML file in the browser and we should something like t
 
 > **Asset Needed:** Image of the browser with this prompt window open
 
-We've now given the user the power to add their own information to our program. Where the `window.alert()` function sent a message from the program to the user through the browser's window, the `window.prompt()` function is used to ask the user to provide some input and send it back to the program. Learn more about the [`window.prompt()` function on MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)
+We've now given the user the power to add their own information to our program. Where the `window.alert()` function sent a message from the program to the user through the browser's window, the `window.prompt()` function is used to ask the user to provide some input and send it back to the program. 
+
+> **Deep Dive:** Learn more about the [`window.prompt()` function on MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)
 
 Enter your robot's name into the input field displayed in this prompt dialog and click the "Ok" button (the name of this button may vary depending on the browser in use). The user has now provided the JavaScript program with that information and the program can use it throughout the code.
 
@@ -690,7 +692,7 @@ All we had to do was repeat the previous two lines of code and switch the variab
 
 Our `fight` function is now starting to take form, as we can now execute it to have our robots attack each other. How does the game know when to end, though?
 
-> **TODO** Write prompt to enter `fight()` into the DevTools Console a bunch of times and see what happens
+> **todo** Write prompt to enter `fight()` into the DevTools Console a bunch of times and see what happens
 
 We can assume that the game ends when one of the robot's health points gets down to zero, but now we have to figure out a way to instruct our code to check for that type of event and more importantly, what to do when it happens.
 
