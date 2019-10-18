@@ -119,7 +119,16 @@ Click the button below to add a new task!
   - Make it say "Add Task" between the tags
   - Give it a class of `btn`
 
-When we're all done adding these elements to our `<header>`, let's save the `index.html` file and open it in the browser. It should look like this image:
+When we're all done adding these elements to our `<header>`, let's save the `index.html` file and open it in the browser. It should look like this:
+
+```html
+<header>
+    <h1 class="page-title">Taskinator</h1>
+    <p>Click the button below to add a new task!</p>
+    <button class="btn" >Add Task</button>
+  </header>
+```
+Let's save the `index.html` file and refresh the browser.
 
 > **@TODO** Screenshot of header at this point
 
@@ -191,12 +200,74 @@ So how do we get our button to work? Let's answer the following questions to gui
 
 Our script is running in the browser which can interpret JavaScript and execute our code. We have been using the Browser APIs to access the built-in methods of the browser namely the `window` object. 
 
-We've used functions provided by the browser's `window` object previously, but now we need to use some data that the `window` provides for us, particularly data that pertains to the HTML of our application.
+We've used functions provided by the browser's `window` object previously, like `alert()` and `prompt()`, but now we need to use some properties that the `window` provides for us, particularly properties that pertain to the HTML of our application.
 
-Browsers refer to the HTML code that makes up a web page as a **document**, so with this knowledge let's use our Chrome DevTools Console detective skills to see if it knows anything about it.
+Browsers refer to the HTML code that makes up a web page as a **document**, so with this knowledge let's use our Chrome DevTools Console detective skills to see if browser knows anything about `document`.
 
+```js
+console.log(window.document)
+```
+> **@TODO** screenshot of the window.document raw HTML
+
+As you can see from the screen shot we can see our JavaScript representation of our `index.html` file. This is how we can establish the link between JavaScript and HTML. This is important in order for our JavaScript to modify HTML and CSS. 
+
+Again note that window.document looks like HTML, but its actually the JavaScript representation. That leads us the Document Object Model which is also known as the DOM. 
+
+### DOM
+
+The DOM is an object that contains properties and methods we can use to manipulate our HTML elements and CSS properties. 
+> **Deep Dive:** DOM Tree nodes, which are organized in a hierarchy with parent and child nodes which relate to the parent and child HTML elements we are familiar with.
+
+There's not much we can do with window.document, but the DOM offers methods that we can use to find other elements within this document using JavaScript.
+One of the methods we will use to find our target elements is the `querySelector()`.
+Let's use this to find our `<button>` and `console.log` our results. Let's type the following directly into the console.
+```js
+window.document.querySelector("button");
+```
+@Todo why reference document?
+
+Note here that as previously, we don't have to type window as a prefix to our document statement because we are in the context of the `window` just as we did with the `Math` object.
+> **@TODO** screen shot
+
+Although the console's return looks like raw HTML, it's actually an object representation of this element meaning it has access to properties and methods such as `textContent`.
+Let's type the following into the console to see the result:
+
+```js
+document.querySelector("button").textContent;
+```
+
+> **TODO** screen shot of result
+As we can see from this result, we are able to use a built-in property of a DOM element so clearly we are dealing with objects here.
+
+Great job, we were able to select our button, but what happens if we start adding more buttons to the page? Our querySelector currently would only be able to find the first button in the document. So how do we uniquely identify this button from the rest? We can use a familiar attribute called the `id`. Let's add the `id` "save-task" attribute to our `button` element in the `index.html` file so the element now looks like this:
+```html
+<button class="btn" id="save-task">Add Task</button>>
+```
+Now let's update our `querySelector()` to look for the `id` instead of the generic element. Type the following into the console to see what the result looks like:
+```js
+document.querySelector("#save-task");
+```
+The result should like exactly like our previous result in the console.
+
+Having successfully targeted our HTML element, now we can add this code into our JavaScript file, the `script.js`. 
+We will need to assign our element object representation to a variable.
+> **Pro Tip:** @TODO best practices 
+
+```js 
+var buttonEl = document.querySelector("#save-task");
+console.log(buttonEl);
+```
+To see our expression in action we need to save our script file and refresh the `index.html` in the browser.
+
+> **Important:** @TODO can't open script directly in the browser.
+
+As we can see our `buttonEl` variable now represents our `button` element we displayed in the console earlier.
+
+
+
+<!-- 
 In the Chrome DevTools Console tab, type `console.log(window);` and hit `Enter`:
-
+. 
 > **Pro Tip:** We can reveal the `window` object without the `console.log` expression because we are in the Console tab. 
 
 > **@TODO** Screenshot of the window object in the console
@@ -207,7 +278,7 @@ So what are we looking at here? It seems like the `document` property is its own
 
 ```js
 window.document
-```
+``` -->
 
 Luckily we can use the Document Object Model otherwise know as the DOM to give us an object representation of the HTML in JavaScript. This is how
 
