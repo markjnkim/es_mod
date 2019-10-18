@@ -10,7 +10,7 @@ Users can create a list of as many tasks as they want. The downside is that task
 
 Per the next GitHub issue, there are some valuable features waiting to be added to this app:
 
-> **Asset Needed:** Screenshot of GitHub issue
+![GitHub issue outlines ability to add and delete tasks and update status](./assets/lesson-3/050-github-issue.jpg)
 
 Being able to update or delete a task adds a lot more complexity. This means we'll be diving even deeper into the `event` object and event handlers. We'll also need to revisit the HTML side and learn a few new tricks like `data-*` attributes. The good news is, you've made it this far. You totally got this!
 
@@ -36,7 +36,7 @@ These changes relate to the following features:
 
 Sounds like a lot to take on! That's why it's helpful to pseudocode the steps necessary to get there. Try your hand at organizing these steps before moving on:
 
-> **Asset Needed:** Learnosity dragon drop
+> **Asset Needed:** Learnosity: <https://trilogyed.atlassian.net/browse/FSFO-195>
 
 Here's the approach that we've outlined for this lesson:
 
@@ -60,7 +60,7 @@ Here's the approach that we've outlined for this lesson:
 
 Note that we added a step to "apply unique IDs to the tasks." Since we will be updating and deleting tasks based on button clicks, we'll need some way to know which tasks are being edited. Giving each task an ID will make it easier to find and update/delete them.
 
-We also chose to implement deleting a task before updating a task, because deleting entails fewer steps (straight-up deleting versus loading into the form and then saving). We want to get the easier option working before jumping into the more challenging one!
+We also chose to implement deleting a task before updating a task, because deleting entails fewer steps (straight-up deleting versus loading into the form and then saving). Figuring out the delete process will also give us a better foundation when it comes time to update, as a lot of the logic will be the same.
 
 ## Create a Branch
 
@@ -122,7 +122,7 @@ In fact, this would be a good time to further refresh your memory on CSS layouts
 
 ## Apply Unique IDs to Tasks
 
-Before we can implement the JavaScript logic to move tasks between columns, we need to formalize a way to uniquely identify each task that is created. Consider the following example:
+Before we can implement the JavaScript logic to update tasks, we need to formalize a way to uniquely identify each task that is created. Consider the following example:
 
 ![Two tasks sit in the To Do column](./assets/lesson-3/500-to-dos.jpg)
 
@@ -278,13 +278,13 @@ This will add an empty `<select>` element to the `<div>` container, but looking 
 >
 > **Answer:** `for` loops
 
-While a `for` loop isn't required to make these `<option>` elements, any chance to make the code more DRY is always welcome. To facilitate this looping, create the following array:
+While a `for` loop isn't required to make these `<option>` elements, any chance to make the code more DRY is always welcome. To facilitate this looping, create the following array after the `statusSelectEl` expressions:
 
 ```js
 var statusChoices = ["To Do", "In Progress", "Completed"];
 ```
 
-Using an array also provides the benefit of being able to easily add new options later on without changing much code. Another win for DRY code!
+Using an array also provides the benefit of being able to easily add new options later on without changing much code. Another win for the DRY principle!
 
 After the array declaration, write the following `for` loop logic:
 
@@ -390,16 +390,16 @@ Notice that we're using a familiar friend, the `event` object. In this case, we'
 
 The event listener triggers not only when `page-content` itself is clicked but any element inside (the `<ul>` lists, the `<button>` elements, etc.). Thanks to `event.target`, though, we can know exactly which element triggered the listener.
 
-Test the app again and click on an Edit button, then click on any of the Delete buttons. You'll see that `event.target` is different in both cases:
+Test the app again and click on an Edit button, then click on a Delete button. You'll see that `event.target` is different in both cases:
 
 ```html
 <button class="btn edit-btn" data-task-id="0">Edit</button>
 <button class="btn delete-btn" data-task-id="0">Delete</button>
 ```
 
-What uniquely identifies the Delete versus the Edit? The Delete button has a class called `.delete-btn` on it. While it's easy to see that distinction in the console, how can we translate that into code? How could we check the class name on the element that was clicked? We could use a property that we've used in the past, `className`, or there's a catch-all method called `matches()` that was created specifically for checking if a match exists.
+What uniquely identifies the Delete versus the Edit? The Delete button has a class called `.delete-btn` on it. While it's easy to see that distinction in the console, how can we translate that into code? How could we check the class name on the element that was clicked?
 
-The `matches()` method is similar to using the `querySelector()` method, but instead of finding and returning an element, it simply returns `true` or `false` (because we already have access to said element).
+We could use a property that we've used in the past, `className`, or there's a catch-all method called `matches()` that was created specifically for checking if an element matches certain criteria. The `matches()` method is similar to using the `querySelector()` method, but instead of finding and returning an element, it simply returns `true` or `false` (because we already have access to said element).
 
 In `taskButtonHandler()`, add the following `if` statement:
 
@@ -481,7 +481,7 @@ Save `script.js` and run this code in the browser by clicking on a task item's D
 
 ![DevTools console shows an li element with multiple child elements](./assets/lesson-3/1400-console-li.jpg)
 
-Using `querySelector()` with `.task-item[data-task-id='" + taskId + "']` allowed us to find a different element with the same `data-task-id` attribute. We used a similar method earlier when we wanted to get the values from our form elements. With those, we selected the element type (`input`) and then specified what attribute we were looking to match (`input[name='task-name']`). Here, we are selecting the element by its class name, and then looking for one with the specific data attribute value.
+Using `querySelector()` with a selector like `.task-item[data-task-id='0']` allowed us to find a different element with the same `data-task-id` attribute. We used a similar method earlier when we wanted to get the values from our form elements. With the form, we selected the element type (`input`) and then specified what attribute we were looking to match (`input[name='task-name']`). Here, we are selecting the element by its class name, and then looking for one with the specific data attribute value.
 
 Now that we have the correct element, let's update `deleteTask()` one more time to actually remove it from the page:
 
@@ -496,8 +496,6 @@ Again, save `script.js` and run this code in the browser to test our functionali
 
 Now that we've handled the functionality for capturing button clicks in our task list and deleting them, we can move on to editing a task.
 
-> **On The Job:** Building new features often comes down to four main operations: creating tasks, getting tasks, updating tasks, and deleting tasks. Development-wise, deleting a task requires less complexity than updating a task. A lot of the logic for deleting something can become the foundation for updating/editing something, though, making it a better starting point.
-
 ## Load Task into Form
 
 Editing a task takes two parts:
@@ -510,7 +508,7 @@ Visualizing the problem as two separate issues will keep it from feeling overwhe
 
 > **Pause:** How can you know when an Edit button is clicked?
 >
-> Use event delegation and methods like `matches()` to check the class name.
+> **Answer:** Use event delegation and methods like `matches()` to check the class name.
 
 Fortunately, we can leverage the work we did with deleting a task to facilitate this process. Edit buttons already have a `data-task-id` attribute, after all. Editing can also use the same `taskButtonHandler()` handler function as a starting point.
 
@@ -759,7 +757,7 @@ else if (statusValue === "completed") {
 
 Remember that `tasksToDoEl`, `tasksInProgressEl`, and `tasksCompletedEl` are references to the `<ul>` elements created earlier. Thus, if the user selects "In Progress" from the dropdown, it will append the current task item to the `<ul id="tasks-in-progress">` element with the `tasksInProgressEl.appendChild(taskSelected)` method.
 
-The interesting thing about the use of `appendChild()` here is that it didn't create a copy of the task. It actually moved the task item from its original location in the DOM into the other `<ul>`. It's important to note that the variable `taskSelected` didn't create a `<li>`. That would only be the case if we used `document.createElement()`. Instead, it's a reference to an existing DOM element, and we simply appended that existing element somewhere else.
+The interesting thing about the use of `appendChild()` here is that it didn't create a copy of the task. It actually moved the task item from its original location in the DOM into the other `<ul>`. It's important to note that the variable `taskSelected` didn't create a second `<li>`. That would only be the case if we used `document.createElement()`. Instead, it's a reference to an existing DOM element, and we simply appended that existing element somewhere else.
 
 Save and test the app in the browser to make sure the tasks move to the correct column/list when the dropdown changes. Now would be a good time to make a "Master JavaScript" task and move it to Completed!
 
@@ -785,7 +783,7 @@ Lastly, close the corresponding GitHub issue and celebrate!
 
 ## Reflection
 
-Great job finishing this near-complete version of Taskinator! The app is basically usable now, as long as the user doesn't refresh the browser. But we'll address that later. For now, we should bask in what we accomplished:
+Great job finishing this near-complete version of Taskinator! The app is basically usable now, as long as the user doesn't refresh the browser and lose their tasks. But we'll address that later. For now, we should bask in what we accomplished:
 
 * We practiced additional ways of traversing the DOM and manipulating elements
 
