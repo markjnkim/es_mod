@@ -5,15 +5,15 @@
 >
 >-Theodore Roosevelt
 
-We have become adept at using GitHub Issues in our last few projects to track our progress and help focus our attention and energy at the highest priority tasks at hand. We gotten so used to using this, we'd like to use it for all our productivity needs, but wouldn't it be a little strange to make a "Do Laundry" or "Clean out the Garage" as a GitHub Issue. This is meant for issues related to the repo, not your life. Plus, its public for all the world to see, so having a private to-do list seems more appropriate. 
+We have become adept at using GitHub Issues in our last few projects to track our progress and help focus our attention and energy at the highest priority tasks at hand. We gotten so proficient, we'd like to use it for all our productivity needs, but wouldn't it be a little strange to make a "Do Laundry" or "Clean out the Garage" as a GitHub Issue. This is meant for issues related to the repo, not your life. Plus, its public for all the world to see, so having a private to-do list seems more appropriate. 
 
 This may be a great candidate for a personal project. 
 > **On the Job:** Especially as new developers, personal projects are important ways to demonstrate to potential employers not only a dev's ability and skill, but show off creativity, passion, and personality. Having a well rounded portfolio illustrates your talent, potential, and capability to finish projects. 
 
 Let's see what the end product of our app should look like at the end of the module.
-> **Asset Needed:** Git of the app at the end of the module.
+> **Asset Needed:** [Gif of the app at the end of the module Jira Issue FSFO-192](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-192).
 
-Having learned the fundamentals of JavaScript, we will now use those key concepts to manipulate the behavior of a webpage and demonstrate why JavaScript is a fundamental pillar of front-end development. In this module we will be building the Taskinator, a personal task tracker application that will combine all our knowledge of front-end development with HTML, CSS, and JavaScript. We will also be introducing some new built-in browser Web APIs to create this:
+Having learned the fundamentals of JavaScript, we will now use those key concepts to manipulate the behavior of a webpage and demonstrate why JavaScript is a fundamental pillar of front-end development. In this module we will be building the Taskinator, a personal task tracker application that will combine all our knowledge of front-end development with HTML, CSS, and JavaScript. We will also be introducing some new built-in browser Web APIs.
 
 Let's highlight some of the main concepts we’ll learn:
   - The Document Object Model or the DOM to create, manipulate, and delete HTML
@@ -178,7 +178,10 @@ Let's add, commit and push our feature branch up to GitHub.
 > Don't forget there's always Chrome DevTools to help see what CSS is in place as well!
 
 ## Capture a Button Click
-Nice work, the app looks great so far, but if we try to click the button and open the console, we'll see that nothing happens. So how do we get our button to work? Let's answer the following questions to guide the thought process:
+Nice work, the app looks great so far, but if we try to click the button; nothing happens. We would like to have this button add a task to our task list as shown here:
+> **Asset Needed:** [Gif adding task to task list Jira Issue FSFO-191](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-191)
+
+So how do we get our button to work? Let's answer the following questions to guide the thought process:
 
 - What is executing our script file? How does our JavaScript know how to run?
 
@@ -190,12 +193,9 @@ We've used functions provided by the browser's `window` object previously, but n
 
 Browsers refer to the HTML code that makes up a web page as a **document**, so with this knowledge let's use our Chrome DevTools Console detective skills to see if it knows anything about it.
 
-In the Chrome DevTools Console tab, type the following code in and hit `Enter`:
+In the Chrome DevTools Console tab, type `console.log(window);` and hit `Enter`:
 
-```js
-window
-```
-We can `console.log` the `window` object without with `console.log` expression because we are in the Console tab. We can see the browser is able to read the message in the console as we type, offering a return before pressing Enter.
+> **Pro Tip:** We can reveal the `window` object without the `console.log` expression because we are in the Console tab. 
 
 @Todo Screenshot of the window object in the console
 
