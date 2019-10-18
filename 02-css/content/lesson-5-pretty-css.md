@@ -770,3 +770,5 @@ In the next lesson, we'll look at another hot topic in the world of the web: ani
 
 Wow, those are a lot of new tricks! The good news is that you don't have to memorize them. They're always a quick Google search away.
 
+---
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
