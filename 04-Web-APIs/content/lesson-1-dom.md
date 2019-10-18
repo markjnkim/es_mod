@@ -26,10 +26,10 @@ Let's highlight some of the main concepts we’ll learn:
 
 ## Preview
 > **Asset Needed:** Screenshot of the app at the end of the lesson.
-@Todo - Analyze the details of the mock-up
+> **@TODO** - Analyze the details of the mock-up
   1. Using JavaScript, we’ll make the button on the page react to being clicked
     - When it is clicked, it will add another task to our list by creating an HTML element
-> **Asset Needed:** Learnosity - Put the pseudocode steps in order
+> **Asset Needed:** [Learnosity Jira Issue FSFO-193 - Put the pseudocode steps in order](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-193)
 Ask students to pseudocode how they might build this. Consider the functions and user interaction APIs that you already know about
   1. Emphasize that this exercise is valuable, even if it is not accurate. Tie into the on-the-job importance of thinking about a problem in-depth prior to starting, so you can map out your blindspots.  
 - Define the steps that we chose to build the page:
@@ -40,7 +40,7 @@ Ask students to pseudocode how they might build this. Consider the functions and
 - Encouraging statement to transition into applying these steps to build the task list and button.
 
 ## Project Setup With Git
-@Todo Git stuff
+> **@TODO** Git stuff
 
 
 ## Build the HTML and CSS
@@ -54,7 +54,7 @@ Now that we have our development environment with Git, let's create the file str
 - js folder 
 - images folder
 Add the `style.css` and image file downloaded from Canvas to their proper folders.
-@Todo screen shot of the folder tree
+> **@TODO** screen shot of the folder tree
 
 Let's open the `index.html` file and create our boilerplate HTML markup.
 > **Asset Needed:** Learnosity - Key tags necessary for a functioning HTML page.
@@ -64,7 +64,7 @@ Type this in the `index.html` file:
 `html:5` and press Enter
 So what just happened? 
 We used a shortcut to autocomplete the boiler plate using HTML 5 by using a tool called Emmet.
-> **Deep Dive:** @Todo Emmet cheatsheet link
+> **Deep Dive:** **@TODO** Emmet cheatsheet link
 
 So now let's edit and add a few tags to our HTML page and use relative paths to link our project files.
 - edit the `<link>` tag
@@ -72,13 +72,13 @@ So now let's edit and add a few tags to our HTML page and use relative paths to 
 - change the title
 
 So now your index.html file should look like this:
-@Todo code block of the new tags
+> **@TODO** code block of the new tags
 
 ### Add the Markup
 
 Let's another look at the mock-up to see what our markup might look like.
 
-> **Asset Needed:** Screenshot of the mock-up for lesson 1
+> **@TODO** Screenshot of the mock-up for lesson 1
 
 Based on what the image above shows us, how many main "blocks" of HTML do we think we are going to need? Luckily, the design seems to already do this for us with its use of background colors, so let's dissect it:
 
@@ -90,7 +90,7 @@ Based on what the image above shows us, how many main "blocks" of HTML do we thi
 
 To visualize this, take a look at the following image to see everything outlined:
 
-> **Asset Needed:** Same screenshot as before with three block elements outlined and labelled
+> **@TODO** Screen shot of mock-up with outline of three main sections/blocks
 
 So now that we have our three main content sections identified, let's go ahead and start adding them to the page one-by-one, starting with the `<header>` element.
 
@@ -98,7 +98,9 @@ Let's start by creating our `<header>` element inside the opening `<body>` eleme
 
 ```html
 <body>
-  <header></header>
+  <header>
+
+  </header>
 
   <script src="./assets/js/script.js"></script>
 </body>
@@ -119,7 +121,7 @@ Click the button below to add a new task!
 
 When we're all done adding these elements to our `<header>`, let's save the `index.html` file and open it in the browser. It should look like this image:
 
-> **Asset Needed:** Screenshot of header at this point
+> **@TODO** Screenshot of header at this point
 
 Wow, that looks pretty good considering we haven't written any of our own CSS just yet. How did that happen?
 
@@ -135,7 +137,7 @@ Our final product is going to consist of three lists based on their status, each
 
 This image may help identify what we need:
 
-> **Asset Needed:** Screenshot of one list that's outlined with labels identifying the need for a wrapper to contain our HTML elements
+> **@TODO** Screenshot of task list that's outlined with labels identifying the need for a wrapper to contain our HTML elements
 
 In the image above we can see that a wrapper is used to contain the title and the task list.
 Now that we know what we need for this section let's add them to our markup inside of the `<main>` element:
@@ -197,7 +199,7 @@ In the Chrome DevTools Console tab, type `console.log(window);` and hit `Enter`:
 
 > **Pro Tip:** We can reveal the `window` object without the `console.log` expression because we are in the Console tab. 
 
-@Todo Screenshot of the window object in the console
+> **@TODO** Screenshot of the window object in the console
 
 Now that we have our `window` object on full display for us with all of it's methods and properties, try and find one property called `document` and click on it to open it up.
 
