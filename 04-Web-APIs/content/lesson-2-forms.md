@@ -120,7 +120,7 @@ In between the `<div>` elements that hold the text input and the button, add thi
 ```html
 <div class="form-group">
   <select name="task-type">
-    <option value="" disabled selected>Pick a project type</option>
+    <option value="" disabled selected>Pick a task type</option>
     <option value="Print">Print</option>
     <option value="Web">Web</option>
     <option value="Mobile">Mobile</option>
@@ -161,10 +161,19 @@ Don't forget to add, commit, and push your feature branch!
 
 ## Handle Form Submission
 
+In the last lesson we attached an event listener to our "Add Task" button so when it was clicked, it triggered a function to run that created a new task item for us. We can keep it this way when it comes to submitting our form. By clicking on the button, we can set our `createTaskHandler()` function to read the form value inputs and use them to create a task on the page for us. 
+
+There is one small usability feature missing, however, from using just a "click" event listener, and it's a feature that makes forms feel a little more natural for users. This feature is to allow users to submit forms in two ways:
+
+- Click a button in the form to submit the data
+
+- Press `Enter` or `Return` on the keyboard to submit the data
+
+Though it seems like a small feature to concern ourselves with, it's little improvements like this that can really make an app feel more intuitive for some users. It also doesn't involve too much work on our end to change this type of behavior, so let's get started with it! 
 
 
 
-## Capture Form Inputs
+## Capture Form Field Values
 
 *2–3 sentences describing what will be covered in this section.*
 
