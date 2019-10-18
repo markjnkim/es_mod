@@ -174,7 +174,7 @@ var createTaskEl = function(taskDataObj) {
 
   var taskInfoEl = document.createElement("div");
   taskInfoEl.className = "task-info";
-  taskInfoEl.innerHTML = "<h3 class='task-title'>" + taskDataObj.title + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
+  taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
   listItemEl.appendChild(taskInfoEl);
 
   tasksToDoEl.appendChild(listItemEl);
@@ -367,7 +367,7 @@ We'll eventually have Delete buttons in three different columns, so the most app
 In `script.js`, add a reference to the `page-content` element at the top and then an event listener at the bottom of the file:
 
 ```js
-var pageContentEl = document.getElementById("page-content");
+var pageContentEl = document.querySelector("#page-content");
 
 // other logic...
 
@@ -547,10 +547,10 @@ var editTask = function(taskId) {
 
 If you haven't already, save and test the app in the browser. Clicking an Edit button should console log the appropriate task ID.
 
-We've also defined a `taskSelected` variable that references the entire `<li>` element. We don't need everything from this element, though. The only pieces of information we care about are the task's title and type. In the DOM, these are an `<h3>` element and a `<span>` element respectively:
+We've also defined a `taskSelected` variable that references the entire `<li>` element. We don't need everything from this element, though. The only pieces of information we care about are the task's name and type. In the DOM, these are an `<h3>` element and a `<span>` element respectively:
 
 ```html
-<h3 class="task-title">Sample Task</h3>
+<h3 class="task-name">Sample Task</h3>
 <span class="task-type">Mobile</span>
 ```
 
@@ -562,26 +562,26 @@ Update the `editTask()` function to look like this:
 // get task list item element
 var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
 
-// get content from task title and type
-var taskTitle = taskSelected.querySelector("h3.task-title").textContent;
-console.log(taskTitle);
+// get content from task name and type
+var taskName = taskSelected.querySelector("h3.task-name").textContent;
+console.log(taskName);
 
 var taskType = taskSelected.querySelector("span.task-type").textContent;
 console.log(taskType);
 ```
 
-In the past, we've used `querySelector()` with the `document` object, but any DOM element can use this method. `document.querySelector()` searches the entire page while `taskTitle.querySelector()` only searches within that element. Thus, we can narrow our search to the task item at hand to find its title (`h3.task-title`) and type (`span.task-type`).
+In the past, we've used `querySelector()` with the `document` object, but any DOM element can use this method. `document.querySelector()` searches the entire page while `taskSelected.querySelector()` only searches within that element. Thus, we can narrow our search to the task item at hand to find its name (`h3.task-name`) and type (`span.task-type`).
 
 Test the app in the browser to verify if the `console.log()` statements display the correct data.
 
 Now that we have the information we want, we can reuse the selectors from before to update the form. Add these lines after the `var taskType` expression:
 
 ```js
-document.querySelector("input[name='task-name']").value = taskTitle;
+document.querySelector("input[name='task-name']").value = taskName;
 document.querySelector("select[name='task-type']").value = taskType;
 ```
 
-Save the `script.js` file again and refresh the browser. After creating a task, click the Edit button. If all's well, the task's title and type should appear in the form inputs:
+Save the `script.js` file again and refresh the browser. After creating a task, click the Edit button. If all's well, the task's name and type should appear in the form inputs:
 
 ![The form inputs and task list item have the same content](./assets/lesson-3/1500-edit-task.jpg)
 
@@ -590,14 +590,14 @@ To make it clear to the user that the form is now in "edit mode," we should also
 Add this line to `editTask()`:
 
 ```js
-document.getElementById("save-task").textContent = "Save Task";
+document.querySelector("#save-task").textContent = "Save Task";
 ```
 
 In the browser, the button text will change once an Edit button has been clicked:
 
 ![The form button says Save Task](./assets/lesson-3/1600-save-button.jpg)
 
-This is a nice UI improvement for the user, but we'll also need some way for us, the developer, to know which task is currently being edited. So far, we've only added the task's title and type to the form. The ID is lost, meaning when the user presses Save Task, where does that information go?
+This is a nice UI improvement for the user, but we'll also need some way for us, the developer, to know which task is currently being edited. So far, we've only added the task's name and type to the form. The ID is lost, meaning when the user presses Save Task, where does that information go?
 
 Let's make one more addition to the `editTask()` function:
 
@@ -638,12 +638,12 @@ var isEdit = formEl.hasAttribute("data-task-id");
 // has data attribute, so get task id and call function to complete edit process
 if (isEdit) {
   var taskId = formEl.getAttribute("data-task-id");
-  completeEditTask(taskTitleInput, taskTypeInput, taskId);
+  completeEditTask(taskNameInput, taskTypeInput, taskId);
 } 
 // no data attribute, so create object as normal and pass to createTaskEl function
 else {
   var taskDataObj = {
-    title: taskTitleInput,
+    name: taskNameInput,
     type: taskTypeInput
   };
 
@@ -651,17 +651,17 @@ else {
 }
 ```
 
-This way, `createTaskEl()` will only get called if `isEdit` is `false`. If it's `true`, we'll call a new function, `completeEditTask()`, passing it three arguments: the title input value, type input value, and task ID.
+This way, `createTaskEl()` will only get called if `isEdit` is `false`. If it's `true`, we'll call a new function, `completeEditTask()`, passing it three arguments: the name input value, type input value, and task ID.
 
 We'd best create that function now:
 
 ```js
-var completeEditTask = function(taskTitle, taskType, taskId) {
-  console.log(taskTitle, taskType, taskId);
+var completeEditTask = function(taskName, taskType, taskId) {
+  console.log(taskName, taskType, taskId);
 };
 ```
 
-Console log the parameters to verify that our function is working and getting the data it needs. We'll use `taskId` to find the correct `<li>` element and use `taskTitle` and `taskType` to update the `<li>` element's children accordingly.
+Console log the parameters to verify that our function is working and getting the data it needs. We'll use `taskId` to find the correct `<li>` element and use `taskName` and `taskType` to update the `<li>` element's children accordingly.
 
 Add the following code to `completeEditTask()`:
 
@@ -670,7 +670,7 @@ Add the following code to `completeEditTask()`:
 var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
 
 // set new values
-taskSelected.querySelector("h3.task-title").textContent = taskTitle;
+taskSelected.querySelector("h3.task-name").textContent = taskName;
 taskSelected.querySelector("span.task-type").textContent = taskType;
 
 alert("Task Updated!");
@@ -680,14 +680,88 @@ Also reset the form by removing the task ID and changing the button text back to
 
 ```js
 formEl.removeAttribute("data-task-id");
-document.getElementById("save-task").textContent = "Add Task";
+document.querySelector("#save-task").textContent = "Add Task";
 ```
 
-By removing the `data-task-id` attribute, we ensure that users are able to create new tasks again. Try it out in the browser, switching between making tasks and editing existing tasks. If anything seems off, check the console for errors. An error like `Uncaught TypeError: Cannot set property 'textContent' of null`, for instance, suggests one of the selectors is wrong. `h3.task-title` isn't the same as `h3 .task-title`, where the latter would return `null`, and there is no `textContent` property on `null`.
+By removing the `data-task-id` attribute, we ensure that users are able to create new tasks again. Try it out in the browser, switching between making tasks and editing existing tasks. If anything seems off, check the console for errors. An error like `Uncaught TypeError: Cannot set property 'textContent' of null`, for instance, suggests one of the selectors is wrong. `h3.task-name` isn't the same as `h3 .task-name`, where the latter would return `null`, and there is no `textContent` property on `null`.
 
 ## Move Task Based on Status
 
+There's still one last method in which a task can be updated. Tasks have a status&mdash;To Do, In Progress, Completed&mdash;that isn't updated through the main form but rather through individual `<select>` elements. Changing the value of the `<select>` should automatically move the task from one column to another.
 
+![A To Do, In Progress, and Completed column sit side by side](./assets/lesson-3/1800-three-columns.jpg)
+
+Since we'll be interacting with the remaining two columns, add two new variables at the top of `script.js` to reference them:
+
+```js
+var tasksInProgressEl = document.querySelector("#tasks-in-progress");
+var tasksCompletedEl = document.querySelector("#tasks-completed");
+```
+
+We technically already have a click event listener set up for the tasks' `<select>` elements thanks to the event delegation of `taskButtonHandler()`. This click event doesn't really help us here, though, because a `<select>` click only fires on the initial click. Depending on the browser, the second click to choose an option fires on the `<option>` element instead of the `<select>` element. That sounds like a bigger headache to sort out than its worth.
+
+Thankfully, there are more events besides click and submit that we can tap into. There's also a change event that triggers, as the name implies, any time a form element's value changes. Like our Delete and Edit clicks, though, we'll need to delegate this event since we have multiple elements that it applies to.
+
+At the bottom of `script.js`, add a new event listener:
+
+```js
+pageContentEl.addEventListener("change", taskStatusChangeHandler);
+```
+
+Alongside your other functions, define a new function to handle this event:
+
+```js
+var taskStatusChangeHandler = function(event) {
+
+};
+```
+
+> **Pause:** On the `event` object, how do you get the element that triggered the event?
+>
+> **Answer:** `event.target`
+
+In the `taskStatusChangeHandler()` function, console log `event.target` and `event.target.getAttribute("data-task-id")`. You should see the following:
+
+![DevTools console shows a select element and an ID of zero](./assets/lesson-3/1900-console-select.jpg)
+
+`event.target` is a reference to a `<select>` element, meaning we can use additional DOM methods to get this element's properties. We'll want the ID so we can find the overall task item, and we'll want the value of the `<select>` element to know which other column to move it to.
+
+Update the function to create the following variables:
+
+```js
+var taskStatusChangeHandler = function(event) {
+  // get the task item's id
+  var taskId = event.target.getAttribute("data-task-id");
+
+  // get the currently selected option's value and convert to lowercase
+  var statusValue = event.target.value.toLowerCase();
+
+  // find the parent task item element based on the id
+  var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
+};
+```
+
+Converting the value to lowercase may seem unnecessary, but it helps future proof the app in case we ever changed how the status text is displayed. Code-wise, we know we'll always check against the lowercase version. Based on whatever the value is, we can move the `taskSelected` element from one column/list to another.
+
+Add the following `if` statements to the end of the `taskStatusChangeHandler()` function:
+
+```js
+if (statusValue === "to do") {
+  tasksToDoEl.appendChild(taskSelected);
+} 
+else if (statusValue === "in progress") {
+  tasksInProgressEl.appendChild(taskSelected);
+} 
+else if (statusValue === "completed") {
+  tasksCompletedEl.appendChild(taskSelected);
+}
+```
+
+Remember that `tasksToDoEl`, `tasksInProgressEl`, and `tasksCompletedEl` are references to the `<ul>` elements created earlier. Thus, if the user selects "In Progress" from the dropdown, it will append the current task item to the `<ul id="tasks-in-progress">` element with the `tasksInProgressEl.appendChild(taskSelected)` method.
+
+The interesting thing about the use of `appendChild()` here is that it didn't create a copy of the task. It actually moved the task item from its original location in the DOM into the other `<ul>`. It's important to note that the variable `taskSelected` didn't create a `<li>`. That would only be the case if we used `document.createElement()`. Instead, it's a reference to an existing DOM element, and we simply appended that existing element somewhere else.
+
+Save and test the app in the browser to make sure the tasks move to the correct column/list when the dropdown changes. Now would be a good time to make a "Master JavaScript" task and move it to Completed!
 
 ## Finalize Git Process
 
@@ -710,6 +784,28 @@ Our work on this GitHub issue is done, which means it's time to revisit the Git 
 Lastly, close the corresponding GitHub issue and celebrate!
 
 ## Reflection
+
+Great job finishing this near-complete version of Taskinator! The app is basically usable now, as long as the user doesn't refresh the browser. But we'll address that later. For now, we should bask in what we accomplished:
+
+* We practiced additional ways of traversing the DOM and manipulating elements
+
+* We used a new event, change, to specifically handle `<select>` elements
+
+* We leveraged event delegation to account for event handlers on multiple, dynamically generated elements
+
+* We learned many new DOM element methods such as:
+
+  * `setAttribute()`
+
+  * `getAttribute()`
+
+  * `removeAttribute()`
+
+  * `remove()`
+
+  * `matches()`
+
+In the next lesson, we'll further improve the user experience with drag-and-drop features. This way, users can either use the dropdown to change the task status or drag tasks between columns.
 
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
