@@ -39,6 +39,16 @@
     border-bottom: 4px solid #ddd;
 }
 
+.page-content {
+  background-image: url("../img/burgers.jpg");
+  background-size: cover;
+  text-decoration: #ddd;
+}
+
+.pt-5, .py-5 {
+  color: white;
+}
+
 footer {
   background: #666;
 }
