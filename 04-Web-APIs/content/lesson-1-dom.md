@@ -216,17 +216,19 @@ Again note that window.document looks like HTML, but its actually the JavaScript
 ### DOM
 
 The DOM is an object that contains properties and methods we can use to manipulate our HTML elements and CSS properties. 
-> **Deep Dive:** DOM Tree nodes, which are organized in a hierarchy with parent and child nodes which relate to the parent and child HTML elements we are familiar with.
+> **Deep Dive:** DOM Tree nodes, which are organized in a hierarchy with parent and child nodes which relate to the parent and child HTML element relationships related to the nested structure pattern we are familiar with from HTML.
 
-There's not much we can do with window.document, but the DOM offers methods that we can use to find other elements within this document using JavaScript.
-One of the methods we will use to find our target elements is the `querySelector()`.
+There's not much we can do with `window.document` however, but having the DOM offers methods that we can use to find specific elements within this `document` using JavaScript.
+One of the methods we will use to find our target element is the `querySelector()`.
 Let's use this to find our `<button>` and `console.log` our results. Let's type the following directly into the console.
 ```js
 window.document.querySelector("button");
 ```
-@Todo why reference document?
+We should be seeing this in the console:
+> **@TODO** screen shot of console - button element
+The image does look like HTML, however once again this is the object representation, not the markup as we will demonstrate soon. First let's answer the question: Why is it important to prefix window and document to our `querySelector()` method?
 
-Note here that as previously, we don't have to type window as a prefix to our document statement because we are in the context of the `window` just as we did with the `Math` object.
+Actually we don't have to type `window` before document statement in the `script.js` file or the console because in both cases, we are in the context of the `window`. This should look familiar since that is what we did with the `Math` object. `Math.random()` for instance. Incidentally `alert()` and `prompt()` also can function without the window reference.
 > **@TODO** screen shot
 
 Although the console's return looks like raw HTML, it's actually an object representation of this element meaning it has access to properties and methods such as `textContent`.
@@ -250,20 +252,21 @@ document.querySelector("#save-task");
 The result should like exactly like our previous result in the console.
 
 Having successfully targeted our HTML element, now we can add this code into our JavaScript file, the `script.js`. 
-We will need to assign our element object representation to a variable.
-> **Pro Tip:** @TODO best practices 
-
+Assign the button element object representation to a variable like so:
 ```js 
 var buttonEl = document.querySelector("#save-task");
 console.log(buttonEl);
 ```
+> **Pro Tip:** @TODO best practices It is a best practice if an element object will be referenced more than once to assign the element object to a variable. Every time we query the document to find our element in the DOM, a document search is needed. Complex and elaborate DOM structures will have a noticeable resource drain that will lag performance especially if there are multiple references on the same element. In contrast the assigned variable of the element object contains the element object and therefore doesn't rely on a search operation.
+
+
 To see our expression in action we need to save our script file and refresh the `index.html` in the browser.
 
-> **Important:** @TODO can't open script directly in the browser.
+> **Important:** Have you tried opening our `script.js` file in the browser and notice you can't. Why not? Think about our HTML file as our subject matter and the style sheet and script files are the modifiers or enhancements. The HTML file provides us our canvas to apply our styles and behaviors and will always be the connection to the web browser.
 
-As we can see our `buttonEl` variable now represents our `button` element we displayed in the console earlier.
+As we can see in the console, our `buttonEl` variable now represents the same `button` element we displayed in the console earlier. Now that we were successful in selecting the correct element in the DOM, how do we add a task on a button click? 
 
-
+### 
 
 <!-- 
 In the Chrome DevTools Console tab, type `console.log(window);` and hit `Enter`:
