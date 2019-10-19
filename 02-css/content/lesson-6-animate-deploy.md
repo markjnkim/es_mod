@@ -4,7 +4,7 @@
 
 In the previous lesson, we spruced up the visuals of our landing page using a number of CSS tricks like shadows, rounded corners, pseudo-classes, and pseudo-elements. The folks at Run Buddy looked at this polished version of the site and love what we've done with it. They can't wait to show it off to the world, but there's one last feature they would like implemented. The CEO in particular was really looking forward to the animated hover effect as seen here:
 
-> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-92
+> **Asset Needed:** https://trilogyed.atlassian.net/browse/FSFO-92
 
 We could push back on this issue and claim it's not possible. Who knows... maybe it isn't? We'll need time to play around with different options, but at least those are billable hours! Assuming the animation can be done, here's what we'll tackle in this lesson:
 
@@ -70,7 +70,7 @@ Another example might be:
 
 This time, we have three keyframes/steps. There's no `halfway` keyword in CSS, but we're allowed to use percentages instead. We could expand this even more and define keyframes at 25%, 30%, 40%, etc. In this example, we're animating the `background-color` property to change from red to blue first, then from blue to green.
 
-> ## NEED GRAPHIC: https://trilogyed.atlassian.net/browse/FSFO-113
+> **Asset Needed:** https://trilogyed.atlassian.net/browse/FSFO-113
 
 Of course, these keyframes don't do anything on their own. We still have to apply them to an element. For example, if we wanted every `<div>` to fade in, we would reference the name of that keyframes group in conjunction with the `animation-name` property:
 
@@ -150,7 +150,7 @@ div:hover {
 
 Now that we've looked at `transition`, let's recap both animation techniques:
 
-> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-114
+> **Asset Needed:** https://trilogyed.atlassian.net/browse/FSFO-114
 
 These were fairly high-level examples of CSS animation, though, and what Run Buddy wants us to accomplish still seems a little daunting. Watch the demo video from the introduction again. Notice how the background image has an animated [color gradient](https://en.wikipedia.org/wiki/Color_gradient), and the trainer's name and role slide in at different times. Which technique, `animation` or `transition`, would be most applicable?
 
@@ -339,7 +339,7 @@ This means any `<span>` element that's inside of a `<div>` element _that's in a 
 
 You'll know it's working if you can hover over the image or the bio underneath:
 
-> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-93
+> **Asset Needed:** https://trilogyed.atlassian.net/browse/FSFO-93
 
 Of course, the gradient still isn't animated, but now that the default state and hover state are set, it's only a matter of adding a 1/2 second `transition` to the default state. Reference the [documentation for transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) again if you get stuck.
 
@@ -372,7 +372,7 @@ Like the pseudo-element's opacity, we can set `top` back to `0px` when the train
 
 This is the behavior we should see:
 
-> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-93
+> **Asset Needed:** https://trilogyed.atlassian.net/browse/FSFO-93
 
 Because the text isn't animated yet, it almost looks like we just changed the opacity/visibility instead of its position. Add a 0.6 second `transition` to the following CSS rules so you can better see the elements slide in from `200px` to `0px`:
 
@@ -392,7 +392,7 @@ Also keep in mind that the `<h4>` trails behind the `<h3>` for a fraction of a s
 
 Once you've got it, reference your work against the demo video provided earlier. If things don't match up, double-check your `transition` values and CSS selectors. Above all else, leverage the Chrome DevTools!
 
-> ## NEED LEARNOSITY: https://trilogyed.atlassian.net/browse/FSFO-123
+> **Asset Needed:** https://trilogyed.atlassian.net/browse/FSFO-123
 
 ## Adjust for Mobile Devices
 
@@ -457,7 +457,7 @@ Inside of this media query, add additional rules that will hide/remove the gradi
 
  To verify that we did everything correctly, the hover animation should only work in fullscreen, and smaller screens shouldn't see any name/role information:
 
-> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-94
+> **Asset Needed:** https://trilogyed.atlassian.net/browse/FSFO-94
 
 We're not done yet; we still need to show the trainer information on smaller screens. In the same media query where we hid the hover elements, let's reveal `.trainer-bio h3` and `.trainer-bio h4`. If `display: none` removes an element entirely from the flow of the webpage, what [display value](https://developer.mozilla.org/en-US/docs/Web/CSS/display) would bring it back?
 
@@ -523,7 +523,7 @@ This will complete the merge and apply all of the commits from `develop` onto `m
 
 For an example of a slightly more complicated pull request, watch this video:
 
-> ## NEED VIDEO: https://trilogyed.atlassian.net/browse/FSFO-95
+> **Asset Needed:** https://trilogyed.atlassian.net/browse/FSFO-95
 
 ## Reflection
 
