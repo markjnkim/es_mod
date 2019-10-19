@@ -474,15 +474,15 @@ The best solution, of course, is the one that makes the most sense to you!
 
 This is a great stopping point to `add`, `commit`, and `push` these changes to your branch.
 
-## Customize the Buttons
+## Customize the Checkboxes and Radio Buttons
 
-The Run Buddy folks like the changes we've been making, but they've also been wondering when we're going to update those ugly, default checkboxes and radio buttons. In the following picture, the browser's default styling is on the left, and the requested styling is on the right:
+The Run Buddy folks like the changes we've been making, but they're also wondering when we're going to update those ugly  default checkboxes and radio buttons. In the following picture, the browser's default styling for a checkbox is on the left while the requested styling is on the right:
 
 ![A default styled checkbox sits next to a customized checkbox](./assets/lesson-5/1000-checkboxes.png)
 
 The one on the right is definitely an improvement, but getting there isn't exactly intuitive. Browsers don't let us change much about these elements. Some developers remove them entirely and use JavaScript to simulate their behavior, but it would be better practice to keep the radio buttons and checkboxes on the page for accessibility reasons.
 
-What we can do, though, is make the default buttons invisible and use CSS to create and position our own buttons on top of them. This is a good compromise because screen readers will ignore the CSS while still picking up the real buttons underneath.
+What we can do, though, is make the default buttons invisible and use CSS to create and position our own checkboxes and radio buttons on top of them. This is a good compromise because screen readers will ignore the CSS while still picking up the real buttons underneath.
 
 Let's first restructure the HTML in the hero form to accommodate this approach:
 
@@ -506,7 +506,7 @@ Let's first restructure the HTML in the hero form to accommodate this approach:
 </p>
 ```
 
-Note that we wrapped each of the `<input>` elements and their labels in a `<span>` element. Perform a little CSS magic and make the inputs inside of these wrappers disappear:
+Note that we wrapped each of the `<input>` elements and their labels in a `<span>` element. Next, perform a little CSS magic and make the inputs inside of these wrappers disappear:
 
 ```css
 .checkbox-wrapper input, .radio-wrapper input {
@@ -677,7 +677,7 @@ Save your code if you haven't already and check your work in the browser. To tru
 
 > **Asset Needed:** <https://trilogyed.atlassian.net/browse/FSFO-102>
 
-## Optimize with Variables
+## Optimize Using Variables
 
 Before we wrap up this GitHub issue, let's explore another newer (and really cool) feature of CSS called custom properties, or **variables**. If you skim over the CSS rules in `style.css`, you'll notice that there's a lot of repetition in the values we use. Run Buddy basically has three colors: yellow (`#fce138`), navy blue (`#024e76`), and teal (`#39a6b2`). We've been writing these colors a lot and will continue to do so as long as Run Buddy keeps requesting more features. What would be helpful is to define the colors once and then just reference a name like "primary-color." Well, with CSS variables, we totally can! The syntax is as follows:
 
@@ -726,7 +726,7 @@ Yuck. But Run Buddy assures us they aren't interested in supporting IE. Various 
 
 > **On the Job:** Browser requirements vary from client to client. If your company has many international users, where older operating systems like Windows XP are still fairly common, you will need to be much more mindful of Internet Explorer. If you do all of your development on macOS, don't be afraid to ask your company for a Windows laptop to test on, or vice versa!
 
-## Merge It
+## Merge It!
 
 That wraps up everything we needed to complete the CSS enhancements issue/feature. If you haven't already, stage and commit your work. The entire Git process should look like this:
 
