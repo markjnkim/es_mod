@@ -97,9 +97,9 @@ Here's another example, which we'll use in Run Buddy:
 text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 ```
 
-The first `0` means there is no horizontal offset; the shadow will start at the left side of the text. The second `0` means no vertical offset. The value `10px` defines the radius/size of the blur. Finally, `rgba(0, 0, 0, 0.5)` sets the color to black at half transparency.
+The first `0` means there is no horizontal offset; the shadow will start at the left side of the text. The second `0` means no vertical offset. The value `10px` defines the radius (i.e., size) of the blur. Finally, `rgba(0, 0, 0, 0.5)` sets the color to black at half transparency.
 
-Add the following `text-shadow` property to the following three CSS rules in `style.css`: 
+Per the mock-up, add the following `text-shadow` property to the following three CSS rules in `style.css`: 
 
 ```css
 header h1 {
@@ -176,46 +176,6 @@ Next, let's add a small rounded corner to all of the form elements on the page. 
 
 > **Legacy Lem:** Before the invention of `border-radius`, developers had to jump through some annoying hoops to simulate rounded corners. One common trick was to add four images inside the `<div>`, one for each corner, and use absolute positioning to move them into the appropriate places.
 
-> **Skill Drill** Use `border-radius` and any other CSS tricks you've learned to create an "eyeball" that looks like this:
->
-> ![A white circle has a black circle inside of it](./assets/lesson-5/350-eyeball.png)
->
-> Here's the HTML to get you started:
->
-> ```html
-><div class="outer">
->  <div class="inner">
->   
->  </div>
-></div>
->```
->
->Answer:
->
->```css
->.outer, .inner {
->  /* 50% will make both divs a nice even circle */
->  border-radius: 50%;
->}
->
->.outer {
->  background-color: white;
->  width: 50px;
->  height: 50px;
->  /* we can use flexbox to center everything inside the white div */
->  display: flex;
->  align-items: center;
->  justify-content: center;
->}
->
->.inner {
->  background-color: black;
->  width: 25px;
->  height: 25px;
->}
->```
-
-
 ## Make the Header "Sticky"
 
 We've managed to spruce up the page a little bit, but the Run Buddy team is getting antsy about the header. It still doesn't look like the new mock-up. The design team also wants the header to be "sticky," meaning it looks like part of the hero at first but then follows the page as it scrolls. 
@@ -270,7 +230,7 @@ top: 0;
 
 Now that the header is sticky, we can style it to make it look like part of the hero. Keep in mind that the header isn't really part of the hero; they must be separate elements for the stickiness to work. If done correctly, the user won't notice.
 
-Copy the same background properties from `.hero` into `header`:
+Copy the following background properties from `.hero` into `header`:
 
 ```css
 background-image: url('../images/hero-bg.jpg');
@@ -395,6 +355,20 @@ Remember to add a transparent default state and a separate `:focus` rule.
 
 > **Hint:** You can consolidate your `:focus` rules with comma-separated selectors: `.contact-form input:focus, .contact-form textarea:focus`.
 
+Here's how this CSS could look:
+
+
+```css
+.contact-form input, .contact-form textarea {
+  /* add a transparent background here */
+}
+
+/* create a new css rule for focus state */
+.contact-form input:focus, .contact-form textarea:focus {
+
+}
+```
+
 So far, we've looked at hover, active, and focus states that depend on user interactivity. There are also other states an element can be in that have more to do with where it is in relation to others.
 
 Earlier, we added a `border-bottom: 1px solid #39a6b2` declaration to `.step`. Delete that declaration for now and add it to a brand new CSS rule instead:
@@ -480,7 +454,7 @@ The Run Buddy folks like the changes we've been making, but they're also wonderi
 
 ![A default styled checkbox sits next to a customized checkbox](./assets/lesson-5/1000-checkboxes.png)
 
-The one on the right is definitely an improvement, but getting there isn't exactly intuitive. Browsers don't let us change much about these elements. Some developers remove them entirely and use JavaScript to simulate their behavior, but it would be better practice to keep the radio buttons and checkboxes on the page for accessibility reasons.
+The one on the right is definitely an improvement, but getting there isn't exactly intuitive. Browsers don't let us change much about these elements. Some developers remove them entirely and use JavaScript to simulate their behavior, but it would be better practice to keep the radio buttons and checkboxes on the page so assistive technologies can still read them.
 
 What we can do, though, is make the default buttons invisible and use CSS to create and position our own checkboxes and radio buttons on top of them. This is a good compromise because screen readers will ignore the CSS while still picking up the real buttons underneath.
 
@@ -726,7 +700,7 @@ Yuck. But Run Buddy assures us they aren't interested in supporting IE. Various 
 
 > **On the Job:** Browser requirements vary from client to client. If your company has many international users, where older operating systems like Windows XP are still fairly common, you will need to be much more mindful of Internet Explorer. If you do all of your development on macOS, don't be afraid to ask your company for a Windows laptop to test on, or vice versa!
 
-## Merge It!
+## Merge It
 
 That wraps up everything we needed to complete the CSS enhancements issue/feature. If you haven't already, stage and commit your work. The entire Git process should look like this:
 
@@ -734,15 +708,15 @@ That wraps up everything we needed to complete the CSS enhancements issue/featur
 
 2. Type `git add -A` or `git add .` to stage any changed files.
 
-3. Type `git commit -m "final css touches"`.
+3. Commit the changes by using `git commit -m "final css touches"`.
 
-4. Type `git push origin feature/aesthetics` to push the branch to GitHub.
+4. Push the branch to GiHub by using `git push origin feature/aesthetics`.
 
 5. Type `git checkout develop` to switch branches.
 
-6. Type `git merge feature/aesthetics` to merge the new feature/changes into the `develop` branch.
+6. Merge the new feature/changes into the `develop` branch by typing `git merge feature/aesthetics`.
 
-7. Type `git push origin develop` to push the updated `develop` branch to GitHub.
+7. Push the updated `develop` branch to GitHub by typing `git push origin develop`.
 
 We're not quite ready to merge into `master` yet. There's one last issue waiting for us in GitHub, which we'll take care of in the next lesson.
 
@@ -768,7 +742,7 @@ In the next lesson, we'll look at another hot topic in the world of the web: ani
 
 * We implemented CSS variables (aka custom properties) to consolidate our color values and optimize the codebase.
 
-Wow, those are a lot of new tricks! The good news is that you don't have to memorize them. They're always a quick Google search away.
+Wow, those are a lot of new skills! The good news is that you don't have to memorize them. They're always a quick Google search away.
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
