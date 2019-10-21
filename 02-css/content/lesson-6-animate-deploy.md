@@ -4,6 +4,10 @@
 
 In the previous lesson, we spruced up the visuals of our landing page using a number of CSS tricks like shadows, rounded corners, pseudo-classes, and pseudo-elements. 
 
+Here's where we left off:
+
+![Run Buddy landing page with shadows and rounded corners](./assets/lesson-6/050-screenshot.jpg)
+
 The folks at Run Buddy love what we've done with so far and can't wait to show it off to the world, but there's one last feature they want: animation. 
 
 ## Preview
@@ -14,7 +18,7 @@ The CEO in particular has really been looking forward to an animated hover effec
 
 We don't yet know how we'll implement this. We could push back and claim it's not possible, but we want to make our client as happy as possible. The time it takes to play around with different options will be billable hours and provide many learning opportunities, so this challenge is a win-win situation! 
 
-Assuming the animation can be done using CSS, here's what we'll do in this lesson:
+Here's what we'll do in this lesson:
 
 1. Experiment with different animation techniques.
 
@@ -243,7 +247,7 @@ Check the webpage in the browser to make sure things are coming together:
 
 ![The trainer card includes an image again, but it is too big to fit inside](./assets/lesson-6/300-big-background.png)
 
-Welcome back, Tony! Now size down Tony and his fellow trainers by using the the same `background-size` property that you used on the `header` rule.
+Welcome back, Arron! Now size down Arron and his fellow trainers by using the same `background-size` property that you used on the `header` rule.
 
 We still need to do something about the text, though. At the end of the hover animation, the text will be positioned in the bottom-left corner. We could use absolute positioning to accomplish this or we could use our new friend flexbox. It would probably take the same number of declarations either way and flexbox is easier to make adjustments to, so we'll go with that.
 
@@ -567,7 +571,7 @@ Before we move ahead, let's recap some of the new CSS skills we learned:
 
 Overall, the Run Buddy redesign gave us a chance to learn some cutting edge techniques and keep our skills relevant in a "mobile-first" world. Believe it or not, there are real-world jobs that do exactly this. 
 
-Next up, you'll learn JavaScript, which is one of the most widely used programming languages today. The more skills you have, the more marketable you'll be, and pairing HTML and CSS with JavaScript will open up a lot more opportunities for you in the job market. Onwards!  
+Next up, you'll learn JavaScript, which is one of the most widely used programming languages today. The more skills you have, the more marketable you'll be, and pairing HTML and CSS with JavaScript will open up many job opportunities for you. Onwards!  
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
