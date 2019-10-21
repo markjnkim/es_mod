@@ -10,14 +10,15 @@ We have become adept at using GitHub Issues in our last few projects to track ou
 This may be a great candidate for a personal project. 
 > **On the Job:** Especially as new developers, personal projects are important ways to demonstrate to potential employers not only a dev's ability and skill, but show off creativity, passion, and personality. Having a well rounded portfolio illustrates your talent, potential, and capability to finish projects. 
 
-Let's see what the end product of our app should look like at the end of the module.
+Let's see what our app should look like at the end of the module.
+
 > **Asset Needed:** [Gif of the app at the end of the module Jira Issue FSFO-192](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-192).
 
-Having learned the fundamentals of JavaScript, we will now use those key concepts to manipulate the behavior of a webpage and demonstrate why JavaScript is a fundamental pillar of front-end development. In this module we will be building the Taskinator, a personal task tracker application that will combine all our knowledge of front-end development with HTML, CSS, and JavaScript. We will also be introducing some new built-in browser Web APIs.
+Having learned the fundamentals of JavaScript, we will now use those key concepts to manipulate the behavior of a web page and demonstrate why JavaScript is a fundamental pillar of front-end development. In this module we will be building the Taskinator, a personal task tracker application that will combine all our knowledge of front-end development with HTML, CSS, and JavaScript. We will also be introducing some new built-in browser Web APIs.
 
 Let's highlight some of the main concepts we’ll learn:
   - The Document Object Model or the DOM to create, manipulate, and delete HTML
-  - Browser events will be used to capture user actions and manipulate data
+  - Browser events will be used to capture user interaction 
   - Introduce advanced HTML attributes to help with our application’s logic
   - Add drag and drop functionality 
   - Persist our tasks in `localStorage`
@@ -25,10 +26,11 @@ Let's highlight some of the main concepts we’ll learn:
 
 
 ## Preview
+In this lesson we will introduce key concepts of JavaScript and web page interactivity. Let's take a look at what we will build by the end of this lesson:
+
 > **Asset Needed:** Screenshot of the app at the end of the lesson.
-> **@TODO** - Analyze the details of the mock-up
-  1. Using JavaScript, we’ll make the button on the page react to being clicked
-    - When it is clicked, it will add another task to our list by creating an HTML element
+
+As can be seen from the mock-up, we will have a nice beginning to our Taskinator app. Our main objective in this lesson is to have a mouse click on the Add Task button add a task to our list.
 > **Asset Needed:** [Learnosity Jira Issue FSFO-193 - Put the pseudocode steps in order](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-193)
 Ask students to pseudocode how they might build this. Consider the functions and user interaction APIs that you already know about
   1. Emphasize that this exercise is valuable, even if it is not accurate. Tie into the on-the-job importance of thinking about a problem in-depth prior to starting, so you can map out your blindspots.  
@@ -54,31 +56,68 @@ Now that we have our development environment with Git, let's create the file str
 - js folder 
 - images folder
 Add the `style.css` and image file downloaded from Canvas to their proper folders.
-> **@TODO** screen shot of the folder tree
+> **@TODO** screenshot of the folder tree
 
 Let's open the `index.html` file and create our boilerplate HTML markup.
-> **Asset Needed:** Learnosity - Key tags necessary for a functioning HTML page.
+> **Asset Needed:** [Learnosity - Key tags necessary for a functioning HTML page Jira Issue FSFO-199](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-199).
 
 Luckily we can use a VS Code shortcut to get the initial boilerplate HTML markup.
 Type this in the `index.html` file:
 `html:5` and press Enter
 So what just happened? 
 We used a shortcut to autocomplete the boiler plate using HTML 5 by using a tool called Emmet.
-> **Deep Dive:** **@TODO** Emmet cheatsheet link
+> **Deep Dive:** [For a nice cheatsheet that on the Emmet's shortcuts take a look at Emmet's documentation page](https://docs.emmet.io/cheat-sheet/)
 
 So now let's edit and add a few tags to our HTML page and use relative paths to link our project files.
 - edit the `<link>` tag
 - add the `<script>` tag
 - change the title
 
-So now your index.html file should look like this:
-> **@TODO** code block of the new tags
+So now your `index.html` file should look like this:
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Taskinator</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1 class="page-title">Taskinator</h1>
+    <p>Click the button below to add a new task!</p>
+    <button class="btn">Add Task</button>
+  </header>
+
+  <main class="page-content">
+    <section class="task-list-wrapper">
+      <h2 class="list-title">Tasks To Do</h2>
+      <ul class="task-list">
+        <li class="task-item">A task is going to be added soon!</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy;2020 by Taskinator
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
+```
 
 ### Add the Markup
 
 Let's another look at the mock-up to see what our markup might look like.
 
-> **@TODO** Screenshot of the mock-up for lesson 1
+![Lesson 1 Mock-up](./assets/lesson-1/200-lesson-one-mock-up.png)
 
 Based on what the image above shows us, how many main "blocks" of HTML do we think we are going to need? Luckily, the design seems to already do this for us with its use of background colors, so let's dissect it:
 
@@ -86,13 +125,9 @@ Based on what the image above shows us, how many main "blocks" of HTML do we thi
 
 - The middle area is going to contain everything with the white background. Since it is going to hold the most important content for our application, we can use the aptly named `<main>` element to hold that content.
 
-- The area at the bottom of the page is going to obviously use the `<footer>` element.
+- The area at the bottom of the page is going to be the `<footer>` element.
 
-To visualize this, take a look at the following image to see everything outlined:
-
-> **@TODO** Screen shot of mock-up with outline of three main sections/blocks
-
-So now that we have our three main content sections identified, let's go ahead and start adding them to the page one-by-one, starting with the `<header>` element.
+So now that we have our three content sections identified, let's go ahead and start adding them to the page one-by-one, starting with the `<header>` element.
 
 Let's start by creating our `<header>` element inside the opening `<body>` element tag so it looks like this:
 
@@ -110,7 +145,7 @@ Now that we have our initial `<header>` element set up, let's add a few more ele
 
 - Add an `<h1>` element
   - Make it say "Taskinator" in between the tags
-  - Give it a class attribute value of `page-title`
+  - Give `<h1>`, a class attribute value of `page-title`
 - Add a `<p>` element with text content saying something along the lines of:
 ```
 Click the button below to add a new task!
@@ -136,7 +171,7 @@ Wow, that looks pretty good considering we haven't written any of our own CSS ju
 
 Remember that CSS file we had to download and put into our `css` project folder earlier? You may have noticed that the `style.css` file wasn't empty. As a matter of fact, it has already been completed for us! All we need to do is use the right class names to apply styles to our HTML elements as we build the project.
 
-> **On the Job NEEDED:** Callout about developers not always having the bandwidth to create all of the styles when building an app (this is what UX/UI teams are for!). Allude to Bootstrap and external CSS frameworks.
+> **On the Job :** Developers do not always having the bandwidth to create all of the styles when building an app (this is what UX/UI teams are for!). Later we will use external CSS libraries to 
 
 Now let's proceed with the next block of HTML content which will be the `<main>` element that will contain our list of tasks. So how should we proceed here? Let's look at what the finished application's `<main>` element is going to look like to help us determine what to do:
 
@@ -210,7 +245,7 @@ console.log(window.document)
 ```
 > **@TODO** screenshot of the window.document raw HTML
 
-As you can see from the screen shot we can see our JavaScript representation of our `index.html` file. This is how we can establish the link between JavaScript and HTML. This is important in order for our JavaScript to modify HTML and CSS. 
+As you can see from the screenshot we can see our JavaScript representation of our `index.html` file. This is how we can establish the link between JavaScript and HTML. This is important in order for our JavaScript to modify HTML and CSS. 
 
 Again note that window.document looks like HTML, but its actually the JavaScript representation. That leads us the Document Object Model which is also known as the DOM. 
 
@@ -226,11 +261,11 @@ Let's use this to find our `<button>` and `console.log` our results. Let's type 
 window.document.querySelector("button");
 ```
 We should be seeing this in the console:
-> **@TODO** screen shot of console - button element
+> **@TODO** screenshot of console - button element
 The image does look like HTML, however once again this is the object representation, not the markup as we will demonstrate soon. First let's answer the question: Why is it important to prefix window and document to our `querySelector()` method?
 
 Actually we don't have to type `window` before document statement in the `script.js` file or the console because in both cases, we are in the context of the `window`. This should look familiar since that is what we did with the `Math` object. `Math.random()` for instance. Incidentally `alert()` and `prompt()` also can function without the window reference.
-> **@TODO** screen shot
+> **@TODO** screenshot
 
 Although the console's return looks like raw HTML, it's actually an object representation of this element meaning it has access to properties and methods such as `textContent`.
 Let's type the following into the console to see the result:
@@ -239,7 +274,7 @@ Let's type the following into the console to see the result:
 document.querySelector("button").textContent;
 ```
 
-> **TODO** screen shot of result
+> **TODO** screenshot of result
 As we can see from this result, we are able to use a built-in property of a DOM element so clearly we are dealing with objects here.
 
 Great job, we were able to select our button, but what happens if we start adding more buttons to the page? Our querySelector currently would only be able to find the first button in the document. So how do we uniquely identify this button from the rest? We can use a familiar attribute called the `id`. Let's add the `id` "save-task" attribute to our `button` element in the `index.html` file so the element now looks like this:
