@@ -188,7 +188,8 @@ Let's add, commit and push our feature branch up to GitHub.
 >
 > Don't forget there's always Chrome DevTools to help see what CSS is in place as well!
 
-## Capture a Button Click
+## Create an Element Object
+
 Nice work, the app looks great so far, but if we try to click the button; nothing happens. We would like to have this button add a task to our task list as shown here:
 > **Asset Needed:** [Gif adding task to task list Jira Issue FSFO-191](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-191)
 
@@ -262,28 +263,62 @@ console.log(buttonEl);
 
 To see our expression in action we need to save our script file and refresh the `index.html` in the browser.
 
-> **Important:** Have you tried opening our `script.js` file in the browser and notice you can't. Why not? Think about our HTML file as our subject matter and the style sheet and script files are the modifiers or enhancements. The HTML file provides us our canvas to apply our styles and behaviors and will always be the connection to the web browser.
+> **Important:** Have you tried opening our `script.js` file in the browser and notice you can't. Why not? Think about our HTML file as our subject matter and the style sheet and script files as the modifiers or enhancements. The HTML file provides us our canvas to apply our styles and behaviors and will always be the connection to the web browser. It is the HTML file that acts as the hub, connecting the supplemental files with relative file paths. 
 
-As we can see in the console, our `buttonEl` variable now represents the same `button` element we displayed in the console earlier. Now that we were successful in selecting the correct element in the DOM, how do we add a task on a button click? 
+As we can see in the console, our `buttonEl` variable now represents the same `button` element we displayed in the console earlier. Now that we are successful in selecting the correct element in the DOM, how do we add a task on a button click? 
 
-### 
+## Capture the Button Click
 
-<!-- 
-In the Chrome DevTools Console tab, type `console.log(window);` and hit `Enter`:
-. 
-> **Pro Tip:** We can reveal the `window` object without the `console.log` expression because we are in the Console tab. 
+In the last step, we were able to use the DOM to find the element object representation of our `<button>`. In this step we need a way to observe the user's click of the `<button>`. In the next step we will then create a response from the button click which will be adding a task item to our task list. Being able to break down our process, step by step is essential to solving this problem. You got this!
 
-> **@TODO** Screenshot of the window object in the console
+It is important to note that we want to observe for the click behavior specific to the `<button>`. We wouldn't want our button click response to occur if the user clicked on the `<body>` or any other element in the document because we would inadvertently be adding tasks to our list unintentionally, not a good user experience. 
 
-Now that we have our `window` object on full display for us with all of it's methods and properties, try and find one property called `document` and click on it to open it up.
+In web development we refer to the user behavior, the click in this case, as an **event**. We refer to the act of observing the event, as the **event listener**. Lastly, we refer to the response to the event as the **event handler**. 
 
-So what are we looking at here? It seems like the `document` property is its own object as well! Let's filter out a lot of noise from the other `window` properties and just focus on what the `document` has to offer by typing the following into the Console:
-
+There are many different types of events because there are many user behaviors that can happen on a web page. Over the years the number of events has grown in order to capture the different interactions of the user and the web page. A few examples would include hovering with a mouse pointer, key clicks on your keyboard, or scrolling down the web page. Events can even be defined at the start or end of an action such as an a key press or a key press release. [For an in depth look at all events possible take a look at MDN docs for a detailed review.](https://developer.mozilla.org/en-US/docs/Web/API/Element#Events)
+Now lets get our hands dirty and type the following into your console of your browser that has your `index.html` file.
 ```js
-window.document
-``` -->
+buttonEl.addEventListener("click", function() {
+  alert("button clicked");
+})
+```
+Now click the button to see what is happening.
+We should see this in the dialog box.
 
-Luckily we can use the Document Object Model otherwise know as the DOM to give us an object representation of the HTML in JavaScript. This is how
+![button clicked dialog box](./assets/lesson-1/1000-button-clicked.png)
+
+Let's breakdown our expression to understand the big concepts being demonstrated here.
+* The `addEventListener()` is a method that can be used by our element object `buttonEl` to add an event listener to the `<button>` element. `buttonEl` has been established in the previous step as our object representation of the `<button>` element.
+* We pass in two arguments into our `addEventListener()` function. The type of event we will be listening for, in our case the click event, and the event response we would like executed once our click event on the `<button>` has occurred. In this case we used an anonymous function that uses the window method `alert()`. Just as with `document` and `Math`, we don't need to prefix `window` to `alert()` because we are in the context of our browser window.
+
+### Call Me Back Maybe
+Let's dive a bit deeper into the second argument since passing in a function into a function is very perplexing at first glance. This is called a **callback** function. In the lexicon of JavaScript, this is one of the foundational pillars that make JavaScript unique. In layman's terms, we are assigning a function to execute upon the event occurrence. Callback function can occur synchronously or immediately, or they can happen asynchronous at a later time. In our case, we have an asynchronous callback function since the anonymous function will not occur until the click event has occurred on the button.
+
+### Synchronous Call Back
+Here is an example of a synchronous callback function you can enter into the console in your browser:
+```js
+function sayHello(name) {
+  alert("Hello " + name + "!");
+}
+
+function processName(callback) {
+  var name = prompt("Enter your name");
+  callback(name);
+}
+
+processName(sayHello);
+```
+After entering your name, you should see the alert:
+
+![Dialog Box with Greeting](./assets/lesson-1/1100-name-alert.png)
+
+As you can see, a function is passed into the `processName()` function as an argument. This callback function `sayHello()` is executed immediately once the `processName()` function is called, hence it occurs synchronously.
+
+In our button click example, our callback function did not execute immediately, but waited for the click event to occur. We call this type of callback, asynchronous, due to the fact that the main program continue to execute as the callback waits to be executed.
+
+![Fo more on asynchronous vs synchronous functions let's research our MDN docs for a detailed definition](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
+
+
 
 ## Add Items with the Click of a Button
 
