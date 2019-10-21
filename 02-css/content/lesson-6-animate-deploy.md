@@ -8,7 +8,7 @@ Here's where we left off:
 
 ![Run Buddy landing page with shadows and rounded corners](./assets/lesson-6/050-screenshot.jpg)
 
-The folks at Run Buddy love what we've done with so far and can't wait to show it off to the world, but there's one last feature they want: animation. 
+The folks at Run Buddy love what we've done with so far and can't wait to show it off to the world, but there's one last feature they want us to add: animation. 
 
 ## Preview
 
