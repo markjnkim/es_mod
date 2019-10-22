@@ -8,41 +8,63 @@
 We have become adept at using GitHub Issues in our last few projects to track our progress and help focus our attention and energy at the highest priority tasks at hand. We gotten so proficient, we'd like to use it for all our productivity needs, but wouldn't it be a little strange to make a "Do Laundry" or "Clean out the Garage" as a GitHub Issue. This is meant for issues related to the repo, not your life. Plus, its public for all the world to see, so having a private to-do list seems more appropriate. 
 
 This may be a great candidate for a personal project. 
+
 > **On the Job:** Especially as new developers, personal projects are important ways to demonstrate to potential employers not only a dev's ability and skill, but show off creativity, passion, and personality. Having a well rounded portfolio illustrates your talent, potential, and capability to finish projects. 
 
-Let's see what our app should look like at the end of the module.
+Let's see what our app should look like at the end of the module:
 
-> **Asset Needed:** [Gif of the app at the end of the module Jira Issue FSFO-192](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-192).
+![Finished Project](./assets/lesson-1/100-final-mock-up.png)
+<!-- >> **Asset Desired:** [Gif of the app at the end of the module Jira Issue FSFO-192](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-192) -->
+The image shows a task item being dragged to the Tasks Completed list. 
 
-Having learned the fundamentals of JavaScript, we will now use those key concepts to manipulate the behavior of a web page and demonstrate why JavaScript is a fundamental pillar of front-end development. In this module we will be building the Taskinator, a personal task tracker application that will combine all our knowledge of front-end development with HTML, CSS, and JavaScript. We will also be introducing some new built-in browser Web APIs.
+Let's point out a fundamental difference between our personal productivity tracker and GitHub Issues. We can track the state of the task and move our tasks between states. 
+
+> **Urkel Says:** This type of to-do list is known as a Kanban board used originally at Toyota to improve manufacturing efficiency.
+
+Having learned the fundamentals of JavaScript, we will now use those key concepts to manipulate the behavior of a web page and demonstrate why JavaScript is a fundamental pillar of front-end development. 
+
+
+In this module we will use these skills and learn more to build the Taskinator, a personal task tracker application that will combine all our knowledge of front-end development with HTML, CSS, and JavaScript. We will also be introducing some new built-in browser Web APIs. Let's go over some of the skills we will need to recall and leverage in this project:
+* HTML elements, attributes, and properties
+* CSS class selectors
+* JavaScript Objects
+* JavaScript Functions
+* Web Storage API
+* `window` object
+* Git
+
+## Preview
+In this lesson we will introduce key concepts of JavaScript and web page interactivity. Let's take a look at what we will build by the end of this lesson:
+
+![Lesson Mock-up](./assets/lesson-1/150-lesson-mock-up.png)
+<!-- [Gif Demo of final project Jira FSFO-203](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-203) -->
+
+As can be seen from the mock-up, we will have a nice beginning to our Taskinator app. Our main objective in this lesson is to have a mouse click on the Add Task button to add a task to our list.
 
 Let's highlight some of the main concepts we’ll learn:
   - The Document Object Model or the DOM to create, manipulate, and delete HTML
   - Browser events will be used to capture user interaction 
   - Introduce advanced HTML attributes to help with our application’s logic
-  - Add drag and drop functionality 
-  - Persist our tasks in `localStorage`
+  - Add drag and drop functionality using the Drag and Drop API
+  - Persist our tasks in `localStorage` 
   - Deploy our website using GitHub pages 
 
+Let's consider what steps we need to pseudocode this project build. Let's arrange the following steps in the order we need to build our Taskinator app.
 
-## Preview
-In this lesson we will introduce key concepts of JavaScript and web page interactivity. Let's take a look at what we will build by the end of this lesson:
-
-> **Asset Needed:** Screenshot of the app at the end of the lesson.
-
-As can be seen from the mock-up, we will have a nice beginning to our Taskinator app. Our main objective in this lesson is to have a mouse click on the Add Task button add a task to our list.
 > **Asset Needed:** [Learnosity Jira Issue FSFO-193 - Put the pseudocode steps in order](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-193)
-Ask students to pseudocode how they might build this. Consider the functions and user interaction APIs that you already know about
-  1. Emphasize that this exercise is valuable, even if it is not accurate. Tie into the on-the-job importance of thinking about a problem in-depth prior to starting, so you can map out your blindspots.  
-- Define the steps that we chose to build the page:
+
   1. Set up project with Git
   2. Build out the HTML and CSS according to mock-up
   3. Use JavaScript to select the button on the page and add an event listener to it
   4. Use the button to dynamically create a new HTML list item element to add to the task list
-- Encouraging statement to transition into applying these steps to build the task list and button.
+
+Great job, now let's proceed with the set up of the development environment by creating a `development` branch which will collect our features from our `feature` branches.
 
 ## Project Setup With Git
-> **@TODO** Git stuff
+```bash
+git co -b staging
+git co -b 
+```
 
 
 ## Build the HTML and CSS
