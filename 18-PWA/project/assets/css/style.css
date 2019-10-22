@@ -59,6 +59,7 @@ footer {
 .page-content {
   background-image: url("../img/burgers.jpg");
   background-size: cover;
+  text-decoration: #ddd;
 }
 
 .pt-5, .py-5 {
