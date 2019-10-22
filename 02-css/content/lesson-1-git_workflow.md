@@ -513,7 +513,9 @@ The design team has requested that we insert a text block into the hero section 
 
 ### Create a Git Issue
 
-Let's create our first Git issue. Go to the GitHub repo and select the Issues tab.
+This project will have six Git issues. Let's create the first one now. 
+
+Go to the GitHub repo and select the Issues tab.
 
 > **Asset Needed:** [Create Git Issue: JIRA FSFO-111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
 
@@ -525,7 +527,7 @@ Let's create our first Git issue. Go to the GitHub repo and select the Issues ta
 > 3) Git Issue Title - A descriptive name with the issue type such as an enhancement or fix. In our case we will type "Hero Section Text Block"
 > 4) Git Issue Comment - Can contain requirements of the feature or issue that is being fixed. Even adding mock-ups or design requirements are common. For bugs, often there are descriptions of the current state vs the desired state as well as steps to reproduce the bug.
 
-From there, you can create a new issue by clicking the green "New issue" button and entering the following Markdown:
+Create a new issue by clicking the green "New issue" button and typing the following Markdown:
 
 ```markdown
 
@@ -539,9 +541,10 @@ From there, you can create a new issue by clicking the green "New issue" button 
 ## Questions/suggestions for Design Team
 * What will be the marketing text?
 ```
-Other formatting options we can add to this issue includes checkboxes, code blocks, and the ability to mention a team member(s) using their GitHub handle with the "@" notation.
 
-Notice that on the right side panel, there are options to add labels or team member assignments. Let's add the Enhancement label to the `hero-text` issue now and assign it to ourselves. To do that, follow these steps:
+Other formatting options for issues includes checkboxes, code blocks, and the ability to mention a team member(s) using their GitHub handle with the "@" notation.
+
+On the right side panel, there are options to add labels or team member assignments. Add the enhancement label, assign the issue to yourself, and submit the issue by following these steps:
 
 1. Click the Assignees option.
 
@@ -553,15 +556,15 @@ You should see the following screen following a successful issue creation:
 
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
 
-Congratulations on completing your first Git issue! Note that this screen is the edit screen that allows changing the text as well as closing the issue once the enhancement or work has been finished. This edit screen can be found on the Issues tab, which now notes that there is one outstanding issue on the repo's landing page.
+Congratulations on completing your first Git issue! Note that the issue edit page also allows you to close the issue after it's resolved. You can access this page from the Issues tab, which now notes that there is one outstanding issue on the repo's landing page.
 
->**Deep Dive:** For more information, take a look at [GitHub's documentation on using issues](https://help.github.com/en/articles/managing-your-work-with-issues).
+>**Deep Dive:** For more information, see [GitHub's documentation on using issues](https://help.github.com/en/articles/managing-your-work-with-issues).
 
 ### Create a Second Issue
 
-Now that we understand how to make a Git issue, let's create one for another HTML addition from the sales department. They want to add a form to the Reach Out section for users to submit questions directly to the sales staff.
+Now that we understand how to create a Git issue, let's create another one. The sales department wants to add a form to the Reach Out section for users to submit questions directly to the sales staff.
 
-Create a new Git issue for this feature. The finished issue should look something like this:
+Using what you just learned, create a Git issue for this feature. The finished issue should look something like this:
 
 ```markdown
 # Contact Form for Reach Out Section
