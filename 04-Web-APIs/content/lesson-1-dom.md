@@ -78,7 +78,7 @@ Now that we have our development environment with Git, let's create the file str
 - js folder 
 - images folder
 Add the `style.css` and image file downloaded from Canvas to their proper folders.
-> **@TODO** screenshot of the folder tree
+> **@TODO** ![](./assets/lesson-1/300-folder-tree.png)
 
 Let's open the `index.html` file and create our boilerplate HTML markup.
 > **Asset Needed:** [Learnosity - Key tags necessary for a functioning HTML page Jira Issue FSFO-199](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-199).
@@ -156,7 +156,9 @@ Let's start by creating our `<header>` element inside the opening `<body>` eleme
 ```html
 <body>
   <header>
-
+<!-- *********************
+     HEADER CHILD ELEMENTS  
+     ********************* -->
   </header>
 
   <script src="./assets/js/script.js"></script>
@@ -187,7 +189,7 @@ When we're all done adding these elements to our `<header>`, let's save the `ind
 ```
 Let's save the `index.html` file and refresh the browser.
 
-> **@TODO** Screenshot of header at this point
+> **@TODO**  ![Screenshot of header at this point](./assets/lesson-1/400-browser-header.png)
 
 Wow, that looks pretty good considering we haven't written any of our own CSS just yet. How did that happen?
 
@@ -197,13 +199,14 @@ Remember that CSS file we had to download and put into our `css` project folder 
 
 Now let's proceed with the next block of HTML content which will be the `<main>` element that will contain our list of tasks. So how should we proceed here? Let's look at what the finished application's `<main>` element is going to look like to help us determine what to do:
 
-> **Asset Needed:** Finished `<main>` element with three task lists
+> **@TODO**
+![Main Section in HTML](./assets/lesson-1/500-main-html.png)
 
 Our final product is going to consist of three lists based on their status, each having their own headline and list elements. Now that know that, how do we keep each one packaged together?
 
 This image may help identify what we need:
 
-> **@TODO** Screenshot of task list that's outlined with labels identifying the need for a wrapper to contain our HTML elements
+> **@TODO** ![Screenshot of task list that's outlined with labels identifying the need for a wrapper to contain our HTML elements](./assets/lesson-1/550-browser-html-structure.png)
 
 In the image above we can see that a wrapper is used to contain the title and the task list.
 Now that we know what we need for this section let's add them to our markup inside of the `<main>` element:
@@ -260,16 +263,14 @@ Our script is running in the browser which can interpret JavaScript and execute 
 
 We've used functions provided by the browser's `window` object previously, like `alert()` and `prompt()`, but now we need to use some properties that the `window` provides for us, particularly properties that pertain to the HTML of our application.
 
-Browsers refer to the HTML code that makes up a web page as a **document**, so with this knowledge let's use our Chrome DevTools Console detective skills to see if browser knows anything about `document`.
+Browsers refer to the HTML code that makes up a web page as a **document**, so with this knowledge let's use our Chrome DevTools Console detective skills to see if browser knows anything about `document`. Let's type the following expression into the browser's console.
 
 ```js
 console.log(window.document)
 ```
-> **@TODO** screenshot of the window.document raw HTML
+![Console Document ](./assets/lesson-1/600-console-document.png)
 
-As you can see from the screenshot we can see our JavaScript representation of our `index.html` file. This is how we can establish the link between JavaScript and HTML. This is important in order for our JavaScript to modify HTML and CSS. 
-
-Again note that window.document looks like HTML, but its actually the JavaScript representation. That leads us the Document Object Model which is also known as the DOM. 
+As you can see from the screenshot we can see our JavaScript representation of our `index.html` file. Although `window.document` looks like HTML, it's actually the object representation. We also call this the Document Object Model or the DOM.
 
 ### DOM
 
@@ -283,8 +284,21 @@ Let's use this to find our `<button>` and `console.log` our results. Let's type 
 window.document.querySelector("button");
 ```
 We should be seeing this in the console:
-> **@TODO** screenshot of console - button element
-The image does look like HTML, however once again this is the object representation, not the markup as we will demonstrate soon. First let's answer the question: Why is it important to prefix window and document to our `querySelector()` method?
+
+![screenshot of console - button element](./assets/lesson-1/700-button-object.png)
+
+The image does look like HTML, however once again this is the object representation, not the markup as we will demonstrate soon. First let's answer the question: Why is it important to prefix `document` to our `querySelector()` method?
+
+The `document` is our DOM that represents the `index.html` file which we opened in the browser. Using the method `querySelector()` on our reference to the DOM that models our markup, we can select any element in the HTML file.
+
+Let's experiment in the console by choosing different elements to select. Can you try to select a class? Can you guess what type of syntax is needed to prefix on the class name to select this attribute?
+If you guessed "." you were correct.
+```js
+document.querySelector(".btn");
+```
+> **Rewind:** This is the same syntax we used for our CSS class selectors as well.
+
+in a JavaScript object form. In this form we can use built-in methods and properties from our Web API
 
 Actually we don't have to type `window` before document statement in the `script.js` file or the console because in both cases, we are in the context of the `window`. This should look familiar since that is what we did with the `Math` object. `Math.random()` for instance. Incidentally `alert()` and `prompt()` also can function without the window reference.
 > **@TODO** screenshot
@@ -337,7 +351,6 @@ Now lets get our hands dirty and type the following into your console of your br
 ```js
 buttonEl.addEventListener("click", function() {
   alert("button clicked");
-  console.log(event);
 })
 ```
 Now click the button to see what is happening.
@@ -375,16 +388,33 @@ As you can see, a function, `sayHello()` is passed into the `processName()` func
 > **Important:** Note when we pass the function, `sayHello` into `processName()` as an argument, we do **not** include the parentheses. If you do, you will see that the `sayHello()` is executed immediately and displays the name as `undefined` as seen in the image bellow:
 >
 >![Call Back Prompt](./assets/lesson-1/5000-prompt-hello.png)
-> This occurs because the parentheses cause the function to invoke immediately.
+> The reference to the function, `sayHello` is passed as an argument into `processName()`, when the `processName(sayHello)` is invoked. Then the `sayHello()` function invoked in the `processName()` code block with `name` defined by the `prompt()`.
 
-Conversely in our button click example, our callback function did not execute immediately, but waited for the click event to occur. We call this type of callback, asynchronous, due to the fact that the main program continue to execute as the callback waits to be executed.
+Conversely in our button click example, our callback function did not execute immediately, but waited for the click event to occur. We call this type of callback, asynchronous, due to the fact that the main program continues to execute as the callback function waits to be executed.
 
 [For more on asynchronous vs synchronous functions let's research our MDN docs for a detailed definition](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
 
+Now let's change our function in the console to the following then click our `<button>`:
+```js
+buttonEl.addEventListener("click", function() {
+  console.log(event);
+})
+```
+We will see our original `alert()` as well as the MouseEvent object in the console. So why do we still see our `alert()` even though we removed it from our code block?
+When we added the code above, we didn't replace our original event listener but added a new one to the `<button>`. We can have many different event listeners tied to the same element either for the same event type or different ones as well.
+
+Let's expand the `MouseEvent` object to see the following:
+![MouseEvent in the Console](./assets/lesson-1/6000-console-mouse-event.png)
+As we can see the `type` property has the value "click". Also notice the `toElement` property also displays the binding of this event to our button object. In fact in the `path` property, we have a reference to the `document` and its elements.
+ 
+Great job! So far we have been able to use the DOM to target our button object then attach an event listener to this element object to capture the user's click on our button. The next crucial step will be to change our code block in our event listener to execute the job of adding a task item to our task list. Let's proceed with this step now.
+
 ## Add Items with the Click of a Button
 
+Currently our task list is empty. We need to figure out how to add a task to this list. Any idea how we can proceed? Try to imagine what steps will be needed. What file needs to be changes? 
+> **Hint:** We need to 
 
-
+> **Asset Needed:** Learnosity Checkpoint Jira Issue
 ## Commit with Git
 
 
