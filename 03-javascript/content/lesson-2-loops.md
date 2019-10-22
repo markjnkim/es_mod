@@ -186,7 +186,7 @@ The `for` loop is a special type of statement called a **control flow** statemen
 
 Just as with `if` statements, `for` statements also have conditions.
 ```js
-for([InitialExpression]; [Condition]; [IncrementExpression]) {
+for([initial expression]; [condition]; [increment expression]) {
    statement
 }
 ```
