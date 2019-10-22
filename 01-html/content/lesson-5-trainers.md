@@ -1,10 +1,18 @@
 # Lesson 5: Meet the Trainers 
 
+## Introduction
+
 At this point, we're more than halfway done with our Run Buddy landing page! We've let visitors know what product Run Buddy offers and how they can get started with a trainer. Now we will add a little more of a personal touch to the page by adding some information about the "faces" of the product.
+
+Here's where the Run Buddy landing page stands after all your hard work in the last lesson:
+
+ **NEED IMAGE of webpage as it stands now**
+
+## Preview
 
 In this lesson, you'll build another `<section>` of the page: the "Meet the Trainers" section. This one contains three similar pieces of content, so expect a fair amount of repetition. Because of that repetition, the lesson is a good opportunity to practice what you've learned so far while also picking up some new skills along the way.
 
-As usual, the Run Buddy design team has given us a mock-up for this section: 
+As usual, the Run Buddy design team has given us a mock-up: 
 
 ![trainers complete](assets/step-5/100-trainers-complete.jpg)
 
@@ -204,7 +212,7 @@ We worked with floats and manipulating a page's default "flow" in Lesson 2, but 
 
 In this case, however, we floated both elements (the `<img>` and `<div>`), which means its parent element&mdash;the `<article>` element&mdash;cannot interpret how much space its inner HTML content needs and assumes there's nothing inside it at all. This means the `<article>` element's styles, like `background-color`, don't show up because the `<article>` element itself is 0 pixels tall.
 
-### NEED: Video showing what floated elements do to the parent
+> **Asset needed:** Video showing what floated elements do to the parent
 
 This a common issue for float-based layouts. It involves not only moving the elements we want to move, but also tweaking elements around it to tell it to understand that there may be some floated elements it needs to account for. There are a few ways to make these tweaks to fix the problem we just had—we chose the `overflow` property.
 
@@ -242,7 +250,7 @@ Notice how these classes have generic names that do not indicate exactly where t
 
 Let's revisit our HTML and add the class `text-left` to the `<div class="trainer-bio">` tag. It should look like this when it's done:
 
-```HTML
+```html
 <div class="trainer-bio text-left">
   <h3>Arron Stephens</h3>
   <h4>Speed / Strength</h4>

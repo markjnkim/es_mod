@@ -135,7 +135,7 @@ border-radius: 15px;
 
 This is shorthand to add a rounded corner to all four corners of the element. This essentially means move 15 pixels in on the x-axis, move 15 pixels in on the y-axis, and draw a circle with a radius of 15 pixels. Other units of measurement could be used, as well:
 
-> ## NEED GRAPHIC: <https://trilogyed.atlassian.net/browse/FSFO-98>
+> **Asset needed:** Graphic  <https://trilogyed.atlassian.net/browse/FSFO-98>
 
 Let's add a small rounded corner to all of the form elements on the page. Update the following CSS rules to have a `border-radius` of `10px`:
 
@@ -203,7 +203,7 @@ Let's add a small rounded corner to all of the form elements on the page. Update
 
 We've managed to spruce up the page a little bit, but the Run Buddy team is getting antsy about the header. It still doesn't look like the new mock-up. The design team also requested that the header be "sticky," meaning it looks like part of the hero at first but then follows the page as it scrolls. Here's a demo of the behavior they would like to see:
 
-> ## NEED VIDEO: <https://trilogyed.atlassian.net/browse/FSFO-77>
+> **Asset needed:** Video  <https://trilogyed.atlassian.net/browse/FSFO-77>
 
 Let's start with the stickiness aspect. In the previous module, we talked about different types of positioning: relative, absolute, fixed, etc. There's a new position in CSS called **sticky** that's kind of like a hybrid position. An element that's sticky will behave relatively until the viewport scrolls past it. Then the element will switch to fixed and remain visible even as the user scrolls farther down. Add these declarations to the `header`, then scroll up/down in the browser and see what happens:
 
@@ -263,7 +263,7 @@ background-attachment: fixed;
 background-position: 80%;
 ```
 
-> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-99>
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-99>
 
 ## Style the States
 
@@ -273,7 +273,7 @@ While it's hard to see this from a still mock-up, Run Buddy has requested that t
 
 Complex interactivity would require JavaScript to pull off. However, we can still attain what Run Buddy is currently requesting with CSS and **pseudo-classes**. These pseudo-classes let us style the different states of an HTML element. Take a button, for instance. You can **hover** over a button. You can be **actively** clicking on a button. And once clicked, the button is now the HTML element that's in **focus**. Let's see that in action:
 
-> ## NEED VIDEO: <https://trilogyed.atlassian.net/browse/FSFO-78>
+> **Asset needed:** Video  <https://trilogyed.atlassian.net/browse/FSFO-78>
 
 Pseudo-classes can be added to any CSS selector using a colon and then the name of the state:
 
@@ -323,7 +323,7 @@ header nav ul li a:hover {
 >
 > ![The styles tab in the DevTools has checkboxes to force element state](./assets/lesson-5/700-devtools.png)
 >
-> ## NEED VIDEO: <https://trilogyed.atlassian.net/browse/FSFO-79>
+> **Asset needed:** Video  <https://trilogyed.atlassian.net/browse/FSFO-79>
 
 Using the `:focus` state, we can also visually highlight the form input that the user is currently typing in. Let's try this:
 
@@ -410,7 +410,7 @@ The `<div>` with "Step 4" in it is the last child of the `<section>` element. Th
 
 This will add a border to every even-numbered child of the `<section>` that also has the class `step`. In this case, Step 1 and Step 3. That probably seems confusing, because Step 1 is not an even number! But keep in mind that `<div class="flex-row">` is the first official child, so Step 1 is actually the second child (an even number).
 
-> ## NEED GRAPHIC: <https://trilogyed.atlassian.net/browse/FSFO-103>
+> **Asset needed:** Graphic  <https://trilogyed.atlassian.net/browse/FSFO-103>
 
 For our needs, we need a bottom border applied to every step except the last one. There are a few different ways we could tackle this. One solution is to apply the border to all steps and then remove it from the last one:
 
@@ -620,7 +620,7 @@ It would seem that we're done, but as you scroll up and down on the page again, 
 
 Um... why are the custom buttons and labels appearing in front? As soon as you give an HTML element positioning (relative, absolute, sticky), it becomes affected by the **stacking order**. Think of HTML elements like pieces of paper that stack on top of each other:
 
-> ## NEED GRAPHIC: <https://trilogyed.atlassian.net/browse/FSFO-101>
+> **Asset needed:** Graphic  <https://trilogyed.atlassian.net/browse/FSFO-101>
 
 In our Run Buddy webpage, the header was the first element to receive positioning, so it sat on top. Once we gave the form elements positioning, however, those "pieces of paper" were brought to the front and covered up the header. Fortunately, with the `z-index` property, we can change this stacking order, or reshuffle the papers.
 
@@ -634,7 +634,7 @@ A higher `z-index` brings the element to the front while a lower `z-index` pushe
 
 Save your code if you haven't already and check your work in the browser. To truly appreciate `z-index`, open the Chrome DevTools and toggle the declaration off and on!
 
-> ## NEED LEARNOSITY: <https://trilogyed.atlassian.net/browse/FSFO-102>
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-102>
 
 ## Optimize with Variables
 
