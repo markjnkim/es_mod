@@ -4,11 +4,11 @@
 
 We technically have a game now where a player can fight (or skip fighting) several robots in a row. However, the rules are still pretty simple, and the game can only be played once unless the user refreshes their browser.
 
-One of the things the judges of the game jam will be looking for is replayability. At its most basic level, that means the game should be easy to play again. The gameplay defined in our MVP should reset without requiring a browser refresh:
+One of the things the judges of the game jam will be looking for is replayability. At its most basic level, that means the game should be easy to play again. The gameplay defined in our MVP should reset without requiring a browser refresh. Here's the GitHub issue of said MVP:
 
 ![Screenshot shows the MVP issue defined in GitHub](./assets/lesson-3/100-issue-mvp.jpg)
 
-More importantly, players should want to play again. Having a shop feature&mdash;where players can spend money to refill their health or upgrade their attack power&mdash;would definitely make the game more interesting and engaging on subsequent plays. That will be the first optimization task we take on post-MVP:
+More importantly, players should want to play again. Having a shop feature&mdash;where players can spend money to refill their health or upgrade their attack power&mdash;would definitely make the game more interesting and engaging on subsequent plays. That will be the first optimization task we take on post-MVP, according to the next GitHub issue:
 
 ![Screenshot shows the shop issue defined in GitHub](./assets/lesson-3/200-issue-shop.jpg)
 
@@ -48,9 +48,9 @@ Here's our take on pseudocoding the "play again" and "shop" features:
   
   * In `shop()` function, ask player if they want to "refill" health, "upgrade" attack, or "leave" the shop
 
-  * If refill, subtract coins from player and increase health
+  * If refill, subtract money points from player and increase health
 
-  * If upgrade, subtract coins from player and increase attack power
+  * If upgrade, subtract money points from player and increase attack power
 
   * If leave, alert goodbye and exit the function
 
@@ -127,13 +127,15 @@ var startGame = function() {
 };
 ```
 
-Fair warning, this will create an infinite loop, because we haven't defined any condition where `startGame()` doesn't get called after each playthrough. If you already tested the game in the browser and are stuck in the loop, don't panic! You can still close the tab or use the Chrome DevTools to pause the JavaScript code.
+Fair warning, this will create an infinite loop, because we haven't defined any condition where `startGame()` doesn't get called after each playthrough. If you already tested the game in the browser and are stuck in the loop, don't panic! You can still close the browser tab completely and reopen the `index.html` file or use the Chrome DevTools to pause the JavaScript code.
 
 > **Important:** The DevTools approach will only work if the DevTools were already open before the loop happened. If the loop is preventing you from opening and using the DevTools, you can temporarily comment out the first call to `startGame()`:
 >
 >```js
 >// startGame();
 >```
+>
+> Close the tab and reopen `index.html` in Chrome, and the looping alerts will have gone away since the game hasn't started yet.
 
 With the DevTools open, navigate to the Sources tab. On the right side of this window, there is a pause button that, when hovered over, will say, "Pause script execution":
 
@@ -169,6 +171,8 @@ var pickedEnemyName = enemyNames[i];
 ```
 
 The `pickedEnemyName` variable only exists within the scope of the `startGame()` function, so other functions like `fight()` can't access it.
+
+### Variable Scope
 
 Let's look at one more example of variable scope before moving on to the next step of our project:
 
@@ -260,9 +264,9 @@ Save, refresh, and test out the game in the browser. After looping over every en
 
 ![Confirm window asks "Would you like to play again?"](./assets/lesson-3/300-play-again.jpg)
 
-Selecting OK should restart the game and reset the player stats. Cancel should do nothing. Here's a video to demonstrate the desired behavior:
+Selecting OK should restart the game and reset the player stats. Cancel should do nothing. Here's an animation to demonstrate the desired behavior:
 
-> **Asset Needed:** INSERT VIDEO: <https://trilogyed.atlassian.net/browse/FSFO-166>
+> **Asset Needed:** Gif: <https://trilogyed.atlassian.net/browse/FSFO-166>
 
 If the game isn't working, check the DevTools console for errors. An error like `Uncaught ReferenceError: startgame is not defined`, for instance, suggests that we accidentally used lowercase `startgame()` versus `startGame()`. If there aren't errors, use `console.log()` and/or `debugger` statements to verify if functions and `if` statements are being reached.
 
@@ -292,6 +296,8 @@ git merge develop
 git push origin master
 ```
 
+Close the corresponding GitHub issue and celebrate!
+
 With the MVP safely squared away, we can start knocking out some of our feature improvements, starting with the shop. These nice-to-haves can be the most fun to build, but it was important to have the groundwork in place first. That's why GitHub issues are so valuable. They help keep us on track so we don't skip critical setup in favor of going straight to the "wow factor."
 
 Because we're working on a new feature, our Git process should follow suit:
@@ -314,7 +320,7 @@ var shop = function() {
 };
 ```
 
-Before we get carried away writing out the rest of the logic, let's make sure this function can be reached by defining the condition that calls it. Remember, the player should have the option to shop after they skip or defeat an enemy but only if there are still more enemies to fight. How do we know if there are more enemies? If the `for` loop hasn't reached the end!
+Before we get carried away writing out the rest of the logic, let's make sure this function can be reached by defining the condition that calls it. Remember, the player should have the option to shop after they skip or defeat an enemy but only if there are still more enemies to fight. How do we know if there are more enemies? If there are still items in the array!
 
 In the `startGame()` function, add an `if` statement directly after we call the `fight()` function:
 
@@ -452,7 +458,9 @@ switch (shopOptionPrompt) {
 }
 ```
 
-Remember to test the game to see if the shop options are working! One problem with the shop is that players can refill or upgrade even if they don't have enough money. We can put `if` statements inside of the `switch` cases, though, to catch that.
+If the values `20`, `7`, and `6` seem too generous or meager, you can always adjust them. It can take many playthroughs of a game to pinpoint the right values that maximize the fun and challenge for you.
+
+In any case, test the game to see if the shop options are working! One problem with the shop is that players can refill or upgrade even if they don't have enough money. We can put `if` statements inside of the `switch` cases, though, to catch that.
 
 Update the "refill" and "upgrade" cases as follows:
 
