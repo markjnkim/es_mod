@@ -25,10 +25,10 @@
 
 *List each step w/ a summary overview (e.g., “Here’s how we’re going to approach this:”*:
 
-- *Step 1 (e.g., Set up the HTML file for the Run Buddy landing page)*
-- *Step 2*
-- *Step 3*
-- *Step 4*
+1. *Step 1 (e.g., Set up the HTML file for the Run Buddy landing page)*
+1. *Step 2*
+1. *Step 3*
+1. *Step 4*
  
 *Introduce mock-up of what learner will build in this lesson (e.g., "Here's a mock-up of what we're aiming for in this lesson):*
 
@@ -54,9 +54,9 @@
 *Transitional text to next section.*
 
 
-## Non-Step Section
+## *Non-Step/Concept Section*
 
-**Note:** Other sections can be intermingled with the Step sections as necessary. Some sections aren't a step, but explain a concept instead. 
+*Other sections can be intermingled with the Step sections as necessary. Some sections aren't a step but explain a concept instead.* 
 
 
 ## *Step 3*
@@ -77,23 +77,23 @@
 *Transitional text to next section.*
 
 
-### The Last Mile
+### The Last Mile 
 
-*This is the last X% of the last section. Refer to TK for example copy.* 
+*This is ONLY the last third of the last lesson in each module. Refer to [Last Mile Copy](https://docs.google.com/document/d/1QGQIZU_sOBOemsSbbywDu1-gL0Z5JS2LAl-c8KY90Vs/) for example copy.* 
 
 ## Reflection
 
-*Congratulate the learner (Great work!, Congratulations! Pat yourself on the back, etc.). Recap what they accomplished during the lesson from a bigger perspective in a couple of sentences.*
+*Congratulate the learner. Recap what they accomplished during the lesson from a broad perspective in a couple of sentences.*
 
 *In this lesson, you added the following skills to your tool belt, knowledge base, skillset:*
 
-- Skill learned in 1-2 sentences
+- *Skill learned in 1-2 sentences*
 
-- Skill learned in 1-2 sentences
+- *Skill learned in 1-2 sentences*
 
-- Skill learned in 1-2 sentences
+- *Skill learned in 1-2 sentences*
 
-- Etc.
+- *Etc.*
 
 *If this is the last lesson in a module, recap the entire module and introduce the next module.*
 

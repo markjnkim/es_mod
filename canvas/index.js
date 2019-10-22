@@ -1,38 +1,60 @@
 require('dotenv').config();
 const fs = require("fs");
-const canvas = require("./tools/canvas.js");
-const Markup = require("./tools/markup.js");
+const Canvas = require("./tools/Canvas.js");
+const Markup = require("./tools/Markup.js");
 
 // check for key
 if (!process.env.CANVAS_TOKEN) {
   console.error("Must define CANVAS_TOKEN environment variable");
   process.exit();
 }
+
+// check for course id
+if (!process.env.CANVAS_COURSE_ID) {
+  console.error("Must define CANVAS_COURSE_ID environment variable");
+  process.exit();
+}
+
+// check for api url
+if (!process.env.CANVAS_API_URL) {
+  console.error("Must define CANVAS_API_URL environment variable");
+  process.exit();
+}
+
 // check for lesson argument
 else if (!process.argv[2]) {
   console.error("Must provide lesson number argument (e.g. 1.2)");
   process.exit();
 }
 
-let mod = process.argv[2].split(".")[0];
-let lesson = process.argv[2].split(".")[1];
-let folder = "../";
+let moduleArg = process.argv[2].split(".")[0];
+let lessonArg = process.argv[2].split(".")[1];
+let contentFolder = "../";
 
 // find folder that matches module number
-fs.readdirSync(folder).forEach((file) => {
-  if (file.match(new RegExp(`^0?${mod}-`))) {
-    folder += file + "/content/";
+fs.readdirSync(contentFolder).forEach((file) => {
+  if (file.match(new RegExp(`^0?${moduleArg}-`))) {
+    contentFolder += file + "/content/";
   }
 });
 
-if (folder.indexOf("/content/") === -1) {
-  console.error(`module ${mod} folder doesn't exist`);
+if (contentFolder.indexOf("/content/") === -1) {
+  console.error(`module ${moduleArg} folder doesn't exist`);
   process.exit();
 }
 
-async function uploadLesson() {
+/**
+ * 
+ * @param {Canvas} canvas Canvas instance
+ * @param {String} module Module number
+ * @param {String} lesson Lesson number
+ * @param {String} folder Local path to lesson content
+ * 
+ */
+async function uploadLesson(canvas, module, lesson, folder) {
+
   // get or make module
-  let moduleID = await canvas.getModuleId(mod);
+  let moduleID = await canvas.getModuleId(module);
   let markup;
   let assets;
 
@@ -64,7 +86,7 @@ async function uploadLesson() {
     const images = fs.readdirSync(assets);
   
     for (let image of images) {
-      let newFile = await canvas.uploadImage(`images/module-${mod}/lesson-${lesson}`, assets + image);
+      let newFile = await canvas.uploadImage(`images/module-${module}/lesson-${lesson}`, assets + image);
     
       console.log(image + " uploaded");
   
@@ -99,4 +121,10 @@ async function uploadLesson() {
   }
 }
 
-uploadLesson();
+const canvas = new Canvas(
+  process.env.CANVAS_API_URL,
+  process.env.CANVAS_TOKEN,
+  process.env.CANVAS_COURSE_ID
+);
+
+uploadLesson(canvas, moduleArg, lessonArg, contentFolder);

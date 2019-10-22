@@ -1,35 +1,46 @@
 # Lesson 3: Create the Hero
 
 ## Introduction
-Now that we've set up the header and footer for our website, let's move on to the body. The design team has asked us to create a flashy section at the top of the landing page to grab visitors' attention and capture their contact information. They've given us a design mock-up for the section and an image to be used as the background. 
+
+In the last lesson, you built and styled the header and footer. In this lesson, you'll build on your knowledge of HTML and CSS, and learn some new concepts that are essential to web development. 
+
+This is what the Run Buddy landing page currently looks like: 
+
+![Run Buddy webpage with styled header and footer](assets/step-2/900-step-2-complete.jpg)
+ 
+Now let's move on to the body of the site, specifically the "hero." Don't worry if you don't know what that is&mdash;you'll learn soon enough! 
+
+## Preview
+
+The design team wants us to create a flashy section at the top of the landing page to grab visitors' attention and capture their contact information. 
 
 Here's the mock-up:
 
 ![Hero Mock-up](./assets/step-3/50-hero-section-mock-up.png)
 
-In this lesson, you'll build on your knowledge of HTML and CSS, and learn some new concepts that are essential to web development. 
-
 Here's a high-level overview of how we'll approach this:
-1) Add the HTML element to create the form.
-2) Add CSS selectors to style elements.
-3) Add the background image.
-4) Position the elements.
-5) Style the sign-up form.
 
+1) Add the HTML element to create the form.
+
+2) Add CSS selectors to style elements.
+
+3) Add the background image.
+
+4) Position the elements.
+
+5) Style the sign-up form.
 
 ## Our Hero's Purpose
 
 The section we're about to build is sometimes considered the most important one in any website because it will be seen by every visitor, even those who visit for only a few seconds or who arrive by accident. 
 
-This section contains something called a **hero image**. In web terms, this refers to a large banner image placed prominently on the page. The placement is considered to be "above the fold" and has a specific task: to pique the visitor's curiosity enough to get them reading, scrolling, clicking, and engaging with the website. Think of the hero section as the banner, headline, or billboard for a website.
+This section contains something called a **hero image**. In web terms, this refers to a large banner image placed prominently at the top of the page. The placement has a specific task: to pique the visitor's curiosity enough to get them reading, scrolling, clicking, and engaging with the website. Think of the hero section as the banner, headline, or billboard for a website.
 
-> **Urkel Says:** The phrase "above the fold" originated in the newspaper industry. Because of the large size of most newspapers, many readers fold the paper in half when they read it. The newspaper industry thus coined the phrase "above the fold" for the top half of the front page, which contains the most important news story, headline, and/or picture. Many newspaper terms have been adopted by the web, including "section," "aside," "header," "footer," and "article." For more information, take a look at the [Wikipedia article about "Above the Fold"](https://en.wikipedia.org/wiki/Above_the_fold).
-
-As usual, before we can add the styling pizzazz, we need to create the HTML that provides the structure and content.
+As usual, before we can add the styling pizzazz, we need to create the HTML that contains the structure and content.
 
 ## Build a Hero
 
-Let's build on the `<section>` element that we created in Lesson 1. This will act as the parent element that contains the children elements, the heading and sign-up form. Let's start with the form. 
+Let's build on the `<section>` element that we created in Lesson 1. This will act as the parent element that contains the children elements, the heading, and sign-up form. Let's start with the form. 
 
 ### Add the Sign-Up Form Container
 
@@ -45,7 +56,7 @@ Let's take a look at the sign-up form in the mock-up:
 
 The first thing we need to do is add a `<div>` element nested entirely inside the `<section>` element. 
 
-One important HTML rule is that both the opening and closing tags of an element must be completely contained inside the parent element. In other words, if an opening tag is contained within an element, the closing tag must be as well. 
+One important HTML rule is that both the opening and closing tags of an element must be completely contained inside the parent element. 
 
 This is the wrong way to nest elements:
 
@@ -56,9 +67,9 @@ This is the wrong way to nest elements:
    </div>
 ```
 
-Notice that only an opening tag for the `<div>` element is inside the `<section>` element; the closing tag should be there too. The browser will attempt to fix invalid markup before it displays the page, but the results will be unpredictable.
+Notice that only an opening tag for the `<div>` element is inside the `<section>` element; the closing tag should be there too. 
 
-In `index.html`, go ahead and add the `<div>` element for the form. It's good practice to indent the child element; that section should look like this when you're done:
+In `index.html`, add the `<div>` element for the form. It's good practice to indent the child element. That section should look like this when you're done:
 
 ```html
 <section>
@@ -82,11 +93,14 @@ Add elements and content for the heading and paragraph text inside the `<div>` e
 ```
 You'll notice that we chose an `<h3>` element for the heading. But why not an `<h1>` or `<h4>`? Heading numbers represent the scope and significance of the heading. The browser makes an `<h1>` element the largest and boldest heading on the page, followed by the `<h2>`, then the `<h3>`, and so on. 
 
-The main heading of our page is an `<h1>`, and section headers are `<h2>`. Because this heading is less significant than an `<h2>`, `<h3>` is the right choice. To aid accessibility, headings should fall in sequential order; this helps screen readers interpret the relative importance of content on the page.
+The main heading of our page is an `<h1>`, and section headers are `<h2>`. Because this heading is less significant than an `<h2>`, `<h3>` is the right choice. 
+
+> **Important:** To aid accessibility, headings should fall in sequential order; this helps screen readers interpret the relative importance of content on the page.
 
 The `<p>` element means "paragraph" and is used to render the text in the page's body. By default, the browser declares a `<p>` to be a block-level element, but—unlike a heading element— won't assign any changes to font size or weight.
 
 Here is a quick look at the difference between a block-level and inline-level display.
+
 ![Block-level vs Inline-level](./assets/step-3/80-block-inline-display.png)
 
 Your page should now look something like this:
@@ -103,7 +117,7 @@ The importance of our sign-up form is emphasized by its position at the top of t
 
 First let's create the sign-up form container by using the `<form>` element. Within this `<form>` will be child elements such as `<input>` and `<label>`. `<input>` elements come in many flavors, such as open-ended (a text field that lets the user enter freeform text) and closed-ended (a radio button or checkbox for the user to select or check).
 
-> **On the Job:** A sign-up form is a **call to action**, or **CTA**. The main purpose of a CTA is to encourage users via a story, advertisement, or piece of content to do something. In our case, we want our visitor to share their contact info, which we hope will lead to a future engagement with them. CTAs play a vital role in converting a visitor into a sales lead—that's why we want it at the top of the page!
+> **On the Job:** A sign-up form is a **call to action**, or **CTA**. The main purpose of a CTA is to encourage users via a story, advertisement, or dazzling piece of content to do something. CTAs play a vital role in converting a visitor into a sales lead—that's why we want it at the top of the page!
 
 ### Add Text Input Fields
 
@@ -153,9 +167,7 @@ When you're done, the HTML for these should look like this:
 
 ### Add Radio Button Input 
 
-Next, we will create inputs for a radio button and checkbox. But first, what the heck is a radio button? It is something you've probably seen hundreds of times in—and now you will know the name for it! 
-
-A **radio button** allows a single selection to be made from a list of choices and is typically a small circle that gets filled when clicked.
+Next, we will create inputs for a radio button and checkbox. A **radio button** allows a single selection to be made from a list of choices and is typically a small circle that gets filled when clicked.
 
 Here's an example:
 
@@ -163,11 +175,11 @@ Here's an example:
 
 > **Activity:** Use your powers of Google to find some information about the function and syntax of a radio button.
 
-> **ANSWER:** Google will surely offer many search results, but the [MDN web docs article on radio buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) should be a favorite because MDN is more likely to update when technologies change. For this reason, keep in mind that the best online documents to learn from should come from official sources like this one. 
+> **ANSWER:** Google will surely offer many search results, but the [MDN web docs article on radio buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) should be a favorite because MDN is more likely to update when technologies change. Keep in mind that the best online documents to learn from should come from official sources like this one. 
 
 So a `radio` type input element, commonly referred to as a radio button, is typically used in groups using the `name` attribute as the group reference, and each radio button must have the same `name` value to be considered in the same group. 
 
-Let's type some code and then explain the attributes afterwards. Add the `<p>` element below the text input fields you just created (the entire form's HTML is shown below):
+Let's type some code and then explain the attributes afterwards. Add the `<p>` element below the text input fields you just created (the entire form's HTML is shown):
 
 ```html
 <form>
@@ -195,7 +207,7 @@ On a Mac:
 
 On Windows:
 
-### Add Screen shot [Open in Default Browser on Windows - Jira 127](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-127)
+**NEED IMAGE [Open in Default Browser on Windows - Jira 127](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-127)**
 
 The page should look like this now:
 
@@ -214,7 +226,7 @@ clickable surface area.
 >
 > **Answer:** This is used to reference which radio button this label belongs to. The value for the `for` attribute must match the value of the `id` attribute of the `<input>` element.
 
-> **Heads Up:** The radio button elements must have the same `name` attribute in order to be associated with the same radio group. This is how the browser identifies that a group of choices can have an exclusive singular answer. In this case, the value of our radio group in `name` is `trainer-confirm`.
+> **Important:** The radio button elements must have the same `name` attribute in order to be associated with the same radio group. This is how the browser identifies that a group of choices can have an exclusive singular answer. In this case, the value of our radio group in `name` is `trainer-confirm`.
 
 ### Add the Checkbox Input
 
@@ -328,7 +340,8 @@ when you tap on the phone number field.
 > before you use them.
 
 Our foundation work is now complete so we can proceed to the design phase of this lesson after a quick checkpoint.
-> **Checkpoint:** <br />
+
+> **NEED LEARNOSITY:** <br />
 >  Block elements are displayed on a new line.<br />
 >  <input type="radio" name="checkpoint-1" id="checkpoint-11" /><label for="checkpoint-11"> True</label> <br />
 >  <input type="radio" name="checkpoint-1" id="checkpoint-12" /><label for="checkpoint-12"> False</label> <br />
@@ -358,7 +371,7 @@ So our hero section doesn't look all that great yet, but fear not—we're about 
 
 ![hero-mock-up](./assets/step-3/50-hero-section-mock-up.png)
 
-It's time to dive into CSS again. In VS Code, open your `style.css` file. 
+It's time to dive into CSS again. In VS Code, open the `style.css` file. 
 
 ### Add Global Styles
 
@@ -434,7 +447,7 @@ Let's add the following CSS rule to our `style.css` file and make the height mat
 ```
 Now let's unpack this CSS declaration block:
 
-- **Dot notation** is the "." that preceds the class `hero` to indicate to the browser that we are using a class as our CSS selector.
+- **Dot notation** is the "." that precedes the class `hero` to indicate to the browser that we are using a class as our CSS selector.
 
 - **`background-image`** uses the CSS function `url()` to link a resource such as an image, web font, or GIF. Here we are using a relative URL path to select a background image. To learn more about how to use a web resource or add a color gradient, see the [MDN web docs on background-image](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image). 
 
@@ -537,7 +550,7 @@ Here are some of the property's values and how they affect the relationship of t
 
 To see visual representations of the `position` property's options, check out the [MDN web docs on the `position` property](https://developer.mozilla.org/en-US/docs/Web/CSS/position).
 
-> **Pause:** Can you figure out which of these positins would serve our cause? 
+> **Pause:** Can you figure out which of these positions we should use for the hero-form? 
 >
 > **Hint:** Let's use the process of elimination. `static` and `fixed` can be eliminated. `static` is where the form container currently sits, which is incorrect. `fixed` would mean that the form container would stay in the same part of the viewport, even after scrolling down. This is not within the scope of our requirements and therefore not in our interest.
 >
@@ -606,7 +619,8 @@ As you can see, the form is now nestled in the corner, just as we positioned it.
 
 > **Deep Dive:** To learn more, see [the discussion on StackOverflow about absolute vs. relative positioning](https://stackoverflow.com/questions/10426497/position-relative-vs-absolute).
 
-> **Heads Up:** Another possible value to use instead of pixels is percentages. Let's see how this might work. For the declaration that assigns the `right` position property, let's use a percentage and see what the difference is. About 10% covered around 140px. Mathematically speaking, this means that the full screen value of 1400px at 10% will be 140px. This is why the form's position remains the same. The true value of having a relative size instead of a static size is that on different screen sizes, the position will remain relative to the element's size and not fixed. We'll go into more depth on relative sizes and screen responsiveness in the next module.
+> **Connect the Dots:** Another possible value to use instead of pixels is percentages. Let's see how this might work. For the declaration that assigns the `right` position property, let's use a percentage and see what the difference is. About 10% covered around 140px. Mathematically speaking, this means that the full screen value of 1400px at 10% will be 140px. This is why the form's position remains the same. The true value of having a relative size instead of a static size is that on different screen sizes, the position will remain relative to the element's size and not fixed. Additionally, in order to make a container's width a percentage of its parent element's width, we must explicitly declare its parent element's width.  We'll go into more depth on relative sizes and screen responsiveness in the next module.
+
 
 The `width` property has been saved for last because calculating the width of the form container actually begins a discussion on another property called `box-sizing`.
 
@@ -729,7 +743,7 @@ DevTools is a tremendous asset to front-end developers because it allows you to:
 
 > **ANSWER:** The changes are not permanent, which you can determine by refreshing the page after you make changes. 
 
-The changes you make to HTMl and CSS in Chrome's DevTools are not permanent and do not change the actual code. Instead, they offer a sandbox to try out different styles and immediately see the effect on the webpage. Once you're satisfied, you need to adjust the actual style sheet (in our case, `style.css`) accordingly to make the style change permanent.
+The changes you make to HTML and CSS in Chrome's DevTools are not permanent and do not change the actual code. Instead, they offer a sandbox to try out different styles and immediately see the effect on the webpage. Once you're satisfied, you need to adjust the actual style sheet (in our case, `style.css`) accordingly to make the style change permanent.
 
 > **Pro Tip:** To become skilled at using tools like Chrome's DevTools, you should use them as much as possible. Try to use new tools as much as possible in the beginning since it easy to forget they are there. It's a good habit keeping this window open so it stays at the top of your mind. Remember that it can be shrunk, stretched, or docked on any side by selecting the menu button in the top-right corner.
 
@@ -833,7 +847,7 @@ Add the following code to `style.css`:
 }
 ```
 
-> **Heads Up:** It is important to try and implement these styles yourself and give it a try. Syntax errors and red squiggly lines are helpful reminders that you might be missing or misplacing a syntax character. In time, the syntax will become second nature and your speed will increase. Remember, you can always experiment in the Chrome DevTools until you get it just right.
+> **Important:** It is important to try and implement these styles yourself. Syntax errors and red squiggly lines are helpful reminders that you might be missing or misplacing a character. Remember, you can always experiment in the Chrome DevTools until you get it just right.
 
 Save your work and take a look at the browser to see what you've completed so far: 
 
@@ -843,9 +857,7 @@ Awesome! The `<section>` element content looks almost finished.
 
 #### Button
  
-Time to nip this `<section>` in the `button`! The design team wouldn't be very pleased with "Get running," so let's style it according to the mock-up. 
-
-The design team wants the `button` to be navy (`#024e76`) and the font color yellow (`#fce138`), like so: <br />
+The design team wants the "Get running" `button` to be navy (`#024e76`) and the font color yellow (`#fce138`), like this: <br />
 
 ![Button Mock-up](./assets/step-3/1250-button-mock-up.png) <br />
 
@@ -864,13 +876,11 @@ When you have the look that matches the mock-up, the CSS rule for the button sho
 /* HERO STYLES END */
 ```
 
-Make sure to make those changes to `style.css` and save the file. 
+Let's save the file and refresh the browser. Excellent work&mdash;our section looks just like the mock-up! 
 
-It's time for the moment of truth. Let's save the file (or auto save it like a pro) and refresh the browser to look at our finished hero!
+You just completed a large section of the page, so it's a great time to add and commit your work using Git.
 
-Excellent work—our section is done and looks just like the mock-up. You just completed a large section of the page, so it's a great time to add and commit your work using Git.
-
-> **Heads Up:** Don't worry if you haven't nailed down all the concepts yet. In programming, practice doesn't make perfect—it makes developers. Programming isn't something you can learn from watching a YouTube video or reading a book. The one and only way to become a developer is to practice, practice, practice. If you get stuck, become a Google-fu master. Your answer is out there; you just have to go find it.
+> **Important:** Don't worry if you haven't nailed down all the concepts yet. In programming, practice doesn't make perfect&mdash;it makes developers. If you get stuck, become a Google-fu master. Your answer is out there; you just have to go find it.
 
 ## Reflection
 
