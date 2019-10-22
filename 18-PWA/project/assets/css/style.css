@@ -1,3 +1,17 @@
+
+body {
+  margin-top: 100px !important;
+  height: 100vh;
+  min-height: 1000px;
+}
+
+footer {
+  background: #666;
+  position: relative;
+  bottom: 0;
+  width: 100vw;
+}
+
 .fullscreen-carousel {
   height: 100vh;
   min-height: 350px;
@@ -24,21 +38,45 @@
   opacity: 0.6;
 }
 
-.call-to-action {background:#0086d2; padding:40px 0;}
+.call-to-action {
+  background:#0086d2;
+  padding:40px 0;
+}
 
 .btn {
-    border-radius: 5px;
-    margin: 21px 0 0 0;
-    font-weight:700;
-    cursor: pointer;
+  border-radius: 5px;
+  margin: 21px 0 0 0;
+  font-weight:700;
+  cursor: pointer;
 }
 
 .btn.btn-white {
-    background: #fff;
-    color: #666;
-    border-bottom: 4px solid #ddd;
+  background: #fff;
+  color: #666;
+  border-bottom: 4px solid #ddd;
 }
 
-footer {
-  background: #666;
+.page-content {
+  background-image: url("../img/burgers.jpg");
+  background-size: cover;
+}
+
+.pt-5, .py-5 {
+  color: white;
+}
+
+#ticket-footer {
+  bottom: 0;
+  width: 100vw;
+  position: absolute;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+.card-img-top {
+  width: 100%;
+  max-height: 30vw;
+  object-fit: cover;
 }
