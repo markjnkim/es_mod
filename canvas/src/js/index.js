@@ -49,32 +49,7 @@ function bootCampMagic() {
     $("#bootcamp img[alt='lesson banner']").remove();
   }
 
-  // find crappy tables
-  $("#bootcamp table").each(function() {
-
-    $(this)
-      .find("[id*=gdc]")
-      .remove();
-
-    var type = $(this).find("td:first").text().trim()
-    var content = $(this).find("td:last").html();
-
-    // fixing spacing issue
-    if (type === "Technical OverviewVideo") {
-      type = "Technical Overview Video";
-    }
-
-    if (type === "Context OverviewVideo") {
-      type = "Context Overview Video";
-    }
-
-    // and convert to blockquotes
-    var block = $("<blockquote>").append(`<strong>${type}</strong>`).append(content);
-
-    $(this).replaceWith(block);
-  });
-
-  // find all learning blocks
+  // find all callouts
   $("#bootcamp blockquote").each(function() {
     // get title element
     var title = $(this).find("strong:first");
