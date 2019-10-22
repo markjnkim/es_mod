@@ -337,22 +337,23 @@ Now lets get our hands dirty and type the following into your console of your br
 ```js
 buttonEl.addEventListener("click", function() {
   alert("button clicked");
+  console.log(event);
 })
 ```
 Now click the button to see what is happening.
-We should see this in the dialog box.
+We should see the following screenshot in the dialog box.
 
 ![button clicked dialog box](./assets/lesson-1/1000-button-clicked.png)
 
-Let's breakdown our expression to understand the big concepts being demonstrated here.
+Let's breakdown our expression to understand the concepts being demonstrated here.
 * The `addEventListener()` is a method that can be used by our element object `buttonEl` to add an event listener to the `<button>` element. `buttonEl` has been established in the previous step as our object representation of the `<button>` element.
 * We pass in two arguments into our `addEventListener()` function. The type of event we will be listening for, in our case the click event, and the event response we would like executed once our click event on the `<button>` has occurred. In this case we used an anonymous function that uses the window method `alert()`. Just as with `document` and `Math`, we don't need to prefix `window` to `alert()` because we are in the context of our browser window.
 
 ### Call Me Back Maybe
-Let's dive a bit deeper into the second argument since passing in a function into a function is very perplexing at first glance. This is called a **callback** function. In the lexicon of JavaScript, this is one of the foundational pillars that make JavaScript unique. In layman's terms, we are assigning a function to execute upon the event occurrence. Callback function can occur synchronously or immediately, or they can happen asynchronous at a later time. In our case, we have an asynchronous callback function since the anonymous function will not occur until the click event has occurred on the button.
+Let's dive a bit deeper into the second argument since passing in a function into a function is perplexing at first glance. This is called a **callback** function. In the lexicon of JavaScript, this is one of the foundational pillars that make JavaScript unique. In layman's terms, we are assigning a function to execute upon the event occurrence. Callback function can occur synchronously or immediately, or they can happen asynchronous at a later time. In our case, we have an asynchronous callback function since the function will not occur until the click event has occurred on the button.
 
 ### Synchronous Call Back
-Here is an example of a synchronous callback function you can enter into the console in your browser:
+Before we explain asynchronous callback functions, we should go over the synchronous version first. Here is an example of a synchronous callback function you can enter into the console in your browser:
 ```js
 function sayHello(name) {
   alert("Hello " + name + "!");
@@ -369,13 +370,16 @@ After entering your name, you should see the alert:
 
 ![Dialog Box with Greeting](./assets/lesson-1/1100-name-alert.png)
 
-As you can see, a function is passed into the `processName()` function as an argument. This callback function `sayHello()` is executed immediately once the `processName()` function is called, hence it occurs synchronously.
+As you can see, a function, `sayHello()` is passed into the `processName()` function as an argument. This callback function `sayHello()` is executed immediately once the `processName()` function is called, hence it occurs synchronously. 
 
-In our button click example, our callback function did not execute immediately, but waited for the click event to occur. We call this type of callback, asynchronous, due to the fact that the main program continue to execute as the callback waits to be executed.
+> **Important:** Note when we pass the function, `sayHello` into `processName()` as an argument, we do **not** include the parentheses. If you do, you will see that the `sayHello()` is executed immediately and displays the name as `undefined` as seen in the image bellow:
+>
+>![Call Back Prompt](./assets/lesson-1/5000-prompt-hello.png)
+> This occurs because the parentheses cause the function to invoke immediately.
 
-![Fo more on asynchronous vs synchronous functions let's research our MDN docs for a detailed definition](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
+Conversely in our button click example, our callback function did not execute immediately, but waited for the click event to occur. We call this type of callback, asynchronous, due to the fact that the main program continue to execute as the callback waits to be executed.
 
-
+[For more on asynchronous vs synchronous functions let's research our MDN docs for a detailed definition](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
 
 ## Add Items with the Click of a Button
 
