@@ -358,7 +358,7 @@ while([Condition]) {
   statement
 }
 ```
-In a `while` statement, if the `Condition` evaluates to true, the `statement` executes. Then the `Condition` is reevaluated and so on. Let's write our code within the `fight()` function to look like the following:
+In a `while` statement, if the **condition** evaluates to true, the **statement** executes. Then the **condition** is reevaluated and so on. Let's write our code within the `fight()` function to look like the following:
 ```javascript
 var fight = function(enemyName) {
   // repeat and execute as long as the enemy robot is alive 
