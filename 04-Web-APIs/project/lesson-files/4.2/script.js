@@ -3,7 +3,7 @@ var tasksToDoEl = document.querySelector("#tasks-to-do");
 
 var taskFormHandler = function(event) {
   event.preventDefault();
-  var taskNameInput = document.querySelector("[name='task-name'").value;
+  var taskNameInput = document.querySelector("[name='task-name']").value;
   var taskTypeInput = document.querySelector("[name='task-type']").value;
   
   // check if inputs are empty (validate)

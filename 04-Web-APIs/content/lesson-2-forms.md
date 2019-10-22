@@ -2,7 +2,7 @@
 
 ## Introduction
 
-> **Asset Needed:** Image or gif of application in current state
+![Taskinator in its current state](assets/lesson-2/100-project-current.jpg)
 
 Taskinator is really starting to take shape! We not only have our HTML in place, but we also have added the ability to interact with the HTML elements to create new tasks for our task list. 
 
@@ -12,7 +12,7 @@ In this lesson, we'll be adding functionality to our application that will allow
 
 Let's take a look at the GitHub issue we created to review what we'll work on next:
 
-> **Asset Needed:** GitHub Issue screenshot
+![GitHub form submit issue](assets/lesson-2/200-git-issue.jpg)
 
 The last lesson was about using browser events to dynamically create new HTML content and append it to the page. We'll be adding to that in this lesson by adding the ability to read data entered into HTML form elements and using that data to create new tasks. By the end of this lesson, we'll have our MVP for this application!
 
@@ -20,7 +20,7 @@ The last lesson was about using browser events to dynamically create new HTML co
 
 By the end of this lesson, our application will allow users to fill out a form and create a new task based on the form's input content.
 
-> **Asset Needed:** Screenshot of what the project will look like at the end of the lesson
+![Taskinator at the end of the lesson](assets/lesson-2/300-project-endoflesson.jpg)
 
 Just like the last lesson, our path to matching the image above will involve the following features:
 
@@ -34,7 +34,7 @@ As far as features go, there isn't a terrible amount to add here, but the featur
 
 Like the last lesson, adding features are done most efficiently when tackled in a certain order, so let's use pseudocode to help outline the steps we will take:
 
-> **Asset Needed:** Learnosity pseudocode drag and drop order
+> **Asset Needed:** [Learnosity pseudocode drag and drop order](https://trilogyed.atlassian.net/browse/FSFO-205?atlOrigin=eyJpIjoiZWZlNGY3YTJmMjZkNGI2MGJkODY2OGFiNDVhZTQ2MTYiLCJwIjoiaiJ9)
 > - Create a New Git branch
 > - Add Task Form to HTML
 > - Handle Form Submission
@@ -71,7 +71,7 @@ In order for us to be able to create new tasks with unique content, we'll first 
 
 Let's not concern ourselves with the "how does this work?" part just yet and focus on getting the form set up to look like this image:
 
-> **Asset Needed:** Mock-up of the header with the form
+![The page header with a form](assets/lesson-2/400-header-mockup.jpg)
 
 We currently just have a button that triggers an event to create a new task, but we are going to add form elements to go along with that button. Let's start by adding a `<form>` element in our `<header>`.
 
@@ -107,7 +107,7 @@ Add the following right after the opening `<form>` tag:
 
 Save `index.html` and refresh the page in the browser, we should see something like this image:
 
-> **Asset Needed:** Image of input and button in form
+![Form with a task name input and submit button](assets/lesson-2/500-form-wip.jpg)
 
 By adding the class of `text-input` to the `<input>` element, we were able to override all of the browser's default styles for the element and make it look more in line with our app's style. 
 
@@ -138,7 +138,11 @@ Save `index.html` and refresh the browser, we now have another form element that
 
 We used the options of "Print", "Web", and "Mobile" here because those are common types of projects we may be working on, but since this is a personal project for us, we can feel free to customize those options to fit our needs.
 
-One thing also to note, this new element looks pretty bad when we compare it to the other form elements on the page. Elements like this, along with radio and checkbox inputs, get a lot of default styling from the browser whether we like it or not. Luckily, the style sheet we're using has a CSS class ready for us, so let's implement it!
+One thing also to note, this new element looks pretty bad when we compare it to the other form elements on the page, as this image shows us:
+
+![Select dropdown with default styles](assets/lesson-2/600-form-select-nostyle.jpg)
+
+Elements like this, along with radio and checkbox inputs, get a lot of default styling from the browser whether we like it or not. Luckily, the style sheet we're using has a CSS class ready for us, so let's implement it!
 
 Add the following class to the `<select>` element to look like this:
 
@@ -148,7 +152,7 @@ Add the following class to the `<select>` element to look like this:
 
 If we save our file and refresh the browser, it should look a lot better, like this image:
 
-> **Asset Needed:** Screenshot of header with form styled
+![Header with completed task form](assets/lesson-2/400-header-mockup.jpg)
 
 We won't go too deep into the magic behind making this look good, but feel free to inspect it in Chrome DevTools. The key to styling an element like this is using the `appearance` CSS property, which tells a browser how to interpret the element. In this case, we're using that property to tell the browser to do absolutely nothing with the element and we'll style it ourselves.
 
@@ -199,7 +203,7 @@ Save `script.js` and refresh the browser, then try filling out the form and pres
 
 We can see that the code runs and creates a new task, but it's immediately deleted and the browser window seems to refresh itself. See this image below for reference:
 
-> **Asset Needed:** Gif of page refresh on submit
+![Page refreshing on form submission](assets/lesson-2/700-form-reload.gif)
 
 What do we think is happening here? Why would our code run, put something on the page, and then have nothing? Even if we add a `console.log()` statement to `createTaskHandler()` and monitor the Chrome DevTools console here, we'll notice that the log shows up for a second and then disappears as well.
 
@@ -251,7 +255,7 @@ console.log(event);
 
 Save `script.js` and try submitting the form again. If we turn our attention to the DevTools console tab, we'll see the event object. Open it up and you should see something like this image:
 
-> **Asset Needed:** Image of the console with the event object
+![The event object from a form submission](assets/lesson-2/800-event-console.jpg)
 
 As we can see, this object holds a fair amount of data. A lot of it is not important at the moment, but over time we'll learn how some of the properties can be used in our applications.
 
@@ -259,7 +263,7 @@ So our form submission works and our event handler is able to work as intended, 
 
 Don't forget to add, commit, and push the code up to our GitHub feature branch!
 
-> **Asset Needed:** Learnosity quiz: RTDM on browser event interfaces and have students briefly explain three of their choosing.
+> **Asset Needed:** [Learnosity quiz on browser events](https://trilogyed.atlassian.net/browse/FSFO-204?atlOrigin=eyJpIjoiMjE2ODFkOGEwZDliNGRhYjhhNDg0MWViMTRlMTM2NTAiLCJwIjoiaiJ9)
 
 ## Capture Form Field Values
 
@@ -296,7 +300,7 @@ Whenever we use square brackets `[ ]` in a selector, it means we're trying to se
 
 Save `script.js`, refresh the page and try submitting a task (don't forget to add some text in the input field). After we submit a task, let's turn our attention to the console and see what shows up:
 
-> **Asset Needed:** console log screenshot of taskNameInput
+![Selected HTML input element logged in the console](assets/lesson-2/900-input-log.jpg)
 
 We should see the form element's HTML tag get logged, which isn't too helpful in this case. We need to get some more information from our form element, but how? If using `console.log()` can't help us see more information that HTML element holds, such as the content held inside the `<input>` field, what can? 
 
@@ -308,7 +312,7 @@ console.dir(taskNameInput);
 
 Save `script.js`, refresh the browser, and submit a new task. The console shouldn't display the HTML tag for that element anymore, but rather an object that looks something like this image:
 
-> **Asset Needed:** Image of console.dir()
+![Selected HTML input element logged as an object in the console](assets/lesson-2/1000-input-dir.jpg)
 
 Take a minute and examine all of the different properties. This is all of the underlying data that the browser keeps tabs on for a single HTML element. It knows virtually everything about this element, it's height and width on the page, what its parent elements are, what its child elements are (if applicable), and guess what? It also know what the user has typed inside of the input box.
 
@@ -350,11 +354,11 @@ If we save, refresh the page, and submit a new task, we should see whatever we e
 
 As of now, our task list looks like this image:
 
-> **Asset Needed:** Image of task list without type
+![Task item with just name](assets/lesson-2/1100-task-name.jpg)
 
-Our mock-up, however, shows that each task item should have its type below the name, like this:
+Our mock-up, however, shows that each task item should have its type below the name, like this image:
 
-> **Asset Needed:** Image of task list with type (use same as mock-up from beginning of lesson)
+![Task item with both name and type](assets/lesson-2/300-project-endoflesson.jpg)
 
 To do this, we're going to have to first get the value of the `<select>` dropdown's picked `<option>` element, then we're going to have to create some more HTML to go inside of the `<li>` element we created for a task item.
 
@@ -392,7 +396,7 @@ tasksToDoEl.appendChild(listItemEl);
 
 Save `script.js` and try submitting a new task after refreshing the page. The result should look something like this image:
 
-> **Asset Needed:** Use same image as above with task name and type
+![Task item with both name and type](assets/lesson-2/300-project-endoflesson.jpg)
 
 We can now create a new task with both its name and type values we submitted through the form. There's a number of ways we could've organized this content, but as we've repeatedly learned, sometimes it's easier to wrap content in a container `<div>` element to keep them in sync with one another.
 
@@ -406,7 +410,7 @@ The `innerHTML` property allows us to write HTML tags inside of the string value
 
 To see for ourselves, we could change `innerHTML` to `textContent` for a second and see what displays, it would be something like this image:
 
-> **Asset Needed:** task item using `textContent` instead
+![Task item with HTML tags displayed](assets/lesson-2/1200-textContent.jpg)
 
 Obviously that's not what we want, so `innerHTML` is the better fit here. Be sure to change it back to `innerHTML` and we can move on!
 
@@ -531,7 +535,7 @@ Last thing we need to do is to update the code in `createTaskEl()` to stop looki
 
 The error would look something like this image:
 
-> **Asset Needed:** Screenshot of the console with missing variables
+![The console with an uncaught reference error](assets/lesson-2/1300-reference-error.jpg)
 
 The error states that `taskNameInput` is not defined, how could this be if it was clearly created in the `taskFormHandler()` function? Remember that any variables created within the curly braces of a function only exists within that function's braces. Any reference to it outside of the function would cause the program to break because it cannot find a variable with that name.
 
@@ -545,7 +549,7 @@ taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskName + "</h3><span class='
 
 Finally, let's save `script.js` and test out a task submission in the browser. It should look like this image:
 
-> **Asset Needed:** Use same image as mock-up for this lesson
+![The task list with multiple tasks](assets/lesson-2/300-project-endoflesson.jpg)
 
 If it looks exactly the same as it did before the refactor, great! Remember we didn't update what the code is doing on the page, we updated the code to be more maintainable for us later on.
 
@@ -561,7 +565,7 @@ The end of the last lesson may have gotten us on the edge of our seats wondering
 
 What happens if we submit our form without filling anything out? What happens if we put a task name in but forget to pick a task type? 
 
-> **Asset Needed:** Form submitted without task name and task type
+![A task item with no name or type](assets/lesson-2/1400-no-inputs.jpg)
 
 The task item was created just fine, but it's missing content! We don't have the ability to delete a task (yet), but even having that ability would be cumbersome to remove empty tasks. What we should really do is validate our form fields before completing our submission.
 
@@ -631,7 +635,7 @@ formEl.reset();
 
 Save `script.js` and try to submit a task. We can see that the form resets itself to its default values when we successfully submit a task. 
 
-> **Asset Needed:** Gif of task form resetting after successful submission
+![The form resetting its values on submission](assets/lesson-2/1500-form-reset.gif)
 
 The DOM element interface the browser provides us has the `reset()` method, which is designed specifically for this task. We could do it in other ways, namely by targeting each form element and resetting their values manually, but that could be cumbersome if it was a larger form to reset.
 
