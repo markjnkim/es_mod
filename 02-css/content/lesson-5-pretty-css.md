@@ -152,7 +152,7 @@ border-radius: 15px;
 
 This is shorthand to add a rounded corner to all four corners of the element. This essentially means move 15 pixels in on the x-axis, move 15 pixels in on the y-axis, and draw a circle with a radius of 15 pixels. Other units of measurement could be used, as well:
 
-> **Asset Needed:** <https://trilogyed.atlassian.net/browse/FSFO-98>
+> **Asset needed:** Graphic  <https://trilogyed.atlassian.net/browse/FSFO-98>
 
 Next, let's add a small rounded corner to all of the form elements on the page. Update the following CSS rules to have a `border-radius` of `10px` (we'll let you fill these in all on your own!):
 
@@ -182,7 +182,7 @@ We've managed to spruce up the page a little bit, but the Run Buddy team is gett
 
 Here's a demo of that behavior:
 
-> **Asset Needed:** <https://trilogyed.atlassian.net/browse/FSFO-77>
+> **Asset Needed:** Video <https://trilogyed.atlassian.net/browse/FSFO-77>
 
 Let's start with the stickiness aspect. In the previous module, we talked about different types of positioning: relative, absolute, fixed, etc. There's a new position in CSS called **sticky** that's kind of like a hybrid position. An element that's sticky will behave relatively until the viewport scrolls past it. Then the element will switch to fixed and remain visible even as the user scrolls farther down. 
 
@@ -252,7 +252,7 @@ background-attachment: fixed;
 background-position: 80%;
 ```
 
-> **Asset Needed:** <https://trilogyed.atlassian.net/browse/FSFO-99>
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-99>
 
 ## Style the States
 
@@ -266,7 +266,7 @@ Complex interactivity requires JavaScript, which we haven't covered yet. But we 
 
 **Pseudo-classes** let us style different states of an HTML element. For example, can you think of some different states that a button might have? You can **hover** over a button. You can be **actively** clicking on a button. And when clicked, the button becomes the HTML element that's in **focus**. Let's see that in action:
 
-> **Asset Needed:** <https://trilogyed.atlassian.net/browse/FSFO-78>
+> **Asset Needed:** Video <https://trilogyed.atlassian.net/browse/FSFO-78>
 
 Pseudo-classes can be added to any CSS selector using a colon and the name of the state, as shown here:
 
@@ -316,7 +316,7 @@ header nav ul li a:hover {
 >
 > ![The styles tab in the DevTools has checkboxes to force element state](./assets/lesson-5/700-devtools.png)
 >
-> **Asset Needed:** <https://trilogyed.atlassian.net/browse/FSFO-79>
+> **Asset needed:** Video  <https://trilogyed.atlassian.net/browse/FSFO-79>
 
 Using the `:focus` state, we can also visually highlight the form input that the user is currently typing in. Let's try this by adding the following rules to our style sheet:
 
@@ -419,7 +419,7 @@ The `<div>` with "Step 4" in it is the last child of the `<section>` element. Th
 
 This adds a border to every even-numbered child of the `<section>` that also has the class `step`. In this case, that's Step 1 and Step 3. That probably seems confusing, because Step 1 is not an even number! But keep in mind that `<div class="flex-row">` is the first official child, so Step 1 is actually the second child (an even number).
 
-> **Asset Needed:** <https://trilogyed.atlassian.net/browse/FSFO-103>
+> **Asset needed:** Graphic  <https://trilogyed.atlassian.net/browse/FSFO-103>
 
 For Run Buddy, we need a bottom border applied to every step except the last one. We could approach this in a few ways. One solution is to apply the border to all steps and then remove it from the last one:
 
@@ -635,7 +635,7 @@ Hmm. Why do the custom buttons and labels appear in front? The reason has to do 
 
 Think of HTML elements like pieces of paper that stack on top of each other, as this image shows:
 
-> **Asset Needed:** <https://trilogyed.atlassian.net/browse/FSFO-101>
+> **Asset needed:** Graphic  <https://trilogyed.atlassian.net/browse/FSFO-101>
 
 In our Run Buddy webpage, the header was the first element to receive positioning, so it sat on top. When we gave the form elements positioning, however, those "pieces of paper" were brought to the front and covered up the header. Fortunately, with the `z-index` property, we can change this stacking order, or "reshuffle the papers," so to speak.
 
@@ -649,7 +649,7 @@ A higher `z-index` brings the element to the front while a lower `z-index` pushe
 
 Save your code if you haven't already and check your work in the browser. To truly appreciate `z-index`, open Chrome's DevTools and toggle the declaration on and off!
 
-> **Asset Needed:** <https://trilogyed.atlassian.net/browse/FSFO-102>
+> **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-102>
 
 ## Optimize Using Variables
 
