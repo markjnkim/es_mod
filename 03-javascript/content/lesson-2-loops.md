@@ -204,7 +204,7 @@ var i = 0;
 i < 3;
 ```
 3. Then the **statement** executes. To execute multiple statements, use a block statement `{  }`, as used in `if-else` statements.
-4. After the `statement` is executed, the `IncrementExpression` then executes which increments the iterator.
+4. After the **statement** is executed, the **increment expression** then executes which increments the iterator, which is our variable `i`.
 
 `IncrementExpression`:
 ```js
