@@ -193,7 +193,7 @@ for([initial expression]; [condition]; [increment expression]) {
 When a `for` loop executes, the following occurs:
 1. The **initial expression** is the first statement executed. This initializes the loop iterator or counter. This expression is also able to declare variables.
 
-`InitialExpression`:
+**initial expression**:
 ```js
 var i = 0;
 ```
