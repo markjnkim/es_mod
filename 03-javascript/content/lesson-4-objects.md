@@ -598,7 +598,7 @@ var enemy = {
 
 In future applications, continue thinking about where and how objects can be used. They're a valuable tool right up there with functions and arrays.
 
-> **Asset Needed:** INSERT CHECKPOINT QUIZ: <https://trilogyed.atlassian.net/browse/FSFO-165>
+> **Asset Needed:** Learnosity: <https://trilogyed.atlassian.net/browse/FSFO-165>
 
 ## Merge Branch and Update Master
 
