@@ -84,7 +84,7 @@ Let's move on to another invaluable function of branching: creating feature bran
 
 ## Create Feature Branches
 
-**Features** are additions or changes to a significant part of the codebase. For instance, major upgrades to a header, footer, or section would be considered a feature. A feature is normally developed in a separate branch called a `feature` branch.
+**Features** are additions or changes to a significant part of the codebase. For instance, a major upgrade to a header, footer, or section would be considered a feature. A feature is typically developed in a separate branch called a `feature` branch.
 
 > **Asset Needed:** [Multiple Development Environments: JIRA FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) 
 
@@ -93,9 +93,8 @@ We just created a `develop` branch as a development environment to protect and i
 The following diagram introduces the concept of feature branches:
 
 ![Feature Branch](assets/lesson-1/60-feature-branch.png)
-> **Asset Needed:** [Git Pull Jira-176](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-176)
 
-[URL](https://medium.com/devsondevs/gitflow-workflow-continuous-integration-continuous-delivery-7f4643abb64f)
+> **Asset Needed:** Replace above image [Git Pull Jira-176](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-176)
 
 As can be seen in the diagram, several feature branches can be branched off the `develop` branch. Once the feature is complete, it's merged back into the `develop` branch. 
 
@@ -290,7 +289,7 @@ Another great feature VS Code offers is a Markdown preview. To see how your Mark
 
 ![Markdown review button icon](./assets/lesson-1/351-vs-code-markdown-preview.png)
 
-> **Asset Needed:**-Gif: [Show how the Explorer changes on branch checkout - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog)
+> **Asset Needed:** Gif [Show how the Explorer changes on branch checkout - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog)
 
 If you see the `README.md` file in VS Code, congrats for successfully accomplishing your first `pull`! 
 
