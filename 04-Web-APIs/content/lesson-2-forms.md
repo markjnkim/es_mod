@@ -80,7 +80,7 @@ Update the `<header>` element to look like this under the `<p>` element:
 ```html
 <form id="task-form">
   <div class="form-group">
-    <button class="btn" id="save-task">Add Task</button>
+    <button class="btn" id="save-task" type="submit">Add Task</button>
   </div>
 </form>
 ```
@@ -163,48 +163,525 @@ Don't forget to add, commit, and push your feature branch!
 
 In the last lesson we attached an event listener to our "Add Task" button so when it was clicked, it triggered a function to run that created a new task item for us. We can keep it this way when it comes to submitting our form. By clicking on the button, we can set our `createTaskHandler()` function to read the form value inputs and use them to create a task on the page for us. 
 
-There is one small usability feature missing, however, from using just a "click" event listener, and it's a feature that makes forms feel a little more natural for users. This feature is to allow users to submit forms in two ways:
+There is one small usability feature missing, however, from using just a "click" event listener, and it's a feature that makes forms feel a little more natural for users. Though it seems like a small feature to concern ourselves with, it's little improvements like this that can really make an app feel more intuitive for some users. It also doesn't involve too much work on our end to change this type of behavior, so let's get started with it! 
 
-- Click a button in the form to submit the data
+To begin, we're going to move the event listener from the `<button>` element we added in the last lesson and apply it to the `<form>` element itself. This way, the browser will now be able to listen to an event happening on the whole form rather than just the button. 
 
-- Press `Enter` or `Return` on the keyboard to submit the data
+We'll have to change our code in two places:
 
-Though it seems like a small feature to concern ourselves with, it's little improvements like this that can really make an app feel more intuitive for some users. It also doesn't involve too much work on our end to change this type of behavior, so let's get started with it! 
+- At the top of `script.js`, delete the variable declaration for `buttonEl` and add this in it's place:
 
+```js
+var formEl = document.querySelector("#task-form");
+```
 
+- At the bottom of `script.js`, remove the code to add an event listener to `buttonEl` and add this in it's place:
+
+```js
+formEl.addEventListener("submit", createTaskHandler);
+```
+
+We now have our `script.js` file finding the `<form>` element in the page and saving it to the variable `formEl`. Now we have not only the ability to interact with our form, but we can also access some of it's child HTML elements as well. The latter will come more into play later on, so let's think about interacting with the form.
+
+Since we're targeting the entire form instead of just the button, we can't use the "click" event listener anymore. If we kept it with a "click" listener, then every time we clicked on the form it would've run the `createTaskHandler()` function, which isn't really helpful to us.
+
+Instead, we are using an event that is specific to forms called "submit" (also labeled as "onsubmit" in certain documentation). This particular listener actually listens for two events within the context of the form:
+
+- When the user clicks on a `<button>` element with a `type` attribute that has a value of "submit", like the button we currently have in the form.
+
+- When the user presses `Enter` or `Return` on their keyboard.
+
+> **Deep Dive:** Learn more about this on the [MDN documentation for the submit event.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event)
+
+So instead of having the `createTaskHandler()` function run every time the button is clicked, it can now be run by any of the two above form submission browser events. Let's test that out, as our `createTaskHandler()` function should still be working.
+
+Save `script.js` and refresh the browser, then try filling out the form and pressing `Enter` on the keyboard or clicking the "Add Task" button. As we can see, the code is _kind of_ working. 
+
+We can see that the code runs and creates a new task, but it's immediately deleted and the browser window seems to refresh itself. See this image below for reference:
+
+> **Asset Needed:** Gif of page refresh on submit
+
+What do we think is happening here? Why would our code run, put something on the page, and then have nothing? Even if we add a `console.log()` statement to `createTaskHandler()` and monitor the Chrome DevTools console here, we'll notice that the log shows up for a second and then disappears as well.
+
+Depending on how fast our computers are, we may not even notice that the browser itself is actually reloading the page every time we submit the form! So our code works just fine here, but the browser is keeping us from achieving our goal. Why would the browser do something like this?
+
+Before JavaScript was as ubiquitous on the web as it is today, dynamic actions such as submitting a form were handled directly between the HTML file and the browser. In our case, with forms, special attributes would have to be added to the `<form>` element to instruct the browser where this form's data should be sent to. Since JavaScript wasn't being used, there was no way to dynamically update the page without refreshing it, so the browser would refresh the page to complete it's action.
+
+Using JavaScript to handle these types of dynamic actions instead, we no longer need to rely on the browser to complete the task for us, but the browser doesn't know that and still wants to do what it was designed to do. It's up to us to explicitly instruct the browser to not do that.
+
+Let's fix our little issue right now by making the `createTaskHandler()` function to look like this:
+
+```js
+var createTaskHandler = function(event) {
+
+  event.preventDefault();
+
+  var listItemEl = document.createElement("li");
+  listItemEl.className = "task-item";
+  listItemEl.textContent = "This is a new task.";
+  tasksToDoEl.appendChild(listItemEl);
+};
+```
+
+Save `script.js` and refresh the page, then try filling out and submitting the form. 
+
+It works! The page doesn't refresh at all and keeps the newly created task remains in the list. Let's dive into what was added here to make this work for us.
+
+### The Event Object
+
+First, a little backstory on the browser event / JavaScript relationship. Whenever _anything_ happens on the page, the browser pays attention to it. If someone scrolls, the browser knows exactly how far down the page it goes. If someone clicks on the unused margins of a page, the browser knows. All of this happens whether we create a JavaScript event listener or not.
+
+When we use JavaScript to listen for an event that occurs on an HTML element, however, the browser collects all of the information for that event and packages them up into an object for us to use. This is what's known as the "Event Interface", but that's just a fancy name for a nicely packaged JavaScript object we get to use in our event handler function. We can use this "event object" by simply making the function executed by the event have an argument to represent the event object. Once we do that, the browser is smart enough to fill in the data for that event and pass the argument into our function.
+
+> **Deep Dive:** There are different kinds of browser event interfaces that we can use in our JavaScript. For example, a click event object may hold different data than a keyboard event object, as they have different properties to them.
+>
+> The best way to explore what data is provided to an event object is to simply `console.log(event);` in the function handling the event. For a more in-depth explanation of each event, check out [MDN's documentation on the event interface.](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+
+By adding the `event` argument to our `createTaskHandler()` function, we are now able to use the data and functionality that object holds for us. We did just that when we added `event.preventDefault();` to the handler function's code. What do we think that method's name means?
+
+Think about what was happening before we added it, the page refreshed every time we submitted the form. That's because of the browser's default behavior when it comes to handling a form submission. So if we execute a method named `event.preventDefault();` in our handler, we are quite literally instructing the browser to not carry out it's default behavior.
+
+There won't be a need for `event.preventDefault();` for all event handlers, but there will be a few more times that we'll have to use it for our Taskinator application. After all, we did have our click handler working without it this whole time.
+
+One more thing before we move on, let's explore the event object a little bit by logging it to the console. Add this to the `createTaskHandler()` function:
+
+```js
+console.log(event);
+```
+
+Save `script.js` and try submitting the form again. If we turn our attention to the DevTools console tab, we'll see the event object. Open it up and you should see something like this image:
+
+> **Asset Needed:** Image of the console with the event object
+
+As we can see, this object holds a fair amount of data. A lot of it is not important at the moment, but over time we'll learn how some of the properties can be used in our applications.
+
+So our form submission works and our event handler is able to work as intended, but we're still creating a task item with preset values. Let's turn our attention to the form's input values and see how we can retrieve the content we enter into the form. 
+
+Don't forget to add, commit, and push the code up to our GitHub feature branch!
+
+> **Asset Needed:** Learnosity quiz: RTDM on browser event interfaces and have students briefly explain three of their choosing.
 
 ## Capture Form Field Values
 
-*2–3 sentences describing what will be covered in this section.*
+At this point, we're tired of seeing the same canned tasks get added to the page when we submit our form. What's the point of having form input elements that a user can interact with if we don't do anything with them?
 
-*Walk student through this step, include LBs as appropriate, etc.*
+Let's outline what we'll need to do in order for our event handler to retrieve the form's values upon submission:
 
-*Transitional text to next section.*
+- Target the HTML elements with the pertinent data
 
-## Create New Task and Organize Functionality
+- Read and store the content that those elements hold
 
+- Use that content to create a new task
+
+We'll start off simple and just worry about reading the task's name first, then we'll retrieve the task's type when we know we're heading in the right direction.
+
+In `createTaskHandler()`, add the following code right below the `event.preventDefault();`:
+
+```js
+var taskNameInput = document.querySelector("[name='task-name']");
+console.log(taskNameInput);
+```
+
+Before we save and test our code, take a look at the selector we used as an argument in the `querySelector()` method. What do you think this selector syntax means?
+
+Whenever we use square brackets `[ ]` in a selector, it means we're trying to select an HTML element by one of its attributes. In this case, we're selecting an element on the page that has a `name` attribute set to a value of "task-name", just like the `<input>` element in our form.
+
+> **Pause:** In the following selector, why are there single quotes wrapping the attribute's value and double quotes wrapping the entire selector?
+>
+> ```js
+> document.querySelector("[name='task-name']");
+> ```
+>
+> **Answer:** If we used another set of double quotes to wrap the attribute's value, the entire string would break, as it would assume we ended the string at `"[name="` and anything after would break the query selector.
+
+Save `script.js`, refresh the page and try submitting a task (don't forget to add some text in the input field). After we submit a task, let's turn our attention to the console and see what shows up:
+
+> **Asset Needed:** console log screenshot of taskNameInput
+
+We should see the form element's HTML tag get logged, which isn't too helpful in this case. We need to get some more information from our form element, but how? If using `console.log()` can't help us see more information that HTML element holds, such as the content held inside the `<input>` field, what can? 
+
+Let's try this again, but instead of using `console.log()`, change it to look like this:
+
+```js
+console.dir(taskNameInput);
+```
+
+Save `script.js`, refresh the browser, and submit a new task. The console shouldn't display the HTML tag for that element anymore, but rather an object that looks something like this image:
+
+> **Asset Needed:** Image of console.dir()
+
+Take a minute and examine all of the different properties. This is all of the underlying data that the browser keeps tabs on for a single HTML element. It knows virtually everything about this element, it's height and width on the page, what its parent elements are, what its child elements are (if applicable), and guess what? It also know what the user has typed inside of the input box.
+
+Navigate down to the `value` property for this element, and we'll see exactly what we typed into the form before submitting it. This is the data we need to retrieve and create a new task item from!
+
+Notice how we had to use `console.dir()` to get the result we needed? While `console.log()` can get us the information we need most of the time, `console.dir()` is another method we can use to make the console display data as a JavaScript object.
+
+> **Deep Dive:** Check out the documentation for some of the new things we've learned:
+>
+> - [MDN documentation for `console.dir()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/dir)
+>
+> - [MDN documentation for the `HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
+
+### Get the Task to Display
+
+Now that we've pinpointed where the data we care about is, we can now grab it and put it on the page. Let's update the query selector in `createTaskHandler()` to look like this:
+
+```js
+var taskNameInput = document.querySelector("[name='task-name']").value;
+```
+
+Before, we were selecting and storing the entire HTML element for the task name form input. We don't necessarily need to worry about any of the other properties that element has, just the `value` property, so we can get right to it by simply adding a `.value` to the end. Now the value of the `taskNameInput` variable will be just the text we entered into the `<input>` element.
+
+> **Urkel Says:** The common verb used for retrieving or reading data from an object's property is called "getting".
+>
+> When we provide and store data in an object's property, it is called "setting".
+>
+> These are two terms that are used often throughout web development.
+
+Next thing we want to do is get the task name we just stored in `taskNameInput` and add it to the `listItemEl` variable. Let's update the `listItemEl.textContent` property to look like this instead:
+
+```js
+listItemEl.textContent = taskNameInput;
+```
+
+If we save, refresh the page, and submit a new task, we should see whatever we entered into the form now appear as a task in our list! Now we can make any custom task that we need, only thing we need to do now is add the task's type as well.
+
+### Add More Content to a Task
+
+As of now, our task list looks like this image:
+
+> **Asset Needed:** Image of task list without type
+
+Our mock-up, however, shows that each task item should have its type below the name, like this:
+
+> **Asset Needed:** Image of task list with type (use same as mock-up from beginning of lesson)
+
+To do this, we're going to have to first get the value of the `<select>` dropdown's picked `<option>` element, then we're going to have to create some more HTML to go inside of the `<li>` element we created for a task item.
+
+Let's start by getting the value of our `<select>` dropdown. Lucky for us, we can use the same code as we did to get the task name's value and update the selector to find the `<select>` element instead.
+
+Add the following code below the variable declaration for `taskNameInput`:
+
+```js
+var taskTypeInput = document.querySelector("[name='task-type']").value;
+```
+
+To test it, try using `console.log(taskTypeInput);` below the `taskTypeInput` variable declaration to see what the value is. It will display whatever `<option>` element was picked in the `<select>` dropdown.
+
+Great! Now we can use that value and add it to our task item, but first we'll need to refactor our code a little bit to make HTML we're creating easier to style and maintain.
+
+Let's update the code in `createTaskHandler()` to look like this after we create our form input variables:
+
+```js
+// create list item
+var listItemEl = document.createElement("li");
+listItemEl.className = "task-item";
+
+// create div to hold task info and add to list item
+var taskInfoEl = document.createElement("div");
+// give it a class name
+taskInfoEl.className = "task-info";
+// add HTML content to div
+taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + "</span>";
+
+listItemEl.appendChild(taskInfoEl);
+
+// add entire list item to list
+tasksToDoEl.appendChild(listItemEl);
+```
+
+Save `script.js` and try submitting a new task after refreshing the page. The result should look something like this image:
+
+> **Asset Needed:** Use same image as above with task name and type
+
+We can now create a new task with both its name and type values we submitted through the form. There's a number of ways we could've organized this content, but as we've repeatedly learned, sometimes it's easier to wrap content in a container `<div>` element to keep them in sync with one another.
+
+We still created the `<li>` element to hold the whole task, but instead of writing the task's content right to it, we created a `<div>` to hold the content. Once we were done setting the data into the `<div>`, we appended it to the `<li>` and lastly, we appended the entire `<li>` to the page. 
+
+Notice how we are able to add a child HTML element to another HTML element in JavaScript before it even got to the page? We append the `taskInfoEl` to the `listItemEl`, meaning all of the content of `taskInfoEl` is set inside of `listItemEl` as a child HTML element before `listItemEl` is added to the page.
+
+That's not all, though, we also used a new DOM element property called `innerHTML`. It works a lot like the `textContent` property, but with one big difference. The `textContent` property only accepts text content values, if it saw an HTML tag written in as a value, it would literally display that HTML tag and not interpret it as the HTML tag.
+
+The `innerHTML` property allows us to write HTML tags inside of the string value we're giving it and when it loads, it actually displays the content in the HTML tags used. So when we use an `<h3>` tag here, it'll display as an `<h3>` tag. If we used `textContent`, it would display something like `"<h3 class='task-name'>"` and not infer that we wanted to use that actual HTML element.
+
+To see for ourselves, we could change `innerHTML` to `textContent` for a second and see what displays, it would be something like this image:
+
+> **Asset Needed:** task item using `textContent` instead
+
+Obviously that's not what we want, so `innerHTML` is the better fit here. Be sure to change it back to `innerHTML` and we can move on!
+
+### When to Refactor
+
+Right now, our `createTaskHandler()` function is doing a good amount of work for us. It reads the form elements on submission, then it creates quite a bit of HTML content and adds it to the page.
+
+We can leave it like this, as we know it works for our needs at the moment, but it may lead to a headache down the line when we start to add more features to our application. This is a good time to maybe separate this into two different functions:
+
+- One to handle the form submission, and get the form values, and pass those values to another function as arguments
+
+- One to accept the form values as arguments and use them to create the new task item's HTML
+
+We're going to tackle this type of refactor next. But first, since we know our code is working, let's add, commit, and push it to GitHub.
+
+## Organize Functionality
+
+Our application is working as we want it to, but if we were to add new features that involves adding more content to a task item or the form, we would have a hard time making that work with our current `createTaskHandler()` function. In this step, we are going to split the tasks that function is performing into two functions. 
+
+Sometimes it is better to have more functions that perform one task than combine all of the tasks into one function. There are a number of reasons we would want to do this:
+
+- If a function is getting to be a lot of code that performs separate tasks, it could become difficult to read and understand what that function is doing.
+
+- If we set up a function to do multiple tasks, like both getting the form values and then printing them to the page, it decreases our ability to possibly reuse the function for another part of our application. 
+
+Both of the reasons above are sometimes hard to diagnose in the moment. That is something that will get better with time, as we'll become more adept at predicting what our application needs in the future. 
+
+> **On The Job:** Remember that the primary goal is to get our code working first to make sure we don't have to rethink our steps. Once the code works, come up with "what if" scenarios on how the code could be better or worse&mdash;how someone could accidentally break the application.
+>
+> The code will typically not be perfect the first time when we attempt to do something new, and it would be unreasonable to expect it to be. This is why a code refactor is usually done after we get something working. 
+
+Let's take a moment and outline what we'll do to refactor our code:
+
+- We'll rename the handler function to be a little more specific to the event it's handling.
+
+- We'll create a new function that will take in the task's name and title as arguments and create the HTML elements that get added to the page
+
+- The code we have in our handler function currently that creates and adds the HTML elements will be moved into the new function we create.
+
+- We'll update our handler function send the task name and type values from the form to the new function we create.
+
+The good thing is that we are mostly just reorganizing code that we've already written, so a lot of work has been done for us. We just need to get the code to its proper place.
+
+We'll start by updating the name of our handler function. In `script.js` change the `createTaskHandler` function name to `taskFormHandler` wherever the name is used:
+
+- The function's variable declaration
+
+- In the `addEventListener()` method at the bottom of the file
+
+If the name was updated in both places, the application should still work, but it's always best to test it before we move on just in case. Save `script.js` and test the code by submitting a form. 
+
+If it still works, great! If it doesn't, double check that nothing was spelled incorrectly. If it was working and the only thing that changed was renaming the handler function, then there may be a typo or misspelling somewhere.
+
+> **Hint:** Don't forget to use the Chrome DevTools console tab to see if any errors show up.
+
+Next thing we'll do is create a new function. We'll add the following code right below the `taskFormHandler()` function and above the `addEventListener()` method:
+
+```js
+var createTaskEl = function(taskDataObj) {
+
+}
+```
+
+We just created a new function called `createTaskEl` and as we may be able to guess by the name, it will hold the code that creates a new task HTML element. One thing to note though is if we're going to provide this function with both the task's title and type, why is there only one argument called `taskDataObj`?
+
+We could set up the function to take in two arguments, one for each piece of data. That may limit us in the future, though, as we may end up using more information with a task over time. So instead of having to add another argument to the function every time we want to use more data, we could simply set up the function to accept an object as an argument.
+
+This way when we send the task's name and type to the `createTaskEl()` function, it'll look like this:
+
+```js
+// taskDataObj
+{
+  name: "Task's name",
+  type: "Task's type"
+}
+```
+
+Before we worry about passing the argument object, let's get the code for `createTaskEl()` in place. We can rewrite all of the code by hand, but it's already in the `taskFormHandler()` function, so we can simply copy and paste it into `createTaskEl()`.
+
+Select the following code from `taskFormHandler()` and cut or copy it, then paste it into `createTaskEl()`:
+
+```js
+// create list item
+var listItemEl = document.createElement("li");
+listItemEl.className = "task-item";
+
+// create div to hold task info and add to list item
+var taskInfoEl = document.createElement("div");
+taskInfoEl.className = "task-info";
+taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + "</span>";
+
+listItemEl.appendChild(taskInfoEl);
+
+// add entire list item to list
+tasksToDoEl.appendChild(listItemEl);
+```
+
+Once it is pasted into `createTaskEl()`, make sure that code is removed from `taskFormHandler()`.
+
+Unfortunately we cannot test our code just yet, as we haven't updated `taskFormHandler()` to pass the data as arguments just yet. Let's do that now by adding the following code to that function to look like this:
+
+```js
+var taskFormHandler = function(event) {
+  event.preventDefault();
+  var taskNameInput = document.querySelector("[name='task-name']").value;
+  var taskTypeInput = document.querySelector("[name='task-type']").value;
+
+  // package up data as an object
+  var taskDataObj = {
+    name: taskNameInput,
+    type: taskTypeInput
+  };
+
+  // send it as an argument to createTaskEl
+  createTaskEl(taskDataObj);
+}
+```
+
+As we can see, we gathered our form's values and placed them into an object with a `name` and `title` property. Then we insert it as an argument when we call `createTaskEl()` at the bottom of `taskFormHandler()`. This makes `taskFormHandler()` a lot easier to read, as it is apparent that all it's doing is collecting data and sending it elsewhere.
+
+Last thing we need to do is to update the code in `createTaskEl()` to stop looking for the `taskNameInput` and `taskTypeInput` variables and look for the `taskDataObj` argument's properties instead. If we were to keep the two variable names there, our application would break when we attempted to submit a form.
+
+The error would look something like this image:
+
+> **Asset Needed:** Screenshot of the console with missing variables
+
+The error states that `taskNameInput` is not defined, how could this be if it was clearly created in the `taskFormHandler()` function? Remember that any variables created within the curly braces of a function only exists within that function's braces. Any reference to it outside of the function would cause the program to break because it cannot find a variable with that name.
+
+> **Urkel Says:** This is what's known as "lexical scoping".
+
+Let's fix our problem and update one line in our `createTaskEl()` function to look like this instead:
+
+```js
+taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskName + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
+```
+
+Finally, let's save `script.js` and test out a task submission in the browser. It should look like this image:
+
+> **Asset Needed:** Use same image as mock-up for this lesson
+
+If it looks exactly the same as it did before the refactor, great! Remember we didn't update what the code is doing on the page, we updated the code to be more maintainable for us later on.
+
+Again, refactoring code is something that takes time to learn. It feels unnatural at first, who wants to second guess code they just wrote and got working? Over time, it won't feel like second guessing, but rather like a personal challenge to be a better developer.
+
+Our Taskinator application is starting to take shape, but again, we have to ask ourselves "how can this break?" We'll tackle that in the next and final step of this lesson, but first, let's take a minute to celebrate us future proofing some of our code. It's not an easy task to perform or respect so early on in our careers as developers, but we've really set up our codebase to be scalable later on.
+
+Don't forget to add, commit, and push the code to GitHub!
 
 ## Add Input Validation
 
+The end of the last lesson may have gotten us on the edge of our seats wondering how our code can be broken, so let's just get right to it.
+
+What happens if we submit our form without filling anything out? What happens if we put a task name in but forget to pick a task type? 
+
+> **Asset Needed:** Form submitted without task name and task type
+
+The task item was created just fine, but it's missing content! We don't have the ability to delete a task (yet), but even having that ability would be cumbersome to remove empty tasks. What we should really do is validate our form fields before completing our submission.
+
+Validation comes in a lot of different flavors, but it typically means we should check if the required form fields have content and the content fits our needs. Think about when we have to create a password for an application, it won't let us try and create a short password without a number or uppercase letter usually. 
+
+That is a little bit more involved to test for, but luckily we don't have to here. We just need to test to see if the form fields have content or not. If they do, let the function continue and create the task item. If either of them do not, stop the function and let the user know that something is missing.
+
+Let's do this right now and update `taskFormHandler()` to have this code right before we create the `taskDataObj` variable:
+
+```js
+// check if inputs are empty (validate)
+if (!taskNameInput || !taskTypeInput) {
+  alert("You need to fill out the task form!");
+  return false;
+}
+```
+
+If we save our `script.js` file and try to submit a task with an empty field now, we'll receive an alert that tells us we need to fill out the form and then the function will stop when it reads `return false`. But if we include data in the form fields, our `taskFormHandler()` will work as intended and send the data to `createTaskEl()` to be printed to the page.
+
+This is a simple version of form input validation, we simply check to see if any value is read from our form inputs. By using this condition:
+
+```js
+(!taskNameInput || !taskTypeInput)
+```
+
+We are seeing if either `taskNameInput` _or_ `taskTitleInput` are empty. If they are empty strings, JavaScript evaluates the value to `false`, so by putting an exclamation point `!` in front of the variable name, the condition will return `true` if the value evaluates to `false`. 
+
+That seems confusing at first, but think of it this way, we are checking to see if a `false` value is in fact `false`, which would result in the condition being `true`. Let's explore a couple of examples of this to remind ourselves before moving on:
+
+```js
+// this will run because true is true
+if (true) {
+  console.log("Is true true? Yes.");
+}
+
+// this will not run because false is not true
+if (false) {
+  console.log("Is false true? No.");
+}
+
+// this will run because at least one of the conditions is true
+if (3 === 10 || "a" === "a") {
+  console.log("Does 3 equal 10? No.");
+  console.log("Does the letter 'a' equal the letter 'a'? Yes.");
+}
+
+// this will not run because both conditions have to be true to run
+if (3 === 10 && "a" === "a") {
+  console.log("Does 3 equal 10? No.");
+  console.log("Does the letter 'a' equal the letter 'a'? Yes.");
+}
+```
+
+We've now fixed a fairly large issue this application could have, and we did it with only a few lines of code! By making sure those two variables aren't empty strings, we have made our application more user-friendly by giving them feedback if they make a mistake.
+
+### Reset the Form
+
+There is one more thing to fix, however, and it isn't as much of an issue as it is a usability enhancement. 
+
+Let's say we're going to add multiple tasks at once. Currently, every time we fill out the form and submit a new task, we have to erase the previous task's content and start over again. While this isn't a breaking bug or issue, it does add a little frustration for the user. Luckily, we can fix this frustration with one line of code.
+
+Let's add this one last line of code to `taskFormHandler()` underneath the validation `if` statement we just added:
+
+```js
+formEl.reset();
+```
+
+Save `script.js` and try to submit a task. We can see that the form resets itself to its default values when we successfully submit a task. 
+
+> **Asset Needed:** Gif of task form resetting after successful submission
+
+The DOM element interface the browser provides us has the `reset()` method, which is designed specifically for this task. We could do it in other ways, namely by targeting each form element and resetting their values manually, but that could be cumbersome if it was a larger form to reset.
+
+> **Deep Dive:** Read more about clearing a form at [MDN's documentation on a form element's `reset()` method.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset)
+
+We're all set! We covered a lot of important ground in this lesson and it shows. Our Taskinator application not only accepts custom values from form elements, but also validates the form as well. This is a big step in building this application, so let's close this feature branch's issue and merge it into the `develop` branch.
+
+## Finalize Git Process
+
+Our work on this GitHub issue is done, which means it's time to revisit the Git branch workflow:
+
+1. `git status` to verify the correct files were modified
+
+2. `git add -A` or `git add .` to stage any changed files
+
+3. `git commit -m "add ability to submit custom tasks"`
+
+4. `git push origin feature/form-submit` to push the branch to GitHub
+
+5. `git checkout develop` to switch branches
+
+6. `git merge feature/form-submit` to merge the new feature into the `develop` branch
+
+7. `git push origin develop` to push the updated `develop` branch to GitHub
+
+Lastly, close the corresponding GitHub issue and celebrate!
 
 ## Reflection
 
-*Congratulate the learner. Recap what they accomplished during the lesson from a broad perspective in a couple of sentences.*
+Congratulations! We just learned a process that is present in all modern web development. We are now using JavaScript to listen for browser events in the HTML, read data from the HTML page, and write data to the HTML page. These are three actions we'll use very often throughout our careers as web developers. 
 
-*In this lesson, you added the following skills to your tool belt, knowledge base, skillset:*
+Let's recap what we've learned:
 
-- *Skill learned in 1-2 sentences*
+- We added a form to our HTML document and in so doing, learned a new HTML element, the `<select>` dropdown element.
 
-- *Skill learned in 1-2 sentences*
+- We learned how to submit forms using the `submit` event listener.
 
-- *Skill learned in 1-2 sentences*
+- We overrode default browser behavior by introducing `event.preventDefault();`
 
-- *Etc.*
+- We learned how to get data from a form element using its `value` property.
 
-*If this is the last lesson in a module, recap the entire module and introduce the next module.*
+- We used a new DOM element property, `innerHTML`, to write HTML code instead of simple text.
 
-*If this is not the last lesson in a module, introduce the next lesson and how it will build on the skills in this lesson.*
+- We refactored our code to be scalable.
 
+- We used simple form validation with `if` statements to prevent any user errors in our application.
+
+- We reset our form to its default state by using the `reset()` method on a form element.
+
+This _could_ be a shippable application at this point, as it has a lot of what we need for a task tracking application. There are some features we can add, though, such as having the ability to remove or edit a task and keep track of what the task's status is. We take this on in the next lesson, and because of the refactor we did in this lesson, it will be much less complicated.
 
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
