@@ -518,14 +518,6 @@ Go to the GitHub repo and select the Issues tab.
 
 > **Asset Needed:** [Create Git Issue: JIRA FSFO-111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
 
->  ## Storyboard for Video Team using Screen shots<br />
-> **Linear Steps**
-> 1) Click on Issues tab
-> 2) Click on New Issue button
->![Git Issue Tab](assets/lesson-1/800-git-issues-github.png)
-> 3) Git Issue Title - A descriptive name with the issue type such as an enhancement or fix. In our case we will type "Hero Section Text Block"
-> 4) Git Issue Comment - Can contain requirements of the feature or issue that is being fixed. Even adding mock-ups or design requirements are common. For bugs, often there are descriptions of the current state vs the desired state as well as steps to reproduce the bug.
-
 Create a new issue by clicking the green "New issue" button and typing the following Markdown:
 
 ```markdown

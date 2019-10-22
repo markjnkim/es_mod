@@ -30,7 +30,7 @@ As we learned in the previous lesson, the current `develop` branch is probably n
 
 The GitHub issue we're working on in this lesson is called "Advanced layouts using Flexbox," and it involves implementing flexbox to position the HTML content. It will require making changes to every section in the Run Buddy website, so it's best if we create another feature branch to work in. Let's name it based on the feature we're implementing: `feature/flexbox`.
 
-Let's follow the steps we established in Lesson 1 for creating a new feature branch from the command line:
+Let's follow the steps we learned in Lesson 1 for creating a new feature branch:
 
 1. Use the `git branch` command to verify that you are in the `develop` branch. If not, use `git checkout develop` to switch into the `develop` branch.
 
@@ -40,7 +40,7 @@ Run `git branch` again to make sure it worked. If it says the active branch is `
 
 If the active branch is not `feature/flexbox` or you received an error, don't worry! You can always revisit Lesson 1 to make sure you used the right commands, or watch this video for a walkthrough of the process:
 
-### [NEED VIDEO: FSFO-83 - Video for creating a git feature branch](https://trilogyed.atlassian.net/browse/FSFO-83?atlOrigin=eyJpIjoiODFiM2Q0NDJiNjdhNDQ4YzhkNzA2Y2VkMmZhNzU2NTEiLCJwIjoiaiJ9)
+> **Asset Needed:** [NEED VIDEO: FSFO-83 - Video for creating a git feature branch](https://trilogyed.atlassian.net/browse/FSFO-83?atlOrigin=eyJpIjoiODFiM2Q0NDJiNjdhNDQ4YzhkNzA2Y2VkMmZhNzU2NTEiLCJwIjoiaiJ9)
 
 ## Add Flexbox to the Header
 
@@ -48,9 +48,9 @@ You might compare the header in the current live site (Run Buddy version 1.0) to
 
 The term **flexbox** is an abbreviation of **flexible box module**. It is used as a one-dimensional layout model, meaning it can be applied to an HTML element to control the distribution, alignment, and spacing of the HTML elements inside it on either the x-axis (horizontal axis, often called a **row**) or the y-axis (vertical axis, often called a **column**). 
 
-This video demonstrates some of the different features flexbox has to offer:
+This video demonstrates some of the features flexbox has to offer:
 
-### [NEED VIDEO: FSFO-84 - Flexbox introduction and demo layouts](https://trilogyed.atlassian.net/browse/FSFO-84?atlOrigin=eyJpIjoiM2FmYzU1NjQ5NWQ1NDA5Nzg3ZDYyZWFhODM3Y2ZmMmEiLCJwIjoiaiJ9)
+> **Asset Needed:** [NEED VIDEO: FSFO-84 - Flexbox introduction and demo layouts](https://trilogyed.atlassian.net/browse/FSFO-84?atlOrigin=eyJpIjoiM2FmYzU1NjQ5NWQ1NDA5Nzg3ZDYyZWFhODM3Y2ZmMmEiLCJwIjoiaiJ9)
 
 With the rise in popularity of mobile devices, CSS layout properties, such as `float`, became ill-equipped to handle smaller screens and would often would break, overlap, or overflow off to the right of the screen. Flexbox was created to automatically adapt to the size of the viewport that's rendering the webpage.
 
@@ -184,7 +184,7 @@ Now when we resize the browser window, the `<header>` will collapse onto a secon
 
 This video explains `flex-wrap` and some of its other uses:
 
-### [NEED VIDEO: FSFO-86 - flex-wrap demo](https://trilogyed.atlassian.net/browse/FSFO-86?atlOrigin=eyJpIjoiNzBhZjljMmNiZjMzNGQyNGI2Mzk3ZmNjZDI0NGIxYTAiLCJwIjoiaiJ9)
+> **Asset Needed:** [NEED VIDEO: FSFO-86 - flex-wrap demo](https://trilogyed.atlassian.net/browse/FSFO-86?atlOrigin=eyJpIjoiNzBhZjljMmNiZjMzNGQyNGI2Mzk3ZmNjZDI0NGIxYTAiLCJwIjoiaiJ9)
 
 The properties we used here (`display: flex`, `justify-content`, and `flex-wrap`) are usually the three most used flexbox properties and, as you can see, all three are added to parent container, the `<header>`. This is the crux of using flexbox for web layouts: let the child elements inherit CSS properties from the parent elements instead of having to worry about each child's needs one at a time.
 
@@ -234,7 +234,7 @@ The `align-items` property is another property that's specifically used with fle
 
 To learn more, read the [MDN web docs on `align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
 
-### [NEED VIDEO: FSFO-87 - Demo of align-items](https://trilogyed.atlassian.net/browse/FSFO-87?atlOrigin=eyJpIjoiYTg5MTNjZmE3MDQ1NDM1OGE5ZjE2YTBlMjRkMzc3MTciLCJwIjoiaiJ9)
+> **Asset Needed:** [FSFO-87 - Demo of align-items](https://trilogyed.atlassian.net/browse/FSFO-87?atlOrigin=eyJpIjoiYTg5MTNjZmE3MDQ1NDM1OGE5ZjE2YTBlMjRkMzc3MTciLCJwIjoiaiJ9)
 
 Let's finish updating the navigation by making a few adjustments to our `<nav>` element's link styles so it looks like this:
 
@@ -308,7 +308,7 @@ If it doesn't match the above mock-up, remember that you can always use Chrome's
 
 The following video shows how to use DevTools to cross-reference your code with the code introduced in the instructions above:
 
-### [NEED VIDEO: FSFO-88 - Using DevTools to debug footer](https://trilogyed.atlassian.net/browse/FSFO-88?atlOrigin=eyJpIjoiMGYxOTVlZTZhMGYxNGRlYjgwMzIyODhmMTc2MWRmMmUiLCJwIjoiaiJ9)
+> **Asset Needed:** [FSFO-88 - Video  of using DevTools to debug footer](https://trilogyed.atlassian.net/browse/FSFO-88?atlOrigin=eyJpIjoiMGYxOTVlZTZhMGYxNGRlYjgwMzIyODhmMTc2MWRmMmUiLCJwIjoiaiJ9)
 
 Now that we know the flexbox basics, let's move on to the `hero` section and create a nice two-column layout.
 
@@ -580,7 +580,7 @@ The `flex` property might be the most challenging flexbox property to understand
 
 - **`flex-basis`**: This works similar to setting a `width` value to a child element, but it is used more as a baseline value that at the very least will let the child be that size no matter what and grow or shrink accordingly. To learn more, see the [MDN web docs on the `flex-basis` property](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis).
 
-### [NEED VIDEO: FSFO-89 - Demonstration of flex property](https://trilogyed.atlassian.net/browse/FSFO-89?atlOrigin=eyJpIjoiYzBhOTI0OWE4YzZmNGQxYmI2YzJhYzdmOWI0NjlmY2UiLCJwIjoiaiJ9)
+> **Asset Needed:** [FSFO-89 - Demonstration of flex property](https://trilogyed.atlassian.net/browse/FSFO-89?atlOrigin=eyJpIjoiYzBhOTI0OWE4YzZmNGQxYmI2YzJhYzdmOWI0NjlmY2UiLCJwIjoiaiJ9)
 
 There's no benefit to using `flex` instead of listing these properties separately, except that it saves a little space in the style sheet by combining three lines into one. 
 
@@ -602,7 +602,7 @@ The value we provided to our step's flexbox children uses the `<flex-grow value>
 
 - `.step-info` will be at the very least 70% wide, but will receive any extra space in the container at a 2 to 1 ratio, meaning it will receive 2 more units of unused space than its sibling with a `flex-grow` value of 1.
 
-These properties are difficult to understand at first, but they allowyou to create much more scalable, complex layouts. Could we have used the `width` property for these instead? Of course, but this is a good opportunity to use something we haven't seen before (and will definitely see again!).
+These properties are difficult to understand at first, but they allow you to create much more scalable, complex layouts. Could we have used the `width` property for these instead? Of course, but this is a good opportunity to use something we haven't seen before (and will definitely see again).
 
 Now we should have a step layout that looks like this image:
 
@@ -651,7 +651,7 @@ Why were these values chosen? A 12-to-1 seems like a wide gap to give these two 
 
 This video demonstrates how you can do just that:
 
-### [NEED VIDEO - FSFO-121](https://trilogyed.atlassian.net/browse/FSFO-121?atlOrigin=eyJpIjoiMTRhNTNkNzlkMWRiNDBhOTkxM2M2NzJkODM0YzkwOWQiLCJwIjoiaiJ9)
+> **Asset Needed:** [VIDEO - FSFO-121](https://trilogyed.atlassian.net/browse/FSFO-121?atlOrigin=eyJpIjoiMTRhNTNkNzlkMWRiNDBhOTkxM2M2NzJkODM0YzkwOWQiLCJwIjoiaiJ9)
 
 Notice how we don't even need to worry about setting a `flex-basis` value for `.step-text`. When that value is omitted, the browser gives it a value of `auto`, which allows it to be whatever width is left over.
 
