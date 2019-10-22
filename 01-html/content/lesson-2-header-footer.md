@@ -346,13 +346,9 @@ What we just did was use the HTML element `link` to tell our HTML document to go
 
 The other attribute, `rel`, is providing a little more context about what the HTML's **relationship** to the file being included through the `href` is supposed to be. In this case and most of the time, we'll use `rel="stylesheet"`, but as time goes on there may be situations where that will change.
 
-> **Important:** Relative File Paths
+> **Important:** Throughout your career, there will be almost daily instances where you will need to make one file look for and read another. We used this above with the `link` element's `href` value `"./assets/css/style.css"`.
 >
-> Throughout your career, there will be almost daily instances where you will need to make one file look for and read another. We used this above with the `link` element's `href` value `"./assets/css/style.css"`.
->
-> When we break down this value, it is essentially saying "starting where this current file is (`.` denotes the current directory), let's look in a subdirectory called `assets`; then from `assets`, look in a subdirectory called `css`, and lastly, select a file called `style.css`.
->
-> This works well for us. The other option would be to put a hard set path (also known as an **absolute path**) from the host computer's directory structure, which would look something like this:
+> This was an example of relative pathing, which works well for us. The other option would be to put a hard set path (also known as an **absolute path**) from the host computer's directory structure, which would look something like this:
 >
 > ```html
 > <link rel="stylesheet" href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css" />
@@ -361,8 +357,6 @@ The other attribute, `rel`, is providing a little more context about what the HT
 > See a potential problem here? This path is very specific to someone's personal computer—it even has a username in it. If we were to put this code into production or share it with a teammate, the project's code would then live on a different computer entirely. The path in the example most likely does not exist on that computer, meaning any reference to it would break and the page would not load correctly.
 >
 > The best solution for this is to use relative pathing. With relative pathing, when we push up the entire folder structure for the project all at once, the paths don't lose context as to where they are.
->
-> The idea of pathing is just like the CLI commands we learned in the last lesson, where we move relative to where we are currently in the directory structure and can move into subdirectories by using `./subdirectory-name` and move out of a folder by using `../`, which steps us up a level into the parent directory.
 
 Let's test this and make sure it works by adding the following to `style.css`:
 
@@ -429,7 +423,7 @@ header {
 
 We just told the `<header>` element to apply `padding`, which means to add space between where the `<header>` starts and where the content inside it starts. We also applied a `background-color` of a light blue / teal.
 
-> **Important:** The `padding` syntax can be done in multiple ways. How you do it is up to you—there is no wrong way. This methodology will also to apply to some other style properties such as `margin` and `border`.
+> **Pro Tip:** The `padding` syntax can be done in multiple ways. How you do it is up to you—there is no wrong way. This methodology will also to apply to some other style properties such as `margin` and `border`.
 > 
 > Here are a few ways that padding can be applied:
 >
@@ -457,9 +451,8 @@ We just told the `<header>` element to apply `padding`, which means to add space
 >   padding-left: 25px;
 > }
 > ```
-
-
-> **Deep Dive:** CSS properties that allow listing multiple values at once are known as **shorthand properties**. These can save a ton of time and cut out a lot of repetitive code. To learn more, see [the MDN web docs on shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties).
+>
+> CSS properties that allow listing multiple values at once are known as **shorthand properties**. These can save a ton of time and cut out a lot of repetitive code. To learn more, see [the MDN web docs on shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties).
 
 Before we move on to the rest of these styles, let's take a moment to learn and understand how an HTML element's height and width dimensions are calculated for placement on a page. This is called the **CSS Box Model** and can be a little tricky at first, because we are dealing with some things that aren't visible, but it is an important concept for any web developer to know.
 
@@ -575,25 +568,13 @@ As we've seen so far, most HTML elements position themselves along the left side
 
 - **`float`**: Think of this as similar to the text-wrapping property in Microsoft Word, which takes elements that want to take up 100% of its parent's width by default (known in CSS as **block elements**) and pushes everything after it below it&mdash;even if it physically isn't 100% of its parents width&mdash;and allows other elements to come along side of it or wrap around it (known in CSS as **inline elements**). This property is used when we have HTML elements that would look better side by side, and we want to use our horizontal space in a more meaningful way. There are other CSS properties that allow us to turn block elements into inline elements, but using `float` in this case made more sense because we needed to turn this element into an `<inline>` element and also move it to the right. `float` let's us do both at once.
 
-> **Important:** Block vs. Inline HTML
->
-> The browser wants to interpret and position certain HTML elements in a specific way. This concept is called **flow**. Normal flow in HTML is a page with no CSS overriding default layout styles. This flow follows two directions: **block** (top to bottom) and **inline** (left to right)
+> **Deep Dive:** The browser wants to interpret and position certain HTML elements in a specific way. This concept is called **flow**. Normal flow in HTML is a page with no CSS overriding default layout styles. This flow follows two directions: **block** (top to bottom) and **inline** (left to right)
 >
 > In HTML, certain elements are designed by default to take up 100% of the width of whatever the parent element is. If the parent element is 800px wide, then the child is 800px wide and won't allow anything to the left or right of it. This is what's known as a block-level element. Popular elements that have a default block styling are all `<h1>`–`<h6>` elements, `<div>`, `section`, `<nav>`, `<header>`, `<footer>`, and `<li>`.
 >
 > The other type of element default is an inline element. This means that the element will only take up the space it needs to take up and not demand 100% width. These are used to allow elements to the left or right of them. The most popular element that is an inline element is the `<a>` element, but there will be more that we get into later.
 >
-> CSS allows us to override these elements' default layout definitions through a few different ways, but the most on-the-nose one is to apply a `display` property to that element. Here are some of the more popular values we can provide:
->
-> - **`display: block`**: This is used to take an element and force it to take up 100% of the width of its parent is by default, which will put it on its own horizontal line.
->
-> - **`display: inline`**: This makes an element only take up the space it needs and allows other elements to flow "in line" with it horizontally. Any width or height properties associated with an inline element is ignored.
->
-> - **`display: inline-block`**: This is the same as `<inline>`, but it allows width and height property definitions to be heard and applied.
->
-> - **`display: none`**: This simply removes the element from the view of the browser and lets the next elements come up and take its space. This won't delete the HTML associated with it but will hide it completely and removes the element from the "flow" of the HTML document.
->
-> In next week's unit, we'll get into some new, more advanced display values that are going to really step up our layout game.
+> CSS allows us to override these elements' default layout definitions through a few different ways, but the most on-the-nose one is to apply a `display` property to that element. For instance, `display: block` is used to take an element and force it to take up 100% of the width of its parent. On the other hand, `display: inline` makes an element only take up the space it needs and allows other elements to flow "in line" with it horizontally.
 
 We've also added in a little bit of a top and bottom `margin` here too:
 
