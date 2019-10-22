@@ -23,7 +23,7 @@ After some reflection, meditation, and lucid dreaming, we have decided to build 
 
 Can all of this be done with JavaScript? Definitely. JavaScript is a powerful, wildly popular, general-purpose programming language. One reason for its popularity is that it's relatively easy to learn. Another reason is that all the major web browsers can run JavaScript code.
 
-In "Module 1: HTML, CSS, and Git," we learned that HTML defines a web page's structure, and CSS defines a web page's presentation. JavaScript is the third Musketeer, defining a web page's _behavior_. Together, these technologies comprise the core of front-end web development.
+We have already learned that HTML defines a web page's structure, and CSS defines a web page's presentation. JavaScript is the third Musketeer, defining a web page's _behavior_. Together, these technologies comprise the core of front-end web development.
 
 JavaScript enables a web page to _do things_. These things include (but are not limited to) filling out and submitting a contact form, clicking on a button that triggers a popup window, and adding/removing content on a web page without refreshing the browser. Front-end developers who understand JavaScript can create powerful, dynamic web applications with rich user interfaces. Some notable examples include:
 
@@ -88,7 +88,7 @@ In this lesson, we're going to learn enough JavaScript to code a single round of
 - 50 health points
 - 12 attack points
 
-4. The game will display "Welcome to Battlebots! Round 1"
+4. The game will display "Welcome to Robot Gladiators!"
 5. The game will prompt the user to either fight this round, or skip it.
 6. If the player chooses to skip:
 7. A penalty of 10 money points will be deducted from the player's robot.
@@ -120,7 +120,7 @@ There are many ways that we could approach creating the simple version of Robot 
 3. Use JavaScript functions to display game status to the player. JavaScript has some built-in functions that do this, but we will be creating our own functions as well to control when these messages appear.
 4. Use JavaScript variables and operators to manage game data. We're going to do a little math and keep track of robot health, player money, and other game values.
 5. Make decisions with JavaScript conditions. The game should allow a robot to fight if it still has health points, but not if its health points reach 0.
-6. Accept user input. We're going to ask the player a lot of questions. JavaScript has more built-in functions to help us store the player's answers.
+6. Accept user input to decide whether they would like to fight or skip the fight.
 
 This is an ambitious project, but we have mapped out a strategy for building it without even opening our code editor! A thoughtful planning process can break almost any project down into manageable chunks, and help us identify the questions we need to answer to complete those chunks.
 
@@ -160,6 +160,17 @@ Title: Add shop functionality
 ```
 
 ```md
+Title: Add randomness to health and damage values
+
+**Description**
+
+- Start enemies at a random health value between 40 and 60
+- Start enemies with a random attack value between 10 and 14
+-Attack damage is random, using the robot's attack value as an upper limit (e.g. if the player's attack is 10, their damage range is 7-10)
+
+```
+
+```md
 Title: Restructure data with JS Objects
 
 **Description**
@@ -191,7 +202,7 @@ git checkout -b feature/initial-game
 
 > **Hint:** Don't forget to use the `git branch` command to see what the active branch is!
 
-This branch will take us through the first 
+This branch will take us through the first three lessons of this module, as it will hold the code for our MVP.
 
 Now we have created a branch for us to start actually writing our project's code, so let's get started by creating our project's files!
 
@@ -217,7 +228,7 @@ Every command we just utilized is one we've seen and used before, but never in t
 
 Now that we have all of our files created, let's go ahead and open up our project in Visual Studio Code. Remember, there's two main ways to do this:
 
-- Open VSCode, find the menu option to open a new project folder. Then use their navigator to locate your project and open the whole folder into the program.
+- Open VSCode, find the menu option to open a new project folder. Then use the file navigator to locate your project and open the whole folder into the program.
 
 - From the command line, make sure you are in the root of your project's directory and type in the following command to automatically open the whole project:
 
@@ -260,7 +271,6 @@ Notice the `src` attribute being used here. When we use `<script src="path/to/fi
 
 Why would we put this towards the bottom of the HTML file, as opposed to CSS where we include the `<link>` element in the `<head>` element above all of our content? Out of all the different assets that go into a web page&mdash;images, CSS stylesheets, JavaScript&mdash;JavaScript runs the highest risk of possibly failing on load and more complicated JavaScript code could cause the browser to take a bit longer to read and run. Because it is our job to get the page to display as fast as possible, it is the best practice to put the `<script>` element at the bottom of the HTML page right before the closing `</body>` HTML tag. It is important to remember that a HTML file loads from top to bottom, meaning that if something at the top fails to load or causes the browser to run a little slow, it could lead to no HTML content showing up at all on the page. This would make users very confused and frustrated.
 
-We can also write JavaScript code in the HTML file by putting it between the opening and closing `<script>` element tags, and it is great for when we may not know if something is going to work and we don't feel like creating multiple files to simply test a small line of code, but ultimately it is best to practice "separation of concerns" and separate the three languages' code into separate files.
 
 ### Ensuring our JavaScript is loaded
 
