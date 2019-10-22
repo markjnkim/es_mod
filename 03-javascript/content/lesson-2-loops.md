@@ -197,7 +197,7 @@ When a `for` loop executes, the following occurs:
 ```js
 var i = 0;
 ```
-2. The `Condition` statement is then evaluated. If this condition evaluates to true, the loop `statement` execute. If the condition's value is false, the `for` loop terminates. If this condition is omitted, the condition is assumed to be true.
+2. The **condition** statement is then evaluated. If this condition evaluates to true, the loop **statement** execute. If the condition's value is false, the `for` loop terminates. If this condition is omitted, the condition is assumed to be true.
 
 `Condition`:
 ```js
