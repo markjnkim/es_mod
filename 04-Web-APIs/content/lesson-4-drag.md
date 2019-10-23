@@ -55,7 +55,7 @@ Let's look at the `dataTransfer` property and notice that in the `files` propert
 
 @Todo screen shot of console dataTransfer property
 
-Eventhough we aren't transfer files, we can use this property to store the data of our element so the information can convey to the `drop` event. Although it appears that the actual element is being moved, in actuality the element never moved, but we need to keep a reference to it. We can use dataTransfer property to do this.
+Even though we aren't transfer files, we can use this property to store the data of our element so the information can convey to the `drop` event. Although it appears that the actual element is being moved, in actuality the element never moved, but we need to keep a reference to it. We can use dataTransfer property to do this.
 
 We will need to save this element's `data-task-id` attribute in the `dataTransfer` property in order for the next event to have access to this `id`.
 
