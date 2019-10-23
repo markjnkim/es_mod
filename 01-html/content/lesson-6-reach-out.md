@@ -6,7 +6,7 @@ Way to go! The Run Buddy landing page is nearly complete. Along the way, you've 
 
 In case you forgot, here's the current state of the Run Buddy landing page: 
 
- **NEED IMAGE of webpage as it stands now**
+![Run Buddy webpage with header, hero, What You Do, and Meet the Trainers sections](./assets/step-6/050-current-state.jpg)
 
 ## Preview
 
@@ -14,7 +14,7 @@ We have a new request from the folks at Run Buddy. The sales team wants us to bu
 
 Just like we always do, let's start by looking at the mock-up: 
 
-![Reach-Out Mock-up](./assets/step-6/100-RO-mock-up.png)
+![Reach Out section includes a Google Map on the left and basic contact info on the right](./assets/step-6/100-RO-mock-up.png)
 
 Here's a quick look at the build process, which (as usual!) starts with adding the HTML and then the styling:
 
@@ -27,7 +27,7 @@ Here's a quick look at the build process, which (as usual!) starts with adding t
 
 Let's start with building the map. Here's what we're aiming for:
 
-![Inline Frame Mock-up](./assets/step-6/170-iframe-mock-up-html.png) <br />
+![Google Maps shows a top-down view of a street address](./assets/step-6/170-iframe-mock-up-html.png) <br />
 
 Begin with the HTML for the Reach Out section that you set up in Lesson 1:
 
@@ -48,7 +48,7 @@ In our case, the `<iframe>` will contain a Google Map of Run Buddy's address. Le
 
 Follow these steps to retrieve an `<iframe>` for our address:
 
- > **Video:** [Google Map Iframe - Jira FSFO-134](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-134)
+> **Asset Needed:** Video: <https://trilogyed.atlassian.net/browse/FSFO-134>
 
 The HTML for the map should look like this:
 
@@ -89,7 +89,7 @@ Let's unpack the attributes for the `<iframe>`:
 
 Let's take a look at our page now and see what the `<iframe>` looks like now: 
 
-![iframe-map](./assets/step-6/200-iframe-html.png)
+![An embedded Google Map displays underneath the title Reach Out](./assets/step-6/200-iframe-html.png)
 
 Take a moment to play with the map using the zoom and scrolling functionality. Pretty cool! 
 
@@ -103,7 +103,7 @@ In this step, we'll add Run Buddy's company contact information to the Reach Out
 
 Here's the mock-up of that section:
 
-![Contact Info](./assets/step-6/250-contact-mock-up.png)
+![The contact info includes a mailing address, phone number, and e-mail address](./assets/step-6/250-contact-mock-up.png)
 
 Let's add the heading and text first. Create a `<div>` container with an `<h3>` and a `<p>` element, and add their content. 
 
@@ -126,7 +126,7 @@ Let's take a look at a new element introduced in the above code: `<br />`. This 
 
 Now save and render this in the browser. You should see something like this:
 
-![contact-heading](./assets/step-6/600-contact-heading-html.png)
+![The Google Map and text content appear left-aligned with line breaks in between](./assets/step-6/600-contact-heading-html.png)
 
 The next step will be to add the address content to the HTML using another new (to us) element called `<address>`.
 
@@ -159,7 +159,7 @@ Let's break down the above code:
 
 Let's save and then render again in the browser:
 
-![contact-info](./assets/step-6/630-contact-info-html.png)
+![The address, phone number, and e-mail appear underneath the Google Map](./assets/step-6/630-contact-info-html.png)
 
 Great! All our content is there, so it's time to apply some CSS styling to jazz it up. This is also a great time to `add` and `commit` your additions to the page.
 
@@ -192,7 +192,7 @@ Currently, the link in our `nav` element doesn't work, so let's fix it:
 
 Add the classes and id's to the `<section>` and `<h2>` tags and the corresponding CSS rules to create the blue background (`#024e76`), yellow heading font color (`#fce138`), center alignment, and the id anchor for the link in our `<nav>` element to look like this: 
 
-![Styling the Reach Out Section](./assets/step-6/300-contact-css.png) 
+![The Reach Out section has a blue background, and all content is centered in the middle](./assets/step-6/300-contact-css.png) 
 
 > **Hint:** Look at the HTML for the previous sections and headings for a workable template for this step. Whenever a style pattern starts to emerge, it is important to recognize where code might be repeated and try to assign that class to the element to replicate the styles.
 
@@ -236,7 +236,7 @@ Now let's examine the solution for the CSS rules:
 ```
 Let's save and render our changes into the browser to review our current progress.
 
-![Contact Info - Heading](./assets/step-6/640-heading-blue-css.png)
+![The Reach Out heading is the same color as the background](./assets/step-6/640-heading-blue-css.png)
 
 Just as we did in previous sections, we added CSS declarations to the CSS rule that targets the `contact` class to add some distinct style to the Reach Out section. For this rule, we updated the background color and center-aligned the `<div>` container that includes our map and contact info. 
 
@@ -252,7 +252,7 @@ Let's add that now:
 
 Save and view the page in the browser to see your changes:
 
-![contact-info](./assets/step-6/300-contact-css.png)
+![The Reach Out section is correctly colored with centered content](./assets/step-6/300-contact-css.png)
 
 Very nicely done! Now it looks like we're ready to style the `<iframe>` and contact info container.
 
@@ -291,7 +291,7 @@ A type selector is a CSS selector, like in this example with `<iframe>`, that se
 
 The design team has requested that the map and contact information containers sit next to each other in a two-column layout. Let's take a peak at this in the mock-up and figure out what to do from there:
 
-![Two-Column Layout](./assets/step-6/650-two-column-css.png)
+![The Google Map and the contact info sit side-by-side underneath the Reach Out heading](./assets/step-6/650-two-column-css.png)
 
 How would you go about doing this? Give it a go on your own.
 
@@ -319,7 +319,7 @@ It is important to note that in the CSS rule above targeting the child `<div>`, 
 Another important property used here is the `vertical-align` property.
 
 > **Pause:** Please take a moment think about the purpose of the `vertical-align` property and what problem it solves here.
-
+>
 > **Answer:** Because the content of this `<div>` naturally rests at the bottom of the container, we need the `vertical-align` property to lift this content up to the top. In conjunction with the `text-align` property, this allows the contact information to begin at the top of the `<div>` and start aligned from the left for an easy-to-read layout.
 
 Let's take a break to see how our code is rendering in the browser. Also, now is a good time to `add` and `commit` because you just made a big leap in progress.
@@ -330,7 +330,7 @@ Try out the spacing and coloring in Chrome's DevTools as a great way to try out 
 
 Remember that the CSS box model is in the Styles panel in DevTools, as shown here:
 
-![DevTools-CSS-box-model](./assets/step-6/700-DevTools-css.png)
+![The Chrome DevTools are open, highlighting the styles on Run Buddy's body element](./assets/step-6/700-DevTools-css.png)
 
 > **Hint:** Use the property for `line-height` to adjust how to stretch out or shrink the text to find the best matching measurement that aligns with the mock-up. 
 
