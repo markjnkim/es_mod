@@ -130,9 +130,7 @@ Let's set up our project and get started.
 
 As we do with each new project, we'll create a GitHub repository and clone it on our local machine. We'll then create a GitHub Issue to define the requirements for our MVP. Finally, we'll create branches to do our work in.
 
-- Create a new repository in GitHub called "robot-gladiators".
-  
-> **Asset Needed:** Screenshot of options when creating a repository to remind students of the process
+- Create a new repository in GitHub called "robot-gladiators". Make sure to make it a public repository and check the box for "Initialize this repository with a README".
 
 - Navigate to the "Issues" tab in the newly created repository and create the following issues for us to make feature branches from:
 
@@ -285,7 +283,7 @@ window.alert("This is an alert! JavaScript is running!");
 
 When the HTML file is opened in the browser, the first and only thing we should see is a small dialog window that says "This is an alert! JavaScript is running!", something along the lines of this image:
 
-> **Asset Needed:** Image of browser window with this alert
+![Window alert dialog with a message](assets/lesson-1/100-alert.jpg)
 
 Also take notice of the fact that there is really nothing else we can do in this browser tab until we acknowledge the dialog window and click the button associated with it. This is what's known as an **alert**, and we've just written our first line of JavaScript!
 
@@ -316,6 +314,7 @@ We'll dive further into passing arguments into a function shortly, but first let
 
 ```javascript
 // this creates a function named "fight"
+
 function fight() {
   window.alert("The fight has begun!");
 }
@@ -323,7 +322,7 @@ function fight() {
 
 Congratulations! You just wrote your first of many custom JavaScript functions. Let's dissect this syntax.
 
-> **Asset Needed:** insert image of function diagram / notation
+![JavaScript function syntax diagram](assets/lesson-1/200-function-syntax.jpg)
 
 When we declare a function, we use the keyword, `function`, followed by the name we want to give the function. We named our function, `fight`, because we are creating a Robot Gladiators game. We can name our functions anything we want, but best practice is to name them so they describe their functionality. For example, we could name our `fight` function `x`, and we might remember what that means, but does it immediately let other developers know what the function does?
 
@@ -339,7 +338,7 @@ Add the following to the bottom of `game.js`:
 fight();
 ```
 
-> **Asset Needed:** insert screenshot of the browser with the fight() function's alert()
+![the fight function's alert dialog](assets/lesson-1/300-fight-alert.jpg)
 
 Then save the file and refresh `index.html` in your browser. The fight has begun!
 
@@ -357,7 +356,7 @@ window.prompt("What is your robot's name?");
 
 Now save and refresh the HTML file in the browser and we should something like this image:
 
-> **Asset Needed:** Image of the browser with this prompt window open
+![Window prompt dialog with text input](assets/lesson-1/400-prompt.jpg)
 
 We've now given the user the power to add their own information to our program. Where the `window.alert()` function sent a message from the program to the user through the browser's window, the `window.prompt()` function is used to ask the user to provide some input and send it back to the program. 
 
@@ -381,6 +380,7 @@ We need to be able to capture this data somehow. We can use what is known in Jav
 
 ```js
 var playerName = window.prompt("What is your robot's name?");
+var playerName = "Tony the Robot";
 ```
 
 We just used a critical part of JavaScript, **variables.**
@@ -389,7 +389,7 @@ In programming, a variable is a named location for a value that gets stored in t
 
 Let's dissect basic syntax for creating a variable:
 
-> **Asset Needed:** image/diagram of variable syntax
+![JavaScript variable declaration syntax](assets/lesson-1/500-variable-syntax.jpg)
 
 - **The `var` keyword:** Just like the `function` keyword we used previously, `var` is a keyword built into the JavaScript language. Whenever it is used, it tells the program that we are creating a new variable and the next word is going to be the name of the variable.
 
@@ -427,7 +427,7 @@ this.
 */
 ```
 
-Ideally, try to keep a comment succint and use the `//` syntax, this way our code doesn't get too messy.
+Ideally, try to keep a comment succinct and use the `//` syntax, this way our code doesn't get too messy.
 
 There is a total of eight data types in JavaScript, some are used more than others, some you may not use at all for a while! We'll be learning more about some of the other data types as we need to use them, but it is a good idea we save this [list of data types from MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures) now for future reference.
 
@@ -473,9 +473,11 @@ Something actually has happened, but it's not for users to see. Instead it's for
 
 Let's open up Chrome DevTools in our browser by right-clicking in the blank HTML document and selecting the word `Inspect`. When it opens, you'll see the "Elements" tab selected with the HTML and CSS debugging tools. But this is JavaScript we need to look at now, so at the top of the inspector window click the tab titled "Console", and we'll see something like this:
 
-> **Asset Needed:** Image of console at this point.
+![the player's name in the DevTools Console](assets/lesson-1/600-console-playername.jpg)
 
-There's our robot's name! The tool we just used is what's known as the Developer Console. This is a crucial tool for developers to have at their disposal, as we can use this to test our code without interrupting the page like an alert does.
+There's our robot's name! The tool we just used is what's known as the Developer Console. This is a crucial tool for developers to have at their disposal, as we can use this to test our code without interrupting the page like an alert does. 
+
+If we look to the right of our robot's name, we can see that the console also tells us what JavaScript file ran the code and what line it occurred on. This is very helpful for when we need to pinpoint errors and debug our code. 
 
 Like the `window`, the `console` is another object provided to us by the browser we can use in our JavaScript. The `console` object has it's own set of functions and properties that all interface with the browser's console window (in Chrome, it is the DevTools console tab we just used). Since the `console` is not part of the JavaScript language and is rather provided to us by the browser, it is a Web API.
 
@@ -503,7 +505,7 @@ console.log("Our robot's name is " + playerName);
 
 When we save this file, refresh the browser window, and look at our DevTools Console tab, we'll see something like this image:
 
-> **Asset Needed:** Image of Console showing the above logs.
+![the DevTools Console with multiple messages](assets/lesson-1/700-multiple-logs.jpg)
 
 We have used the `console.log()` function in a couple of different ways here. We logged a plain string sentence, which is very helpful sometimes when we run a lot of code at once and we want to trace when certain functionality executes. We logged the sum of two numbers as well (more on arithmetic operators soon). But what's going on this last log we ran?
 
@@ -786,7 +788,7 @@ When we save this file and refresh our browser, we should receive two alerts fro
 
 If it is zero or under (notice the use of `<=` to see if it is less than or equal to zero), we will see the message "Roborto has died!", like this image displays:
 
-> **Asset Needed:** Screenshot of "Roborto has died!" alert
+![Window dialog with message that player has lost](assets/lesson-1/800-dead-alert.jpg)
 
 If the value of `enemyHealth` is still one or greater, then a message of "Roborto still has [enemyHealth's value] left!" is displayed instead.
 
@@ -966,7 +968,7 @@ In our case, we're using `else if` to do a similar check as our `if` statement, 
 
 If the user does not choose one of the values we've explicitly listed, then our code reaches the `else` block of code. Think of the `else` as a default action if all else fails.
 
-> **Asset Needed:** Learnosity checkpoint quiz with different conditions and having students guess what'll happen
+> **Asset Needed:** [Learnosity checkpoint](https://trilogyed.atlassian.net/browse/FSFO-216?atlOrigin=eyJpIjoiNTIwN2JjYTE0Y2VkNGY3NWI2MzZmNzE4OTA4ZDkxNjYiLCJwIjoiaiJ9)
 
 ### Leave the Fight, at a Cost
 
@@ -1030,7 +1032,7 @@ We know based on our knowledge of alerts and prompts that `window.confirm();` mu
 
 A prompt lets the user enter whatever they want, which is great for taking in information like a name or something else that isn't a simple "yes" or "no" answer. For simple "yes" or "no" questions, that's where the `confirm()` function comes in, and looks like this image:
 
-> **Asset Needed:** Image of window.confirm() dialog in browser
+![Window confirm dialog with option to click "Ok" or "Cancel"](assets/lesson-1/900-confirm.jpg)
 
 In this image, we can see that we are asked to acknowledge a question or statement by clicking the "Ok" or "Cancel" buttons. If we click "Ok", the boolean value `true` is returned and stored in the variable. If we click "Cancel", the boolean value `false` returned instead.
 
