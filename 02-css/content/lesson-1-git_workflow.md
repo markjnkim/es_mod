@@ -2,13 +2,11 @@
 
 ## Introduction
 
-The Run Buddy website has been a huge success! This means that management has the motiviation and capital to upgrade the site. 
+The Run Buddy website is a huge success so far! This means that management has the motiviation and capital to upgrade the site. In this module, we'll focus on building Run Buddy version 2.0, making the site mobile-friendly and easier to use. 
 
 ## Preview
 
-For Run Buddy version 2.0, the team wants us to make the site mobile-friendly and easier to use.
-
-Here's the mock-up for version 2.0, which we'll build over the course of this module:
+Here's the mock-up for version 2.0, which we'll build over the course of the next six lessons:
 
 ![Run Buddy version 2.0 mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
