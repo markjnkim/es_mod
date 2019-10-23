@@ -63,7 +63,7 @@ Great job, now let's proceed with the set up of the development environment by c
 ## Project Setup With Git
 ```bash
 git co -b staging
-git co -b 
+git co -b feature/add-task
 ```
 
 
@@ -395,7 +395,7 @@ As you can see, a reference to the function, `sayMyName` is passed into the `pro
 
 > **Important:** Note when we pass the function, `sayMyName` into `processName()` as an argument, we do **not** include the parentheses. If you do, you will see that the `sayMyName()` is executed as soon as `processName()` is called which displays the name as `undefined` as seen in the image bellow:
 >
->![Call Back Prompt](./assets/lesson-1/5000-prompt-hello.png)
+>![Call Back Prompt](./assets/lesson-1/1200-prompt-hello.png)
 > The reference to the function, `sayMyName` needs to be passed as an argument into `processName()`. This way, the `sayMyName()` function does run until it is called in the `processName()` code block once `name` has defined by the `prompt()`.
 
 Conversely in our button click example, our callback function did not execute immediately, but waited for the click event to occur. We call this type of callback, asynchronous, due to the fact that the main program continues to execute as the callback function waits to be executed.
@@ -412,7 +412,7 @@ We will see our original `alert()` as well as the `MouseEvent` object in the con
 When we added the code above, we didn't replace our original event listener but added a new one to the `<button>`. We can have many different event listeners tied to the same element either for the same event type or different ones as well.
 
 Let's expand the `MouseEvent` object to see the following:
-![MouseEvent in the Console](./assets/lesson-1/6000-console-mouse-event.png)
+![MouseEvent in the Console](./assets/lesson-1/1300-console-mouse-event.png)
 As we can see the `type` property has the value "click". Also notice the `toElement` property also displays the binding of this event to our button object. In fact in the `path` property, we have a reference to the `document` and its elements.
  
 Great job! So far we have been able to use the DOM to target our button object then attach an event listener to this element object to capture the user's click on our button. The next crucial step will be to change our code block in our event listener to execute the job of adding a task item to our task list. Let's proceed with this step now.
@@ -442,7 +442,7 @@ document.createElement("li");
 ```
 The response in the console should look like the following:
 
-![Console Task List Item](./assets/lesson-1/7000-console-create-element.png)
+![Console Task List Item](./assets/lesson-1/1400-console-create-element.png)
 
 Congrats! We have just dynamically created our first element with JavaScript. It doesn't look or do much now, but we'll soon change that. First let's create a variable to store the reference to this new object by typing the following expression in the console:
 ```js
@@ -451,31 +451,108 @@ var taskItemEl = document.createElement("li");
 Now let's assign some text content to this `<li>` by using the `textContent` property we used previously and then view the element object.
 ```js
 taskItemEl.textContent = "hello";
-console.log(taskItemEl);
+taskItemEl;
 ```
-![Console of the List Element](./assets/lesson-1/8000-task-list-element.png)
+Should give us the following change in the browser:
+![Console of the List Element](./assets/lesson-1/1500-task-list-element.png)
 
-Now that we have created the task item element, the next step will be to add this element to the `<ul>` or the task list. But before we can go about attaching our task item, we will need an object representation of our task list or `<ul>` element. Let's proceed by typing the following expression into the console:
-```js
-var tasksToDoEl = document.querySelector("ul");
+As we can see in the image above, even though we have created the task item element and add the text content, the task item still doesn't appear on the task list. Although we create a DOM element, we still haven't attached it to our existing page. The next step will be to add this element to the `<ul>` or the task list. 
+
+Before we can go about attaching our task item, we will need an object representation of our task list or `<ul>` element. We could proceed by using the element type as the selector, but let's be more exact and side step a potential gotcha by adding an `id` attribute to the `<ul>` element in case another `<ul>` element is created in this `document`. 
+
+Let's go back to our `index.html` file and add the following `id` attribute "tasks-to-do" to the task list or `<ul>`.
+```html
+<h2 class="list-title">Tasks To Do</h2>
+<ul class="task-list" id="tasks-to-do">
+  <li class="task-item">A task is going to be added soon!</li>
 ```
-Very good! Now let's introduce our new method called `appendChild()`. To append the task item as a child to the parent element, the task list we must use the following expression pattern:
+Now we are ready to target our `<ul>` element in the DOM so we can have an element object to manipulate programmatically in JavaScript. Let's save this file and refresh the browser with the `index.html` file. Now let's create a variable reference to our task list by typing the following expression into the browser's console:
+```js
+var tasksToDoEl = document.querySelector("#tasks-to-do");
+tasksToDoEl;
+```
+To verify we have targeted the correct element in the DOM type `tasksToDoEl`.
+![Console of Task List](./assets/lesson-1/1700-console-task-list.png)
+As we can see, we have our task list object, the `<ul>`.
+
+Very good! Now let's introduce a method called `appendChild()`. To append the task item as a child to the parent element, the task list we must use the following expression pattern:
 ```js
 tasksToDoEl.appendChild(taskItemEl);
 ```
 Type this expression into the console to render the following in the browser:
-![Browser Task Item](./assets/lesson-1/9000-browser-appendChild.png)
+![Browser Task Item](./assets/lesson-1/1600-browser-appendChild.png)
 
-Nice, we were able to attach the task item to the task list as can be seen in the browser however this item looks like it needs a bit of style. By looking at the markup, we can see that the first `<li>` has the class attribute `task-item`. Let's assign this class to the task item with the property `className`. This will be similar to how we assigned the `textContent` previously. Let's add the following into the console.
+Nice, we were able to attach the task item to the task list as can be seen in the browser. If we look at the Elements tab in Chrome DevTools we can see that the element we created, the task item or `<li>`, has now attached as a child to the task list or `<ul>`.
+![Elements HTML Markup](./assets/lesson-1/1800-elements-html.png)
+
+Excellent work, however this task item looks like it needs a bit of style. By looking at the markup, we can see that the first `<li>` has the class attribute `task-item`. We can assign this class to the task item programmatically with the property `className`. We call this dynamic styling, very similar to how we dynamically created and manipulated the DOM previously with the task item. This will be similar to how we assigned the `textContent` previously with our `<button>`. Let's add the following into the console.
 ```js
 taskItemEl.className = "task-item";
 ```
+This should render the following styled task item:
+![Browser Task Item Styled](./assets/lesson-1/1900-dynamic-style.png)
+As we can see, by adding the class attribute, we incorporated our CSS styles. Since each of our expressions have demonstrated our desired results, let's move our code into the `script.js` file.
+First we will add our DOM object reference to the task list at the top of the page underneath our task item DOM reference. Then we will add the following event listener. Let's also change the text of our new task item dynamically using the `textContent` property we used previously to note "This is a new task."
+```js
+var buttonEl = document.querySelector("#save-task");
+var tasksToDoEl = document.querySelector("#tasks-to-do");
 
+buttonEl.addEventListener("click", function() {
+  var listItemEl = document.createElement("li");
+  listItemEl.className = "task-item";
+  listItemEl.textContent = "This is a new task.";
+  tasksToDoEl.appendChild(listItemEl);
+});
+```
+As you can see we exchanged our `console.log` for the expressions that will 
+* Create a new task item
+* Style the new task item
+* Add the text
+* Append this element to the task list
+
+These four steps will be the keys in dynamically creating elements using the DOM going forward. Let's take a moment to wrap up this lesson with a nice to have optimization that will add to clarity and organization. 
+
+Since our event listeners can often times get very long due to the amount of steps needed to create more than one element, we will often place this code into separate functions to delineate the single responsibility principle.
+
+Let's make a `createTaskHandler()` function whose purpose is to dynamically create our task item.
+```js
+var createTaskHandler = function() {
+  var listItemEl = document.createElement("li");
+  listItemEl.className = "task-item";
+  listItemEl.textContent = "This is a new task.";
+  tasksToDoEl.appendChild(listItemEl);
+}
+```
+Notice that the code in the `createTaskHandler()` function replicates the code block in our anonymous function. We will place this function expression above our event listener otherwise we would receive an error that `createTaskHandler()` is not defined since we would be call the function before we defined it.
+
+Lastly our event listener will be located at the bottom of the `script.js` file with a much more legible statement that is easy to interpret at a glance.
+
+```js
+buttonEl.addEventListener("click", createTaskHandler);
+```
+Now this statement can be read as, on a button click, create a task.
+Let's test our code again, so please save and refresh the browser.
+![Browser Add Task](./assets/lesson-1/2000-browser-add-task.png)
+Now we are able to add a new task to our task list with a button click. 
+Congrats on achieving a nice milestone. We will progress with our app to obtain data from the user for more personalized task items and add state to our task progress in the next lesson. For now let's save our progress in Git and push our changes to GitHub. 
+Now let's merge our `feature` branch into the `develop` branch.
+```bash
+git co develop
+git merge feature/add=task
+```
+Don't forget to close our GitHub Issue.
 
 > **Asset Needed:** [Learnosity Checkpoint Jira Issue FSFO-206](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-206)
 
-## Commit with Git
-
-
-
 ## Reflection
+Nice job on a concept dense lesson. Using the DOM to manipulate the web page is fundamental to creating rich and customizable web pages for users.
+There are many use cases for dynamic web pages that respond to users interactivity like revealing large sections of information only when a user wishes to view it or having users activate animations when they are viewing a certain section of the page. Creating engaging user interactions is what has rocketed the internet to over a trillion webpages and spawned a new global economy.
+
+In this lesson we have learned how JavaScript enables interaction with the user through the web page
+  - Specific skills learned:
+    - How to access a DOM element with JavaScript
+    - How to listen for and handle click events
+    - How to use an anonymous function as a “callback”
+    - How to dynamically create DOM elements, manipulate DOM properties, and append them to other DOM elements
+    - How to dynamically style DOM elements
+In the next lesson we will continue working on our productivity app by adding the ability to customize our task items, change the task status, and alter the type of task.
