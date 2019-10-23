@@ -78,7 +78,7 @@ Now that we have our development environment with Git, let's create the file str
 - js folder 
 - images folder
 Add the `style.css` and image file downloaded from Canvas to their proper folders.
-> **@TODO** ![](./assets/lesson-1/300-folder-tree.png)
+![Folder Tree in VS Code ](./assets/lesson-1/300-folder-tree.png)
 
 Let's open the `index.html` file and create our boilerplate HTML markup.
 > **Asset Needed:** [Learnosity - Key tags necessary for a functioning HTML page Jira Issue FSFO-199](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-199).
@@ -189,26 +189,27 @@ When we're all done adding these elements to our `<header>`, let's save the `ind
 ```
 Let's save the `index.html` file and refresh the browser.
 
-> **@TODO**  ![Screenshot of header at this point](./assets/lesson-1/400-browser-header.png)
+![Header Element in Browser](./assets/lesson-1/400-browser-header.png)
 
 Wow, that looks pretty good considering we haven't written any of our own CSS just yet. How did that happen?
 
 Remember that CSS file we had to download and put into our `css` project folder earlier? You may have noticed that the `style.css` file wasn't empty. As a matter of fact, it has already been completed for us! All we need to do is use the right class names to apply styles to our HTML elements as we build the project.
 
-> **On the Job :** Developers do not always having the bandwidth to create all of the styles when building an app (this is what UX/UI teams are for!). Later we will use external CSS libraries to 
+> **On the Job :** Developer teams often work on tight deadlines and do not have the time or bandwidth to create extensive style sheets for every project, much less every web page. It is often the case that a software company or agency will have a strict style guide and a representative style sheet designed by a UX/UI team since a consistent look across the website is often desired. Dev teams leverage this hard work and incorporate these meticulously written CSS rules by adding class attributes to our HTML elements as we did here.
 
 Now let's proceed with the next block of HTML content which will be the `<main>` element that will contain our list of tasks. So how should we proceed here? Let's look at what the finished application's `<main>` element is going to look like to help us determine what to do:
 
-> **@TODO**
 ![Main Section in HTML](./assets/lesson-1/500-main-html.png)
 
-Our final product is going to consist of three lists based on their status, each having their own headline and list elements. Now that know that, how do we keep each one packaged together?
+How many elements do you see in this image?
+* Heading
+* Task item
+* Task list
 
-This image may help identify what we need:
+We will use a wrapper as our task list to contain the task items.
 
-> **@TODO** ![Screenshot of task list that's outlined with labels identifying the need for a wrapper to contain our HTML elements](./assets/lesson-1/550-browser-html-structure.png)
+> **Rewind:** This is similar to our Call Out form in our Run Buddy website that contained our form in the Hero section.
 
-In the image above we can see that a wrapper is used to contain the title and the task list.
 Now that we know what we need for this section let's add them to our markup inside of the `<main>` element:
 
 - `<section>` with the class attribute `task-list-wrapper`
@@ -237,16 +238,13 @@ To finish our markup, let's also add the `<footer>`:
   &copy;2020 by Taskinator
 </footer>
 ```
-Now let's save our work and refresh the page in the browser.
-Compare your page to the mockup above to see if we have correctly created our markup.
+Time to save and refresh the page in the browser.
+Compare your page to the mock-up to see if we have correctly created our markup.
+![Browser in Lesson One](./assets/lesson-1/200-lesson-one-mock-up.png)
 
-Let's add, commit and push our feature branch up to GitHub.
+Let's add, commit, then push our feature branch up to GitHub.
 
-> **Deep Dive:** The project looks great so far by using the style sheet provided to us. While we won't be rehashing too much CSS throughout this project, it is a good idea to study the style sheet and see how they are being used throughout the application.
->
-> There are some more advanced techniques being used, but we already know a lot of what's going on here.
->
-> Don't forget there's always Chrome DevTools to help see what CSS is in place as well!
+> **Deep Dive:** The project looks great so far by using the style sheet provided to us. While we won't be rehashing too much CSS throughout this project, it is a good idea to look at the style sheet and see how we are incorporating these rules to make a mobile friendly app using flexbox.
 
 ## Create an Element Object
 
@@ -289,31 +287,40 @@ We should be seeing this in the console:
 
 The image does look like HTML, however once again this is the object representation, not the markup as we will demonstrate soon. First let's answer the question: Why is it important to prefix `document` to our `querySelector()` method?
 
-The `document` is our DOM that represents the `index.html` file which we opened in the browser. Using the method `querySelector()` on our reference to the DOM that models our markup, we can select any element in the HTML file.
+The `document` is our DOM that represents the `index.html` file which we opened in the browser. Using the method `querySelector()` on our reference to the DOM that models our markup, we can select any element in our `index.html` file such as our `<button>`.
 
-Let's experiment in the console by choosing different elements to select. Can you try to select a class? Can you guess what type of syntax is needed to prefix on the class name to select this attribute?
+Let's experiment in the console by choosing different elements to select. Try to target the `<body>` or `<main>`. You can soon realize that all the elements in markup are available to target. 
+
+Can you try to select one of our class attributes? 
+> **Hint:** You need a prefix on the class name to use as a selector.
+
 If you guessed "." you were correct.
 ```js
 document.querySelector(".btn");
 ```
+Here we chose the class attribute `.btn` on the `<button>` attribute.
+
 > **Rewind:** This is the same syntax we used for our CSS class selectors as well.
 
-in a JavaScript object form. In this form we can use built-in methods and properties from our Web API
+You will see in the console, that the same object is displayed for the `<button>` element although we chose a different selector.
 
-Actually we don't have to type `window` before document statement in the `script.js` file or the console because in both cases, we are in the context of the `window`. This should look familiar since that is what we did with the `Math` object. `Math.random()` for instance. Incidentally `alert()` and `prompt()` also can function without the window reference.
-> **@TODO** screenshot
+Notice we didn't add `window` before `document` in the expression above. Whether in the `script.js` file or the console in the browser since we are in the context of the `window`, `window` isn't necessary. This is because `index.html` is being opened in the browser where `window` is a global object.
 
-Although the console's return looks like raw HTML, it's actually an object representation of this element meaning it has access to properties and methods such as `textContent`.
+> **Rewind:** This should look familiar since that is what we dropped the `window` prefix with the `Math` object when we used `Math.random()`. Incidentally `alert()` and `prompt()` also can function without the `window` prefix so we will do so going forward because shortcuts make a dev's life that much sweeter.
+
+
+Although the display in the console for the `<button>` query looks like raw HTML, it's actually an object representation of this element. This means we have access to built-in properties and methods. One such property is called `textContent`.
 Let's type the following into the console to see the result:
 
 ```js
 document.querySelector("button").textContent;
 ```
 
-> **TODO** screenshot of result
-As we can see from this result, we are able to use a built-in property of a DOM element so clearly we are dealing with objects here.
+![Console textContent](./assets/lesson-1/800-console-textContent.png)
 
-Great job, we were able to select our button, but what happens if we start adding more buttons to the page? Our querySelector currently would only be able to find the first button in the document. So how do we uniquely identify this button from the rest? We can use a familiar attribute called the `id`. Let's add the `id` "save-task" attribute to our `button` element in the `index.html` file so the element now looks like this:
+As we can see from this result, we are able to use a built-in property of a DOM element so clearly we are dealing with objects here. `textContent` is the property that returns the text content of our element as it is aptly named.
+
+Great job, we were able to select our button, but what happens if we start adding more buttons to the page? Our `querySelector()` currently would only be able to find the first button in the document. So how do we uniquely identify this button from the rest? We can use a familiar attribute called the `id`. Let's add the `id` "save-task" attribute to our `button` element in the `index.html` file so the element now looks like this:
 ```html
 <button class="btn" id="save-task">Add Task</button>>
 ```
@@ -329,46 +336,47 @@ Assign the button element object representation to a variable like so:
 var buttonEl = document.querySelector("#save-task");
 console.log(buttonEl);
 ```
-> **Pro Tip:** @TODO best practices It is a best practice if an element object will be referenced more than once to assign the element object to a variable. Every time we query the document to find our element in the DOM, a document search is needed. Complex and elaborate DOM structures will have a noticeable resource drain that will lag performance especially if there are multiple references on the same element. In contrast the assigned variable of the element object contains the element object and therefore doesn't rely on a search operation.
+Notice the name of our button element is `buttonEl`. This is camel case as a style practice to remember this is a JavaScript variable. Also we used the `El` suffix attachment to identify this as a DOM element. 
 
+> **Pro Tip:** It is a best practice if an element object will be referenced more than once to assign it to a variable. Every time we query the document to find our element in the DOM, a document query or search is needed. Complex and elaborate DOM structures will have a noticeable resource drain that will slow down the performance of your webpage. In contrast the assigned variable of the element object contains the element object reference and therefore doesn't rely on a search operation.
 
 To see our expression in action we need to save our script file and refresh the `index.html` in the browser.
 
 > **Important:** Have you tried opening our `script.js` file in the browser and notice you can't. Why not? Think about our HTML file as our subject matter and the style sheet and script files as the modifiers or enhancements. The HTML file provides us our canvas to apply our styles and behaviors and will always be the connection to the web browser. It is the HTML file that acts as the hub, connecting the supplemental files with relative file paths. 
 
-As we can see in the console, our `buttonEl` variable now represents the same `button` element we displayed in the console earlier. Now that we are successful in selecting the correct element in the DOM, how do we add a task on a button click? 
+As we can see in the console, our `buttonEl` variable now represents the same `button` element we displayed in the console earlier. Now that we are successful in selecting the correct element in the DOM and preserving the element reference in our script, how do we use this to add a task to our task list on a button click? 
 
 ## Capture the Button Click
 
-In the last step, we were able to use the DOM to find the element object representation of our `<button>`. In this step we need a way to observe the user's click of the `<button>`. In the next step we will then create a response from the button click which will be adding a task item to our task list. Being able to break down our process, step by step is essential to solving this problem. You got this!
+In the last step, we were able to use the DOM to find the element object representation of our `<button>`. In this step we need a way to observe the user's click of the `<button>`. Then we will create a response from the button click which will execute the operation of adding a task item to our task list. Being able to break down our process, step by step is essential to solving this problem. We are almost finished with this lesson and you got this!
 
 It is important to note that we want to observe for the click behavior specific to the `<button>`. We wouldn't want our button click response to occur if the user clicked on the `<body>` or any other element in the document because we would inadvertently be adding tasks to our list unintentionally, not a good user experience. 
 
 In web development we refer to the user behavior, the click in this case, as an **event**. We refer to the act of observing the event, as the **event listener**. Lastly, we refer to the response to the event as the **event handler**. 
 
-There are many different types of events because there are many user behaviors that can happen on a web page. Over the years the number of events has grown in order to capture the different interactions of the user and the web page. A few examples would include hovering with a mouse pointer, key clicks on your keyboard, or scrolling down the web page. Events can even be defined at the start or end of an action such as an a key press or a key press release. [For an in depth look at all events possible take a look at MDN docs for a detailed review.](https://developer.mozilla.org/en-US/docs/Web/API/Element#Events)
+There are many different types of events because there are many user behaviors that can happen on a web page. Over the years the number of events has grown in order to capture the different interactions of the user and the web page. A few examples would include hovering with a mouse pointer, key clicks on your keyboard, or scrolling down the web page. Events can even be defined at the start or end of an action such as start of the key press or a key being released. [For an in depth look at all events possible take a look at MDN docs for a detailed review.](https://developer.mozilla.org/en-US/docs/Web/API/Element#Events)
 Now lets get our hands dirty and type the following into your console of your browser that has your `index.html` file.
 ```js
 buttonEl.addEventListener("click", function() {
   alert("button clicked");
 })
 ```
-Now click the button to see what is happening.
+Now click the button to see what happens.
 We should see the following screenshot in the dialog box.
 
 ![button clicked dialog box](./assets/lesson-1/1000-button-clicked.png)
 
 Let's breakdown our expression to understand the concepts being demonstrated here.
-* The `addEventListener()` is a method that can be used by our element object `buttonEl` to add an event listener to the `<button>` element. `buttonEl` has been established in the previous step as our object representation of the `<button>` element.
-* We pass in two arguments into our `addEventListener()` function. The type of event we will be listening for, in our case the click event, and the event response we would like executed once our click event on the `<button>` has occurred. In this case we used an anonymous function that uses the window method `alert()`. Just as with `document` and `Math`, we don't need to prefix `window` to `alert()` because we are in the context of our browser window.
+* The `addEventListener()` is a method that can be used by an element object, in this case our `buttonEl` object. This method adds an event listener to the `<button>` element. The `buttonEl` object has been established in the previous step as our object representation of the `<button>` element.
+* We pass in two arguments into our `addEventListener()` function. The type of event we will be listening for, in our case the click event, and the event response we would like executed once our click event on the `<button>` has occurred. In this case we used an anonymous function that uses the window method `alert()`. So what's an anonymous function? A function that doesn't have a named identifier therefore cannot be called outside the context of this expression.
 
 ### Call Me Back Maybe
-Let's dive a bit deeper into the second argument since passing in a function into a function is perplexing at first glance. This is called a **callback** function. In the lexicon of JavaScript, this is one of the foundational pillars that make JavaScript unique. In layman's terms, we are assigning a function to execute upon the event occurrence. Callback function can occur synchronously or immediately, or they can happen asynchronous at a later time. In our case, we have an asynchronous callback function since the function will not occur until the click event has occurred on the button.
+Let's dive a bit deeper into the second argument since passing in a function into a function is perplexing at first glance. This is called a **callback** function. In the lexicon of JavaScript, this is one of the foundational pillars that makes JavaScript unique. In layman's terms, we are assigning a function to execute upon the event occurrence. Callback functions can occur synchronously or they can happen asynchronous. In our case, we have an asynchronous callback function since the function will not occur until the click event has occurred on the button.
 
 ### Synchronous Call Back
 Before we explain asynchronous callback functions, we should go over the synchronous version first. Here is an example of a synchronous callback function you can enter into the console in your browser:
 ```js
-function sayHello(name) {
+function sayMyName(name) {
   alert("Hello " + name + "!");
 }
 
@@ -377,18 +385,18 @@ function processName(callback) {
   callback(name);
 }
 
-processName(sayHello);
+processName(sayMyName);
 ```
 After entering your name, you should see the alert:
 
 ![Dialog Box with Greeting](./assets/lesson-1/1100-name-alert.png)
 
-As you can see, a function, `sayHello()` is passed into the `processName()` function as an argument. This callback function `sayHello()` is executed immediately once the `processName()` function is called, hence it occurs synchronously. 
+As you can see, a reference to the function, `sayMyName` is passed into the `processName()` function as an argument. This callback function `sayMyName()` is executed immediately once the `processName()` function is called, hence it occurs synchronously. 
 
-> **Important:** Note when we pass the function, `sayHello` into `processName()` as an argument, we do **not** include the parentheses. If you do, you will see that the `sayHello()` is executed immediately and displays the name as `undefined` as seen in the image bellow:
+> **Important:** Note when we pass the function, `sayMyName` into `processName()` as an argument, we do **not** include the parentheses. If you do, you will see that the `sayMyName()` is executed as soon as `processName()` is called which displays the name as `undefined` as seen in the image bellow:
 >
 >![Call Back Prompt](./assets/lesson-1/5000-prompt-hello.png)
-> The reference to the function, `sayHello` is passed as an argument into `processName()`, when the `processName(sayHello)` is invoked. Then the `sayHello()` function invoked in the `processName()` code block with `name` defined by the `prompt()`.
+> The reference to the function, `sayMyName` needs to be passed as an argument into `processName()`. This way, the `sayMyName()` function does run until it is called in the `processName()` code block once `name` has defined by the `prompt()`.
 
 Conversely in our button click example, our callback function did not execute immediately, but waited for the click event to occur. We call this type of callback, asynchronous, due to the fact that the main program continues to execute as the callback function waits to be executed.
 
@@ -400,7 +408,7 @@ buttonEl.addEventListener("click", function() {
   console.log(event);
 })
 ```
-We will see our original `alert()` as well as the MouseEvent object in the console. So why do we still see our `alert()` even though we removed it from our code block?
+We will see our original `alert()` as well as the `MouseEvent` object in the console. So why do we still see our `alert()` even though we removed it from our code block?
 When we added the code above, we didn't replace our original event listener but added a new one to the `<button>`. We can have many different event listeners tied to the same element either for the same event type or different ones as well.
 
 Let's expand the `MouseEvent` object to see the following:
@@ -411,10 +419,61 @@ Great job! So far we have been able to use the DOM to target our button object t
 
 ## Add Items with the Click of a Button
 
-Currently our task list is empty. We need to figure out how to add a task to this list. Any idea how we can proceed? Try to imagine what steps will be needed. What file needs to be changes? 
-> **Hint:** We need to 
+Currently our task list has a single task item. We need to figure out how to create the task item and add it to the list. Any idea how we can proceed? Try to imagine what steps will be needed. What file needs to be changed? Where in this file do we add the task item? Solving a problem starts with asking the right questions, then finding the answers.
 
-> **Asset Needed:** Learnosity Checkpoint Jira Issue
+Let's take another look at our `index.html` file to see where our task list is located:
+```html
+<main class="page-content">
+  <section class="task-list-wrapper">
+    <h2 class="list-title">Tasks To Do</h2>
+    <ul class="task-list">
+      <li class="task-item">A task is going to be added soon!</li>
+    </ul>
+  </section>
+</main>
+```
+> **Hint:** Read the text content of the element for the hint.
+
+Yes we will need to add an `<li>` to the existing `<ul>`, but clearly we can't to this manually every time a user clicks this button. We need to figure out how to do this programmatically in JavaScript. 
+Let's introduce another method we can take advantage of called `createElement()`. Can you guess what that does?
+Yes, it creates an element, specifically a DOM element object. We would like to create a specific element however such as an `<li>`. Let's create an element using this method by typing the following into the browser's console:
+```js
+document.createElement("li");
+```
+The response in the console should look like the following:
+
+![Console Task List Item](./assets/lesson-1/7000-console-create-element.png)
+
+Congrats! We have just dynamically created our first element with JavaScript. It doesn't look or do much now, but we'll soon change that. First let's create a variable to store the reference to this new object by typing the following expression in the console:
+```js
+var taskItemEl = document.createElement("li");
+```
+Now let's assign some text content to this `<li>` by using the `textContent` property we used previously and then view the element object.
+```js
+taskItemEl.textContent = "hello";
+console.log(taskItemEl);
+```
+![Console of the List Element](./assets/lesson-1/8000-task-list-element.png)
+
+Now that we have created the task item element, the next step will be to add this element to the `<ul>` or the task list. But before we can go about attaching our task item, we will need an object representation of our task list or `<ul>` element. Let's proceed by typing the following expression into the console:
+```js
+var tasksToDoEl = document.querySelector("ul");
+```
+Very good! Now let's introduce our new method called `appendChild()`. To append the task item as a child to the parent element, the task list we must use the following expression pattern:
+```js
+tasksToDoEl.appendChild(taskItemEl);
+```
+Type this expression into the console to render the following in the browser:
+![Browser Task Item](./assets/lesson-1/9000-browser-appendChild.png)
+
+Nice, we were able to attach the task item to the task list as can be seen in the browser however this item looks like it needs a bit of style. By looking at the markup, we can see that the first `<li>` has the class attribute `task-item`. Let's assign this class to the task item with the property `className`. This will be similar to how we assigned the `textContent` previously. Let's add the following into the console.
+```js
+taskItemEl.className = "task-item";
+```
+
+
+> **Asset Needed:** [Learnosity Checkpoint Jira Issue FSFO-206](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-206)
+
 ## Commit with Git
 
 
