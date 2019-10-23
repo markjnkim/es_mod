@@ -25,7 +25,7 @@ Can all of this be done with JavaScript? Definitely. JavaScript is a powerful, w
 
 We have already learned that HTML defines a web page's structure, and CSS defines a web page's presentation. JavaScript is the third Musketeer, defining a web page's _behavior_. Together, these technologies comprise the core of front-end web development.
 
-JavaScript enables a web page to _do things_. These things include (but are not limited to) filling out and submitting a contact form, clicking on a button that triggers a popup window, and adding/removing content on a web page without refreshing the browser. Front-end developers who understand JavaScript can create powerful, dynamic web applications with rich user interfaces. Some notable examples include:
+JavaScript enables a web page to _do things_. These things include (but are not limited to) filling out and submitting a contact form, clicking on a button that triggers a dialog window, and adding/removing content on a web page without refreshing the browser. Front-end developers who understand JavaScript can create powerful, dynamic web applications with rich user interfaces. Some notable examples include:
 
 - Netflix
 - Google Photos, Google Docs, Google Sheets
@@ -269,8 +269,9 @@ If we recall, we've already created a JavaScript file called `game.js` in its ow
 
 Notice the `src` attribute being used here. When we use `<script src="path/to/file.js"></script>`, we are instructing the HTML file to go look for a JavaScript file at that path's location and incorporate it into the HTML file.
 
-Why would we put this towards the bottom of the HTML file, as opposed to CSS where we include the `<link>` element in the `<head>` element above all of our content? Out of all the different assets that go into a web page&mdash;images, CSS stylesheets, JavaScript&mdash;JavaScript runs the highest risk of possibly failing on load and more complicated JavaScript code could cause the browser to take a bit longer to read and run. Because it is our job to get the page to display as fast as possible, it is the best practice to put the `<script>` element at the bottom of the HTML page right before the closing `</body>` HTML tag. It is important to remember that a HTML file loads from top to bottom, meaning that if something at the top fails to load or causes the browser to run a little slow, it could lead to no HTML content showing up at all on the page. This would make users very confused and frustrated.
+Why would we put this towards the bottom of the HTML file, as opposed to CSS where we include the `<link>` element in the `<head>` element above all of our content? When a browser sees a `<script>` element in the HTML file, it immediately goes to the JavaScript file to read it and start running it, effectively blocking the browser from moving onto the next HTML tag until it's finished. If we kept the `<script>` element above the HTML page's content and the browser stops to read and run the JavaScript file, this could delay the HTML content making it to the page.  Even worse, if there's an error in the JavaScript file, the browser could just stop loading the page all together. This means the page would indefinitely stay blank, leaving the user quite confused and frustrated. 
 
+Remember, it is our job to provide the user with the best experience possible. Because of this, it is best practice to load the CSS first, that way the HTML can load and have the styles in place as it displays on the page. The `<script>` element is added after all important HTML content for the page, right above the closing `</body>` HTML tag. This way, even if the JavaScript file takes a little long to load or breaks, there is still a styled HTML page for the user to see.
 
 ### Ensuring our JavaScript is loaded
 
@@ -282,11 +283,11 @@ Add this line of code into the `game.js` file, then save the file and open up th
 window.alert("This is an alert! JavaScript is running!");
 ```
 
-When the HTML file is opened in the browser, the first and only thing we should see is a small popup window that says "This is an alert! JavaScript is running!", something along the lines of this image:
+When the HTML file is opened in the browser, the first and only thing we should see is a small dialog window that says "This is an alert! JavaScript is running!", something along the lines of this image:
 
 > **Asset Needed:** Image of browser window with this alert
 
-Also take notice of the fact that there is really nothing else we can do in this browser tab until we acknowledge the popup window and click the button associated with it. This is what's known as an **alert**, and we've just written our first line of JavaScript!
+Also take notice of the fact that there is really nothing else we can do in this browser tab until we acknowledge the dialog window and click the button associated with it. This is what's known as an **alert**, and we've just written our first line of JavaScript!
 
 We'll get into what this code means next, but now we can move on knowing that our JavaScript is being read correctly by the HTML file. Since we just got our initial project structure created, it's a good time to commit your repository's code!
 
@@ -294,7 +295,7 @@ We'll get into what this code means next, but now we can move on knowing that ou
 
 ## Use JavaScript functions to communicate with the player
 
-So what happened in the last step when we added the `window.alert()` and opened up our HTML file in the browser? We were hit with arguably the most annoying part of being on the web, an alert dialog box! Alerts have been a staple in web development since the beginning, but where do they come from exactly? Namely, what is the `window` being mentioned in `window.alert()`? Let's dissect that code.
+So what happened in the last step when we added the `window.alert()` and opened up our HTML file in the browser? We were hit with arguably the most annoying part of being on the web, an alert dialog window! Alerts have been a staple in web development since the beginning, but where do they come from exactly? Namely, what is the `window` being mentioned in `window.alert()`? Let's dissect that code.
 
 The first part we'll get into is the `window`, but only briefly. All we need to know for now is that the `window` is referring to the browser itself. Whenever we write JavaScript and run our code in a browser, this `window` will always be present, as we'll see later on when we use it for other purposes. The second thing to look at here is `alert()`, the part that comes after `window.`. An alert is a **function** built into the browser that allows the developer to create messages to send to the user.
 
@@ -304,9 +305,9 @@ So what is a function? A function is a predefined action that we can call or inv
 
 After the `alert` function is listed, there is a set of parentheses with a sentence wrapped with double quotes `" "`. This can be broken down into two pieces:
 
-- The parentheses are necessary to actually run a JavaScript function, even if there is nothing between them. When the browser reads the function name and sees the parentheses, it knows to that code and execute it.
+- The parentheses are necessary to actually run a JavaScript function, even if there is nothing between them. When the browser reads the function name and sees the parentheses, it knows to execute the function.
 
-- If there is content between the parentheses, this is what's known as "passing an argument" into the function. This means that the `alert` function was specifically created to accept varied content that will be displayed as the popup message every time it is used.
+- If there is content between the parentheses, this is what's known as "passing an argument" into the function. This means that the `alert` function was specifically created to accept varied content that will be displayed as the dialog's message every time it is used.
 
 Lastly, the alert function's code is closed out by a semicolon `;`. This is to tell the browser running the code that this particular line is completed and any code that comes after it is a new piece code, these are known as **expressions**.
 
@@ -362,11 +363,11 @@ We've now given the user the power to add their own information to our program. 
 
 > **Deep Dive:** Learn more about the [`window.prompt()` function on MDN.](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)
 
-Enter your robot's name into the input field displayed in this prompt dialog and click the "Ok" button (the name of this button may vary depending on the browser in use). The user has now provided the JavaScript program with that information and the program can use it throughout the code.
+Enter your robot's name into the input field displayed in this prompt dialog window and click the "Ok" button (the name of this button may vary depending on the browser in use). The user has now provided the JavaScript program with that information and the program can use it throughout the code.
 
-> **Important:** The `window` is a collection of functions and many other properties that is build natively into the browser. Whenever we open up our program in the browser, our JavaScript file's code is executed in the context of the `window`, so the tools and information (called "properties") it provides are always accessible by our code.
+> **Deep Dive:** The `window` is a collection of functions and many other properties that is build natively into the browser. Whenever we open up our program in the browser, our JavaScript file's code is executed in the context of the `window`, so the tools and information (called "properties") it provides are always accessible by our code.
 >
-> When there is a collection of functionality and information that is accessed through one name (e.g. `window.alert()` or `window.prompt()`), that is what's known as an **object**, which we'll be learning more about later when we need to make our own.
+> When there is a collection of functionality and data that is accessed through one name (e.g. `window`), that is what's known as an **object**, which we'll be learning more about later when we need to make our own. The way we access what an object stores is to name the object itself, then use a period followed by the property name or function name we are looking for. When we use a period between the object name and property, it is called using "dot notation". So when we use `window.prompt();`, we are instructing the browser to go find the `window` object and once it finds it, go and find the `prompt()` function that belongs to the `window` object and execute it. Even though `prompt()` is considered a function, when the function belongs to an object, it is what's known as a "method".
 >
 > While our JavaScript code can access these properties of the `window` object, it is not actually part of the JavaScript language. We can use it because browsers have built this functionality into their software and put it behind the name `window`. This is what's known as a Web API (Application Programming Interface), which we'll learn a little more about throughout this project and a lot more in the coming weeks.
 >
@@ -392,13 +393,13 @@ Let's dissect basic syntax for creating a variable:
 
 - **The `var` keyword:** Just like the `function` keyword we used previously, `var` is a keyword built into the JavaScript language. Whenever it is used, it tells the program that we are creating a new variable and the next word is going to be the name of the variable.
 
-- **Variable Name:** This is the actual name that will be used to store the information assigned to the variable. The second the browser gets to this line when reading the file, it will store this name in memory so it can be recalled later in the program. The general rule of thumb for naming variables is to give them a meaningful (but not too long) name and to use camel casing when the name is more than one word, as the JavaScript language cannot interpret hyphens.
+- **Variable Name:** This is the actual name that will be used to store the information assigned to the variable. The second the browser gets to this line when reading the file, it will store this name in memory so it can be recalled later in the program. The general rule of thumb for naming variables is to give them a meaningful (but not too long) name and to use camel casing when the name is more than one word, as the JavaScript language cannot interpret hyphens. Camel casing is when the first letter of a name is lowercase but the first letter of every word that follows is uppercase. We used camel case to create our `playerName` variable above, and there are more examples in the code below. 
 
 - **Assignment Operator `=`:** The assignment operator is a single equal sign that is used to set the value to a variable name. Everything on the left of the operator is to set up the variable name for the program. Everything on the right of the operator is the value being stored into the variable name. This value can come in a few different forms, called **data types**. Here are some examples of variables with different data types and an explanation of each one in the comments:
 
 ```js
 // This is a String data type, it must be wrapped in double quotes (" ") or single quotes (' '). The standard is using double quotes.
-var stringDataType = "This is a string";
+var stringDataType = "This is a string, which is a fancy way to say text";
 
 // This is a Number data type, they can be integers (whole numbers) or have decimals (floated numbers)
 var numberIntegerDataType = 10;
@@ -407,6 +408,26 @@ var numberFloatDataType = 10.4;
 // This is a Boolean data type, which can only be given a value of true or false
 var booleanDataType = true;
 ```
+
+The text above each variable declaration is how JavaScript handles comments. There are two ways to create a comment in JavaScript:
+
+- Use two slashes `//`, then anything written afterwards on the same line will be a comment. This is the more commonly used one.
+
+- For longer comments, we can wrap all of our comment's text to look like this:
+
+```js
+/* This is a comment */
+
+/* 
+It
+can
+work
+like
+this. 
+*/
+```
+
+Ideally, try to keep a comment succint and use the `//` syntax, this way our code doesn't get too messy.
 
 There is a total of eight data types in JavaScript, some are used more than others, some you may not use at all for a while! We'll be learning more about some of the other data types as we need to use them, but it is a good idea we save this [list of data types from MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures) now for future reference.
 
@@ -432,7 +453,7 @@ window.alert(playerName);
 
 Save the `game.js` file and refresh the HTML page in the browser, we should see an alert come up with our robot's name in it!
 
-Using an alert to ensure data has been entered properly is good when we're just starting off, but it's really not a realistic practice when we want to use it with multiple variables since having that many dialog boxes pop up on us can be frustrating and annoying. For this project, since we're not using any means of printing data for the use to see on the HTML page, think of the alert functionality as a way to get information to the user. It's not the best way of getting information to the developer, however.
+Using an alert to ensure data has been entered properly is good when we're just starting off, but it's really not a realistic practice when we want to use it with multiple variables since having that many dialog windows pop up on us can be frustrating and annoying. For this project, since we're not using any means of printing data for the use to see on the HTML page, think of the alert functionality as a way to get information to the user. It's not the best way of getting information to the developer, however.
 
 ### The Console: A Dev's Best Friend
 
@@ -444,13 +465,13 @@ var playerName = window.prompt("What is your robot's name?");
 console.log(playerName);
 ```
 
-Again, save the file and refresh the page in the browser to see what happens.
+Again, save the file, refresh the page in the browser, and answer the prompt with a name for the robot.
 
 Wait a second, it seems nothing has happened at all!
 
 Something actually has happened, but it's not for users to see. Instead it's for the developers to see behind the scenes in the browser. In Chrome, what tool have we used to debug our code before? We used DevTools!
 
-Let's open up Chrome DevTools in our browser by right-clicking in the blank HTML document and selecting the word `Inspect` (do this after entering a name in the prompt). When it opens, you'll see the "Elements" tab selected with the HTML and CSS debugging tools. But this is JavaScript we need to look at now, so at the top of the inspector window click the tab titled "Console", and we'll see something like this:
+Let's open up Chrome DevTools in our browser by right-clicking in the blank HTML document and selecting the word `Inspect`. When it opens, you'll see the "Elements" tab selected with the HTML and CSS debugging tools. But this is JavaScript we need to look at now, so at the top of the inspector window click the tab titled "Console", and we'll see something like this:
 
 > **Asset Needed:** Image of console at this point.
 
@@ -458,7 +479,7 @@ There's our robot's name! The tool we just used is what's known as the Developer
 
 Like the `window`, the `console` is another object provided to us by the browser we can use in our JavaScript. The `console` object has it's own set of functions and properties that all interface with the browser's console window (in Chrome, it is the DevTools console tab we just used). Since the `console` is not part of the JavaScript language and is rather provided to us by the browser, it is a Web API.
 
-> **Important:** Web APIs (Application Programming Interface) are tools provided to us to use when building applications. Sometimes the tools given to us by the JavaScript language are simply not enough, so we need to reach for a tool more specific to the problem we're trying to solve.
+> **Deep Dive:** Web APIs (Application Programming Interface) are tools provided to us to use when building applications. Sometimes the tools given to us by the JavaScript language are simply not enough, so we need to reach for a tool more specific to the problem we're trying to solve.
 >
 > Think about how we use tools in real life. We can't use our hands to push a nail into a piece of wood or turn a screw tightly, so we need to reach for something to help us finish the job. Something that was specifically made to solve that problem. The hammer or screwdriver don't work on their own, they work because we use our hands to power them.
 >
@@ -484,32 +505,43 @@ When we save this file, refresh the browser window, and look at our DevTools Con
 
 > **Asset Needed:** Image of Console showing the above logs.
 
-We have used the `console.log()` function in a couple of different ways here. We logged a plain string sentence, which is very helpful sometimes when we run a lot of code at once and we want to trace when certain functionality executes. We logged the total of two numbers being added together (more on arithmetic operators soon). But what's going on this last log we ran?
+We have used the `console.log()` function in a couple of different ways here. We logged a plain string sentence, which is very helpful sometimes when we run a lot of code at once and we want to trace when certain functionality executes. We logged the sum of two numbers as well (more on arithmetic operators soon). But what's going on this last log we ran?
 
-Before we learn the official name of what action we performed, let's put it into our own words. We wanted to take the name of our robot and place it into a sentence so it reads "Our robot's name is [robot's name]". To do this, we needed to combine a string with a variable. This is what's called "string interpolation".
+Before we learn the official name of what action we performed, let's put it into our own words. We wanted to take the name of our robot and place it into a sentence so it reads "Our robot's name is [robot's name]". To do this, we needed to combine a string with a variable. This is what's called "string concatenation".
 
 The way this type of action works is that we can write out our string normally, but when we need to include variable data, we need to close the string and put a plus sign `+` after the closing quotation, then write our variable name.
 
 Here are a couple more examples:
 
 ```js
+var playerName = "Tony the Robot";
+
+// Tony the Robot is ready for battle!
+console.log("Tony the Robot" + " is ready for battle!");
+
+// "Tony the Robot is ready for battle!"
 console.log(playerName + " is ready for battle!");
 
-console.log("Your robot, " + playerName + " has won!");
+// "Your robot, Tony the Robot, has won!
+console.log("Your robot, " + playerName + ", has won!");
 ```
 
-The first example is similar to the one we used before, except we flipped where the variable was interpolated. The second one, however, needed the variable in the middle of the sentence. So notice how we had to close the first string, use the plus sign to include the `playerName` variable, then use another plus sign and continue with our string. It is important to note that when we interpolate strings that we need to include a leading or trailing space in our string so the interpolated variable doesn't run up against the word that comes before or after it.
+The first example in the above code is the concatenation of two strings, which is unecessary in most cases, but it's good to see that when comparing it to the second example. The second example is similar to the one we used before, except we flipped where the variable was concatenated. The second one, however, needed the variable in the middle of the sentence. So notice how we had to close the first string, use the plus sign to include the `playerName` variable, then use another plus sign and continue with our string. It is important to note that when we concatenate strings that we need to include a leading or trailing space in our string so the concatenated variable doesn't run up against the word that comes before or after it.
 
 Let's touch upon one more thing before continuing with our Robot Gladiators' game. Open the Console tab in Chrome DevTools. Notice that in the main window for the Console, there is a blinking line, almost as if we're allowed to type in it. Well, we are.
 
 We can use the Console to write simple JavaScript and test out some different features or functionality rather than writing it into our files and doing our save/refresh actions. All we need to know is write a line of JavaScript and hit `Enter` / `Return` on our keyboards and it'll run the code.
 
-Let's add the following to the Console:
+Let's add the following to the console:
 
 ```js
 var name = "your name";
 console.log(name);
 ```
+
+> **Important:** When we create a variable or function in the DevTools console and hit `Enter`, it will often return a value of `undefined` to us. This isn't an error so don't be alarmed, it is in fact working correctly. The console is designed to evaluate every piece of code entered into it and attempt to return a result, but if we create a variable there is nothing to return, so it returns the value `undefined` by default.
+>
+> `undefined` is another datatype value in JavaScript, learn more about it on the [MDN docs for `undefined`.](https://developer.mozilla.org/en-US/docs/Glossary/Undefined)
 
 The above code should create a variable called `name` with your name stored as the value, then the next line will `console.log()` the value of the `name` variable.
 
@@ -519,13 +551,13 @@ We've now learned how to create functions, execute functions, how to interact wi
 
 Make sure you commit the code you've completed so far using git!
 
-## Manipulate data with functions, variables, and operators
+## Manipulate Data with Functions, Variables, and Operators
 
-While the last step was about understanding functions, storing data in variables, and putting them both to use, this step is going to be all about manipulating data using **operators**.
+While the last step was about understanding functions, storing data in variables, and putting them both to use, this step is going to be all about manipulating data using operators.
 
 By the end of this step, we'll be able to execute our `fight()` function and have our robot attack an enemy and have the enemy attack our robot. So let's start by asking ourselves: What do we need in order to make this happen?
 
-In order for our robot's to battle each other, they are going to require some type of data tracking their overall health values as the game progresses. We are also going to need to know how much attack power each robot has to determine how many of these health points should be removed when attacked. This sounds like a job for variables, so let's update our `game.js` file. And while we're at it, we'll give the enemy robot a name.
+In order for our robot's to battle each other, they are going to require some type of data tracking their overall health values as the game progresses. We are also going to need to know how much attack power each robot has to determine how much damage it can do to its opponent. This sounds like a job for variables, so let's update our `game.js` file. And while we're at it, we'll give the enemy robot a name.
 
 Replace everything in `game.js` so the entire file looks like this:
 
@@ -581,8 +613,6 @@ fight();
 ```
 
 Both of these methods are acceptable when it comes to creating functions in JavaScript and we will see them written both ways all throughout our careers; but for the sake of consistency in how we write our code, we'll use the second method and employ function expressions throughout our game. There is one main difference in how the browser interprets those two methods of creating a function, but it won't affect us throughout the Game Jam so there's no need to tackle that issue just yet.
-
-> **Asset Needed:** Important Callout explaining the difference between expressions, declarations, and statements
 
 ### Do Math with Operators
 
@@ -641,25 +671,15 @@ Let's dissect the code to better understand what happened:
 enemyHealth = enemyHealth - playerAttack;
 ```
 
-The first thing we can see is that there is no `var` keyword here. This is because we use `var` to create new variables, but in our case, we want to update the value of a variable that already exists. If we were to use the `var` keyword, it would create a brand new `enemyHealth` variable inside of the `fight` function, meaning the `enemyHealth` variable we created at the top of the file and outside of the function will be unaffected.
+The first thing we can see is that there is no `var` keyword here. This is because we use `var` to create new variables, but in our case, we want to update the value of a variable that already exists. If we were to use the `var` keyword, it would create a brand new `enemyHealth` variable inside of the `fight` function, meaning the `enemyHealth` variable we created at the top of the file and outside of the function will be unaffected. This is what's known as "scoping" a variable, more on this later.
 
-> **Important:** Creating a variable inside of a function is what developers call "scoping" a variable.
->
-> If a variable is created inside a function and has the same name as a variable created outside of the function or in a different function, it will not overwrite the other variables' data and they will remain untouched, but now that function can only reference the variable created inside of it.
->
-> The most important thing to know about scoping at this moment is that variables created outside of a function can be referenced and used inside of the function, but variables created inside of a function only exist within that function.
-
-On the left hand of our expression, we simply list the variable we are going to be updating. We're updating it by reassigning it a new value of the following code:
+On the left hand of our expression, we simply list the variable we are going to be updating and storing new data to. We're updating it by reassigning it a new value of the following code:
 
 ```js
 enemyHealth - playerAttack;
 ```
 
-The above code is what is on the right hand side of our expression. When a variable that holds a string, number, or boolean data type is listed to the right of an assignment operator `=`, it uses the value held by that variable and not the variable name itself.
-
-In our case it would be the equivalent of writing `50 - 10`, but since the value of a variable changes, we need to use the variable name holding the value instead of the value itself.
-
-To think about this in a more understandable fashion, we just reassigned the variable holding onto the enemy's health points by taking the current value of the enemy's health points and subtracting it by our robot's attack points.
+The above code is what is on the right hand side of our expression. This may seem confusing, how can we set the `enemyHealth` variable to `enemyHealth - playerAttack`, aren't we using the same name (`enemyHealth`) twice? Well, the answer is "yes", but variable names have different meanings when they are to the left or right of an assignment operator. When the variable is listed on the left hand side of an assignment, that means we are going to be storing data to that variable. When the variable is on the right hand side of an assignment operator, that means we are going to use the actual value that variable holds at that moment.  
 
 After the attack finishes, we use `console.log()` to give ourselves some details as to what just happened. This is a good way of seeing that our code is working. If we were to call the `fight` function again, we would see the second `console.log()` would show the value of `enemyHealth` is ten points lower than the previous log.
 
@@ -679,7 +699,7 @@ console.log(
 
 All we had to do was repeat the previous two lines of code and switch the variable names around! Now we have a full working round of battle between our robot's, as they can exchange attacks.
 
-> **Deep Dive:** Arithmetic operators in JavaScript work much like they do in every day math, which a few caveats:
+> **Deep Dive:** Arithmetic operators in JavaScript work much like they do in every day math, with one very important caveat:
 >
 > - **Addition (`+`):** Used to produce a sum of two or more numbers, but JavaScript also uses this operator to combine strings together (called concatenation). If a value on either side of the `+` operator is a string data type, the result will be the two values combined into a string instead of added together.
 >
@@ -691,18 +711,9 @@ All we had to do was repeat the previous two lines of code and switch the variab
 > console.log("4" + 6);
 > ```
 >
-> - **Exponentiation (`**`):** In every day mathematics, to multiply a number by itself multiple times can be performed using a single caret operator (`^`). In JavaScript, it is performed like this code:
->
-> ```js
-> // this will be 125, same as 5^3
-> 5 ** 3;
-> ```
->
-> Besides these two main differences, the rest of the arithmetic operators behave the same way we learned how to use them in math class. For more information, check out the [MDN docs on operators.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators)
+> Besides this main difference, the rest of the arithmetic operators behave the same way we learned how to use them in math class. For more information, check out the [MDN docs on operators.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators)
 
-Our `fight` function is now starting to take form, as we can now execute it to have our robots attack each other. How does the game know when to end, though?
-
-> **todo** Write prompt to enter `fight()` into the DevTools Console a bunch of times and see what happens
+Our `fight()` function is now starting to take form, as we can now execute it to have our robots attack each other. How does the game know when to end, though?
 
 We can assume that the game ends when one of the robot's health points gets down to zero, but now we have to figure out a way to instruct our code to check for that type of event and more importantly, what to do when it happens.
 
@@ -717,28 +728,34 @@ In JavaScript, we can perform similar checks based on the status of our code and
 Here is what a condition looks like in JavaScript:
 
 ```js
-if (10 > 2) {
-  console.log("Ten is greater than two, so this runs!");
+var playerHealth = 100;
+
+// check to see if the value of the playerHealth variable is greater than 0
+if (playerHealth > 0) {
+  console.log("Your player is still alive!");
 }
 ```
 
-First, let's go through what that whole block of code means. Using the `if` keyword, which is built into the JavaScript language, we are telling the browser that we are going to now check for a condition to be true or false and execute a block of code based on that result.
+Let's go through what that whole block of code means. Using the `if` keyword, which is built into the JavaScript language, we are telling the browser that we are going to now check for a condition to be true or false and execute a block of code based on that result.
 
-The condition in question here is what appears between the parentheses, `10 > 2`. In this case, we are checking to see if the value of the number ten is greater than the value of the number two. If it is, then the condition is considered "true", and the code that appears between the curly braces is executed.
+The condition in question here is what appears between the parentheses, `playerHealth > 0`. In this case, we are checking to see if the value of the variable `playerHealth` is greater than zero. If it is, then the condition is considered "true", and the code that appears between the curly braces is executed.
 
-If we switched the condition to look like `2 > 10`, or maybe even `10 < 2`, then the result would be "false" because two is not greater than ten and ten is not less than two. Because of this, the code between the braces will not run at all.
+If we set the `playerHealth` variable to have a value of zero, then the result would be "false" because zero is not greater than zero. Because of this, the code between the braces will not run at all.
 
 The example we just went through is a very basic use case for conditions in JavaScript. We gave it one condition to check and a block of code to execute if that condition is true. Thinking about it, we only gave our code one direction to go based on that condition. Now let's give it two possible directions:
 
 ```js
-if (2 === 10) {
+var playerHealth = 10;
+
+if (playerHealth === 0) {
   console.log("This will not run.");
-} else {
+} 
+else {
   console.log("This will run instead.");
 }
 ```
 
-What we just used is what's known as a "control flow" statement. We used the `if` keyword to check if the number two equals the number ten (in JavaScript, three equal signs is a means to check if two values are directly equal to one another). These two numbers do not equal one another, so the first code block is skipped and runs the second code block instead. The second code block is denoted by using the JavaScript `else` keyword.
+What we just used is what's known as a "control flow" statement. We used the `if` keyword to check if the value of `playerHealth` is zero (in JavaScript, three equal signs is a means to check if two values are directly equal to one another). These two values do not equal one another, so the first code block is skipped and runs the second code block instead. The second code block is denoted by using the JavaScript `else` keyword.
 
 We wrote our code in a way to take a certain path depending on a condition. Now the condition used here is always going to result in the `else` block of code running, since two will never equal ten, but think about what happens the condition we're checking is the current value of our robot's health. That is a value that will be changing throughout our application, so to be able to check that value from time to time will give us the ability to change the game's direction if it gets down to zero.
 
@@ -759,7 +776,8 @@ console.log(
 // check enemy's health
 if (enemyHealth <= 0) {
   window.alert(enemyName + " has died!");
-} else {
+} 
+else {
   window.alert(enemyName + " still has " + enemyHealth + " health left.");
 }
 ```
@@ -791,14 +809,13 @@ We are going to do so by utilizing the same conditional statements we just used 
 
 ```js
 // put new code under this
-console.log(
-  enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
-);
+console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
 
 // check player's health
 if (playerHealth <= 0) {
   window.alert(playerName + " has died!");
-} else {
+} 
+else {
   window.alert(playerName + " still has " + playerHealth + " health left.");
 }
 ```
@@ -859,7 +876,7 @@ These are the two main answers we're looking for, but it's a prompt we're using,
 
 > **Urkel Says:** When developers write code, it is often not enough to write it in a way to only work as it was intended to work because user interaction can lead to unpredictable input and actions. A thoughtful developer builds a program that works under ideal conditions, but then adds protective code into it to help handle situations like this so the program doesn't break.
 >
-> These situations are known as "edge cases".
+> These situations are known as "edge cases" because if we expect our code to work 99% of the time, these are that other 1% percent.
 
 So now we have to make a decision as developers. We can set up our program to explicitly check to see if our user chose to "FIGHT" and let anything other than that mean the user has chosen to skip the fight instead. This means that if a user were to put into the prompt "tomato", the program would interpret that as the user wanting to skip the fight. This could be very confusing for the user.
 
@@ -870,6 +887,10 @@ At the very least it should be our job to inform them they made an incorrect dec
 - If the user did not pick "FIGHT"/"fight", check if the user picked "SKIP" or "skip" instead
   - If yes, penalize the player and end the `fight` function
 - If the user did not pick any of the above words, then let the user know they need to pick a valid option
+
+> **Important:** Computers do not read letters as actual letters, but as binary data, which is a combination of ones and zeros to represent the data (e.g. the letter "a" is 01100001 in binary). This means that uppercase and lowercase versions of a letter are represented by different sets of binary code.
+>
+> The lowercase letter "a" is represented as 01100001 in binary code, but the uppercase letter "A" is 01000001. If a computer tries to compare uppercase "A" to lowercase "a", it will not find them to be a match.
 
 Previously, we used control flow statements to take us in one of two possible directions. If the player had no health, let them know they have lost. Otherwise, let them know how they are doing.
 
@@ -953,7 +974,7 @@ We have all of the important pieces in place to make this game interactive with 
 
 This is a hard question to answer, as there are a lot of different answers we can provide. We could penalize a player by subtracting health points upon leaving a fight, but that doesn't make too much sense, as the whole point of leaving the fight is to retain health for the next possible battle. So rather than gauging a player's success off of how much health they have at the end, let's gauge it off of how much money they have at the end instead.
 
-> **Legacy Lem:** Think about how old arcade games used to display "High Score" lists to rank players. Most games are not about getting to the end, but rather how high of a score they have when the game is over for them.
+> **Urkel Says:** Think about how old arcade games used to display "High Score" lists to rank players. Most games are not about getting to the end, but rather how high of a score they have when the game is over for them.
 
 We're going to finish off this lesson by adding in functionality to penalize our player if they choose to skip a fight, so let's start by adding a variable to keep track of how much money they have.
 
@@ -1056,7 +1077,7 @@ We took a different approach and built a functional program from the start and i
 Let's review what we've covered so far:
 
 - We learned about the role JavaScript plays in web development.
-- We used functions built into the browser to interact with the user through dialog boxes.
+- We used functions built into the browser to interact with the user through dialog windows.
 - We created our own JavaScript functions to execute our own actions.
 - We learned how to store and manipulate data along with some of the data types we can store using JavaScript variables.
 - We used the Chrome DevTools Console to help us keep track of what data we're using.
