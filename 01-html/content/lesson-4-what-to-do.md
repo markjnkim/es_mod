@@ -115,7 +115,7 @@ Save, refresh, and then click on the links in the header. You'll see that the br
 
 The company's design team has given us some new images to use for the trainer's profile pictures. Download these SVG files and add them to your `assets/images` folder.
 
-> **Asset Needed:** File: <https://trilogyed.atlassian.net/browse/FSFO-211>
+> **Asset Needed:** File: <https://trilogyed.atlassian.net/browse/FSFO-188>
 
 You may be wondering why these are SVGs and not JPGs or PNGs. In fact, what is an SVG?
 

@@ -12,7 +12,7 @@ In this first lesson, you'll learn about some important tools and processes, whi
 
 The Run Buddy design team has provided the following mock-up of what they want the landing page to look like:
 
-![The complete webpage includes a contact form and several informational sections](./assets/step-1/050-mock-up.png)
+![The complete webpage includes a contact form and several informational sections](./assets/step-1/050-mock-up.jpg)
 
 As a new developer, this probably looks pretty daunting. How are you supposed to know how to create this? Surely, they should hire someone with more experience than you.
 

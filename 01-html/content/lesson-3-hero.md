@@ -357,7 +357,7 @@ Now let's add some pizzazz by adding a background image to our hero section.
 
 First you need to create an `images` directory inside the `assets` directory. Then download the images from our image link and place them inside the `images` directory.
 
-> **Assset Needed:** File: <https://trilogyed.atlassian.net/browse/FSFO-209>
+> **Assset Needed:** File: <https://trilogyed.atlassian.net/browse/FSFO-188>
 
 > **Pause:** What are the CLI commands for the following actions?
 > * Create a new directory.
