@@ -328,7 +328,7 @@ Our foundation work is now complete so we can proceed to the design phase of thi
 
 So our hero section doesn't look all that great yet, but fear not—we're about to make it look super! Let's take a look at the mock-up and examine the styling needed to deliver the finished product:
 
-![he completed hero has a background image and styled sign-up form](./assets/step-3/50-hero-section-mock-up.png)
+![The completed hero has a background image and styled sign-up form](./assets/step-3/50-hero-section-mock-up.png)
 
 It's time to dive into CSS again. In VS Code, open the `style.css` file. 
 
