@@ -2,15 +2,15 @@
 
 ## Introduction
 
-Development of Run Buddy version 2.0 is now in full swing! In Lesson 1, we took a peek at what the client wants to see in this version, but then we switched gears to establish a Git workflow so we can make updates without affecting the live website. 
+Development of Run Buddy version 2.0 is now in full swing! In Lesson 1, we took a peek at what the client wants to see in this version. Then we switched gears to establish a Git workflow so we can make updates without affecting the live website. 
 
 Let's take a minute to remind ourselves what the current page looks like:
 
 ![Current Run Buddy page design](assets/lesson-2/101-old-layout.jpg)
 
-In this lesson, we'll tackle one of the more important requests Run Buddy has for us: displaying the page's content in a more impactful way. To do this, we'll restyle the content to make better use of the page's horizontal space. This will also prepare the site for another important feature: mobile-responsiveness. 
+In this lesson, we'll restyle the content to make better use of the page's horizontal space. This will also prepare the site for another important feature: mobile-responsiveness. 
 
-To do this, we'll have help from a relatively new CSS technology called **flexbox**.
+To do this, we'll use a relatively new CSS technology called **flexbox**.
 
 ## Preview
 
@@ -20,51 +20,41 @@ Here's a mock-up of what we're aiming for in this module:
 
 We'll start by reviewing our GitHub issue and creating a local Git feature branch where we can work. 
 
-After that, we'll convert the site one section at a time to use flexbox. Flexbox makes webpages look better across multiple screen sizes by allowing content to automatically stack vertically when the screen narrows. We'll also explore the advantages flexbox offers when compared to other layout techniques such as `position` and `float`.
+After that, we'll convert the site one section at a time to use flexbox. Flexbox makes webpages look better across multiple screen sizes by allowing content to automatically stack when the screen narrows. 
 
-Throughout this lesson, we'll reinforce a key concept in HTML layouts that we introduced in Run Buddy 1.0. This is to always think of layouts as a series of containers or boxes that hold the content. Before you start this lesson, study the mock-up above and sketch out on paper how it could be arranged into boxes.
+Along the way, we'll explore the advantages flexbox offers compared to other layout techniques such as `position` and `float`. We'll also reinforce the best practice of thinking about layouts as a series of containers or boxes that hold the content. 
 
-As we learned in the previous lesson, the current `develop` branch is probably not the best place to mess around. So let's review the GitHub issue, create a feature branch to work in, and get coding!
+As we learned in the previous lesson, the current `develop` branch is probably not the best place to develop a new feature. So let's review the GitHub issue, create a feature branch to work in, and start coding!
 
 ## Create a Feature Branch
 
-The GitHub issue we're working on in this lesson is called "Advanced layouts using Flexbox." It will require making changes to every section in the Run Buddy website, so it's best if we create another feature branch to work in. Let's name it based on the feature we're implementing: `feature/flexbox`.
+The GitHub issue we're working on is called "Advanced layouts using Flexbox." It requires making changes to every section of the website, so it warrants creating a feature branch. Let's name it based on the feature we're implementing: `feature/flexbox`.
 
-Now follow the steps you learned in Lesson 1 for creating a new feature branch:
+Follow the steps you learned in Lesson 2.1 for creating a new feature branch:
 
-1. Use the `git branch` command to verify that you are in the `develop` branch. If not, use `git checkout develop` to switch into the `develop` branch.
+1. Use the `git branch` command to verify that you're in the `develop` branch. If not, use `git checkout develop` to switch into that branch.
 
 1. Use the command `git checkout -b feature/flexbox` to create and switch to the new branch.
 
-Run `git branch` again to make sure it worked. If it says the active branch is `feature/flexbox`, then it worked!  
+1. Run `git branch` again to see which branch is active. If it returns `feature/flexbox`, then it worked!  
 
-If you need a refresher about how to create a feature branch, watch this video: 
-
-> **Asset Needed:** [NEED VIDEO: FSFO-83 - Video for creating a git feature branch](https://trilogyed.atlassian.net/browse/FSFO-83?atlOrigin=eyJpIjoiODFiM2Q0NDJiNjdhNDQ4YzhkNzA2Y2VkMmZhNzU2NTEiLCJwIjoiaiJ9)
+If you need a refresher about how to create a feature branch, refer back to Lesson 2.1.
 
 ## Add Flexbox to the Header
 
-You might compare the header in the current live site to the new mock-up and think "Why does this need to be updated? They look exactly the same!" Even though they look the same, the new one will use new CSS properties that make the HTML more responsive on different screen sizes. 
+Our first task is to add flexbox to the header so it can accommodate various screen sizes gracefully. Before flexbox, CSS layout properties such as `float` were used to do this. As mobile devices became more popular, the inadequacies of `float` became apparent: content would often would break, overlap, or overflow off the screen. But it was the only viable option, so developers used it.
 
-The term **flexbox** is an abbreviation of **flexible box module**. It is a one-dimensional layout model that can be applied to an HTML element to control the distribution, alignment, and spacing of the elements inside it on either the x-axis (horizontal axis, often called a **row**) or the y-axis (vertical axis, often called a **column**). 
+Flexbox (or flexible box model) was first introduced in 2009 but wasn't fully supported by browsers until 2017&mdash;and was it ever welcomed with open arms by the developer community! Developers finally had a tool that let them achieve modern layouts on any screen size. 
 
 This video demonstrates some of the features flexbox has to offer:
 
 > **Asset Needed:** [NEED VIDEO: FSFO-84 - Flexbox introduction and demo layouts](https://trilogyed.atlassian.net/browse/FSFO-84?atlOrigin=eyJpIjoiM2FmYzU1NjQ5NWQ1NDA5Nzg3ZDYyZWFhODM3Y2ZmMmEiLCJwIjoiaiJ9)
 
-With the rise in popularity of mobile devices, CSS layout properties, such as `float`, became ill-equipped to handle smaller screens. Content would often would break, overlap, or overflow off to the right of the screen. 
-
-> **Legacy Lem**: The CSS property `float` was not originally intended to create the advanced layouts you see on websites today. However, it was the only viable option, so developers appropriated it.
->
-> Using `float` did not come without headaches when it came to making layouts work on mobile devices. It involved a lot of CSS rules to maintain at different screen sizes, and one mistake could break the whole design.
-
-In 2009, the first iteration of flexbox was introduced as `display: box;`. Later it was updated and reintroduced as `display: flexbox`. During this time, some browsers were struggling to keep up with this type of technology. This meant that if a developer wanted to use it, they'd also need to include fallback CSS styles using floats in case the browser didn't support it. Because of this, developers patiently waited until 2017 when all major browsers began to support it under the value `flex`. Only then could they feel confident implementing it into projects.
-
-Flexbox was welcomed with open arms by the developer community. We finally have a tool that lets us achieve modern layouts that can work on any screen size! To use Run Buddy as an example, currently the `<header>` does not resize well using floats, as you can see here: 
+The current Run Buddy site uses floats in the `<header>`. As you can see below, it doesn't resize very well: 
 
 ![Run Buddy header resizing with floats](assets/lesson-2/601-bad-resize.gif)
 
-But with flexbox (and some other cool tricks we'll add later), our header grows and shrinks very well:
+Here's how the header will resize after we add flexbox to it:
 
 ![Run Buddy header resizing with flexbox](assets/lesson-2/701-good-resize.gif)
 
@@ -74,13 +64,13 @@ Flexbox is quickly becoming the industry standard, so it's a great skill to add 
 
 ### The Magic of Flexbox
 
-When a container is given a `display` value of `flex`, it can create a **one-dimensional layout**, meaning it can control the distribution of its content along either the horizontal x-axis (row) or the vertical y-axis (column). 
+When a container is given a `display` value of `flex`, it can create a **one-dimensional layout**, meaning it controls the distribution of its content along either a horizontal x-axis (row) or vertical y-axis (column). 
 
-By default, a flexbox is set to be a row, meaning that it will attempt to fit all of the child elements on one horizontal line until it hits the right edge of the parent. At that point, it has to decide whether to do one of the following:
+By default, a flexbox is set to be a row, meaning it attempts to fit all of the child elements on one horizontal line until it hits the right edge of the parent. At that point, it has to decide whether to do one of the following:
 
-- Make all of the child elements more narrow to accommodate a new sibling on that horizontal line. This usually results in child elements having a "squished" look.
+- Make all of the child elements narrower to accommodate a new sibling on that horizontal line. This usually results in child elements looking "squished."
 
-- Tell the flexbox parent that it's okay to overflow its content onto the next line. This is known as **wrapping**. This approach is commonly used in conjunction with flexbox containers to calculate smart layouts for screens at various sizes, such as a mobile phone or tablet. 
+- Tell the flexbox parent that it's okay to overflow its content onto the next line. This is known as **wrapping**. This approach is commonly used in conjunction with flexbox containers to calculate smart layouts for various-sized screens. 
 
   This image shows how wrapping can work:
 
@@ -88,17 +78,15 @@ By default, a flexbox is set to be a row, meaning that it will attempt to fit al
 
 ![Using flex-wrap property to handle overflowing content](assets/lesson-2/202-flex-wrap.jpg)
 
-Another thing that flexbox does that used to be incredibly difficult is horizontal/vertical alignment of child elements. This means we can use flexbox to vertically center HTML elements in a container (which used to be nearly impossible with CSS). Flexbox is also great at evenly spacing elements by calculating the free space available and distributing it among the child elements.
-
-All of these ideas can easily be used to make a flexbox column as well&mdash;just apply those rules to height instead of width. Flexbox is typically used more for rows than columns, but there are some really cool use cases for both. 
+Another thing flexbox does well is horizontally or vertically aligning child elements. For example, it can be used to vertically center HTML elements in a container, which used to be nearly impossible with CSS. Flexbox is also great at evenly spacing elements by calculating the free space available and distributing it among child elements.
 
 > **Deep Dive:** For more details, check out the [MDN web docs on flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
 
 ### Prepare the Header for Flexbox
 
-Much of this lesson involves removing CSS properties and adding flexbox properties in their place. We'll start making the `<header>` element a flexbox by first removing a few pieces from the CSS file:
+Much of this lesson involves removing CSS properties and adding flexbox properties in their place. We'll start making the `<header>` element a flexbox by removing a few pieces from the CSS file:
 
-- In `style.css`, remove the `display: inline-block` declaration from `header h1` so that it now looks like this:
+- In `style.css`, remove the `display: inline-block` declaration from `header h1` so that it looks like this:
 
 ```css
 header h1 {
@@ -127,9 +115,9 @@ That's all that needs to be added to get our elements back on the same horizonta
 
 ![Header with flexbox added, creating a row with 2 HTML elements](assets/lesson-2/1000-flex-header.jpg)
 
-Flexbox is able to evenly distribute the space of the parent element (the `<header>` element) among the children elements (the `<h1>` and `<nav>` links). What makes this more interesting is that both of those children by default are block-level elements and adding the context of flexbox overrides that default behavior. The `display: flex` declaration also automatically makes that `<header>` a "row" by default, so there's no need to explicitly declare it.
+As you can see, flexbox evenly distributed the space of the parent element (`<header>`) among the children elements (the `<h1>` and `<nav>` links). What makes this more interesting is that both of those children are block-level elements by default and adding the context of flexbox overrides that default behavior. The `display: flex` declaration automatically makes that `<header>` a row by default, so there's no need to explicitly declare it.
 
-> **Pro Tip:** To change a flexbox from a row layout to a column layout, you can use a property called `flex-direction` and give it a value of `column`. This causes the box to lay out all of its children vertically rather than horizontally.
+> **Pro Tip:** To change a flexbox from a row to a column layout, you can use the `flex-direction` property with a value of `column`. 
 
 There are just a few more things we want to do at this point. Did you notice that the navigation items seem to be skewed to the lefthand side, closer to the `<h1>`? We can adjust that easily by using a property called `justify-content`.
 
