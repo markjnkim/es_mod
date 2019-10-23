@@ -50,8 +50,6 @@ Let's take a look at the sign-up form in the mock-up:
 
 > **Pause:** From the mock-up, can you identify some HTML elements that are needed to create the sign-up form?
 >
-> **Hint:** Look for content like text, heading, and boxes.
->
 > **ANSWER:** Initially, we'll need a box (`<div>`) that contains a heading (`<h2>`), paragraph text (`<p>`), input fields (`<input>`), and a button (`<button>`).
 
 The first thing we need to do is add a `<div>` element nested entirely inside the `<section>` element. 
@@ -173,7 +171,7 @@ Here's an example:
 
 ![Two radio buttons/circles with the labels Yes and No](./assets/step-3/1000-radio-button.png)
 
-> **Activity:** Use your powers of Google to find some information about the function and syntax of a radio button.
+> **Pause:** Use your powers of Google to find some information about the function and syntax of a radio button.
 >
 > **ANSWER:** Google will surely offer many search results, but the [MDN web docs article on radio buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) should be a favorite because MDN is more likely to update when technologies change. Keep in mind that the best online documents to learn from should come from official sources like this one. 
 
@@ -309,25 +307,18 @@ The HTML for these two inputs should now look like this:
 <input type="tel" placeholder="Phone Number" name="phone" />
 ```
 
-> **Activity:** Save your work and refresh the page in the browser. Type some wacky non-email
+Save your work and refresh the page in the browser. Type some wacky non-email
 text into the email field and click the submit button. Can you get a
 validation warning to appear?
->
->Testing the phone field is a little more complicated. First, you need to add,
+
+Testing the phone field is a little more complicated. First, you need to add,
 commit, and push your work to GitHub. Then you can grab a mobile device and load
 the project's GitHub Page in its browser. You should see a numeric keypad appear
 when you tap on the phone number field.
 
-> **Deep Dive:** Browsers support a lot of input types. You can see a
-> comprehensive list at [the MDN web docs on form input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
-> Feel free to experiment with them, but keep in mind that many of them are not
-> fully implemented in all browsers yet. If you click on a type in the MDN
-> list and scroll to the very bottom of the page, you'll find a Browser
-> Compatibility chart. This chart shows which browsers support the
-> input type, as well as which features they support.
+> **Deep Dive:** Browsers support a lot of input types. You can see a comprehensive list at [the MDN web docs on form input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types). Feel free to experiment with them, but keep in mind that many of them are not fully implemented in all browsers yet. If you click on a type in the MDN list and scroll to the very bottom of the page, you'll find a Browser Compatibility chart. This chart shows which browsers support the input type, as well as which features they support.
 >
-> Get into the habit of researching how well browsers support new HTML and CSS
-> before you use them.
+> Get into the habit of researching how well browsers support new HTML and CSS before you use them.
 
 Our foundation work is now complete so we can proceed to the design phase of this lesson after a quick checkpoint.
 
@@ -364,19 +355,21 @@ section {
 
 Now let's add some pizzazz by adding a background image to our hero section. 
 
-First you need to create an `images` directory inside the `assets` directory. Then download the images from our image link and place them inside the `images` directory <b>_(AWS S3 Bucket URL TBA)_</b>.
+First you need to create an `images` directory inside the `assets` directory. Then download the images from our image link and place them inside the `images` directory.
 
-> **Rewind:** What are the CLI commands for the following actions?
-* Create a new directory.
-* Change directory.
-* Create a new file.
-* Remove file.
+> **Assset Needed:** File: <https://trilogyed.atlassian.net/browse/FSFO-209>
 
+> **Pause:** What are the CLI commands for the following actions?
+> * Create a new directory.
+> * Change directory.
+> * Create a new file.
+> * Remove file.
+> 
 > **ANSWER:** 
-* **`mkdir <directory name>`:** Creates a new directory in the current directory.
-* **`cd <directory name>`:** Changes into a new directory that is in the current directory.
-* **`touch <file name>`:** Creates new file in the current directory.
-* **`rm <file name>`:** Removes an existing file in the current directory.
+> * `mkdir <directory name>`: Creates a new directory in the current directory.
+> * `cd <directory name>`: Changes into a new directory that is in the current directory.
+> * `touch <file name>`: Creates new file in the current directory.
+> * `rm <file name>`: Removes an existing file in the current directory.
 
 Now that we have our images, our first step is to target our hero section in CSS with a CSS selector. 
 Let's use the `<section>` as our CSS selector and see what happens to our page.
@@ -520,9 +513,7 @@ To see visual representations of the `position` property's options, check out th
 
 > **Pause:** Can you figure out which of these positions we should use for the hero-form? 
 >
-> **Hint:** Let's use the process of elimination. `static` and `fixed` can be eliminated. `static` is where the form container currently sits, which is incorrect. `fixed` would mean that the form container would stay in the same part of the viewport, even after scrolling down. This is not within the scope of our requirements and therefore not in our interest.
->
-> **ANSWER:** The correct answer is `absolute`. 
+> **ANSWER:** The correct answer is `absolute`. `static` is where the form container currently sits, which is incorrect. `fixed` would mean that the form container would stay in the same part of the viewport, even after scrolling down. This is not within the scope of our requirements and therefore not in our interest.
 
 Let's investigate why `absolute` is the right choice. If we choose `relative`, we would need to move the form container from its current position and offset it from the left and top positions until we found the correct spot according to the mock-up. But if we choose `absolute`, we can use the parent container's margins to offset horizontally or vertically. We'll go with this option because the position of the form container is in relation to the hero container.  
 
@@ -635,42 +626,7 @@ As you can see, the `border-box` constrains the elements by including the paddin
 
 Nice job! After the checkpoint, we'll look at a new way to make changes to your styling.
 
-> **Checkpoint:** <br />
->  Box-sizing is a property that changes the calculation of which values of the element (select two or more from the list)?<br />
->  <input type="checkbox" name="checkpoint-1" id="checkpoint-11" /><label for="checkpoint-11"> Width</label> <br />
->  <input type="checkbox" name="checkpoint-1" id="checkpoint-12" /><label for="checkpoint-12"> Height</label> <br />
->  <input type="checkbox" name="checkpoint-1" id="checkpoint-12" /><label for="checkpoint-12"> Margin</label> <br />
->  <input type="checkbox" name="checkpoint-1" id="checkpoint-12" /><label for="checkpoint-12"> Content</label> <br />
-
-
->**ANSWER:** Width and Height
-
-> If you need to position a child element in relation to its parent element, which value should you set the `position` property to? <br />
->  <input type="checkbox" name="checkpoint-2" id="checkpoint-21" /><label for="checkpoint-21"> Display</label> <br />
->  <input type="checkbox" name="checkpoint-2" id="checkpoint-22" /><label for="checkpoint-22"> Static</label> <br />
->  <input type="checkbox" name="checkpoint-2" id="checkpoint-32" /><label for="checkpoint-32"> Absolute</label> <br />
->  <input type="checkbox" name="checkpoint-2" id="checkpoint-33" /><label for="checkpoint-33"> Relative</label> <br />
-
-
->**ANSWER:** Relative
-
-> What is the correct selector to choose a single `p` element for styling?<br />
-```html
-<div id="p">
-  <p> lorem </p>
-  <p class="para"> lorem</p>
-</div>
-
-```
-
->  <input type="radio" name="checkpoint-3" id="checkpoint-31" /> <label for="checkpoint-31">`p`</label> <br />
->  <input type="radio" name="checkpoint-3" id="checkpoint-32" /><label for="checkpoint-32"> `#p` </label><br />
->  <input type="radio" name="checkpoint-3" id="checkpoint-33" /><label for="checkpoint-33"> `<div>`</label> <br />
->  <input type="radio" name="checkpoint-3" id="checkpoint-34" /><label for="checkpoint-34"> `.para`</label> <br />
-<br />
-> <input type="submit" />
-
->**ANSWER:** `.para` 
+> **Asset Needed:** Learnosity: <https://trilogyed.atlassian.net/browse/FSFO-208>
 
 ### Introducing Chrome's DevTools
 
@@ -698,17 +654,17 @@ DevTools is a tremendous asset to front-end developers because it allows you to:
 - And much more, which we will continuously learn throughout this class!
 
 > **Deep Dive:** To learn more, see [Google's documentation on Chrome's DevTools](https://developers.google.com/web/tools/chrome-devtools/). If this seems overwhelming, it's because this tool has a large array of uses, many of which are outside our current knowledge base. Don't worry—we'll learn more about these tools as we learn more web development throughout the course.
+>
+> You can also watch this [quick GIF demonstration that shows how to use Chrome DevTools to change the background color of Google](https://youtu.be/G_P6rpRSr4g).
 
-> **Preservable Walk-Through:** Watch this [quick GIF demonstration that shows how to use Chrome DevTools to change the background color of Google](https://youtu.be/G_P6rpRSr4g).
-
-> **Activity/Pause:** Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`. Try out the element inspector, which is the arrow icon in the top-left corner of the DevTools window:
+> **Pause:** Let's go to a popular website and change some of the styling properties of the `body` element, like the `background-color`. Try out the element inspector, which is the arrow icon in the top-left corner of the DevTools window:
 >
 > ![An icon of an arrow clicking inside of a box](./assets/step-3/701-arrow-devtools.png) 
 >
 >This is useful when targeting a specific element. 
 >
 > Notice the changes in the Element and Style panels. Feel free to play around at will. Are these changes permanent? How can we tell?
-
+>
 > **ANSWER:** The changes are not permanent, which you can determine by refreshing the page after you make changes. 
 
 The changes you make to HTML and CSS in Chrome's DevTools are not permanent and do not change the actual code. Instead, they offer a sandbox to try out different styles and immediately see the effect on the webpage. Once you're satisfied, you need to adjust the actual style sheet (in our case, `style.css`) accordingly to make the style change permanent.
@@ -762,8 +718,6 @@ The `<input>` elements in your HTML code should now look like this:
 ```
 
 Now let's add a border, display each line separately, make the font larger, extend each input field box the length of the form container, and use the navy font color we used for the `footer` font color.
-
-> **Activity:** Let's type in some code and use the Chrome DevTools to manipulate some sizes for `padding`, `margin`, and sizing.
 
 Your CSS code should now look like this:
 
