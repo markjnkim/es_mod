@@ -86,7 +86,7 @@ Let's move on to another invaluable function of branching: creating feature bran
 
 **Features** are additions or changes to a significant part of the codebase. For instance, a major upgrade to a header, footer, or section would be considered a feature. A feature is typically developed in a separate branch called a `feature` branch.
 
-> **Asset Needed:** [Multiple Development Environments: JIRA FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) 
+> **Asset Needed:** Video [Multiple Development Environments: JIRA FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) 
 
 We just created a `develop` branch as a development environment to protect and isolate our production environment. In this step, we'll branch from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
 
@@ -108,11 +108,11 @@ There are several important reasons to work on the codebase in a separate `featu
 
 * Testing the feature branch in isolation helps find errors or bugs more quickly because the changes in the codebase will be unique to the feature.
 
-> **Asset Needed:** [Animation of Git workflow-JIRA FSFO-106](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-106). Start with  `master` then branch to `develop`. The branching from `develop` into a feature, then another feature, [actual code development] then merging back into the `develop` branch, then into `master` branch.
+> **Asset Needed:** Video [Animation of Git workflow-JIRA FSFO-106](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-106). 
 
 It's time to switch gears. Let's go to our GitHub repo and create a `README.md` file for Run Buddy version 2.0. 
 
-> **Checkpoint** [Learnosity Asset-JIRA 117](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-117)
+> **Asset Needed:** [Learnosity Asset-JIRA 117](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-117)
 
 ## Create a README File
 
@@ -126,7 +126,7 @@ The `README.md` file is located in the top level or root directory of the repo. 
 
 Let's go ahead and create a `README.md` file for our repo. 
 
-> **Asset Needed:** [Creating a `README.md` file in GitHub - JIRA FSFO-107](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-107)
+> **Asset Needed:** Video [Creating a `README.md` file in GitHub - JIRA FSFO-107](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-107)
 
 Here's what your raw Markdown file should look like:
 
@@ -253,20 +253,18 @@ You should see the following screen after a successful `pull`:
 
 ![Vim text editor showing message request](assets/lesson-1/200-vim-cli.png)
 >
->Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there is a local commit that differs from the commit history in the incoming branch that is being merged. To exit out of this screen, type the following into the editor:
+>Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there's a local commit that differs from the commit history in the incoming branch that is being merged. To exit out of this screen, type the following into the editor:
 >1. Press ESC to enter normal mode.
 >1. Type : to initiate a Vim command.
 >1. Type q to quit.
 
->Or you can press the following keys:
-
->Shift + Z + Z
+>Or you can press the following keys: Shift + Z + Z
 
 > **Deep Dive:** To learn more about this powerful text editor, check out this [Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)).
 
 This will bring you back to your terminal window, which should display the success response shown above. The success response tells us that the `README.md` file added 14 new lines.
 
-> **Asset Needed:** Animation - [Jira FSFO-109: Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
+> **Asset Needed:** Video - [Jira FSFO-109: Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
 
 The next lines display what files were changed and how many lines were added in green "+" or removed in red "-". In our case, we only have additions, so there are no red "-".
 
@@ -289,7 +287,7 @@ Another great feature VS Code offers is a Markdown preview. To see how your Mark
 
 ![Markdown review button icon](./assets/lesson-1/351-vs-code-markdown-preview.png)
 
-> **Asset Needed:** Gif [Show how the Explorer changes on branch checkout - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog)
+> **Asset Needed:** Video [Show how the Explorer changes on branch checkout - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog)
 
 If you see the `README.md` file in VS Code, congrats for successfully accomplishing your first `pull`! 
 
@@ -305,19 +303,17 @@ git pull origin master
 
 The `pull` command directs the download process to occur. The words `origin` and `master` designate the source of the download or `pull`. `origin` describes the remote (aka GitHub) repo, and `master` designates the branch or version in the remote repo we'd like to pull. Please note that if the `<branch-name>` that's being pulled does not exist on the remote repo, the `pull` process will give an error and not occur.
 
-> **Pause:** But how does the `pull` command know where the download will to go to? Any thoughts? 
+> **Pause:** How does the `pull` command know where the download will to go to?  
 >
-> **Answer:** `git pull` will always download to the current active branch. That's why it's always a good idea to use `git branch` to verify the active branch before doing a `git pull`.
+> **Answer:** The `git pull` command will always download to the current active branch. That's why it's always a good idea to use `git branch` to verify the active branch before doing a pull.
 
-> **Asset Needed:** Animation: Showing Data Flow [Git Pull & Git Push-JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
+> **Asset Needed:** Video: Showing Data Flow [Git Pull & Git Push-JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
 
 As you can see in the following diagram, the remote repo has converged with the local repo in the "H" merge commit: 
 
 ![Diagram showing git pull](assets/lesson-1/250-pull-git.png)<!-- Illustration lacks direction-->
 
-> **Asset Needed:** [Git Pull: Jira FSFO-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
-
-> **Asset Needed:** Nice to Have: Animation - Showing Data Flow Direction [Git Pull & Git Push: JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
+> **Asset Needed:** Image [Git Pull: Jira FSFO-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
 
 Let's dive deeper into the `pull` process. The `pull` command is actually a combination of two different operations: `git fetch` and `git merge`.
 
@@ -516,7 +512,7 @@ This project will have six Git issues. Let's create the first one now.
 
 Go to the GitHub repo and select the Issues tab.
 
-> **Asset Needed:** [Create Git Issue: JIRA FSFO-111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
+> **Asset Needed:** Video [Create Git Issue: JIRA FSFO-111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
 
 Create a new issue by clicking the green "New issue" button and typing the following Markdown:
 
@@ -605,12 +601,12 @@ Here's a quick overview of the steps in this Git workflow process (all are done 
 3) Git add, commit, and push to the remote feature branch.
 4) Checkout back to `develop`.
 5) Locally merge the feature branch into the `develop` branch.
-6) Pull the remote `devlop` branch into the local `develop` branch to check for updates.
+6) Pull the remote `develop` branch into the local `develop` branch to check for updates.
 7) Push the `develop` branch into the remote `develop` branch.
 
-Don't worry if this seems like a lot of steps. We'll go over every step in detail. Let's begin! 
+Don't worry if this seems like a lot of steps. We'll go over each step in detail. Let's begin! 
 
-> **Asset Needed:** [Create feature branch and merge Gif - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-115)
+> **Asset Needed:** Video [Create feature branch and merge Gif - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-115)
 
 ### Set Up the Feature Development Environment
 
@@ -630,7 +626,7 @@ Now confirm that your branch was created. Type `git branch` and you'll see the f
 
 Notice how `git branch` was also used to verify the active branch.
 
-> **Asset Needed:** [Know Git?-JIRA 118](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-118)
+> **Asset Needed:** Learnosity [Know Git?-JIRA 118](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-118)
 
 
 ### Update the Hero Section
