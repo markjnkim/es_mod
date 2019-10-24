@@ -45,7 +45,8 @@ var createTaskEl = function(taskDataObj) {
 
   var taskInfoEl = document.createElement("div");
   taskInfoEl.className = "task-info";
-  taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
+  taskInfoEl.innerHTML =
+    "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
   listItemEl.appendChild(taskInfoEl);
 
   var taskActionsEl = createTaskActions(taskIdCounter);
@@ -178,7 +179,7 @@ var deleteTask = function(taskId) {
 var dropTaskHandler = function(event) {
   event.preventDefault();
   console.log("this works");
-  if (!event.target.matches(".page-content")) {
+  if (event.target.closest(".task-list")) {
     var id = event.dataTransfer.getData("text/plain");
     console.log(id);
     var draggableElement = document.querySelector("[data-task-id='" + id + "']");
@@ -204,7 +205,6 @@ var dropTaskHandler = function(event) {
     }
 
     dropzone.appendChild(draggableElement);
-
   }
 };
 
@@ -219,20 +219,16 @@ var dropzoneDragHandler = function(event) {
 };
 
 var dragTaskHandler = function(event) {
-  console.log(event);
-  if (event.target.matches("li.task-item")) {
-    var taskId = event.target.getAttribute("data-task-id");
-    event.dataTransfer.setData("text/plain", taskId);
-  }
+  var taskId = event.target.getAttribute("data-task-id");
+  event.dataTransfer.setData("text/plain", taskId);
 };
 
 var dragLeaveHandler = function(event) {
   if (event.target.matches(".task-list") || event.target.matches(".task-item")) {
-    console.log("hi")
+    console.log("hi");
     event.target.closest(".task-list").removeAttribute("style");
   }
 };
-
 
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);

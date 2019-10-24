@@ -121,7 +121,7 @@ var taskDataObj = {
 }
 ```
 
-Let's test that this works by adding a `console.log()` into the `createTaskEl()` function, this way we can make sure that the new property is getting to the function properly. In `createTaskEl()`, simply add anywhere in the function:
+Let's test that this works and add a `console.log()` into the `createTaskEl()` function, this way we can make sure that the new property gets to the function properly. In `createTaskEl()`, simply add anywhere in the function:
 
 ```js
 console.log(taskObj);
@@ -136,57 +136,130 @@ As we can see, `createTaskEl()` now receives this new `status` property in its `
 
 > TODO: **Pro Tip:** Creating more arguments vs. adding object property in a function
 
-The only thing missing from our task's object that we need to save is its ID. Luckily, we already have the value of the ID in the `taskIdCounter` variable and already using it in the `createTaskEl()` function. All we need to do now is add that value as a property to our `taskObj` argument variable and add the entire object to our `tasks` array.
+The only thing missing from our task's object that we need to save is its ID. Luckily, we already have the value of the ID in the `taskIdCounter` variable and already using it in the `createTaskEl()` function. All we need to do now is add that value as a property to our `taskObj` argument variable and add the entire object to our `tasks` array, but how do we actually add something to an array? Let's find out.
 
-Let's update `createTaskEl()` to have the following code below `listItemEl.appendChild(taskInfoEl);`:
+Let's update `createTaskEl()` to have the following code below `listItemEl.appendChild(taskInfoEl);` and above `taskIdCounter++;`:
 
+```js
+taskObj.id = taskIdCounter;
 
+tasks.push(taskObj);
+```
 
+There won't be any visible difference on the page because of this update, but we can still test to make sure it works.
 
-## *Non-Step/Concept Section*
+Save `script.js`, refresh the page, and create a task or two. After a successful task creation, visit the DevTools console and simply type in `console.log(tasks)`. When we hit `Enter` to run the log function, we should get back a printed list of the tasks in an array of objects, like this image shows:
 
-*Other sections can be intermingled with the Step sections as necessary. Some sections aren't a step but explain a concept instead.* 
+> **Asset Needed:** Image of `tasks` array in console
 
+As we can see, the tasks we're adding to the page are also being stored into the `tasks` array now with all of the information important to each one. We have two actions happening here.
 
-## *Step 3*
+First, we need to add the ID of the task we just put on the page to the task's object. Remember, we're now managing two lists of tasks. One that goes on the page and one that stays in an array of objects as `tasks`. This means that when we edit or delete a task, we need to not only remove it from the page, but from the `tasks` array as well. This way the data we see on the page stays in sync with the data that will be stored in localStorage. 
 
-*2–3 sentences describing what will be covered in this section.*
+We did this by adding an `id` property to the `taskObj` argument and giving it a value of whatever `taskIdCounter` is at that moment. This way, whatever ID is added to the DOM element we just created gets added to the task's object as well, and we can use that ID later on to identify which task has changed for both the DOM and the `tasks` array.
 
-*Walk student through this step, include LBs as appropriate, etc.*
+> **Important:** Just as we can update the value of a property of an object by accessing its property and reassigning it, we can also create new properties as needed. 
 
-*Transitional text to next section.*
+Once we give the task its ID value, we then have to actually get that object into the `tasks` array, so we used an array method called `push()`. This method will take whatever content is between the parentheses and add it to the end of whatever array the `.push()` is chained off of.
 
+This method is one that developers use a lot, so let's go through a couple of examples:
 
-## *Step 4*
+```js
+var pushedArr = [1, 2, 3];
 
-*2–3 sentences describing what will be covered in this section.*
+pushedArr.push(4); 
+// pushedArr is now [1,2,3,4]
 
-*Walk student through this step, include LBs as appropriate, etc.*
+pushedArr.push("Taskinator"); 
+// pushedArr is now [1,2,3,4,"Taskinator"]
 
-*Transitional text to next section.*
+pushedArr.push(10, "push", false); 
+// pushedArr is now [1,2,3,4,"Taskinator",10,"push",false]
 
+```
 
-### The Last Mile 
+> **Deep Dive:** For more information on this method, check out the [MDN documentation on `push()`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
 
-*This is ONLY the last third of the last lesson in each module. Refer to [Last Mile Copy](https://docs.google.com/document/d/1QGQIZU_sOBOemsSbbywDu1-gL0Z5JS2LAl-c8KY90Vs/) for example copy.* 
+So we've now added the ability to save a task not only to the page, but in our array as well. But we don't only add tasks, do we? We also update them and remove them, so we're going to have to update our `completeEditTask()`, `taskStatusChangeHandler()`, `dropTaskHandler()`, and `deleteTask()` functions as well.
 
-## Reflection
+### Find and Edit Array Data
 
-*Congratulate the learner. Recap what they accomplished during the lesson from a broad perspective in a couple of sentences.*
+We need to keep the data presented by the DOM and the data stored in the `tasks` array in sync. Because of this, we are going to update a few of our functions that currently handle updating and deleting tasks from the DOM to also update or delete that task in the `tasks` array. 
 
-*In this lesson, you added the following skills to your tool belt, knowledge base, skillset:*
+We are going to do this by looking up that task in the array but its ID value. Once we find it, we'll update its object properties or remove it or remove it from the `task` array entirely. How do we find an element in an array by its ID? Well, we're going to have to look at each task in the array and check to see if it has an `id` property equal to the ID of the task we just updated.
 
-- *Skill learned in 1-2 sentences*
+This sounds like it involves using a `for` loop, and we _could_ use a `for` loop to get this job done. The thing is, we already know how to use `for` loops, so let's use a different tool this time around and learn something new. This tool is one that's specifically made for iterating through an array as well, so it's good to know we have options.
 
-- *Skill learned in 1-2 sentences*
+In the `completeEditTask()` function, add this code underneath the two `querySelector()` methods so it looks like this: 
 
-- *Skill learned in 1-2 sentences*
+```js
+// THIS CODE IS ALREADY IN PLACE
+taskSelected.querySelector("h3.task-name").textContent = taskName;
+taskSelected.querySelector("span.task-type").textContent = taskType;
 
-- *Etc.*
+// find task in tasks array and update values
+tasks.forEach(function(task) {
+  if (task.id === parseInt(taskId)) {
+    task.name = taskName;
+    task.type = taskType;
+  }
+});
+```
 
-*If this is the last lesson in a module, recap the entire module and introduce the next module.*
+Whoa, what is this crazy syntax? Are we passing a function into a method as an argument?
 
-*If this is not the last lesson in a module, introduce the next lesson and how it will build on the skills in this lesson.*
+The answer is yes, we are passing a function as an argument. And this syntax is a little strange, so let's figure out what this is doing.
+
+The `forEach()` method is another array method and is used to perform an action on each element of the array one at a time. The name `forEach` literally means "for each element in this array", and the function we pass in as an argument is a callback function.
+
+> **Pause:** Where else have we used a callback function?
+>
+> **Answer:** All of our event handlers are used as callback functions. Remember, a callback function is a function that we provide to another function to execute on our behalf. For example, we don't ever execute `taskFormHandler()` in our JavaScript code, but we give the DOM that function to execute on our behalf when the form is submitted.
+
+The callback function used in a `forEach()` method has a specific format when it comes to what arguments it will use:
+
+- The first argument will always represent the element at that iteration of the array, the array[i] value if we were to think about this in `for` loop terms. That's why in ours, it's labelled `task`, the singular version of `tasks`, because it represents a single task in our tasks array. This argument is required.
+
+- The second argument is optional to use, but it will always represent the current index `i` of the loop. We don't need to use that value in our code so we can leave it out.
+
+Here is an example of `forEach()` that we can copy and paste into our Chrome DevTools console to see how it works:
+
+```js
+var kitchenItemsArr = ["Oven","Table","Sink","Fridge","Toaster"];
+
+kitchenItemsArr.forEach(function(item, index) {
+  console.log("This is the element of array[i]: ", item);
+  console.log("This is the current index: ", index);
+  console.log("============");
+});
+```
+
+When we run this in the console, it should look like this image:
+
+> **Asset Needed:** Console showing this forEach
+
+We used the third `console.log()` statement to help break up the content so it's easier to see that we are executing the function once per item in the array. While we can use `for` loops as well in this case, sometimes using a more array specific method can be helpful. At the end of the day it's up to personal preference and comfort.
+
+> **Pro Tip:** We will be using a lot of callback functions in methods. It is very easy to make a syntax error and forget to include the method's closing parenthesis `)`, since most of the code spans multiple lines.
+>
+> A good way of learning the syntax is to write it all on one line first, then add the callback function's code after, like this:
+>
+> ```js
+> kitchenItems.forEach(function() {});
+> ```
+
+Now that we know how to use the `.forEach()` method, let's see what's happening inside of its callback function. At each iteration, we are checking to see if that individual task's `id` property matches the `taskId` argument we passed into `completeEditTask()`. 
+
+The only problem is `taskId` is a string and `tasks.id` is a number; so when we compare the two, we need to make sure that we are comparing a number to a number. This is why we wrap the `taskId` with a `parseInt()` function and convert it to a number for the comparison. If the two ID values match, we have confirmed that the task at that iteration of the `forEach()` loop is the one we want to update, so let's go ahead and do that by reassigning that task's `name` and `type` property to the new content submitted by the form when we finished editing it. 
+
+With this `forEach()` loop, the code in the `if` statement should only run once. If there were eight tasks in our list, the `forEach()` method's callback function will run on all eight, but the `if` statement's code block should run only one of the eight times, as we are looking to only update one task in the array.
+
+Let's test this out to make sure it works before we move on to the others. Add `console.log(tasks)` below the `forEach()` method and see if the array's content changes after editing a task's name. It should look something like this image:
+
+> **Asset Needed:** Image of array before and after `forEach()` in console, highlighting differences
+
+Now that we got this to work for one of our few functions for updating a task, let's tackle the other ones.
+
 
 
 - - -

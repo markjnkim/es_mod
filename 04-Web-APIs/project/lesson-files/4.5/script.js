@@ -237,7 +237,7 @@ var deleteTask = function(taskId) {
 
 var dropTaskHandler = function(event) {
   event.preventDefault();
-  if (!event.target.matches(".page-content")) {
+  if (event.target.closest(".task-list")) {
     var id = event.dataTransfer.getData("text/plain");
     var draggableElement = document.querySelector("[data-task-id='" + id + "']");
     var dropzone = event.target.closest(".task-list");
@@ -289,10 +289,8 @@ var dropzoneDragHandler = function(event) {
 };
 
 var dragTaskHandler = function(event) {
-  if (event.target.matches("li.task-item")) {
     var taskId = event.target.getAttribute("data-task-id");    
     event.dataTransfer.setData("text/plain", taskId);
-  }
 };
 
 var dragLeaveHandler = function(event) {
