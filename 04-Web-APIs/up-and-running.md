@@ -109,7 +109,7 @@ Then on the next page, scroll down to the GitHub Pages section. Change the dropd
 
 ![github pages](../01-html/content/assets/step-1/1500-github-pages.png)
 
-This tells GitHub to use the contents of your master branch for your live website. Once you do this, GitHub will then display the message: "Your site is ready to be published at https://username.github.io/repo-name/", where 'repo-name' the name that you have given your project 
+This tells GitHub to use the contents of your master branch for your live website. Once you do this, GitHub will then display the message: "Your site is ready to be published at https://username.github.io/repo-name/", where 'repo-name' is the name that you have given your project 
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
