@@ -1,15 +1,16 @@
+html, body { margin: 0; padding: 0; }
 
 body {
-  margin-top: 100px !important;
-  height: 100vh;
-  min-height: 1000px;
+  min-height: 100vh;
+  position: relative;
 }
 
 footer {
   background: #666;
-  position: relative;
+  position: absolute;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
+  clear: both;
 }
 
 .fullscreen-carousel {
@@ -59,17 +60,10 @@ footer {
 .page-content {
   background-image: url("../img/burgers.jpg");
   background-size: cover;
-  text-decoration: #ddd;
 }
 
 .pt-5, .py-5 {
   color: white;
-}
-
-#ticket-footer {
-  bottom: 0;
-  width: 100vw;
-  position: absolute;
 }
 
 #wrap {
@@ -80,4 +74,32 @@ footer {
   width: 100%;
   max-height: 30vw;
   object-fit: cover;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.schedule-bg {
+  background-image: url("https://images.unsplash.com/photo-1435527173128-983b87201f4d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1947&q=80");
+  background-size: cover;
+}
+
+#page {
+  margin-top: 100px;
+  padding-bottom: 200px;
+}
+
+#carousel-container {
+  position: relative;
+  height: 100%;
+}
+
+.mt-10 {
+  margin-top: 100px;
+}
+
+p.lead {
+  background-color: rgba(59, 61, 59, 0.45);
+  display: inline-block;
 }
