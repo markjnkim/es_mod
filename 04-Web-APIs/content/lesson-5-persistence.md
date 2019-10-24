@@ -57,8 +57,6 @@ Now that we've confirmed we're in the correct branch, let's get started!
 
 Currently, all of the data associated with a task is kept with its respective DOM element on the page. This means that if we were to try and save this data to localStorage, we would have to find every task item and pull the important data from it. We cannot simply use a `querySelector()` method to save the entire task item element and save it to localStorage because localStorage can only save data as a string, and DOM elements are difficult to convert to strings.
 
-> **TODO:** Add in blurb about how we package the data as an object already, but throw it away when we get it to the DOM element
-
 Since all of the task data is set up in a way that is difficult for us to organize and store, we are going to need a different solution when it comes to storing this data. This solution is going to have to keep each task's ID, name, type, and status packaged together, like this:
 
 ```js
@@ -69,6 +67,8 @@ var taskObj = {
   status: "In Progress"
 }
 ```
+
+The nice thing about packaging up our task into an object is that we've already started this process of organizing the task data into an object. We did it in the second lesson when we sent the task's data from `taskFormHandler()` to `createTaskEl()` as an argument. All we need to do now is update that object to hold more information. 
 
 We're going to have more than one task to store, obviously, so creating a variable for each one is not maintainable or organized. 
 
