@@ -258,8 +258,162 @@ Let's test this out to make sure it works before we move on to the others. Add `
 
 > **Asset Needed:** Image of array before and after `forEach()` in console, highlighting differences
 
-Now that we got this to work for one of our few functions for updating a task, let's tackle the other ones.
+Now that we got the `completeEditTask()` function to update the `task` array, let's turn our attention to the other functions that deal with updating tasks as well, starting with `taskStatusChangeHandler()`.
 
+In `completeEditTask()`, we focused on updating a task's name or type. Here, we only need to worry about updating a task's status. We use a `forEach()` again, but with a different property to reassign.
+
+At the bottom of the `taskStatusChangeHandler()` function, add the following code:
+
+```js
+tasks.forEach(function(task) {
+  if (task.id === parseInt(taskId)) {
+    task.status = statusValue;
+  }
+});
+```
+
+Add another `console.log(tasks);` after the `forEach()` so we can verify that it's working. Save `script.js`, create a task, and update its status through the task's `<select>` dropdown. The console should display an updated `tasks` array after this action is complete and reflect that task's new status. We can't test it via drag and drop just yet, as we haven't added this update functionality to its handler function. Let's do that now.
+
+Let's add the following code to the bottom of `dropTaskHandler()`:
+
+```js
+tasks.forEach(function(task) {
+  if (parseInt(id) === task.id) {
+    task.status = statusSelectEl.value.toLowerCase();
+  }
+});
+
+console.log(tasks);
+```
+
+Save `script.js`, create a task or two, and test if this works by dragging and dropping a task item into a different list. The `console.log()` we added should reflect that our task's object in the `tasks` array has been updated. 
+
+That wraps it up for taking care of updating tasks, now let's handle deleting them from the `tasks` array!
+
+### Remove Task from Array
+
+We just used a `forEach()` to help us update a task object in the `tasks` array, and we could use that here too, but it would require adding multiple steps to get there. Instead, we are going to use a different array method called `filter()`.
+
+Let's find the `deleteTask()` function and add this code to the bottom of it:
+
+```js
+tasks = tasks.filter(function(task) {
+  if (parseInt(taskId) !== task.id) {
+    return true;
+  }
+});
+```
+
+This `filter()` method is a newer addition to the array method family. It has similar features to the `forEach()` method as they both utilize callback functions to execute on each element in the array, but there are a couple of interesting things to point out.
+
+Notice how we are reassigning the `tasks` array to this `filter()` method? This method's purpose is to take an array and create a brand new one based on the array it's chained off of. If we didn't have the `tasks =` in front of it, the method would execute just fine but its result would not get stored anywhere.
+
+So how does this create a new array? Where does the "filter" part of it come into play? See the `return true` statement inside of the `if` statement? That's what instructs the callback function what to place into the new array and what to keep out of it.
+
+This may seem confusing in the context of our tasks, so let's look at an example that's a little more explicit:
+
+```js
+var numberArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+var filteredNumArr = numberArr.filter(function(number) {
+  if (number !== 5) {
+    return true;
+  }
+});
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(numberArr);
+
+// [1, 2, 3, 4, 6, 7, 8, 9, 10]
+console.log(filteredNumArr);
+```
+
+If we run the code above in the DevTools console, we can see that the `filter()` method took the values of `numberArr` and created a new array with the number 5 missing. 
+
+The callback function of a `filter()` is designed to specifically check a condition and return true or false based on the result of that condition. If we return `true`, the value of the array at that iteration is returned and added to the new array that's stored in the variable. If `false` or nothing is returned at all, then that value is ignored and will not be added to the new array.
+
+In our example above, we are iterating through our array of numbers and at each iteration, we check to see if the value at that iteration is not equal to the number five. If it isn't, then we keep that value in the new array. But when the iteration's value is five and it checks, it won't be added to the new array because `5 !== 5` results in a false condition.
+
+> TODO: **Deep Dive:** Array methods and documentation 
+
+Let's turn our attention back to our `deleteTask()` function. The `filter()` method we used here checks to see if the ID of the task we're deleting does not match the task object's `id` property at that iteration of the loop. If it doesn't match, then that's not the one we deleted and gets sent into the new array being saved in `tasks`. If the IDs do match, then we have identified the one we want to delete, and that task's object does not make it to the new array.
+
+Let's add a `console.log(tasks);` after the `filter()` method and test to see if it works. It should log a new array that does not include the task object of the one that was just deleted.
+
+> **Asset Needed:** Image of console with tasks array before and after delete
+
+So this was a lot of code to learn for functionality that has no effect on the page, but keep in mind what we're building towards. By storing all of our task's data as an array of objects in our JavaScript code, it will now be easier for us to save that data to localStorage.
+
+Don't forget to add, commit, and push our code to the GitHub feature branch!
+
+## Save Tasks to localStorage
+
+Well our task data is all prepared and ready to be saved, so let's actually save it! This task is actually relatively small, but there's still something that we need to consider, how do we know _when_ to save our data? 
+
+The answer is simply any time our data changes. 
+
+We'll start off by creating a function for saving tasks to localStorage, then we'll have that function be executed every time we add, update, or delete any tasks. Right above the `addEventListener()` methods at the bottom of `script.js`, let's create a function called `saveTasks`:
+
+```js
+var saveTasks = function() {
+
+}
+```
+
+The content of this function is going to be light, very light actually. It's only going to consist of one method being executed. Which one do we think it is? Here's a hint, it's a localStorage method.
+
+> **Pause:** What method is used for saving data to localStorage? `setData()` or `getData()`?
+>
+> **Answer:** `localStorage.setData()` is used to save data to localStorage.
+
+Let's add the following code to the `saveTasks()` function:
+
+```js
+localStorage.setItem("tasks", tasks);
+```
+
+That's all we need to do! Simple, right? Well, we won't know until we execute the function and test it, so let's add the function call to our create, update, and delete task functions:
+
+Add `saveTasks()` in the following functions:
+
+- In `createTaskEl()` anywhere after the `tasks.push(taskObj)` method.
+
+- In `completeEditTask()` anywhere after the `task.forEach()` method.
+
+- In `taskStatusChangeHandler()` at the end of the function.
+
+- In `deleteTask()` at the end of the function.
+
+- In `dropTaskHandler()`, right after the `tasks.forEach()` method.
+
+Now that we have everything in place, let's test it. Save `script.js`, create a task or two, and open DevTools.
+
+> **Pause:** In Chrome DevTools, how do we navigate to see what's in localStorage?
+>
+> **Answer**: The "Application" tab, in the `Storage -> Local Storage` menu on the left-hand side.
+
+Right now, our localStorage for this application should look something like this image in DevTools:
+
+> **Asset Needed:** Image of Application tab in DevTools with non-stringified data
+
+Well this is not what we were expecting, now is it? We packaged up our data so neatly, we even logged it to the console to make sure it looked right, so why is localStorage storing it as `[object Object]`? 
+
+Unfortunately, localStorage has a drawback. It's limited in what types of data it can store, one type of data to be exact. That type of data is strings.
+
+This means that if we store a number in localStorage, it'll get turned into a string. If we store the boolean `true`, it'd end up as "true" instead. So what happens with objects and arrays? 
+
+Since objects and arrays are not simple data values and can be comprised of multiple data types, they can't easily be converted to strings the same way numbers and booleans are. Objects and arrays are simply too complex for a computer to effectively turn into a string automatically.
+
+Because of this, however, JavaScript has a couple of built-in tools that allow us to do this type of conversion ourselves. Let's edit the `saveTasks()` function to look like this instead:
+
+```js
+var saveTasks = function() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+```
+
+Let's try saving a task or two again. The result should look like this image:
+
+> **Asset Needed:** 
 
 
 - - -

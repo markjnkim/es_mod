@@ -263,6 +263,9 @@ var dropTaskHandler = function(event) {
         console.log("Something went wrong!");
     }
 
+    dropzone.removeAttribute("style");
+    dropzone.appendChild(draggableElement);
+    
     // update tasks array with task's updated status
     tasks.forEach(function(task) {
       if (parseInt(id) === task.id) {
@@ -273,8 +276,7 @@ var dropTaskHandler = function(event) {
     // saveTasks
     saveTasks();
 
-    dropzone.removeAttribute("style");
-    dropzone.appendChild(draggableElement);
+
   }
 };
 
