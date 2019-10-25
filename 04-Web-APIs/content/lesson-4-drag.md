@@ -8,7 +8,7 @@ Currently this is what are app looks like now:
 ![Current Project State](./assets/lesson-4/100-current-project.png)
 It looks great, but adding some intuitive design will enhance the user's experience.
 
-Let's review our GitHub Issue and see the requirements of this feature.
+Let's review our GitHub Issue and see the requirements of this feature in our screenshot:
 ![GitHub Issue Drag and Drop](./assets/lesson-4/200-github-issue.png)
 Thinking about how to achieve these goals we will need to leverage our JavaScript knowledge of control flow statements, objects, methods, and the browser. We will need to use these skills in conjunction with the Drag and Drop API, manipulating the DOM, and event handling.
 
@@ -17,37 +17,48 @@ This will be good practice in understanding how the drag and drop feature  works
 ## Preview
 By the end of this lesson our Taskinator app should look something like this:
 ![GitHub Issue Drag and Drop](./assets/lesson-4/300-drag-drop-demo.png)
-> **Asset Needed: [Gif showing drag and drop operation Jira Issue FSFO-218](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-218)
+> **Asset Needed:** [Gif showing drag and drop operation Jira Issue FSFO-218](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-218)
 
 
-> **Asset Needed:** Learnosity: Order Build Steps
->    1. Create new Git branch
->    2. Create “drag” event handler
->    3. Create “drop” and “dragover” event handlers
->    4. UI enhancements with “dragleave” event handler
->    5. Merge branch into develop
+> **Asset Needed:** [Learnosity: Order Build Steps Jira Issue FSFO-287](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-287)
+>    1. Create new `feature` branch
+>    2. Make the elements draggable using HTML
+>    3. Add an event handler that listens for an element being dragged
+>    4. Create a drop zone using an event handler that listens for a `dragover` event
+>    5. Handle the `drop` event to execute DOM manipulation
+>    6. Make UI enhancements with `dragleave` event handler
+>    7. Merge `feature` branch into `develop` branch
 
-## Create a New Git Branch
-@Todo for the git steps
+## Get Started
+Let's set up our new feature branch by checking out into `staging`, making sure that `staging` is up to date with the remote, by using the command `git pull origin staging`, then creating a new feature branch called `feature/drag`.
 
-## Create Drag Event Handler
-Introduce HTML attribute, **draggable**, that allows elements to dragged.
-Add this to the button element to see how it works:
-> @Todo screen shot of button in a different locale
+### Introducing a New Tools
+Before we get started, it's good practice to mention why it is important to check the popularity and restrictions we might have regarding cross browser compatibility for a new tool. We will be using a Web API called HTML Drag and Drop API that is a native part of the browser so it makes sense browsers will support that.
+
+> **Important:** Whenever we look at adding some technology we are unfamiliar with, it is always a good idea to check the [Can I Use website](https://caniuse.com/) to verify browser compatibility. Knowing your market demographic is important to estimate if it's not available. In this case we are starting a personal project, so our market is just ourselves, but you never know, that's how Facebook got started. 
+
+## The HTML part 
+Let's start by first mentioning the HTML attribute, **draggable**, that allows elements to dragged. This is an HTML5 feature and affects the UI by creating a translucent representation of the element that follows the pointer as long as the mouse button is held down. To The release of the button acts as the drop part of this action. What is HTML5 you ask? This is the newest current major version of HTML that adds many properties and behaviors to the web page. [To find out more let's look at Wikipedia about HTML5.](https://en.wikipedia.org/wiki/HTML5)
+
+Add the `draggable` attribute to the opening tag of the button element in the `index.html` file. 
+```html
+<button class="btn" id="save-task" type="submit" draggable="true">
+```
+To see the `draggable` attribute in action let's save the file and refresh the browser:
+
 ![Draggable Demo](./assets/lesson-4/400-draggable-demo.png)
 
-Since the elements we want to drag, ie. our task items, are dynamically created we need to add this attribute with JavaScript. 
+Since the elements we want to drag, our task items, are dynamically created, we need to add this attribute with JavaScript. 
 Add the `draggable` attribute in our `createTaskEl()` function underneath the `listItemEl.setAttribute( "data-task-id", taskCounter)` expression.
 ```js
 listItemEl.setAttribute("draggable", "true");
 ```
-The equivalent markup of the expression above should create following markup:
+The equivalent markup of the expression above should create the following markup:
 ```html
-<li draggable="true">
+<li  draggable="true" ... >
 ```
-Let's try this out in the browser by saving this file and refreshing our `index.html` file in the browser.
+Let's verify we are dynamically adding the `draggable` attribute by saving this file and refreshing `index.html` in the browser.
 
-@Todo screenshot of the moved task item to VERIFY **draggable**
 ![Draggable Task Item Demo](./assets/lesson-4/600-draggable-task-item.png)
 
 From the browser we can see our blue box can be dragged due to the ghost like image of our task item element however once we release our mouse, the task list bounces back to its original location.
@@ -88,7 +99,7 @@ Collapse the `target` property and find the `dataTransfer` property. This is the
 I know this seems pretty complicated, but we will do this in a step by step approach so you got this! 
 Enough explanation for now, its time to start coding!
 
-If we want the `dragTaskHandler()` to be effective, we need it to capture the task id from the DOM element. By using `target`, the `dragstart` event has access to the element as discussed earlier.
+If we want the `dragTaskHandler()` to be effective first we must understand it must be located above the event listener. Make sure that the event listeners are located at the bottom of the `script.js` file and the function expressions are located above. So first we need to capture the task id from the DOM element. By using `target`, the `dragstart` event has access to the element as discussed earlier.
 ```js
 var dragTaskHandler = function(event) {
   var taskId = event.target.dataset.taskId;
@@ -106,86 +117,199 @@ It is critical to grab the `taskId` at the `dragstart` event because this is the
 
 Now let's add the following expression directly following our `taskId` expression in the `dragTaskHandler()` function.
 ```js
-  event.dataTransfer.setData("text/plain", taskId);
+event.dataTransfer.setData("text/plain", taskId);
 ```
  
-to use the `dataTransfer` property we need to use the `setData()` method to store our `data-task-id` attribute value. Similar to how we used localStorage, we need to use methods in order to retrieve and store our data. If we would like to verify if our dataTransfer property has correctly stored our data attribute, we will need to use the `getData()` method.
+To store the `taskId` in the `dataTransfer` property we need to use the `setData()` method. Similar to how we used localStorage, we need to use methods in order to retrieve and store our data. These are called getter and setter methods. Notice how the setData() method receives two arguments, the first being the format of the data to be stored.
+If we would like to verify if our `dataTransfer` property has correctly stored our data attribute, we will need to use the `getData()` method. Add the following expressions after the `setData()` statement in the `dragTaskHandler()` function. 
 
-**@TODO replicate the error**
-
-> **Deep Dive:** Getter and Setters, what are they? Link
-
-led student to this fix for the error using a conditional statement
 ```js
-
-  event.dataTransfer.setData("text/plain", event.target.getAttribute("data-task-id"));
+var getId = event.dataTransfer.getData("text/plain");
+console.log("getId:", getId, typeof getId);
 ```
+Save the file and refresh the browser to view the following in the console:
+![Console of the dataTransfer](./assets/lesson-4/900-console-getData.png)
 
-So now that we are able to successfully grab our `data-task-id`, we can use it to know what task item element needs to be moved or appended in our `drop` event.
+> **Deep Dive:** Getter and Setters, what are they? [Let's look at the MDN docs for a detailed discussion.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
 
-### Drop Event
-Remind students that using this technology requires two main parts
-  * Initiating the drag (which we’ve done!)
-  * Allowing the drop
+So now that we are able to successfully store the `data-task-id` in the `dataTransfer` object which is tied to the `DragEvent` object, we now have access to the `data-task-id` in the `drop` event which is also a type of `DragEvent` object.
 
-So how do we know where the user wished to move our task item to? Introduce the drop event. 
-Since there are three different task lists that need to listen the drop event, we need to delegate this event to the parent element similar to how we delegated the `dragstart` event.
-```js
-pageContentEl.addEventListener("drop", function() {
-  console.log(event);
-});
-```
-Let's save and render our HTML file in the browser. 
-Spoiler nothing happens. So what is the problem?
-The default behavior for the Drag and Drop is actually meant to accommodate files. For instance if we drag a file and drop it into the browser, the file will be loaded in the browser tab.
-Let's try that out and see the default behavior.
+> **Pause:** Why is having the data type format important in the Drag and Drop API? 
+>
+> **Answer:** Think about a scenario when we wish the user to be able to drag and drop a link into an input field. We would use a conditional statement that could only allow links to be stored by filtering for the format "text/uri-text". 
 
-**@TODO screenshot/Gif animation**
+The `dataTransfer` property was originally used on the desktop application for file transfer which is how most of us are familiar with the drag and drop utility. The `setData()` method requires the format argument which we can use to ensure only a certain type of file is able to be transferred and dropped for instance image files for a profile picture or an photo album cover download.
 
-We need to prevent that default behavior is actually happening on a different event. Even though it appears that the drag and drop is only two events, in actuality it is a series of events occurring. One such event is the `dragover` event which happens when one element is dragged over another.
-Let's add this event listener to our parent element, `pageContentEl`.
+Now that we are able to grab our `data-task-id` and place it into the `DragEvent` object, we will use this unique identifier to find the element in the DOM using our `querySelector()` method. But how will the application know where we wish to place or drop this element? In the next step we will answer this question so let's go ahead and answer this now. 
+
+## Define the Drop Zone
+Although this API is called the Drag and Drop, there are actually quite a few events that are taking place that we can use to fire off functions if we so choose. One of them is called the `dragover` event. This event is triggered when an element is hovered over another element. In the `dragover` event handler, we will be defining our drop zone or where the draggable element can be dropped. 
+
+In our Taskinator app, we want to be able the task items to drop onto one of the three task lists. We actually want to restrict the ability to drop on just these areas and not anywhere else in the document such as the header, footer, or outside the task lists in the `<main>` element. First let's add the event listener to all our task items for the `dragover` event. 
+> **Pause:** Can you think about the different methods to achieve this goal and the advantages of each?
+>
+> **Answer:** Just as we did with the previous step when adding the `dragstart` event, we would like to delegate the event listener to the parent element of the three lists which would be the `pageContentEl` DOM element.
+We could've also used the `querySelectorAll()` method on the `.task-list` selector which would've given us an array of our three task list object elements. Then we could've added an event listener to each task list, however, this approach would've lead to a performative cost increasing the page load time and therefore is not the best practice approach.
+
+Let's add an event listener for the `dragover` event to the parent element as we did for the `dragstart` event. Add the following expression to the bottom of the `script.js` file.
 ```js
 pageContentEl.addEventListener("dragover", dropzoneDragHandler);
 ```
-Let's add our `event.preventDefault()` to this handler to allow to drop our element.
+> **Pause:** Why did we leave out the parentheses for the `dropzoneDragHandler` in the `addEventListener()` argument?
+>
+> **Answer:** Adding the parentheses will call this function immediately so we pass the reference to the function as a callback. 
+
+For the `dropzoneDragHandler`, let's verify our event listener is working and see which element is being targeted with the following expression placed above the event listeners underneath the `dragstartDragHandler` function.:
 ```js
 var dropzoneDragHandler = function(event) {
-  event.preventDefault();
+  console.log("Dragover Event Target:", event.target);
 };
 ```
-Now's let's save our work and refresh the browser.
+Save and refresh the browser to see the following:
+![Console Dragover Event Target](./assets/lesson-4/1000-console-dragover.png)
+As we can see in the console, the `dragover` event continuously fires whenever an element is dragged over another element. What is particularly interesting is that the `target` property of the `dragover` event is the element that is being dragged over, not the element being dragged. What is also important is the we are able to drag the element over different elements on the document such as the parent elements of our task lists such as the `<main>` and `<section>` elements. This isn't actually a good thing since we would like our task items to drop into the task lists and not elsewhere on the page. But for now, let's focus on making our element droppable, then we can fine tune our drop zone.
 
-> **Rewind:** Similar to how we used it for form submission
+If we try to drop the task item now we see that upon the drop, the task item simply bounces back to its original list. This is because of the default behavior of this event which prevents elements being dropped onto one another. Since this is the behavior we would like, we need to disable or prevent this action.
+> **Pause:** Can you remember the statement that prevented the default behavior?
+>
+> **Answer:** `preventDefault()` is the method we used to disable the default action just as we did when submitting a form to prevent a page refresh.
 
-Now that we are able to "drop" our element we can access the `dataTransfer` property, to see what task id we are trying to append.
+Let's add this statement to the `dropzoneEventHandler()` to allow dropping and remove the `console.log` statement.
 ```js
-console.log(event.dataTransfer.getData("text/plain"));
+event.preventDefault();
 ```
-@TODO screenshot of the console with the `data-task-id`
+Save and refresh the browser to reveal that we are still not able to drop our element. What the `dragover` event did was allow our element to be dropped however we are still missing something. Ah yes, the all important `drop` event. This is the final piece that will enable the drag and drop operation. But before we get to our `drop` event, let's make a quick distinction between the `target` property of the `dragover` and `dragstart` events.
 
-> **Important:** Whenever we look at adding some technology we are unfamiliar with, it is always a good idea to check the [Can I Use website](https://caniuse.com/) to verify if the acceptance of this new tool is feasible in your given project knowing your market demographic. This site can also inform about certain properties and methods that may not function.
+The `dragstart` event's `target` was the element being dragged, hence we were able to save our `data-task-id` value into the `dataTransfer` object to allow our app to "remember" what element was being dragged.
+In contrast, the `dragover` event's `target` property is populated with the element that is being dragged over, so the destination element where the element will eventually be dropped. In our case the task list. Now let's fine tune our drop zone by only preventing the default behavior which allows us to drop the element on another element. Let's focus our drop zone to only be on our task lists. We can identify these with the class name `task-list`:
+```js
+var dropzoneDragHandler = function(event) {
+  if (event.target.closest(".task-list") !== null) {
+    event.preventDefault();
+    console.log("Dragover Event Target:", event.target);
+  }
+};
+```
 
-## Create Drop and Dragover Events
-Although it appears that there are only two main events, the `dragstart` and `drop`, there are actually many more events that are occurring such as the `dragover` event. 
-[Take a look at MDN docs to see what other events are possible.](https://developer.mozilla.org/en-US/docs/Web/API/DragEvent) This event occurs when an element is dragged over another element. In regards to our app,  the `dragover` event happens when we drag our task item to a new task list. By default, the `dragover` event prevents elements from being dropped onto other elements. However we would like this to happen so we need to prevent his default behavior. Any clue on how to do this?
+Using the `target` property, we are using a conditional statement that limits the default behavior prevention only to elements that are either the task list or descendants of the task list element. If the `target` is outside the task list elements, the conditional statement will evaluate to null and prevent dropping, which is exactly what we want. Let's take a close look at the `closest()` method and see how this was achieved. 
+```js
+targetElement.closest(selectors);
+```
+The `closest` is a method that queries the DOM originating from the `targetElement` and will traverse up from itself up through its parent elements up to the document root, which is the documents highest level, until it finds the element that matches the selector string. The method will return itself or the matching ancestor. If no such element exists, it returns null.
 
-> **Hint:** Think about how we prevented the default action when submitting a form
+In the conditional statement for the `dropzoneDragHandler` function, we are focussing the drop zone or the droppable area as long as the `target` property is a descendant of the task list element or the task list element itself. If the `target` doesn't have a task list element as an ancestor, the conditional statement will `closest()` method will return null, which resolves our condition to false thus keeping the default behavior which doesn't allow a drop to occur.
 
-If you guessed we need to use `event.preventDefault()` you have recalled correctly. Let's add this expression to our event listener to make a drop zone. It is important to note that 
+Excellent work, now let's move onto the next step and finish the `drop`.
 
-<!-- When the user drops the task item into the drop zone, we can use the `drop` event to execute the drop handler function which will then retrieve the unique task identifier using the `getData()` method from the `dataTransfer` property. Once we receive the unique task id, we can query the DOM to locate the element using the `data-task-id` attribute to match to our unique task id and append that DOM element to our drop zone or new task list. To the naked eye although it appeared we dragged the element to its new location, in fact, this was just a simulation. The element was actually removed and appended to its new location on the `drop` event. -->
+## Drop it like its Hot
+As we foretold in the previous steps, we will use the `drop` event handler to retrieve our `data-task-id` to select the dragged element from the DOM and append it to the drop zone. 
+But how do we where the user wished to move our task item to? Just like we saw in the `dragover` event, the `drop` event's `target` property will have the receiving element or the element that is being dropped upon.
+Let's demonstrate this with the following event listener delegated to the `pageContentEl` element placed at the bottom of the `script.js` file.
+```js
+pageContentEl.addEventListener("drop", dropTaskHandler);
+```
+It is customary to delegate the event listener to the parent element, but narrow the drop zone in the `dragover` event handler.
 
-[For a more detailed look on the DragEvent let's take a look at MDN docs for the full list of events](https://developer.mozilla.org/en-US/docs/Web/API/DragEvent)
+Now let's define our `dropTaskHandler` function by adding this to the `script.js` file in the section for event handlers, above the event listener expressions:
+```js
+var dropTaskHandler = function(event) {
+  var id = event.dataTransfer.getData("text/plain");
+  console.log("Drop Event Target:", event.target, event.dataTransfer, id);
+};
+```
+Here we are creating a reference to the `data-task-id` value we set previously to the `dataTransfer` property. We `console.log` several of the key values to display if we are returning valid data from the event object. 
+
+![Console of Drop Event](./assets/lesson-4/1100-console-drop-event.png)
+
+Although the drop feature is working quite yet, we are slowly making process by creating the references of the values and objects we will need to render our desired result. Notice the `target` property reveals the task list or the `<ul class="task-list" ... >` that contains our task items. Also notice that undefined was returned when we tried to display our `dataTransfer` property. This was because the `dataTransfer` property must receive a data format in order to return the `id` in the `getData()` method. Next we see that "0" was returned as the task id.
+
+Excellent work! We now have the information necessary to make a successful drop. In the next step we will use the `id` to find the element that was initially dragged, and store this DOM element into a variable. 
+Type the following expression into the `dropTaskHandler` function underneath the `id` declaration. We can also remove the `console.log`.
+
+```js
+var draggableElement = document.querySelector("[data-task-id='" + id + "']");
+console.log(draggableElement);
+```
+![Console of Dragged Element](./assets/lesson-4/1200-console-dragged-element.png)
+
+If you see the following in your browser, salutations! We have successfully stored our task id in the `dataTransfer` object and used it to find the correct task item that was initially dragged.
+
+Next we must identify which task list this `draggableElement` will be appended to.
+```js
+var dropzone = event.target.closest(".task-list");
+console.log(dropzone);
+```
+In this expression, we are using the `closest()` method again to return corresponding task list element related to the drop zone.
+Let's save and refresh the browser. Now try to create a task item then drag and drop it to the Tasks in Progress and the Tasks Completed lists.
+We should see the following in the browser:
+![Console of the Drop Zone](./assets/lesson-4/1300-console-drop-zone.png)
+
+As we can see in the console, the drop zone is different in relation to which list is dropped upon.
+
+Excellent work! Now we just need to use this as our destination element and append our `draggableElement` to it. Nice!
+But wait, the drag and drop features main purpose was to change the status of our task item. Let's proceed this important step.
+
+In order to change the status of our task item let's first take a closer look at the `select` element in the browser that designates the task status:
+![Elements Select Element](./assets/lesson-4/1400-elements-select.png)
+
+As we can see, the `select` element has a `name` attribute we can use to find this element in the DOM.
+
+Let's type the following in the `dropTaskHandler()` function and underneath the `dropzone` declaration to create a reference we can use to change the task status.
+```js
+// set status of task based on dropzone id
+var statusSelectEl = draggableElement.querySelector("select[name='status-change']");
+var statusType = dropzone.id;
+```
+
+So using the `select` DOM element, we are able to access the drop down options with the `selectedIndex`. Using the `id` property to identify the new task status, let's use an `if-else` conditional to reassign the task. 
+Please type the following in the `dropTaskHandler()` function underneath the `statusType` declaration.
+
+```js
+  if (statusType === "tasks-to-do") {
+    statusSelectEl.selectedIndex = 0;
+  } else if (statusType === "tasks-in-progress") {
+    statusSelectEl.selectedIndex = 1;
+  } else if (statusType === "tasks-completed") {
+    statusSelectEl.selectedIndex = 2;
+  }
+```
+Now all that's left is to append the `draggableElement` to is new parent element, `dropzone` and clear the `dataTransfer` property.
+
+```js
+  dropzone.appendChild(draggableElement);
+  event.dataTransfer.clearData();
+```
+
+Let's save and refresh our browser and see how our feature looks.
+> **Asset Needed:** [Gif Drop Effect Jira Issue FSFO-289](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-235)  
 
 
 ## Enhance UI with Dragleave Event
-
+Congratulations on building a drag/drop app. It functions pretty well, but after playing with it a bit, there are some design elements we can improve for a better user experience.
+* Change the CSS to show when a list is being dragged over
+* In dropzoneDragHandler, have students console log event.target and then event.target.closest(".task-list") to show how we can capture the UL element
+* On the closest element, use setAttribute() to add a dashed border
+  * Point out that closest() and setAttribute() can be “chained” and explain how chaining methods works
+* Test in browser and note that the border never goes away
+* Pose question: when would we remove the border?
+  * We’ll need a new event listener!
+* Add “dragleave” listener that calls dragLeaveHandler
+* Create dragLeaveHandler function
+  * Use closest() again to find UL element
+  * Use removeAttribute() to clear style
+* Point out that “leave” doesn’t fire if “drop” occurred, so we’ll need to remove the style attribute in dropTaskHandler as well
+  * Use removeAttribute method to get rid of style for the dropzone element
 
 
 ## Finalize Git Process 
+Merge our `feature/drag` branch into the `develop` branch by adding, commiting, and push our feature branch to our remote feature branch.
+`git push origin feature/drag`
+Then check out into the `develop` branch.
+Next let's `git merge feature/drag`.
+Now let's update the remote by pushing our newest version of `staging`.
+`git push origin staging`
 
-
-
+> **Asset Needed:** [Learnosity Jira Issue FSFO-288](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-288)
 ## Reflection
 Great job, you made it through a complex lesson that dealt with some new concepts. This is an advanced topic so the first pass on this subject may have been a bit bumpy figuring out what is exactly taking place behind the mystery curtain. Going through some turbulence once in a while will help hone your problem solving skills and expose you to different design patterns or solution path that resolves the problems. There are frequent instances in web development when a reference to a element, item, or data need to be passed to another part of the code such as when storing a form into a database, placing an item into a shopping cart, or clicking a thumbnail to expand the view. 
 

@@ -206,7 +206,7 @@ var dropTaskHandler = function(event) {
   }
 };
 
-// stops page from loading the dropped item as a resource (opening a new link)
+// defines the drop zone area
 var dropzoneDragHandler = function(event) {
   event.preventDefault();
   if (event.target.matches(".task-list") || event.target.matches(".task-item")) {
