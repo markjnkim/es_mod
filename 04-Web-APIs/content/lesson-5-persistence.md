@@ -411,9 +411,267 @@ var saveTasks = function() {
 }
 ```
 
-Let's try saving a task or two again. The result should look like this image:
+Let's try saving a task or two again, then check out what gets stored in localStorage. The result should look like this image:
 
-> **Asset Needed:** 
+> **Asset Needed:** Screenshot of localStorage with JSON.stringify
+
+All of the sudden, localStorage understands what we're saving! As we can infer by the method name `stringify()`, we just converted our `tasks` array into a string for saving in localStorage. We can tell it's a string by the quotation marks wrapping our code. But what is this whole JSON thing that `stringify()` is chained off of? 
+
+**JSON** is short for "JavaScript Object Notation", and it is a means of organizing and structuring data when it is transferred from one place to another. We'll explore JSON in depth in future modules when we get further into transferring data from one place to another, but for now let's focus on the fact that the `stringify()` method worked for us and we can move on.
+
+> **Deep Dive:** Learn more about stringifying data at the [MDN documentation for `JSON.stringify()`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+
+Alright, we have one half of this functionality complete, as we can now save our tasks. Let's get into how we can retrieve our tasks on page load. Be warned, we're nearing the end of the project, so it's time to show ourselves what we can do!
+
+Don't forget to add, commit, and push the updated code to GitHub!
+
+## Load Tasks from localStorage
+
+Only one more function to build and we're ready to use Taskinator in our day to day lives! The last step was about saving data, which makes sense to do first because how can we load data that hasn't been saved yet? We are going to build a `loadTasks()` function that does the following:
+
+- Gets task items from localStorage
+
+- Convert tasks from its stringified format back into an array of objects
+
+- Iterate through tasks array and create task elements on the page from it
+
+That last part should seem pretty familiar to us, as we've already created task elements for the page. We even created a function literally called `createTaskEl()`, so we can probably look to that code for help in how to make this `loadTasks()` function happen. 
+
+With that said, there will be less code provided to us to get the job done. We're in the home stretch now, so it's time to put our knowledge to use!
+
+> **Hint:** A lot of the code we will need to write is already in `createTaskEl()`. We'll just need to apply it in a different context!
+
+Let's get started and create a function called `loadTasks`. We can create it right below the `saveTasks()` function just to keep them together.
+
+Once that function is created, let's add some pseudocode to that function to keep us on track. Add the three pseudocode steps from the list above to the function we just created. Remember, save them as JavaScript comments, as they are only there to inform us of what the code will be doing.
+
+> **Pro Tip:** If we want to comment out code or text in JavaScript (or any other language), highlight all of the content that is to be commented and use `Command+/` (Mac) or `Ctrl+/` (Win).
+
+The loop we'll be creating is going to have a lot going on with it, and we'll psuedocode those steps out when we get to it, but let's make sure our three main pieces work first. Obviously we cannot print tasks to the page if they haven't been retrieved from localStorage yet, so let's do that first.
+
+Since these are the tasks we've saved from the `tasks` variable previously, let's load them back into that variable. The first line of real code in `loadTasks()` should be reassigning the `tasks` variable to whatever is returned from localStorage. A couple of things we need to ask ourselves to do this:
+
+- Should we use the `var` keyword if we are simply reassigning the `tasks` variable we created at the top of the page?
+
+- What is the method we use to retrieve (or GET) data from localStorage and what is the name of the item in localStorage that we're retrieving? 
+
+Once we've reassigned the `tasks` variable to the data we've retrieved from localStorage, it's a good idea to test if it works. Add a `console.log()` right below the line of code we just wrote and at the very bottom of the `script.js` file, call `loadTasks()`. This way when the page is refreshed, that function will run and try to find what's in localStorage.
+
+If there is data that comes back into `tasks` from localStorage, we should see the strinigified version of the task array. If there is nothing in localStorage for our tasks, then `tasks` would have a value of `null`. Both of these are going to cause an issue, so let's consider how to fix both of them.
+
+If there is nothing in localStorage, then `tasks` now has a value of `null`. This means that when we try adding another task and we use `tasks.push()`, we'll get an error. This is because `push()` is a method unique to arrays and can only work on arrays. To fix this issue, we should check to see if the value of `tasks` is now `null` and if it is, reassign `tasks` yet again back to an empty array. Let's do that now, then we'll worry about turning our string back into an array.
+
+In `loadTasks()`, after we retrieve and `console.log()` our `tasks` variable: 
+
+- Use an `if` statement to check if `tasks` is equal to `null`. 
+
+- If it is, then set `tasks` back to an empty array by reassigning it to `[]` and then add a `return false`. We don't want this function to keep running if there are no tasks to load onto the page.
+
+- If it is not `null`, we don't have to worry about it and we can let the `if` statement's code block get skipped.
+
+> **Hint:** Remember that we can check for a null value in an `if` statement by seeing if `(variableName === null)` or simply `(!variableName)` as our condition.
+
+If there is data in localStorage for `tasks` to retrieve, that means it's still in a string format and we have to get it back into an array of objects format. To do that, add the following code after the `if` statement that was just created:
+
+```js
+tasks = JSON.parse(tasks);
+```
+
+We used `JSON.stringify()` previously to take an array of objects and convert it to a string, so what do we think `JSON.parse()` does? Add a `console.log()` after that code to see what happens to our `tasks` variable, it should look like this image in the console:
+
+> **Asset Needed:** Image of parsed data
+
+It turns it back into a real array of objects! That's great, now we have our data back to normal and we can actually use it like an array of objects.
+
+> **Deep Dive:** Learn more about parsing JSON on the [MDN documentation for `JSON.parse()`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+
+Now that we have our data back in it's array form, we can now iterate over it. Since each element in the array is a task's object, we can use those values to create DOM elements and print them to the page.
+
+> **Important**: We'll be using a `for` loop here, but using `forEach()` is okay too!
+
+Create a `for` loop that has a condition of `i < tasks.length`. Test that it works by using `console.log(tasks[i])` inside the loop. The console should print all of the task objects we've created one by one. Also use this as an opportunity to study the properties each task object has since we'll be using them.
+
+Once we've created the loop and tested it, let's think about what we need to do inside the loop to print out each task to it's proper list and add some pseudocode:
+
+- So we don't get out of sync with our task IDs, reassign `task[i]`'s `id` property to the value of `taskIdCounter`
+
+- Create a `<li>` element and store it in a variable called `listItemEl`
+  - Give it a `classname` attribute of "task-item"
+  - Use `setAttribute()` to give it a `data-task-id` attribute with a value of `tasks[i].id`
+  - Use `setAttribute()` to give it a `draggable` attribute with a value of "true"
+
+- Create a `<div>` element and store it in a variable called `taskInfoEl`
+  - Give it a `classname` attribute of "task-info"
+  - Set it's `innerHTML` property to:
+```js
+"<h3 class='task-title'>" + tasks[i].title + "</h3><span class='task-type'>" + tasks[i].type + "</span>";
+```
+  - Append `taskInfoEl` to `listItemEl`
+
+- Create the actions for the task by creating a variable called `taskActionsEl` and giving it a value of `createTaskActions()` with `tasks[i].id` as the argument
+  - Append `taskActionsEl` to `listItemEl`
+
+- Use an `if` statement to check if the value of `tasks[i].status` is equal to "to do"
+  - If yes, use `listItemEl.querySelector("select[name='status-change']").selectedIndex` and set it equal to 0
+  - Append `listItemEl` to `tasksToDoEl`
+
+- Use `else if` to check if the value of `tasks[i].status` is equal to "in progress"
+  - If yes, use `listItemEl.querySelector("select[name='status-change']").selectedIndex` and set it equal to 1
+  - Append `listItemEl` to `tasksInProgressEl`
+
+- Use `else if` to check if the value of `tasks[i].status` is equal to "complete"
+  - If yes, use `listItemEl.querySelector("select[name='status-change']").selectedIndex` and set it equal to 2
+  - Append `listItemEl` to `tasksCompletedEl`
+
+- Increase `taskIdCounter` by 1
+
+Now that we have our work outlined, let's go ahead and write the code! Don't forget to use `console.log()` to see if code is working correctly. Also save and test often to make sure that there are no errors before moving onto the next element! 
+
+> **Hint:** All of the code we're writing goes in the `for` loop
+
+This seems like a lot of work to go into a `for` loop, but remember that most of this code has already been written in `createTaskEl()`, so we can refer to that code to see how it's all working and replace some of their values with the values of `tasks[i]`'s properties. Don't be afraid to heavily refer to `createTaskEl()` and other functions we've created throughout the build of Taskinator, this isn't supposed to all come from memory just yet!
+
+Once it's all done, save and task it again. Our tasks are now loading to their correct list based on status! One quirk, however, is that some of the tasks in the list may be in a different order than when it was saved. This is something that has to do with the drag and drop functionality and it would take a bit of work to get it done, but it's not an app breaking quirk.
+
+We now have a fully working task tracking application and for once, it's something we've done for ourselves! As we take on more work we can feel confident that this application can help us stay organized, as we can create, edit, delete, and save our tasks.
+
+There's just one thing, however, and it's not terribly important but it's worth pointing out. The `for` loop we just created uses a ton of repeated code from `createTaskEl()`, and we're now entering the territory of technical debt. Say we change how something functions or how the UI looks, we now have to change code in both `createTaskEl()` and `loadTasks()`, which is very confusing and error prone.
+
+If we want to, we can refactor `loadTasks()` to use `createTaskEl()` as well when it comes to printing our tasks. If we're tired, don't worry about it and feel free to jump to the deployment step to finalize our Git process. Otherwise, let's take on this refactor!
+
+## Optimize Our Code (Optional)
+
+Technical debt is something developers deal with all the time. Sometimes it is hard to see that it's getting larger as we're writing the code, but that's why it is a good habit to review the codebase after we finish to see if there's anywhere we can optimize. 
+
+In the case of Taskinator, it's not _too_ much technical debt to the point that it would be considered terrible practice, but it's good to build these habits and fix technical debt when we have less code to worry about.
+
+Let's compare `createTaskEl()` and the `for` loop in `loadTasks()`. Those steps look incredibly similar, almost to the point that we are left wondering if maybe we can just run `createTaskEl()` for each task object in `tasks`. Well, that's what we're going to do.
+
+Let's start by making sure our code is saved, since we'll be removing working code we jsut created, and use our add, commit, and push commands to get our code up to GitHub.
+
+Now that that's handled, let's turn our attention to `loadTasks()` and start updating the code. We'll start by completely removing the `for` loop, as we don't need any of that code anymore. `loadTasks()` should now look like this:
+
+```js
+var loadTasks = function() {
+  tasks = localStorage.getItem("tasks");
+
+  if (!tasks) {
+    tasks = [];
+    return false;
+  }
+
+  tasks = JSON.parse(tasks);
+}
+```
+
+Next thing we want to do is not use the `tasks` variable to store the tasks coming back from localStorage. Why? Because we are going to send one task object at a time to `createTaskEl()`, and that has `tasks.push()` at the bottom of its function to do it for us. So let's change the code in `loadTasks()` to now look like this:
+
+```js
+var loadTasks = function() {
+  var savedTasks = localStorage.getItem("tasks");
+
+  if (!savedTasks) {
+    return false;
+  }
+
+  savedTasks = JSON.parse(savedTasks);
+}
+```
+
+We're using the same actions as before, but we don't have to worry about setting `tasks` to an empty array anymore since we're not interfacing with it at all here.
+
+Lastly, let's add one more line of code to `loadTasks()` and we'll be done with `loadTasks()`. Add this to the bottom of the function under the `JSON.parse()`:
+
+```js
+savedTasks.forEach(createTaskEl);
+```
+
+Now save `script.js` and try testing this code in the browser. It should work exactly the same as before, but now we're using `createTaskEl()` for both creating a brand new task from the form _and_ creating an existing task from `loadTasks()`! 
+
+Earlier when we used `forEach()`, we simply placed a function inside of the parentheses as an argument. Here, we already have a function that we want to use, so all we have to do is provide the name of the function as an argument. This is a lot like how we used `addEventListener` earlier.
+
+> **Urkel Says:** A function used as a callback that doesn't have a name associated with it is known as an "anonymous function."
+
+Sometimes alleviating our technical debt is quite simple, just like it is here. The hardest part sometimes is having the ability to spot technical debt. Once it's spotted, there then has to be a decision made on whether it's worth alleviating or not. It may not be if a lot of other functions are tied to the code getting refactored and they have to be refactored as well, but that depends on how much code needs to change.
+
+Congratulations! We did a great job seeing this through. Little things like this make little difference to the users, but we've simplified our code in a way that maintaining it will be easier down the road.
+
+## Finalize Git Process
+
+Our work on this GitHub issue is done, which means it's time to revisit the Git branch workflow:
+
+1. `git status` to verify the correct files were modified
+
+2. `git add -A` or `git add .` to stage any changed files
+
+3. `git commit -m "add data persistence"`
+
+4. `git push origin feature/persistence` to push the branch to GitHub
+
+5. `git checkout develop` to switch branches
+
+6. `git merge feature/persistence` to merge the new feature into the `develop` branch
+
+7. `git push origin develop` to push the updated `develop` branch to GitHub
+
+Lastly, close the corresponding GitHub issue. As this is the last issue we've completed, we now have one more step. Deployment! 
+
+Let's get this app live so we can use it anywhere we go, even on our phones! 
+
+## Deploy
+
+The rest of the work to be done is going to all happen in our GitHub repositories. All of our finished code is now in the `develop` branch, all we have to do is get it to the `master` branch and deploy it. 
+
+We could use a similar strategy and locally merge our code into `master` then push up to `master`, but if we were on a team that strategy wouldn't work. We want to use GitHub to handle merging any code into `master`, as it gives both us and our potential team members a chance to review and test the code one more time before hand. 
+
+> **Rewind:** This is called "code review."
+
+The first thing we need to do is open a GitHub "Pull Request", and we can do so by navigating to the main page of our repository (the "Code" tab) and clicking the "New Pull Request" button. See this image for reference:
+
+> **Asset Needed:** GitHub repo screenshot with pull request button highlighted
+
+Once we click that button, we now have to chose what branches we want to merge code into and what branch the code is coming from. Under the "Compare Changes" title, there should be a grey box that has two dropdowns to pick a "Base" branch and a "Compare" branch. For the Base branch, make sure `master` is selected. Then for the Compare branch, open the dropdown menu and select `develop`.
+
+Now that we have our two branches picked, let's open the pull request by clicking the green button that says "Create Pull Request". See this image for what that page in GitHub looks like for reference:
+
+> **Asset Needed:** Create pull request page in GitHub
+
+Once that button is clicked, we'll be taken to a page for our pull request under the "Pull Requests" tab in our repository. This page has all of the options that pertain to a pull request, including who the pull request is assigned to and who we want to review the code before merging the pull request. 
+
+Unfortunately, we don't have any teammates to review our code, but we've tested it so much throughout building it that we should feel confident that it's working correctly. Plus since this is a personal project, we can always go back and fix things as needed!
+
+> **On The Job:** Personal projects are low-stakes projects in the sense that if we deploy broken or bug filled code, we can always fix it. This not something we should ever practice when it's an application for a paying client or business, that is what code reviews are for.
+
+Towards the bottom of this page, we should see a box with a green button that says "Merge Pull Request". Let's go ahead and click that button. 
+
+> **Hint:** If the button is not green and has a different message, that means work has been done in the `master` branch that is not reflected in the `develop` branch. 
+>
+> Now we have to make a decision whether or not we use `git pull origin master` in our local `develop` branch to integrate that code, then push it back up to `develop` on GitHub. The other option is to ignore it and merge the pull request anyway, hoping for the best.
+>
+> The latter isn't the better of the two options, as it is much safer to ensure all code is in sync between branches before merging.
+
+If the button turned purple, our code is now in the `master` branch! Let's go ahead and deploy it now.
+
+### Deploy to GitHub Pages
+
+To deploy an application to GitHub pages, let's navigate to the "Settings" tab in our GitHub repository. That tab is outlined in this image:
+
+> **Asset Needed:** GitHub repo with "Settings" tab highlighted
+
+Once we're there, we can scroll down the page until we see a section called "GitHub Pages." In that section, there is a dropdown menu that lets us pick which branch we want to deploy, select "master branch" from those options.
+
+> **Asset Needed:** GitHub settings with GitHub pages section highlighted
+
+Upon selecting which branch to deploy, the page will refresh itself and if we navigate back to the "GitHub Pages" section, we'll see a little note letting us know that the application is deployed at `https://[githubusername].github.io/taskinator`. We can click that link and it'll take us to our application on the internet!
+
+If it doesn't work, sometimes it takes GitHub pages a minute or two to deploy, so don't panic if it's not immediately available for us to see.
+
+Now we can use our Taskinator app anywhere! Remember though, localStorage is unique to each device's browser, so tasks won't carry across devices unfortunately. We would need a remote database to achieve that, which we will learn about in the coming weeks. 
+
+Let's wrap up and reflect on all of the amazing work we've completed.
+
+## Reflection
+
 
 
 - - -
