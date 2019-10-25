@@ -15,16 +15,17 @@ Thinking about how to achieve these goals we will need to leverage our JavaScrip
 This will be good practice in understanding how the drag and drop feature  works since so many apps have this type of feature for instance a calendar, a shopping cart, or gaming.
 
 ## Preview
-@Todo screenshot of project after lesson completion
+By the end of this lesson our Taskinator app should look something like this:
 ![GitHub Issue Drag and Drop](./assets/lesson-4/300-drag-drop-demo.png)
 > **Asset Needed: [Gif showing drag and drop operation Jira Issue FSFO-218](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-218)
 
-@ Build Steps
-    1. Create new Git branch
-    2. Create “drag” event handler
-    3. Create “drop” and “dragover” event handlers
-    4. UI enhancements with “dragleave” event handler
-    5. Merge branch into develop
+
+> **Asset Needed:** Learnosity: Order Build Steps
+>    1. Create new Git branch
+>    2. Create “drag” event handler
+>    3. Create “drop” and “dragover” event handlers
+>    4. UI enhancements with “dragleave” event handler
+>    5. Merge branch into develop
 
 ## Create a New Git Branch
 @Todo for the git steps
