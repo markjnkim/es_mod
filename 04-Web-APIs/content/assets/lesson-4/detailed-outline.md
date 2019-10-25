@@ -52,7 +52,7 @@
 * Explain that the native drag and drop behavior in the browser is to take a file and load it into the browser
   * Demonstrate by dragging a photo from the desktop over the page and letting the browser open the file, overwriting the browser tab
   * We need to stop this from happening by using a different event, “dragover”
-* Add “dragover” event listener and dropzoneDragHandler function with event.preventDefault() in it
+* Add “dragover” event listener and dropzone DragHandler function with event.preventDefault() in it
   * Pause/rewind: what did preventDefault do with forms?
 * Run the code again and point out that the drop event is working now, as we can see our console.log() message
 * Add more to the drop event handler

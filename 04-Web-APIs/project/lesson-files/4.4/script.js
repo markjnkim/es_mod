@@ -217,7 +217,6 @@ var dropzoneDragHandler = function(event) {
 };
 
 var dragTaskHandler = function(event) {
-  console.log(event);
   if (event.target.matches("li.task-item")) {
     event.dataTransfer.setData("text/plain", event.target.dataset.taskId);
   }
