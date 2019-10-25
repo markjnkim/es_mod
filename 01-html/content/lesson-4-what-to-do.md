@@ -6,7 +6,7 @@ Our Run Buddy webpage is looking good! We've knocked out some pretty tricky sect
 
 Here's how the page currently looks:
 
- **NEED IMAGE of webpage as it stands now**
+![The Run Buddy webpage includes a styled header and hero section](./assets/step-4/025-current-page.jpg)
 
 ## Preview
 
@@ -14,7 +14,7 @@ Up next, we have these two more informative pieces to build: the "What We Do" an
 
 Here's how they look in the mock-up:
 
-![overview](./assets/step-4/050-overview.png)
+![Two sections have different background colors, centered text, and icons](./assets/step-4/050-overview.png)
 
 This lesson might feel like a bit of a breather because we won't need to use any complex CSS properties like floats or positioning. But a few new concepts will still come into play.
 
@@ -113,7 +113,11 @@ Save, refresh, and then click on the links in the header. You'll see that the br
 
 ## Add the Trainer Images
 
-The company's design team has given us some new images to use for the trainer's profile pictures. Download these [SVG files](./link-needed) and add them to your `assets/images` folder. You may be wondering why these are SVGs and not JPGs or PNGs. In fact, what is an SVG?
+The company's design team has given us some new images to use for the trainer's profile pictures. Download these SVG files and add them to your `assets/images` folder.
+
+> **Asset Needed:** File: <https://trilogyed.atlassian.net/browse/FSFO-188>
+
+You may be wondering why these are SVGs and not JPGs or PNGs. In fact, what is an SVG?
 
 Just for fun, open one of these new files in VS Code. It'll look something like this:
 
@@ -148,7 +152,7 @@ In our case, the `step-1.svg` image is purely "decorative," meaning the only inf
 
 If you haven't already, save your `index.html` file and reload it in the browser. Things probably aren't looking so good anymore:
 
-![image screenshot](./assets/step-4/100-big-screenshot.png)
+![The icon appears extremely enlarged on the webpage](./assets/step-4/100-big-screenshot.png)
 
 Our image is enormous! Remember, SVGs are scalable. There's no built-in, hard-set pixel count, so it's going to fill up any available space. But that's okay. We'll use CSS to size it down later. For now, add the other three images to Steps 2–4:
 
@@ -221,7 +225,7 @@ The majority of this is stuff we've used before, but one thing worth highlightin
 
 Save the file and then refresh the webpage in the browser. The heading for the "What We Do" section should now look like this:
 
-![wide heading](./assets/step-4/200-wide-heading.png)
+![The yellow border underneath the title takes up the full width of the page](./assets/step-4/200-wide-heading.png)
 
 That's definitely an improvement, but if we left it like that, the design team would not be happy. Look back to the mock-up and you'll notice that the yellow border isn't supposed to extend to the edges of the screen. You might wonder why that's even happening since the text "What We Do" doesn't take up that much space. To figure out why, think back to previous lessons where we talked about inline elements and block elements.
 
@@ -240,7 +244,7 @@ In `style.css`, add the following:
 
 We chose to use the `inline-block` value instead of the `inline` value so it can have the best of both worlds. It's now an inline element, but things like padding still behave like they would on block elements. Coupled with our `text-align` property from before, we now have a center-aligned heading with an appropriately sized border:
 
-![inline heading](./assets/step-4/300-inline-heading.png)
+![The yellow border is only as wide as the title above it](./assets/step-4/300-inline-heading.png)
 
 > **Legacy Lem:** In the early days of HTML, developers would center content with the `<center>` element. While this element still works in modern browsers, it is being officially phased out and shouldn't be used anymore.
 
@@ -257,7 +261,7 @@ Now let's clean up that paragraph of text a little bit:
 
 Save the file and refresh the webpage. Again, there's not much new here, but we can see that we've introduced a new problem:
 
-![misaligned paragraph](./assets/step-4/400-misaligned-paragraph.png)
+![The text-centered paragraph is shifted to the left side of the screen](./assets/step-4/400-misaligned-paragraph.png)
 
 Because we shrunk the width of the paragraph down to 80%, it no longer looks centered. Only the text inside is centered. We could use our handy `display: inline-block;` trick to fix it, but there's another common tactic for centering a block element with a width of less than 100%: `margin: 0 auto;`.
 
@@ -274,7 +278,7 @@ This is shorthand for setting a top and bottom margin of zero and a left and rig
 
 With the Chrome DevTools, we can inspect the element's margins (the orange boxes in the following screenshot) before `auto` is applied and after:
 
-![margin comparison](./assets/step-4/500-margin-comparison.png)
+![The left panel shows only a right-hand margin while the right panel shows a container with margins on both sides](./assets/step-4/500-margin-comparison.png)
 
 Pretty cool! Yet another CSS trick to put in your toolbelt. Note that this only works for horizontal centering. `margin: auto 0` does not vertically center elements. And that wraps up "What We Do"!
 
@@ -365,34 +369,7 @@ We also need to update the HTML code to use these new classes. In `index.html`, 
 
 Note that these `<h2>` elements in different sections can use the same `section-title` class, which gives them all the same baseline in terms of size, spacing, etc. We can then add additional classes by separating the class names with a space. The attribute `class="section-title primary-border"` is actually pulling in CSS declarations from two different classes.
 
-> **Asset Needed - ADD JIRA TICKET:** This is such an important concept in CSS that it's worth practicing a little more. Try writing two class rules (and only two classes—no other selectors) that make the following possible:
->
-> ```html
-> <div>bold, green text</div>
-> <div>bold, italic, underlined, green text</div>
-> <div>italic, underlined text</div>
-> ```
->
-> **Answer:**
-> ```css
-> /* declare two class rules, one for bold-green and one for italic-underline */
->
-> .font-1 {
->   font-weight: bold;
->   color: green;
-> }
-> 
-> .font-2 {
->   font-style: italic;
->   text-decoration: underline;
-> }
-> ```
-> ```html
-> <div class="font-1">bold, green text</div>
-> <!-- add both classes to the second <div> to bring in all four declarations -->
-> <div class="font-1 font-2">bold, italic, underlined, green text</div>
-> <div class="font-2">italic, underlined text</div>
-> ```
+> **Asset Needed:** Learnosity: <https://trilogyed.atlassian.net/browse/FSFO-210>
 
 What's left is some general clean-up to size and color elements correctly. Even though this may feel like repetitive work, still type out each one instead of copy/pasting. It'll help you memorize the syntax faster!
 
@@ -426,7 +403,7 @@ It may seem like we're done now, but anytime we're given a design mock-up to fol
 
 One thing that would be easy to overlook is the font size differences in the step titles, as shown here for Step 1:
 
-![step title](./assets/step-4/600-step-span.png)
+![The text "Step 1" is slightly larger than the text that comes after it](./assets/step-4/600-step-span.png)
 
 Note that "Step 1:" is a bigger font than "Fill Out The Form Above." Ugh, does that mean we have to create two separate elements and meticulously position them side by side? Thankfully, no. We can more easily solve this problem using another HTML element: `<span>`. 
 
@@ -448,7 +425,7 @@ In `style.css,` add the following:
 
 This will shrink the font size of the `<span>` while the adjacent text in the `<h3>` keeps its `46px` font size. Update Steps 2–4 to follow suit. When you're done, you should see some nice results:
 
-![see results](./assets/step-4/700-see-results.png)
+![The completed "Step 4" section is center-aligned with correctly sized text and icons](./assets/step-4/700-see-results.png)
 
 > **Asset needed:** Learnosity  <https://trilogyed.atlassian.net/browse/FSFO-145>
 
