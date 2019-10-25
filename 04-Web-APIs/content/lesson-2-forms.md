@@ -38,10 +38,10 @@ Like the last lesson, adding features are done most efficiently when tackled in 
 > - Create a New Git branch
 > - Add Task Form to HTML
 > - Handle Form Submission
-> - Capture Form Inputs
-> - Create New Task and Organize Functionality
+> - Capture Form Field Values
+> - Organize Functionality
 > - Address Usability Concerns
-> - Merge branch into develop
+> - Finalize Git Process
 
 Don't be concerned if the order tripped you up a bit, it gets easier with time and experience. A main reason of using pseudocode is to get a loose plan in place for us to follow, even if that plan needs to be changed or corrected later on. We now have an idea of what each step will entail at a high level, even if we don't know all of the details just yet.
 
@@ -559,7 +559,7 @@ Our Taskinator application is starting to take shape, but again, we have to ask 
 
 Don't forget to add, commit, and push the code to GitHub!
 
-## Add Input Validation
+## Address Usability Concerns
 
 The end of the last lesson may have gotten us on the edge of our seats wondering how our code can be broken, so let's just get right to it.
 
