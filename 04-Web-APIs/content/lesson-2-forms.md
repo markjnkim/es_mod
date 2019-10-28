@@ -2,19 +2,13 @@
 
 ## Introduction
 
+Taskinator is really starting to take shape! We not only have our HTML in place, but we also have added the ability to interact with the HTML elements to create new tasks for our task list; as this image shows us: 
+
 ![Taskinator in its current state](assets/lesson-2/100-project-current.jpg)
 
-Taskinator is really starting to take shape! We not only have our HTML in place, but we also have added the ability to interact with the HTML elements to create new tasks for our task list. 
+While this is a great start, our ability to add new tasks to a task list isn't fully realized just yet. What good is a task list that keeps adding the same preset task content? In this lesson, we'll be adding functionality to our application that will allow us to create our own custom tasks by filling out an HTML form.
 
-While this is a great start, our ability to add new tasks to a task list isn't fully realized just yet. What good is a task list that keeps adding the same preset task content?
-
-In this lesson, we'll be adding functionality to our application that will allow us to create our own custom tasks by filling out an HTML form.
-
-Let's take a look at the GitHub issue we created to review what we'll work on next:
-
-![GitHub form submit issue](assets/lesson-2/200-git-issue.jpg)
-
-The last lesson was about using browser events to dynamically create new HTML content and append it to the page. We'll be adding to that in this lesson by adding the ability to read data entered into HTML form elements and using that data to create new tasks. By the end of this lesson, we'll have our MVP for this application!
+The last lesson was about using browser events to dynamically create new HTML content and append it to the page. We'll add to that in this lesson by adding the ability to read data entered into HTML form elements and using that data to create new tasks. By the end of this lesson, we'll have our MVP for this application!
 
 ## Preview 
 
@@ -22,7 +16,7 @@ By the end of this lesson, our application will allow users to fill out a form a
 
 ![Taskinator at the end of the lesson](assets/lesson-2/300-project-endoflesson.jpg)
 
-Just like the last lesson, our path to matching the image above will involve the following features:
+Our path to matching the image above will involve adding the following features:
 
 - A new task can be created by filling out the form with a task name and picking what type of task it is.
 
@@ -49,7 +43,9 @@ Let's start with the usual and create our new Git feature branch!
 
 ## Create a New Git Branch
 
-This is a good time for us to review our GitHub issue pertaining to this feature one more time, then let's create our feature branch.
+This is a good time for us to review our GitHub issue pertaining to this feature one more time, then let's create our feature branch. So we don't have to keep bouncing back and forth from GitHub, let's refer to this image of the issue: 
+
+![GitHub form submit issue](assets/lesson-2/200-git-issue.jpg)
 
 Since the issue is all about submitting form data, let's call the feature branch `feature/form-submit`. We'll create it now from the command line:
 
@@ -85,7 +81,7 @@ Update the `<header>` element to look like this under the `<p>` element:
 </form>
 ```
 
-Obviously we aren't done yet, but let's take a moment and point out a few things about the form elements we just added.
+Obviously we aren't done yet, as we don't have the other two form elements just yet, but let's take a moment and point out a few things about the form elements we just added.
 
 We gave the `<form>` element an `id` attribute. This won't come into play just yet, but if we think about what we learned in the last lesson, we can assume this attribute will be used in our JavaScript code.
 
@@ -109,7 +105,11 @@ Save `index.html` and refresh the page in the browser, we should see something l
 
 ![Form with a task name input and submit button](assets/lesson-2/500-form-wip.jpg)
 
-By adding the class of `text-input` to the `<input>` element, we were able to override all of the browser's default styles for the element and make it look more in line with our app's style. 
+By adding the class of `text-input` to the `<input>` element, we were able to override all of the browser's default styles for the element and make it look more in line with our app's style.
+
+> **Pause:** Where does the class `text-input` come from?
+>
+> **Answer:** It comes from the style sheet that was provided to us for this project! 
 
 ### Add Task Type Dropdown
 
@@ -131,6 +131,8 @@ In between the `<div>` elements that hold the text input and the button, add thi
 Save `index.html` and refresh the browser, we now have another form element that allows us to select from a predetermined list of options. This is the first time we've come across this type of form element, so let's point out a few of the particulars:
 
 - `<select>` is used to tell the browser we're about to create this type of dropdown list, but we use `<option>` elements in between the `<select>` tags to create the possible choices for that dropdown.
+
+- We use the `name` attribute to help identify the form input and use with the `querySelector()` method in our JavaScript.
 
 - Every option should have a `value` attribute accompanying it, as this value will be used in our JavaScript later to read the option we've picked. 
 
@@ -154,13 +156,13 @@ If we save our file and refresh the browser, it should look a lot better, like t
 
 ![Header with completed task form](assets/lesson-2/400-header-mockup.jpg)
 
-We won't go too deep into the magic behind making this look good, but feel free to inspect it in Chrome DevTools. The key to styling an element like this is using the `appearance` CSS property, which tells a browser how to interpret the element. In this case, we're using that property to tell the browser to do absolutely nothing with the element and we'll style it ourselves.
+We won't go too deep into the magic behind what makes this look good, but feel free to inspect it in Chrome DevTools. The key to styling an element like this is using the `appearance` CSS property, which tells a browser how to interpret the element. In this case, we're using that property to tell the browser to do absolutely nothing with the element and we'll style it ourselves.
 
 Our form is all set! Now that we have the HTML in place for us to fill out the form, let's jump back into our JavaScript file and make it functional! 
 
 Don't forget to add, commit, and push your feature branch!
 
-> **Deep Dive:** To learn more, check out the [MDN docs on the `<select>` element.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
+> **Deep Dive:** To learn more, check out the [MDN web documentation on the `<select>` element.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
 
 
 ## Handle Form Submission
@@ -195,7 +197,7 @@ Instead, we are using an event that is specific to forms called "submit" (also l
 
 - When the user presses `Enter` or `Return` on their keyboard.
 
-> **Deep Dive:** Learn more about this on the [MDN documentation for the submit event.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event)
+> **Deep Dive:** Learn more about this on the [MDN web documentation for the submit event.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event)
 
 So instead of having the `createTaskHandler()` function run every time the button is clicked, it can now be run by any of the two above form submission browser events. Let's test that out, as our `createTaskHandler()` function should still be working.
 
@@ -207,11 +209,9 @@ We can see that the code runs and creates a new task, but it's immediately delet
 
 What do we think is happening here? Why would our code run, put something on the page, and then have nothing? Even if we add a `console.log()` statement to `createTaskHandler()` and monitor the Chrome DevTools console here, we'll notice that the log shows up for a second and then disappears as well.
 
-Depending on how fast our computers are, we may not even notice that the browser itself is actually reloading the page every time we submit the form! So our code works just fine here, but the browser is keeping us from achieving our goal. Why would the browser do something like this?
+Depending on how fast our computers are, we may not even notice that the browser itself is actually reloading the page every time we submit the form! So our code works just fine here, but the browser is keeping us from achieving our goal. This is some legacy browser behavior that was used to help a web page communicate with a server, but now most of that work is done using JavaScript.
 
-Before JavaScript was as ubiquitous on the web as it is today, dynamic actions such as submitting a form were handled directly between the HTML file and the browser. In our case, with forms, special attributes would have to be added to the `<form>` element to instruct the browser where this form's data should be sent to. Since JavaScript wasn't being used, there was no way to dynamically update the page without refreshing it, so the browser would refresh the page to complete it's action.
-
-Using JavaScript to handle these types of dynamic actions instead, we no longer need to rely on the browser to complete the task for us, but the browser doesn't know that and still wants to do what it was designed to do. It's up to us to explicitly instruct the browser to not do that.
+Now that we use JavaScript to handle these types of actions instead, we no longer need to rely on this default browser behavior to complete the task for us, but the browser doesn't know that and still wants to do what it was designed to do. It's up to us to explicitly instruct the browser to not do that.
 
 Let's fix our little issue right now by making the `createTaskHandler()` function to look like this:
 
@@ -229,7 +229,7 @@ var createTaskHandler = function(event) {
 
 Save `script.js` and refresh the page, then try filling out and submitting the form. 
 
-It works! The page doesn't refresh at all and keeps the newly created task remains in the list. Let's dive into what was added here to make this work for us.
+It works! The page doesn't refresh at all and keeps the newly created task remains in the list. So why did the addition of `event.preventDefault()` help us here? Let's find out.
 
 ### The Event Object
 
@@ -239,7 +239,7 @@ When we use JavaScript to listen for an event that occurs on an HTML element, ho
 
 > **Deep Dive:** There are different kinds of browser event interfaces that we can use in our JavaScript. For example, a click event object may hold different data than a keyboard event object, as they have different properties to them.
 >
-> The best way to explore what data is provided to an event object is to simply `console.log(event);` in the function handling the event. For a more in-depth explanation of each event, check out [MDN's documentation on the event interface.](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+> The best way to explore what data is provided to an event object is to simply `console.log(event);` in the function handling the event. For a more in-depth explanation of each event, check out the [MDN web documentation on the event interface.](https://developer.mozilla.org/en-US/docs/Web/API/Event)
 
 By adding the `event` argument to our `createTaskHandler()` function, we are now able to use the data and functionality that object holds for us. We did just that when we added `event.preventDefault();` to the handler function's code. What do we think that method's name means?
 
@@ -257,7 +257,7 @@ Save `script.js` and try submitting the form again. If we turn our attention to 
 
 ![The event object from a form submission](assets/lesson-2/800-event-console.jpg)
 
-As we can see, this object holds a fair amount of data. A lot of it is not important at the moment, but over time we'll learn how some of the properties can be used in our applications.
+As we learned in the first lesson when we implemented the "click" event, the event object holds a fair amount of data. A lot of it is not important at the moment, but over time we'll learn how some of the properties can be used in our applications.
 
 So our form submission works and our event handler is able to work as intended, but we're still creating a task item with preset values. Let's turn our attention to the form's input values and see how we can retrieve the content we enter into the form. 
 
@@ -282,18 +282,18 @@ We'll start off simple and just worry about reading the task's name first, then 
 In `createTaskHandler()`, add the following code right below the `event.preventDefault();`:
 
 ```js
-var taskNameInput = document.querySelector("[name='task-name']");
+var taskNameInput = document.querySelector("input[name='task-name']");
 console.log(taskNameInput);
 ```
 
 Before we save and test our code, take a look at the selector we used as an argument in the `querySelector()` method. What do you think this selector syntax means?
 
-Whenever we use square brackets `[ ]` in a selector, it means we're trying to select an HTML element by one of its attributes. In this case, we're selecting an element on the page that has a `name` attribute set to a value of "task-name", just like the `<input>` element in our form.
+Whenever we use square brackets `[ ]` in a selector, it means we're trying to select an HTML element by one of its attributes. In this case, we're selecting the `<input>` element on the page that has a `name` attribute set to a value of "task-name".
 
 > **Pause:** In the following selector, why are there single quotes wrapping the attribute's value and double quotes wrapping the entire selector?
 >
 > ```js
-> document.querySelector("[name='task-name']");
+> document.querySelector("input[name='task-name']");
 > ```
 >
 > **Answer:** If we used another set of double quotes to wrap the attribute's value, the entire string would break, as it would assume we ended the string at `"[name="` and anything after would break the query selector.
@@ -314,7 +314,7 @@ Save `script.js`, refresh the browser, and submit a new task. The console should
 
 ![Selected HTML input element logged as an object in the console](assets/lesson-2/1000-input-dir.jpg)
 
-Take a minute and examine all of the different properties. This is all of the underlying data that the browser keeps tabs on for a single HTML element. It knows virtually everything about this element, it's height and width on the page, what its parent elements are, what its child elements are (if applicable), and guess what? It also know what the user has typed inside of the input box.
+Take a minute and examine all of the different properties. This is all of the underlying data that the browser keeps tabs on for a single HTML element. It knows virtually everything about this element, its height and width on the page, what its parent elements are, what its child elements are (if applicable), and guess what? It also know what the user has typed inside of the input box.
 
 Navigate down to the `value` property for this element, and we'll see exactly what we typed into the form before submitting it. This is the data we need to retrieve and create a new task item from!
 
@@ -322,16 +322,16 @@ Notice how we had to use `console.dir()` to get the result we needed? While `con
 
 > **Deep Dive:** Check out the documentation for some of the new things we've learned:
 >
-> - [MDN documentation for `console.dir()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/dir)
+> - [MDN web documentation for `console.dir()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/dir)
 >
-> - [MDN documentation for the `HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
+> - [MDN web documentation for the `HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
 
 ### Get the Task to Display
 
 Now that we've pinpointed where the data we care about is, we can now grab it and put it on the page. Let's update the query selector in `createTaskHandler()` to look like this:
 
 ```js
-var taskNameInput = document.querySelector("[name='task-name']").value;
+var taskNameInput = document.querySelector("input[name='task-name']").value;
 ```
 
 Before, we were selecting and storing the entire HTML element for the task name form input. We don't necessarily need to worry about any of the other properties that element has, just the `value` property, so we can get right to it by simply adding a `.value` to the end. Now the value of the `taskNameInput` variable will be just the text we entered into the `<input>` element.
@@ -367,7 +367,7 @@ Let's start by getting the value of our `<select>` dropdown. Lucky for us, we ca
 Add the following code below the variable declaration for `taskNameInput`:
 
 ```js
-var taskTypeInput = document.querySelector("[name='task-type']").value;
+var taskTypeInput = document.querySelector("select[name='task-type']").value;
 ```
 
 To test it, try using `console.log(taskTypeInput);` below the `taskTypeInput` variable declaration to see what the value is. It will display whatever `<option>` element was picked in the `<select>` dropdown.
@@ -639,7 +639,7 @@ Save `script.js` and try to submit a task. We can see that the form resets itsel
 
 The DOM element interface the browser provides us has the `reset()` method, which is designed specifically for this task. We could do it in other ways, namely by targeting each form element and resetting their values manually, but that could be cumbersome if it was a larger form to reset.
 
-> **Deep Dive:** Read more about clearing a form at [MDN's documentation on a form element's `reset()` method.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset)
+> **Deep Dive:** Read more about clearing a form at [MDN's web documentation on a form element's `reset()` method.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset)
 
 We're all set! We covered a lot of important ground in this lesson and it shows. Our Taskinator application not only accepts custom values from form elements, but also validates the form as well. This is a big step in building this application, so let's close this feature branch's issue and merge it into the `develop` branch.
 
