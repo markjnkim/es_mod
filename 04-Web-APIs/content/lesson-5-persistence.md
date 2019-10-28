@@ -148,7 +148,7 @@ There won't be any visible difference on the page because of this update, but we
 
 Save `script.js`, refresh the page, and create a task or two. After a successful task creation, visit the DevTools console and simply type in `console.log(tasks)`. When we hit `Enter` to run the log function, we should get back a printed list of the tasks in an array of objects, like this image shows:
 
-> **Asset Needed:** Image of `tasks` array in console
+![Tasks array in the console](assets/lesson-5/500-tasks-console.jpg)
 
 As we can see, the tasks we're adding to the page are also being stored into the `tasks` array now with all of the information important to each one. We have two actions happening here.
 
@@ -234,7 +234,7 @@ kitchenItemsArr.forEach(function(item, index) {
 
 When we run this in the console, it should look like this image:
 
-> **Asset Needed:** Console showing this forEach
+![forEach in the console](assets/lesson-5/600-foreach-console.jpg)
 
 We used the third `console.log()` statement to help break up the content so it's easier to see that we are executing the function once per item in the array. While we can use `for` loops as well in this case, sometimes using a more array specific method can be helpful. At the end of the day it's up to personal preference and comfort.
 
