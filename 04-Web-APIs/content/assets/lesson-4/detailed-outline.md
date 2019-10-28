@@ -71,7 +71,7 @@
 
 * Congratulate students on building a drag/drop app, but highlight that, visually, it’s not apparent to users that things are working
   * We can change the CSS to show when a list is being dragged over
-* In dropzoneDragHandler, have students console log event.target and then event.target.closest(".task-list") to show how we can capture the UL element
+* In `dropzoneDragHandler`, have students console log event.target and then event.target.closest(".task-list") to show how we can capture the UL element
 * On the closest element, use setAttribute() to add a dashed border
   * Point out that closest() and setAttribute() can be “chained” and explain how chaining methods works
 * Test in browser and note that the border never goes away

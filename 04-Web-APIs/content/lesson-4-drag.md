@@ -202,13 +202,24 @@ In the conditional statement for the `dropzoneDragHandler` function, we are focu
 Excellent work, now let's move onto the next step and finish the `drop`.
 
 ## Drop it like its Hot
-As we foretold in the previous steps, we will use the `drop` event handler to retrieve our `data-task-id` to select the dragged element from the DOM and append it to the drop zone. 
-But how do we where the user wished to move our task item to? Just like we saw in the `dragover` event, the `drop` event's `target` property will have the receiving element or the element that is being dropped upon.
+
+Now we are ready for the `drop` event. Does the drag and drop operation seem more elaborate and extensive than originally imagined? This is a good lesson to remember: estimating how long it takes to complete a feature with new technology should always take into account some time to learn and troubleshoot.
+
+Let's debrief what we will need to do in the `drop` event:
+* The original dragged task item
+* The destination of the drop or the drop zone
+* Change the task status of the task item to match the task list
+* Append the dragged task item to the destination drop zone
+
+As we foretold in the previous steps, we will use the `drop` event handler to retrieve our `data-task-id`, our unique task item identifier, to select the dragged element from the DOM and append it to the drop zone. 
+
+
+How do we determine which task list the user wished to move our task item to? Just like in the `dragover` event, the `drop` event's `target` property contains the receiving element or the element that is being dropped upon.
 Let's demonstrate this with the following event listener delegated to the `pageContentEl` element placed at the bottom of the `script.js` file.
 ```js
 pageContentEl.addEventListener("drop", dropTaskHandler);
 ```
-It is customary to delegate the event listener to the parent element, but narrow the drop zone in the `dragover` event handler.
+It is customary to delegate the event listener to the parent element, but narrow the drop zone in the `dragover` event handler. It is also possible to define droppable areas in the `dropTaskHandler()`, but in order to separate our concerns, it is a better practice to leave this responsibility in the `dropzoneTaskHandler()`.
 
 Now let's define our `dropTaskHandler` function by adding this to the `script.js` file in the section for event handlers, above the event listener expressions:
 ```js
@@ -217,13 +228,17 @@ var dropTaskHandler = function(event) {
   console.log("Drop Event Target:", event.target, event.dataTransfer, id);
 };
 ```
-Here we are creating a reference to the `data-task-id` value we set previously to the `dataTransfer` property. We `console.log` several of the key values to display if we are returning valid data from the event object. 
+Here we are creating a reference to the `data-task-id` value we stored previously in the `dataTransfer` property of the `event` object by using the `getData()` method. Let's save our script and refresh in the browser. Then add a task and drag it to the Tasks in Progress task list. We can verify several of the key values by passing multiple arguments into the `console.log` function from the `event` object. 
 
 ![Console of Drop Event](./assets/lesson-4/1100-console-drop-event.png)
 
-Although the drop feature is working quite yet, we are slowly making process by creating the references of the values and objects we will need to render our desired result. Notice the `target` property reveals the task list or the `<ul class="task-list" ... >` that contains our task items. Also notice that undefined was returned when we tried to display our `dataTransfer` property. This was because the `dataTransfer` property must receive a data format in order to return the `id` in the `getData()` method. Next we see that "0" was returned as the task id.
+Notice in the console image, the `target` property reveals the tasks in progress list that was dropped on or the `<ul id="tasks-in-progress" ... >`. Also note that `undefined` was returned when we tried to display our `dataTransfer` property. This was because the `dataTransfer` property must receive a data format in the `getData()` method in order to return the `id`. Next we see that "0" was verified as the task id which was properly returned from the `getData()` method. Here we included multiple arguments in the `console.log` function to verify multiple values as a quick way to check many variables and properties with a single expression. Although the drop feature isn't working quite yet, we are making progress by creating the references to the values and objects we will need to accomplish this step. 
 
-Excellent work! We now have the information necessary to make a successful drop. In the next step we will use the `id` to find the element that was initially dragged, and store this DOM element into a variable. 
+> **Pause:** What happens if the function expression occurs after we add the event listener?
+>
+> **Answer:** We will get an `Uncaught ReferenceError: dropTaskHandler is not defined` message as soon as our JavaScript file has loaded. We must define the function before using it used as a callback in the event listener to avoid this error. Proper organization and demarcation of function expressions before event listeners will help avoid this bug.
+
+Excellent work! We now have the information necessary to make a successful drop, the unique task id and the destination drop zone element. In the next step we will use the `id` to find the element that was initially dragged, and store this DOM element into a variable. 
 Type the following expression into the `dropTaskHandler` function underneath the `id` declaration. We can also remove the `console.log`.
 
 ```js
