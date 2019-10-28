@@ -1,19 +1,21 @@
 # Lesson 4 - Drag and Drop
 ## Introduction
-Currently the Taskinator's MVP looks to be done. We have a functioning application that adds our tasks and provides editable features. In this lesson we will be working on a feature that will give our app an improved user experience by adding the ability to drag and drop task items onto other task lists to change the task's status. 
+Currently the Taskinator's MVP looks done. We have a functioning application that adds our tasks and provides editable features. In this lesson we will be working on a feature that will give our app an improved user experience by adding the ability to drag and drop task items onto other task lists to change the task's status. 
 
-This feature is very common to see on every computer's operating system and has been around since the first Macintosh. Users have seen this feature so often, it seems commonplace and is often expected. Let's start with an assessment of the current project:
+This feature has been popular on computer operating systems since the advent of the personal computer. Originally used to move files and folders to different directories on a computer, this feature is now common in many applications and games such as changing a time for a calendar event or adding an item to your shopping cart. Users have seen this feature so often, it seems commonplace and is often expected. Let's build this feature to satisfy our user's level of expectation.
+
+Let's start with an assessment of the current project:
 ![Current Project State](./assets/lesson-4/100-current-project.png)
-It looks great, but adding some intuitive design to enhance the user's experience.
+It looks great, but adding some intuitive design will enhance the user's experience.
 
-This will be good practice in understanding how the drag and drop feature works since so many apps have this type of feature for instance a calendar, a shopping cart, or our quizzes.
+This will be good practice in understanding how the drag and drop feature works due to the growing popularity especially with mobile devices which are dependent upon interfacing with the screen.
 
 ## Preview
 By the end of this lesson our Taskinator app should look something like this:
 <!-- ![GitHub Issue Drag and Drop](./assets/lesson-4/300-drag-drop-demo.png) -->
 > **Asset Needed:** [Gif showing drag and drop operation Jira Issue FSFO-218](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-218)
 
-To illustrate our pseudocode steps use this quiz to order them correctly.
+To illustrate our pseudocode steps let's take this quiz and put the steps in the correct order.
 > **Asset Needed:** [Learnosity: Order Build Steps Jira Issue FSFO-287](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-287)
 >    1. Create new `feature` branch
 >    2. Make the elements draggable using HTML
@@ -24,15 +26,17 @@ To illustrate our pseudocode steps use this quiz to order them correctly.
 >    7. Merge `feature` branch into `develop` branch
 
 ## Get Started
-Let's set up our new feature branch by checking out into `staging`, making sure that `staging` is up to date with the remote, by using the command `git pull origin staging`, then creating a new feature branch called `feature/drag`.
+Let's set up our new feature branch by first checking out into `staging`. 
+`git checkout staging`.
+Then make sure that `staging` is up to date with the remote, by using the command `git pull origin staging`. Then create a new feature branch called `feature/drag`.
 Now review our GitHub Issue and see the requirements of this feature in our screenshot:
 ![GitHub Issue Drag and Drop](./assets/lesson-4/200-github-issue.png)
 Thinking about how to achieve these goals we will need to leverage our JavaScript knowledge of control flow statements, objects, methods, and the browser. We will need to use these skills in conjunction with the Drag and Drop API, manipulating the DOM, and event handling.
 
 ### Introducing a New Tools
-Before we get started, it's good practice to mention why it is important to check the popularity and restrictions we might have regarding cross browser compatibility for a new tool. We will be using a Web API called HTML Drag and Drop API so let's find out which browsers will support it.
+Before we get started, it's good practice to check the popularity and restrictions we might have regarding cross browser compatibility for a new tool. We will be using a Web API called HTML Drag and Drop API so let's find out which browsers will support it.
 
-Whenever we look at adding some technology we are unfamiliar with, it is always a good idea to check the [Can I Use website](https://caniuse.com/) to verify browser compatibility. Knowing your market demographic is important to estimate if it's not available. In this case we are starting a personal project, so our market is just ourselves, but you never know, that's how Facebook got started. 
+> **Important:** Whenever we look at adding some technology we are unfamiliar with, it is always a good idea to check the [Can I Use website](https://caniuse.com/) to verify browser compatibility. Estimate your market demographic if it's not available since it should be somewhat predictable. In this case we are starting a personal project, but you never know, that's how Facebook got started. 
 
 ## The HTML part 
 Let's start by first mentioning the HTML attribute, **draggable**, that allows elements to dragged. This is an HTML5 feature and affects the UI by creating a translucent representation of the element that follows the pointer as long as the mouse button is held down. The release of the button acts as the drop part of this action. 
@@ -47,7 +51,7 @@ To see the `draggable` attribute in action let's save the file and refresh the b
 
 ![Draggable Demo](./assets/lesson-4/400-draggable-demo.png)
 
-Since the elements we want to drag, our task items, are dynamically created, we need to add this attribute with JavaScript. 
+Since the elements we want to drag, our task items, are dynamically created, we will need to add this attribute with JavaScript. 
 Add the `draggable` attribute in our `createTaskEl()` function underneath the `listItemEl.setAttribute( "data-task-id", taskCounter)` expression.
 ```js
 listItemEl.setAttribute("draggable", "true");
@@ -60,21 +64,21 @@ Let's verify we are dynamically adding the `draggable` attribute by saving this 
 
 ![Draggable Task Item Demo](./assets/lesson-4/600-draggable-task-item.png)
 
-From the browser we can see our blue box can be dragged due to the ghost like image of our task item element however once we release our mouse, the task list bounces back to its original location.
+From the browser we can see our blue box can be dragged due to the ghost like image of our task item element. However once we release our mouse button, the task item bounces back to its original location.
 
-We now need to figure out how to attach our element to the new location. It's no coincidence that this feature is called a drag and drop. We need to understand there are multiple actions taking place, not just the dragging of the element, but also the dropping of the element to its the new location or drop zone. We can capture both the drag and drop behavior with browser events called the `dragstart` and `drop`.
+How do we attach our element to the new location. It's no coincidence that this feature is called a drag and drop. We need to understand there are multiple actions taking place, not just the dragging of the element, but also the dropping of the element to its the new task list or drop zone. We can capture both the drag and drop behavior with browser events called the `dragstart` and `drop`.
 
 ### Dragstart Event
 
 So why do we need the `dragstart` event? We already have a draggable element. Couldn't we simply listen for the `drop` event and attach our element to the new task list?
-Unfortunately, although this operation may seem basic, there are quite a few different events and functions that need to execute in order to pull off this feature. It is a bit like a magician using a sleight of hand trick to impress their audience. Although it may appear like the element is physically moving to a new place, in fact, we are merely transferring a reference to this element, a task id in this case, that will allow us to find this particular element in the DOM and append it to the target drop zone. Having created a task item and appended it to our task list in the first lesson, we should be aware this is not magic, but some basic DOM manipulation.
+Unfortunately, although this operation may seem basic, there are quite a few different events and functions that need to execute in order to pull off this feature. It is a bit like a magician using a sleight of hand trick to impress their audience. Although it may appear like the element is physically moving to a new place, the truth is we are only transferring a unique `data-task-id` attribute value of the task item element. This will allow us to find this particular element in the DOM and append it to the target drop zone. Having already created a task item and appended it to our task list in the first lesson, we should be aware this is not magic, just some basic DOM manipulation.
 
-The `dragstart` event is triggered as soon as a draggable element is first moved. This is a critical step because this event is the only one that will have a link to the original element that was initially dragged. With this reference to the dragged element, we can store the element's id and use it to identify and locate the original element in the DOM in the `drop` event. 
+The `dragstart` event is triggered as soon as a draggable element is first moved. This is a critical step because this event is the only time we will have access to the original element that was initially dragged. With this reference to the dragged element, we can store the element's data attribute, the `data-task-id`, and use it to identify and locate the dragged element in the DOM in the `drop` event. 
 
 ### Event Delegation
-This means that we need to attach the `dragstart` event listener to each task item so we can capture the task item id. Rather than attaching an event listener to every task item, we can use event delegation by attaching our listener for `dragstart` to the parent element that will contain not only all the task items in this list but all the task items on all the task lists. Can you look at the `index.html` file to see which parent element have access to all these elements? We could've chosen `<body>` or `<html>`, but having too broad of an approach could lead to accidents and strange behavior. It is safer to choose the most direct ancestor element possible to limit the listener's scope to only the necessary elements. In this case it would be the `<main>` element because this is the parent of the task list elements which will contain all the task item elements. 
+We need to attach the `dragstart` event listener to each task item so we can capture each unique task item id from the `data-task-id` attribute. Rather than attaching an event listener to every task item, we can use event delegation by attaching our listener for `dragstart` to the parent element that will contain not only all the task items in this list but all the task items on all the task lists. Can you look at the `index.html` file to see which parent element has access to all these elements? We could've chosen `<body>` or `<html>`, but having too broad of an approach could lead to accidents and strange behavior. It is safer to choose the most direct ancestor element possible to limit the event listener's scope to only the necessary elements. In this case it would be the `<main>` element because this is the parent element of the task list elements which will contain all the task item elements. 
 
-We will use the `pageContentEl` DOM element to reference the `<main>` and delegate our `dragstart` listener to this parent element. Add the following expression to the bottom of the `script.js` file:
+Use the `pageContentEl` DOM element to reference the `<main>` and delegate our `dragstart` listener to this parent element. Add the following expression to the bottom of the `script.js` file:
 ```js
 pageContentEl.addEventListener("dragstart", dragTaskHandler);
 ```
@@ -85,23 +89,27 @@ Define this event handler `dragTaskHandler()` to verify our event handler is ope
 var dragTaskHandler = function(event) {
   console.log("element is being dragged");
   console.log(event);
+  console.dir(event.target);
 } 
 ```
-Let's save our files and refresh the browser. Create three tasks to our Tasks To Do list. Open the console and drag the bottom task. Determine when the `dragstart` event is triggered. Expanding the event will display the following in the console:
+Let's save our files and refresh the browser. Create three tasks and open the console. Drag the bottom task. Determine when the `dragstart` event is triggered. Expanding the `event.target` object to display the following in the console:
 
 ![Console DragEvent](./assets/lesson-4/700-console-dragevent.png)
 
-Look at the console and see the event is the `DragEvent` object. Expand this object to see the `type` property is `dragstart`. Hover over the `target` property to highlight the task item we dragged. Notice this target uniquely represents the DOM element of the dragged task item. Find the `dataset` property of the DOM element. Expand that to find the `taskId` property with the value of "2". Recall that this `taskId` is the same unique value that is assigned to the `data-task-id` attribute on the HTML element. We need a way to store this `taskId` to identify which task we will relocate to the drop zone in the `drop` event listener. Luckily we have a property called the `dataTransfer` property. Let's dive into how we will be using it.
+Look at the console and see the event is the `DragEvent` object. The `type` property in the `DragEvent` is `dragstart`. Expand the `target` property to see the properties and attributes of the task item we dragged. Notice this target uniquely represents the DOM element of the dragged task item. In the `attributes` property of the `target`, we can see our unique task id in the `data-task-id` attribute. We need a way to store this `data-task-id` to identify which task we will relocate to the drop zone in the `drop` event listener. Luckily we have a property called the `dataTransfer` property. Let's dive into how we will be using it.
 
-Collapse the `target` property and find the `dataTransfer` property. This is the key data storage device we will use similar to how we used the Web Storage API with `localStorage`. By using the `setData()` and `getData()` methods, we are able to store and retrieve our unique task id from the `taskId` value in the `dataset` property. 
+Collapse the `target` property and expand the `DragEvent` and find the `dataTransfer` property. 
+![Console DragEvent dataTransfer Object](./assets/lesson-4/750-console-dragevent-dataTransfer.png)
+This is the data storage device we will use, similar to how we used the Web Storage API with `localStorage`. By using the `setData()` and `getData()` methods, we are able to store and retrieve our unique task id from the `data-task-id` to uniquely identify our dragged task item.
 <!-- Even though we aren't transfer files, we can use this property to store the data of our element so the information can convey to the `drop` event. Although it appears that the actual element is being moved, in actuality the element never moved, but we need to keep a reference to it. We can use dataTransfer property to do this. -->
 I know this seems pretty complicated, but we will do this in a step by step approach so you got this! 
 Enough explanation for now, its time to start coding!
 
-If we want the `dragTaskHandler()` to be effective first we must understand it must be located above the event listener. Make sure that the event listeners are located at the bottom of the `script.js` file and the function expressions are located above. So first we need to capture the task id from the DOM element. By using `target`, the `dragstart` event has access to the element as discussed earlier.
+If we want the `dragTaskHandler()` to be effective first we place it above the event listener. Make sure that the event listeners are located at the bottom of the `script.js` file and the function expressions are located above. 
+Then we need to capture the task id from the DOM element. 
 ```js
 var dragTaskHandler = function(event) {
-  var taskId = event.target.dataset.taskId;
+  var taskId = event.target.getAttribute("data-task-id");
   console.log("Task ID:", taskId);
 }
 ```
