@@ -194,7 +194,7 @@ var dropzoneDragHandler = function(event) {
 };
 ```
 
-Using the `target` property, we are using a conditional statement that limits the default behavior prevention only to elements that are either the task list or descendants of the task list element. If the `target` is outside the task list elements, the conditional statement will evaluate to null and prevent dropping, which is exactly what we want. Let's take a close look at the `closest()` method and see how this was achieved. 
+In the conditional statement, we use the `target` property, which identifies the element that is being hovered over and checks whether it is the task list or a child of the task list element. If the `target` is outside the task list elements, the conditional statement will evaluate to null and prevent dropping, which is exactly what we want. Let's take a close look at the `closest()` method and see how this was achieved. 
 ```js
 targetElement.closest(selectors);
 ```
