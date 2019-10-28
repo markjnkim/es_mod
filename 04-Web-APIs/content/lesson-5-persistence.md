@@ -2,21 +2,17 @@
 
 ## Introduction
 
-> **Asset Needed:** Gif of drag and drop functionality from 4.4
+![Taskinator with drag and drop](assets/lesson-5/100-lesson-4.gif)
 
 From a functionality standpoint, our Taskinator application is in great shape and can be used without any bugs or hiccups. The only drawback currently is that we have to create our tasks every time we reload the page. That doesn't make for a great user experience, does it? If we have to spend most of our time in Taskinator actually creating the tasks, when would we have time to get the tasks done?
 
-In this final lesson we'll revisit our old friend, localStorage, to save our tasks as we create and update them. Then upon page load, we can load those tasks back into our Taskinator app. Adding this will fulfill our final GitHub issue. For a reminder of what that issue is, check out this screenshot of it:
-
-> **Asset Needed:** GitHub issue
-
-This task will involve some refactoring of our current codebase, but it will not interrupt it too much. Let's outline what we'll be working on and get started!
+In this final lesson we'll revisit our old friend, localStorage, to save our tasks as we create and update them. Then upon page load, we can load those tasks back into our Taskinator app. Adding this will fulfill our final GitHub issue, so we'll then deploy our application to GitHub pages! This task will also involve some refactoring of our current codebase to accommodate these features, so let's outline what we'll be working on and get started!
 
 ## Preview 
 
 As we now know, by adding persistence with localStorage in this lesson, we'll be able to refresh the page and have our tasks remain in their corresponding status list. See this gif for a demonstration:
 
-> **Asset Needed:** Gif of page reloading with persistence
+![Taskinator with persistence](assets/lesson-5/200-lesson-5.gif)
 
 Our UI and core Taskinator functionality won't change, but we are adding a great feature that will make the app more usable. With that said, however, adding this feature will mean that we need to restructure our data. This way, it will be easier to save and retrieve that data from localStorage.
 
@@ -37,7 +33,9 @@ Let's get started by creating a feature branch for our issue!
 
 ## Create a New Git Branch
 
-Let's review our GitHub issue pertaining to this feature one more time, then create our feature branch.
+Let's review our GitHub issue pertaining to this feature one more time, then create our feature branch. See this image for the issue:
+
+![GitHub issue for persistence](assets/lesson-5/300-github-issue.jpg)
 
 Since the issue is about persistence, let's call the feature branch `feature/task-persistence`. We'll create it now from the command line:
 
@@ -130,11 +128,11 @@ console.log(taskObj.status);
 
 Save `script.js`, refresh the app in the browser, and submit a new task. The two `console.log()` functions we added should look like this image in the console:
 
-> **Asset Needed:** Screenshot of console with two above console.log statements
+![Task object passed into function](assets/lesson-5/400-taskobj-console.jpg)
 
-As we can see, `createTaskEl()` now receives this new `status` property in its `taskObj` argument.
+As we can see, `createTaskEl()` now receives this new `status` property in its `taskObj` parameter.
 
-> TODO: **Pro Tip:** Creating more arguments vs. adding object property in a function
+> TODO: **Pro Tip:** Creating more parameters vs. adding object property in a function
 
 The only thing missing from our task's object that we need to save is its ID. Luckily, we already have the value of the ID in the `taskIdCounter` variable and already using it in the `createTaskEl()` function. All we need to do now is add that value as a property to our `taskObj` argument variable and add the entire object to our `tasks` array, but how do we actually add something to an array? Let's find out.
 
@@ -216,11 +214,11 @@ The `forEach()` method is another array method and is used to perform an action 
 >
 > **Answer:** All of our event handlers are used as callback functions. Remember, a callback function is a function that we provide to another function to execute on our behalf. For example, we don't ever execute `taskFormHandler()` in our JavaScript code, but we give the DOM that function to execute on our behalf when the form is submitted.
 
-The callback function used in a `forEach()` method has a specific format when it comes to what arguments it will use:
+The callback function used in a `forEach()` method has a specific format when it comes to what parameters it will use:
 
-- The first argument will always represent the element at that iteration of the array, the array[i] value if we were to think about this in `for` loop terms. That's why in ours, it's labelled `task`, the singular version of `tasks`, because it represents a single task in our tasks array. This argument is required.
+- The first parameter will always represent the element at that iteration of the array, the array[i] value if we were to think about this in `for` loop terms. That's why in ours, it's labelled `task`, the singular version of `tasks`, because it represents a single task in our tasks array. An argument for this parameter is required.
 
-- The second argument is optional to use, but it will always represent the current index `i` of the loop. We don't need to use that value in our code so we can leave it out.
+- The second parameter is optional to use, but it will always represent the current index `i` of the loop. We don't need to use that value in our code so we can leave it out.
 
 Here is an example of `forEach()` that we can copy and paste into our Chrome DevTools console to see how it works:
 

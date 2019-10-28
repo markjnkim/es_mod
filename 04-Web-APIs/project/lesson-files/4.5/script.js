@@ -41,6 +41,10 @@ var taskFormHandler = function(event) {
 };
 
 var createTaskEl = function(taskObj) {
+
+  console.log(taskObj);
+  console.log(taskObj.status);
+
   var listItemEl = document.createElement("li");
   listItemEl.className = "task-item";
   listItemEl.setAttribute("data-task-id", taskIdCounter);
@@ -155,18 +159,15 @@ var taskButtonHandler = function(event) {
   var targetEl = event.target;
 
   if (targetEl.matches(".edit-btn")) {
-    console.log("edit", targetEl);
     var taskId = targetEl.getAttribute("data-task-id");
     editTask(taskId);
   } else if (targetEl.matches(".delete-btn")) {
-    console.log("delete", targetEl);
     var taskId = targetEl.getAttribute("data-task-id");
     deleteTask(taskId);
   }
 };
 
 var taskStatusChangeHandler = function(event) {
-  console.log(event.target.value);
 
   // find task list item based on event.target's data-task-id attribute
   var taskId = event.target.getAttribute("data-task-id");    
@@ -202,10 +203,8 @@ var editTask = function(taskId) {
 
   // get content from task name and type
   var taskName = taskSelected.querySelector("h3.task-name").textContent;
-  console.log(taskName);
 
   var taskType = taskSelected.querySelector("span.task-type").textContent;
-  console.log(taskType);
 
   // write values of taskName and taskType to form to be edited
   document.querySelector("input[name='task-name']").value = taskName;
@@ -218,7 +217,6 @@ var editTask = function(taskId) {
 };
 
 var deleteTask = function(taskId) {
-  console.log(taskId);
   // find task list element with taskId value and remove it
   var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
   taskSelected.remove();
@@ -241,7 +239,6 @@ var dropTaskHandler = function(event) {
     var id = event.dataTransfer.getData("text/plain");
     var draggableElement = document.querySelector("[data-task-id='" + id + "']");
     var dropzone = event.target.closest(".task-list");
-    console.log(dropzone);
     // set status of task based on dropzone id
     var statusSelectEl = draggableElement.querySelector("select[name='status-change']");
     var statusType = dropzone.id;
@@ -303,7 +300,6 @@ var dragLeaveHandler = function(event) {
 
 var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
-  console.log("tasks saved");
 };
 
 var loadTasks = function() {
@@ -312,7 +308,6 @@ var loadTasks = function() {
   if (!savedTasks) {
     return false;
   }
-  console.log("Saved tasks found!");
   // else, load up saved tasks
 
   // parse into array of objects
