@@ -194,11 +194,11 @@ var dropzoneDragHandler = function(event) {
 };
 ```
 
-In the conditional statement, we use the `target` property, which identifies the element that is being hovered over and checks whether it is the task list or a child of the task list element. If the `target` is outside the task list elements, the conditional statement will evaluate to null and prevent dropping, which is exactly what we want. Let's take a close look at the `closest()` method and see how this was achieved. 
+In the conditional statement, we use the `target` property, which identifies the element that is being hovered over and checks whether it is the task list or a child of the task list element. If the `target` is outside of the task list elements, the conditional statement will evaluate to null and prevent dropping. This is precisely what we would like. Let's take a close look at the `closest()` method and see how this was achieved. 
 ```js
 targetElement.closest(selectors);
 ```
-Similar to the `querySelector()` method, the `closest()` method will originate a search from the `targetElement` to the rest of the DOM for an element that contains the selector. If the element with the selector is found, the element is returned as a DOM element, but if not found will return null. Here are the major differences:
+Similar to the `querySelector()` method, the `closest()` method will originate a search from the `targetElement` for an element that contains the selector. If the element with the selector is found, the element is returned as a DOM element, but if not found will return null. Here are the major differences:
 * The `querySelector()` method search down from the `targetElement`'s child elements
 * The `closest()` method searches up through the `targetElement` parent elements until is reaches the document root which is the highest level of the DOM
 * The `closest()` method searches the targetElement as well as the ancestor elements where the `querySelector()` only checks the child elements
