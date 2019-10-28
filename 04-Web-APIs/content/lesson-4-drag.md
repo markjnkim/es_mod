@@ -1,25 +1,19 @@
 # Lesson 4 - Drag and Drop
 ## Introduction
-Currently the Taskinator's MVP looks to be done. We have a functioning application that processing our tasks and provides editable features. In this lesson we will be working on a feature that will give our app an improved user experience by adding the ability to drag and drop task items onto other task lists to change the task's status. 
+Currently the Taskinator's MVP looks to be done. We have a functioning application that adds our tasks and provides editable features. In this lesson we will be working on a feature that will give our app an improved user experience by adding the ability to drag and drop task items onto other task lists to change the task's status. 
 
-This feature is very common to see on every computer's operating system and has been around since the first Macintosh. User's have seen this feature so often, it seems commonplace and is often expected. To meet the rising standards of expectations, it is important to not only meet expectations, but surpass them if we are looking to increase an app's popularity.
-
-Currently this is what are app looks like now:
+This feature is very common to see on every computer's operating system and has been around since the first Macintosh. Users have seen this feature so often, it seems commonplace and is often expected. Let's start with an assessment of the current project:
 ![Current Project State](./assets/lesson-4/100-current-project.png)
-It looks great, but adding some intuitive design will enhance the user's experience.
+It looks great, but adding some intuitive design to enhance the user's experience.
 
-Let's review our GitHub Issue and see the requirements of this feature in our screenshot:
-![GitHub Issue Drag and Drop](./assets/lesson-4/200-github-issue.png)
-Thinking about how to achieve these goals we will need to leverage our JavaScript knowledge of control flow statements, objects, methods, and the browser. We will need to use these skills in conjunction with the Drag and Drop API, manipulating the DOM, and event handling.
-
-This will be good practice in understanding how the drag and drop feature  works since so many apps have this type of feature for instance a calendar, a shopping cart, or gaming.
+This will be good practice in understanding how the drag and drop feature works since so many apps have this type of feature for instance a calendar, a shopping cart, or our quizzes.
 
 ## Preview
 By the end of this lesson our Taskinator app should look something like this:
-![GitHub Issue Drag and Drop](./assets/lesson-4/300-drag-drop-demo.png)
+<!-- ![GitHub Issue Drag and Drop](./assets/lesson-4/300-drag-drop-demo.png) -->
 > **Asset Needed:** [Gif showing drag and drop operation Jira Issue FSFO-218](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-218)
 
-
+To illustrate our pseudocode steps use this quiz to order them correctly.
 > **Asset Needed:** [Learnosity: Order Build Steps Jira Issue FSFO-287](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-287)
 >    1. Create new `feature` branch
 >    2. Make the elements draggable using HTML
@@ -31,14 +25,19 @@ By the end of this lesson our Taskinator app should look something like this:
 
 ## Get Started
 Let's set up our new feature branch by checking out into `staging`, making sure that `staging` is up to date with the remote, by using the command `git pull origin staging`, then creating a new feature branch called `feature/drag`.
+Now review our GitHub Issue and see the requirements of this feature in our screenshot:
+![GitHub Issue Drag and Drop](./assets/lesson-4/200-github-issue.png)
+Thinking about how to achieve these goals we will need to leverage our JavaScript knowledge of control flow statements, objects, methods, and the browser. We will need to use these skills in conjunction with the Drag and Drop API, manipulating the DOM, and event handling.
 
 ### Introducing a New Tools
-Before we get started, it's good practice to mention why it is important to check the popularity and restrictions we might have regarding cross browser compatibility for a new tool. We will be using a Web API called HTML Drag and Drop API that is a native part of the browser so it makes sense browsers will support that.
+Before we get started, it's good practice to mention why it is important to check the popularity and restrictions we might have regarding cross browser compatibility for a new tool. We will be using a Web API called HTML Drag and Drop API so let's find out which browsers will support it.
 
-> **Important:** Whenever we look at adding some technology we are unfamiliar with, it is always a good idea to check the [Can I Use website](https://caniuse.com/) to verify browser compatibility. Knowing your market demographic is important to estimate if it's not available. In this case we are starting a personal project, so our market is just ourselves, but you never know, that's how Facebook got started. 
+Whenever we look at adding some technology we are unfamiliar with, it is always a good idea to check the [Can I Use website](https://caniuse.com/) to verify browser compatibility. Knowing your market demographic is important to estimate if it's not available. In this case we are starting a personal project, so our market is just ourselves, but you never know, that's how Facebook got started. 
 
 ## The HTML part 
-Let's start by first mentioning the HTML attribute, **draggable**, that allows elements to dragged. This is an HTML5 feature and affects the UI by creating a translucent representation of the element that follows the pointer as long as the mouse button is held down. To The release of the button acts as the drop part of this action. What is HTML5 you ask? This is the newest current major version of HTML that adds many properties and behaviors to the web page. [To find out more let's look at Wikipedia about HTML5.](https://en.wikipedia.org/wiki/HTML5)
+Let's start by first mentioning the HTML attribute, **draggable**, that allows elements to dragged. This is an HTML5 feature and affects the UI by creating a translucent representation of the element that follows the pointer as long as the mouse button is held down. The release of the button acts as the drop part of this action. 
+
+> **Deep Dive:** What is HTML5 you ask? This is the newest current major version of HTML that adds many properties and behaviors to the web page. [To find out more let's look at Wikipedia about HTML5.](https://en.wikipedia.org/wiki/HTML5)
 
 Add the `draggable` attribute to the opening tag of the button element in the `index.html` file. 
 ```html
@@ -70,10 +69,10 @@ We now need to figure out how to attach our element to the new location. It's no
 So why do we need the `dragstart` event? We already have a draggable element. Couldn't we simply listen for the `drop` event and attach our element to the new task list?
 Unfortunately, although this operation may seem basic, there are quite a few different events and functions that need to execute in order to pull off this feature. It is a bit like a magician using a sleight of hand trick to impress their audience. Although it may appear like the element is physically moving to a new place, in fact, we are merely transferring a reference to this element, a task id in this case, that will allow us to find this particular element in the DOM and append it to the target drop zone. Having created a task item and appended it to our task list in the first lesson, we should be aware this is not magic, but some basic DOM manipulation.
 
-The `dragstart` event is triggered as soon as a draggable element is first moved. This is a critical step because this event is the only one that has a link to the original element that was initially dragged. With this reference to the dragged element, we can store the element's id and use it to identify and locate the original element in the DOM in the `drop` event. 
+The `dragstart` event is triggered as soon as a draggable element is first moved. This is a critical step because this event is the only one that will have a link to the original element that was initially dragged. With this reference to the dragged element, we can store the element's id and use it to identify and locate the original element in the DOM in the `drop` event. 
 
 ### Event Delegation
-This means that we need to attach the `dragstart` event listener to each task item so we can capture the task item id. We can use event delegation by attaching our listener for `dragstart` to the parent element that will contain not only all the task items in this list but all the task items on all the task lists. Can you look at the `index.html` file to see which parent element have access to all these elements? We could've chosen `<body>` or `<html>`, have too broad of an approach could lead to accidents and strange behavior. It is safer to choose the most direct ancestor element possible to limit the listener's scope to only the necessary elements. In this case it would be the `<main>` element. 
+This means that we need to attach the `dragstart` event listener to each task item so we can capture the task item id. Rather than attaching an event listener to every task item, we can use event delegation by attaching our listener for `dragstart` to the parent element that will contain not only all the task items in this list but all the task items on all the task lists. Can you look at the `index.html` file to see which parent element have access to all these elements? We could've chosen `<body>` or `<html>`, but having too broad of an approach could lead to accidents and strange behavior. It is safer to choose the most direct ancestor element possible to limit the listener's scope to only the necessary elements. In this case it would be the `<main>` element because this is the parent of the task list elements which will contain all the task item elements. 
 
 We will use the `pageContentEl` DOM element to reference the `<main>` and delegate our `dragstart` listener to this parent element. Add the following expression to the bottom of the `script.js` file:
 ```js
@@ -388,17 +387,20 @@ Save and refresh the browser then add a task and drag it over a task list to see
 
 ![Browser DragLeave Target Element](./assets/lesson-4/1800-browser-dragleave-event-target.png)
 
-Let's explain the different DOM elements being displayed in the console. The `dragleave` target property is storing every element that the dragged task item is being dragged over. Let's remove this `console.dir()` then use the same conditional statement we used previously in the `dropzoneTaskHandler()` to narrow our `dragleaveTaskHandler()` to execute only when a dragged element leaves a task list or children of the task list, not every element on the page. To do this let's first make a reference to the `target` property of the `dragleave` event which is the task list that is being dragged over. Then add the conditional to check if this condition is true, a valid element is being returned by the `closest()` method and not null. 
-> **Rewind:** If `closest()` returns null, then the selector was not found in the target element or an ancestor element.
+Let's explain the different DOM elements being displayed in the console. The `dragleave` target property is storing every element that the dragged task item is being dragged over. Let's remove this `console.dir()` then use the same conditional statement we used previously in the `dropzoneTaskHandler()` to narrow our `dragleaveTaskHandler()` to execute only when a dragged element leaves a task list or children of the task list, not every element on the page. To do this let's first make a reference to the `target` property of the `dragleave` event which is the task list that is being dragged over. Then add the conditional to check if the dragged over element is either the task list or a child of the task list. 
+
+> **Rewind:** If `closest()` returns null, then the selector was not found in the target element or an ancestor element and the `style` attribute is not removed.
+
 ```js
 var taskListEl = event.target.closest(".task-list");
 if (taskListEl) {
   taskListEl.removeAttribute("style");
 }
 ```
+This final step didn't seem as critical to the drag and drop process but adding convenience measures to improve the user experience is an important metric used to determine how user friendly a website is.
 
 ## Finalize Git Process 
-Merge our `feature/drag` branch into the `develop` branch by adding, commiting, and push our feature branch to our remote feature branch.
+Merge our `feature/drag` branch into the `develop` branch by adding, committing, and push our feature branch to our remote feature branch.
 `git push origin feature/drag`
 Then check out into the `develop` branch.
 Next let's `git merge feature/drag`.
@@ -407,7 +409,7 @@ Now let's update the remote by pushing our newest version of `staging`.
 
 > **Asset Needed:** [Learnosity Jira Issue FSFO-288](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-288)
 ## Reflection
-Great job, you made it through a complex lesson that dealt with some new concepts. This is an advanced topic so the first pass on this subject may have been a bit bumpy figuring out what is exactly taking place behind the mystery curtain. Going through some turbulence once in a while will help hone your problem solving skills and expose you to different design patterns or solution path that resolves the problems. There are frequent instances in web development when a reference to a element, item, or data need to be passed to another part of the code such as when storing a form into a database, placing an item into a shopping cart, or clicking a thumbnail to expand the view. 
+Great job, you made it through a complex lesson that dealt with some new concepts. This is an advanced topic so the first pass on this subject may have been a bit bumpy figuring out what is exactly taking place behind the mystery curtain. Going through some turbulence once in a while will help hone your problem solving skills and expose you to different design patterns or solution paths that can offer a fix. There are frequent instances in web development when a reference to an element, item, or data need to be passed to another part of the code such as when storing a form into a database, placing an item into a shopping cart, or clicking a thumbnail to expand the view so early exposure to this now will help us problem solve in the future modules. 
 
 In this lesson we learned quite a few more tools for the tool belt such as: 
 * Breaking down a large problem into manageable steps 
@@ -417,9 +419,10 @@ In this lesson we learned quite a few more tools for the tool belt such as:
   * dragover
   * dragleave
   * drop
-* Overriding browser behavior with `preventDefault()` method on the `event` object
+* Overriding browser behavior with `preventDefault()` method in the event handler
 * Transferring a data attribute using `dataTransfer` object on the `DragEvent`
 * Traversing the DOM using the `closest()` method to find itself as well as parent elements
 * Looking under the hood of a seemingly “simple” UI interaction to reveal a complex web of events 
 * Thankfully there are libraries in JavaScript that can offer a Drag and Drop feature with many error handling solutions built-in, but its also important to at least understand how this type of API works under the hood.
-* In the next lesson, we’ll put the final bow on our app by making the tasks persistent using our old friend `localStorage`.
+
+In the next lesson, we’ll put the final bow on our app by making the tasks persistent using our old friend `localStorage`.
