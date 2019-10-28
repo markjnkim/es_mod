@@ -232,62 +232,86 @@ Here we are creating a reference to the `data-task-id` value we stored previousl
 
 ![Console of Drop Event](./assets/lesson-4/1100-console-drop-event.png)
 
-Notice in the console image, the `target` property reveals the tasks in progress list that was dropped on or the `<ul id="tasks-in-progress" ... >`. Also note that `undefined` was returned when we tried to display our `dataTransfer` property. This was because the `dataTransfer` property must receive a data format in the `getData()` method in order to return the `id`. Next we see that "0" was verified as the task id which was properly returned from the `getData()` method. Here we included multiple arguments in the `console.log` function to verify multiple values as a quick way to check many variables and properties with a single expression. Although the drop feature isn't working quite yet, we are making progress by creating the references to the values and objects we will need to accomplish this step. 
+Notice in the console image, the `target` property reveals the tasks in progress list that was dropped on or the `<ul id="tasks-in-progress" ... >`. Also note that `undefined` was returned when we tried to display our `dataTransfer` property. This was because the `dataTransfer` property must receive a data format in the `getData()` method in order to return the `id`. Next we see that "0" was verified as the task id which was properly returned from the `getData()` method. Here we included multiple arguments in the `console.log` function to verify multiple values as a quick way to check many variables and properties with a single expression. Now try to drag this task item to a different list to ensure the `event.target` element is changing as it should. Although the drop feature isn't working quite yet, we are making progress by creating the references to the values and objects we will need to accomplish this step. 
 
 > **Pause:** What happens if the function expression occurs after we add the event listener?
 >
 > **Answer:** We will get an `Uncaught ReferenceError: dropTaskHandler is not defined` message as soon as our JavaScript file has loaded. We must define the function before using it used as a callback in the event listener to avoid this error. Proper organization and demarcation of function expressions before event listeners will help avoid this bug.
 
-Excellent work! We now have the information necessary to make a successful drop, the unique task id and the destination drop zone element. In the next step we will use the `id` to find the element that was initially dragged, and store this DOM element into a variable. 
-Type the following expression into the `dropTaskHandler` function underneath the `id` declaration. We can also remove the `console.log`.
+Excellent work! We now have the information necessary to make a successful drop, the unique task id and the destination drop zone element. In the next step we will use the `id` to find the element that was initially dragged and store the reference to this DOM element in a variable. 
+Type the following expression into the `dropTaskHandler` function underneath the `id` declaration. Let's remove the `console.log`.
 
 ```js
 var draggableElement = document.querySelector("[data-task-id='" + id + "']");
-console.log(draggableElement);
+console.dir(draggableElement);
 ```
+If the first expression looks a bit complex, it is because we are using string concatenation to account for our variable task id. We are using the `querySelector()` method on the `data-task-id` attribute to locate the dragged task item with our unique task id. In our case, we are searching for the task item with the `data-task-id` value of "0".
+Let's save our file, refresh the browser, add a task, then drag the task to get the following in the console:
+
 ![Console of Dragged Element](./assets/lesson-4/1200-console-dragged-element.png)
 
-If you see the following in your browser, salutations! We have successfully stored our task id in the `dataTransfer` object and used it to find the correct task item that was initially dragged.
+If you see the following in your browser, salutations! 
+We have successfully stored our task id in the `dataTransfer` object and used it to find the correct task item that was initially dragged. Notice we used `console.dir` to verify the correct element was chosen and that it is a DOM object representation of our task item element.
 
-Next we must identify which task list this `draggableElement` will be appended to.
+Next we must identify which task list this `draggableElement` will be appended to by using the following expression. Let's add this to our `dropTaskHandler()` function beneath the `draggableElement` declaration.
 ```js
 var dropzone = event.target.closest(".task-list");
-console.log(dropzone);
+var statusType = dropzone.id;
+console.log(dropzone.id);
+console.dir(dropzone);
 ```
-In this expression, we are using the `closest()` method again to return corresponding task list element related to the drop zone.
-Let's save and refresh the browser. Now try to create a task item then drag and drop it to the Tasks in Progress and the Tasks Completed lists.
-We should see the following in the browser:
+We have previously verified that the `event.target` property correctly identified the drop zone or the task list we are dropping our task item into in the `drop` event.
+In the above expression, we are using the `closest()` method again to return the corresponding task list element related to the drop zone. The `closest()` method is especially well suited for this job because even if we drop an element on a deeply nested child element of the task list, the `closest()` method will check itself and then traverse up to each successive parent element until the selector is found, returning the DOM element if it contains the targeted selector, and null if the selector is not found. Let's verify that the return from this method is a DOM element by using our `console.dir()` function. We are also storing a reference to the task list id, which is the `id` attribute that designates the task status. Let's verify this information is also valid. 
+
+Save, then refresh the browser. Create a task item then drag and drop it to the Tasks in Progress and the Tasks Completed lists. We should see the following in the browser:
 ![Console of the Drop Zone](./assets/lesson-4/1300-console-drop-zone.png)
 
-As we can see in the console, the drop zone is different in relation to which list is dropped upon.
+As we can see in the console, the drop zone is different in relation to which list is dropped upon. We also verified that the `closest()` method, like the `querySelector()` is returning a document object by expanding on the  object displayed by the `console.dir()` function. Using `console.log()`, we identified the list by verifying the `id` attribute of the task list with the object's `id` property. 
 
-Excellent work! Now we just need to use this as our destination element and append our `draggableElement` to it. Nice!
-But wait, the drag and drop features main purpose was to change the status of our task item. Let's proceed this important step.
+Excellent work! We have our drop destination element and can now append our `draggableElement` to it. Nice!
+But wait, the drag and drop feature's main purpose was to change the status of our task item. Let's proceed with this important step.
 
 In order to change the status of our task item let's first take a closer look at the `select` element in the browser that designates the task status:
 ![Elements Select Element](./assets/lesson-4/1400-elements-select.png)
 
-As we can see, the `select` element has a `name` attribute we can use to find this element in the DOM.
+As we can see, the `select` element has a `name` attribute that is a unique identifier which we can use to find this specific element in the DOM.
 
-Let's type the following in the `dropTaskHandler()` function and underneath the `dropzone` declaration to create a reference we can use to change the task status.
+Let's type the following in the `dropTaskHandler()` function to create a variable to reference the `<select>` element as a document object.
 ```js
 // set status of task based on dropzone id
 var statusSelectEl = draggableElement.querySelector("select[name='status-change']");
-var statusType = dropzone.id;
+console.dir(statusSelectEl);
+console.log(statusSelectEl);
 ```
+Notice in this statement we used the `draggableElement` and not `document` as the reference point of the `querySelector()` method. Why did we replace this reference point?
 
-So using the `select` DOM element, we are able to access the drop down options with the `selectedIndex`. Using the `id` property to identify the new task status, let's use an `if-else` conditional to reassign the task. 
+Let's say we used the `document` to query our `<select>` element. If we had multiple task items, this would also mean we would have multiple `<select>` elements that have the same `name` attribute. Therefore the `querySelector()` would simply choose the first one in the DOM tree, not the element we need to change which would be the `<select>` element of the task item that was dragged. Luckily we have a reference of the dragged document object which can use to traverse down using the `querySelector()` method to find the child element, or the corresponding `<select>` element of the dragged task item.
+
+> **Rewind:** The `querySelector()` method traverses down from the reference point to its children while `closest()` traverses up to ancestor elements to the root document from the reference element.
+
+Let's save and refresh the browser, then add two tasks. Drag both tasks to see the following results in the console:
+
+![Console of Select Element](./assets/lesson-4/1500-console-select-element.png)
+
+As we can see in the console, traversing from the dragged task item element allowed the correct `<select>` element to be captured. The `console.log()` in this case helped identify the `data-task-id` attribute more clearly.
+
+Now that we have the `<select>` DOM element and the destination task list derived from the `id` attribute stored as a reference in the `statusType` variable, we can identify how to update the status of the task. 
+Using the `id` property to identify the new task status, let's use an `if-else` conditional to reassign the task. 
 Please type the following in the `dropTaskHandler()` function underneath the `statusType` declaration.
 
 ```js
-  if (statusType === "tasks-to-do") {
-    statusSelectEl.selectedIndex = 0;
-  } else if (statusType === "tasks-in-progress") {
-    statusSelectEl.selectedIndex = 1;
-  } else if (statusType === "tasks-completed") {
-    statusSelectEl.selectedIndex = 2;
-  }
+if (statusType === "tasks-to-do") {
+  statusSelectEl.selectedIndex = 0;
+} 
+else if (statusType === "tasks-in-progress") {
+  statusSelectEl.selectedIndex = 1;
+} 
+else if (statusType === "tasks-completed") {
+  statusSelectEl.selectedIndex = 2;
+}
 ```
+Notice how the `selectedIndex` property of the `<select>` DOM element allowed us to assign the task item element to the corresponding task list.
+
 Now all that's left is to append the `draggableElement` to is new parent element, `dropzone` and clear the `dataTransfer` property.
 
 ```js
@@ -295,14 +319,19 @@ Now all that's left is to append the `draggableElement` to is new parent element
   event.dataTransfer.clearData();
 ```
 
-Let's save and refresh our browser and see how our feature looks.
+Let's save and refresh our browser and see how our feature looks. Add a few tasks and drag them around.
+
 > **Asset Needed:** [Gif Drop Effect Jira Issue FSFO-289](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-235)  
+
+Great job! The application is functioning very nicely with our new drag and drop feature. Let's add, commit, and push our work. Even though the app is working well, there are a few tweaks that could add some nice polish. Let's go over a few of these improvements in the next step. 
 
 
 ## Enhance UI with Dragleave Event
-Congratulations on building a drag/drop app. It functions pretty well, but after playing with it a bit, there are some design elements we can improve for a better user experience.
-* Change the CSS to show when a list is being dragged over
-* In dropzoneDragHandler, have students console log event.target and then event.target.closest(".task-list") to show how we can capture the UL element
+Congratulations on completing the drag and drop feature. It functions pretty well, but after playing with it, we found an improvement that would enhance the user experience. It would be nice if the user is able to see where the dragged element can be dropped. Upon the `dragover` or hover event on top of a task list, let's change the border to a dashed line and highlight the background color. 
+
+In order to accomplish this task we will add some CSS properties to the task list element. As we have done several times in this lesson, we will use the `event.target` property to 
+
+* In `dropzoneDragHandler`, have students console log event.target and then event.target.closest(".task-list") to show how we can capture the UL element
 * On the closest element, use setAttribute() to add a dashed border
   * Point out that closest() and setAttribute() can be “chained” and explain how chaining methods works
 * Test in browser and note that the border never goes away
