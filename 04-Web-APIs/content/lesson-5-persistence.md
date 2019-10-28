@@ -19,13 +19,13 @@ Our UI and core Taskinator functionality won't change, but we are adding a great
 The pseudocode steps here are a little different than the previous lessons and may be difficult to organize at first, but let's try our best and think about the best approach to accomplishing this feature:
 
 > **Asset Needed:** Learnosity drag and drop quiz
-> Create new Git branch
-> Save tasks as an array of objects
-> Create function to save and update tasks to localStorage
-> Create function to load tasks from localStorage
-> (Optional Step) Refactor createTaskEl to remove duplicate code from loadTasks
-> Merge branch into develop, merge develop to master
-> Deploy master on Github pages
+> Create a New Git Branch
+> Save Tasks to an Array
+> Save Tasks to localStorage
+> Load Tasks from localStorage
+> Optimize Our Code
+> Finalize Git Process
+> Deploy Our Application
 
 The first part of our lesson is dedicated to getting the localStorage functionality set up and working. During this, however, we will end up creating similar functionality to code we have already written. This will leave our application with some technical debt, and it would be okay to leave the code as-is, but it leaves us a good opportunity to refactor and reuse our already existing functionality.
 
@@ -51,7 +51,7 @@ As we know, this has created the branch and moved us into it, but we can use `gi
 
 Now that we've confirmed we're in the correct branch, let's get started!
 
-## Restructure Task Data
+## Save Tasks to an Array
 
 Currently, all of the data associated with a task is kept with its respective DOM element on the page. This means that if we were to try and save this data to localStorage, we would have to find every task item and pull the important data from it. We cannot simply use a `querySelector()` method to save the entire task item element and save it to localStorage because localStorage can only save data as a string, and DOM elements are difficult to convert to strings.
 
@@ -616,7 +616,7 @@ Lastly, close the corresponding GitHub issue. As this is the last issue we've co
 
 Let's get this app live so we can use it anywhere we go, even on our phones! 
 
-## Deploy
+## Deploy Our Application
 
 The rest of the work to be done is going to all happen in our GitHub repositories. All of our finished code is now in the `develop` branch, all we have to do is get it to the `master` branch and deploy it. 
 
