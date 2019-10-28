@@ -6,13 +6,9 @@ It's important to recognize that Taskinator is already in good shape:
 
 ![Screenshot of Taskinator with a single To Do item](./assets/lesson-3/100-first-screenshot.jpg)
 
-Users can create a list of as many tasks as they want. The downside is that task statuses are limited to "to do." There's currently no way to mark a task as in progress or completed. Users also can't edit a task's name or delete it if they changed their mind.
+Users can create a list of as many tasks as they want. The downside is that task statuses are limited to "to do." There's currently no way to mark a task as in progress or completed. Users also can't edit a task's name or remove the task entirely if they change their mind.
 
-Per the next GitHub issue, there are some valuable features waiting to be added to this app:
-
-![GitHub issue outlines ability to add and delete tasks and update status](./assets/lesson-3/050-github-issue.jpg)
-
-Being able to update or delete a task adds a lot more complexity. This means we'll be diving even deeper into the `event` object and event handlers. We'll also need to revisit the HTML side and learn a few new tricks like `data-*` attributes. The good news is, you've made it this far. You totally got this!
+Being able to update or delete a task adds a lot of value to Taskinator... and a lot of complexity! This means we'll be diving even deeper into the `event` object and event handlers. We'll also need to revisit the HTML side and learn a few new tricks like `data-*` attributes. The good news is, you've made it this far. You totally got this!
 
 ## Preview
 
@@ -64,7 +60,11 @@ We also chose to implement deleting a task before updating a task, because delet
 
 ## Create a Branch
 
-Take a moment to review the GitHub issue again. The expected behavior deals largely with updating tasks to varying degrees, so the name of the branch can be something similar.
+Take a moment to review the GitHub issue that corresponds to these features:
+
+![GitHub issue outlines ability to add and delete tasks and update status](./assets/lesson-3/050-github-issue.jpg)
+
+The expected behavior deals largely with updating tasks to varying degrees, so the name of the branch can be something similar.
 
 Let's make that feature branch now:
 
@@ -106,7 +106,11 @@ Save the `index.html` file and refresh the browser. The page should now look lik
 
 As a quick CSS refresher, use the Chrome DevTools to inspect the columns and verify which CSS properties are being used. You'll notice that the `<main>` element has the declaration `display: flex`, allowing it to control the distribution of its content. In turn, each `<section>` element has a `flex: 1` declaration to specify that they should share space evenly.
 
-If you haven't already, try toggling the device toolbar to see what the app looks like on a mobile screen:
+If you haven't already, try toggling the device toolbar from the DevTools by clicking on the following icon:
+
+![An icon of two mobile devices standing upright](./assets/lesson-3/350-device-toolbar.jpg)
+
+The browser should then mimic what the webpage looks like on a mobile device:
 
 ![The three columns stack on top of each other](./assets/lesson-3/400-mobile-flex.jpg)
 
@@ -146,7 +150,7 @@ At the top of `script.js`, declare a new variable:
 var taskIdCounter = 0;
 ```
 
-In the `createTaskEl()` function, we'll use this `taskIdCounter` variable to assign an ID to the current task being created. How would we attach the ID to an HTML element, though? There's always the `id` attribute, but we should be mindful that this attribute already serves a different purpose. It wouldn't be appropriate to use it for a counter value.
+In the `createTaskEl()` function, we'll use this `taskIdCounter` variable to assign an ID to the current task being created. How would we attach the ID to an HTML element, though? There's always the `id` attribute, but we should be mindful that this attribute already serves a different purpose. The browser uses `id` to keep track of elements for CSS selectors, links, event listeners, etc. It wouldn't be appropriate to use it for a counter value.
 
 That's where `data-*` attributes come in. Also known as **custom data attributes**, these allow developers to store extra information on an HTML element without conflicting with any of the built-in attributes. For example:
 
@@ -261,7 +265,7 @@ In this example, we ran our function, passing in the number 5 to act as a fake I
 
 > **Pro Tip:** Any function that you create in the global scope can be accessed by the DevTools console. This is a great way to test if functions are working rather than trying to find a place in your code to call it.
 
-The last thing we're missing in `createTaskActions()` is the dropdown, or to be exact, the `<select>` element. After the delete button is appeneded, but before the `return` statement, add the following block of code:
+The last thing we're missing in `createTaskActions()` is the dropdown, or to be exact, the `<select>` element. After the delete button is appended, but before the `return` statement, add the following block of code:
 
 ```js
 var statusSelectEl = document.createElement("select");
@@ -274,7 +278,7 @@ actionContainerEl.appendChild(statusSelectEl);
 
 This will add an empty `<select>` element to the `<div>` container, but looking at our HTML file again, we know that `<select>` elements are made up of child `<option>` elements. We'll need to add three options to this dropdown: To Do, In Progress, and Completed. We could create and add these one after the other, but we'd end up with some very similar-looking code.
 
-> **Pause:** What JavaScript feature could you use to repeat a block of code a certain number of times?
+> **Pause:** What JavaScript feature could you use to execute a block of code a certain number of times?
 >
 > **Answer:** `for` loops
 
@@ -340,10 +344,11 @@ If not, check the DevTools console for errors or use the script debugger to veri
 Now we're ready to add interactivity to the buttons we just created, and we'll start with the Delete button. This won't be as straightforward as adding an event listener to the `formEl`. In an ideal world, we could do something like this:
 
 ```js
-document.querySelector(".delete-btn").addEventListener("click", myFunction);
+var allButtonEls = document.querySelector(".delete-btn");
+allButtonEls.addEventListener("click", myFunction);
 ```
 
-However, the Delete buttons don't exist when the page first loads, so this would give us an error. Also, event listeners can't be attached to multiple elements like that. It would only add the click listener on the first `.delete-btn` element.
+However, the Delete buttons don't exist when the page first loads, so this would give us an error. Also, `document.querySelector()` returns the first element it finds on the page, meaning only the first Delete button would work.
 
 One solution would be to add individual event listeners to the Delete buttons as we make them:
 
@@ -356,7 +361,7 @@ This may make our code harder to follow, though, and the number of event listene
 
 Fortunately, with **event delegation**, we can set up the click event listener on a parent element and then, through that single event listener, determine which child elements were clicked.
 
-> **Deep Dive:** Clicks in JavaScript are a funny thing. If an element that has parent elements is clicked, the click event **bubbles** outwards. Consider the following HTML layout:
+> **Deep Dive:** Clicks in JavaScript are a funny thing. If an element that has parent elements is clicked, the click event **bubbles**, or travels, upwards to its parents. Consider the following HTML layout:
 >
 > ![A button is inside a blue container, which is inside a yellow container](./assets/lesson-3/1000-click-demo.jpg)
 >
@@ -607,7 +612,7 @@ This will add a new attribute that users won't see but that we can use later on 
 
 ![DevTools highlight the form element having a data-task-id attribute](./assets/lesson-3/1700-form-id.jpg)
 
-Congratulations, we're halfway there! We haven't finished the ability to edit a task, of course, but this is a good milestone that's worth committing with Git.
+Congratulations, we're halfway through this new feature! We haven't finished the ability to edit a task, of course, but this is a good milestone that's worth committing with Git.
 
 ## Save Edited Task
 
