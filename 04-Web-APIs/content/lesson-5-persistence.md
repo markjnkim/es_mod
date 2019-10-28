@@ -674,7 +674,26 @@ Let's wrap up and reflect on all of the amazing work we've completed.
 
 Congratulations on creating our first personal project! Projects like this are crucial for our growth as developers, as they provide a low-stakes environment for us to learn new skills and build our portfolio. Potential employers like to see this kind of work on portfolios as well, as it shows we actually care about growing our skillset and don't just write code for a paycheck.
 
-In this last lesson, we added a key feature to Taskinator and leveraged localStorage to save our tasks to our browser. Let's review some of the things we learned:
+In this last lesson, we added a key feature to Taskinator and leveraged localStorage to save our tasks to our browser, but throughout this module, we've learned so much more. Let's review some of the things we learned:
+
+- We were formally introduced to the DOM and how we can access it using methods such as:
+  - `addEventListener()`
+  - `querySelector()`
+  - `createElement()`
+  - `setAttribute()`
+  - `getAttribute()`
+
+- We learned how to add interactivity with our HTML by adding browser event listeners such as `click`, `submit`, and `change`
+
+- We learned how to handle events in JavaScript using callback functions
+
+- We got our hands dirty with the `event` object
+
+- We used the DOM to both read content from the HTML page and create new content to be added or edited on the page
+
+- We learned how to use HTML5 data attributes to help us identify our DOM elements so we can interact with them
+
+- We were introduced to the Drag and Drop Web API and how to use it
 
 - We revisited the concept of using an array of objects to store our task items in an organized list
 
@@ -685,15 +704,15 @@ In this last lesson, we added a key feature to Taskinator and leveraged localSto
   - `forEach()` for iterating through an array and executing a function for each element in it
   - `filter()` for creating a new array based on a condition we set
 
-- We revisted using localStorage to save data, introducing `JSON.stringify()` and `JSON.parse()` to serialize and de-serialize our data
+- We revisited using localStorage to save data, introducing `JSON.stringify()` and `JSON.parse()` to serialize and de-serialize our data
 
-- We spotted technical debt and refactored our code as needed
+- Throughout the whole project, we spotted technical debt and refactored our code as needed
 
 - Lastly, we used GitHub to make a pull request and deploy our application to the internet
 
-Everything we learned in this lesson, and throughout this entire project, play important roles in any front end application build. The new array methods we learned will be used more often than we can imagine and pretty soon, we'll be getting our hands dirty with a lot more JSON.
+Everything we learned throughout this entire project play important roles in any front end project. The new array methods we learned will be used more often than we can imagine and pretty soon, we'll be getting our hands dirty with a lot more JSON. We were also formally introduced to the DOM, something that is used in all modern front end web development. All of its methods and properties that we learned will play heavily into the upcoming modules and projects. 
 
-We were also formally introduced to the DOM, something that is unavoidable in all modern front end web development. All of its methods and properties that we learned will play heavily into the upcoming modulues
+We've learned a lot about what tools are built into web browsers that are at our disposal, but there are a lot of tools out there that take some of the more tedious tasks of web development and simplify them. These tools are built by other developers and are put out into the world for us to use, and we're going to do just that in the next module!
 
 
 
