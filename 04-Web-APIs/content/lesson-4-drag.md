@@ -167,7 +167,8 @@ var dropzoneDragHandler = function(event) {
 ```
 Save and refresh the browser to see the following:
 ![Console Dragover Event Target](./assets/lesson-4/1000-console-dragover.png)
-As we can see in the console, the `dragover` event continuously fires whenever an element is dragged over another element. What is particularly interesting is that the `target` property of the `dragover` event is the element that is being dragged over, not the element being dragged. What is also important is the we are able to drag the element over different elements on the document such as the parent elements of our task lists such as the `<main>` and `<section>` elements. This isn't actually a good thing since we would like our task items to drop into the task lists and not elsewhere on the page. But for now, let's focus on making our element droppable, then we can fine tune our drop zone.
+As we can see in the console, the `dragover` event continuously fires whenever an element is dragged over another element. In the course of a few seconds, the event handler is executed hundreds of times. This is quite different than the other events we have used that had a set beginning such as the `click` or `dragstart` events. Also notice 
+that the `target` property of the `dragover` event is the element that is being dragged over, not the element being dragged. This is a big difference from the `dragstart` event, which tracked the dragged element. What is also important is the we are able to drag the element over different elements on the document such as the parent elements of our task lists such as the `<main>` and `<section>` elements. This isn't actually a good thing since we would like our task items to drop into the task lists and not elsewhere on the page. But for now, let's focus on making our element droppable, then we can fine tune our drop zone.
 
 If we try to drop the task item now we see that upon the drop, the task item simply bounces back to its original list. This is because of the default behavior of this event which prevents elements being dropped onto one another. Since this is the behavior we would like, we need to disable or prevent this action.
 > **Pause:** Can you remember the statement that prevented the default behavior?
@@ -186,7 +187,7 @@ In contrast, the `dragover` event's `target` property is populated with the elem
 var dropzoneDragHandler = function(event) {
   if (event.target.closest(".task-list") !== null) {
     event.preventDefault();
-    console.log("Dragover Event Target:", event.target);
+    console.dir((event.target.closest(".task-list"));
   }
 };
 ```
@@ -195,9 +196,30 @@ Using the `target` property, we are using a conditional statement that limits th
 ```js
 targetElement.closest(selectors);
 ```
-The `closest` is a method that queries the DOM originating from the `targetElement` and will traverse up from itself up through its parent elements up to the document root, which is the documents highest level, until it finds the element that matches the selector string. The method will return itself or the matching ancestor. If no such element exists, it returns null.
+Similar to the `querySelector()` method, the `closest()` method will originate a search from the `targetElement` to the rest of the DOM for an element that contains the selector. If the element with the selector is found, the element is returned as a DOM element, but if not found will return null. Here are the major differences:
+* The `querySelector()` method search down from the `targetElement`'s child elements
+* The `closest()` method searches up through the `targetElement` parent elements until is reaches the document root which is the highest level of the DOM
+* The `closest()` method searches the targetElement as well as the ancestor elements where the `querySelector()` only checks the child elements
 
-In the conditional statement for the `dropzoneDragHandler` function, we are focussing the drop zone or the droppable area as long as the `target` property is a descendant of the task list element or the task list element itself. If the `target` doesn't have a task list element as an ancestor, the conditional statement will `closest()` method will return null, which resolves our condition to false thus keeping the default behavior which doesn't allow a drop to occur.
+Let's verify if the code is working by saving our file and refreshing the browser. Now let's create a task and initiate the `dragover` event.
+
+In the conditional statement for the `dropzoneDragHandler()` function, we are limiting the droppable area to be the task list or a child element of the task list. If the `target` property isn't a task list element or have an ancestor that is a task list, the conditional statement will return null, which resolves our condition to false thus keeping the default behavior which doesn't allow a drop to occur.
+
+Let's simplify our conditional statement one step further by typing the following and replacing our original statement and removing the `console.log()` and creating a reference for the task list:
+```js
+var dropzoneDragHandler = function(event) {
+  var taskListEl = event.target.closest(".task-list");
+  if (taskListEl) {
+    event.preventDefault();
+    console.dir(taskListEl);
+  }
+};
+```
+> **Pro Tip:** The reason to create a reference here is a performative choice. Each time a `querySelector()` or `closet()` method is executed, the DOM will be traversed or searched. If the same search is needed more than once, it is best practice to store a reference to the element in a variable and avoid multiple DOM traversals for the same element.
+
+Let's save and refresh then add a task and drag it to a task list. We should see the following:
+![Console Task List Element](./assets/lesson-4/1050-console-task-list.png)
+From the console, we can see that the `taskListEl` is correctly returning a task list element object. If the task item is dragged to other parts of the `document`, as we tested previously in the `<header>` or `<main>` due to our conditional statement which limited drop zone, these elements are ignored and not stored in the `taskListEl`. Now lets remove the `console.dir()` to clean up our console window.
 
 Excellent work, now let's move onto the next step and finish the `drop`.
 
@@ -327,23 +349,53 @@ Great job! The application is functioning very nicely with our new drag and drop
 
 
 ## Enhance UI with Dragleave Event
-Congratulations on completing the drag and drop feature. It functions pretty well, but after playing with it, we found an improvement that would enhance the user experience. It would be nice if the user is able to see where the dragged element can be dropped. Upon the `dragover` or hover event on top of a task list, let's change the border to a dashed line and highlight the background color. 
+Congratulations on completing the drag and drop feature. It functions pretty well, but after playing with it, we found an improvement that would enhance the user experience. It would be nice if the user is able to see where the dragged element can be dropped. Let's change the border to a dashed line and highlight the background color upon this event. 
 
-In order to accomplish this task we will add some CSS properties to the task list element. As we have done several times in this lesson, we will use the `event.target` property to 
+In order to accomplish this task we will add some CSS properties to the task list element. As we have done several times in this lesson, we will use the `event.target` property in combination with the `closest()` method to find the task list element or the `<ul>`. Can you guess which event we would need to listen for? The `dragstart`, `dragover`, or the `drop`?
+If you guessed the `dragover` event you are correct. 
+  * We need access to the element being dragged over in the `event.target` property
+  * We would like the style property to change just as the dragged element is being dragged over the task list element
 
-* In `dropzoneDragHandler`, have students console log event.target and then event.target.closest(".task-list") to show how we can capture the UL element
-* On the closest element, use setAttribute() to add a dashed border
-  * Point out that closest() and setAttribute() can be “chained” and explain how chaining methods works
-* Test in browser and note that the border never goes away
-* Pose question: when would we remove the border?
-  * We’ll need a new event listener!
-* Add “dragleave” listener that calls dragLeaveHandler
-* Create dragLeaveHandler function
-  * Use closest() again to find UL element
-  * Use removeAttribute() to clear style
-* Point out that “leave” doesn’t fire if “drop” occurred, so we’ll need to remove the style attribute in dropTaskHandler as well
-  * Use removeAttribute method to get rid of style for the dropzone element
+In the next step, since we know we will be dealing with the `dragover` event listener, we will be adding our style changes to the `dropzoneDragHandler`. Can you think about which method we will use to make changes to our task list?
 
+We will be using the `setAttribute()` method to add our style properties to the selected task list. Let's add this expression to our `dropzoneDragHandler` inside the conditional statement beneath the `event.preventDefault();`. 
+```js
+dropZoneEl.setAttribute("style", "background: rgba(68, 233, 255, 0.7); border-style: dashed;");
+```
+Let's save and refresh the browser to verify our code so we should see something similar to this:
+![Console Style Dragover](./assets/lesson-4/1600-console-style-dragover.png)
+As you can see, on the `dragover` event, the task list elements do change and the style properties are added correctly to the task list element that was hovered over with the task item. However if we continue to drag our task item over other task lists we can see the style properties remain. Even if the task item is successfully dropped to another task list, the `style` attribute we added to the task list remains highlighted and dashed. If the point of the extra styles were to indicate to the user where the task item could be dropped, then the styles should only appear when a task list is actively being hovered over by the task item. Once the task item is dropped or has moved to another task list, these style properties should be removed. Can you find a method that can remove attributes? Let's check Google to see if there are some options for us to choose.
+A good search term would be: remove attribute javascript.
+Looking for our JavaScript source MDN web docs, we will find the `removeAttribute()` method.
+
+The `removeAttribute()` method can remove the `style` attribute we added in the `dragover` event. 
+Let's add this to our `drop` event because we know on a drop, these style properties should disappear.
+Add this expression near the bottom of the `dropTaskHandler()` function above the append operation so the style removal can happen just before the task item is attached to the new task list.
+Save and refresh the browser to see if the `style` attribute was removed from the task list element on the `drop` event.
+![Browser Drop Removes Style Attribute](./assets/lesson-4/1700-browser-drop-remove-style.png)
+Congrats, we have successfully removed the style attribute on the `drop` event. Now we only need to remove the `style` attribute if the task item is dragged to another task list. It make sense if the style is indicating where the task item can be dropped, that only one task list should be highlighted at the time. Doesn't appear we can use any of the event listeners we currently have in our app since we are looking for a specific condition when the element is leaving the drop zone, in our case the task list. Luckily we have an event aptly named `dragleave`. We will need this event listener on each of the three task lists. Can you figure out how to do this without adding three listeners? If you said event delegation you are correct! Similar to our other event listeners, we will add the `dragleave` event listener to the `pageContentEl` element, the parent element to our three task lists.
+Let's add this statement to the bottom of our `script.js` file and include the callback function, `dragLeaveHandler()` to execute on the event being triggered.
+```js
+pageContentEl.addEventListener("dragleave", dragLeaveHandler);
+```
+Now let's define the `dragLeaveHandler()` by adding the following function expression above the event listeners in the event handler section of our `script.js` file.
+```js
+var dragLeaveHandler = function(event) {
+  console.dir(event.target);
+}
+```
+Save and refresh the browser then add a task and drag it over a task list to see the results. 
+
+![Browser DragLeave Target Element](./assets/lesson-4/1800-browser-dragleave-event-target.png)
+
+Let's explain the different DOM elements being displayed in the console. The `dragleave` target property is storing every element that the dragged task item is being dragged over. Let's remove this `console.dir()` then use the same conditional statement we used previously in the `dropzoneTaskHandler()` to narrow our `dragleaveTaskHandler()` to execute only when a dragged element leaves a task list or children of the task list, not every element on the page. To do this let's first make a reference to the `target` property of the `dragleave` event which is the task list that is being dragged over. Then add the conditional to check if this condition is true, a valid element is being returned by the `closest()` method and not null. 
+> **Rewind:** If `closest()` returns null, then the selector was not found in the target element or an ancestor element.
+```js
+var taskListEl = event.target.closest(".task-list");
+if (taskListEl) {
+  taskListEl.removeAttribute("style");
+}
+```
 
 ## Finalize Git Process 
 Merge our `feature/drag` branch into the `develop` branch by adding, commiting, and push our feature branch to our remote feature branch.
