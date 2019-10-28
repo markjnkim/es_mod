@@ -115,20 +115,17 @@ var dragTaskHandler = function(event) {
 ```
 Let's verify by saving our file and refreshing the browser. Now let's add a task and drag it. Then add another task and drag that one. We should get the following in our console:
 ![Console Task ID](./assets/lesson-4/800-console-task-id.png)
-Notice that the task id increments for every new task that is added. That way each task id is unique to the task item that able to be used as the identifying attribute value in the DOM.
-
-<!-- 
-Let's make sure that we are only setting our setData() method to task items with a conditional  -->
+Notice that the task id increments for every new task that is added. That way each task id is unique to the task item.
  
-It is critical to grab the `taskId` at the `dragstart` event because this is the one time in the operation with access to the dragged element.
+Remember this is a critical step because this is the one time in the operation with access to the dragged element.
 
 Now let's add the following expression directly following our `taskId` expression in the `dragTaskHandler()` function.
 ```js
 event.dataTransfer.setData("text/plain", taskId);
 ```
  
-To store the `taskId` in the `dataTransfer` property we need to use the `setData()` method. Similar to how we used localStorage, we need to use methods in order to retrieve and store our data. These are called getter and setter methods. Notice how the setData() method receives two arguments, the first being the format of the data to be stored.
-If we would like to verify if our `dataTransfer` property has correctly stored our data attribute, we will need to use the `getData()` method. Add the following expressions after the `setData()` statement in the `dragTaskHandler()` function. 
+To store the `taskId` in the `dataTransfer` property we need to use the `setData()` method. Similar to how we used `localStorage`, we need to use methods in order to retrieve and store our data. These are called getter and setter methods. Notice how the setData() method receives two arguments, the first being the format of the data to be stored.
+To verify our `dataTransfer` property stored the `data-task-id` attribute, we will need to use the `getData()` method. Add the following expressions after the `setData()` statement in the `dragTaskHandler()` function. 
 
 ```js
 var getId = event.dataTransfer.getData("text/plain");
@@ -136,6 +133,7 @@ console.log("getId:", getId, typeof getId);
 ```
 Save the file and refresh the browser to view the following in the console:
 ![Console of the dataTransfer](./assets/lesson-4/900-console-getData.png)
+Notice how we place multiple arguments in the `console.log` function. We were able to confirm the task id is stored in the `dataTransfer` property and it is a string.
 
 > **Deep Dive:** Getter and Setters, what are they? [Let's look at the MDN docs for a detailed discussion.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
 
@@ -147,16 +145,14 @@ So now that we are able to successfully store the `data-task-id` in the `dataTra
 
 The `dataTransfer` property was originally used on the desktop application for file transfer which is how most of us are familiar with the drag and drop utility. The `setData()` method requires the format argument which we can use to ensure only a certain type of file is able to be transferred and dropped for instance image files for a profile picture or an photo album cover download.
 
-Now that we are able to grab our `data-task-id` and place it into the `DragEvent` object, we will use this unique identifier to find the element in the DOM using our `querySelector()` method. But how will the application know where we wish to place or drop this element? In the next step we will answer this question so let's go ahead and answer this now. 
+Now that we are able to grab our `data-task-id` and place it into the `DragEvent` object, we will use this unique identifier to find the element in the DOM using our `querySelector()` method. But how will the application know where we wish to place or drop this element? Let's found out how in the next step.
 
 ## Define the Drop Zone
-Although this API is called the Drag and Drop, there are actually quite a few events that are taking place that we can use to fire off functions if we so choose. One of them is called the `dragover` event. This event is triggered when an element is hovered over another element. In the `dragover` event handler, we will be defining our drop zone or where the draggable element can be dropped. 
+Although this API is called the Drag and Drop, there are actually quite a few events that are taking place that we can use to fire off functions at critical point in the process. One of them is called the `dragover` event. This event is triggered when an element is hovered over another element. In the `dragover` event handler, we will be defining our drop zone or where the draggable element can be dropped. 
 
-In our Taskinator app, we want to be able the task items to drop onto one of the three task lists. We actually want to restrict the ability to drop on just these areas and not anywhere else in the document such as the header, footer, or outside the task lists in the `<main>` element. First let's add the event listener to all our task items for the `dragover` event. 
-> **Pause:** Can you think about the different methods to achieve this goal and the advantages of each?
->
-> **Answer:** Just as we did with the previous step when adding the `dragstart` event, we would like to delegate the event listener to the parent element of the three lists which would be the `pageContentEl` DOM element.
-We could've also used the `querySelectorAll()` method on the `.task-list` selector which would've given us an array of our three task list object elements. Then we could've added an event listener to each task list, however, this approach would've lead to a performative cost increasing the page load time and therefore is not the best practice approach.
+In our Taskinator app, we want to be able the task items to drop onto one of the three task lists. We actually want to restrict the ability to drop on just these areas and not anywhere else in the document such as the header, footer, or outside the task lists in the `<main>` element. First let's add the event listener to the the task lists and the task items for the `dragover` event. 
+<!-- Just as we did with the previous step when adding the `dragstart` event, we would like to delegate the event listener to the parent element of the three lists which would be the `pageContentEl` DOM element. -->
+<!-- We could've also used the `querySelectorAll()` method on the `.task-list` selector which would've given us an array of our three task list object elements. Then we could've added an event listener to each task list, however, this approach would've lead to a performative cost increasing the page load time and therefore is not the best practice approach. -->
 
 Let's add an event listener for the `dragover` event to the parent element as we did for the `dragstart` event. Add the following expression to the bottom of the `script.js` file.
 ```js
@@ -172,13 +168,12 @@ var dropzoneDragHandler = function(event) {
   console.log("Dragover Event Target:", event.target);
 };
 ```
-Save and refresh the browser to see the following:
+Save then refresh the browser and add a task to drag to see the following:
 ![Console Dragover Event Target](./assets/lesson-4/1000-console-dragover.png)
-As we can see in the console, the `dragover` event continuously fires whenever an element is dragged over another element. In the course of a few seconds, the event handler is executed hundreds of times. This is quite different than the other events we have used that had a set beginning such as the `click` or `dragstart` events. Also notice 
-that the `target` property of the `dragover` event is the element that is being dragged over, not the element being dragged. This is a big difference from the `dragstart` event, which tracked the dragged element. What is also important is the we are able to drag the element over different elements on the document such as the parent elements of our task lists such as the `<main>` and `<section>` elements. This isn't actually a good thing since we would like our task items to drop into the task lists and not elsewhere on the page. But for now, let's focus on making our element droppable, then we can fine tune our drop zone.
+As we can see in the console, the `dragover` event continuously fires whenever an element is dragged over another element. In the course of a few seconds, the event handler is executed hundreds of times. This is quite different than the other events we have used that had a set beginning such as the `click` or `dragstart` events. Also notice that the `target` property of the `dragover` event is the element that is being dragged over, not the element being dragged. This is a big difference from the `dragstart` event, which tracked the dragged element. What is also important is the we are able to drag the element over different elements on the document such as the parent elements of our task lists such as the `<main>` and `<section>` elements. This isn't actually a good thing since we would like our task items to drop into the task lists and not elsewhere on the page. But for now, let's focus on making our element droppable, then we can fine tune our drop zone.
 
 If we try to drop the task item now we see that upon the drop, the task item simply bounces back to its original list. This is because of the default behavior of this event which prevents elements being dropped onto one another. Since this is the behavior we would like, we need to disable or prevent this action.
-> **Pause:** Can you remember the statement that prevented the default behavior?
+> **Pause:** Can you remember the statement that prevented default behavior?
 >
 > **Answer:** `preventDefault()` is the method we used to disable the default action just as we did when submitting a form to prevent a page refresh.
 
@@ -186,10 +181,10 @@ Let's add this statement to the `dropzoneEventHandler()` to allow dropping and r
 ```js
 event.preventDefault();
 ```
-Save and refresh the browser to reveal that we are still not able to drop our element. What the `dragover` event did was allow our element to be dropped however we are still missing something. Ah yes, the all important `drop` event. This is the final piece that will enable the drag and drop operation. But before we get to our `drop` event, let's make a quick distinction between the `target` property of the `dragover` and `dragstart` events.
+Save and refresh the browser to reveal that we are still not able to drop our element. What the `dragover` event did was allow our element to be dropped however we are still missing something. Ah yes, the all important `drop` event. This is the final piece that will enable the drag and drop operation. But before we get to our `drop` event, let's make a quick redress the distinction between the `target` property of the `dragover` and `dragstart` events.
 
 The `dragstart` event's `target` was the element being dragged, hence we were able to save our `data-task-id` value into the `dataTransfer` object to allow our app to "remember" what element was being dragged.
-In contrast, the `dragover` event's `target` property is populated with the element that is being dragged over, so the destination element where the element will eventually be dropped. In our case the task list. Now let's fine tune our drop zone by only preventing the default behavior which allows us to drop the element on another element. Let's focus our drop zone to only be on our task lists. We can identify these with the class name `task-list`:
+In contrast, the `dragover` event's `target` property is populated with the element that is being dragged over, so the destination element where the element may be dropped. In our case we want to limit this droppable area to a task list. We can accomplish this by only preventing the default behavior on just the task lists. We can identify the droppable area with the class name `task-list`:
 ```js
 var dropzoneDragHandler = function(event) {
   if (event.target.closest(".task-list") !== null) {
