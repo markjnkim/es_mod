@@ -44,6 +44,9 @@ Explore interactive lists of Bootstrap classes:
 * Check out this practical guide for developers to learn web typography.
     * [Typography for Developers](https://css-tricks.com/typography-for-developers/)
 
+* Typeplate is a “typographic starter kit” that defines proper markup with extensible styling for common typographic patterns. Think about adding it to your project.
+    *[Typeplate](http://typeplate.com/)
+
 * Font Squirrel is a great resource for free fonts, identifying fonts, and generating web fonts.
     * [Font Squirrel](https://www.fontsquirrel.com/)
 
