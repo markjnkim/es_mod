@@ -8,7 +8,7 @@ Taskinator is really starting to take shape! We not only have our HTML in place,
 
 While this is a great start, our ability to add new tasks to a task list isn't fully realized just yet. What good is a task list that keeps adding the same preset task content? In this lesson, we'll be adding functionality to our application that will allow us to create our own custom tasks by filling out an HTML form.
 
-The last lesson was about using browser events to dynamically create new HTML content and append it to the page. We'll add to that in this lesson by adding the ability to read data entered into HTML form elements and using that data to create new tasks. By the end of this lesson, we'll have our MVP for this application!
+The last lesson was about using browser events to dynamically create new HTML content and append it to the page. We'll add to that in this lesson by adding the ability to read data entered into HTML form elements and using that data to create new tasks.
 
 ## Preview 
 
@@ -402,7 +402,9 @@ We can now create a new task with both its name and type values we submitted thr
 
 We still created the `<li>` element to hold the whole task, but instead of writing the task's content right to it, we created a `<div>` to hold the content. Once we were done setting the data into the `<div>`, we appended it to the `<li>` and lastly, we appended the entire `<li>` to the page. 
 
-Notice how we are able to add a child HTML element to another HTML element in JavaScript before it even got to the page? We append the `taskInfoEl` to the `listItemEl`, meaning all of the content of `taskInfoEl` is set inside of `listItemEl` as a child HTML element before `listItemEl` is added to the page.
+Notice how we are able to add a child HTML element to another HTML element in JavaScript before it even got to the page? We append the `taskInfoEl` to the `listItemEl`, meaning all of the content of `taskInfoEl` is set inside of `listItemEl` as a child HTML element before `listItemEl` is added to the page. This can be visualized in the console if we use `console.dir()` to print out the data in `listItemEl`, as this image shows the nested element in the `children` property:
+
+![Nested DOM elements](assets/lesson-2/1101-nested-elements.jpg)
 
 That's not all, though, we also used a new DOM element property called `innerHTML`. It works a lot like the `textContent` property, but with one big difference. The `textContent` property only accepts text content values, if it saw an HTML tag written in as a value, it would literally display that HTML tag and not interpret it as the HTML tag.
 
@@ -414,13 +416,17 @@ To see for ourselves, we could change `innerHTML` to `textContent` for a second 
 
 Obviously that's not what we want, so `innerHTML` is the better fit here. Be sure to change it back to `innerHTML` and we can move on!
 
+> **Important:** We didn't have to use the `innerHTML` property here, but rather created HTML elements for the title and type separately and then appended both to the container element. While both work for us, the big difference is using `innerHTML` lets us create less variables but at the cost of readable code.
+>
+> Remember there is usually more than one way to complete a task, it's up to us to decide which way to go.
+
 ### When to Refactor
 
 Right now, our `createTaskHandler()` function is doing a good amount of work for us. It reads the form elements on submission, then it creates quite a bit of HTML content and adds it to the page.
 
 We can leave it like this, as we know it works for our needs at the moment, but it may lead to a headache down the line when we start to add more features to our application. This is a good time to maybe separate this into two different functions:
 
-- One to handle the form submission, and get the form values, and pass those values to another function as arguments
+- One to handle the form submission, get the form values, and pass those values to another function as arguments
 
 - One to accept the form values as arguments and use them to create the new task item's HTML
 
@@ -460,7 +466,7 @@ We'll start by updating the name of our handler function. In `script.js` change 
 
 - In the `addEventListener()` method at the bottom of the file
 
-If the name was updated in both places, the application should still work, but it's always best to test it before we move on just in case. Save `script.js` and test the code by submitting a form. 
+If the name was updated in both places, the application should still work, but it's always best to test it before we move on just in case. Save `script.js` and test the code by submitting the form. 
 
 If it still works, great! If it doesn't, double check that nothing was spelled incorrectly. If it was working and the only thing that changed was renaming the handler function, then there may be a typo or misspelling somewhere.
 
@@ -474,9 +480,9 @@ var createTaskEl = function(taskDataObj) {
 }
 ```
 
-We just created a new function called `createTaskEl` and as we may be able to guess by the name, it will hold the code that creates a new task HTML element. One thing to note though is if we're going to provide this function with both the task's title and type, why is there only one argument called `taskDataObj`?
+We just created a new function called `createTaskEl` and as we may be able to guess by the name, it will hold the code that creates a new task HTML element. One thing to note though is if we're going to provide this function with both the task's title and type, why is there only one parameter called `taskDataObj`?
 
-We could set up the function to take in two arguments, one for each piece of data. That may limit us in the future, though, as we may end up using more information with a task over time. So instead of having to add another argument to the function every time we want to use more data, we could simply set up the function to accept an object as an argument.
+We could set up the function to have two parameters, one for each piece of data. That may limit us in the future, though, as we may end up using more information with a task over time. So instead of having to add another parameter to the function every time we want to use more data, we could simply set up the function to accept an object as an argument.
 
 This way when we send the task's name and type to the `createTaskEl()` function, it'll look like this:
 
@@ -515,17 +521,17 @@ Unfortunately we cannot test our code just yet, as we haven't updated `taskFormH
 ```js
 var taskFormHandler = function(event) {
   event.preventDefault();
-  var taskNameInput = document.querySelector("[name='task-name']").value;
-  var taskTypeInput = document.querySelector("[name='task-type']").value;
+  var taskNameInput = document.querySelector("input[name='task-name']").value;
+  var taskTypeInput = document.querySelector("input[name='task-type']").value;
 
   // package up data as an object
-  var taskDataObj = {
+  var taskFormData = {
     name: taskNameInput,
     type: taskTypeInput
   };
 
   // send it as an argument to createTaskEl
-  createTaskEl(taskDataObj);
+  createTaskEl(taskFormData);
 }
 ```
 
@@ -544,7 +550,7 @@ The error states that `taskNameInput` is not defined, how could this be if it wa
 Let's fix our problem and update one line in our `createTaskEl()` function to look like this instead:
 
 ```js
-taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskName + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
+taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
 ```
 
 Finally, let's save `script.js` and test out a task submission in the browser. It should look like this image:
@@ -555,7 +561,7 @@ If it looks exactly the same as it did before the refactor, great! Remember we d
 
 Again, refactoring code is something that takes time to learn. It feels unnatural at first, who wants to second guess code they just wrote and got working? Over time, it won't feel like second guessing, but rather like a personal challenge to be a better developer.
 
-Our Taskinator application is starting to take shape, but again, we have to ask ourselves "how can this break?" We'll tackle that in the next and final step of this lesson, but first, let's take a minute to celebrate us future proofing some of our code. It's not an easy task to perform or respect so early on in our careers as developers, but we've really set up our codebase to be scalable later on.
+Our Taskinator application is starting to take shape, but as cautious developers, we have to ask ourselves "how can this break?" We'll tackle that in the next and final step of this lesson, but first, let's take a minute to celebrate us future proofing some of our code by separating functionality into two functions. It's not an easy task to perform or respect so early on in our careers as developers, but we've really set up our code to be reusable for any future features.
 
 Don't forget to add, commit, and push the code to GitHub!
 
@@ -576,12 +582,16 @@ That is a little bit more involved to test for, but luckily we don't have to her
 Let's do this right now and update `taskFormHandler()` to have this code right before we create the `taskDataObj` variable:
 
 ```js
-// check if inputs are empty (validate)
+// check if input values are empty strings
 if (!taskNameInput || !taskTypeInput) {
   alert("You need to fill out the task form!");
   return false;
 }
 ```
+
+> **Rewind:** When used in a condition, empty strings and the number 0 are evaluated as "falsy" values. When we use the syntax `!taskNameInput`, we are checking to see if the `taskNameInput` variable is empty by asking if it's a falsy value. 
+>
+>That's what the "not" operator `!` is doing here. Since the default is to check for a true value, the `!` is used to check for the opposite (false) value.
 
 If we save our `script.js` file and try to submit a task with an empty field now, we'll receive an alert that tells us we need to fill out the form and then the function will stop when it reads `return false`. But if we include data in the form fields, our `taskFormHandler()` will work as intended and send the data to `createTaskEl()` to be printed to the page.
 
@@ -596,24 +606,24 @@ We are seeing if either `taskNameInput` _or_ `taskTitleInput` are empty. If they
 That seems confusing at first, but think of it this way, we are checking to see if a `false` value is in fact `false`, which would result in the condition being `true`. Let's explore a couple of examples of this to remind ourselves before moving on:
 
 ```js
-// this will run because true is true
 if (true) {
+// this will run because true is true
   console.log("Is true true? Yes.");
 }
 
-// this will not run because false is not true
 if (false) {
+// this will not run because false is not true
   console.log("Is false true? No.");
 }
 
-// this will run because at least one of the conditions is true
 if (3 === 10 || "a" === "a") {
+// this will run because at least one of the conditions is true
   console.log("Does 3 equal 10? No.");
   console.log("Does the letter 'a' equal the letter 'a'? Yes.");
 }
 
-// this will not run because both conditions have to be true to run
 if (3 === 10 && "a" === "a") {
+// this will not run because both conditions have to be true to run
   console.log("Does 3 equal 10? No.");
   console.log("Does the letter 'a' equal the letter 'a'? Yes.");
 }
@@ -637,7 +647,7 @@ Save `script.js` and try to submit a task. We can see that the form resets itsel
 
 ![The form resetting its values on submission](assets/lesson-2/1500-form-reset.gif)
 
-The DOM element interface the browser provides us has the `reset()` method, which is designed specifically for this task. We could do it in other ways, namely by targeting each form element and resetting their values manually, but that could be cumbersome if it was a larger form to reset.
+The DOM element interface the browser provides us has the `reset()` method, which is designed specifically for the `<form>` element and will not work on any other element. We could do it in other ways, namely by targeting each form element and resetting their values manually, but that could be cumbersome if it was a larger form to reset.
 
 > **Deep Dive:** Read more about clearing a form at [MDN's web documentation on a form element's `reset()` method.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset)
 
@@ -679,7 +689,7 @@ Let's recap what we've learned:
 
 - We used a new DOM element property, `innerHTML`, to write HTML code instead of simple text.
 
-- We refactored our code to be scalable.
+- We refactored our code to be reusable.
 
 - We used simple form validation with `if` statements to prevent any user errors in our application.
 

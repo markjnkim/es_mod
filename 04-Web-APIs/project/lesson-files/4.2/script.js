@@ -14,12 +14,12 @@ var taskFormHandler = function(event) {
   
   formEl.reset();
 
-  var taskDataObj = {
+  var taskFormData = {
     name: taskNameInput,
     type: taskTypeInput
   };
 
-  createTaskEl(taskDataObj);
+  createTaskEl(taskFormData);
 };
 
 var createTaskEl = function(taskDataObj) {
@@ -32,6 +32,8 @@ var createTaskEl = function(taskDataObj) {
   taskInfoEl.className = "task-info";
   taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
   listItemEl.appendChild(taskInfoEl);
+
+  console.dir(listItemEl);
 
   // add list item to list
   tasksToDoEl.appendChild(listItemEl);
