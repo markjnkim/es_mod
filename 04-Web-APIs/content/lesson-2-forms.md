@@ -398,7 +398,7 @@ Save `script.js` and try submitting a new task after refreshing the page. The re
 
 ![Task item with both name and type](assets/lesson-2/300-project-endoflesson.jpg)
 
-We can now create a new task with both its name and type values we submitted through the form. There's a number of ways we could've organized this content, but as we've repeatedly learned, sometimes it's easier to wrap content in a container `<div>` element to keep them in sync with one another.
+We can now take the content we submit through the form and create a new task item with it. There's a number of ways we could've organized this content, but as we've repeatedly learned, sometimes it's easier to wrap content in a container `<div>` element to keep them in sync with one another.
 
 We still created the `<li>` element to hold the whole task, but instead of writing the task's content right to it, we created a `<div>` to hold the content. Once we were done setting the data into the `<div>`, we appended it to the `<li>` and lastly, we appended the entire `<li>` to the page. 
 
