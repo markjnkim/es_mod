@@ -11,9 +11,9 @@ This feature has been popular on computer operating systems since the advent of 
 Let's start with an assessment of the current project:
 
 ![Current Project State](./assets/lesson-4/100-current-project.png)
-It looks great, but adding some intuitive design will enhance the user's experience.
 
-This will be good practice in understanding how the drag and drop feature works due to the growing popularity especially with mobile devices which are dependent upon interfacing with the screen.
+It looks great, but adding some intuitive design will enhance the user's experience.
+This will also be good practice in understanding how the drag and drop feature works.
 
 ## Preview
 
