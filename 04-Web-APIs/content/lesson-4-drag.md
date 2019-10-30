@@ -497,3 +497,6 @@ In this lesson we learned quite a few more tools for the tool belt such as:
 * Thankfully there are libraries in JavaScript that can offer a Drag and Drop feature with many error handling solutions built-in, but its also important to at least understand how this type of API works under the hood.
 
 In the next lesson, we’ll put the final bow on our app by making the tasks persistent using our old friend `localStorage`.
+
+---
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
