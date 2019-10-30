@@ -58,3 +58,6 @@ Third-party APIs allow you to access additional functionality from a JavaScript 
 
 * Abbey Fitzgerald discusses the advantages of using font icons.
     * [Why You Should Start Using Font Awesome](https://getflywheel.com/layout/why-you-should-start-using-font-awesome/)
+
+---
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
