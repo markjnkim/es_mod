@@ -322,6 +322,7 @@ Excellent work! We have our drop destination element and can now append our `dra
 But wait, the drag and drop feature's main purpose was to change the status of our task item. Let's proceed with this important step.
 
 In order to change the status of our task item let's first take a closer look at the `select` element in the browser that designates the task status:
+
 ![Elements Select Element](./assets/lesson-4/1400-elements-select.png)
 
 As we can see, the `select` element has a `name` attribute that is a unique identifier which we can use to find this specific element in the DOM.
@@ -343,7 +344,7 @@ Let's save and refresh the browser, then add two tasks. Drag both tasks to see t
 
 ![Console of Select Element](./assets/lesson-4/1500-console-select-element.png)
 
-As we can see in the console, traversing from the dragged task item element allowed the correct `<select>` element to be captured. The `console.log()` in this case helped identify the `data-task-id` attribute more clearly.
+As we can see in the console, traversing from the dragged task item element, or the `draggableElement`, allowed the correct `<select>` element to be captured. The `console.log()` in this case helped identify the `data-task-id` attribute more clearly.
 
 Now that we have the `<select>` DOM element and the destination task list derived from the `id` attribute stored as a reference in the `statusType` variable, we can identify how to update the status of the task. 
 Using the `id` property to identify the new task status, let's use an `if-else` conditional to reassign the task. 
@@ -391,16 +392,23 @@ We will be using the `setAttribute()` method to add our style properties to the 
 dropZoneEl.setAttribute("style", "background: rgba(68, 233, 255, 0.7); border-style: dashed;");
 ```
 Let's save and refresh the browser to verify our code so we should see something similar to this:
-![Console Style Dragover](./assets/lesson-4/1600-console-style-dragover.png)
-As you can see, on the `dragover` event, the task list elements do change and the style properties are added correctly to the task list element that was hovered over with the task item. However if we continue to drag our task item over other task lists we can see the style properties remain. Even if the task item is successfully dropped to another task list, the `style` attribute we added to the task list remains highlighted and dashed. If the point of the extra styles were to indicate to the user where the task item could be dropped, then the styles should only appear when a task list is actively being hovered over by the task item. Once the task item is dropped or has moved to another task list, these style properties should be removed. Can you find a method that can remove attributes? Let's check Google to see if there are some options for us to choose.
-A good search term would be: remove attribute javascript.
-Looking for our JavaScript source MDN web docs, we will find the `removeAttribute()` method.
 
+![Console Style Dragover](./assets/lesson-4/1600-console-style-dragover.png)
+
+As you can see, on the `dragover` event, the task list elements do change and the style properties are added correctly to the task list element that was hovered over with the task item. However if we continue to drag our task item over other task lists we can see the style properties remain. Even if the task item is successfully dropped to another task list, the `style` attribute we added to the task list remains highlighted and dashed. If the point of the extra styles were to indicate to the user where the task item could be dropped, then the styles should only appear when a task list is actively being hovered over by the task item. Once the task item is dropped or has moved to another task list, these style properties should be removed. 
+
+Can you find a method that can remove attributes? Let's check Google to see if there are some options for us to choose.
+
+> **Hint:** A good search term would be: remove attribute javascript.
+
+Looking for our JavaScript source MDN web docs, we will find the `removeAttribute()` method.
 The `removeAttribute()` method can remove the `style` attribute we added in the `dragover` event. 
 Let's add this to our `drop` event because we know on a drop, these style properties should disappear.
 Add this expression near the bottom of the `dropTaskHandler()` function above the append operation so the style removal can happen just before the task item is attached to the new task list.
 Save and refresh the browser to see if the `style` attribute was removed from the task list element on the `drop` event.
+
 ![Browser Drop Removes Style Attribute](./assets/lesson-4/1700-browser-drop-remove-style.png)
+
 Congrats, we have successfully removed the style attribute on the `drop` event. Now we only need to remove the `style` attribute if the task item is dragged to another task list. It make sense if the style is indicating where the task item can be dropped, that only one task list should be highlighted at the time. Doesn't appear we can use any of the event listeners we currently have in our app since we are looking for a specific condition when the element is leaving the drop zone, in our case the task list. Luckily we have an event aptly named `dragleave`. We will need this event listener on each of the three task lists. Can you figure out how to do this without adding three listeners? If you said event delegation you are correct! Similar to our other event listeners, we will add the `dragleave` event listener to the `pageContentEl` element, the parent element to our three task lists.
 Let's add this statement to the bottom of our `script.js` file and include the callback function, `dragLeaveHandler()` to execute on the event being triggered.
 ```js
@@ -412,11 +420,13 @@ var dragLeaveHandler = function(event) {
   console.dir(event.target);
 }
 ```
-Save and refresh the browser then add a task and drag it over a task list to see the results. 
+Save and refresh the browser then add a task and drag it over a task list to see the following results:
 
 ![Browser DragLeave Target Element](./assets/lesson-4/1800-browser-dragleave-event-target.png)
 
-Let's explain the different DOM elements being displayed in the console. The `dragleave` target property is storing every element that the dragged task item is being dragged over. Let's remove this `console.dir()` then use the same conditional statement we used previously in the `dropZoneTaskHandler()` to narrow our `dragleaveTaskHandler()` to execute only when a dragged element leaves a task list or children of the task list, not every element on the page. To do this let's first make a reference to the `target` property of the `dragleave` event which is the task list that is being dragged over. Then add the conditional to check if the dragged over element is either the task list or a child of the task list. 
+Let's explain the different DOM elements being displayed in the console in the image above. The `dragleave` target property is storing every element that the dragged task item has been dragged over, but is no longer actively being dragged on. Once the dragged element has left the drag over state, the target element is captured.
+
+Let's remove this `console.dir()` then use the same conditional statement we used previously in the `dropZoneTaskHandler()` to narrow our `dragleaveTaskHandler()` to execute only when a dragged element leaves a task list or children of the task list, not every element on the page. To do this let's first make a reference to the `target` property of the `dragleave` event which is the task list that is being dragged over. Then add the conditional to check if the dragged over element is either the task list or an ancestor element of the task list. 
 
 > **Rewind:** If `closest()` returns null, then the selector was not found in the target element or an ancestor element and the `style` attribute is not removed.
 
@@ -437,6 +447,7 @@ Now let's update the remote by pushing our newest version of `develop`.
 `git push origin develop`
 
 > **Asset Needed:** [Learnosity Jira Issue FSFO-288](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-288)
+
 ## Reflection
 Great job, you made it through a complex lesson that dealt with some new concepts. This is an advanced topic so the first pass on this subject may have been a bit bumpy figuring out what is exactly taking place behind the mystery curtain. Going through some turbulence once in a while will help hone your problem solving skills and expose you to different design patterns or solution paths that can offer a fix. There are frequent instances in web development when a reference to an element, item, or data need to be passed to another part of the code such as when storing a form into a database, placing an item into a shopping cart, or clicking a thumbnail to expand the view so early exposure to this now will help us problem solve in the future modules. 
 
