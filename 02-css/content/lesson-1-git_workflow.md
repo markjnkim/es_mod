@@ -40,13 +40,13 @@ The `develop` branch will be where we develop and test new features. When we're 
 
 Before we create our development environment, let's learn some new Git commands: 
 
-* `git branch` displays a list of all the branches in the repo. It also highlights the branch you're in, which is called the **active branch** or **working directory**.
+* **`git branch`** displays a list of all the branches in the repo. It also highlights the branch you're in, which is called the **active branch** or **working directory**.
 
-* `git branch <branch-name>` creates a new branch (with your `<branch-name>`) that is a version of the current active branch. After you commit changes to the new branch, the branches will no longer be in sync with each other because their commit histories will diverge. 
+* **`git branch <branch-name>`** creates a new branch (with your `<branch-name>`) that is a version of the current active branch. After you commit changes to the new branch, the branches will no longer be in sync with each other because their commit histories will diverge. 
 
-* `git checkout <branch-name>` lets you switch into a different branch, which is then the new active branch. This is how to navigate between different versions of the codebase.
+* **`git checkout <branch-name>`** lets you switch into a different branch, which is then the new active branch. This is how to navigate between different versions of the codebase.
 
-* `git checkout -b <branch-name>` is two commands in one. It creates a new branch (`git branch <branch-name>`) and moves (`git checkout <branch-name>`) into that branch, making it the active branch. 
+* **`git checkout -b <branch-name>`** is two commands in one. It creates a new branch (`git branch <branch-name>`) and moves (`git checkout <branch-name>`) into that branch, making it the active branch. 
 
 Let's create a `develop` branch. Remember that you must first go to the command prompt and `cd` into your working directory. 
 
@@ -160,7 +160,7 @@ To check if the `README.md` file was created properly, see if it's visible on th
 
 ![GitHub Repo](./assets/lesson-1/170-markdown-preview.png)
 
-At the top of this image we see the branches tab. This is a subset of tabs located in the Code tab. If you don't see the branches option, the Code tab may not be selected. Click on this option to look at our branches to see the following:
+At the top of this image, we see the branches tab. This is a subset of tabs located in the Code tab. If you don't see the branches option, the Code tab may not be selected. Click on this option to look at our branches to see the following:
 
 ![Screenshot of the GitHub repository showing that the README.md file was created](./assets/lesson-1/190-branches-github.png)
 
@@ -168,7 +168,7 @@ At the top of this image we see the branches tab. This is a subset of tabs locat
 >
 > **Answer:** The `develop` branch was created locally on your computer, but this change hasn't been updated yet on GitHub.com. The repo on GitHub is considered the **remote repo**. As we did in the past module, we'll need to `git push` our local changes up to the remote repo in GitHub.
 
-Pushing our branch to GitHub creates a secure backup and provides a collaborative and communal development branch that team members can branch from, so let's do that now by using the following command:
+Pushing our branch to GitHub creates a secure backup and provides a collaborative and communal development branch that team members can branch from. Let's do that now by using the following command:
 
 ```
 git push origin <remote-branch-name>
@@ -178,7 +178,7 @@ Did you notice something new here? In Module 1, we pushed our changes to the rem
 
 This command does two things: creates a new remote branch and then pushes the code from the local active branch into that remote branch. The word `origin` simply to refers the source repository where the cloning originally occurred. 
 
-So in our scenario, the Git command to create and push to a remote `develop` branch is:
+In our scenario, the Git command to create and push to a remote `develop` branch is:
 
 ```
 git push origin develop
@@ -198,7 +198,7 @@ Do you see the notification (highlighted in yellow) that the new `develop` branc
 
 This remote version serves as the communal or collaborative branch that we will update with our enhancements. It's our shared and stable development environment. It also serves as a great way for team members to update their local development environment to the latest stable version—they simply need to pull down the `develop` branch from GitHub.
 
-Next, we'll ›learn how to communicate updates between the remote repo (on GitHub.com) and the local repo (on our computer).
+Next, we'll learn how to communicate updates between the remote repo (on GitHub.com) and the local repo (on our computer).
 
 ## Interacting with GitHub
 
@@ -210,7 +210,7 @@ As you can see, the `README.md` file you just created in GitHub isn't in your lo
 The following diagram shows the relationship between local and remote branches and commits:
 
 ![Local vs Remote Repos](assets/lesson-1/240-branch-github.png)
-> **IMAGE NEEDS TO BE RE-CREATED:** [Git Pull Jira-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
+> **Asset Needed:** IMAGE NEEDS TO BE RE-CREATED [Git Pull Jira-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
 [URL](https://www.atlassian.com/git/tutorials/syncing/git-pull)
 
 In the image, the circles represent commits and the letters indicate unique commits or save points. As you can see, the remote `master` branch is not in sync with the `master` branch on the local repo. The commits are different on the two repos, which makes the versions different and out of sync. 
