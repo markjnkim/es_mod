@@ -4,6 +4,8 @@
 
 The Run Buddy website is a huge success so far! This means that management has the motiviation and capital to upgrade the site. In this module, we'll focus on building Run Buddy version 2.0, making the site mobile-friendly and easier to use. 
 
+To accomplish this, we're going to dive deeper into CSS and use some of its powerful layout capabilities such as media queries, CSS Grid, and Flexbox. We're also going to apply the HTML and Git skills we learned. Get ready to level-up!
+
 ## Preview
 
 Here's the mock-up for version 2.0, which we'll build over the course of the next six lessons:
