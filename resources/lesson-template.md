@@ -23,7 +23,7 @@
 
 *- If there are more than 2 ways to go about the build, briefly discuss 2-3 different strategies the student could use, and explain why we’re going with the strategy we’ve chosen.*
 
-*List each step w/ a summary overview (e.g., “Here’s how we’re going to approach this:”*:
+*Here's how we're going to approach this / Here's a high-level overview of how we'll go about this / etc. (List each step in a sentence or two.)*:
 
 1. *Step 1 (e.g., Set up the HTML file for the Run Buddy landing page)*
 
