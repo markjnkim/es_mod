@@ -79,13 +79,12 @@ var createTaskEl = function(taskObj) {
 
   tasks.push(taskObj);
 
-  console.log(tasks);
-
   // save tasks to localStorage
   saveTasks();
 
   // increase task counter for next unique task id
   taskIdCounter++;
+  console.log(listItemEl);
 };
 
 var createTaskActions = function(taskId) {
@@ -142,7 +141,6 @@ var completeEditTask = function(taskName, taskType, taskId) {
       task.type = taskType;
     }
   });
-
 
   // save tasks to localStorage
   saveTasks();
@@ -302,6 +300,7 @@ var saveTasks = function() {
 var loadTasks = function() {
   var savedTasks = localStorage.getItem("tasks");
   // if there are no tasks, set tasks to an empty array and return out of the function
+
   if (!savedTasks) {
     return false;
   }

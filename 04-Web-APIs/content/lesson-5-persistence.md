@@ -2,9 +2,11 @@
 
 ## Introduction
 
+From a functionality standpoint, our Taskinator application is in great shape and can be used without any bugs or hiccups; as can be seen in this image:
+
 ![Taskinator with drag and drop](assets/lesson-5/100-lesson-4.gif)
 
-From a functionality standpoint, our Taskinator application is in great shape and can be used without any bugs or hiccups. The only drawback currently is that we have to create our tasks every time we reload the page. That doesn't make for a great user experience, does it? If we have to spend most of our time in Taskinator actually creating the tasks, when would we have time to get the tasks done?
+ The only drawback currently is that we have to create our tasks every time we reload the page. That doesn't make for a great user experience, does it? If we have to spend most of our time in Taskinator actually creating the tasks, when would we have time to get the tasks done?
 
 In this final lesson we'll revisit our old friend, localStorage, to save our tasks as we create and update them. Then upon page load, we can load those tasks back into our Taskinator app. Adding this will fulfill our final GitHub issue, so we'll then deploy our application to GitHub pages! This task will also involve some refactoring of our current codebase to accommodate these features, so let's outline what we'll be working on and get started!
 
@@ -19,13 +21,13 @@ Our UI and core Taskinator functionality won't change, but we are adding a great
 The pseudocode steps here are a little different than the previous lessons and may be difficult to organize at first, but let's try our best and think about the best approach to accomplishing this feature:
 
 > **Asset Needed:** Learnosity drag and drop quiz
-> Create a New Git Branch
-> Save Tasks to an Array
-> Save Tasks to localStorage
-> Load Tasks from localStorage
-> Optimize Our Code
-> Finalize Git Process
-> Deploy Our Application
+> - Create a New Git Branch
+> - Save Tasks to an Array
+> - Save Tasks to localStorage
+> - Load Tasks from localStorage
+> - Optimize Our Code
+> - Finalize Git Process
+> - Deploy Our Application
 
 The first part of our lesson is dedicated to getting the localStorage functionality set up and working. During this, however, we will end up creating similar functionality to code we have already written. This will leave our application with some technical debt, and it would be okay to leave the code as-is, but it leaves us a good opportunity to refactor and reuse our already existing functionality.
 
@@ -58,11 +60,11 @@ Currently, all of the data associated with a task is kept with its respective DO
 Since all of the task data is set up in a way that is difficult for us to organize and store, we are going to need a different solution when it comes to storing this data. This solution is going to have to keep each task's ID, name, type, and status packaged together, like this:
 
 ```js
-var taskObj = {
+var taskDataObj = {
   id: 1,
   name: "Add localStorage persistence",
   type: "Web",
-  status: "In Progress"
+  status: "in progress"
 }
 ```
 
@@ -82,19 +84,19 @@ var tasks = [
     id: 1,
     name: "Add localStorage persistence",
     type: "Web",
-    status: "In Progress"
+    status: "in progress"
   },
   {
     id: 2,
     name: "Learn JavaScript",
     type: "Web",
-    status: "In Progress"
+    status: "in progress"
   },
   {
     id: 3,
     name: "Refactor code",
     type: "Web",
-    status: "To Do"
+    status: "to do"
   }
 ];
 ```
@@ -107,54 +109,44 @@ var tasks = [];
 
 We have created an empty `tasks` array, this way when we create a new task, the object holding all of its data can be added to the array. All we need to do is update the object holding our task's data to also include its ID and status, both of which are currently only written to the DOM element associated with the task.
 
-In the `taskFormHandler()` function, let's update the `taskDataObj` variable to include one more property called "status". Since this is the data that gets sent to `createTaskEl()`, we can safely assume that the status will always have a value of "to do". A task that has just been created cannot possibly be "in progress" or "complete" yet.
+In the `taskFormHandler()` function, let's update the `taskFormData` variable to include one more property called "status". Since this is the data that gets sent to `createTaskEl()`, we can safely assume that the status will always have a value of "to do". A task that has just been created cannot possibly be "in progress" or "complete" yet.
 
-Update the `taskDataObj` variable to look like this:
+Update the `taskFormData` variable to look like this:
 
 ```js
-var taskDataObj = {
+var taskFormData = {
   name: taskNameInput,
   type: taskTypeInput,
   status: "to do"
 }
 ```
 
-Let's test that this works and add a `console.log()` into the `createTaskEl()` function, this way we can make sure that the new property gets to the function properly. In `createTaskEl()`, simply add anywhere in the function:
+Let's test that this works and add a `console.log()` into the `createTaskEl()` function, this way we can make sure that the new property gets to the function properly via the `taskDataObj` parameter we set up previously. In `createTaskEl()`, simply add anywhere in the function:
 
 ```js
-console.log(taskObj);
-console.log(taskObj.status);
+console.log(taskDataObj);
+console.log(taskDataObj.status);
 ```
 
 Save `script.js`, refresh the app in the browser, and submit a new task. The two `console.log()` functions we added should look like this image in the console:
 
 ![Task object passed into function](assets/lesson-5/400-taskobj-console.jpg)
 
-As we can see, `createTaskEl()` now receives this new `status` property in its `taskObj` parameter.
+As we can see, `createTaskEl()` now receives this new `status` property in its `taskDataObj` parameter.
 
-> TODO: **Pro Tip:** Creating more parameters vs. adding object property in a function
-
-The only thing missing from our task's object that we need to save is its ID. Luckily, we already have the value of the ID in the `taskIdCounter` variable and already using it in the `createTaskEl()` function. All we need to do now is add that value as a property to our `taskObj` argument variable and add the entire object to our `tasks` array, but how do we actually add something to an array? Let's find out.
+The only thing missing from our task's object that we need to save is its ID. Luckily, we already have the value of the ID in the `taskIdCounter` variable and already using it in the `createTaskEl()` function. All we need to do now is add that value as a property to our `taskDataObj` argument variable and add the entire object to our `tasks` array, but how do we actually add something to an array? Let's find out.
 
 Let's update `createTaskEl()` to have the following code below `listItemEl.appendChild(taskInfoEl);` and above `taskIdCounter++;`:
 
 ```js
-taskObj.id = taskIdCounter;
+taskDataObj.id = taskIdCounter;
 
-tasks.push(taskObj);
+tasks.push(taskDataObj);
 ```
 
-There won't be any visible difference on the page because of this update, but we can still test to make sure it works.
+We have two actions happening here. First, we need to add the ID of the task we just put on the page to the task's object. Remember, we're now managing two lists of tasks. One that goes on the page and one that stays in an array of objects as `tasks`. This means that when we edit or delete a task, we need to not only remove it from the page, but from the `tasks` array as well. This way the data we see on the page stays in sync with the data that will be stored in localStorage. 
 
-Save `script.js`, refresh the page, and create a task or two. After a successful task creation, visit the DevTools console and simply type in `console.log(tasks)`. When we hit `Enter` to run the log function, we should get back a printed list of the tasks in an array of objects, like this image shows:
-
-![Tasks array in the console](assets/lesson-5/500-tasks-console.jpg)
-
-As we can see, the tasks we're adding to the page are also being stored into the `tasks` array now with all of the information important to each one. We have two actions happening here.
-
-First, we need to add the ID of the task we just put on the page to the task's object. Remember, we're now managing two lists of tasks. One that goes on the page and one that stays in an array of objects as `tasks`. This means that when we edit or delete a task, we need to not only remove it from the page, but from the `tasks` array as well. This way the data we see on the page stays in sync with the data that will be stored in localStorage. 
-
-We did this by adding an `id` property to the `taskObj` argument and giving it a value of whatever `taskIdCounter` is at that moment. This way, whatever ID is added to the DOM element we just created gets added to the task's object as well, and we can use that ID later on to identify which task has changed for both the DOM and the `tasks` array.
+We did this by adding an `id` property to the `taskDataObj` argument and giving it a value of whatever `taskIdCounter` is at that moment. This way, whatever ID is added to the DOM element we just created gets added to the task's object as well, and we can use that ID later on to identify which task has changed for both the DOM and the `tasks` array.
 
 > **Important:** Just as we can update the value of a property of an object by accessing its property and reassigning it, we can also create new properties as needed. 
 
@@ -176,7 +168,15 @@ pushedArr.push(10, "push", false);
 
 ```
 
-> **Deep Dive:** For more information on this method, check out the [MDN documentation on `push()`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+> **Deep Dive:** For more information on this method, check out the [MDN web documentation on `push()`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+
+There won't be any visible difference on the page with of this update, but we can still test to make sure it works.
+
+Save `script.js`, refresh the page, and create a task or two. After a successful task creation, visit the DevTools console and simply type in `console.log(tasks)`. When we hit `Enter` to run the log function, we should get back a printed list of the tasks in an array of objects, like this image shows:
+
+![Tasks array in the console](assets/lesson-5/500-tasks-console.jpg)
+
+As we can see, the tasks we're adding to the page are also being stored into the `tasks` array now with all of the information important to each one. 
 
 So we've now added the ability to save a task not only to the page, but in our array as well. But we don't only add tasks, do we? We also update them and remove them, so we're going to have to update our `completeEditTask()`, `taskStatusChangeHandler()`, `dropTaskHandler()`, and `deleteTask()` functions as well.
 
@@ -206,7 +206,25 @@ tasks.forEach(function(task) {
 
 Whoa, what is this crazy syntax? Are we passing a function into a method as an argument?
 
-The answer is yes, we are passing a function as an argument. And this syntax is a little strange, so let's figure out what this is doing.
+The answer is yes, we are passing a function as an argument. We'll get to this syntax, but first let's explain it in the context of Taskinator.
+
+We are using `forEach()` to iterate through our tasks, much like we would with a `for` loop. At each iteration, we are checking to see if that individual task's `id` property matches the `taskId` argument we passed into `completeEditTask()`. 
+
+The only problem is `taskId` is a string and `tasks.id` is a number; so when we compare the two, we need to make sure that we are comparing a number to a number. This is why we wrap the `taskId` with a `parseInt()` function and convert it to a number for the comparison. If the two ID values match, we have confirmed that the task at that iteration of the `forEach()` loop is the one we want to update, so let's go ahead and do that by reassigning that task's `name` and `type` property to the new content submitted by the form when we finished editing it. 
+
+With this `forEach()` loop, the code in the `if` statement should only run once. If there were eight tasks in our list, the `forEach()` method's callback function will run on all eight, but the `if` statement's code block should run only one of the eight times, as we are looking to only update one task in the array.
+
+Let's test this out to make sure it works before we move on. Add `debugger;` above and below the `forEach()` method, then create and edit a task. When the first `debugger` statement is reached, let's hover our mouse over the `tasks` variable attached to the `forEach()` method. It should look something like this image:
+
+![Tasks array before forEach](assets/lesson-5/600-foreach-before.jpg)
+
+This might not look like much just yet, as it's the same content we had before, but let's see what happens when the `debugger` statement after the `forEach()` runs:
+
+![Tasks array after forEach](assets/lesson-5/601-foreach-after.jpg)
+
+By using the `debugger`, we are able to see what our `tasks` array looks like before the `forEach()` runs and what it looks like after. This is a good use case for the `debugger` statement, as we can see exactly what our data looks like before and after an action is performed on it.
+
+### The forEach Method
 
 The `forEach()` method is another array method and is used to perform an action on each element of the array one at a time. The name `forEach` literally means "for each element in this array", and the function we pass in as an argument is a callback function.
 
@@ -216,7 +234,7 @@ The `forEach()` method is another array method and is used to perform an action 
 
 The callback function used in a `forEach()` method has a specific format when it comes to what parameters it will use:
 
-- The first parameter will always represent the element at that iteration of the array, the array[i] value if we were to think about this in `for` loop terms. That's why in ours, it's labelled `task`, the singular version of `tasks`, because it represents a single task in our tasks array. An argument for this parameter is required.
+- The first parameter will always represent the element at that iteration of the array, the `array[i]` value if we were to think about this in `for` loop terms. That's why in ours, it's labelled `task`, the singular version of `tasks`, because it represents a single task in our tasks array. An argument for this parameter is required.
 
 - The second parameter is optional to use, but it will always represent the current index `i` of the loop. We don't need to use that value in our code so we can leave it out.
 
@@ -234,7 +252,7 @@ kitchenItemsArr.forEach(function(item, index) {
 
 When we run this in the console, it should look like this image:
 
-![forEach in the console](assets/lesson-5/600-foreach-console.jpg)
+![forEach in the console](assets/lesson-5/700-foreach-demo-console.jpg)
 
 We used the third `console.log()` statement to help break up the content so it's easier to see that we are executing the function once per item in the array. While we can use `for` loops as well in this case, sometimes using a more array specific method can be helpful. At the end of the day it's up to personal preference and comfort.
 
@@ -245,16 +263,6 @@ We used the third `console.log()` statement to help break up the content so it's
 > ```js
 > kitchenItems.forEach(function() {});
 > ```
-
-Now that we know how to use the `.forEach()` method, let's see what's happening inside of its callback function. At each iteration, we are checking to see if that individual task's `id` property matches the `taskId` argument we passed into `completeEditTask()`. 
-
-The only problem is `taskId` is a string and `tasks.id` is a number; so when we compare the two, we need to make sure that we are comparing a number to a number. This is why we wrap the `taskId` with a `parseInt()` function and convert it to a number for the comparison. If the two ID values match, we have confirmed that the task at that iteration of the `forEach()` loop is the one we want to update, so let's go ahead and do that by reassigning that task's `name` and `type` property to the new content submitted by the form when we finished editing it. 
-
-With this `forEach()` loop, the code in the `if` statement should only run once. If there were eight tasks in our list, the `forEach()` method's callback function will run on all eight, but the `if` statement's code block should run only one of the eight times, as we are looking to only update one task in the array.
-
-Let's test this out to make sure it works before we move on to the others. Add `console.log(tasks)` below the `forEach()` method and see if the array's content changes after editing a task's name. It should look something like this image:
-
-> **Asset Needed:** Image of array before and after `forEach()` in console, highlighting differences
 
 Now that we got the `completeEditTask()` function to update the `task` array, let's turn our attention to the other functions that deal with updating tasks as well, starting with `taskStatusChangeHandler()`.
 
@@ -288,7 +296,7 @@ Save `script.js`, create a task or two, and test if this works by dragging and d
 
 That wraps it up for taking care of updating tasks, now let's handle deleting them from the `tasks` array!
 
-### Remove Task from Array
+### Delete Task from Array
 
 We just used a `forEach()` to help us update a task object in the `tasks` array, and we could use that here too, but it would require adding multiple steps to get there. Instead, we are going to use a different array method called `filter()`.
 
@@ -302,7 +310,11 @@ tasks = tasks.filter(function(task) {
 });
 ```
 
-This `filter()` method is a newer addition to the array method family. It has similar features to the `forEach()` method as they both utilize callback functions to execute on each element in the array, but there are a couple of interesting things to point out.
+The `filter()` method we used here checks to see if the ID of the task we're deleting does not match the task object's `id` property at that iteration of the loop. If it doesn't match, then that's not the one we deleted and gets sent into the new array being saved in `tasks`. If the IDs do match, then we have identified the one we want to delete, and that task's object does not make it to the new array.
+
+Just like the `forEach()` method earlier, feel free to add a `debugger;` statement before and after the `filter()` method to see a snapshot of our `tasks` array before and after the method runs. 
+
+The `filter()` method is a newer addition to the array method family. It has similar features to the `forEach()` method as they both utilize callback functions to execute on each element in the array, but there are a couple of interesting things to point out.
 
 Notice how we are reassigning the `tasks` array to this `filter()` method? This method's purpose is to take an array and create a brand new one based on the array it's chained off of. If we didn't have the `tasks =` in front of it, the method would execute just fine but its result would not get stored anywhere.
 
@@ -331,13 +343,9 @@ The callback function of a `filter()` is designed to specifically check a condit
 
 In our example above, we are iterating through our array of numbers and at each iteration, we check to see if the value at that iteration is not equal to the number five. If it isn't, then we keep that value in the new array. But when the iteration's value is five and it checks, it won't be added to the new array because `5 !== 5` results in a false condition.
 
-> TODO: **Deep Dive:** Array methods and documentation 
-
-Let's turn our attention back to our `deleteTask()` function. The `filter()` method we used here checks to see if the ID of the task we're deleting does not match the task object's `id` property at that iteration of the loop. If it doesn't match, then that's not the one we deleted and gets sent into the new array being saved in `tasks`. If the IDs do match, then we have identified the one we want to delete, and that task's object does not make it to the new array.
-
-Let's add a `console.log(tasks);` after the `filter()` method and test to see if it works. It should log a new array that does not include the task object of the one that was just deleted.
-
-> **Asset Needed:** Image of console with tasks array before and after delete
+> **Deep Dive:** Arrays have a lot of methods we'll be using throughout our careers as developers, so it's important to gain and understanding of how they work.
+>
+> For more information on the methods we just used and ones we will be using in the future, check out the [MDN web documentation for array methods.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
 So this was a lot of code to learn for functionality that has no effect on the page, but keep in mind what we're building towards. By storing all of our task's data as an array of objects in our JavaScript code, it will now be easier for us to save that data to localStorage.
 
@@ -359,7 +367,7 @@ var saveTasks = function() {
 
 The content of this function is going to be light, very light actually. It's only going to consist of one method being executed. Which one do we think it is? Here's a hint, it's a localStorage method.
 
-> **Pause:** What method is used for saving data to localStorage? `setData()` or `getData()`?
+> **Pause:** What method is used for saving data to localStorage? `setItem()` or `getItem()`?
 >
 > **Answer:** `localStorage.setData()` is used to save data to localStorage.
 
@@ -373,7 +381,7 @@ That's all we need to do! Simple, right? Well, we won't know until we execute th
 
 Add `saveTasks()` in the following functions:
 
-- In `createTaskEl()` anywhere after the `tasks.push(taskObj)` method.
+- In `createTaskEl()` anywhere after the `tasks.push(taskDataObj)` method.
 
 - In `completeEditTask()` anywhere after the `task.forEach()` method.
 
@@ -387,11 +395,11 @@ Now that we have everything in place, let's test it. Save `script.js`, create a 
 
 > **Pause:** In Chrome DevTools, how do we navigate to see what's in localStorage?
 >
-> **Answer**: The "Application" tab, in the `Storage -> Local Storage` menu on the left-hand side.
+> **Answer**: The "Application" tab, in the "Local Storage" option under "Storage" on the left-hand side.
 
 Right now, our localStorage for this application should look something like this image in DevTools:
 
-> **Asset Needed:** Image of Application tab in DevTools with non-stringified data
+![localStorage with non-stringified data](assets/lesson-5/800-json-no-stringify.jpg)
 
 Well this is not what we were expecting, now is it? We packaged up our data so neatly, we even logged it to the console to make sure it looked right, so why is localStorage storing it as `[object Object]`? 
 
@@ -411,13 +419,13 @@ var saveTasks = function() {
 
 Let's try saving a task or two again, then check out what gets stored in localStorage. The result should look like this image:
 
-> **Asset Needed:** Screenshot of localStorage with JSON.stringify
+![localStorage with stringified data](assets/lesson-5/900-json-stringify.jpg)
 
 All of the sudden, localStorage understands what we're saving! As we can infer by the method name `stringify()`, we just converted our `tasks` array into a string for saving in localStorage. We can tell it's a string by the quotation marks wrapping our code. But what is this whole JSON thing that `stringify()` is chained off of? 
 
 **JSON** is short for "JavaScript Object Notation", and it is a means of organizing and structuring data when it is transferred from one place to another. We'll explore JSON in depth in future modules when we get further into transferring data from one place to another, but for now let's focus on the fact that the `stringify()` method worked for us and we can move on.
 
-> **Deep Dive:** Learn more about stringifying data at the [MDN documentation for `JSON.stringify()`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+> **Deep Dive:** Learn more about stringifying data at the [MDN web documentation for `JSON.stringify()`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
 
 Alright, we have one half of this functionality complete, as we can now save our tasks. Let's get into how we can retrieve our tasks on page load. Be warned, we're nearing the end of the project, so it's time to show ourselves what we can do!
 
@@ -455,7 +463,11 @@ Since these are the tasks we've saved from the `tasks` variable previously, let'
 
 Once we've reassigned the `tasks` variable to the data we've retrieved from localStorage, it's a good idea to test if it works. Add a `console.log()` right below the line of code we just wrote and at the very bottom of the `script.js` file, call `loadTasks()`. This way when the page is refreshed, that function will run and try to find what's in localStorage.
 
-If there is data that comes back into `tasks` from localStorage, we should see the strinigified version of the task array. If there is nothing in localStorage for our tasks, then `tasks` would have a value of `null`. Both of these are going to cause an issue, so let's consider how to fix both of them.
+When we run the function, the `console.log()` we added should look like this image:
+
+![Stringified data from localStorage](assets/lesson-5/1000-get-tasks.jpg)
+
+If there is data that comes back into `tasks` from localStorage, we should see the stringified version of the task array. If there is nothing in localStorage for our tasks, then `tasks` would have a value of `null`. Both of these are going to cause an issue, so let's consider how to fix both of them.
 
 If there is nothing in localStorage, then `tasks` now has a value of `null`. This means that when we try adding another task and we use `tasks.push()`, we'll get an error. This is because `push()` is a method unique to arrays and can only work on arrays. To fix this issue, we should check to see if the value of `tasks` is now `null` and if it is, reassign `tasks` yet again back to an empty array. Let's do that now, then we'll worry about turning our string back into an array.
 
@@ -481,26 +493,36 @@ We used `JSON.stringify()` previously to take an array of objects and convert it
 
 It turns it back into a real array of objects! That's great, now we have our data back to normal and we can actually use it like an array of objects.
 
-> **Deep Dive:** Learn more about parsing JSON on the [MDN documentation for `JSON.parse()`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+> **Deep Dive:** Learn more about parsing JSON on the [MDN web documentation for `JSON.parse()`.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
 
-Now that we have our data back in it's array form, we can now iterate over it. Since each element in the array is a task's object, we can use those values to create DOM elements and print them to the page.
+Now that we have our data back in its array form, we can now iterate over it. Since each element in the array is a task's object, we can use those values to create DOM elements and print them to the page.
 
 > **Important**: We'll be using a `for` loop here, but using `forEach()` is okay too!
 
 Create a `for` loop that has a condition of `i < tasks.length`. Test that it works by using `console.log(tasks[i])` inside the loop. The console should print all of the task objects we've created one by one. Also use this as an opportunity to study the properties each task object has since we'll be using them.
 
-Once we've created the loop and tested it, let's think about what we need to do inside the loop to print out each task to it's proper list and add some pseudocode:
+Once we've created the loop and tested it, let's follow these instructions and get the task items printed to the page:
+
+> **Hint:** After each step of these instructions is completed, add a `console.log()` or `debugger;` statement in the loop to see if that task is working correctly!
 
 - So we don't get out of sync with our task IDs, reassign `task[i]`'s `id` property to the value of `taskIdCounter`
+
+Save the file and refresh the browser. If we use a `console.log(tasks[i])` after this step, we should see each task object with an `id` property going in order.
 
 - Create a `<li>` element and store it in a variable called `listItemEl`
   - Give it a `classname` attribute of "task-item"
   - Use `setAttribute()` to give it a `data-task-id` attribute with a value of `tasks[i].id`
   - Use `setAttribute()` to give it a `draggable` attribute with a value of "true"
 
+If we `console.log(listItemEl)` at this point, it should look like this image:
+
+![List item element in console](assets/lesson-5/1100-create-listitem.jpg)
+
+If you have more than one element and it has the same `data-task-id` attribute value, don't worry! We'll fix that at the end.
+
 - Create a `<div>` element and store it in a variable called `taskInfoEl`
-  - Give it a `classname` attribute of "task-info"
-  - Set it's `innerHTML` property to:
+  - Give it a `classname` property of "task-info" to set the HTML `class` attribute
+  - Set its `innerHTML` property to:
 ```js
 "<h3 class='task-title'>" + tasks[i].title + "</h3><span class='task-type'>" + tasks[i].type + "</span>";
 ```
@@ -508,6 +530,10 @@ Once we've created the loop and tested it, let's think about what we need to do 
 
 - Create the actions for the task by creating a variable called `taskActionsEl` and giving it a value of `createTaskActions()` with `tasks[i].id` as the argument
   - Append `taskActionsEl` to `listItemEl`
+
+Test to make sure that `taskActionsEl` was appended to `listItemEl` correctly by using a `console.log(listItemEl);`. It should look like this image:
+
+![Task actions added to list item](assets/lesson-5/1200-create-actions.jpg)
 
 - Use an `if` statement to check if the value of `tasks[i].status` is equal to "to do"
   - If yes, use `listItemEl.querySelector("select[name='status-change']").selectedIndex` and set it equal to 0
@@ -523,15 +549,17 @@ Once we've created the loop and tested it, let's think about what we need to do 
 
 - Increase `taskIdCounter` by 1
 
-Now that we have our work outlined, let's go ahead and write the code! Don't forget to use `console.log()` to see if code is working correctly. Also save and test often to make sure that there are no errors before moving onto the next element! 
+Add one more `console.log(listItemEl)` after incrementing the counter and test, the elements should look like this image:
 
-> **Hint:** All of the code we're writing goes in the `for` loop
+![Task list items with incrementing task-id attributes](assets/lesson-5/1300-finished-loop.jpg)
+
+As we can see in this image, the elements are now getting unique `data-task-id` values since we are incrementing the `taskIdCounter` variable in each iteration of the loop.
 
 This seems like a lot of work to go into a `for` loop, but remember that most of this code has already been written in `createTaskEl()`, so we can refer to that code to see how it's all working and replace some of their values with the values of `tasks[i]`'s properties. Don't be afraid to heavily refer to `createTaskEl()` and other functions we've created throughout the build of Taskinator, this isn't supposed to all come from memory just yet!
 
 Once it's all done, save and task it again. Our tasks are now loading to their correct list based on status! One quirk, however, is that some of the tasks in the list may be in a different order than when it was saved. This is something that has to do with the drag and drop functionality and it would take a bit of work to get it done, but it's not an app breaking quirk.
 
-We now have a fully working task tracking application and for once, it's something we've done for ourselves! As we take on more work we can feel confident that this application can help us stay organized, as we can create, edit, delete, and save our tasks.
+We now have a fully working task tracking application and for once, it's a project that we've done for ourselves! As we take on more work we can feel confident that this application can help us stay organized, as we can create, edit, delete, and save our tasks.
 
 There's just one thing, however, and it's not terribly important but it's worth pointing out. The `for` loop we just created uses a ton of repeated code from `createTaskEl()`, and we're now entering the territory of technical debt. Say we change how something functions or how the UI looks, we now have to change code in both `createTaskEl()` and `loadTasks()`, which is very confusing and error prone.
 
@@ -545,9 +573,9 @@ In the case of Taskinator, it's not _too_ much technical debt to the point that 
 
 Let's compare `createTaskEl()` and the `for` loop in `loadTasks()`. Those steps look incredibly similar, almost to the point that we are left wondering if maybe we can just run `createTaskEl()` for each task object in `tasks`. Well, that's what we're going to do.
 
-Let's start by making sure our code is saved, since we'll be removing working code we jsut created, and use our add, commit, and push commands to get our code up to GitHub.
+Let's start by making sure our code is saved, since we'll be removing working code we just created, and use our add, commit, and push commands to get our code up to GitHub.
 
-Now that that's handled, let's turn our attention to `loadTasks()` and start updating the code. We'll start by completely removing the `for` loop, as we don't need any of that code anymore. `loadTasks()` should now look like this:
+Now that we've saved our working codebase, let's turn our attention to `loadTasks()` and start updating the code. We'll start by completely removing the `for` loop, as we don't need any of that code anymore. `loadTasks()` should now look like this:
 
 ```js
 var loadTasks = function() {
@@ -711,8 +739,6 @@ In this last lesson, we added a key feature to Taskinator and leveraged localSto
 Everything we learned throughout this entire project play important roles in any front end project. The new array methods we learned will be used more often than we can imagine and pretty soon, we'll be getting our hands dirty with a lot more JSON. We were also formally introduced to the DOM, something that is used in all modern front end web development. All of its methods and properties that we learned will play heavily into the upcoming modules and projects. 
 
 We've learned a lot about what tools are built into web browsers that are at our disposal, but there are a lot of tools out there that take some of the more tedious tasks of web development and simplify them. These tools are built by other developers and are put out into the world for us to use, and we're going to do just that in the next module!
-
-
 
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
