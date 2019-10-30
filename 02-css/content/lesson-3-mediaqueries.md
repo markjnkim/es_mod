@@ -63,13 +63,15 @@ We'll adjust these sizes in a few minutes, but first let's ask ourselves somethi
 
 Luckily, we don't have to worry about that because DevTools allows us to simulate different devices. Here's a video that demonstrates how this is done:
 
-### [NEED VIDEO: FSFO-90 - Emulating devices and screen sizes in DevTools](https://trilogyed.atlassian.net/browse/FSFO-90?atlOrigin=eyJpIjoiYTk1YmFlNmVkMTMxNDY3NzgwYTY4Y2ViNDNjODU1ZDgiLCJwIjoiaiJ9)
+> **Asset Needed:** [VIDEO: FSFO-90 - Emulating devices and screen sizes in DevTools](https://trilogyed.atlassian.net/browse/FSFO-90?atlOrigin=eyJpIjoiYTk1YmFlNmVkMTMxNDY3NzgwYTY4Y2ViNDNjODU1ZDgiLCJwIjoiaiJ9)
 
 This image shows what our site looks like when viewed in a tablet:
 
 ![Tablet rendering of the site with overflowing content](assets/lesson-3/101-nometa.jpeg)
 
-As you can see, the window cuts off the sign-up form. This is because mobile browsers render a webpage in a virtual viewport, which attempts to view it as if it were a normal browser and then scales it down. To learn more, check out the [MDN web docs on mobile viewports](https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts#Mobile_Viewports).
+As you can see, the window cuts off the sign-up form. This is because mobile browsers render a webpage in a virtual viewport, which attempts to view it as if it were a normal browser and then scales it down. 
+
+> **Deep Dive:** To learn more, check out the [MDN web docs on mobile viewports](https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts#Mobile_Viewports).
 
 To improve the user experience on mobile devices, Apple created a viewport `meta` element to address mobile-screen rendering issues on mobile browsers:
 
@@ -238,8 +240,8 @@ As you adjust the screen size and see the different styles being applied to the 
 > **Pro Tip:** Keep DevTools open during this and watch the style rules get stricken out as new ones come in to take over. 
 
 This video shows what happens with the three media queries when the site is displayed on a smaller screen:
->
-> ### [NEED VIDEO: FSFO-91 - Overriding styles with media queries](https://trilogyed.atlassian.net/browse/FSFO-91?atlOrigin=eyJpIjoiZTE1NjU1Mjg3ZTE1NDRlNzhiY2U5MjdhMmNhZDljOTUiLCJwIjoiaiJ9)
+
+> **Asset Needed:** [NEED VIDEO: FSFO-91 - Overriding styles with media queries](https://trilogyed.atlassian.net/browse/FSFO-91?atlOrigin=eyJpIjoiZTE1NjU1Mjg3ZTE1NDRlNzhiY2U5MjdhMmNhZDljOTUiLCJwIjoiaiJ9)
 
 ### Order Matters
 
@@ -265,7 +267,7 @@ Now that we know that our media queries work in the right order, we can focus on
 
 Once that's complete, make sure to save your work to the `media-queries` branch!
 
-### [NEED CHECKPOINT - Jira Issue FSFO-125](https://trilogyed.atlassian.net/browse/FSFO-125?atlOrigin=eyJpIjoiNzZlYzk4MjdiNTBmNDg3OWIxNGI3YmQ1Njk5YzAwNjkiLCJwIjoiaiJ9)
+> **Asset Needed:** Learnosity [Jira Issue FSFO-125](https://trilogyed.atlassian.net/browse/FSFO-125?atlOrigin=eyJpIjoiNzZlYzk4MjdiNTBmNDg3OWIxNGI3YmQ1Njk5YzAwNjkiLCJwIjoiaiJ9)
 
 ## Small Screen Styles
 
@@ -524,21 +526,19 @@ git push origin develop
 
 ## Reflection
 
-The Run Buddy team will be thrilled when they see that we matched the specifications in their mock-ups! By using CSS media queries, we were able to control our page's layout and style at various viewport breakpoints. The combination of modern tools like flexbox and media queries make creating these layouts a lot easier than it used to be. 
+The Run Buddy team will be thrilled when they see that we matched the specifications in their mock-ups! By using CSS media queries, we were able to control our page's layout and style at various viewport breakpoints. The combination of modern tools like flexbox and media queries makes creating these layouts a lot easier than it used to be. 
 
-Visualizing a webpage that looks good across multiple screen sizes is not an easy task. We were fortunate that the team at Run Buddy already knew what they wanted, but that's not always the case. If we had to come up with the layout design on our own, we now know that we could use Chrome's DevTools to help with the task. 
+Visualizing a webpage that looks good across multiple screen sizes is not an easy task. We were fortunate that the team at Run Buddy already knew what they wanted. If they hadn't, we now know that we could've used Chrome's DevTools to help with the task. 
 
 Let's recap some key concepts from this lesson:
 
-- We used media queries, a CSS tool that can change the style or layout of the site when a condition is met, such as the browser being under or over a specified width.
+- We used media queries, a CSS tool that can change the style or layout of a site when a condition is met.
 
-- We learned that it is easier to change a layout that's using flexbox as opposed to `float` and `position` because all of the elements getting moved are controlled by those flex containers.
+- We learned that it's easier to change a layout that's using flexbox as opposed to `float` and `position` because all of the elements that get moved are controlled by those flex containers.
 
 - We used Chrome's DevTools to debug and test possible solutions when dealing with complex styles and responsive design.
 
-At this point, the site could be ready to go into production because it's mobile-friendly and responsive. However, the Run Buddy team has sent us an entire new section to add to the site. 
-
-For this, we'll use yet another CSS layout tool called **CSS grid**. This tool introduces layout control that flexbox doesn't support, as it allows us to control both horizontal and vertical axes rather than just one at a time. Let's get to it! 
+At this point, the website could be ready to go into production because it's mobile-friendly and responsive. However, the Run Buddy team has sent us a new section to add to the site. For this, we'll use yet another CSS layout tool called **CSS grid**, which allows us to control both horizontal and vertical axes rather than just one at a time. Let's get to it! 
 
 
 ---
