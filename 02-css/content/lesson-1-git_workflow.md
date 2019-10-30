@@ -2,13 +2,13 @@
 
 ## Introduction
 
-The Run Buddy website has been a huge success! This means that management has the motiviation and capital to upgrade the site. 
+The Run Buddy website is a huge success so far! This means that management has the motiviation and capital to upgrade the site. In this module, we'll focus on building Run Buddy version 2.0, making the site mobile-friendly and easier to use. 
+
+To accomplish this, we're going to dive deeper into CSS and use some of its powerful layout capabilities such as media queries, CSS Grid, and Flexbox. We're also going to apply the HTML and Git skills we learned. Get ready to level-up!
 
 ## Preview
 
-For Run Buddy version 2.0, the team wants us to make the site mobile-friendly and easier to use.
-
-Here's the mock-up for version 2.0, which we'll build over the course of this module:
+Here's the mock-up for version 2.0, which we'll build over the course of the next six lessons:
 
 ![Run Buddy version 2.0 mock-up](assets/lesson-1/001-version2-mock-up-main.jpg)
 
@@ -40,13 +40,13 @@ The `develop` branch will be where we develop and test new features. When we're 
 
 Before we create our development environment, let's learn some new Git commands: 
 
-* `git branch` displays a list of all the branches in the repo. It also highlights the branch you're in, which is called the **active branch** or **working directory**.
+* **`git branch`** displays a list of all the branches in the repo. It also highlights the branch you're in, which is called the **active branch** or **working directory**.
 
-* `git branch <branch-name>` creates a new branch (with your `<branch-name>`) that is a version of the current active branch. After you commit changes to the new branch, the branches will no longer be in sync with each other because their commit histories will diverge. 
+* **`git branch <branch-name>`** creates a new branch (with your `<branch-name>`) that is a version of the current active branch. After you commit changes to the new branch, the branches will no longer be in sync with each other because their commit histories will diverge. 
 
-* `git checkout <branch-name>` lets you switch into a different branch, which is then the new active branch. This is how to navigate between different versions of the codebase.
+* **`git checkout <branch-name>`** lets you switch into a different branch, which is then the new active branch. This is how to navigate between different versions of the codebase.
 
-* `git checkout -b <branch-name>` is two commands in one. It creates a new branch (`git branch <branch-name>`) and moves (`git checkout <branch-name>`) into that branch, making it the active branch. 
+* **`git checkout -b <branch-name>`** is two commands in one. It creates a new branch (`git branch <branch-name>`) and moves (`git checkout <branch-name>`) into that branch, making it the active branch. 
 
 Let's create a `develop` branch. Remember that you must first go to the command prompt and `cd` into your working directory. 
 
@@ -84,18 +84,17 @@ Let's move on to another invaluable function of branching: creating feature bran
 
 ## Create Feature Branches
 
-**Features** are additions or changes to a significant part of the codebase. For instance, major upgrades to a header, footer, or section would be considered a feature. A feature is normally developed in a separate branch called a `feature` branch.
+**Features** are additions or changes to a significant part of the codebase. For instance, a major upgrade to a header, footer, or section would be considered a feature. A feature is typically developed in a separate branch called a `feature` branch.
 
-> **Video:** [Multiple Development Environments: JIRA FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) 
+> **Asset Needed:** Video [Multiple Development Environments: JIRA FSFO-105](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-105) 
 
 We just created a `develop` branch as a development environment to protect and isolate our production environment. In this step, we'll branch from the `develop` branch to create a new `feature` branch where the feature development work will be done. 
 
 The following diagram introduces the concept of feature branches:
 
 ![Feature Branch](assets/lesson-1/60-feature-branch.png)
-> **IMAGE NEEDS TO BE RE-CREATED:** [Git Pull Jira-176](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-176)
 
-[URL](https://medium.com/devsondevs/gitflow-workflow-continuous-integration-continuous-delivery-7f4643abb64f)
+> **Asset Needed:** Replace above image [Git Pull Jira-176](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-176)
 
 As can be seen in the diagram, several feature branches can be branched off the `develop` branch. Once the feature is complete, it's merged back into the `develop` branch. 
 
@@ -109,11 +108,11 @@ There are several important reasons to work on the codebase in a separate `featu
 
 * Testing the feature branch in isolation helps find errors or bugs more quickly because the changes in the codebase will be unique to the feature.
 
-> **Video:** [Animation of Git workflow-JIRA FSFO-106](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-106). Start with  `master` then branch to `develop`. The branching from `develop` into a feature, then another feature, [actual code development] then merging back into the `develop` branch, then into `master` branch.
+> **Asset Needed:** Video [Animation of Git workflow-JIRA FSFO-106](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-106). 
 
 It's time to switch gears. Let's go to our GitHub repo and create a `README.md` file for Run Buddy version 2.0. 
 
-> **Checkpoint** [Learnosity Asset-JIRA 117](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-117)
+> **Asset Needed:** [Learnosity Asset-JIRA 117](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-117)
 
 ## Create a README File
 
@@ -127,7 +126,7 @@ The `README.md` file is located in the top level or root directory of the repo. 
 
 Let's go ahead and create a `README.md` file for our repo. 
 
-> **Video:** [Creating a `README.md` file in GitHub - JIRA FSFO-107](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-107)
+> **Asset Needed:** Video [Creating a `README.md` file in GitHub - JIRA FSFO-107](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-107)
 
 Here's what your raw Markdown file should look like:
 
@@ -161,7 +160,7 @@ To check if the `README.md` file was created properly, see if it's visible on th
 
 ![GitHub Repo](./assets/lesson-1/170-markdown-preview.png)
 
-At the top of this image we see the branches tab. This is a subset of tabs located in the Code tab. If you don't see the branches option, the Code tab may not be selected. Click on this option to look at our branches to see the following:
+At the top of this image, we see the branches tab. This is a subset of tabs located in the Code tab. If you don't see the branches option, the Code tab may not be selected. Click on this option to look at our branches to see the following:
 
 ![Screenshot of the GitHub repository showing that the README.md file was created](./assets/lesson-1/190-branches-github.png)
 
@@ -169,7 +168,7 @@ At the top of this image we see the branches tab. This is a subset of tabs locat
 >
 > **Answer:** The `develop` branch was created locally on your computer, but this change hasn't been updated yet on GitHub.com. The repo on GitHub is considered the **remote repo**. As we did in the past module, we'll need to `git push` our local changes up to the remote repo in GitHub.
 
-Pushing our branch to GitHub creates a secure backup and provides a collaborative and communal development branch that team members can branch from, so let's do that now by using the following command:
+Pushing our branch to GitHub creates a secure backup and provides a collaborative and communal development branch that team members can branch from. Let's do that now by using the following command:
 
 ```
 git push origin <remote-branch-name>
@@ -179,7 +178,7 @@ Did you notice something new here? In Module 1, we pushed our changes to the rem
 
 This command does two things: creates a new remote branch and then pushes the code from the local active branch into that remote branch. The word `origin` simply to refers the source repository where the cloning originally occurred. 
 
-So in our scenario, the Git command to create and push to a remote `develop` branch is:
+In our scenario, the Git command to create and push to a remote `develop` branch is:
 
 ```
 git push origin develop
@@ -199,7 +198,7 @@ Do you see the notification (highlighted in yellow) that the new `develop` branc
 
 This remote version serves as the communal or collaborative branch that we will update with our enhancements. It's our shared and stable development environment. It also serves as a great way for team members to update their local development environment to the latest stable version—they simply need to pull down the `develop` branch from GitHub.
 
-Next, we'll ›learn how to communicate updates between the remote repo (on GitHub.com) and the local repo (on our computer).
+Next, we'll learn how to communicate updates between the remote repo (on GitHub.com) and the local repo (on our computer).
 
 ## Interacting with GitHub
 
@@ -211,7 +210,7 @@ As you can see, the `README.md` file you just created in GitHub isn't in your lo
 The following diagram shows the relationship between local and remote branches and commits:
 
 ![Local vs Remote Repos](assets/lesson-1/240-branch-github.png)
-> **IMAGE NEEDS TO BE RE-CREATED:** [Git Pull Jira-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
+> **Asset Needed:** IMAGE NEEDS TO BE RE-CREATED [Git Pull Jira-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
 [URL](https://www.atlassian.com/git/tutorials/syncing/git-pull)
 
 In the image, the circles represent commits and the letters indicate unique commits or save points. As you can see, the remote `master` branch is not in sync with the `master` branch on the local repo. The commits are different on the two repos, which makes the versions different and out of sync. 
@@ -254,20 +253,18 @@ You should see the following screen after a successful `pull`:
 
 ![Vim text editor showing message request](assets/lesson-1/200-vim-cli.png)
 >
->Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there is a local commit that differs from the commit history in the incoming branch that is being merged. To exit out of this screen, type the following into the editor:
+>Git has opened a text editor called Vim to request a commit message for the `merge` operation. This occurs when there's a local commit that differs from the commit history in the incoming branch that is being merged. To exit out of this screen, type the following into the editor:
 >1. Press ESC to enter normal mode.
 >1. Type : to initiate a Vim command.
 >1. Type q to quit.
 
->Or you can press the following keys:
-
->Shift + Z + Z
+>Or you can press the following keys: Shift + Z + Z
 
 > **Deep Dive:** To learn more about this powerful text editor, check out this [Wikipedia article on Vim](https://en.wikipedia.org/wiki/Vim_(text_editor)).
 
 This will bring you back to your terminal window, which should display the success response shown above. The success response tells us that the `README.md` file added 14 new lines.
 
-> **Video:** Animation - [Jira FSFO-109: Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
+> **Asset Needed:** Video - [Jira FSFO-109: Git merge](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-109)
 
 The next lines display what files were changed and how many lines were added in green "+" or removed in red "-". In our case, we only have additions, so there are no red "-".
 
@@ -290,7 +287,7 @@ Another great feature VS Code offers is a Markdown preview. To see how your Mark
 
 ![Markdown review button icon](./assets/lesson-1/351-vs-code-markdown-preview.png)
 
-> **Video**-Gif: [Show how the Explorer changes on branch checkout - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog)
+> **Asset Needed:** Video [Show how the Explorer changes on branch checkout - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog)
 
 If you see the `README.md` file in VS Code, congrats for successfully accomplishing your first `pull`! 
 
@@ -306,19 +303,17 @@ git pull origin master
 
 The `pull` command directs the download process to occur. The words `origin` and `master` designate the source of the download or `pull`. `origin` describes the remote (aka GitHub) repo, and `master` designates the branch or version in the remote repo we'd like to pull. Please note that if the `<branch-name>` that's being pulled does not exist on the remote repo, the `pull` process will give an error and not occur.
 
-> **Pause:** But how does the `pull` command know where the download will to go to? Any thoughts? 
+> **Pause:** How does the `pull` command know where the download will to go to?  
 >
-> **Answer:** `git pull` will always download to the current active branch. That's why it's always a good idea to use `git branch` to verify the active branch before doing a `git pull`.
+> **Answer:** The `git pull` command will always download to the current active branch. That's why it's always a good idea to use `git branch` to verify the active branch before doing a pull.
 
-> **Video -** Animation: Showing Data Flow [Git Pull & Git Push-JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
+> **Asset Needed:** Video: Showing Data Flow [Git Pull & Git Push-JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
 
 As you can see in the following diagram, the remote repo has converged with the local repo in the "H" merge commit: 
 
 ![Diagram showing git pull](assets/lesson-1/250-pull-git.png)<!-- Illustration lacks direction-->
 
-> **IMAGE NEEDS TO BE RE-CREATED:** [Git Pull: Jira FSFO-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
-
-> **Video:** Nice to Have: Animation - Showing Data Flow Direction [Git Pull & Git Push: JIRA FSFO-108](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-108)
+> **Asset Needed:** Image [Git Pull: Jira FSFO-175](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-175)
 
 Let's dive deeper into the `pull` process. The `pull` command is actually a combination of two different operations: `git fetch` and `git merge`.
 
@@ -501,30 +496,25 @@ Now let's get back into our Git workflow and learn about a service provided by G
 
 ## Git Issues
 
-The design team has requested that we insert a text block into the hero section to add some visual balance and Run Buddy marketing bling. 
+The design team has requested that we insert a text block into the hero section to add some visual balance and Run Buddy marketing bling. We could dive right in and get started on a new feature branch, but instead let's take a minute to introduce a GitHub task management tool called Git issues. 
 
-We could dive right in and get started on a new feature branch, but instead let's take a moment to introduce a GitHub feature called Git issues. **Git issues** is a task management tool that teams use to track, organize, and communicate ideas, tasks, bugs, and enhancements. Issues can help team members remember key tasks, identify bottlenecks or blockers that could prevent work progress, indicate file changes to reduce merge conflicts, and prevent duplicating work through assigning tasks or issues. Usually in the workplace, the design team would be creating these issues and assigning them to us, but we'll make them on their behalf to simulate the workflow.
+**Git issues** helps teams to do the following: 
 
-### Create Our First Issue
+- Track, organize, and communicate ideas, tasks, bugs, and enhancements
+- Remember key tasks 
+- Identify bottlenecks or blockers that could prevent work progress
+- Indicate file changes to reduce merge conflicts
+- Prevent duplicating work through assigning tasks or issues
 
-Let's go to our GitHub repo and select the Issues tab.
+### Create a Git Issue
 
-> **Video:** [Create Git Issue: JIRA FSFO-111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
+This project will have six Git issues. Let's create the first one now. 
 
-> Create issue, compose content/labels, submit issue, verify issue, edit
-issue, comment on issue, close issue
+Go to the GitHub repo and select the Issues tab.
 
-From there, we can create a new issue by clicking on the green "New issue" button:
+> **Asset Needed:** Video [Create Git Issue: JIRA FSFO-111](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-111)
 
->  ## Storyboard for Video Team using Screen shots<br />
-> **Linear Steps**
-> 1) Click on Issues tab
-> 2) Click on New Issue button
->![Git Issue Tab](assets/lesson-1/800-git-issues-github.png)
-> 3) Git Issue Title - A descriptive name with the issue type such as an enhancement or fix. In our case we will type "Hero Section Text Block"
-> 4) Git Issue Comment - Can contain requirements of the feature or issue that is being fixed. Even adding mock-ups or design requirements are common. For bugs, often there are descriptions of the current state vs the desired state as well as steps to reproduce the bug.
-
-Here is an example of the raw Markdown:
+Create a new issue by clicking the green "New issue" button and typing the following Markdown:
 
 ```markdown
 
@@ -538,9 +528,10 @@ Here is an example of the raw Markdown:
 ## Questions/suggestions for Design Team
 * What will be the marketing text?
 ```
-Other formatting options we can add to this issue includes checkboxes, code blocks, and the ability to mention a team member(s) using their GitHub handle with the "@" notation.
 
-Notice that on the right side panel, there are options to add labels or team member assignments. Let's add the Enhancement label to the `hero-text` issue now and assign it to ourselves. To do that, follow these steps:
+Other formatting options for issues includes checkboxes, code blocks, and the ability to mention a team member(s) using their GitHub handle with the "@" notation.
+
+On the right side panel, there are options to add labels or team member assignments. Add the enhancement label, assign the issue to yourself, and submit the issue by following these steps:
 
 1. Click the Assignees option.
 
@@ -552,15 +543,15 @@ You should see the following screen following a successful issue creation:
 
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
 
-Congratulations on completing your first Git issue! Note that this screen is the edit screen that allows changing the text as well as closing the issue once the enhancement or work has been finished. This edit screen can be found on the Issues tab, which now notes that there is one outstanding issue on the repo's landing page.
+Congratulations on completing your first Git issue! Note that the issue edit page also allows you to close the issue after it's resolved. You can access this page from the Issues tab, which now notes that there is one outstanding issue on the repo's landing page.
 
->**Deep Dive:** For more information, take a look at [GitHub's documentation on managing your work with issues](https://help.github.com/en/articles/managing-your-work-with-issues).
+>**Deep Dive:** For more information, see [GitHub's documentation on using issues](https://help.github.com/en/articles/managing-your-work-with-issues).
 
 ### Create a Second Issue
 
-Now that we understand how to make a Git issue, let's create one for another HTML addition from the sales department. They want to add a form to the Reach Out section for users to submit questions directly to the sales staff.
+Now that we understand how to create a Git issue, let's create another one. The sales department wants to add a form to the Reach Out section for users to submit questions directly to the sales staff.
 
-Go ahead and create a new Git issue for this feature. The finished issue should look something like this:
+Using what you just learned, create a Git issue for this feature. The finished issue should look something like this:
 
 ```markdown
 # Contact Form for Reach Out Section
@@ -577,7 +568,7 @@ The following image shows how the issue should appear in GitHub:
 
 Notice that this issue was also assigned and labeled to provide more details for the development team.
 
-### Create All the Issues!
+### Create All the Issues
 
 Here is a list of the issues we must create for our development team in order to create Run Buddy version 2.0. For simplicity and speed, keep these simple. Okay, okay&mdash;you can add detail and rich formatting features if you really want to!
 
@@ -610,12 +601,12 @@ Here's a quick overview of the steps in this Git workflow process (all are done 
 3) Git add, commit, and push to the remote feature branch.
 4) Checkout back to `develop`.
 5) Locally merge the feature branch into the `develop` branch.
-6) Pull the remote `devlop` branch into the local `develop` branch to check for updates.
+6) Pull the remote `develop` branch into the local `develop` branch to check for updates.
 7) Push the `develop` branch into the remote `develop` branch.
 
-Don't worry if this seems like a lot of steps. We'll go over every step in detail. Let's begin! 
+Don't worry if this seems like a lot of steps. We'll go over each step in detail. Let's begin! 
 
-> **Video:** [Create feature branch and merge Gif - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-115)
+> **Asset Needed:** Video [Create feature branch and merge Gif - JIRA FSFO-115](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-115)
 
 ### Set Up the Feature Development Environment
 
@@ -635,7 +626,7 @@ Now confirm that your branch was created. Type `git branch` and you'll see the f
 
 Notice how `git branch` was also used to verify the active branch.
 
-> **Checkpoint:** [Know Git?-JIRA 118](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-118)
+> **Asset Needed:** Learnosity [Know Git?-JIRA 118](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-118)
 
 
 ### Update the Hero Section
@@ -705,7 +696,7 @@ Here's our GitHub repo's branch tab, where we can see the `develop` and `feature
 
 ![Screenshot of GitHub showing develop and feature branches](./assets/lesson-1/1250-remote-branch.png)
 
-### Merge the Feature into the Development Environment
+## Merge the Feature into the Development Environment
 
 In this final step, we'll integrate the new feature into the `develop` branch.
 
@@ -722,7 +713,7 @@ Let's do that now:
 ```
 git merge feature/hero-text
 ```
-> **Pro Tip:** Branch awareness is often overlooked by new developers. Make it a habit to keep track of what branch you're in by using the `git branch` command prior to merging, pulling, or developing features. Also, using the integrated terminal in VS Code is highly recommended due to the status bar notification of the active branch.
+> **Pro Tip:** Branch awareness is often overlooked by new developers. Make it a habit to keep track of what branch you're in by using the `git branch` command prior to merging, pulling, or developing features. Using the integrated terminal in VS Code is highly recommended because it's easy to check the status bar to see the active branch.
 
 Upon successful merging, the terminal should look like this:
 
@@ -807,19 +798,19 @@ The following screenshot shows the "Close issue" button:
 <!-- ## Red Outline for Close Issue Button -->
 ![Git Issue Success](assets/lesson-1/801-edit-git-issue-hero.png) 
 
-> **Checkpoint:** [Learnosity - JIRA 119](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-119)
+> **Asset Needed:** [Learnosity - JIRA 119](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-119)
 
 ## Reflection
 
-Congratulations on getting through a dense lesson of challenging concepts! Because we're working on such a minimal codebase, all of this work creating branches and Git issues might seem like overkill. But knowing how to use Git and GitHub will equip you to collaborate with developers on large projects, which is a real-world skill that future employers will value highly. 
+Congratulations on getting through a dense lesson of challenging concepts! Knowing how to use Git and GitHub equips you to collaborate with developers on large projects, which is a real-world skill that employers value highly. 
 
 Let's go over some of the key concepts and big ideas we introduced in this lesson:
 
 * We learned the difference between **development** and **production** environments and how creating an isolated version of the codebase allows visitors to use the website and team members to update and/or fix the code simultaneously.
 
-* We created **feature branches** to allow versions of the development environment to coexist, letting team members work in isolation and ship features more quickly. 
+* We created **feature branches** to allow versions of the development environment to coexist, which lets team members work in isolation and ship features more quickly. 
 
-* We introduced the **README.md** file, which is a high-level introduction to your project repo (which, incidentally, potential employers can read to get a sense of your technical wizardry).
+* We introduced the README.md file, which is a high-level introduction to your project repo (which, incidentally, potential employers can read to get a sense of your technical wizardry).
 
 * We used `pull`, `push`, `fetch`, `branch`, `checkout`, and `merge` to update remote and local repos. A solid understanding of using these in a proper Git workflow is crucial to collaborating on projects and a key metric for employer-ready students.
 
