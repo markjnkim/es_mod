@@ -277,10 +277,10 @@ Excellent work! Let's move onto the next step and finish the `drop`.
 
 Now we are ready for the `drop` event. Does the drag and drop operation seem more elaborate and extensive than originally imagined? This is a good lesson to remember: estimating how long it takes to complete a feature with new technology should always take into account some time to learn and troubleshoot.
 
-Let's debrief what we will need to do in the `drop` event:
-* The original dragged task item
-* The destination of the drop or the drop zone
-* Change the task status of the task item to match the task list
+Let's debrief what we will need to do in the `drop` event handler:
+* Retrieve the original dragged task item from the `dataTransfer` property
+* Reference the destination of the drop as a DOM element
+* Update the task status of the task item to match the task list
 * Append the dragged task item to the destination drop zone
 
 As we foretold in the previous steps, we will use the `drop` event handler to retrieve our `data-task-id`, our unique task item identifier, to select the dragged element from the DOM and append it to the drop zone. 
