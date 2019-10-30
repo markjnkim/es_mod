@@ -1,12 +1,20 @@
 # Lesson 5: Meet the Trainers 
 
+## Introduction
+
 At this point, we're more than halfway done with our Run Buddy landing page! We've let visitors know what product Run Buddy offers and how they can get started with a trainer. Now we will add a little more of a personal touch to the page by adding some information about the "faces" of the product.
+
+Here's where the Run Buddy landing page stands after all your hard work in the last lesson:
+
+ ![Run Buddy webpage with header, hero, and What You Do sections](./assets/step-5/050-current-state.jpg)
+
+## Preview
 
 In this lesson, you'll build another `<section>` of the page: the "Meet the Trainers" section. This one contains three similar pieces of content, so expect a fair amount of repetition. Because of that repetition, the lesson is a good opportunity to practice what you've learned so far while also picking up some new skills along the way.
 
-As usual, the Run Buddy design team has given us a mock-up for this section: 
+As usual, the Run Buddy design team has given us a mock-up: 
 
-![trainers complete](assets/step-5/100-trainers-complete.jpg)
+![Meet the Trainers section includes three trainer photos and their biographies](assets/step-5/100-trainers-complete.jpg)
 
 At first glance, this might look like a daunting amount of content and style, so let's break it down into steps. Here's what we'll do: 
 
@@ -74,7 +82,11 @@ In `index.html`, add the following class attributes to this section's `<h2>`:
 
 ### Add Trainer Images
 
-Great! Now we can move on to the content for each of the trainers. We'll start by adding their images to our project (no one likes to see a broken picture tag!). Go ahead and [download the images of the trainers](https://github.com/coding-boot-camp/FullStack-Online/blob/FSFO-27-step-4/01-html/content/link-needed 'we need a link'), and then add them to the `images` folder inside the `assets` folder that you created in Lesson 3.
+Great! Now we can move on to the content for each of the trainers. We'll start by adding their images to our project (no one likes to see a broken picture tag!). Go ahead and download these images of the trainers:
+
+> **Asset Needed:** File: <https://trilogyed.atlassian.net/browse/FSFO-188>
+
+Then add them to the `images` folder inside the `assets` folder that you created in Lesson 3.
 
 In the previous lesson, when we wanted to create a new "step," we put all of the information for that step in its own `<div>` element so we could keep it all together. We'll do the same for our trainers by taking all of the information for a trainer&mdash;name, role, bio, and image&mdash;and putting it inside a single HTML element as well.
 
@@ -98,7 +110,7 @@ Let's create one trainer so can get the hang of it. In `index.html`, go ahead an
 
 Save the file and refresh the browser. You should see this:
 
-![trainer 1 image](assets/step-5/200-trainer-1.jpg)
+![The trainer's image and info text are left-aligned with no styling](assets/step-5/200-trainer-1.jpg)
 
 It doesn't look like much yet, but it's more than enough to work with. We'll move on to building the HTML for the other two trainers shortly, but first let's review the HTML we just added.
 
@@ -128,7 +140,7 @@ As we just mentioned, we have everything we need to begin applying styles to thi
 
 In this section, we'll bring back `float`, something we used in the `<header>` and `<footer>` elements to render HTML block elements side by side. Based on the finished mock-up below, which elements do we think we'll need to `float`?
 
-![Finished Trainers](assets/step-5/100-trainers-complete.jpg)
+![Each trainer displays a photo next to their name and biography](assets/step-5/100-trainers-complete.jpg)
 
 The answer is somewhat of a trick. We could get away with floating the first and third images left and the text content `<div>` to the right and that would work fine. Then for the second one we'd just need to swap the two, floating the image right and the text content `<div>` left. Again, this is fine, but it also involves writing more code than we need to.
 
@@ -188,15 +200,13 @@ Our trainer's container is ready to go, so now let's add some of the styles for 
 
 Okay, so don't panic. Those two style additions just set the whole page on fire:
 
-![broken floats](assets/step-5/300-broken-floats.jpg)
+![The trainer's image overlaps the footer content, and the background color is gone](assets/step-5/300-broken-floats.jpg)
 
 Before we explain what happened, let's make ourselves feel better and fix this mess. Go ahead and add the following property declaration to the `.trainer` styles: `overflow: auto`.
 
-
-
 After saving the file and refreshing, the page should look like this:
 
-![fixed floats](assets/step-5/400-fixed-floats.jpg)
+![The trainer container's background color extends to the bottom of the photo and text content](assets/step-5/400-fixed-floats.jpg)
 
 Much better! Now that we can relax a second, let's go over what just happened.
 
@@ -204,7 +214,7 @@ We worked with floats and manipulating a page's default "flow" in Lesson 2, but 
 
 In this case, however, we floated both elements (the `<img>` and `<div>`), which means its parent element&mdash;the `<article>` element&mdash;cannot interpret how much space its inner HTML content needs and assumes there's nothing inside it at all. This means the `<article>` element's styles, like `background-color`, don't show up because the `<article>` element itself is 0 pixels tall.
 
-### NEED: Video showing what floated elements do to the parent
+> **Asset needed:** Video: <https://trilogyed.atlassian.net/browse/FSFO-214>
 
 This a common issue for float-based layouts. It involves not only moving the elements we want to move, but also tweaking elements around it to tell it to understand that there may be some floated elements it needs to account for. There are a few ways to make these tweaks to fix the problem we just had—we chose the `overflow` property.
 
@@ -242,7 +252,7 @@ Notice how these classes have generic names that do not indicate exactly where t
 
 Let's revisit our HTML and add the class `text-left` to the `<div class="trainer-bio">` tag. It should look like this when it's done:
 
-```HTML
+```html
 <div class="trainer-bio text-left">
   <h3>Arron Stephens</h3>
   <h4>Speed / Strength</h4>
@@ -276,9 +286,9 @@ Let's add some styles that are more specific to our trainers' name heading, subh
 
 And there we go! Our trainer's styles are now set up and everything should be looking good:
 
-![finished trainer](assets/step-5/500-finished-trainer.jpg)
+![The text sitting next to the trainer's photo is appropriately sized and positioned](assets/step-5/500-finished-trainer.jpg)
 
-> **Heads Up:** For some users&mdash;especially Windows users&mdash;the font we're using here, Helvetica, might be replaced with Arial. This is because most Windows computers do not come with Helvetica installed on them. Helvetica and Arial look similar, but there are differences between the two, namely the variations of the `font-weight` property. Arial does not have a weight for the value `lighter`, so it uses the closest weight (in this case, `normal`).
+> **Important:** For some users&mdash;especially Windows users&mdash;the font we're using here, Helvetica, might be replaced with Arial. This is because most Windows computers do not come with Helvetica installed on them. Helvetica and Arial look similar, but there are differences between the two, namely the variations of the `font-weight` property. Arial does not have a weight for the value `lighter`, so it uses the closest weight (in this case, `normal`).
 >
 > This is something developers deal with on a regular basis, but the nice thing is that the fall-back weight that's provided doesn't break the page. It will just look a little different than it does for MacOS users.
 >
@@ -290,7 +300,7 @@ Let's go ahead and add the other two trainers to the page. Then we'll be done wi
 
 Let's look at the mock-up again. We still have two more trainers to add: Joanna Gill and Harry "the Headband" Smith. 
 
-![Trainers Mock-up](assets/step-5/100-trainers-complete.jpg)
+![The first and third trainers have their photo on the left while the second trainer has the photo on the right](assets/step-5/100-trainers-complete.jpg)
 
 We can use our first trainer's `<article>` element as a reference to build the other trainers' `<article>` elements. We just need to make a couple of tweaks for the content because each trainer has a unique name, role, bio, and image. 
 
@@ -330,7 +340,7 @@ For our second trainer, we wanted to have the image on the right and text on the
 
 Save the file and reload the webpage. You should now have a finished "Meet the Trainers" section:
 
-![Section Finished](assets/step-5/600-section-complete.jpg)
+![All three trainer containers display a photo and biography text side-by-side](assets/step-5/600-section-complete.jpg)
 
 Way to go! Don't forget to do a `git add -A`, `git commit -m "commit message"`, and `git push origin master` to save your work and get it up to GitHub.
 
