@@ -654,7 +654,7 @@ We could use a similar strategy and locally merge our code into `master` then pu
 
 The first thing we need to do is open a GitHub "Pull Request", and we can do so by navigating to the main page of our repository (the "Code" tab) and clicking the "New Pull Request" button. See this image for reference:
 
-> **Asset Needed:** GitHub repo screenshot with pull request button highlighted
+![Taskinator GitHub with pull request button highlighted](assets/lesson-5/1400-github-pr-button.jpg)
 
 Once we click that button, we now have to chose what branches we want to merge code into and what branch the code is coming from. Under the "Compare Changes" title, there should be a grey box that has two dropdowns to pick a "Base" branch and a "Compare" branch. For the Base branch, make sure `master` is selected. Then for the Compare branch, open the dropdown menu and select `develop`.
 
