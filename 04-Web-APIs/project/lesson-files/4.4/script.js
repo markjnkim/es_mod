@@ -180,12 +180,12 @@ var dropTaskHandler = function(event) {
   event.preventDefault();
   var id = event.dataTransfer.getData("text/plain");
   var draggableElement = document.querySelector("[data-task-id='" + id + "']");
-  var dropzone = event.target.closest(".task-list");
-  dropzone.removeAttribute("style");
+  var dropZone = event.target.closest(".task-list");
+  dropZone.removeAttribute("style");
 
   // set status of task based on dropzone id
   var statusSelectEl = draggableElement.querySelector("select[name='status-change']");
-  var statusType = dropzone.id;
+  var statusType = dropZone.id;
 
   switch (statusType) {
     case "tasks-to-do":
@@ -201,21 +201,18 @@ var dropTaskHandler = function(event) {
       console.log("Something went wrong!");
   }
 
-  dropzone.appendChild(draggableElement);
+  dropZone.appendChild(draggableElement);
 };
 
-// stops page from loading the dropped item as a resource (opening a new link)
-var dropzoneDragHandler = function(event) {
-  event.preventDefault();
-  if (event.target.closest(".task-list") !== null) {
-    event.target
-      .closest(".task-list")
-      .setAttribute("style", "background: rgba(68, 233, 255, 0.7); border-style: dashed;");
+var dropZoneDragHandler = function(event) {
+  var taskListEl = event.target.closest(".task-list");
+  if (taskListEl) {
+    event.preventDefault();
+    taskListEl.setAttribute("style", "background: rgba(68, 233, 255, 0.7); border-style: dashed;");
   }
 };
 
 var dragTaskHandler = function(event) {
-  console.log(event);
   if (event.target.matches("li.task-item")) {
     var taskId = event.target.getAttribute("data-task-id");
     event.dataTransfer.setData("text/plain", taskId);
@@ -223,10 +220,11 @@ var dragTaskHandler = function(event) {
 };
 
 var dragLeaveHandler = function(event) {
-  if (event.target.closest(".task-list") !== null) {
+  if (event.target.matches(".task-list") || event.target.matches(".task-item")) {
     event.target.closest(".task-list").removeAttribute("style");
   }
 };
+
 
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);
@@ -239,6 +237,6 @@ pageContentEl.addEventListener("change", taskStatusChangeHandler);
 
 // for dragging
 pageContentEl.addEventListener("dragstart", dragTaskHandler);
-pageContentEl.addEventListener("dragover", dropzoneDragHandler);
+pageContentEl.addEventListener("dragover", dropZoneDragHandler);
 pageContentEl.addEventListener("dragleave", dragLeaveHandler);
 pageContentEl.addEventListener("drop", dropTaskHandler);
