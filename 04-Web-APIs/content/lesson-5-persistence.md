@@ -489,7 +489,7 @@ tasks = JSON.parse(tasks);
 
 We used `JSON.stringify()` previously to take an array of objects and convert it to a string, so what do we think `JSON.parse()` does? Add a `console.log()` after that code to see what happens to our `tasks` variable, it should look like this image in the console:
 
-> **Asset Needed:** Image of parsed data
+![Parsed array of task objects from localStorage](assets/lesson-5/1001-parsed-tasks.jpg)
 
 It turns it back into a real array of objects! That's great, now we have our data back to normal and we can actually use it like an array of objects.
 
