@@ -523,13 +523,16 @@ If you have more than one element and it has the same `data-task-id` attribute v
 - Create a `<div>` element and store it in a variable called `taskInfoEl`
   - Give it a `classname` property of "task-info" to set the HTML `class` attribute
   - Set its `innerHTML` property to:
+
 ```js
 "<h3 class='task-title'>" + tasks[i].title + "</h3><span class='task-type'>" + tasks[i].type + "</span>";
 ```
-  - Append `taskInfoEl` to `listItemEl`
+
+- Append `taskInfoEl` to `listItemEl`
 
 - Create the actions for the task by creating a variable called `taskActionsEl` and giving it a value of `createTaskActions()` with `tasks[i].id` as the argument
-  - Append `taskActionsEl` to `listItemEl`
+
+- Append `taskActionsEl` to `listItemEl`
 
 Test to make sure that `taskActionsEl` was appended to `listItemEl` correctly by using a `console.log(listItemEl);`. It should look like this image:
 
@@ -654,13 +657,13 @@ We could use a similar strategy and locally merge our code into `master` then pu
 
 The first thing we need to do is open a GitHub "Pull Request", and we can do so by navigating to the main page of our repository (the "Code" tab) and clicking the "New Pull Request" button. See this image for reference:
 
-![Taskinator GitHub with pull request button highlighted](assets/lesson-5/1400-github-pr-button.jpg)
+![Taskinator GitHub repo with pull request button highlighted](assets/lesson-5/1400-github-pr-button.jpg)
 
 Once we click that button, we now have to chose what branches we want to merge code into and what branch the code is coming from. Under the "Compare Changes" title, there should be a grey box that has two dropdowns to pick a "Base" branch and a "Compare" branch. For the Base branch, make sure `master` is selected. Then for the Compare branch, open the dropdown menu and select `develop`.
 
 Now that we have our two branches picked, let's open the pull request by clicking the green button that says "Create Pull Request". See this image for what that page in GitHub looks like for reference:
 
-> **Asset Needed:** Create pull request page in GitHub
+![GitHub open pull request page](assets/lesson-5/1500-github-pr-open.jpg)
 
 Once that button is clicked, we'll be taken to a page for our pull request under the "Pull Requests" tab in our repository. This page has all of the options that pertain to a pull request, including who the pull request is assigned to and who we want to review the code before merging the pull request. 
 
@@ -682,11 +685,11 @@ If the button turned purple, our code is now in the `master` branch! Let's go ah
 
 To deploy an application to GitHub pages, let's navigate to the "Settings" tab in our GitHub repository. That tab is outlined in this image:
 
-> **Asset Needed:** GitHub repo with "Settings" tab highlighted
+![GitHub repo with settings tab highlighted](assets/lesson-5/1600-github-repo-settings.jpg)
 
 Once we're there, we can scroll down the page until we see a section called "GitHub Pages." In that section, there is a dropdown menu that lets us pick which branch we want to deploy, select "master branch" from those options.
 
-> **Asset Needed:** GitHub settings with GitHub pages section highlighted
+![GitHub repo settings page with GitHub Pages in focus](assets/lesson-5/1700-github-pages-settings.jpg)
 
 Upon selecting which branch to deploy, the page will refresh itself and if we navigate back to the "GitHub Pages" section, we'll see a little note letting us know that the application is deployed at `https://[githubusername].github.io/taskinator`. We can click that link and it'll take us to our application on the internet!
 
@@ -698,7 +701,7 @@ Let's wrap up and reflect on all of the amazing work we've completed.
 
 ## Reflection
 
-Congratulations on creating our first personal project! Projects like this are crucial for our growth as developers, as they provide a low-stakes environment for us to learn new skills and build our portfolio. Potential employers like to see this kind of work on portfolios as well, as it shows we actually care about growing our skillset and don't just write code for a paycheck.
+Congratulations on creating our first personal project! Projects like this are crucial for our growth as developers, as they provide a low-stakes environment for us to learn new skills and build our portfolio. Potential employers like to see this kind of work on portfolios as well, as it shows we actually care about growing our skill set and don't just write code for a paycheck.
 
 In this last lesson, we added a key feature to Taskinator and leveraged localStorage to save our tasks to our browser, but throughout this module, we've learned so much more. Let's review some of the things we learned:
 

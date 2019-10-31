@@ -3,8 +3,8 @@ var tasksToDoEl = document.querySelector("#tasks-to-do");
 
 var taskFormHandler = function(event) {
   event.preventDefault();
-  var taskNameInput = document.querySelector("[name='task-name'").value;
-  var taskTypeInput = document.querySelector("[name='task-type']").value;
+  var taskNameInput = document.querySelector("input[name='task-name'").value;
+  var taskTypeInput = document.querySelector("select[name='task-type']").value;
 
   // check if inputs are empty (validate)
   if (taskNameInput === "" || taskTypeInput === "") {
@@ -16,12 +16,12 @@ var taskFormHandler = function(event) {
   document.querySelector("input[name='task-name']").value = "";
   document.querySelector("select[name='task-type']").selectedIndex = 0;
 
-  var taskDataObj = {
+  var taskFormObj = {
     name: taskNameInput,
     type: taskTypeInput
   };
 
-  createTaskEl(taskDataObj);
+  createTaskEl(taskFormObj);
 };
 
 var createTaskEl = function(taskDataObj) {

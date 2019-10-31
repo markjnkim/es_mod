@@ -28,12 +28,12 @@ var taskFormHandler = function(event) {
     var taskId = formEl.getAttribute("data-task-id");
     completeEditTask(taskNameInput, taskTypeInput, taskId);
   } else {
-    var taskDataObj = {
+    var taskFormObj = {
       name: taskNameInput,
       type: taskTypeInput
     };
 
-    createTaskEl(taskDataObj);
+    createTaskEl(taskFormObj);
   }
 };
 
@@ -178,54 +178,49 @@ var deleteTask = function(taskId) {
 
 var dropTaskHandler = function(event) {
   event.preventDefault();
-  console.log("this works");
-  if (event.target.closest(".task-list")) {
-    var id = event.dataTransfer.getData("text/plain");
-    console.log(id);
-    var draggableElement = document.querySelector("[data-task-id='" + id + "']");
-    var dropzone = event.target.closest(".task-list");
-    dropzone.removeAttribute("style");
+  var id = event.dataTransfer.getData("text/plain");
+  var draggableElement = document.querySelector("[data-task-id='" + id + "']");
+  var dropZone = event.target.closest(".task-list");
+  dropZone.removeAttribute("style");
 
-    // set status of task based on dropzone id
-    var statusSelectEl = draggableElement.querySelector("select[name='status-change']");
-    var statusType = dropzone.id;
+  // set status of task based on dropzone id
+  var statusSelectEl = draggableElement.querySelector("select[name='status-change']");
+  var statusType = dropZone.id;
 
-    switch (statusType) {
-      case "tasks-to-do":
-        statusSelectEl.selectedIndex = 0;
-        break;
-      case "tasks-in-progress":
-        statusSelectEl.selectedIndex = 1;
-        break;
-      case "tasks-completed":
-        statusSelectEl.selectedIndex = 2;
-        break;
-      default:
-        console.log("Something went wrong!");
-    }
-
-    dropzone.appendChild(draggableElement);
+  switch (statusType) {
+    case "tasks-to-do":
+      statusSelectEl.selectedIndex = 0;
+      break;
+    case "tasks-in-progress":
+      statusSelectEl.selectedIndex = 1;
+      break;
+    case "tasks-completed":
+      statusSelectEl.selectedIndex = 2;
+      break;
+    default:
+      console.log("Something went wrong!");
   }
+
+  dropZone.appendChild(draggableElement);
 };
 
-// stops page from loading the dropped item as a resource (opening a new link)
-var dropzoneDragHandler = function(event) {
-  event.preventDefault();
-  if (event.target.matches(".task-list") || event.target.matches(".task-item")) {
-    event.target
-      .closest(".task-list")
-      .setAttribute("style", "background: rgba(68, 233, 255, 0.7); border-style: dashed;");
+var dropZoneDragHandler = function(event) {
+  var taskListEl = event.target.closest(".task-list");
+  if (taskListEl) {
+    event.preventDefault();
+    taskListEl.setAttribute("style", "background: rgba(68, 233, 255, 0.7); border-style: dashed;");
   }
 };
 
 var dragTaskHandler = function(event) {
-  var taskId = event.target.getAttribute("data-task-id");
-  event.dataTransfer.setData("text/plain", taskId);
+  if (event.target.matches("li.task-item")) {
+    var taskId = event.target.getAttribute("data-task-id");
+    event.dataTransfer.setData("text/plain", taskId);
+  }
 };
 
 var dragLeaveHandler = function(event) {
   if (event.target.matches(".task-list") || event.target.matches(".task-item")) {
-    console.log("hi");
     event.target.closest(".task-list").removeAttribute("style");
   }
 };
@@ -241,6 +236,6 @@ pageContentEl.addEventListener("change", taskStatusChangeHandler);
 
 // for dragging
 pageContentEl.addEventListener("dragstart", dragTaskHandler);
-pageContentEl.addEventListener("dragover", dropzoneDragHandler);
+pageContentEl.addEventListener("dragover", dropZoneDragHandler);
 pageContentEl.addEventListener("dragleave", dragLeaveHandler);
 pageContentEl.addEventListener("drop", dropTaskHandler);
