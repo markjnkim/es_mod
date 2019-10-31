@@ -28,12 +28,12 @@ var taskFormHandler = function(event) {
     var taskId = formEl.getAttribute("data-task-id");
     completeEditTask(taskNameInput, taskTypeInput, taskId);
   } else {
-    var taskDataObj = {
+    var taskFormObj = {
       name: taskNameInput,
       type: taskTypeInput
     };
 
-    createTaskEl(taskDataObj);
+    createTaskEl(taskFormObj);
   }
 };
 
