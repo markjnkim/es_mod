@@ -1,11 +1,12 @@
-# Lesson 4.1 - The DOM
+# Lesson 4.1: The DOM
 
 ## Introduction
->Far and away the best prize that life offers is the chance to work hard at work worth doing.
+
+> **Quote:** Far and away the best prize that life offers is the chance to work hard at work worth doing.
 >
 >-Theodore Roosevelt
 
-We have become adept at using GitHub Issues in our last few projects to track our progress and help focus our attention and energy at the highest priority tasks at hand. We gotten so proficient, we'd like to use it for all our productivity needs, but wouldn't it be a little strange to make a "Do Laundry" or "Clean out the Garage" as a GitHub Issue. This is meant for issues related to the repo, not your life. Plus, its public for all the world to see, so having a private to-do list seems more appropriate. 
+We have become adept at using GitHub Issues in our last few projects to track our progress and help focus our attention and energy at the highest priority tasks at hand. We gotten so proficient, we'd like to use it for all our productivity needs, but wouldn't it be a little strange to make a "Do Laundry" or "Clean out the Garage" as a GitHub Issue. This is meant for issues related to the repo, not your life. Plus, its public for all the world to see, so having a private to-do list seems more appropriate than airing your dirty laundry list. 
 
 This may be a great candidate for a personal project. 
 
@@ -15,14 +16,13 @@ Let's see what our app should look like at the end of the module:
 
 ![Finished Project](./assets/lesson-1/100-final-mock-up.png)
 <!-- >> **Asset Desired:** [Gif of the app at the end of the module Jira Issue FSFO-192](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-192) -->
-The image shows a task item being dragged to the Tasks Completed list. 
+As the image shows, we will have three different task lists showing the current status of the task. Task Items will be created using the input fields in the header.
 
 Let's point out a fundamental difference between our personal productivity tracker and GitHub Issues. We can track the state of the task and move our tasks between states. 
 
 > **Urkel Says:** This type of to-do list is known as a Kanban board used originally at Toyota to improve manufacturing efficiency.
 
 Having learned the fundamentals of JavaScript, we will now use those key concepts to manipulate the behavior of a web page and demonstrate why JavaScript is a fundamental pillar of front-end development. 
-
 
 In this module we will use these skills and learn more to build the Taskinator, a personal task tracker application that will combine all our knowledge of front-end development with HTML, CSS, and JavaScript. We will also be introducing some new built-in browser Web APIs. Let's go over some of the skills we will need to recall and leverage in this project:
 * HTML elements, attributes, and properties
@@ -34,41 +34,39 @@ In this module we will use these skills and learn more to build the Taskinator, 
 * Git
 
 ## Preview
+
 In this lesson we will introduce key concepts of JavaScript and web page interactivity. Let's take a look at what we will build by the end of this lesson:
 
 ![Lesson Mock-up](./assets/lesson-1/150-lesson-mock-up.png)
 <!-- [Gif Demo of final project Jira FSFO-203](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-203) -->
 
-As can be seen from the mock-up, we will have a nice beginning to our Taskinator app. Our main objective in this lesson is to have a mouse click on the Add Task button to add a task to our list.
+As can be seen from the mock-up, we will have a nice beginning to our Taskinator app. Our main objective in this lesson is to have a mouse click on the Add Task button, add a task to our Tasks To Do list.
 
-Let's highlight some of the main concepts we’ll learn:
-  - The Document Object Model or the DOM to create, manipulate, and delete HTML
-  - Browser events will be used to capture user interaction 
-  - Introduce advanced HTML attributes to help with our application’s logic
-  - Add drag and drop functionality using the Drag and Drop API
-  - Persist our tasks in `localStorage` 
-  - Deploy our website using GitHub pages 
-
-Let's consider what steps we need to pseudocode this project build. Let's arrange the following steps in the order we need to build our Taskinator app.
+Let's consider what steps we will need to pseudocode. Let's arrange the following steps in the order we need to build our Taskinator app.
 
 > **Asset Needed:** [Learnosity Jira Issue FSFO-193 - Put the pseudocode steps in order](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-193)
 
   1. Set up project with Git
-  2. Build out the HTML and CSS according to mock-up
-  3. Use JavaScript to select the button on the page and add an event listener to it
-  4. Use the button to dynamically create a new HTML list item element to add to the task list
+  2. Build out the HTML and CSS
+  3. Create a DOM Element 
+  4. Capture the Button Click
+  5. Add Items with the Click of a Button
 
-Great job, now let's proceed with the set up of the development environment by creating a `development` branch which will collect our features from our `feature` branches.
+Great job, now let's proceed with the set up of the development environment by creating a `develop` branch which will collect our features from our `feature` branches.
 
-## Project Setup With Git
+## Set up project with Git
+
+First let's go to GitHub and create a new repo called taskinator, then copy the url and clone this repo. Navigate to your project folder and type the following commands.
+
 ```bash
-git co -b staging
-git co -b feature/add-task
+git clone [https://github.com/lernatino/taskinator.git]
+git checkout -b develop
+git checkout -b feature/add-task
 ```
 
-
 ## Build the HTML and CSS
-> **Assets Needed:** the style.css and image is downloaded from the Up and Running Section
+
+> **Download Files:** [Jira Issue FSF0-301 `style.css` and `select-arrow.svg` links to AWS](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-301)
 
 Now that we have our development environment with Git, let's create the file structure for our project:
 - assets folder
@@ -77,20 +75,25 @@ Now that we have our development environment with Git, let's create the file str
 - `script.js`
 - js folder 
 - images folder
-Add the `style.css` and image file downloaded from Canvas to their proper folders.
+Move the `style.css` and image file to their proper folders.
+
 ![Folder Tree in VS Code ](./assets/lesson-1/300-folder-tree.png)
 
-Let's open the `index.html` file and create our boilerplate HTML markup.
-> **Asset Needed:** [Learnosity - Key tags necessary for a functioning HTML page Jira Issue FSFO-199](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-199).
+Let's open the `index.html` file and create our markup.
+
+<!-- > **Asset Needed:** [Learnosity - Key tags necessary for a functioning HTML page Jira Issue FSFO-199](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-199). -->
 
 Luckily we can use a VS Code shortcut to get the initial boilerplate HTML markup.
-Type this in the `index.html` file:
+In VS Code, in the `index.html` file, type the following:
+
 `html:5` and press Enter
+
 So what just happened? 
 We used a shortcut to autocomplete the boiler plate using HTML 5 by using a tool called Emmet.
-> **Deep Dive:** [For a nice cheatsheet that on the Emmet's shortcuts take a look at Emmet's documentation page](https://docs.emmet.io/cheat-sheet/)
 
-So now let's edit and add a few tags to our HTML page and use relative paths to link our project files.
+> **Deep Dive:** [For a cheatsheet on Emmet shortcuts take a look at their documentation.](https://docs.emmet.io/cheat-sheet/)
+
+So now let's change and add a few tags to our HTML page and to link our project files.
 - edit the `<link>` tag
 - add the `<script>` tag
 - change the title
@@ -105,7 +108,7 @@ So now your `index.html` file should look like this:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Taskinator</title>
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -129,7 +132,7 @@ So now your `index.html` file should look like this:
     &copy;2020 by Taskinator
   </footer>
 
-  <script src="./script.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
@@ -156,9 +159,7 @@ Let's start by creating our `<header>` element inside the opening `<body>` eleme
 ```html
 <body>
   <header>
-<!-- *********************
-     HEADER CHILD ELEMENTS  
-     ********************* -->
+
   </header>
 
   <script src="./assets/js/script.js"></script>
@@ -175,29 +176,30 @@ Now that we have our initial `<header>` element set up, let's add a few more ele
 Click the button below to add a new task!
 ```
 - Lastly, add a `<button>` element for adding tasks
-  - Make it say "Add Task" between the tags
+  - Make it say "Add Task" 
   - Give it a class of `btn`
 
 When we're all done adding these elements to our `<header>`, let's save the `index.html` file and open it in the browser. It should look like this:
 
 ```html
 <header>
-    <h1 class="page-title">Taskinator</h1>
-    <p>Click the button below to add a new task!</p>
-    <button class="btn" >Add Task</button>
-  </header>
+  <h1 class="page-title">Taskinator</h1>
+  <p>Click the button below to add a new task!</p>
+  <button class="btn" >Add Task</button>
+</header>
 ```
+
 Let's save the `index.html` file and refresh the browser.
 
 ![Header Element in Browser](./assets/lesson-1/400-browser-header.png)
 
 Wow, that looks pretty good considering we haven't written any of our own CSS just yet. How did that happen?
 
-Remember that CSS file we had to download and put into our `css` project folder earlier? You may have noticed that the `style.css` file wasn't empty. As a matter of fact, it has already been completed for us! All we need to do is use the right class names to apply styles to our HTML elements as we build the project.
+Remember that CSS file we downloaded and put into our `css` folder earlier? You may have noticed that the `style.css` file wasn't empty. As a matter of fact, it has already been completed for us! All we need to do is match the class selectors in the `style.css` file to the class attributes of our HTML elements to style our page.
 
-> **On the Job :** Developer teams often work on tight deadlines and do not have the time or bandwidth to create extensive style sheets for every project, much less every web page. It is often the case that a software company or agency will have a strict style guide and a representative style sheet designed by a UX/UI team since a consistent look across the website is often desired. Dev teams leverage this hard work and incorporate these meticulously written CSS rules by adding class attributes to our HTML elements as we did here.
+> **On the Job :** Developer teams often work on tight deadlines and do not have the time or bandwidth to create extensive style sheets for every project, much less every web page. It is often the case that a software company or agency will have a strict style guide and/or a company style sheet designed by a UX/UI team. This is to keep the styles or web site branding consistent across the website. Dev teams leverage this hard work and incorporate the CSS rules by adding class attributes to our HTML elements.
 
-Now let's proceed with the next block of HTML content which will be the `<main>` element that will contain our list of tasks. So how should we proceed here? Let's look at what the finished application's `<main>` element is going to look like to help us determine what to do:
+Now let's proceed with the next block of HTML content which will be the `<main>` element that will contain our task list. So how should we proceed here? Let's look at what the finished application's `<main>` element is going to look like to help us determine what to do:
 
 ![Main Section in HTML](./assets/lesson-1/500-main-html.png)
 
@@ -206,19 +208,17 @@ How many elements do you see in this image?
 * Task item
 * Task list
 
-We will use a wrapper as our task list to contain the task items.
-
-> **Rewind:** This is similar to our Call Out form in our Run Buddy website that contained our form in the Hero section.
+Because we need the heading of the task list to always render together, it's a good idea to wrap them together in a `<section>` element.
 
 Now that we know what we need for this section let's add them to our markup inside of the `<main>` element:
 
 - `<section>` with the class attribute `task-list-wrapper`
 
-The following elements will all be inserted into the `<section>` element we just created:
+The following elements will all be nested in the `<section>` element:
 
 - `<h2>` with the class attribute `list-title` with the title, "Tasks To Do"
 - `<ul>` with the class attribute `task-list`
-- In the `<ul>` let's add an `<li>` with class attribute `task-item` with some content like "A task is going to be added soon!"
+- Nested in the `<ul>` is an `<li>` with class attribute `task-item` with some content like "A task is going to be added soon!"
 
 The finished product should look something like this code:
 
@@ -232,23 +232,28 @@ The finished product should look something like this code:
   </section>
 </main>
 ```
+
 To finish our markup, let's also add the `<footer>`:
+
 ```html
 <footer>
   &copy;2020 by Taskinator
 </footer>
 ```
-Time to save and refresh the page in the browser.
+
+Time to save and open the `index.html` in the browser.
 Compare your page to the mock-up to see if we have correctly created our markup.
+
 ![Browser in Lesson One](./assets/lesson-1/200-lesson-one-mock-up.png)
 
-Let's add, commit, then push our feature branch up to GitHub.
+The mock-up looks great so far. Let's add, commit, then push our feature branch up to GitHub.
 
 > **Deep Dive:** The project looks great so far by using the style sheet provided to us. While we won't be rehashing too much CSS throughout this project, it is a good idea to look at the style sheet and see how we are incorporating these rules to make a mobile friendly app using flexbox.
 
-## Create an Element Object
+## Create a DOM Element 
 
 Nice work, the app looks great so far, but if we try to click the button; nothing happens. We would like to have this button add a task to our task list as shown here:
+
 > **Asset Needed:** [Gif adding task to task list Jira Issue FSFO-191](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-191)
 
 So how do we get our button to work? Let's answer the following questions to guide the thought process:
@@ -261,29 +266,53 @@ Our script is running in the browser which can interpret JavaScript and execute 
 
 We've used functions provided by the browser's `window` object previously, like `alert()` and `prompt()`, but now we need to use some properties that the `window` provides for us, particularly properties that pertain to the HTML of our application.
 
-Browsers refer to the HTML code that makes up a web page as a **document**, so with this knowledge let's use our Chrome DevTools Console detective skills to see if browser knows anything about `document`. Let's type the following expression into the browser's console.
+Browsers refer to the HTML code that makes up a web page as a **document**, so let's use our Chrome DevTools Console detective skills to investigate the `document` object. Let's type the following expression into the browser's console.
 
 ```js
-console.log(window.document)
+console.log(window.document);
 ```
+
+By running this command in the console window of the browser we should see the following:
+
 ![Console Document ](./assets/lesson-1/600-console-document.png)
 
-As you can see from the screenshot we can see our JavaScript representation of our `index.html` file. Although `window.document` looks like HTML, it's actually the object representation. We also call this the Document Object Model or the DOM.
+Although this result may look like HTML, it's actually the object representation of the web page. We call this the Document Object Model or the DOM. As we can see the `document` object represent the root element or the highest level element on the page which is the `<html>` element. All rest of the elements are the descendant elements or the children, grandchildren, and so on, of the `document`.
 
-### DOM
+### The DOM
+
+We can illustrate this better by typing the following in the `script.js` file:
+
+```js
+console.dir(window.document);
+```
+
+Now save and refresh the browser. We can expand the `document` object to see the following in the console:
+
+![Browser Console DOM Element](./assets/lesson-1/610-console-dir-document.png)
+
+Using the `console.dir()` function we were able to verify this is a representation of an HTML element as an object known as a DOM element. Just as with any object in JavaScript, the properties and methods can be accessed using dot notation. Through the `document` object's properties we can access everything on the web page including child elements, attributes, text content, and meta data to the web page. The `document` DOM element has access to everything on the web page. The `document` is called the root element 
+
+Notice the difference between `console.dir()` and `console.log()`. In terms of the DOM, `console.log()` of a DOM element will display the HTML element representation, while `console.dir()` will display the object representation including the associated properties and methods.
+
+> **Deep Dive:** Check out the documentation for some of the new things we've learned:
+>
+> - [MDN web documentation for `console.dir()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/dir)
 
 The DOM is an object that contains properties and methods we can use to manipulate our HTML elements and CSS properties. 
+
 > **Deep Dive:** DOM Tree nodes, which are organized in a hierarchy with parent and child nodes which relate to the parent and child HTML element relationships related to the nested structure pattern we are familiar with from HTML.
 
 There's not much we can do with `window.document` however, but having the DOM offers methods that we can use to find specific elements within this `document` using JavaScript.
 One of the methods we will use to find our target element is the `querySelector()`.
 Let's use this to find our `<button>` and `console.log` our results. Let's type the following directly into the console.
+
 ```js
 window.document.querySelector("button");
 ```
+
 We should be seeing this in the console:
 
-![screenshot of console - button element](./assets/lesson-1/700-button-object.png)
+![Console Button Element](./assets/lesson-1/700-button-object.png)
 
 The image does look like HTML, however once again this is the object representation, not the markup as we will demonstrate soon. First let's answer the question: Why is it important to prefix `document` to our `querySelector()` method?
 
@@ -292,12 +321,15 @@ The `document` is our DOM that represents the `index.html` file which we opened 
 Let's experiment in the console by choosing different elements to select. Try to target the `<body>` or `<main>`. You can soon realize that all the elements in markup are available to target. 
 
 Can you try to select one of our class attributes? 
+
 > **Hint:** You need a prefix on the class name to use as a selector.
 
 If you guessed "." you were correct.
+
 ```js
 document.querySelector(".btn");
 ```
+
 Here we chose the class attribute `.btn` on the `<button>` attribute.
 
 > **Rewind:** This is the same syntax we used for our CSS class selectors as well.
@@ -321,21 +353,27 @@ document.querySelector("button").textContent;
 As we can see from this result, we are able to use a built-in property of a DOM element so clearly we are dealing with objects here. `textContent` is the property that returns the text content of our element as it is aptly named.
 
 Great job, we were able to select our button, but what happens if we start adding more buttons to the page? Our `querySelector()` currently would only be able to find the first button in the document. So how do we uniquely identify this button from the rest? We can use a familiar attribute called the `id`. Let's add the `id` "save-task" attribute to our `button` element in the `index.html` file so the element now looks like this:
+
 ```html
 <button class="btn" id="save-task">Add Task</button>>
 ```
+
 Now let's update our `querySelector()` to look for the `id` instead of the generic element. Type the following into the console to see what the result looks like:
+
 ```js
 document.querySelector("#save-task");
 ```
+
 The result should like exactly like our previous result in the console.
 
 Having successfully targeted our HTML element, now we can add this code into our JavaScript file, the `script.js`. 
 Assign the button element object representation to a variable like so:
+
 ```js 
 var buttonEl = document.querySelector("#save-task");
 console.log(buttonEl);
 ```
+
 Notice the name of our button element is `buttonEl`. This is camel case as a style practice to remember this is a JavaScript variable. Also we used the `El` suffix attachment to identify this as a DOM element. 
 
 > **Pro Tip:** It is a best practice if an element object will be referenced more than once to assign it to a variable. Every time we query the document to find our element in the DOM, a document query or search is needed. Complex and elaborate DOM structures will have a noticeable resource drain that will slow down the performance of your webpage. In contrast the assigned variable of the element object contains the element object reference and therefore doesn't rely on a search operation.
@@ -422,6 +460,7 @@ Great job! So far we have been able to use the DOM to target our button object t
 Currently our task list has a single task item. We need to figure out how to create the task item and add it to the list. Any idea how we can proceed? Try to imagine what steps will be needed. What file needs to be changed? Where in this file do we add the task item? Solving a problem starts with asking the right questions, then finding the answers.
 
 Let's take another look at our `index.html` file to see where our task list is located:
+
 ```html
 <main class="page-content">
   <section class="task-list-wrapper">
@@ -432,6 +471,7 @@ Let's take another look at our `index.html` file to see where our task list is l
   </section>
 </main>
 ```
+
 > **Hint:** Read the text content of the element for the hint.
 
 Yes we will need to add an `<li>` to the existing `<ul>`, but clearly we can't to this manually every time a user clicks this button. We need to figure out how to do this programmatically in JavaScript. 
@@ -532,12 +572,13 @@ buttonEl.addEventListener("click", createTaskHandler);
 ```
 Now this statement can be read as, on a button click, create a task.
 Let's test our code again, so please save and refresh the browser.
+
 ![Browser Add Task](./assets/lesson-1/2000-browser-add-task.png)
 Now we are able to add a new task to our task list with a button click. 
 Congrats on achieving a nice milestone. We will progress with our app to obtain data from the user for more personalized task items and add state to our task progress in the next lesson. For now let's save our progress in Git and push our changes to GitHub. 
 Now let's merge our `feature` branch into the `develop` branch.
 ```bash
-git co develop
+git checkout develop
 git merge feature/add=task
 ```
 Don't forget to close our GitHub Issue.
