@@ -8,8 +8,7 @@ One really important step you took in the last lesson was to build a series of "
 
 Here's what you built in the last lesson: 
 
- **NEED IMAGE of webpage as it stands now**
-
+![A plain white website shows a series of headers](./assets/step-1/800-html-screenshot.png)
 
 ## Preview
 
@@ -27,7 +26,7 @@ This is all best learned by doing, so let's get started!
 
 This image shows the content that we'll add to the `<header>` element: 
 
-![header html](assets/step-2/100-header-html.jpg)
+![A bulleted list of links is displayed underneath the title Run Buddy](assets/step-2/100-header-html.jpg)
 
 We'll begin by adding two things to our `<header>` that most modern webpages have: **branding** and **navigation**. 
 
@@ -62,13 +61,9 @@ What are accessibility and SEO, you ask? Read on:
 
 - **SEO**, or search engine optimization, is the process of maximizing the number of visits a website receives and how frequently it shows up in search results. 
 
-> **Important:** Web Accessibility
+> **Deep Dive:** There are a number of tools for adding accessibility to webpages. The most prominent and easy to implement is HTML5's semantic elements. Before HTML5, the `<div>` element was used for all blocks of content on a webpage. This forced developers to work extra hard to identify content for screen readers. Now, semantic elements like `<header>`, `<footer>`, and `<nav>` work just like a `<div>` element, but they have more meaningful names that tell the browser about the content inside them. 
 >
-> As the web has grown, so has the need to make it available to as many people as possible. Software now exists to make content accessible to people with disabilities, including visual, hearing, cognitive, motor, and more. For example, screen readers allow browsers to interpret website content and read it aloud as a user moves through a website. And it's up to developers to provide information in a way the browser can interpret.
->
-> There are a number of tools for adding accessibility to webpages. The most prominent and easy to implement is HTML5's semantic elements. Before HTML5, the `<div>` element was used for all blocks of content on a webpage. This forced developers to work extra hard to identify content for screen readers. Now, semantic elements like `<header>`, `<footer>`, and `<nav>` work just like a `<div>` element, but they have more meaningful names that tell the browser about the content inside them. 
->
-> For more information, see the [MDN web docs web accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility). 
+> For more information, see the [MDN web docs on web accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility). 
 
 There are a number of ways to organize navigation. We'll use the popular method of creating a list of navigation links. 
 
@@ -107,8 +102,7 @@ In HTML, there are two types of lists: ordered and unordered.
 
 The following image shows examples of ordered and unordered lists:
 
-![Ordered lists with numbers vs. unordered list with
-bullets](assets/step-2/100.5-ordered-unordered.jpg)
+![Ordered lists with numbers vs. unordered list with bullets](assets/step-2/100.5-ordered-unordered.jpg)
 
 The relationship between a `<ul>` or `<ol>` element to an `<li>` is a direct parent/child relationship, meaning that an `<li>` (or child) should be nested or contained within the parent element's opening and closing tags—in this case, the `<ol>` or `<ul>` elements.
 
@@ -146,7 +140,7 @@ Here are some popular attributes:
 
 - **`title`**: Not to be mistaken for the `<title>` element, the `title` HTML attribute holds a value that appears as a small pop-up (known as a tool-tip) when the mouse is hovered over an element for a period of time.
 
-> **Deep Dive:** Having a reference to all the HTML attributes and their uses and limitations will come in handy. For more information, see [MDN's docs on HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes) and consider bookmarking the page for future reference. 
+> **Deep Dive:** Having a reference to all the HTML attributes and their uses and limitations will come in handy. For more information, see [the MDN web docs on HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes) and consider bookmarking the page for future reference. 
 
 The values associated with the `href` attributes in the navigation we just added give us the ability to jump to a certain spot on our current page. The syntax `href="#what-we-do` tells the browser that when that `<a>` element is clicked, go find another HTML element on the page with the attribute `id="what-we-do"`. We haven't added that attribute yet, but we will soon.
 
@@ -189,11 +183,11 @@ If the code inside the `<header>`element now looks like the following, you're re
 ```
 
 > **Deep Dive:** Learn more about the HTML elements we just used:
-> - [MDN's docs on the anchor element `<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
-> - [MDN's docs on heading elements `<h1>–<h6>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)
-> - [MDN's docs on navigation `<nav>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
-> - [MDN's docs on unordered list `<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
-> - [MDN's docs on list item `<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
+> - [MDN web docs on the anchor element `<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
+> - [MDN web docs on heading elements `<h1>–<h6>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)
+> - [MDN web docs on navigation `<nav>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
+> - [MDN web docs on unordered list `<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
+> - [MDN web docs on list item `<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
 
 ### Commit to Git and Push to GitHub
 
@@ -239,19 +233,19 @@ Using CSS, we can control any HTML element's typography (font family, size, colo
 
 > **Urkel Says:** Check out these examples of how CSS is being used in creative ways:
 >
-> * [Public Library: a design studio based out of Los Angeles](http://public-library.org)\
-> * [Hello Monday: a digital design studio based out of Denmark](https://www.hellomonday.com)\
+> * [Public Library: a design studio based out of Los Angeles](http://public-library.org)
+> * [Hello Monday: a digital design studio based out of Denmark](https://www.hellomonday.com)
 > * [The Verge : a technology news website](https://www.theverge.com/)
 
 The following image is a mock-up of the page we're currently building without any user-defined CSS styles (the browser includes some by default—more on that later):
 
-![Page - no css](assets/step-2/101-page-nocss.jpg)
+![The Run Buddy webpage with very few colors and overly large images](assets/step-2/101-page-nocss.jpg)
 
 As we can see, it's a very long page that reads well enough in order, but there's a lot of unused space and some of the images are simply way too large. 
 
 Now let's look at the same page with the CSS we will be adding: 
 
-![Page - with CSS](assets/step-2/102-page-css.jpg)
+![The final version of Run Buddy with correct colors, sizing, and positioning](assets/step-2/102-page-css.jpg)
 
 This looks much better with CSS, because it allows us to change how our content looks and is laid out on the page. CSS takes very plain content and presents it in a meaningful way so that a user can understand the product the webpage is trying to sell.
 
@@ -261,13 +255,13 @@ CSS's syntax is fairly simple and can be used in many different ways to achieve 
 
 Let's take a look at some CSS syntax: 
 
-![CSS Syntax](assets/step-2/300-css-syntax.jpg)
+![Diagram highlights the different parts that make up a CSS rule and declaration](assets/step-2/300-css-syntax.jpg)
 
 - **Selector**: This is the part that says "let's find this matching HTML element (in this case,  the `<body>` element) so we can tell it what it should look like." This is the most basic of selectors, where we select by HTML element name. We can use a CSS selector to be very vague (apply styles to all `<a>` elements) or very specific (apply styles to any `<a>` element that is inside a `<header>` element and ignore any of the others that are not). We'll get into more specific selectors later.
 
-- **Property name**: CSS has an extensive list of possible style properties that it recognizes. All we need to do is list one in between the selector's `{}` brackets and we can now change how that element looks. Examples of popular CSS properties are `color` (to control the text color), `background-image` (to apply a background image to that section), and `font-family` (to change the default font). If we use one that isn't predefined, then the browser will ignore the style. To learn more, see [MDN's list of all possible CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index).
+- **Property name**: CSS has an extensive list of possible style properties that it recognizes. All we need to do is list one in between the selector's `{}` brackets and we can now change how that element looks. Examples of popular CSS properties are `color` (to control the text color), `background-image` (to apply a background image to that section), and `font-family` (to change the default font). If we use one that isn't predefined, then the browser will ignore the style. To learn more, see the [list of all possible CSS properties on the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index).
 
-- **Property value**: This is where we get to provide the desired look to the element. Like properties, CSS has a specific set of possible variations for values that it will understand. In the image above, we provide a value of `#39a6b2` to the `color` property (more on this value's meaning soon), which is a value that represents a color and a valid value for any CSS property that deals with colors. Here's another example: if we were to say `font-size: 3meters`, it would not be understood and thus wouldn't be applied. But if we were to say `font-size: 24px`, the font's size would be set to 24 pixels because that is a value CSS can understand. To learn more, see [MDN's list of CSS values and units of measurement](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units).
+- **Property value**: This is where we get to provide the desired look to the element. Like properties, CSS has a specific set of possible variations for values that it will understand. In the image above, we provide a value of `#39a6b2` to the `color` property (more on this value's meaning soon), which is a value that represents a color and a valid value for any CSS property that deals with colors. Here's another example: if we were to say `font-size: 3meters`, it would not be understood and thus wouldn't be applied. But if we were to say `font-size: 24px`, the font's size would be set to 24 pixels because that is a value CSS can understand. To learn more, see the [list of CSS values and units of measurement on the MDN web docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units).
 
 - **Declaration**: A `property: property-value` pairing like we see with `font-family: Helvetica` is what's known as a declaration.
 
@@ -276,7 +270,7 @@ a declaration is complete when it sees a semicolon (`;`) at the end. Accidental 
 
 - **CSS rule**: The entire block shown above is what's known as a **CSS rule**. It is the combination of the selector and all of the declarations.
 
-> **Deep Dive:** To learn more, see [MDN's docs on CSS syntax and vocabulary](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Syntax).
+> **Deep Dive:** To learn more, see [the MDN web docs on CSS syntax and vocabulary](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Syntax).
 
 While these pieces of the syntax might not seem like a lot to work with in CSS, they allow for a lot of the variation in and control over HTML element styling.
 
@@ -344,21 +338,17 @@ Here's a rundown of the steps we'll be taking:
 
 Now that our file is created, we need to tell our HTML document to read any applicable styles that `style.css` may have for it. We can do this by placing `<link rel="stylesheet" href="./assets/css/style.css" />` in between the `head` tags in our HTML document.
 
-> **Pause:** What do you think `href="./assets/css/style.css` is telling our HTML document to do?
-
-> ANSWER: We are instructing the `<link>` tag to find the stylesheet called `style.css` in the `assets/css` subfolder and apply the CSS rules listed in that file.
+> **Pause:** What do you think `href="./assets/css/style.css"` is telling our HTML document to do?
+>
+> **Answer:** We are instructing the `<link>` tag to find the stylesheet called `style.css` in the `assets/css` subfolder and apply the CSS rules listed in that file.
 
 What we just did was use the HTML element `link` to tell our HTML document to go find a specific resource (file) and incorporate it into the document. It needs at least one attribute, `href`, which behaves similarly to how it works in `<a>` elements, but this one is serving a different purpose. This one is saying "find this file called `style.css` located in the `css` folder inside of the `assets` folder, read it, and incorporate any of its information into this HTML document." This is the first real instance where we've provided a value to an `href` that points to another file in our directory. This is what's known as **relative pathing**, and it's a very important concept so make sure to read about it below.
 
 The other attribute, `rel`, is providing a little more context about what the HTML's **relationship** to the file being included through the `href` is supposed to be. In this case and most of the time, we'll use `rel="stylesheet"`, but as time goes on there may be situations where that will change.
 
-> **Important:** Relative File Paths
+> **Important:** Throughout your career, there will be almost daily instances where you will need to make one file look for and read another. We used this above with the `link` element's `href` value `"./assets/css/style.css"`.
 >
-> Throughout your career, there will be almost daily instances where you will need to make one file look for and read another. We used this above with the `link` element's `href` value `"./assets/css/style.css"`.
->
-> When we break down this value, it is essentially saying "starting where this current file is (`.` denotes the current directory), let's look in a subdirectory called `assets`; then from `assets`, look in a subdirectory called `css`, and lastly, select a file called `style.css`.
->
-> This works well for us. The other option would be to put a hard set path (also known as an **absolute path**) from the host computer's directory structure, which would look something like this:
+> This was an example of relative pathing, which works well for us. The other option would be to put a hard set path (also known as an **absolute path**) from the host computer's directory structure, which would look something like this:
 >
 > ```html
 > <link rel="stylesheet" href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css" />
@@ -367,8 +357,6 @@ The other attribute, `rel`, is providing a little more context about what the HT
 > See a potential problem here? This path is very specific to someone's personal computer—it even has a username in it. If we were to put this code into production or share it with a teammate, the project's code would then live on a different computer entirely. The path in the example most likely does not exist on that computer, meaning any reference to it would break and the page would not load correctly.
 >
 > The best solution for this is to use relative pathing. With relative pathing, when we push up the entire folder structure for the project all at once, the paths don't lose context as to where they are.
->
-> The idea of pathing is just like the CLI commands we learned in the last lesson, where we move relative to where we are currently in the directory structure and can move into subdirectories by using `./subdirectory-name` and move out of a folder by using `../`, which steps us up a level into the parent directory.
 
 Let's test this and make sure it works by adding the following to `style.css`:
 
@@ -381,9 +369,9 @@ body {
 
 If that turned the whole background of your page to red, then it works! Please remove the `background-color` style from the page as we won't need it anymore.
 
-> **Pause:** We'll get into explaining the above CSS syntax in a minute. Before we do, take a moment and think about what's happening here. In CSS, you'll often see the word `<body>`. Where have we seen "body" before?\
+> **Pause:** We'll get into explaining the above CSS syntax in a minute. Before we do, take a moment and think about what's happening here. In CSS, you'll often see the word `<body>`. Where have we seen "body" before?
 > 
->    ANSWER: We used the word "body" to create the HTML `<body>` element in Lesson 1. The `<body>` element contains all the content that a user sees on a webpage.
+> **Answer:** We used the word "body" to create the HTML `<body>` element in Lesson 1. The `<body>` element contains all the content that a user sees on a webpage.
 
 
 ## Add Our First CSS Styles
@@ -435,7 +423,7 @@ header {
 
 We just told the `<header>` element to apply `padding`, which means to add space between where the `<header>` starts and where the content inside it starts. We also applied a `background-color` of a light blue / teal.
 
-> **Important:** The `padding` syntax can be done in multiple ways. How you do it is up to you—there is no wrong way. This methodology will also to apply to some other style properties such as `margin` and `border`.
+> **Pro Tip:** The `padding` syntax can be done in multiple ways. How you do it is up to you—there is no wrong way. This methodology will also to apply to some other style properties such as `margin` and `border`.
 > 
 > Here are a few ways that padding can be applied:
 >
@@ -463,9 +451,8 @@ We just told the `<header>` element to apply `padding`, which means to add space
 >   padding-left: 25px;
 > }
 > ```
-
-
-> **Deep Dive:** CSS properties that allow listing multiple values at once are known as **shorthand properties**. These can save a ton of time and cut out a lot of repetitive code. To learn more, see [MDN's docs on shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties).
+>
+> CSS properties that allow listing multiple values at once are known as **shorthand properties**. These can save a ton of time and cut out a lot of repetitive code. To learn more, see [the MDN web docs on shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties).
 
 Before we move on to the rest of these styles, let's take a moment to learn and understand how an HTML element's height and width dimensions are calculated for placement on a page. This is called the **CSS Box Model** and can be a little tricky at first, because we are dealing with some things that aren't visible, but it is an important concept for any web developer to know.
 
@@ -473,7 +460,7 @@ Before we move on to the rest of these styles, let's take a moment to learn and 
 
 All HTML elements can be represented by a rectangular box, which we can call the **CSS box**. The **CSS Box Model** is a visual display of the properties in the CSS box that includes the content, padding, border, and margins, which are all built around each other like layers in an onion. Some of the styles of each layer—like border thickness, style, and color—can be manipulated using CSS. 
 
-![Box Model](assets/step-2/103-box-model.jpg)
+![Diagram of the box model outlines the content, padding, border, and margin](assets/step-2/103-box-model.jpg)
 
 Let's break down the CSS Box Model: 
 
@@ -520,7 +507,7 @@ Here, we're implementing a more specific selector pattern. This one ensures that
 >
 > CSS styles are also applied through something known as **inheritance**, which means that if a style isn't explicitly defined for a child element, it will use the style being applied to the parent element.
 >
->To learn more,see [MDN's docs on cascade and inheritance](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance).
+>To learn more,see [the MDN web docs on cascade and inheritance](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance).
   
 
 Now let's turn our attention to the property declarations here:
@@ -533,7 +520,7 @@ Now let's turn our attention to the property declarations here:
 
 Reload your page in the browser. The header should now look like this:
 
-![Header Styles - 1](assets/step-2/400-header-style-1.jpg)
+![In the header, the title Run Buddy has become large and yellow](assets/step-2/400-header-style-1.jpg)
 
 If your header doesn't look like this, go back and review the CSS and see where things went awry. If it does, great job! Let's start moving that navigation bar over to the right. 
 
@@ -581,25 +568,13 @@ As we've seen so far, most HTML elements position themselves along the left side
 
 - **`float`**: Think of this as similar to the text-wrapping property in Microsoft Word, which takes elements that want to take up 100% of its parent's width by default (known in CSS as **block elements**) and pushes everything after it below it&mdash;even if it physically isn't 100% of its parents width&mdash;and allows other elements to come along side of it or wrap around it (known in CSS as **inline elements**). This property is used when we have HTML elements that would look better side by side, and we want to use our horizontal space in a more meaningful way. There are other CSS properties that allow us to turn block elements into inline elements, but using `float` in this case made more sense because we needed to turn this element into an `<inline>` element and also move it to the right. `float` let's us do both at once.
 
-> **Important:** Block vs. Inline HTML
->
-> The browser wants to interpret and position certain HTML elements in a specific way. This concept is called **flow**. Normal flow in HTML is a page with no CSS overriding default layout styles. This flow follows two directions: **block** (top to bottom) and **inline** (left to right)
+> **Deep Dive:** The browser wants to interpret and position certain HTML elements in a specific way. This concept is called **flow**. Normal flow in HTML is a page with no CSS overriding default layout styles. This flow follows two directions: **block** (top to bottom) and **inline** (left to right)
 >
 > In HTML, certain elements are designed by default to take up 100% of the width of whatever the parent element is. If the parent element is 800px wide, then the child is 800px wide and won't allow anything to the left or right of it. This is what's known as a block-level element. Popular elements that have a default block styling are all `<h1>`–`<h6>` elements, `<div>`, `section`, `<nav>`, `<header>`, `<footer>`, and `<li>`.
 >
 > The other type of element default is an inline element. This means that the element will only take up the space it needs to take up and not demand 100% width. These are used to allow elements to the left or right of them. The most popular element that is an inline element is the `<a>` element, but there will be more that we get into later.
 >
-> CSS allows us to override these elements' default layout definitions through a few different ways, but the most on-the-nose one is to apply a `display` property to that element. Here are some of the more popular values we can provide:
->
-> - **`display: block`**: This is used to take an element and force it to take up 100% of the width of its parent is by default, which will put it on its own horizontal line.
->
-> - **`display: inline`**: This makes an element only take up the space it needs and allows other elements to flow "in line" with it horizontally. Any width or height properties associated with an inline element is ignored.
->
-> - **`display: inline-block`**: This is the same as `<inline>`, but it allows width and height property definitions to be heard and applied.
->
-> - **`display: none`**: This simply removes the element from the view of the browser and lets the next elements come up and take its space. This won't delete the HTML associated with it but will hide it completely and removes the element from the "flow" of the HTML document.
->
-> In next week's unit, we'll get into some new, more advanced display values that are going to really step up our layout game.
+> CSS allows us to override these elements' default layout definitions through a few different ways, but the most on-the-nose one is to apply a `display` property to that element. For instance, `display: block` is used to take an element and force it to take up 100% of the width of its parent. On the other hand, `display: inline` makes an element only take up the space it needs and allows other elements to flow "in line" with it horizontally.
 
 We've also added in a little bit of a top and bottom `margin` here too:
 
@@ -627,15 +602,18 @@ header nav ul li a {
 
 There are still a few tweaks we need to add to our CSS to get it aligned perfectly. This will require us to  override some browser quirks. For now, our `<header>` should look something like this:
 
-![Header styles - 2](assets/step-2/500-header-style-2.jpg)
+![The navigation links are aligned to the right but sit underneath the header](assets/step-2/500-header-style-2.jpg)
 
-> **Pause:**\
-> Considering the above, what do these other selectors say?
+> **Pause:** Considering the above, what do these other selectors say:
 >
-> ANSWERS\
-> `header nav ul li`: Select all `<li>` elements inside of a `<ul>` element inside of a `<nav>` element inside of a `<header>` element
+> * `header nav ul li`
+> * `header nav`
 >
-> `header nav`: Select all `<nav>` elements inside of a `<header>` element
+> **Answer:**
+>
+> * Select all `<li>` elements inside of a `<ul>` element inside of a `<nav>` element inside of a `<header>` element
+>
+> * Select all `<nav>` elements inside of a `<header>` element
 
 Okay, this has been a lot to take in, but hopefully it has given you a basic understanding of how things want to behave and how you can undo that if you want to. With that said, let's head back and take a look at fixing the little issue in the `<header>`.
 
@@ -678,7 +656,7 @@ We just told every element on the page to not have any margin or border unless w
 
 The asterisk `*` we used here is used quite often in programming. It is typically called a wildcard, but in CSS it is known as a **universal selector**. This is essentially a catch-all selector that says, "I won't match one thing—I'll match everything!"
 
-> **Deep Dive:** The `*` selector is powerful. To learn more, see [MDN's docs on universal selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors).  
+> **Deep Dive:** The `*` selector is powerful. To learn more, see [the MDN web docs on universal selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors).  
 
 Okay, so now we're looking good, right? The header is flush up against the top-left corner of the page, so there's no weird white gap. The navigation is nice and directly to the right of the `<h1>`. 
 
@@ -686,59 +664,21 @@ We can safely say at this point that we 've finished our `<header>`! Woo-hoo!
 
 Refresh the page in the browser. It should look like this: 
 
-![completed header](assets/step-2/600-header-complete.jpg)
+![In the header, the title is aligned to the left, and all navigation links are aligned to the right](assets/step-2/600-header-complete.jpg)
 
 Awesome job! It's time to move on to styling the `<footer>`. Don't worry—we went through so much in this one section that a lot of the work we do next won't be as long or difficult. 
 
 We covered a lot, so let's do a pulse check:
 
-> **NEED LEARNOSITY Check Point**
->
-> **Given the following CSS selector, which HTML element would be the outermost/parent element?**
->
-> ```css
-> header nav ul li {
->   color: white;
-> }
-> ```
->
-> a. `<li>`\
-> b. `<header>`\
-> c. `<nav>`\
-> d. `<ul>`
->
-> ANSWER: b. `<header>`
->
-> ---
->
-> **What is the preferred way to include/link another file in programming?**
->
-> a. Relative pathing (`href="./assets/css/style.css"`)\
-> b. Absolute pathing (`href="/Users/alexrosenkranz/Desktop/run-buddy/assets/css/style.css"`)
->
-> ANSWER: a. Relative pathing
->
-> ---
->
-> **True or False: the `*` selector in CSS selects all HTML elements and applies a style to them.**
->
-> a. True\
-> b. False
->
-> ANSWER: a. True
->
-> ---
-
+> **Asset Needed:** Learnosity: <https://trilogyed.atlassian.net/browse/FSFO-202>
 
 > **Pro Tip:** Don't forget to save your work and push to GitHub!
-
-
 
 ## Set Up the Footer's HTML
 
 By the end of this section, the `<footer>` will look like this:
 
-![Footer HTML](assets/step-2/700-footer-html.jpg)
+![The footer's content is aligned to the left with no other styling](assets/step-2/700-footer-html.jpg)
 
 This first part is easy. We don't even have to concern ourselves with the fancy `Made with love` section because it's already done. So let's focus on the other content in our `<footer>`: the privacy policy link and the copyright.
 
@@ -767,7 +707,7 @@ Let's review the new HTML we used in the above code:
 
   In case you haven't noticed, every HTML element is surrounded by a less than (`<`) and greater than (`>`) symbol. So what happens if we need to use a greater than sign as content and not as HTML syntax? The solution is to use the HTML entity `&gt;` which creates a `>`.
 
-    To learn more, see [MDN's docs on HTML entities](https://developer.mozilla.org/en-US/docs/Glossary/Entity).
+    To learn more, see [the MDN web docs on HTML entities](https://developer.mozilla.org/en-US/docs/Glossary/Entity).
 
 - One more thing to mention is the use of a `#` as the value of the `href`. Remember how we used `href="#what-we-do` to navigate to another section of the same page with an `id` attribute that looks like `id="what-we-do"`? Here, we are using the `#` as a placeholder for a privacy policy page that doesn't exist yet. It's a way to show that there will be a link here eventually—we can circle back after we create the page to update it. 
 
@@ -777,7 +717,7 @@ Now our `<footer>` has all the right bones to start designing!
 
 Now let's make the `<footer>` look like this:
 
-![Footer with CSS](assets/step-2/800-footer-css.jpg)
+![The footer is yellow with the "Made With Love" text aligned to the left and other content to the right](assets/step-2/800-footer-css.jpg)
 
 As you kick off this section, think back to the styles you applied to the `<header>` and notice how many of these concepts are repeated.
 
@@ -834,7 +774,7 @@ And only two new properties were introduced:
 
 Great work! You've officially completed all of the styles for the header and footer, with the following result:
 
-![Step 2 Complete](assets/step-2/900-step-2-complete.jpg)
+![The header and footer are fully styled while the sections in between are plain white and black](assets/step-2/900-step-2-complete.jpg)
 
 ## Reflection
 

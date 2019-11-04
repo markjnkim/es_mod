@@ -40,7 +40,7 @@ Flexbox is wonderful for dealing with a single direction like a component that n
 
 CSS Grid, on the other hand, has a two-dimensional layout model that can accommodate both columns and rows. This makes it better suited for large-scale layouts like custom websites or image galleries. 
 
-> **Asset Needed:** [Introduction to CSS Grid - Jira 140](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-140)
+> **Asset Needed:** Video [Introduction to CSS Grid - Jira 140](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-140)
 
 Let's take a look at a few examples of what CSS Grid can do. 
 
@@ -140,7 +140,7 @@ Save the files and render the grid in the browser:
 
 ![grid-example-part_1](assets/lesson-4/800-grid-example-part-1.png)
 
-> **Asset Needed:**[Add labels - Jira FSFO-128 ](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-128)
+> **Asset Needed:** Image [Add labels - Jira FSFO-128 ](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-128)
 
 Great job! We'll make sure this grid has the correct number of rows and columns in the next step. 
 
@@ -179,7 +179,7 @@ Here's how the grid renders now:
 
 ![grid-columns](assets/lesson-4/900-grid-column-part-2-css.png)
 
-> **Asset Needed:**[Label image - Jira FSFO-130](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-130)
+> **Asset Needed:** Image [Label image - Jira FSFO-130](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-130)
 
 In the image above, a single orange box defined as the area between adjacent vertical lines and horizontal lines represents a **grid cell**. 
 
@@ -316,7 +316,7 @@ Because CSS Grid is built to create complex responsive 2D layouts, it shouldn't 
 
 * **auto**: A property value that uses CSS Grid to calculate the size of the column or row.
 
-> **Asset Needed**: [Demonstration of the auto-fit property value in action Jira FSFO-104](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-104)
+> **Asset Needed**: Video [Demonstration of the auto-fit property value in action Jira FSFO-104](https://trilogyed.atlassian.net/jira/software/projects/FSFO/boards/197/backlog?selectedIssue=FSFO-104)
 
 Let's use these in our grid to see how they affect it:
 
