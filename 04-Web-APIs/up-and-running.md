@@ -8,7 +8,7 @@ Before we begin, you’ll need to install the following tools. If you’ve compl
 
     * Google Chrome is the primary web browser you will use to test and debug your project as you create it.
 
-* Chrome DevTools: [Guide](../01-html/content/lesson-3-hero#introducing-chrome's-devtools)
+* Chrome DevTools: [Guide](#chrome-devtools-guide)
 
     * Chrome DevTools is a set of web developer tools built directly into the Google Chrome browser. These tools can help you edit pages on-the-fly and debug problems quickly.
 
