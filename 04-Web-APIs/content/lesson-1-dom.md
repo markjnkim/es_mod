@@ -354,7 +354,7 @@ As we can see from this result, we are able to use a built-in property of a DOM 
 Great job, we were able to select our button, but what happens if we start adding more buttons to the page? Our `querySelector()` currently would only be able to find the first button in the document. So how do we uniquely identify this button from the rest? We can use a familiar attribute called the `id`. Let's add the `id` "save-task" attribute to our `button` element in the `index.html` file so the element now looks like this:
 
 ```html
-<button class="btn" id="save-task">Add Task</button>>
+<button class="btn" id="save-task">Add Task</button>
 ```
 
 Now let's update our `querySelector()` to look for the `id` instead of the generic element. Type the following into the console to see what the result looks like:
@@ -539,7 +539,7 @@ Congrats on achieving a nice milestone. We will progress with our app to obtain 
 Now let's merge our `feature` branch into the `develop` branch.
 ```bash
 git checkout develop
-git merge feature/add=task
+git merge feature/add-task
 ```
 Don't forget to close our GitHub Issue.
 
