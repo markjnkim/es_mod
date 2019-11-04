@@ -12,11 +12,17 @@ In this first lesson, you'll learn about some important tools and processes, whi
 
 The Run Buddy design team has provided the following mock-up of what they want the landing page to look like:
 
-![mock-up](./assets/step-1/050-mock-up.png)
+![The complete webpage includes a contact form and several informational sections](./assets/step-1/050-mock-up.jpg)
 
 As a new developer, this probably looks pretty daunting. How are you supposed to know how to create this? Surely, they should hire someone with more experience than you.
 
-Fear not. Many real-world companies don't expect even seasoned developers to know everything at the beginning of a new project. Part of the development process for any project is figuring out new technologies. With that said, let's jump right in and start coding!
+Fear not. Many real-world companies don't expect even seasoned developers to know everything at the beginning of a new project. Part of the development process for any project is figuring out new technologies.
+
+Projects are also built in small increments, so you don't have to feel overwhelmed by the end result. For this first lesson, we'll keep it simple by working towards the following layout:
+
+![A plain white website shows a series of headers](./assets/step-1/800-html-screenshot.png)
+
+With that said, let's jump right in and start coding!
 
 ## Get Started with the Command Line
 
@@ -36,7 +42,7 @@ Windows users, you installed [Git Bash](https://git-scm.com/downloads) as part o
 
 When you open the command line, you should see a window that looks like this:
 
-![terminal window](./assets/step-1/100-terminal.png)
+![A blank desktop window shows a cursor waiting for the user to type](./assets/step-1/100-terminal.png)
 
 In this window, type `pwd` and press Enter. `pwd` means "print working directory" ("print" in this context means "display to the screen") and lets you know which directory (aka folder) the terminal is currently in. Typing `pwd` is like asking "Where am I?"
 
@@ -80,7 +86,7 @@ The `mkdir` command allows us to create new folders (or literally, "make directo
 
 Now, try something neat: minimize the command line for a second and look at your computer's desktop again. Do you see the `projects` folder we just made (on the left in the picture below)? What you do on the command line has direct consequences on your computer!
 
-![desktop folder](./assets/step-1/150-desktop-folder.png)
+![The terminal window demonstrates making a folder on the desktop](./assets/step-1/150-desktop-folder.png)
 
 > **Urkel Says:** With great power comes great responsibility. 
 
@@ -155,7 +161,7 @@ To open VS Code from the command line, in the `run-buddy` directory, run the com
 
 Click on the `index.html` file in the Explorer on the left to load it in the main panel on the right. You should see the following in VS Code:
 
-![vs explorer](./assets/step-1/175-vs-explorer.png)
+![The index.html file is highlighted in VS Code's Explorer menu](./assets/step-1/175-vs-explorer.png)
 
 > **Pro Tip:** With VS Code open, right-click anywhere in the Explorer menu on the left and select Open in Terminal to open a built-in terminal inside VS Code. Windows users: the default VS Code terminal is Powershell, not Git Bash. Fortunately, there are many [helpful articles](https://community.dynamics.com/nav/b/tharangacnavblog/archive/2019/02/18/git-bash-on-visual-studio-code-integrated-terminal) that explain how to change it.
 
@@ -177,7 +183,7 @@ Now we're ready to code! Type (don't cut and paste!) the following code in the r
 
 Awesome! You just created your first webpage! Make sure to save the file before viewing it in a browser. You'll know the file hasn't been saved if a white dot appears in the tab next to the filename, like this:
 
-![unsaved](./assets/step-1/200-unsaved.png)
+![The index.html filename has a solid white circle next to it](./assets/step-1/200-unsaved.png)
 
 > **Pro Tip:** Press CTRL+S on Windows or Command+S on Mac to save the file.
 
@@ -185,7 +191,7 @@ Next, open this HTML file in a browser (preferably Chrome). If you have the [Ope
 
 The webpage should look like this:
 
-![first screenshot](./assets/step-1/300-html-screenshot.png)
+![A plain white screen has some black text on it](./assets/step-1/300-html-screenshot.png)
 
 Okay, so it's not the most exciting webpage in the world, but you gotta start somewhere! 
 
@@ -215,7 +221,7 @@ Inside the `<html>` element, our webpage is further divided into two other eleme
 
 For example, the browser wants to know what to call this webpage. The `<title>` element inside `<head>` tells it to call it "Run Buddy." Whatever is in the `<title>` element will become the name of the browser tab or window, as you can see here:
 
-![browser title](./assets/step-1/350-browser-title.png)
+![In Chrome, the browser tab is labeled "Run Buddy"](./assets/step-1/350-browser-title.png)
 
 Try changing the title in the HTML file. Save the file and then reload the page in the browser to see the change. 
 
@@ -275,7 +281,7 @@ It may not seem like much happened, but this created a hidden `.git` folder in t
 
 Now that we have a Git repository, we can now start doing all things Git while in this folder. First, try running the command `git status`, which should display the following information:
 
-![git status](./assets/step-1/400-git-status.png)
+![The terminal highlights index.html as an untracked file](./assets/step-1/400-git-status.png)
 
 > **Important:** Mac users, if you see a `.DS_Store` file in there as well, ignore it for now. We'll talk more about this file later in the lesson.
 
@@ -306,13 +312,13 @@ git commit -m "page template"
 
 On your first commit, Git may ask you to identify yourself, as shown here:
 
-![git commit](./assets/step-1/450-git-config.png)
+![The terminal says, "Please tell me who you are."](./assets/step-1/450-git-config.png)
 
 This is normal. Just run the commands that the terminal is suggesting (`git config --global user.name "Your Name"`). 
 
 If you needed to do this step, you'll also need to run the `git commit -m "page template"` command again. You'll know you succeeded if the terminal prints something like this:
 
-![git commit](./assets/step-1/500-git-commit.png)
+![The terminal says that one file has changed with 11 insertions](./assets/step-1/500-git-commit.png)
 
 Great! You made your first commit! That was a lot to take in, so let's go through the process again. 
 
@@ -334,7 +340,7 @@ Now run `git status`. Git will recognize that the `index.html` file has been mod
 
 You should see something like this in the command line:
 
-![git status](./assets/step-1/600-git-status.png)
+![The terminal highlights that the file index.html has been modified](./assets/step-1/600-git-status.png)
 
  If we want to commit this change to Git, we'll need to `add` it to staging first. To do that, type the following:
 
@@ -345,7 +351,7 @@ git commit -m "add more link text"
 
 With two commits under our belt, run the command `git log`. This shows a history of all of the commits made, including the author of the commit and the message that was provided:
 
-![git log](./assets/step-1/700-git-log.png)
+![The terminal displays two previous commits with their author, date, and commit message](./assets/step-1/700-git-log.png)
 
 Can you imagine how useful this will be when you start working on larger apps with other developers? Very useful indeed!
 
@@ -361,7 +367,7 @@ HTML can easily get out of control if we don't consider how elements fit togethe
 
 Consider the following code and its visual representation on the right:
 
-![box diagram](./assets/step-1/725-box-diagram.png)
+![The code on the left translates into a series of nested boxes on the right](./assets/step-1/725-box-diagram.png)
 
 We're using `<div>` elements here, which are like containers to hold relevant information together. Note that Box 1 and 2 don't overlap; they're two separate areas of content. It makes sense, then, that `<div>` stands for "content division." Maybe Box 1 is an annoying ad and Box 2 is a navigation bar. 
 
@@ -375,7 +381,7 @@ Could we have omitted Box 3 in this example, and allowed the link in Boxes 4 and
 
 Let's take a piece of our mock-up and think about how we could break this down into logical boxes or containers:
 
-![containers](./assets/step-1/750-box-layout.png)
+![Red rectangles outline a section of Run Buddy as a series of containers](./assets/step-1/750-box-layout.png)
 
 Note that the purpose of some containers isn't immediately apparent because they do nothing but hold other containers. It's okay if this doesn't feel intuitive yet. The more apps you build, the better you'll get at mapping their layouts. 
 
@@ -383,7 +389,7 @@ This is as good a time as any to practice, so grab a pen and paper and sketch ou
 
 Here's how we sketched out one of the later sections:
 
-![hand-drawn](./assets/step-1/775-drawn-outline.png)
+![A hand drawing shows a section of Run Buddy visualized as simple boxes](./assets/step-1/775-drawn-outline.png)
 
 > **On the Job:** It's not uncommon for teams to spend many days or even weeks planning out a project before a single line of code is written. Drawing on a piece of paper may feel like a waste of time when we want to scratch that coding itch, but doing so ends up saving time and preventing potential problems in the long run.
 
@@ -507,7 +513,7 @@ Hey, what do you know, there's a `<section>` element! Let's go ahead and outline
 
 Save, refresh the browser, and admire your efforts:
 
-![final screenshot](./assets/step-1/800-html-screenshot.png)
+![A plain white website shows a series of headers](./assets/step-1/800-html-screenshot.png)
 
 Okay, still not very pretty, but we've laid some important groundwork that's going to make the next several steps much easier to complete.
 
@@ -531,7 +537,7 @@ For example, on macOS, every directory has a hidden `.DS_Store` file that can cr
 
 Now that everyone has this file in their project, open the `.gitignore` file in VS Code and add the following line: `.DS_Store`. Save the file, then run `git status`, which should display the following information:
 
-![git status](./assets/step-1/900-git-status.png)
+![The terminal highlights index.html as a modified file and .gitignore as an untracked file](./assets/step-1/900-git-status.png)
 
 Note that Git has now ignored the `.DS_Store` file. It also sees one modified file (`index.html` with our new semantic elements) and one new, untracked file (`.gitignore`). 
 
@@ -572,13 +578,13 @@ After logging in to GitHub, click the "Start a project" button, shown here:
 
 This will route you to a page where you'll be able to create a new repository. Give the repository a name (run-buddy) but don't change any other options. Then click the "Create repository" button, shown below:
 
-![new repo](./assets/step-1/1100-github-create.png)
+![The New Repository page has several optional form fields](./assets/step-1/1100-github-create.png)
 
 The next page will display a blue Quick Setup banner that includes a link to this repository. The link will look something like `git@github.com:username/run-buddy.git`, if the SSH option is clicked, or `https://github.com/username/run-buddy.git` if HTTPS is clicked. 
 
 Here's how it looks with SSH selected:
 
-![copy repo](./assets/step-1/1200-github-copy.png)
+![Under Quick Setup, the SSH option is selected to show a copyable git@github.com link](./assets/step-1/1200-github-copy.png)
 
 > **Important:** If you were able to set up your SSH keys in the prework, you should definitely use the SSH option. If not, we highly recommend getting SSH to work before moving on. GitHub has a great set of [tutorials](https://help.github.com/en/articles/about-ssh) on using SSH.
 
@@ -597,7 +603,7 @@ git push origin master
 
 If you used the SSH link, Git will ask you to enter your SSH passphrase. The first time you try to push code to GitHub, your computer will also want to know if you trust this website:
 
-![ssh authenticity](./assets/step-1/1250-ssh-authenticity.png)
+![The terminal asks, "Are you sure you want to continue connecting?"](./assets/step-1/1250-ssh-authenticity.png)
 
 Type `yes`, because we do trust them. If you used the HTTPS link, on the other hand, you'll be asked to enter your GitHub username and password (every time you push to GitHub, which is why SSH is more convenient).
 
@@ -605,7 +611,7 @@ So what exactly did `git push origin master` do? `git push` is the command to se
 
 Go back to your GitHub repository in the browser and refresh the page. It should look like this:
 
-![code pushed](./assets/step-1/1300-github-pushed.png)
+![In GitHub, the repository page shows a .gitignore file and an index.html file](./assets/step-1/1300-github-pushed.png)
 
 GitHub now has our two files and a record of our three previous commits! This means we could download this repository on another computer and continue working without missing a beat, or we could add other developers to the project and let them commit and push to this same location. 
 
@@ -621,11 +627,11 @@ GitHub comes with a lot of other helpful features like contribution stats, code 
 
 Let's flip the switch to make our current HTML project live. That way, we can show the project manager of Run Buddy our progress. On your repository's page, click the Settings tab:
 
-![github settings](./assets/step-1/1400-github-settings.png)
+![The Settings link has a gear icon next to it](./assets/step-1/1400-github-settings.png)
 
-Then on the next page, scroll down to the GitHub Pages section. Change the dropdown under Source to say "master branch"  :
+Then on the next page, scroll down to the GitHub Pages section. Change the dropdown under Source to say "master branch":
 
-![github pages](./assets/step-1/1500-github-pages.png)
+![The GitHub Pages section includes a source dropdown](./assets/step-1/1500-github-pages.png)
 
 This tells GitHub to use the contents of your master branch for your live website. Once you do this, GitHub will then display the message: "Your site is ready to be published at https://username.github.io/run-buddy/." 
 
