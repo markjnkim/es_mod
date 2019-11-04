@@ -1,5 +1,7 @@
 # Lesson #: *Lesson Title*
 
+[click here to refer to the complete lesson template](https://docs.google.com/document/d/1Tkyo89lX68rsje15aDFHx2rb2JXszqtZHDaisXYVPsU)
+
 ## Introduction
 
 *Narrative introducing lesson project. Try to cite a GitHub issue where appropriate, and create one in GitHub to include as a screenshot.* 
