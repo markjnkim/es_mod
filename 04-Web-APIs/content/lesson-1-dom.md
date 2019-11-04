@@ -292,7 +292,7 @@ Now save the `script.js` file and refresh the `index.html` file in the browser. 
 
 Unlike `console.log` that display the element's markup, `console.dir()` display the HTML element as an object known as a DOM element. Just as with any object in JavaScript, the properties and methods can be accessed using dot notation. Through the `document` object we can access everything on the web page including all the elements, their attributes, text content, meta data and much more. 
 
-**Deep Dive:** Take a look at the [MDN web docs for `console.dir()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/dir) for a more detailed explanation of the other use cases.
+> **Deep Dive:** Take a look at the [MDN web docs for `console.dir()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/dir) for a more detailed explanation of the other use cases.
 
 Now that we have an object model of the web page, we can select existing DOM elements or create new elements as well as use a variety of built-in DOM methods or create our own functions that can provide rich interactive experiences for users which can include features like drop down menus, slide shows, drag and drop elements, and much much more. 
 
@@ -314,7 +314,19 @@ We should be seeing the following in the console:
 
 ![Console Button Element](./assets/lesson-1/700-button-object.png)
 
-The image does look like HTML, however once again this is the object representation, not the markup as we will demonstrate soon. First let's answer the question: Why is it important to prefix `document` to our `querySelector()` method?
+The image does look like HTML, however it is a object representation of the `<button>` element. 
+We can verify that this is actually a DOM element by typing the following into the console window of the browser:
+
+```js
+var btn = window.document.querySelector("button");
+console.dir(btn);
+```
+
+Which will display the following object in the browser:
+
+![Console Button DOM Element](./assets/lesson-1/710-button-dom-element.png)
+
+First let's answer the question: Why is it important to prefix `document` to our `querySelector()` method?
 
 The `document` is the root DOM element that represents the `index.html` file which we opened in the browser. Using the method `querySelector()` on our reference to the DOM that models our markup, we can select any element in our markup such as our `<button>`. The `querySelector()` method searches down from the `document` object through all the descendent elements. The `querySelector()` is a versatile method that is able to search the descendant elements of any DOM element and is also able to search not just an element type as shown above but also selectors as well including any attribute.
 
