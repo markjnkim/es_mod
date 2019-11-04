@@ -290,32 +290,33 @@ Now save the `script.js` file and refresh the `index.html` file in the browser. 
 
 ![Browser Console DOM Element](./assets/lesson-1/610-console-dir-document.png)
 
-Using the `console.dir()` function we are able to verify this is a representation of an HTML element as an object known as a DOM element. Just as with any object in JavaScript, the properties and methods can be accessed using dot notation. Through the `document` object we can access everything on the web page including descendant elements, their attributes, text content, meta data and much more. 
+Unlike `console.log` that display the element's markup, `console.dir()` display the HTML element as an object known as a DOM element. Just as with any object in JavaScript, the properties and methods can be accessed using dot notation. Through the `document` object we can access everything on the web page including all the elements, their attributes, text content, meta data and much more. 
 
-Notice the difference between `console.dir()` and `console.log()`. In terms of the DOM, `console.log()` of a DOM element will display the markup, while `console.dir()` will display the object representation including the associated properties and methods when expanded in the console.
+**Deep Dive:** Take a look at the [MDN web docs for `console.dir()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/dir) for a more detailed explanation of the other use cases.
 
-> **Deep Dive:** Take a look at the [MDN web docs for `console.dir()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/dir) for a more detailed explanation of the use cases. 
+Now that we have an object model of the web page, we can select existing DOM elements or create new elements as well as use a variety of built-in DOM methods or create our own functions that can provide rich interactive experiences for users which can include features like drop down menus, slide shows, drag and drop elements, and much much more. 
 
-Having a object model of the web page is what makes JavaScript useful in front-end web development. Because we are able to create an object model of the web page, we are able to use a variety of built-in methods or create custom functions that can provide a rich interactive experience for users including opening a drop down menu, highlight an element that is being hovered by the mouse, or create a new element 
+> **Deep Dive:** The DOM is a programming interface or an API for HTML documents. The DOM is organized by DOM Node tree or the DOM Tree, which are organized in a hierarchy with parent and child relationships similar to the nested structure pattern we are familiar with from HTML.
+>
+> ![Dom Tree](./assets/lesson-1/620-dom-tree.png)
+>
+> Check out the [MDN web docs for a closer look at the DOM.](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
-
-> **Deep Dive:** DOM Tree nodes, which are organized in a hierarchy with parent and child nodes which relate to the parent and child HTML element relationships related to the nested structure pattern we are familiar with from HTML.
-
-There's not much we can do with `window.document` however, but having the DOM offers methods that we can use to find specific elements within this `document` using JavaScript.
+There's not much we can do with the `document` object currently, but having the DOM offers a variety of methods that we can use to find specific elements within this `document` using JavaScript.
 One of the methods we will use to find our target element is the `querySelector()`.
-Let's use this to find our `<button>` and `console.log` our results. Let's type the following directly into the console.
+Let's use this to find our `<button>` and `console.log` our results. Let's type the following directly into the console window in the browser of the `index.html` file.
 
 ```js
 window.document.querySelector("button");
 ```
 
-We should be seeing this in the console:
+We should be seeing the following in the console:
 
 ![Console Button Element](./assets/lesson-1/700-button-object.png)
 
 The image does look like HTML, however once again this is the object representation, not the markup as we will demonstrate soon. First let's answer the question: Why is it important to prefix `document` to our `querySelector()` method?
 
-The `document` is our DOM that represents the `index.html` file which we opened in the browser. Using the method `querySelector()` on our reference to the DOM that models our markup, we can select any element in our `index.html` file such as our `<button>`.
+The `document` is the root DOM element that represents the `index.html` file which we opened in the browser. Using the method `querySelector()` on our reference to the DOM that models our markup, we can select any element in our markup such as our `<button>`. The `querySelector()` method searches down from the `document` object through all the descendent elements. The `querySelector()` is a versatile method that is able to search the descendant elements of any DOM element and is also able to search not just an element type as shown above but also selectors as well including any attribute.
 
 Let's experiment in the console by choosing different elements to select. Try to target the `<body>` or `<main>`. You can soon realize that all the elements in markup are available to target. 
 
@@ -335,10 +336,9 @@ Here we chose the class attribute `.btn` on the `<button>` attribute.
 
 You will see in the console, that the same object is displayed for the `<button>` element although we chose a different selector.
 
-Notice we didn't add `window` before `document` in the expression above. Whether in the `script.js` file or the console in the browser since we are in the context of the `window`, `window` isn't necessary. This is because `index.html` is being opened in the browser where `window` is a global object.
+Notice we didn't add `window` before `document` in the expression above. Whether in the `script.js` file or the console in the browser, since we are in the context of the `window`, `window` isn't necessary. This is because `index.html` is being opened in the browser where `window` is a global object.
 
-> **Rewind:** This should look familiar since that is what we dropped the `window` prefix with the `Math` object when we used `Math.random()`. Incidentally `alert()` and `prompt()` also can function without the `window` prefix so we will do so going forward because shortcuts make a dev's life that much sweeter.
-
+> **Rewind:** This should look familiar since that is what we dropped the `window` prefix with the `Math` object when we used `Math.random()`. Incidentally `alert()` and `prompt()` also can function without the `window` prefix so we will do so going forward because shortcuts make a developer's life that much sweeter.
 
 Although the display in the console for the `<button>` query looks like raw HTML, it's actually an object representation of this element. This means we have access to built-in properties and methods. One such property is called `textContent`.
 Let's type the following into the console to see the result:
@@ -393,11 +393,13 @@ In web development we refer to the user behavior, the click in this case, as an 
 
 There are many different types of events because there are many user behaviors that can happen on a web page. Over the years the number of events has grown in order to capture the different interactions of the user and the web page. A few examples would include hovering with a mouse pointer, key clicks on your keyboard, or scrolling down the web page. Events can even be defined at the start or end of an action such as start of the key press or a key being released. [For an in depth look at all events possible take a look at MDN docs for a detailed review.](https://developer.mozilla.org/en-US/docs/Web/API/Element#Events)
 Now lets get our hands dirty and type the following into your console of your browser that has your `index.html` file.
+
 ```js
 buttonEl.addEventListener("click", function() {
   alert("button clicked");
 })
 ```
+
 Now click the button to see what happens.
 We should see the following screenshot in the dialog box.
 
@@ -405,52 +407,11 @@ We should see the following screenshot in the dialog box.
 
 Let's breakdown our expression to understand the concepts being demonstrated here.
 * The `addEventListener()` is a method that can be used by an element object, in this case our `buttonEl` object. This method adds an event listener to the `<button>` element. The `buttonEl` object has been established in the previous step as our object representation of the `<button>` element.
-* We pass in two arguments into our `addEventListener()` function. The type of event we will be listening for, in our case the click event, and the event response we would like executed once our click event on the `<button>` has occurred. In this case we used an anonymous function that uses the window method `alert()`. So what's an anonymous function? A function that doesn't have a named identifier therefore cannot be called outside the context of this expression.
+* We pass in two arguments into our `addEventListener()` function. The type of event we will be listening for, in our case the click event, and the event response to execute once our event has been triggered.
+Here we used an anonymous function that uses the window method `alert()`. So what's an anonymous function? A function that doesn't have a named identifier therefore cannot be called outside the context of this expression, but only exists within the current context.
 
 ### Call Me Back Maybe
-Let's dive a bit deeper into the second argument since passing in a function into a function is perplexing at first glance. This is called a **callback** function. In the lexicon of JavaScript, this is one of the foundational pillars that makes JavaScript unique. In layman's terms, we are assigning a function to execute upon the event occurrence. Callback functions can occur synchronously or they can happen asynchronous. In our case, we have an asynchronous callback function since the function will not occur until the click event has occurred on the button.
-
-### Synchronous Call Back
-Before we explain asynchronous callback functions, we should go over the synchronous version first. Here is an example of a synchronous callback function you can enter into the console in your browser:
-```js
-function sayMyName(name) {
-  alert("Hello " + name + "!");
-}
-
-function processName(callback) {
-  var name = prompt("Enter your name");
-  callback(name);
-}
-
-processName(sayMyName);
-```
-After entering your name, you should see the alert:
-
-![Dialog Box with Greeting](./assets/lesson-1/1100-name-alert.png)
-
-As you can see, a reference to the function, `sayMyName` is passed into the `processName()` function as an argument. This callback function `sayMyName()` is executed immediately once the `processName()` function is called, hence it occurs synchronously. 
-
-> **Important:** Note when we pass the function, `sayMyName` into `processName()` as an argument, we do **not** include the parentheses. If you do, you will see that the `sayMyName()` is executed as soon as `processName()` is called which displays the name as `undefined` as seen in the image bellow:
->
->![Call Back Prompt](./assets/lesson-1/1200-prompt-hello.png)
-> The reference to the function, `sayMyName` needs to be passed as an argument into `processName()`. This way, the `sayMyName()` function does run until it is called in the `processName()` code block once `name` has defined by the `prompt()`.
-
-Conversely in our button click example, our callback function did not execute immediately, but waited for the click event to occur. We call this type of callback, asynchronous, due to the fact that the main program continues to execute as the callback function waits to be executed.
-
-[For more on asynchronous vs synchronous functions let's research our MDN docs for a detailed definition](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
-
-Now let's change our function in the console to the following then click our `<button>`:
-```js
-buttonEl.addEventListener("click", function() {
-  console.log(event);
-})
-```
-We will see our original `alert()` as well as the `MouseEvent` object in the console. So why do we still see our `alert()` even though we removed it from our code block?
-When we added the code above, we didn't replace our original event listener but added a new one to the `<button>`. We can have many different event listeners tied to the same element either for the same event type or different ones as well.
-
-Let's expand the `MouseEvent` object to see the following:
-![MouseEvent in the Console](./assets/lesson-1/1300-console-mouse-event.png)
-As we can see the `type` property has the value "click". Also notice the `toElement` property also displays the binding of this event to our button object. In fact in the `path` property, we have a reference to the `document` and its elements.
+Let's dive a bit deeper into the second argument since passing in a function into a function maybe confusing at first glance. This is called a **callback** function. In the lexicon of JavaScript, this is one of the foundational pillars that makes JavaScript unique. In layman's terms, we are passing a function to another function to execute. The callback function will execute once the event has been triggered. In our case, our anonymous function will execute once a click on the button has been registered.
  
 Great job! So far we have been able to use the DOM to target our button object then attach an event listener to this element object to capture the user's click on our button. The next crucial step will be to change our code block in our event listener to execute the job of adding a task item to our task list. Let's proceed with this step now.
 
