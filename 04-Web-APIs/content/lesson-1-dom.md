@@ -276,29 +276,28 @@ By running this command in the console window of the browser we should see the f
 
 ![Console Document ](./assets/lesson-1/600-console-document.png)
 
-Although this result may look like HTML, it's actually the object representation of the web page. We call this the Document Object Model or the DOM. As we can see the `document` object represent the root element or the highest level element on the page which is the `<html>` element. All rest of the elements are the descendant elements or the children, grandchildren, and so on, of the `document`.
+Although this result may look like HTML, it's actually the object representation of the web page. We call this the Document Object Model or the DOM. The `document` object represents the root element or the highest level element of the web page which is the `<html>` element. All rest of the elements are the descendant elements or the children, grandchildren, and so on, of the `document`.
 
 ### The DOM
 
-We can illustrate this better by typing the following in the `script.js` file:
+We can illustrate the object representation of the element better by typing the following in the `script.js` file:
 
 ```js
 console.dir(window.document);
 ```
 
-Now save and refresh the browser. We can expand the `document` object to see the following in the console:
+Now save the `script.js` file and refresh the `index.html` file in the browser. We can expand the `document` object to see the following in the console window:
 
 ![Browser Console DOM Element](./assets/lesson-1/610-console-dir-document.png)
 
-Using the `console.dir()` function we were able to verify this is a representation of an HTML element as an object known as a DOM element. Just as with any object in JavaScript, the properties and methods can be accessed using dot notation. Through the `document` object's properties we can access everything on the web page including child elements, attributes, text content, and meta data to the web page. The `document` DOM element has access to everything on the web page. The `document` is called the root element 
+Using the `console.dir()` function we are able to verify this is a representation of an HTML element as an object known as a DOM element. Just as with any object in JavaScript, the properties and methods can be accessed using dot notation. Through the `document` object we can access everything on the web page including descendant elements, their attributes, text content, meta data and much more. 
 
-Notice the difference between `console.dir()` and `console.log()`. In terms of the DOM, `console.log()` of a DOM element will display the HTML element representation, while `console.dir()` will display the object representation including the associated properties and methods.
+Notice the difference between `console.dir()` and `console.log()`. In terms of the DOM, `console.log()` of a DOM element will display the markup, while `console.dir()` will display the object representation including the associated properties and methods when expanded in the console.
 
-> **Deep Dive:** Check out the documentation for some of the new things we've learned:
->
-> - [MDN web documentation for `console.dir()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/dir)
+> **Deep Dive:** Take a look at the [MDN web docs for `console.dir()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/dir) for a more detailed explanation of the use cases. 
 
-The DOM is an object that contains properties and methods we can use to manipulate our HTML elements and CSS properties. 
+Having a object model of the web page is what makes JavaScript useful in front-end web development. Because we are able to create an object model of the web page, we are able to use a variety of built-in methods or create custom functions that can provide a rich interactive experience for users including opening a drop down menu, highlight an element that is being hovered by the mouse, or create a new element 
+
 
 > **Deep Dive:** DOM Tree nodes, which are organized in a hierarchy with parent and child nodes which relate to the parent and child HTML element relationships related to the nested structure pattern we are familiar with from HTML.
 
@@ -597,3 +596,6 @@ In this lesson we have learned how JavaScript enables interaction with the user 
     - How to dynamically create DOM elements, manipulate DOM properties, and append them to other DOM elements
     - How to dynamically style DOM elements
 In the next lesson we will continue working on our productivity app by adding the ability to customize our task items, change the task status, and alter the type of task.
+
+---
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
