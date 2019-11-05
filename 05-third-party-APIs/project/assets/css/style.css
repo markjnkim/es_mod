@@ -1,0 +1,40 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Staatliches', sans-serif;
+}
+
+main {
+  overflow: auto;
+}
+
+/* hacky hack */
+ul.list-group {
+  min-height: 300px;
+}
+
+.z-hack {
+  position: relative;
+  z-index: 9999;
+}
+
+.bottom-trash {
+  position: relative;
+  display: block;
+  bottom: 0;
+  opacity: 0;
+  transform: translateY(150px);
+  transition: all .5s ease-in-out;
+}
+
+.bottom-trash-active {
+  transform: translateY(0);
+  opacity: 1;
+}
