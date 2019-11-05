@@ -18,7 +18,7 @@ Reply to the following prompts to start a conversation with an instructional sta
 
 ## Retrieval
 
-> **Asset needed:** Learnosity [Add Retrieval Questions from Module X]
+> **Asset needed:** Learnosity [Add Retrieval Questions from Module X](Link to JIRA issue)
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
