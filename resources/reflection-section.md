@@ -1,8 +1,8 @@
 # Reflection & Retrieval
 
-Reflecting on what you recently learned is a proven strategy for cementing new knowledge into memory.
-
 ## Reflection
+
+Reflecting on what you recently learned is a proven strategy for cementing new knowledge into memory.
 
 Reply to the following prompts to start a conversation with an instructional staff member:
 
