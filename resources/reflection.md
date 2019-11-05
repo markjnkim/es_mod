@@ -1,8 +1,8 @@
 # Reflection & Retrieval
 
-## Reflection
-
 As you finish up this module, take time to reflect. Even though this might not seem as productive as coding an extra feature, reflecting on what you recently learned is a proven strategy for cementing new knowledge into memory.
+
+## Reflection
 
 Reply to the following prompts to start a conversation with an instructional staff member:
 
