@@ -2,18 +2,19 @@
 
 ## Reflection
 
-As you finish up this module, take time to reflect. While journaling might not appear as immediately productive as say coding an extra feature, reflecting on what you’ve recently learned is a proven strategy for cementing new knowledge into memory. Reply to each of the prompts below to start a conversation with an instructional staff member:
+Reflecting on what you recently learned is a proven strategy for cementing new knowledge into memory.
 
-* In your own words, describe what the key ideas from this module are.
+Reply to the following prompts to start a conversation with an instructional staff member:
 
-* For each key idea, give an example of how that key topic is applied. 
+* In your own words, describe the key ideas from this module.
 
-* How do these key ideas relate to one another?
+* Give an example of how each key idea is applied.
 
-* How do these key ideas relate to what you’ve learned earlier in the course?
+* How do these key ideas relate to each other?
+
+* How do these key ideas relate to what you learned earlier in the course?
 
 * What are you still curious about?
-
 
 ## Retrieval
 
