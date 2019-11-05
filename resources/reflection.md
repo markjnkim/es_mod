@@ -1,6 +1,6 @@
 # Reflection & Retrieval
 
-As you finish up this module, take time to reflect. Even though this might not seem as productive as coding an extra feature, reflecting on what you recently learned is a proven strategy for cementing new knowledge into memory.
+Reflecting on what you recently learned is a proven strategy for cementing new knowledge into memory.
 
 ## Reflection
 
