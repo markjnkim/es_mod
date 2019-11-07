@@ -61,7 +61,7 @@ $("#task-form-modal").on("shown.bs.modal", function() {
 });
 
 // save button in modal was clicked
-$("#myModal .btn-primary").click(function() {
+$("#task-form-modal .btn-primary").click(function() {
   // get form values
   var taskText = $("#modalTaskDescription").val();
   var taskDate = $("#modalDueDate").val();
@@ -70,7 +70,7 @@ $("#myModal .btn-primary").click(function() {
     createTask(taskText, taskDate, "toDo");
 
     // close modal
-    $("#myModal").modal("hide");
+    $("#task-form-modal").modal("hide");
 
     // save in tasks array
     tasks.toDo.push({
