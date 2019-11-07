@@ -8,7 +8,7 @@
 
 *Include screenshot of what project currently looks like:*
 
-![Screenshot of project in current state](assets/screenshot.jpg)
+![Screenshot of project in current state](./assets/screenshot.jpg)
 
 *Tie the lesson to IRL job-skills relevancy.*
 
@@ -39,7 +39,7 @@
  
 *Introduce mock-up of what learner will build in this lesson (e.g., "Here's a mock-up of what we're aiming for in this lesson):*
 
-![Mock-up of lesson end goal](assets/screenshot.jpg)
+![Mock-up of lesson end goal](./assets/screenshot.jpg)
 
 *Transitional text to first section (e.g., "Let's get started, etc.").*
 
