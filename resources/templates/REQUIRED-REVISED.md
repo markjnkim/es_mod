@@ -55,7 +55,7 @@ By the end of class, students will be able to:
 
     * ☝️ What did we learn this week? How would you explain it to your friends and family?
 
-    * 🙋 We learned how to use third-party APIs, such as Bootstrap and jQuery.
+    * 🙋 We learned { x, y z }.
 
     * ☝️ Did anyone have an 'ah-ha' moment this week? When and why did it click? 
 
@@ -72,9 +72,9 @@ By the end of class, students will be able to:
 
 ### 2. Instructor Do: [Challenge Intro] (5 min)
 
-* Open `/02-Challenge/Master/index.html` in your brower and explain the following:
+* Open `/folder/file` in your brower and demonstrate the following:
 
-    * 
+    * @TODO When we do this, it does that.
 
 * Ask the class the following question(s) and call on students for the corresponding answer(s):
 
@@ -93,7 +93,7 @@ By the end of class, students will be able to:
 * Answer any questions before proceeding to the next activity.
 
 
-### 3. Instructor Do: Demo (5 or 10 min) 
+### 3. Instructor Demo: [Activity Name] (5 or 10 min) 
 
 * Use the prompts and talking points below to demonstrate the following key point(s):
 
@@ -101,11 +101,11 @@ By the end of class, students will be able to:
 
     * ✔️ 
 
-* Open `/` in your brower and explain the following:
+* Open `/folder/file` in your brower and demonstrate the following:
 
-    * 
+    * @TODO When we do this, it does that.
 
-    * 
+    * @TODO We also see these things.
 
 * Ask the class the following question(s) and call on students for the corresponding answer(s):
 
@@ -139,11 +139,19 @@ By the end of class, students will be able to:
 
 * Bring students back from breakout rooms. 
 
-* Use the prompts and talking points below to demonstrate the following key point(s):
+* Use the prompts and talking points below to review the following key point(s):
 
     * ✔️ @TODO
 
     * ✔️ @TODO
+
+* Open `/folder/file` in your IDE and explain the following: 
+
+    * @TODO 
+
+    ```@TODO code
+
+    ```
 
 * Ask the class the following question(s) and call on students for the corresponding answer(s):
 
@@ -158,7 +166,7 @@ By the end of class, students will be able to:
 * Answer any questions before proceeding to the next activity.
 
 
-### 6. Instructor Do: Demo (5 or 10 min) 
+### 6. Instructor Demo: [Activity Name] (5 or 10 min) 
 
 * Use the prompts and talking points below to demonstrate the following key point(s):
 
@@ -166,11 +174,11 @@ By the end of class, students will be able to:
 
     * ✔️ 
 
-* Open `/` in your brower and explain the following:
+* Open `/folder/file` in your brower and demonstrate the following:
 
-    * 
+    * @TODO When we do this, it does that.
 
-    * 
+    * @TODO We also see these things.
 
 * Ask the class the following question(s) and call on students for the corresponding answer(s):
 
@@ -204,11 +212,19 @@ By the end of class, students will be able to:
 
 * Bring students back from breakout rooms. 
 
-* Use the prompts and talking points below to demonstrate the following key point(s):
+* Use the prompts and talking points below to review the following key point(s):
 
     * ✔️ @TODO
 
     * ✔️ @TODO
+
+* Open `/folder/file` in your IDE and explain the following: 
+
+    * @TODO 
+
+    ```@TODO code
+
+    ```
 
 * Ask the class the following question(s) and call on students for the corresponding answer(s):
 
@@ -223,7 +239,7 @@ By the end of class, students will be able to:
 * Answer any questions before proceeding to the next activity.
 
 
-### 9. Instructor Do: Demo (5 or 10 min) 
+### 9. Instructor Demo: [Activity Name] (5 or 10 min) 
 
 * Use the prompts and talking points below to demonstrate the following key point(s):
 
@@ -231,11 +247,11 @@ By the end of class, students will be able to:
 
     * ✔️ 
 
-* Open `/` in your brower and explain the following:
+* Open `/folder/file` in your brower and demonstrate the following:
 
-    * 
+    * @TODO When we do this, it does that.
 
-    * 
+    * @TODO We also see these things.
 
 * Ask the class the following question(s) and call on students for the corresponding answer(s):
 
@@ -269,11 +285,19 @@ By the end of class, students will be able to:
 
 * Bring students back from breakout rooms. 
 
-* Use the prompts and talking points below to demonstrate the following key point(s):
+* Use the prompts and talking points below to review the following key point(s):
 
     * ✔️ @TODO
 
     * ✔️ @TODO
+
+* Open `/folder/file` in your IDE and explain the following: 
+
+    * @TODO 
+
+    ```@TODO code
+
+    ```
 
 * Ask the class the following question(s) and call on students for the corresponding answer(s):
 
@@ -287,8 +311,79 @@ By the end of class, students will be able to:
 
 * Answer any questions before proceeding to the next activity.
 
+@TODO delete the following if out of time
 
-@TODO add [ demo | activity | review ] blocks as needed
+### XX. Instructor Demo: [Activity Name] (5 or 10 min) 
+
+* Use the prompts and talking points below to demonstrate the following key point(s):
+
+    * ✔️ 
+
+    * ✔️ 
+
+* Open `/folder/file` in your brower and demonstrate the following:
+
+    * @TODO When we do this, it does that.
+
+    * @TODO We also see these things.
+
+* Ask the class the following question(s) and call on students for the corresponding answer(s):
+
+    * ☝️ Where have we used this before?
+
+    * 🙋 @TODO We used this to accomplish { x, y, z }, in { corresponding asynchronous lesson plan }.
+
+    * ☝️ How does this activity equip us for the challenge?
+
+    * 🙋 @TODO . 
+
+    * ☝️ How would we build this?
+
+    * 🙋 @TODO . 
+
+* Answer any questions before proceeding to the next activity.
+
+
+### XX. Student Do: [Activity Name] (10 or 15 min) 
+
+* Divide students into breakout rooms.
+
+* Direct students to the activity instructions found in `/`.
+
+```md
+    @TODO add instructions; tabbed
+```
+
+
+### XX. Instructor Review: [Activity Name] (5 or 10 min) 
+
+* Bring students back from breakout rooms. 
+
+* Use the prompts and talking points below to review the following key point(s):
+
+    * ✔️ @TODO
+
+    * ✔️ @TODO
+
+* Open `/folder/file` in your IDE and explain the following: 
+
+    * @TODO 
+
+    ```@TODO code
+
+    ```
+
+* Ask the class the following question(s) and call on students for the corresponding answer(s):
+
+    * ☝️ @TODO ?
+
+    * 🙋 @TODO .
+
+    * ☝️ What can we do if we don't completely understanding this?
+
+    * 🙋 We can refer to the lesson plan, read the [](), and stick around for office hours to ask for help.
+
+* Answer any questions before proceeding to the next activity.
 
 
 ### XX. Recap (5 min)
