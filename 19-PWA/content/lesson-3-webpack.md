@@ -25,9 +25,9 @@
 
 *Here's how we're going to approach this / Here's a high-level overview of how we'll go about this / etc. (List each step in a sentence or two.)*:
 
-1. *Step 1 (e.g., Set up the HTML file for the Run Buddy landing page)*
+1. Introduce Webpack 
 
-1. *Step 2*
+1. Code Split JavaScript Files
 
 1. *Step 3*
 
@@ -43,7 +43,7 @@
 
 *Transitional text to first section (e.g., "Let's get started, etc.").*
 
-## *Step 1 (e.g., Set Up the HTML File)*
+## Introduce Webpack
 
 *2–3 sentences describing what will be covered in this section.*
 
