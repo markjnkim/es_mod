@@ -11,13 +11,8 @@ h6 {
   font-family: 'Staatliches', sans-serif;
 }
 
-main {
-  overflow: auto;
-}
-
-/* hacky hack */
 ul.list-group {
-  min-height: 300px;
+  min-height: 130px;
 }
 
 .z-hack {
