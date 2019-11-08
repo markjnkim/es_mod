@@ -11,18 +11,8 @@ h6 {
   font-family: 'Staatliches', sans-serif;
 }
 
-main {
-  overflow: auto;
-}
-
-/* hacky hack */
 ul.list-group {
-  min-height: 300px;
-}
-
-.z-hack {
-  position: relative;
-  z-index: 9999;
+  min-height: 130px;
 }
 
 .bottom-trash {
@@ -45,4 +35,8 @@ ul.list-group {
 
 .dropover-active {
   background: rgba(0,0,0,0.9);
+}
+
+.btn-submit {
+  background: linear-gradient(#81FFEF, #F067B4);
 }

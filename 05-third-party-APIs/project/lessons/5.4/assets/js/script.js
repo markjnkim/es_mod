@@ -74,19 +74,18 @@ $(".card .list-group").sortable({
   connectWith: $(".card .list-group"),
   scroll: false,
   tolerance: "pointer",
+  helper: "clone",
   activate: function(event, ui) {
-    $(this).addClass("dropover");
-    $(".bottom-trash").addClass("bottom-trash-active");
+    console.log(ui);
   },
   deactivate: function(event, ui) {
-    $(this).removeClass("dropover");
-    $(".bottom-trash").removeClass("bottom-trash-active");
+    console.log(ui);
   },
   over: function(event) {
-    $(event.target).addClass("dropover-active");
+    console.log(event);
   },
   out: function(event) {
-    $(event.target).removeClass("dropover-active");
+    console.log(event);
   },
   update: function() {
     var tempArr = [];
@@ -129,15 +128,12 @@ $("#trash").droppable({
   drop: function(event, ui) {
     // remove dragged element from the dom
     ui.draggable.remove();
-
-    $(this).removeClass("hover");
   },
   over: function(event, ui) {
     console.log(ui);
-    $(this).addClass("hover");
   },
   out: function(event, ui) {
-    $(this).removeClass("hover");
+    console.log(ui);
   }
 });
 
@@ -150,19 +146,19 @@ $("#modalDueDate").datepicker({
 });
 
 // modal was triggered
-$("#myModal").on("show.bs.modal", function() {
+$("#task-form-modal").on("show.bs.modal", function() {
   // clear values
   $("#modalTaskDescription, #modalDueDate").val("");
 });
 
 // modal is fully visible
-$("#myModal").on("shown.bs.modal", function() {
+$("#task-form-modal").on("shown.bs.modal", function() {
   // highlight textarea
   $("#modalTaskDescription").trigger("focus");
 });
 
 // save button in modal was clicked
-$("#myModal .btn-primary").click(function() {
+$("#task-form-modal .btn-primary").click(function() {
   // get form values
   var taskText = $("#modalTaskDescription").val();
   var taskDate = $("#modalDueDate").val();
@@ -171,7 +167,7 @@ $("#myModal .btn-primary").click(function() {
     createTask(taskText, taskDate, "toDo");
 
     // close modal
-    $("#myModal").modal("hide");
+    $("#task-form-modal").modal("hide");
 
     // save in tasks array
     tasks.toDo.push({
@@ -191,7 +187,7 @@ $(".list-group").on("click", "p", function() {
     .trim();
 
   // replace p element with a new textarea
-  var textInput = $("<textarea>").val(text);
+  var textInput = $("<textarea>").addClass("form-control").val(text);
   $(this).replaceWith(textInput);
 
   // auto focus new element
@@ -235,6 +231,7 @@ $(".list-group").on("click", "span", function() {
   // create new input element
   var dateInput = $("<input>")
     .attr("type", "text")
+    .addClass("form-control")
     .val(date);
   $(this).replaceWith(dateInput);
 
@@ -290,10 +287,3 @@ $("#remove-tasks").on("click", function() {
 
 // load tasks for the first time
 loadTasks();
-
-// audit task due dates every 30 minutes
-setInterval(function() {
-  $(".card .list-group-item").each(function() {
-    auditTask($(this));
-  });
-}, 1800000);

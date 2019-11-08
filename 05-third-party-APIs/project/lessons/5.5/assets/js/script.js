@@ -74,6 +74,7 @@ $(".card .list-group").sortable({
   connectWith: $(".card .list-group"),
   scroll: false,
   tolerance: "pointer",
+  helper: "clone",
   activate: function(event, ui) {
     $(this).addClass("dropover");
     $(".bottom-trash").addClass("bottom-trash-active");
@@ -150,19 +151,19 @@ $("#modalDueDate").datepicker({
 });
 
 // modal was triggered
-$("#myModal").on("show.bs.modal", function() {
+$("#task-form-modal").on("show.bs.modal", function() {
   // clear values
   $("#modalTaskDescription, #modalDueDate").val("");
 });
 
 // modal is fully visible
-$("#myModal").on("shown.bs.modal", function() {
+$("#task-form-modal").on("shown.bs.modal", function() {
   // highlight textarea
   $("#modalTaskDescription").trigger("focus");
 });
 
 // save button in modal was clicked
-$("#myModal .btn-primary").click(function() {
+$("#task-form-modal .btn-primary").click(function() {
   // get form values
   var taskText = $("#modalTaskDescription").val();
   var taskDate = $("#modalDueDate").val();
@@ -171,7 +172,7 @@ $("#myModal .btn-primary").click(function() {
     createTask(taskText, taskDate, "toDo");
 
     // close modal
-    $("#myModal").modal("hide");
+    $("#task-form-modal").modal("hide");
 
     // save in tasks array
     tasks.toDo.push({
@@ -191,7 +192,7 @@ $(".list-group").on("click", "p", function() {
     .trim();
 
   // replace p element with a new textarea
-  var textInput = $("<textarea>").val(text);
+  var textInput = $("<textarea>").addClass("form-control").val(text);
   $(this).replaceWith(textInput);
 
   // auto focus new element
@@ -235,6 +236,7 @@ $(".list-group").on("click", "span", function() {
   // create new input element
   var dateInput = $("<input>")
     .attr("type", "text")
+    .addClass("form-control")
     .val(date);
   $(this).replaceWith(dateInput);
 
