@@ -15,23 +15,25 @@ ul.list-group {
   min-height: 130px;
 }
 
-.z-hack {
-  position: relative;
-  z-index: 9999;
-}
-
 .bottom-trash {
   position: relative;
   display: block;
   bottom: 0;
   opacity: 0;
+  color: #f1f1f1;
+  font-size: 2rem;
   transform: translateY(150px);
-  transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out; 
+  background-color: rgba(234, 0, 39, 0.7);
+}
+
+.bottom-trash-drag {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .bottom-trash-active {
-  transform: translateY(0);
-  opacity: 1;
+  background-color: rgba(234, 0, 39, 1);
 }
 
 .dropover {
@@ -40,4 +42,44 @@ ul.list-group {
 
 .dropover-active {
   background: rgba(0,0,0,0.9);
+}
+
+.btn-add,
+.btn-save {
+  background-color: #FA8BFF;
+  background-image: -webkit-linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+  background-image: -moz-linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+  background-image: -o-linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+  background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+  -webkit-transition: all .5s ease-out;  
+  -moz-transition: all .5s ease-out;  
+  -o-transition: all .5s ease-out;  
+  transition: all .5s ease-out;  
+  background-size: 1px 100px; 
+  background-position: 0px -10px;
+}
+
+.btn-save:hover, 
+.btn-add:hover {
+   background-position: 1px -50px;  
+}
+
+.btn-close, 
+.btn-delete {
+  -webkit-transition: all .5s ease-out;  
+  -moz-transition: all .5s ease-out;  
+  -o-transition: all .5s ease-out;  
+  transition: all .5s ease-out;  
+  background-size:1px 100px; 
+  background-position: 1px -10px;
+  background-color: #ea0028;
+  background-image: -webkit-linear-gradient(180deg, #FF9A8B 0%, 100%);
+  background-image: -moz-linear-gradient(180deg, #FF9A8B 0%, #ea0028 100%);
+  background-image: -o-linear-gradient(180deg, #FF9A8B 0%, #ea0028 100%);
+  background-image: linear-gradient(180deg, #FF9A8B 0%, #ea0028 100%);
+}
+
+.btn-close:hover, 
+.btn-delete:hover {
+  background-position: 1px -50px;
 }
