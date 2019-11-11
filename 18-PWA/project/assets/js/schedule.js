@@ -1,6 +1,6 @@
-const createEl = require("./domMethods");
+import createEl from './domMethods';
 
-const { createLoremIpsum, dateConverter } = require("./helpers")
+import { createLoremIpsum, dateConverter } from './helpers';
 
 $(document).ready(function() {
   if (window.location.href.indexOf("schedule") > -1) {

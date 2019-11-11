@@ -1,6 +1,6 @@
-const createEl = require("./domMethods");
+import createEl from './domMethods';
 
-const { createLoremIpsum } = require("./helpers")
+import { createLoremIpsum } from './helpers';
 
 $(document).ready(function() {
 
@@ -25,8 +25,6 @@ $(document).ready(function() {
       ),
       
     )
-    
-
     pageEl.appendChild(containerEl)
     }
 });

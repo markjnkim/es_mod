@@ -1,6 +1,6 @@
-require("bootstrap/js/dist/modal");
+import 'bootstrap/js/dist/modal';
 
-const createEl = require("./domMethods");
+import createEl from './domMethods';
 
 $(document).ready(function() {
   const purchaseBtn = document.getElementById("purchaseBtn");
