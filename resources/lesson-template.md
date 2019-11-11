@@ -27,15 +27,15 @@
 
 1. *Step 1 (e.g., Set up the HTML file for the Run Buddy landing page)*
 
-1. *Step 2*
+2. *Step 2*
 
-1. *Step 3*
+3. *Step 3*
 
-1. *Step 4*
+4. *Step 4*
 
-1. *Step 5*
+5. *Step 5*
 
-1. *Etc.*
+6. *Etc.*
  
 *Introduce mock-up of what learner will build in this lesson (e.g., "Here's a mock-up of what we're aiming for in this lesson):*
 
