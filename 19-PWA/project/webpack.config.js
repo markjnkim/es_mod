@@ -17,30 +17,12 @@ module.exports = {
           test: /node_modules/,
           name: "vendor",
           chunks: "initial"
-          // chunks: "all",
-          // minChunks: 2,
-          // maxInitialRequests: 5, //The default limit is too small to showcase the effect
-          // minSize: 0 // This example is too small to create commons chunks
         },
-
-        // vendors: {
-        //   test: /node_modules/,
-        //   chunks: "initial",
-        //   name: "vendor",
-        //   priority: -10,
-        //   enforce: true
-        // },
-        // default: {
-        //   minChunks: 2,
-        //   priority: -20,
-        //   reuseExistingChunk: true
-        // }
       }
     },
     runtimeChunk: {
       name: "manifest"
     },
-
   },
   output: {
     filename: "[name].[chunkhash].bundle.js",
@@ -71,5 +53,3 @@ module.exports = {
 ],
   mode: "development"
 };
-
-// module.exports = config;
