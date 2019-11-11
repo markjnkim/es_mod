@@ -14,23 +14,27 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         commons: {
-          chunks: "all",
-          minChunks: 2,
-          maxInitialRequests: 5, //The default limit is too small to showcase the effect
-          minSize: 0 // This example is too small to create commons chunks
-        },
-        vendors: {
           test: /node_modules/,
-          chunks: "initial",
           name: "vendor",
-          priority: -10,
-          enforce: true
+          chunks: "initial"
+          // chunks: "all",
+          // minChunks: 2,
+          // maxInitialRequests: 5, //The default limit is too small to showcase the effect
+          // minSize: 0 // This example is too small to create commons chunks
         },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
-        }
+
+        // vendors: {
+        //   test: /node_modules/,
+        //   chunks: "initial",
+        //   name: "vendor",
+        //   priority: -10,
+        //   enforce: true
+        // },
+        // default: {
+        //   minChunks: 2,
+        //   priority: -20,
+        //   reuseExistingChunk: true
+        // }
       }
     },
     runtimeChunk: {
