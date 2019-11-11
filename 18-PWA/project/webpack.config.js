@@ -21,7 +21,6 @@ module.exports = {
         },
         vendors: {
           test: /node_modules/,
-          // test: /[\\/]node_modules[\\/]/,
           chunks: "initial",
           name: "vendor",
           priority: -10,
