@@ -144,9 +144,7 @@ $("#trash").droppable({
 // convert text field into a jquery date picker
 $("#modalDueDate").datepicker({
   // force user to select a future date
-  minDate: moment()
-    .add(1, "day")
-    .format("L")
+  minDate: 1
 });
 
 // modal was triggered
@@ -162,7 +160,7 @@ $("#task-form-modal").on("shown.bs.modal", function() {
 });
 
 // save button in modal was clicked
-$("#task-form-modal .btn-primary").click(function() {
+$("#task-form-modal .btn-save").click(function() {
   // get form values
   var taskText = $("#modalTaskDescription").val();
   var taskDate = $("#modalDueDate").val();
@@ -241,9 +239,7 @@ $(".list-group").on("click", "span", function() {
 
   // enable jquery ui date picker
   dateInput.datepicker({
-    minDate: moment()
-      .add(1, "day")
-      .format("L"),
+    minDate: 1,
     onClose: function() {
       // when calendar is closed, force a "change" event
       $(this).trigger("change");
