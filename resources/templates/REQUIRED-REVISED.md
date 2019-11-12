@@ -11,18 +11,20 @@ Two to four sentences describing what’s in this lesson and its relevance both 
 By the end of class, students will be able to:
 
 @TODO
-* Explain 
+* Explain...
 
-* Implement
+* Implement...
 
-* Use
+* Use...
 
 * Etc.
 
 
 ## Preparing For Class/Instructor Notes 
 
-* If you are comfortable doing so, live code the solutions to the activities. If not, no worries. Use the prompts and talking points for review. 
+* When reviewing activities, ask for volunteers to share their solutions and/or ask students to walk through the solution, line-by-line.
+
+* If you are comfortable doing so, live code the solutions to the activities. If not, no worries. Use the solutions provided and follow the prompts and talking points for review. 
 
 * If you are comfortable doing so, share your struggle and/or personal experiences learning and working with the concepts covered in this lesson.
 
@@ -40,7 +42,7 @@ By the end of class, students will be able to:
 
 ## Pre-Class Activity/Warm-Up 
 
-@TODO algorithms
+Encourage students to work on the remaining module algorithm(s) during office hours. Review the solutions to the algorithm(s) 5 or 10 minutes before class begins or during office hours after class.
 
 
 ## Time Tracker 
@@ -58,24 +60,20 @@ By the end of class, students will be able to:
 
     * ☝️ What did we learn this week? How would you explain it to your friends and family?
 
-    * 🙋 We learned { x, y z }.
+    * 🙋 We learned { x, y z }. We are moving fast compared to traditional learners. It’s ok to feel overwhelmed as long as you don’t give up.
 
     * ☝️ Did anyone have an 'ah-ha' moment this week? When and why did it click? 
 
-    * 🙋 @TODO .
+    * 🙋 Eureka moments happen when we try different approaches to a problem or change the way we are thinking about the problem.
 
     * ☝️ Did anyone feel stuck this week? How did you get unstuck?
 
-    * 🙋 @TODO .
-
-    * ☝️ @TODO ?
-
-    * 🙋 @TODO We are moving fast compared to traditional learners. It’s ok to feel overwhelmed as long as you don’t give up.
+    * 🙋 It's easy to get stuck when you're learning web development. It's important to learn how get unstuck because it happens to the pros, too. Rather than getting lost in search results, consult the official documentation first. Then ask for help from instructional staff or your peers. Study groups are a great because explaining your problems to someone else often reveals their solution. 
 
 
 ### 2. Instructor Do: [Challenge Intro] (5 min)
 
-* Open `/folder/file` in your brower and demonstrate the following:
+* Open `/folder/file` in your browser and demonstrate the following:
 
     * @TODO When we do this, it does that.
 
@@ -104,7 +102,7 @@ By the end of class, students will be able to:
 
     * ✔️ 
 
-* Open `/folder/file` in your brower and demonstrate the following:
+* Open `/folder/file` in your browser and demonstrate the following:
 
     * @TODO When we do this, it does that.
 
@@ -131,7 +129,7 @@ By the end of class, students will be able to:
 
 * Divide students into breakout rooms.
 
-* Direct students to the activity instructions found in `/`.
+* Direct students to the activity instructions found in `/folder/file`.
 
 ```md
     @TODO add instructions; tabbed
@@ -177,7 +175,7 @@ By the end of class, students will be able to:
 
     * ✔️ 
 
-* Open `/folder/file` in your brower and demonstrate the following:
+* Open `/folder/file` in your browser and demonstrate the following:
 
     * @TODO When we do this, it does that.
 
@@ -204,7 +202,7 @@ By the end of class, students will be able to:
 
 * Divide students into breakout rooms.
 
-* Direct students to the activity instructions found in `/`.
+* Direct students to the activity instructions found in `/folder/file`.
 
 ```md
     @TODO add instructions; tabbed
@@ -250,7 +248,7 @@ By the end of class, students will be able to:
 
     * ✔️ 
 
-* Open `/folder/file` in your brower and demonstrate the following:
+* Open `/folder/file` in your browser and demonstrate the following:
 
     * @TODO When we do this, it does that.
 
@@ -277,7 +275,7 @@ By the end of class, students will be able to:
 
 * Divide students into breakout rooms.
 
-* Direct students to the activity instructions found in `/`.
+* Direct students to the activity instructions found in `/folder/file`.
 
 ```md
     @TODO add instructions; tabbed
@@ -324,7 +322,7 @@ By the end of class, students will be able to:
 
     * ✔️ 
 
-* Open `/folder/file` in your brower and demonstrate the following:
+* Open `/folder/file` in your browser and demonstrate the following:
 
     * @TODO When we do this, it does that.
 
@@ -351,7 +349,7 @@ By the end of class, students will be able to:
 
 * Divide students into breakout rooms.
 
-* Direct students to the activity instructions found in `/`.
+* Direct students to the activity instructions found in `/folder/file`.
 
 ```md
     @TODO add instructions; tabbed
@@ -403,7 +401,7 @@ By the end of class, students will be able to:
 
     * ☝️ Why is it important to do as much of the lesson material as possible?
 
-    * 🙋 @TODO The Recap contains a reminder about how important async content is to success
+    * 🙋 It's important to do as much of the lesson material prior to class to not only be fully prepared to start the challenge, but your career as a web developer.
 
 
 ### XX. Promote Additional Resources (5 min)
