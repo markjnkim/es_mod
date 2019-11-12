@@ -34,6 +34,9 @@ By the end of class, students will be able to:
 
 * @TODO reference to async
 
+* Remind TAs to post on Slack the Friday morning before, with a quick message reminding students about the upcoming Saturday session.
+
+
 
 ## Pre-Class Activity/Warm-Up 
 
@@ -392,7 +395,7 @@ By the end of class, students will be able to:
 
     * ☝️ What do you think you absolutely need to know to succeed at the challenge?
 
-    * 🙋 
+    * 🙋 @TODO 
 
     * ☝️ What do you think is okay to not completely understand?
 
