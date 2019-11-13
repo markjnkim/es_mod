@@ -1,6 +1,6 @@
 # Up and Running
 
-## Your Tools
+## Tools Used in This Module
 
 This section contains a list of the tools you’ll use in this module. If you completed the prework, some of these will already be installed. If you have not completed the prework, please see our [guide to installing your tools](https://coding-bootcamp-fsf-prework.readthedocs-hosted.com/en/latest/modules/chapter2/). For new tools, you don’t need to install them before you begin&mdash;you’ll do that during the lessons. 
 

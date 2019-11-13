@@ -1,6 +1,6 @@
 # Up and Running
 
-## Your Tools
+## Tools Used in This Module
 
 You already have everything you need to complete this module. The lessons will give you an opportunity to sharpen your tools!
 
