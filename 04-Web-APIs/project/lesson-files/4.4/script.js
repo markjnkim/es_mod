@@ -227,7 +227,6 @@ var dragLeaveHandler = function(event) {
   }
 };
 
-
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);
 
