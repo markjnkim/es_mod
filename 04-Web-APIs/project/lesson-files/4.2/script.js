@@ -11,6 +11,8 @@ var taskFormHandler = function(event) {
     alert("You need to fill out the task form!");
     return false;
   }
+  
+  formEl.reset();
 
   // reset form fields for next task to be entered
   document.querySelector("input[name='task-name']").value = "";
@@ -34,6 +36,8 @@ var createTaskEl = function(taskDataObj) {
   taskInfoEl.className = "task-info";
   taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
   listItemEl.appendChild(taskInfoEl);
+
+  console.dir(listItemEl);
 
   // add list item to list
   tasksToDoEl.appendChild(listItemEl);
