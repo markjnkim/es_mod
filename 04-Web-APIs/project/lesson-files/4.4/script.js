@@ -204,11 +204,13 @@ var dropTaskHandler = function(event) {
   dropZone.appendChild(draggableElement);
 };
 
-var dropZoneDragHandler = function(event) {
-  var taskListEl = event.target.closest(".task-list");
-  if (taskListEl) {
-    event.preventDefault();
-    taskListEl.setAttribute("style", "background: rgba(68, 233, 255, 0.7); border-style: dashed;");
+// defines the drop zone area
+var dropzoneDragHandler = function(event) {
+  event.preventDefault();
+  if (event.target.matches(".task-list") || event.target.matches(".task-item")) {
+    event.target
+      .closest(".task-list")
+      .setAttribute("style", "background: rgba(68, 233, 255, 0.7); border-style: dashed;");
   }
 };
 
@@ -224,7 +226,6 @@ var dragLeaveHandler = function(event) {
     event.target.closest(".task-list").removeAttribute("style");
   }
 };
-
 
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);
